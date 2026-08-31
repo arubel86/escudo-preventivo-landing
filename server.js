@@ -30,7 +30,18 @@ const CS_CONFIG = {
   host: process.env.CS_HOST || 'apitest.cybersource.com'
 };
 
-const TARGET_ORIGINS = (process.env.TARGET_ORIGINS || 'https://escudo.aizpruase.com,http://localhost:3000').split(',').map(s => s.trim());
+function formatHttpsOrigin(str) {
+  if (!str) return null;
+  let s = str.trim();
+  if (s.startsWith('http://')) {
+    s = 'https://' + s.slice(7);
+  } else if (!s.startsWith('https://')) {
+    s = 'https://' + s;
+  }
+  return s.replace(/\/+$/, '');
+}
+
+const TARGET_ORIGINS = (process.env.TARGET_ORIGINS || 'https://escudo.aizpruase.com,https://localhost:3000').split(',').map(s => s.trim());
 const PORT = process.env.PORT || 3000;
 
 // ============================================================
@@ -71,12 +82,14 @@ app.get('/api/capture-context', async (req, res) => {
     const clientRefCode = 'EP-' + Date.now();
     
     // Obtener origen dinámico de la petición para soportar dominios de Coolify y producción
-    const originsSet = new Set(TARGET_ORIGINS.map(origin => origin.replace(/^http:\/\//, 'https://')));
-    if (req.headers.origin) {
-      originsSet.add(req.headers.origin.replace(/^http:\/\//, 'https://'));
-    }
-    if (req.headers.host) {
-      originsSet.add(`https://${req.headers.host}`);
+    const rawList = [...TARGET_ORIGINS];
+    if (req.headers.origin) rawList.push(req.headers.origin);
+    if (req.headers.host) rawList.push(req.headers.host);
+
+    const originsSet = new Set();
+    for (const item of rawList) {
+      const formatted = formatHttpsOrigin(item);
+      if (formatted) originsSet.add(formatted);
     }
     const finalOrigins = Array.from(originsSet);
 
