@@ -1154,14 +1154,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // Inicializar pasarela
             const uc = await window.VAS.UnifiedCheckout(captureContext);
 
-            // Escuchar eventos globales de pago
-            uc.on('payment.transientToken', (tokenData) => {
-                console.log('✅ Token transaccional recibido de CyberSource:', tokenData);
-                const token = typeof tokenData === 'string' ? tokenData : (tokenData.transientToken || tokenData.token || JSON.stringify(tokenData));
-                procesarCargoServidor(token);
-            });
-
-            uc.on('payment.error', (err) => {
+            // Escuchar eventos globales válidos (error, *)
+            uc.on('error', (err) => {
                 console.error('Error reportado por pasarela:', err);
                 showCheckoutAlert(`Error en pasarela: ${err.message || 'Verifica los datos de tu tarjeta'}`, 'error');
             });
@@ -1176,7 +1170,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            await activeUCTrigger.show();
+            // show() monta el formulario en #cyber-card-frame y su Promise resuelve cuando el usuario ingresa su tarjeta
+            activeUCTrigger.show()
+                .then((tokenData) => {
+                    console.log('✅ Token transaccional recibido de CyberSource:', tokenData);
+                    const token = typeof tokenData === 'string' ? tokenData : (tokenData.transientToken || tokenData.token || JSON.stringify(tokenData));
+                    procesarCargoServidor(token);
+                })
+                .catch((err) => {
+                    if (err && err.reason !== 'ALREADY_SHOWN') {
+                        console.error('Error durante la captura de tarjeta:', err);
+                        showCheckoutAlert(`Error en tarjeta: ${err.message || 'Por favor verifica tus datos'}`, 'error');
+                    }
+                });
 
             isCyberSourceInitialized = true;
             console.log('✅ Pasarela de CyberSource / Banco General montada directamente en el modal');
