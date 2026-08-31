@@ -1133,10 +1133,10 @@ document.addEventListener('DOMContentLoaded', () => {
             // Cargar SDK dinámico
             await loadUnifiedCheckoutSdk(captureContext);
 
-            // Inicializar VAS client
-            console.log('🔄 Inicializando VAS.UnifiedCheckout...');
+            // Inicializar VAS client en modo embedded
+            console.log('🔄 Inicializando VAS.UnifiedCheckout en modo embedded...');
             const client = await window.VAS.UnifiedCheckout(captureContext);
-            unifiedCheckoutInstance = await client.createCheckout();
+            unifiedCheckoutInstance = await client.createCheckout({ displayMode: 'embedded' });
 
             // Montar pasarela de pago directamente embebida en el contenedor (sin panel lateral)
             console.log('🔄 Montando pasarela de pago embebida en el contenedor...');
