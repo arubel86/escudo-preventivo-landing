@@ -1151,8 +1151,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error('El SDK oficial de CyberSource no está disponible.');
             }
 
-            // Inicializar pasarela
-            const uc = await window.VAS.UnifiedCheckout(captureContext);
+            // Inicializar pasarela con sidebar desactivado para montaje 100% incrustado
+            const uc = await window.VAS.UnifiedCheckout(captureContext, { sidebar: false });
 
             // Escuchar eventos globales válidos (error, *)
             uc.on('error', (err) => {
@@ -1170,19 +1170,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            // show() monta el formulario en #cyber-card-frame y su Promise resuelve cuando el usuario ingresa su tarjeta
-            activeUCTrigger.show()
-                .then((tokenData) => {
-                    console.log('✅ Token transaccional recibido de CyberSource:', tokenData);
-                    const token = typeof tokenData === 'string' ? tokenData : (tokenData.transientToken || tokenData.token || JSON.stringify(tokenData));
-                    procesarCargoServidor(token);
-                })
-                .catch((err) => {
-                    if (err && err.reason !== 'ALREADY_SHOWN') {
-                        console.error('Error durante la captura de tarjeta:', err);
-                        showCheckoutAlert(`Error en tarjeta: ${err.message || 'Por favor verifica tus datos'}`, 'error');
-                    }
-                });
+            // Validar y ejecutar el montaje del formulario
+            if (activeUCTrigger && typeof activeUCTrigger.show === 'function') {
+                activeUCTrigger.show()
+                    .then((tokenData) => {
+                        console.log('✅ Token transaccional recibido de CyberSource:', tokenData);
+                        const token = typeof tokenData === 'string' ? tokenData : (tokenData.transientToken || tokenData.token || JSON.stringify(tokenData));
+                        procesarCargoServidor(token);
+                    })
+                    .catch((err) => {
+                        if (err && err.reason !== 'ALREADY_SHOWN') {
+                            console.error('Error durante la captura de tarjeta:', err);
+                            showCheckoutAlert(`Error en tarjeta: ${err.message || 'Por favor verifica tus datos'}`, 'error');
+                        }
+                    });
+            } else {
+                console.log('✅ Trigger PANENTRY creado y enlazado a #cyber-card-frame');
+            }
 
             isCyberSourceInitialized = true;
             console.log('✅ Pasarela de CyberSource / Banco General montada directamente en el modal');
