@@ -1,0 +1,10 @@
+node_modules
+.env
+.git
+*.py
+*.md
+*.xlsx
+*.pem
+~$*
+documentos
+pruebas

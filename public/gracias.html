@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>¡Pago Confirmado! Reserva Tu Sesión | Aizprua S.E.</title>
+    <meta name="description"
+        content="Pago del Diagnóstico Escudo Preventivo de 40 minutos recibido. Completa tus datos y elige tu fecha en Calendly.">
+    <link rel="icon" type="image/svg+xml" href="assets/LOGOS PARA DIGITAL INDIVIDUALES-13.svg">
+
+    <!-- Clarity Tracking Code -->
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "vrnwiwwg3k");
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#3849C8',
+                            'blue-dark': '#2d3a9f',
+                            'blue-light': '#4f5ed4',
+                            orange: '#FF8A1E',
+                            'orange-dark': '#e67a15',
+                            'orange-light': '#ffa04a'
+                        },
+                        'brand-blue': '#3849C8',
+                        'brand-blue-dark': '#2d3a9f',
+                        'brand-orange': '#FF8A1E',
+                        'brand-orange-dark': '#e67a15',
+                        'brand-orange-light': '#ffa04a',
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @keyframes reveal-section {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .section-reveal { animation: reveal-section .6s ease-out both; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg" alt="Logo Aizprua S.E."
+                        class="h-28 w-auto object-contain" width="112" height="112">
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="hidden sm:inline-block text-xs bg-green-100 text-green-700 font-bold px-3 py-1 rounded-full border border-green-200">
+                        ✓ Pago Confirmado ($79 USD)
+                    </span>
+                    <a href="index.html" class="text-slate-600 hover:text-brand-blue font-medium transition text-sm flex items-center gap-1">
+                        <i data-lucide="home" class="w-4 h-4"></i> Volver al Inicio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow py-12 md:py-16 px-4 relative overflow-hidden">
+        <div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 bg-brand-blue/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 -ml-40 w-80 h-80 bg-orange-100 rounded-full blur-3xl"></div>
+
+        <div class="max-w-3xl w-full mx-auto relative z-10">
+
+            <!-- Banner Principal de Bienvenida -->
+            <div class="bg-white p-8 md:p-12 rounded-3xl border border-slate-200/80 shadow-2xl text-center mb-8">
+                <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner">
+                    <i data-lucide="check-circle-2" class="w-10 h-10 text-green-600"></i>
+                </div>
+                
+                <span class="inline-block py-1 px-4 rounded-full bg-green-100 text-green-700 text-xs font-bold mb-4 border border-green-200 uppercase tracking-wider">
+                    ✓ Pago Procesado con Éxito ($79 USD)
+                </span>
+                
+                <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 mb-4">
+                    ¡Pago Confirmado! Registra tus datos y Agenda
+                </h1>
+                
+                <p class="text-base md:text-lg text-slate-600 max-w-xl mx-auto mb-8 leading-relaxed">
+                    Tu pago del Diagnóstico Escudo Preventivo ($79) ha sido recibido. Primero ingresa tus datos en el formulario (Paso 1) y luego seleccionarás la fecha de tu sesión en el calendario (Paso 2).
+                </p>
+
+                <!-- Botón Principal de Inicio de Agenda -->
+                <div class="flex justify-center">
+                    <button id="agendar-btn"
+                        class="inline-flex items-center justify-center gap-3 px-8 py-5 bg-gradient-to-r from-brand-orange to-brand-orange-dark text-white font-extrabold text-lg sm:text-xl rounded-2xl shadow-2xl hover:brightness-110 transition duration-300 transform hover:-translate-y-1 w-full sm:w-auto">
+                        <i data-lucide="file-edit" class="w-6 h-6"></i>
+                        <span>1. Registrar Datos y Agendar Sesión</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- PASO 1: Formulario de Registro y Cuestionario (Se revela con el botón) -->
+            <div id="cuestionario-block" class="hidden mb-10">
+                <div class="bg-white p-8 md:p-10 rounded-3xl border-2 border-brand-orange shadow-2xl">
+                    <div class="text-center mb-6">
+                        <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i data-lucide="file-text" class="w-7 h-7 text-brand-orange"></i>
+                        </div>
+                        <span class="text-xs font-bold text-brand-orange uppercase tracking-wider bg-orange-50 px-3 py-1 rounded-full border border-orange-200">Paso 1 de 2</span>
+                        <h2 class="text-2xl font-bold text-slate-900 mt-2 mb-1">Registra tus datos y preparación</h2>
+                        <p class="text-slate-600 text-sm">Completa tus datos para abrir tu expediente y preparar tu hoja de ruta (2 min).</p>
+                    </div>
+
+                    <form id="prep-form" class="space-y-4">
+                        <input type="hidden" name="formulario" value="cuestionario-preparacion">
+                        
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Nombre completo *</label>
+                                <input type="text" id="prep-name" name="name" required placeholder="Nombre completo"
+                                    class="w-full px-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Correo electrónico *</label>
+                                <input type="email" id="prep-email" name="email" required placeholder="Correo electrónico"
+                                    class="w-full px-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm">
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">WhatsApp / Teléfono *</label>
+                                <div class="flex gap-2 items-center">
+                                    <div class="country-picker-container relative">
+                                        <button type="button" class="country-picker-btn w-[85px] sm:w-[95px] px-2.5 py-3 border border-slate-200 rounded-xl bg-white text-xs sm:text-sm font-bold text-slate-700 hover:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue flex items-center justify-between gap-1 flex-shrink-0 cursor-pointer shadow-sm transition">
+                                            <span class="country-code-val">+507</span>
+                                            <svg class="w-3.5 h-3.5 text-slate-400 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                                        </button>
+                                        <input type="hidden" name="country_code" value="+507">
+
+                                        <div class="country-dropdown hidden absolute top-full left-0 mt-1.5 z-50 w-60 bg-white border border-slate-200 rounded-2xl shadow-2xl overflow-hidden text-xs sm:text-sm">
+                                            <div class="max-h-60 overflow-y-auto no-scrollbar py-1 divide-y divide-slate-50">
+                                                <div class="country-item px-4 py-2.5 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+507">Panamá</div>
+                                                <div class="country-item px-4 py-2.5 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+1">Estados Unidos / Canadá</div>
+                                                <div class="country-item px-4 py-2.5 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+57">Colombia</div>
+                                                <div class="country-item px-4 py-2.5 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+506">Costa Rica</div>
+                                                <div class="country-item px-4 py-2.5 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+52">México</div>
+                                                <div class="country-item px-4 py-2.5 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+58">Venezuela</div>
+                                                <div class="country-item px-4 py-2.5 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+34">España</div>
+                                                <div class="country-item px-4 py-2.5 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+593">Ecuador</div>
+                                                <div class="country-item px-4 py-2.5 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+51">Perú</div>
+                                                <div class="country-item px-4 py-2.5 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+54">Argentina</div>
+                                                <div class="country-item px-4 py-2.5 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+56">Chile</div>
+                                                <div class="country-item px-4 py-2.5 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+502">Guatemala</div>
+                                                <div class="country-item px-4 py-2.5 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+503">El Salvador</div>
+                                                <div class="country-item px-4 py-2.5 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+504">Honduras</div>
+                                                <div class="country-item px-4 py-2.5 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+505">Nicaragua</div>
+                                                <div class="country-item px-4 py-2.5 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+591">Bolivia</div>
+                                                <div class="country-item px-4 py-2.5 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+595">Paraguay</div>
+                                                <div class="country-item px-4 py-2.5 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+598">Uruguay</div>
+                                                <div class="country-item px-4 py-2.5 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+1809">República Dominicana</div>
+                                                <div class="country-item px-4 py-2.5 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+55">Brasil</div>
+                                                <div class="country-item px-4 py-2.5 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+">Otro país</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <input type="tel" id="prep-phone" name="phone" required placeholder="6546-1527"
+                                        class="w-full px-3.5 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm flex-grow">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-700 mb-1">Empresa / RUC / Cédula *</label>
+                                <input type="text" name="empresa_o_documento" required
+                                    placeholder="Nombre de tu empresa (o RUC / cédula)"
+                                    class="w-full px-4 py-3 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm">
+                            </div>
+                        </div>
+
+                        <button type="submit" id="submit-prep-btn"
+                            class="w-full py-4 bg-gradient-to-r from-brand-orange to-brand-orange-dark text-white font-extrabold rounded-xl hover:brightness-110 transition shadow-lg text-base flex items-center justify-center gap-2 mt-5">
+                            <span>Guardar Datos y Continuar a Calendly (Paso 2)</span>
+                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </button>
+
+                        <p class="text-xs text-slate-400 text-center flex items-center justify-center gap-1 mt-2"><i
+                                data-lucide="lock" class="w-3.5 h-3.5"></i>Tus datos están 100% seguros y libres de spam.</p>
+                    </form>
+
+                    <div id="prep-success"
+                        class="hidden bg-green-50 text-green-700 border border-green-200 p-6 rounded-2xl text-center font-medium shadow-sm">
+                        <p class="font-bold text-base mb-1">✅ ¡Paso 1 Completado con Éxito!</p>
+                        <p class="text-xs text-green-600">Tus datos han sido registrados correctamente en tu expediente. Ahora selecciona tu fecha y hora en el calendario a continuación.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PASO 2: Widget Calendly (Incrustado y desbloqueado tras enviar el Paso 1) -->
+            <div id="calendly-block" class="hidden mb-10">
+                <div class="bg-white rounded-3xl border border-slate-200/80 shadow-2xl overflow-hidden">
+                    <div class="bg-gradient-to-r from-brand-blue to-brand-blue-dark px-6 py-4 text-center">
+                        <span class="text-xs font-bold text-brand-orange-light uppercase tracking-wider bg-white/10 px-3 py-1 rounded-full border border-white/20">Paso 2 de 2</span>
+                        <p class="text-white font-bold text-base mt-1">Elige tu horario — martes y jueves · 40 minutos</p>
+                    </div>
+                    <div id="calendly-widget" class="calendly-inline-widget" style="min-width:320px;height:700px;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline de Ruta Completa -->
+            <div class="bg-white p-8 rounded-3xl border border-slate-200/80 shadow-xl mb-10">
+                <h3 class="font-extrabold text-lg mb-6 text-center text-slate-900">Tu Ruta Completa de Atención</h3>
+                <ol class="space-y-4 text-sm">
+                    <li class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold">
+                            <i data-lucide="check" class="w-4 h-4"></i>
+                        </div>
+                        <p class="font-semibold text-green-600">1. Pago de $79 USD realizado ✓</p>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-brand-orange rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold">2</div>
+                        <p class="font-semibold text-slate-800">Registro de datos y cuestionario (Paso 1)</p>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-brand-blue rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-xs">3</div>
+                        <p class="text-slate-700">Elección de horario en Calendly (Paso 2 - Martes o Jueves)</p>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-brand-blue rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-xs">4</div>
+                        <p class="text-slate-700">Tu sesión de diagnóstico con hoja de ruta clara</p>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-brand-blue rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold text-xs">5</div>
+                        <p class="text-slate-700">Recibes tus bonos por correo electrónico</p>
+                    </li>
+                </ol>
+            </div>
+
+            <!-- Nota de Escasez -->
+            <div class="bg-orange-50 border border-orange-200 rounded-2xl p-4 text-center mb-10">
+                <div class="inline-flex items-center justify-center gap-2 text-xs sm:text-sm text-orange-900 font-medium">
+                    <i data-lucide="calendar-clock" class="w-5 h-5 flex-shrink-0 text-brand-orange"></i>
+                    <span>Las sesiones son solo <strong class="font-bold text-slate-900">martes y jueves</strong> con cupos limitados — agenda hoy para asegurar tu espacio.</span>
+                </div>
+            </div>
+
+            <!-- BLOQUE DE WHATSAPP AL FINAL DE LA PÁGINA (Para dudas después de registrarse) -->
+            <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-lg flex flex-col sm:flex-row items-center justify-between gap-4 mb-10">
+                <div class="flex items-center gap-3 text-center sm:text-left">
+                    <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-md">
+                        <i data-lucide="message-circle" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-slate-900 text-base">¿Tienes alguna duda previa a tu llamada?</h3>
+                        <p class="text-xs text-slate-500">Atención VIP por WhatsApp directa con el equipo legal</p>
+                    </div>
+                </div>
+                <a href="https://wa.me/50765461527?text=Hola,%20acabo%20de%20pagar%20mi%20Diagn%C3%B3stico%20Escudo%20Preventivo%20(%2479).%20Tengo%20una%20pregunta%20previa%20a%20mi%20cita."
+                    target="_blank" rel="noopener"
+                    class="inline-flex items-center gap-2 px-6 py-3 bg-[#25D366] text-white text-sm font-extrabold rounded-2xl hover:bg-[#20bd5a] transition whitespace-nowrap shadow-lg hover:shadow-green-500/20">
+                    <i data-lucide="message-circle" class="w-5 h-5"></i>
+                    <span>Chat WhatsApp</span>
+                </a>
+            </div>
+
+            <div class="text-center">
+                <a href="index.html" class="text-slate-500 hover:text-brand-blue underline text-sm">Regresar a la página principal</a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-8 text-center text-sm border-t border-slate-800 mt-auto">
+        &copy; 2026 Aizprua S.E. Todos los derechos reservados.
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        const CALENDLY_URL = 'https://calendly.com/aizpruase/asesoria-40-minutos';
+        const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbyzjL7oBdFHq6nNy80Q23vkNQLjkRbN8BI8PJTa_nn5s0tMr4R6F3yVxhssJen-tzTR/exec';
+
+        let epState = {};
+        try { epState = JSON.parse(localStorage.getItem('ep_state') || '{}'); } catch (e) { }
+
+        if (epState.nombre) document.getElementById('prep-name').value = epState.nombre;
+        if (epState.email) document.getElementById('prep-email').value = epState.email;
+
+        // Al presionar "1. Registrar Datos y Agendar Sesión" → Revelar Paso 1 (Formulario)
+        document.getElementById('agendar-btn').addEventListener('click', () => {
+            const block = document.getElementById('cuestionario-block');
+            block.classList.remove('hidden');
+            block.classList.add('section-reveal');
+            block.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+
+        // MÓDULO DE VALIDACIÓN Y BLINDAJE DE DATOS (Anti-Errores & Spam)
+        const ValidadorDatos = {
+            calcularLevenshtein(a, b) {
+                if (a.length === 0) return b.length;
+                if (b.length === 0) return a.length;
+                const matrix = [];
+                for (let i = 0; i <= b.length; i++) matrix[i] = [i];
+                for (let j = 0; j <= a.length; j++) matrix[0][j] = j;
+
+                for (let i = 1; i <= b.length; i++) {
+                    for (let j = 1; j <= a.length; j++) {
+                        if (b.charAt(i - 1) === a.charAt(j - 1)) {
+                            matrix[i][j] = matrix[i - 1][j - 1];
+                        } else {
+                            matrix[i][j] = Math.min(
+                                matrix[i - 1][j - 1] + 1, // sustitución
+                                matrix[i][j - 1] + 1,     // inserción
+                                matrix[i - 1][j] + 1      // eliminación
+                            );
+                        }
+                    }
+                }
+                return matrix[b.length][a.length];
+            },
+
+            validarEmail(email) {
+                if (!email) return { valido: false, error: 'El correo electrónico es obligatorio.' };
+                const clean = email.trim().toLowerCase();
+                
+                // 1. Sintaxis estricta
+                const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,10}$/;
+                if (!emailRegex.test(clean)) {
+                    return { valido: false, error: 'El formato del correo no es válido. Ejemplo: usuario@gmail.com' };
+                }
+
+                const partes = clean.split('@');
+                const usuario = partes[0];
+                const dominio = partes[1];
+                
+                // 2. Extensión mal escrita (ej. .comm, .coom, .con, .cm, .cmo)
+                const extensionesMala = ['.comm', '.coom', '.con', '.cm', '.cmo'];
+                for (let ext of extensionesMala) {
+                    if (dominio.endsWith(ext)) {
+                        const buenaExt = clean.replace(ext, '.com');
+                        return { valido: false, error: `La extensión "${ext}" es incorrecta. ¿Quisiste decir ${buenaExt}?` };
+                    }
+                }
+
+                // 3. Falsos y pruebas
+                const falsos = ['test@test.com', 'asdf@asdf.com', '123@123.com', 'a@a.com', 'correo@correo.com', 'fake@fake.com', 'hola@hola.com'];
+                if (falsos.includes(clean)) {
+                    return { valido: false, error: 'Por favor ingresa un correo electrónico real.' };
+                }
+
+                // 4. Algoritmo Matemático Levenshtein para Typos en Proveedores Principales
+                const dominiosOficiales = [
+                    'gmail.com', 'hotmail.com', 'outlook.com', 'yahoo.com', 
+                    'icloud.com', 'live.com', 'msn.com', 'hotmail.es', 'yahoo.es', 'outlook.es'
+                ];
+
+                for (let domValido of dominiosOficiales) {
+                    if (dominio === domValido) break; // Dominio exacto, 100% válido
+
+                    const distancia = this.calcularLevenshtein(dominio, domValido);
+                    // Si la diferencia es de 1 o 2 letras (ej. gdmail.com vs gmail.com = 1 cambio; outlok vs outlook = 1 cambio)
+                    if (distancia > 0 && distancia <= 2) {
+                        const sugerencia = `${usuario}@${domValido}`;
+                        return { 
+                            valido: false, 
+                            error: `El correo @${dominio} parece estar mal escrito. ¿Quisiste decir ${sugerencia}? Por favor corrígelo.` 
+                        };
+                    }
+                }
+
+                return { valido: true, emailLimpio: clean };
+            },
+
+            validarTelefono(telefono, codigoPais = '+507') {
+                if (!telefono) return { valido: false, error: 'El número de WhatsApp es obligatorio.' };
+                let clean = telefono.trim().replace(/[\s\-\(\)]/g, '');
+
+                const falsos = ['00000000', '12345678', '11111111', '22222222', '99999999', '88888888', '123456789'];
+                if (falsos.some(f => clean.includes(f))) {
+                    return { valido: false, error: 'Ingresa un número de WhatsApp activo.' };
+                }
+
+                if (clean.startsWith('+')) {
+                    return { valido: true, telefonoFormateado: clean };
+                }
+
+                if (codigoPais === '+507') {
+                    if (/^[236789]\d{7}$/.test(clean) || /^\d{8}$/.test(clean)) {
+                        return { valido: true, telefonoFormateado: '+507 ' + clean.substring(0, 4) + '-' + clean.substring(4) };
+                    }
+                    return { valido: false, error: 'Un número de Panamá debe tener 8 dígitos (ejemplo: 6546-1527).' };
+                }
+
+                if (/^\d{6,14}$/.test(clean)) {
+                    const prefijo = (codigoPais && codigoPais !== '+') ? codigoPais + ' ' : '+';
+                    return { valido: true, telefonoFormateado: prefijo + clean };
+                }
+
+                return { valido: false, error: 'Ingresa un número de teléfono válido para el país seleccionado.' };
+            },
+
+            validarNombre(nombre) {
+                if (!nombre || nombre.trim().length < 3) {
+                    return { valido: false, error: 'Por favor ingresa tu nombre completo.' };
+                }
+                const clean = nombre.trim();
+                if (/^(asdf|test|xxx|123|hola|aaaa)/i.test(clean)) {
+                    return { valido: false, error: 'Ingresa un nombre válido.' };
+                }
+                return { valido: true, nombreLimpio: clean };
+            }
+        };
+
+        // Componente flotante de selección de país:
+        // Mantiene únicamente el código numérico (+507) en la casilla cerrada sin recortes
+        // y abre un menú desplegable con banderas y nombres completos alineados a la derecha.
+        function initCustomCountryPickers() {
+            document.querySelectorAll('.country-picker-container').forEach(container => {
+                if (container.dataset.initialized) return;
+                container.dataset.initialized = "true";
+
+                const btn = container.querySelector('.country-picker-btn');
+                const dropdown = container.querySelector('.country-dropdown');
+                const hiddenInput = container.querySelector('input[name="country_code"]');
+                const valSpan = container.querySelector('.country-code-val');
+                const phoneInput = container.parentNode ? (container.parentNode.querySelector('[name="phone"]') || container.parentNode.querySelector('[name="whatsapp"]')) : null;
+
+                if (!btn || !dropdown || !hiddenInput) return;
+
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    document.querySelectorAll('.country-dropdown').forEach(d => {
+                        if (d !== dropdown) d.classList.add('hidden');
+                    });
+                    dropdown.classList.toggle('hidden');
+                });
+
+                container.querySelectorAll('.country-item').forEach(item => {
+                    item.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const code = item.dataset.code;
+                        hiddenInput.value = code;
+                        if (valSpan) valSpan.textContent = (code === '+' ? '+...' : code);
+
+                        if (phoneInput) {
+                            if (code === '+') {
+                                phoneInput.placeholder = "ej. +502 5555-5555";
+                            } else {
+                                phoneInput.placeholder = "6546-1527";
+                            }
+                        }
+                        dropdown.classList.add('hidden');
+                    });
+                });
+            });
+        }
+
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.country-dropdown').forEach(d => d.classList.add('hidden'));
+        });
+
+        initCustomCountryPickers();
+
+        // Auto-completar datos si el usuario ya los ingresó en el modal de pago
+        (function autoFillFromPayment() {
+            if (epState.nombre) {
+                const nameInput = document.querySelector('#prep-form [name="name"]');
+                if (nameInput) nameInput.value = epState.nombre;
+            }
+            if (epState.email) {
+                const emailInput = document.querySelector('#prep-form [name="email"]');
+                if (emailInput) emailInput.value = epState.email;
+            }
+            if (epState.telefono) {
+                const phoneInput = document.querySelector('#prep-form [name="phone"]') || document.querySelector('#prep-form [name="whatsapp"]');
+                if (phoneInput && !phoneInput.value) {
+                    phoneInput.value = epState.telefono.replace(/^\+507\s?/, '');
+                }
+            }
+        })();
+
+        // Auto-detección del país por IP para pre-seleccionar el código automáticamente
+        (function autoDetectCountry() {
+            if (location.protocol === 'file:') return; // Evitar llamada CORS al abrir como archivo local
+            fetch('https://ipapi.co/json/')
+                .then(r => r.json())
+                .then(d => {
+                    if (!d || !d.country_code) return;
+                    const codeMap = {
+                        'PA': '+507', 'US': '+1', 'CA': '+1', 'CO': '+57', 'CR': '+506',
+                        'MX': '+52', 'VE': '+58', 'ES': '+34', 'EC': '+593', 'PE': '+51',
+                        'AR': '+54', 'CL': '+56', 'DO': '+1'
+                    };
+                    const pref = codeMap[d.country_code];
+                    if (pref) {
+                        document.querySelectorAll('.country-picker-container').forEach(container => {
+                            const input = container.querySelector('input[name="country_code"]');
+                            const valSpan = container.querySelector('.country-code-val');
+                            if (input && valSpan) {
+                                input.value = pref;
+                                valSpan.textContent = pref;
+                            }
+                        });
+                    }
+                }).catch(() => {});
+        })();
+
+        // Mostrar u Ocultar Error Inline debajo del campo
+        function mostrarErrorCampo(input, mensaje) {
+            if (!input) return;
+            let errEl = input.parentNode.querySelector('.input-error-msg');
+            if (!errEl) {
+                errEl = document.createElement('p');
+                errEl.className = 'input-error-msg text-xs text-red-600 font-semibold mt-1.5 flex items-center gap-1';
+                input.parentNode.appendChild(errEl);
+            }
+            if (mensaje) {
+                errEl.innerHTML = `<svg class="w-3.5 h-3.5 fill-current flex-shrink-0" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg> <span>${mensaje}</span>`;
+                errEl.classList.remove('hidden');
+                input.classList.add('border-red-500', 'ring-2', 'ring-red-200');
+                input.classList.remove('border-slate-200');
+            } else {
+                errEl.classList.add('hidden');
+                input.classList.remove('border-red-500', 'ring-2', 'ring-red-200');
+                input.classList.add('border-slate-200');
+            }
+        }
+
+        // Envío del Formulario (Paso 1) → Guarda en Sheets/MailerLite y Revela Paso 2 (Calendly)
+        document.getElementById('prep-form').addEventListener('submit', async e => {
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
+            const inputNombre = form.querySelector('[name="name"]');
+            const inputEmail = form.querySelector('[name="email"]');
+            const inputTel = form.querySelector('[name="phone"]') || form.querySelector('[name="whatsapp"]');
+
+            const rawNombre = inputNombre?.value || formData.get('name') || epState.nombre || '';
+            const rawEmail = inputEmail?.value || formData.get('email') || epState.email || '';
+            const rawTelefono = inputTel?.value || formData.get('phone') || epState.telefono || '';
+            const rawCodigo = form.querySelector('[name="country_code"]')?.value || '+507';
+
+            // Limpiar errores previos
+            mostrarErrorCampo(inputNombre, null);
+            mostrarErrorCampo(inputEmail, null);
+            mostrarErrorCampo(inputTel, null);
+
+            let hayError = false;
+
+            const resNombre = ValidadorDatos.validarNombre(rawNombre);
+            if (!resNombre.valido) {
+                mostrarErrorCampo(inputNombre, resNombre.error);
+                hayError = true;
+            }
+
+            const resEmail = ValidadorDatos.validarEmail(rawEmail);
+            if (!resEmail.valido) {
+                mostrarErrorCampo(inputEmail, resEmail.error);
+                hayError = true;
+            }
+
+            const resTel = ValidadorDatos.validarTelefono(rawTelefono, rawCodigo);
+            if (!resTel.valido) {
+                mostrarErrorCampo(inputTel, resTel.error);
+                hayError = true;
+            }
+
+            if (hayError) return;
+
+            const btn = document.getElementById('submit-prep-btn') || form.querySelector('button[type="submit"]');
+            btn.disabled = true;
+            btn.textContent = 'Guardando datos...';
+
+            // Sanitizar teléfono para evitar que Google Sheets interprete el '+' inicial como fórmula matemática (#ERROR!)
+            let telFinal = resTel.telefonoFormateado || '';
+            if (telFinal.startsWith('+') && !telFinal.startsWith("'")) {
+                telFinal = "'" + telFinal;
+            }
+
+            const payload = {
+                sheet_id: 544966935, // ID de la Hoja 2 (Asesorías y Diagnósticos)
+                tipo: 'asesoria',
+                formulario: 'cuestionario-preparacion',
+                nombre: resNombre.nombreLimpio,
+                email: resEmail.emailLimpio,
+                telefono: telFinal,
+                origen: 'Hub Post-Pago: Cuestionario + Cita ($79)',
+                detalles: `Empresa/RUC: ${formData.get('empresa_o_documento') || 'N/A'}`
+            };
+
+            // Envío en segundo plano al Webhook (Google Sheets + MailerLite)
+            if (WEBHOOK_URL) {
+                fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify(payload)
+                }).catch(err => console.error('Error enviando respuestas:', err));
+            }
+
+            // Ocultar el formulario para evitar re-envíos o duplicaciones
+            form.classList.add('hidden');
+            
+            // Mostrar mensaje de confirmación del Paso 1
+            const successMsg = document.getElementById('prep-success');
+            successMsg.classList.remove('hidden');
+            successMsg.classList.add('section-reveal');
+
+            // Revelar PASO 2: Calendly
+            const block = document.getElementById('calendly-block');
+            block.classList.remove('hidden');
+            block.classList.add('section-reveal');
+            setTimeout(() => block.scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
+
+            const nombre = resNombre.nombreLimpio;
+            const email = resEmail.emailLimpio;
+
+            const params = new URLSearchParams({ 
+                hide_gdpr_banner: '1',
+                name: nombre,
+                email: email
+            });
+            const finalCalendlyUrl = CALENDLY_URL + '?' + params.toString();
+
+            const widgetContainer = document.getElementById('calendly-widget');
+            widgetContainer.innerHTML = `<iframe src="${finalCalendlyUrl}" width="100%" height="700" frameborder="0" class="w-full h-[700px] border-0 rounded-b-3xl"></iframe>`;
+        });
+    </script>
+</body>
+
+</html>

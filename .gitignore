@@ -1,0 +1,28 @@
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Dependencies
+node_modules/
+
+# Excluded folders (documentación y pruebas locales)
+documentos/
+pruebas/
+
+# Sensitive assets & secret keys
+public/assets/*.pem
+public/assets/*.xlsx
+public/assets/~$*.xlsx
+
+# Logs and temporary files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS / Editor metadata
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

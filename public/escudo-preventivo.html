@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Página intermedia del embudo (destino del cuestionario) — no se indexa -->
+    <meta name="robots" content="noindex, nofollow">
+    <title>Tu Análisis Preliminar + Oferta Especial | Escudo Preventivo - Aizprua S.E.</title>
+    <meta name="description"
+        content="Mira el análisis preliminar para tu negocio en Panamá y desbloquea tu Diagnóstico Escudo Preventivo de 40 minutos: revisión legal, detección de riesgos y hoja de ruta clara.">
+    <link rel="icon" type="image/svg+xml" href="assets/LOGOS PARA DIGITAL INDIVIDUALES-13.svg">
+
+    <!-- Performance & Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "vrnwiwwg3k");
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { brand: { blue: '#3849C8', 'blue-dark': '#2d3a9f', 'blue-light': '#4f5ed4', orange: '#FF8A1E', 'orange-dark': '#e67a15', 'orange-light': '#ffa04a' }, 'brand-blue': '#3849C8', 'brand-blue-dark': '#2d3a9f', 'brand-orange': '#FF8A1E', 'brand-orange-dark': '#e67a15' } } } }</script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif
+        }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all .6s ease-out
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(.8);
+                opacity: 1
+            }
+
+            100% {
+                transform: scale(1.4);
+                opacity: 0
+            }
+        }
+
+        .whatsapp-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 9999px;
+            background: #25D366;
+            animation: pulse-ring 1.5s infinite;
+            z-index: -1
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .3s ease-out
+        }
+
+        .accordion-content.open {
+            max-height: 300px
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes reveal-section {
+            from {
+                opacity: 0;
+                transform: translateY(30px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .section-reveal {
+            animation: reveal-section .7s ease-out both
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Progress Bar -->
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-brand-blue to-brand-orange z-[60]"
+        style="width:0%"></div>
+
+    <!-- Announcement Bar -->
+    <div id="announcement-bar" class="relative bg-brand-blue text-white py-2 px-4 text-center text-sm">
+        <span>📞 Solo <span class="spots-count font-bold text-brand-orange-light">4</span> diagnósticos disponibles
+            esta semana — Sesiones martes y jueves</span>
+        <button id="close-announcement" aria-label="Cerrar anuncio"
+            class="absolute right-4 top-1/2 -translate-y-1/2 hover:text-brand-orange-light"><i data-lucide="x"
+                class="w-4 h-4"></i></button>
+    </div>
+
+    <!-- Navbar -->
+    <nav id="navbar" class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200 transition-shadow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg"
+                        alt="Logo Aizprua S.E. - Trámites Legales Panamá" class="h-28 w-auto object-contain" width="112"
+                        height="112">
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-slate-600 hover:text-brand-blue font-medium transition">Inicio</a>
+                    <a href="index.html#diagnostico"
+                        class="text-slate-600 hover:text-brand-blue font-medium transition">Diagnóstico</a>
+                    <span class="text-slate-400">|</span>
+                    <a href="tel:+50765461527" class="text-slate-600 flex items-center gap-1"><i data-lucide="phone"
+                            class="w-4 h-4"></i>6546-1527</a>
+                </div>
+                <button id="mobile-menu-btn" aria-label="Abrir menú" class="md:hidden text-slate-600"><i
+                        data-lucide="menu" class="h-6 w-6"></i></button>
+                <a href="https://wa.me/50765461527" target="_blank"
+                    class="hidden md:flex items-center gap-2 bg-[#25D366] text-white px-5 py-2 rounded-full font-semibold hover:bg-[#20bd5a] transition shadow-lg">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>WhatsApp
+                </a>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white p-4 space-y-3 border-t">
+            <a href="index.html" class="block py-2 text-slate-600 font-medium">Inicio</a>
+            <a href="index.html#diagnostico" class="block py-2 text-slate-600 font-medium">Diagnóstico</a>
+            <a href="https://wa.me/50765461527" target="_blank" class="block py-2 text-green-600 font-bold">WhatsApp
+                directo</a>
+        </div>
+    </nav>
+
+    <!-- ============================================================
+         ZONA DE VIDEO — PÁGINA B (contenido principal)
+         Encabezado dinámico según perfil del cuestionario
+         ============================================================ -->
+    <section id="video-zona" class="py-20 bg-gradient-to-b from-slate-900 to-slate-800 text-white">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 id="offer-heading" class="text-3xl md:text-4xl font-bold text-center mb-4">Análisis preliminar para tu
+                negocio en Panamá</h2>
+
+            <!-- Alerta de riesgo condicional (Pregunta 2 = "no estoy seguro" / "me falta algo") -->
+            <div id="risk-alert"
+                class="hidden max-w-2xl mx-auto mb-8 bg-red-500/15 border border-red-400/40 text-red-200 px-5 py-4 rounded-xl text-center">
+                ⚠️ <strong>Detectamos posibles puntos de riesgo en tu perfil</strong> — el video de abajo te explica
+                qué revisar.
+            </div>
+            <p id="offer-subtext" class="text-slate-300 text-center mb-10 max-w-2xl mx-auto">Mira este video de 2
+                minutos para conocer exactamente lo que incluye tu diagnóstico y cómo blindamos tu empresa en Panamá:</p>
+
+            <!--
+                ▼▼▼ REPRODUCTOR DE VIDEO ▼▼▼
+                YouTube IFrame API · sin controles (controls:0), sin teclado (disablekb:1),
+                Config en script.js → CONFIG.youtubeId
+            -->
+            <div id="video-container" class="relative">
+                <div id="video-placeholder"
+                    class="aspect-video w-full rounded-2xl shadow-2xl bg-gradient-to-br from-brand-blue to-brand-blue-dark border border-white/10 flex flex-col items-center justify-center text-center p-8">
+                    <div
+                        class="w-20 h-20 bg-brand-orange rounded-full flex items-center justify-center mb-5 shadow-xl animate-float">
+                        <i data-lucide="play" class="w-10 h-10 text-white ml-1"></i>
+                    </div>
+                    <p class="text-xl font-bold text-white mb-2">Video de 2 minutos</p>
+                    <p class="text-blue-200 text-sm">Conoce los detalles de tu diagnóstico legal preventivo</p>
+                </div>
+                <!-- El reproductor de YouTube se monta aquí -->
+                <div id="video-player" class="aspect-video w-full rounded-2xl shadow-2xl overflow-hidden hidden"></div>
+            </div>
+
+            <!-- Progreso hacia el desbloqueo de la oferta (oculto) -->
+            <div id="video-progress-wrap" class="hidden max-w-2xl mx-auto mt-8"></div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         ZONA DE OFERTA — Siempre visible
+         ============================================================ -->
+    <div id="oferta-zona">
+
+        <!-- Tarjeta de oferta -->
+        <section id="oferta" class="py-20 bg-slate-800 text-white">
+            <div class="max-w-4xl mx-auto px-4">
+                <div class="bg-white text-slate-800 rounded-2xl shadow-2xl overflow-hidden">
+                    <div class="bg-gradient-to-r from-brand-blue to-brand-blue-dark px-8 py-5 text-center">
+                        <p class="text-white/80 text-sm uppercase tracking-wider font-semibold">Diagnóstico Escudo
+                            Preventivo · 40 minutos</p>
+                    </div>
+                    <div class="p-8 md:p-10">
+                        <div class="text-center mb-8">
+                            <p class="text-6xl font-extrabold text-brand-orange mb-2">$79<span
+                                    class="text-2xl text-slate-500 font-bold"> USD</span></p>
+                            <p class="text-slate-500">Pago único · Sin letra pequeña</p>
+                        </div>
+                        <ul class="space-y-3 mb-8 max-w-md mx-auto">
+                            <li class="flex items-start gap-3"><i data-lucide="check-circle"
+                                    class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"></i><span>Auditoría real de tu
+                                    caso, no una llamada de ventas</span></li>
+                            <li class="flex items-start gap-3"><i data-lucide="check-circle"
+                                    class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"></i><span>Hoja de ruta con el
+                                    costo exacto de regularizar</span></li>
+                            <li class="flex items-start gap-3"><i data-lucide="check-circle"
+                                    class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"></i><span>3 bonos de regalo (se
+                                    envían a tu correo después de la sesión)</span></li>
+                            <li class="flex items-start gap-3"><i data-lucide="check-circle"
+                                    class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"></i><span>Si contratas tu plan
+                                    de gestión, <strong>los $79 se acreditan como descuento</strong></span></li>
+                        </ul>
+
+                        <!-- Botón Directo al Pago de $79 USD -->
+                        <div class="text-center max-w-xl mx-auto my-8">
+                            <button id="pay-btn"
+                                class="w-full py-4 px-6 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white font-extrabold text-base sm:text-lg rounded-2xl transition-all shadow-xl hover:shadow-2xl flex items-center justify-center gap-3 group transform hover:-translate-y-0.5 cursor-pointer">
+                                <i data-lucide="credit-card" class="w-6 h-6 flex-shrink-0"></i>
+                                <span class="whitespace-nowrap">Reservar mi Diagnóstico ($79 USD)</span>
+                                <i data-lucide="arrow-right" class="w-5 h-5 flex-shrink-0 group-hover:translate-x-1 transition-transform"></i>
+                            </button>
+                            <p class="text-xs text-slate-400 mt-3.5 flex items-center justify-center gap-1.5 font-medium">
+                                <i data-lucide="shield-check" class="w-4 h-4 text-green-500 flex-shrink-0"></i>
+                                <span>Pago 100% seguro por pasarela cifrada · Agendamiento inmediato</span>
+                            </p>
+                        </div>
+
+                        <p class="text-center text-sm text-slate-500 mt-8 flex items-center justify-center gap-2"><i
+                                data-lucide="calendar-clock" class="w-4 h-4 text-brand-orange"></i>Sesiones disponibles
+                            solo martes y jueves · Quedan <span class="spots-count font-bold text-brand-orange">4</span>
+                            cupos esta semana</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Qué Resolvemos en 40 Minutos -->
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-4 fade-in">¿Qué resolvemos en tu sesión de 40 minutos?</h2>
+                <p class="text-slate-600 text-center mb-12 fade-in">Sales de la llamada sabiendo exactamente dónde
+                    estás parado</p>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 shadow-lg fade-in">
+                        <div class="w-14 h-14 bg-brand-blue rounded-xl flex items-center justify-center mb-5">
+                            <i data-lucide="folder-search" class="w-7 h-7 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Revisión y Expediente Legal</h3>
+                        <p class="text-slate-600">Revisión del expediente legal de tu empresa en Panamá: qué
+                            tienes al día y qué no existe.</p>
+                    </div>
+                    <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 shadow-lg fade-in">
+                        <div class="w-14 h-14 bg-brand-orange rounded-xl flex items-center justify-center mb-5">
+                            <i data-lucide="alert-triangle" class="w-7 h-7 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Detección de Riesgos de Multas Silenciosas</h3>
+                        <p class="text-slate-600">Identificación de inconsistencias silenciosas que podrían costar
+                            miles de dólares en sanciones.</p>
+                    </div>
+                    <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 shadow-lg fade-in">
+                        <div class="w-14 h-14 bg-green-500 rounded-xl flex items-center justify-center mb-5">
+                            <i data-lucide="map" class="w-7 h-7 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Hoja de Ruta y Cotización a Medida</h3>
+                        <p class="text-slate-600">Plan paso a paso y cotización a la medida de tu empresa para
+                            completar tus trámites, sin sorpresas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonios de Empresas -->
+        <section id="testimonios" class="py-20 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-4 fade-in">Empresas que confían en el Escudo Preventivo</h2>
+                <p class="text-slate-600 text-center mb-12 fade-in">Resultados reales de empresarios que formalizaron y protegieron sus operaciones con Aizprua S.E.</p>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Tarjeta 1: Orozco U.C. -->
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-lg flex flex-col justify-between fade-in transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                        <div>
+                            <div class="flex items-center gap-1 text-brand-orange mb-4">
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            </div>
+                            <p class="text-slate-700 italic font-medium mb-6 leading-relaxed">
+                                "Detectamos 2 inconsistencias en el Municipio a tiempo. Nos evitaron multas costosas y dejaron nuestra empresa 100% blindada y al día."
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-4 pt-4 border-t border-slate-100">
+                            <div class="w-12 h-12 rounded-full border border-slate-200 overflow-hidden flex items-center justify-center bg-slate-50 flex-shrink-0 shadow-sm">
+                                <img src="assets/logo-orozco.png" alt="Logo Orozco U.C." class="w-full h-full object-contain p-1">
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 leading-snug">Orozco U.C.</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 2: Adaías Panamá -->
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-lg flex flex-col justify-between fade-in transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                        <div>
+                            <div class="flex items-center gap-1 text-brand-orange mb-4">
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            </div>
+                            <p class="text-slate-700 italic font-medium mb-6 leading-relaxed">
+                                "Tenía dudas con la DGI y el Aviso de Operación. En los 40 minutos de diagnóstico me dieron una hoja de ruta clara y precios sin sorpresas."
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-4 pt-4 border-t border-slate-100">
+                            <div class="w-12 h-12 rounded-full border border-slate-200 overflow-hidden flex items-center justify-center bg-slate-50 flex-shrink-0 shadow-sm">
+                                <img src="assets/logo-adaias.jpg" alt="Logo Adaías Panamá" class="w-full h-full object-contain p-1">
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 leading-snug">Adaías Panamá</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 3: Grupo JM Panamá -->
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-lg flex flex-col justify-between fade-in transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                        <div>
+                            <div class="flex items-center gap-1 text-brand-orange mb-4">
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            </div>
+                            <p class="text-slate-700 italic font-medium mb-6 leading-relaxed">
+                                "La estructuración de nuestra Sociedad Anónima y trámites corporativos fue impecable. Transparencia total y acompañamiento legal de primera."
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-4 pt-4 border-t border-slate-100">
+                            <div class="w-12 h-12 rounded-full border border-slate-200 overflow-hidden flex items-center justify-center bg-slate-50 flex-shrink-0 shadow-sm">
+                                <img src="assets/logo-grupojm.jpg" alt="Logo Grupo JM Panamá" class="w-full h-full object-contain p-1">
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 leading-snug">Grupo JM Panamá</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bonos (Sistema B.U.G.: Bonos, Urgencia, Garantías) -->
+        <section id="bonos" class="py-20 bg-slate-50">
+            <div class="max-w-5xl mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-4 fade-in">Bonos incluidos con tu diagnóstico</h2>
+                <p class="text-slate-600 text-center mb-3 fade-in">Todos gratis con tu sesión</p>
+                <p
+                    class="text-sm text-brand-blue font-semibold text-center mb-12 fade-in flex items-center justify-center gap-2">
+                    <i data-lucide="mail" class="w-4 h-4"></i>Los recibes por correo electrónico después de tu sesión
+                </p>
+
+                <div class="grid md:grid-cols-3 gap-6 mb-12">
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-lg fade-in">
+                        <div class="text-4xl mb-3">📄</div>
+                        <h3 class="font-bold mb-1">Bono 1 — Auditoría Legal Personalizada</h3>
+                        <p class="text-sm text-slate-600">Documentos a medida (Excel/PDF), redactados después de tu
+                            sesión con las obligaciones exactas de tu empresa y tu Municipio — incluye el mapa de
+                            riesgo por entidad.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-lg fade-in">
+                        <div class="text-4xl mb-3">📅</div>
+                        <h3 class="font-bold mb-1">Bono 2 — Guía Preventiva + Calendario Fiscal 2026</h3>
+                        <p class="text-sm text-slate-600">En PDF, listo para imprimir, con las fechas clave de Panamá
+                            para que ninguna obligación te agarre fuera de base.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-lg fade-in">
+                        <div class="text-4xl mb-3">🤝</div>
+                        <h3 class="font-bold mb-1">Bono 3 — Acceso al Círculo VIP Aizprua</h3>
+                        <p class="text-sm text-slate-600">Canal directo de clientes para alertas normativas y consultas
+                            rápidas.</p>
+                    </div>
+                </div>
+
+                <!-- Urgencia + Garantías -->
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div
+                        class="bg-gradient-to-br from-brand-orange to-brand-orange-dark p-6 rounded-2xl shadow-lg text-white fade-in">
+                        <div class="flex items-center gap-2 mb-3">
+                            <i data-lucide="zap" class="w-6 h-6"></i>
+                            <h3 class="font-bold text-lg">Bono de Acción Rápida</h3>
+                        </div>
+                        <p class="text-white/90 text-sm">Beneficio exclusivo al iniciar tu gestión en la llamada:
+                            <strong>congelamiento de precio + arranque con el 50% de entrada</strong>. Pregunta por él
+                            durante tu sesión.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border-2 border-brand-blue shadow-lg fade-in">
+                        <div class="flex items-center gap-2 mb-3 text-brand-blue">
+                            <i data-lucide="shield-check" class="w-6 h-6"></i>
+                            <h3 class="font-bold text-lg">Garantía de Gestión (60 días)</h3>
+                        </div>
+                        <p class="text-sm text-slate-600">Si algún trámite presentado por nuestra gestión resulta mal
+                            presentado ante una entidad, <strong>lo corregimos sin costo</strong>.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border-2 border-brand-blue shadow-lg fade-in">
+                        <div class="flex items-center gap-2 mb-3 text-brand-blue">
+                            <i data-lucide="shield-check" class="w-6 h-6"></i>
+                            <h3 class="font-bold text-lg">Garantía de Ruta Clara</h3>
+                        </div>
+                        <p class="text-sm text-slate-600">Si los 40 minutos no bastan por la complejidad de tu caso,
+                            <strong>extendemos la sesión en el acto sin costo adicional</strong>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="py-20 bg-white">
+            <div class="max-w-3xl mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12 fade-in">Preguntas Frecuentes</h2>
+                <div class="space-y-4 fade-in">
+                    <div class="border rounded-xl">
+                        <button
+                            class="accordion-btn w-full px-6 py-4 text-left font-semibold flex justify-between items-center gap-4">
+                            <span>¿Recibiré alguna oferta o descuento especial durante la sesión?</span>
+                            <i data-lucide="chevron-down" class="w-5 h-5 flex-shrink-0"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p class="text-slate-600 px-6 py-4">Sí. Si requieres trámites, recibes una propuesta a
+                                medida con <strong>descuento preferencial</strong>, donde los $79 del diagnóstico se
+                                acreditan a tu plan de gestión.</p>
+                        </div>
+                    </div>
+                    <div class="border rounded-xl">
+                        <button
+                            class="accordion-btn w-full px-6 py-4 text-left font-semibold flex justify-between items-center gap-4">
+                            <span>¿Cuánto cuestan los trámites que necesito?</span>
+                            <i data-lucide="chevron-down" class="w-5 h-5 flex-shrink-0"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p class="text-slate-600 px-6 py-4">Depende de tu situación exacta: no es lo mismo un Aviso
+                                de Operación vencido que constituir una Sociedad Anónima desde cero. En la llamada
+                                cotizamos a tu medida, sin precios inflados ni letra pequeña.</p>
+                        </div>
+                    </div>
+                    <div class="border rounded-xl">
+                        <button
+                            class="accordion-btn w-full px-6 py-4 text-left font-semibold flex justify-between items-center gap-4">
+                            <span>¿Cuánto tiempo toman las gestiones en Panamá?</span>
+                            <i data-lucide="chevron-down" class="w-5 h-5 flex-shrink-0"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p class="text-slate-600 px-6 py-4">De 48-72 horas hasta 2-3 semanas según la entidad (DGI,
+                                Municipio, Registro Público, CSS). En el diagnóstico te damos tiempos reales para tu
+                                caso específico, no promesas genéricas.</p>
+                        </div>
+                    </div>
+                    <div class="border rounded-xl">
+                        <button
+                            class="accordion-btn w-full px-6 py-4 text-left font-semibold flex justify-between items-center gap-4">
+                            <span>¿Es seguro pagar los $79 en línea?</span>
+                            <i data-lucide="chevron-down" class="w-5 h-5 flex-shrink-0"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p class="text-slate-600 px-6 py-4">Sí. El pago se procesa a través de una pasarela segura
+                                encriptada. Nosotros nunca vemos ni almacenamos los datos de tu tarjeta, y tienes
+                                trato directo con nosotros por WhatsApp en todo momento.</p>
+                        </div>
+                    </div>
+                    <div class="border rounded-xl">
+                        <button
+                            class="accordion-btn w-full px-6 py-4 text-left font-semibold flex justify-between items-center gap-4">
+                            <span>Si me interesa la propuesta, ¿cómo es la estructura de pago?</span>
+                            <i data-lucide="chevron-down" class="w-5 h-5 flex-shrink-0"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p class="text-slate-600 px-6 py-4">50% de abono inicial para comenzar y 50% final contra
+                                entrega. Todo queda definido por escrito en la propuesta que recibes después de tu
+                                diagnóstico — sin pagos sorpresa a mitad de camino.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div><!-- /oferta-zona -->
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:justify-between gap-10 mb-8">
+                <!-- Logo -->
+                <div class="flex flex-col items-start">
+                    <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-21-nobg.svg" alt="Aizprua S.E. - Firma Legal"
+                        class="h-20 w-auto -mt-7 -mb-4 -ml-3">
+                    <p class="text-sm text-slate-400 mb-3">Tu aliado legal en Panamá.</p>
+                    <div class="flex gap-3">
+                        <a target="_blank" rel="noopener" href="https://instagram.com/aizpruase"
+                            class="w-10 h-10 bg-slate-800 hover:bg-pink-600 rounded-full flex items-center justify-center text-white transition"
+                            aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                            </svg>
+                        </a>
+                        <a target="_blank" rel="noopener" href="https://facebook.com/aizpruase"
+                            class="w-10 h-10 bg-slate-800 hover:bg-brand-blue rounded-full flex items-center justify-center text-white transition"
+                            aria-label="Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a href="https://wa.me/50765461527" target="_blank"
+                            class="w-10 h-10 bg-slate-800 hover:bg-green-500 rounded-full flex items-center justify-center text-white transition"
+                            aria-label="WhatsApp">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- Diagnóstico -->
+                <div>
+                    <h4 class="font-bold text-white mb-4">Diagnóstico</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html#diagnostico" class="hover:text-white transition">Iniciar el
+                                cuestionario</a></li>
+                        <li><a href="recursos-gratuitos.html" class="hover:text-white transition">Guía Preventiva 2026
+                                (gratis)</a></li>
+                    </ul>
+                </div>
+                <!-- Contacto -->
+                <div>
+                    <h4 class="font-bold text-white mb-4">Contacto</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://wa.me/50765461527" target="_blank" class="hover:text-white">WhatsApp: +507
+                                6546-1527</a></li>
+                        <li><a href="mailto:info@aizprua.com" class="hover:text-white">info@aizprua.com</a></li>
+                    </ul>
+                </div>
+                <!-- Legal -->
+                <div>
+                    <h4 class="font-bold text-white mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="terminos.html" class="hover:text-white">Términos y Condiciones</a></li>
+                        <li><a href="privacidad.html" class="hover:text-white">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 text-center text-sm text-slate-300">&copy; 2026 Aizprua S.E.
+                Todos los derechos reservados.</div>
+        </div>
+    </footer>
+
+    <!-- Banner de pago registrado (aparece si el usuario ya pagó y vuelve) -->
+    <div id="paid-banner"
+        class="hidden fixed bottom-0 left-0 right-0 z-40 bg-green-600 text-white py-3 px-4 shadow-2xl">
+        <div class="max-w-4xl mx-auto flex items-center justify-center gap-3 text-sm font-semibold text-center">
+            <i data-lucide="check-circle" class="w-5 h-5 flex-shrink-0"></i>
+            <span>Ya registraste tu pago — ¿aún no agendas tu sesión?</span>
+            <a href="gracias.html" class="underline font-bold hover:text-green-200 whitespace-nowrap">Agendar ahora
+                →</a>
+        </div>
+    </div>
+
+    <!-- WhatsApp Widget -->
+    <div id="whatsapp-widget"
+        class="fixed bottom-24 right-6 z-[90] w-80 bg-brand-blue rounded-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.4)] overflow-hidden transform scale-0 origin-bottom-right transition-transform duration-300">
+        <div class="bg-brand-blue p-6 relative">
+            <button id="close-whatsapp" class="absolute top-4 right-4 text-white/80 hover:text-white transition">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <h3 class="text-white text-lg font-bold pr-6">¿Dudas sobre el diagnóstico?</h3>
+            <p class="text-blue-100 text-sm mt-1">Solemos responder en minutos.</p>
+        </div>
+        <div class="p-6 bg-slate-50 rounded-b-2xl">
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100 mb-4 flex gap-4 items-start">
+                <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <svg class="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                </div>
+                <div>
+                    <p class="text-sm text-slate-500 mb-1">Equipo Aizprua S.E.</p>
+                    <p class="text-slate-800 font-medium text-sm">Hola 👋 ¿En qué podemos ayudarte hoy?</p>
+                </div>
+            </div>
+            <a href="https://wa.me/50765461527?text=Hola,%20tengo%20una%20duda%20sobre%20el%20Diagn%C3%B3stico%20Escudo%20Preventivo"
+                target="_blank"
+                class="block w-full py-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-lg text-center transition shadow-lg hover:shadow-green-500/20 flex items-center justify-center gap-2">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+                Iniciar Chat
+            </a>
+            <p class="text-center text-xs text-slate-400 mt-3 select-none">Se abre en WhatsApp</p>
+        </div>
+    </div>
+
+    <!-- WhatsApp Flotante Btn -->
+    <button id="whatsapp-toggle" aria-label="Abrir chat de WhatsApp"
+        class="whatsapp-btn fixed bottom-16 right-6 z-[90] bg-[#25D366] hover:bg-[#20bd5a] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300">
+        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </button>
+
+    <!-- Social Proof Toast -->
+    <div id="social-proof-toast"
+        class="fixed bottom-16 left-6 z-[80] bg-white rounded-xl shadow-2xl border border-slate-200 p-4 max-w-xs transform translate-y-full opacity-0 transition-all duration-500">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <i data-lucide="check-circle" class="w-5 h-5 text-green-600"></i>
+            </div>
+            <div>
+                <p id="toast-message" class="text-sm text-slate-800 font-medium">Cargando...</p>
+                <p class="text-xs text-slate-500">Hace unos momentos</p>
+            </div>
+        </div>
+    </div>
+    <!-- CyberSource Flex Microform Checkout Modal -->
+    <div id="checkout-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-slate-950/75 backdrop-blur-md transition-all duration-300">
+        <div class="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden transform transition-all animate-fadeIn">
+            <!-- Header Modal -->
+            <div class="bg-gradient-to-r from-brand-blue to-brand-blue-dark px-6 py-5 text-white flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center backdrop-blur-sm border border-white/20">
+                        <i data-lucide="shield-check" class="w-5 h-5 text-green-400"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-base sm:text-lg leading-tight">Checkout Seguro · $79 USD</h3>
+                        <p class="text-xs text-blue-100/90 flex items-center gap-1.5 mt-0.5">
+                            <span>Pasarela CyberSource · Banco General</span>
+                        </p>
+                    </div>
+                </div>
+                <button id="close-checkout-modal" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/80 hover:text-white transition-colors" aria-label="Cerrar modal">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="p-6 sm:p-7 max-h-[85vh] overflow-y-auto">
+                <!-- Summary Tag -->
+                <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-3.5 mb-5 flex items-center justify-between">
+                    <div>
+                        <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Diagnóstico Escudo Preventivo</p>
+                        <p class="text-sm font-bold text-slate-900">Sesión 40 min + 3 Bonos + Hoja de Ruta</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xl font-extrabold text-brand-orange">$79.00</span>
+                        <span class="text-xs text-slate-500 font-semibold block">USD</span>
+                    </div>
+                </div>
+
+                <!-- Alert Messages -->
+                <div id="checkout-alert" class="hidden p-3.5 rounded-xl text-xs sm:text-sm font-medium mb-4"></div>
+
+                <!-- Form -->
+                <form id="cybersource-form" class="space-y-4">
+                    <!-- Datos Personales -->
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">Nombre *</label>
+                            <input type="text" id="cs-first-name" name="firstName" required placeholder="Ej: Carlos"
+                                class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">Apellido *</label>
+                            <input type="text" id="cs-last-name" name="lastName" required placeholder="Ej: Pérez"
+                                class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue transition">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">Correo Electrónico *</label>
+                            <input type="email" id="cs-email" name="email" required placeholder="tu@correo.com"
+                                class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">WhatsApp / Teléfono *</label>
+                            <input type="tel" id="cs-phone" name="phone" required placeholder="6546-1234"
+                                class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue transition">
+                        </div>
+                    </div>
+
+                    <!-- Continuar al Pago (Validador de datos personales) -->
+                    <div id="personal-data-btn-container" class="pt-3">
+                        <button type="button" id="continue-to-payment-btn"
+                            class="w-full py-4 px-6 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white font-extrabold text-base rounded-2xl transition-all shadow-xl hover:shadow-2xl flex items-center justify-center gap-2.5 cursor-pointer">
+                            <span>Continuar al Pago</span>
+                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+
+                    <!-- Contenedor Unificado de CyberSource Unified Checkout -->
+                    <div id="payment-container" class="hidden pt-2 border-t border-slate-100 space-y-3">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-1.5">
+                                <i data-lucide="credit-card" class="w-3.5 h-3.5 text-brand-blue"></i>
+                                Pago Seguro
+                            </span>
+                            <div class="flex items-center gap-1.5 opacity-75">
+                                <span class="text-[10px] font-bold px-1.5 py-0.5 bg-slate-100 text-slate-600 rounded">VISA</span>
+                                <span class="text-[10px] font-bold px-1.5 py-0.5 bg-slate-100 text-slate-600 rounded">MASTERCARD</span>
+                            </div>
+                        </div>
+                        <div id="payment-interface" class="w-full min-h-[150px]">
+                            <div id="card-placeholder" class="text-xs text-slate-400 text-center py-8">Conectando con la pasarela de Banco General...</div>
+                        </div>
+                    </div>
+
+                    <!-- Badge de Seguridad -->
+                    <div class="flex items-center justify-center gap-2 pt-2 text-center text-[11px] text-slate-400">
+                        <i data-lucide="shield-check" class="w-3.5 h-3.5 text-green-500 flex-shrink-0"></i>
+                        <span>Cifrado TLS 256-bit · Tokenización directa con CyberSource</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .flex-field-container iframe {
+            width: 100% !important;
+            height: 100% !important;
+            border: none !important;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.96); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .animate-fadeIn {
+            animation: fadeIn 0.25s ease-out forwards;
+        }
+    </style>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>
