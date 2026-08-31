@@ -69,8 +69,19 @@ app.get('/api/capture-context', async (req, res) => {
 
   try {
     const clientRefCode = 'EP-' + Date.now();
+    
+    // Obtener origen dinámico de la petición para soportar dominios de Coolify y producción
+    const originsSet = new Set(TARGET_ORIGINS.map(origin => origin.replace(/^http:\/\//, 'https://')));
+    if (req.headers.origin) {
+      originsSet.add(req.headers.origin.replace(/^http:\/\//, 'https://'));
+    }
+    if (req.headers.host) {
+      originsSet.add(`https://${req.headers.host}`);
+    }
+    const finalOrigins = Array.from(originsSet);
+
     const payload = {
-      targetOrigins: TARGET_ORIGINS.map(origin => origin.replace(/^http:\/\//, 'https://')),
+      targetOrigins: finalOrigins,
       allowedPaymentTypes: ['PANENTRY'],
       allowedCardNetworks: ['VISA', 'MASTERCARD'],
       country: 'PA',
