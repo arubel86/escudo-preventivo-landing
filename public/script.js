@@ -1089,7 +1089,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.warn('No se pudo extraer el origen del JWT:', e);
         }
 
-        const sdkUrl = `${sdkOrigin}/cybersource/assets/microform/data/v1/flex-microform.min.js`;
+        const sdkUrl = `${sdkOrigin}/microform/bundle/v1/flex-microform.min.js`;
         console.log('🔄 Cargando SDK de Flex Microform desde:', sdkUrl);
 
         return new Promise((resolve, reject) => {
