@@ -90,24 +90,19 @@ app.get('/api/capture-context', async (req, res) => {
     const payload = {
       targetOrigins: [requestOrigin],
       allowedCardNetworks: ['VISA', 'MASTERCARD'],
-      clientReferenceInformation: {
-        code: clientRefCode
-      },
-      fields: {
-        paymentInformation: {
-          card: {
-            number: {
-              required: true
-            },
-            securityCode: {
-              required: true
-            }
+      country: 'PA',
+      locale: 'es_PA',
+      data: {
+        orderInformation: {
+          amountDetails: {
+            totalAmount: '79.00',
+            currency: 'USD'
           }
         }
       }
     };
 
-    const result = await cybersourceRequest('/flex/v2/sessions', payload, CS_CONFIG);
+    const result = await cybersourceRequest('/uc/v1/sessions', payload, CS_CONFIG);
 
     if (result.httpStatus === 200 || result.httpStatus === 201) {
       const jwtString = result.isRaw ? result.rawBody : (result.keyId ? JSON.stringify(result) : result);
@@ -117,9 +112,9 @@ app.get('/api/capture-context', async (req, res) => {
         clientReferenceCode: clientRefCode
       });
     } else {
-      console.error('CyberSource Flex v2 Capture Context Error:', JSON.stringify(result, null, 2));
+      console.error('CyberSource Capture Context Error:', JSON.stringify(result, null, 2));
       res.status(result.httpStatus || 500).json({
-        error: 'Error generando Capture Context de Flex Microform',
+        error: 'Error generando Capture Context de CyberSource',
         details: result.message || result
       });
     }

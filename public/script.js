@@ -1069,11 +1069,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (checkoutAlert) checkoutAlert.classList.add('hidden');
     }
 
-    // Cargar SDK de Flex Microform dinámicamente desde el origen del JWT
-    async function loadFlexMicroformSdk(captureContextJWT) {
-        if (window.Flex || window.FLEX) return true;
+    // Cargar SDK oficial de CyberSource dinámicamente desde el origen del JWT
+    async function loadCyberSourceSdk(captureContextJWT) {
+        if (window.VAS && window.VAS.UnifiedCheckout) return true;
 
-        let sdkOrigin = 'https://testflex.cybersource.com';
+        let sdkUrl = null;
         try {
             const parts = captureContextJWT.split('.');
             if (parts.length >= 2) {
@@ -1081,141 +1081,117 @@ document.addEventListener('DOMContentLoaded', () => {
                 const pad = base64Url.length % 4;
                 const base64 = pad ? base64Url + '='.repeat(4 - pad) : base64Url;
                 const payload = JSON.parse(atob(base64));
-                if (payload.flx?.origin) {
-                    sdkOrigin = payload.flx.origin;
+                if (payload.ctx?.[0]?.data?.clientLibrary) {
+                    sdkUrl = payload.ctx[0].data.clientLibrary;
                 }
             }
         } catch (e) {
-            console.warn('No se pudo extraer el origen del JWT:', e);
+            console.warn('No se pudo extraer clientLibrary del JWT:', e);
         }
 
-        const sdkUrl = `${sdkOrigin}/microform/bundle/v1/flex-microform.min.js`;
-        console.log('🔄 Cargando SDK de Flex Microform desde:', sdkUrl);
+        if (!sdkUrl) {
+            throw new Error('No se encontró la URL de la librería oficial de CyberSource.');
+        }
+
+        console.log('🔄 Cargando librería oficial de CyberSource desde:', sdkUrl);
 
         return new Promise((resolve, reject) => {
-            if (window.Flex || window.FLEX) return resolve(true);
+            if (window.VAS && window.VAS.UnifiedCheckout) return resolve(true);
 
             const script = document.createElement('script');
             script.src = sdkUrl;
             script.crossOrigin = 'anonymous';
             script.onload = () => {
-                if (window.Flex || window.FLEX) {
-                    console.log('✅ SDK de Flex Microform cargado con éxito');
+                if (window.VAS && window.VAS.UnifiedCheckout) {
+                    console.log('✅ CyberSource SDK cargado con éxito');
                     resolve(true);
                 } else {
-                    reject(new Error('El script de Flex se cargó pero window.Flex no está disponible.'));
+                    reject(new Error('La librería de CyberSource se cargó pero window.VAS no está disponible.'));
                 }
             };
-            script.onerror = () => reject(new Error('Error de red al descargar el SDK de Flex Microform.'));
+            script.onerror = () => reject(new Error('Error al descargar la librería de CyberSource.'));
             document.head.appendChild(script);
         });
     }
 
-    // Variables de estado para CyberSource Flex Microform v2
-    let flexMicroformInstance = null;
-    let flexCardNumber = null;
-    let flexCardCvv = null;
-    let isFlexInitialized = false;
+    // Variables de estado para CyberSource
+    let activeUCTrigger = null;
+    let isCyberSourceInitialized = false;
 
-    // Inicializar CyberSource Flex Microform v2 (Campos 100% integrados en el modal)
+    // Inicializar CyberSource incrustado directamente en el modal
     async function initCyberSourceFlexMicroform() {
-        if (isFlexInitialized) return;
+        if (isCyberSourceInitialized) return;
         hideCheckoutAlert();
+
+        const cardFrame = document.getElementById('cyber-card-frame');
+        if (cardFrame) {
+            cardFrame.innerHTML = `
+                <div class="flex items-center justify-center h-28 text-slate-400 text-xs gap-2">
+                    <span class="animate-spin inline-block w-4 h-4 border-2 border-brand-blue border-t-transparent rounded-full"></span>
+                    <span>Conectando con Banco General...</span>
+                </div>
+            `;
+        }
 
         try {
             const resp = await fetch('/api/capture-context');
             if (!resp.ok) {
                 const errData = await resp.json().catch(() => ({}));
-                throw new Error(errData.error || 'Error al obtener la sesión de Flex.');
+                throw new Error(errData.error || 'Error al obtener la sesión de pago.');
             }
 
             const data = await resp.json();
             const captureContext = data.captureContext;
             checkoutRefCode = data.clientReferenceCode;
 
-            // Cargar SDK dinámico con el origen de Sandbox/Producción
-            await loadFlexMicroformSdk(captureContext);
+            // Cargar librería oficial de CyberSource
+            await loadCyberSourceSdk(captureContext);
 
-            const FlexConstructor = window.Flex || window.FLEX;
-            if (!FlexConstructor) {
-                throw new Error('El SDK Flex Microform de CyberSource no se ha inicializado.');
+            if (!window.VAS || !window.VAS.UnifiedCheckout) {
+                throw new Error('El SDK oficial de CyberSource no está disponible.');
             }
 
-            // Estilos tipográficos coincidentes con Tailwind Inter
-            const customStyles = {
-                'input': {
-                    'font-family': '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-                    'font-size': '14px',
-                    'color': '#0f172a',
-                    'padding': '12px 14px'
-                },
-                '::placeholder': {
-                    'color': '#94a3b8'
-                },
-                ':focus': {
-                    'color': '#0f172a'
-                }
-            };
+            // Inicializar pasarela
+            const uc = await window.VAS.UnifiedCheckout(captureContext);
 
-            // 1. Instanciar Flex con el JWT
-            const flex = new FlexConstructor(captureContext);
-
-            // 2. Crear microform con los estilos corporativos
-            flexMicroformInstance = flex.microform({
-                styles: customStyles
+            // Escuchar eventos globales de pago
+            uc.on('payment.transientToken', (tokenData) => {
+                console.log('✅ Token transaccional recibido de CyberSource:', tokenData);
+                const token = typeof tokenData === 'string' ? tokenData : (tokenData.transientToken || tokenData.token || JSON.stringify(tokenData));
+                procesarCargoServidor(token);
             });
 
-            // 3. Crear campos de Número y CVV
-            flexCardNumber = flexMicroformInstance.createField('number', {
-                placeholder: '0000 0000 0000 0000'
-            });
-            flexCardCvv = flexMicroformInstance.createField('securityCode', {
-                placeholder: '123'
+            uc.on('payment.error', (err) => {
+                console.error('Error reportado por pasarela:', err);
+                showCheckoutAlert(`Error en pasarela: ${err.message || 'Verifica los datos de tu tarjeta'}`, 'error');
             });
 
-            // Cargar en los contenedores del modal con callbacks de verificación
-            flexCardNumber.load('#flex-card-number', (err) => {
-                if (err) {
-                    console.error('Error al montar campo de tarjeta:', err);
-                    showCheckoutAlert(`Error en campo de tarjeta: ${err.message || err}`, 'error');
-                } else {
-                    console.log('✅ Campo de Número de Tarjeta listo e interactivo');
+            // Limpiar contenedor de carga
+            if (cardFrame) cardFrame.innerHTML = '';
+
+            // Montar campos de tarjeta directamente en el contenedor del modal
+            activeUCTrigger = uc.createTrigger('panentry', {
+                containers: {
+                    paymentScreen: '#cyber-card-frame'
                 }
             });
 
-            flexCardCvv.load('#flex-card-cvv', (err) => {
-                if (err) {
-                    console.error('Error al montar campo CVV:', err);
-                    showCheckoutAlert(`Error en campo CVV: ${err.message || err}`, 'error');
-                } else {
-                    console.log('✅ Campo CVV listo e interactivo');
-                }
-            });
+            await activeUCTrigger.show();
 
-            // Delegar clics en los contenedores para enfocar los iframes de inmediato
-            const numContainer = document.getElementById('flex-card-number');
-            if (numContainer) {
-                numContainer.addEventListener('click', () => {
-                    if (flexCardNumber && typeof flexCardNumber.focus === 'function') {
-                        flexCardNumber.focus();
-                    }
-                });
-            }
-
-            const cvvContainer = document.getElementById('flex-card-cvv');
-            if (cvvContainer) {
-                cvvContainer.addEventListener('click', () => {
-                    if (flexCardCvv && typeof flexCardCvv.focus === 'function') {
-                        flexCardCvv.focus();
-                    }
-                });
-            }
-
-            isFlexInitialized = true;
-            console.log('✅ CyberSource Flex Microform v2 montado directamente en el modal');
+            isCyberSourceInitialized = true;
+            console.log('✅ Pasarela de CyberSource / Banco General montada directamente en el modal');
         } catch (err) {
-            console.error('Error inicializando Flex Microform:', err);
-            showCheckoutAlert(`Error de pasarela: ${err.message || 'No se pudo conectar'}. Por favor, recarga la página.`, 'error');
+            console.error('Error inicializando pasarela CyberSource:', err);
+            showCheckoutAlert(`Error de conexión: ${err.message || 'No se pudo conectar'}. Por favor, recarga la página.`, 'error');
+            if (cardFrame) {
+                cardFrame.innerHTML = `
+                    <div class="flex flex-col items-center justify-center h-28 text-red-500 text-xs gap-1.5 p-3 text-center">
+                        <i data-lucide="alert-circle" class="w-5 h-5"></i>
+                        <span>No se pudo cargar la pasarela de Banco General. Recarga la página.</span>
+                    </div>
+                `;
+                if (window.lucide) window.lucide.createIcons();
+            }
         }
     }
 
