@@ -1071,7 +1071,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Cargar SDK de Flex Microform dinámicamente desde el origen del JWT
     async function loadFlexMicroformSdk(captureContextJWT) {
-        if (window.FLEX) return true;
+        if (window.Flex || window.FLEX) return true;
 
         let sdkOrigin = 'https://testflex.cybersource.com';
         try {
@@ -1093,17 +1093,17 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('🔄 Cargando SDK de Flex Microform desde:', sdkUrl);
 
         return new Promise((resolve, reject) => {
-            if (window.FLEX) return resolve(true);
+            if (window.Flex || window.FLEX) return resolve(true);
 
             const script = document.createElement('script');
             script.src = sdkUrl;
             script.crossOrigin = 'anonymous';
             script.onload = () => {
-                if (window.FLEX) {
+                if (window.Flex || window.FLEX) {
                     console.log('✅ SDK de Flex Microform cargado con éxito');
                     resolve(true);
                 } else {
-                    reject(new Error('El script de Flex se cargó pero window.FLEX no está disponible.'));
+                    reject(new Error('El script de Flex se cargó pero window.Flex no está disponible.'));
                 }
             };
             script.onerror = () => reject(new Error('Error de red al descargar el SDK de Flex Microform.'));
@@ -1136,12 +1136,10 @@ document.addEventListener('DOMContentLoaded', () => {
             // Cargar SDK dinámico con el origen de Sandbox/Producción
             await loadFlexMicroformSdk(captureContext);
 
-            if (!window.FLEX) {
+            const FlexConstructor = window.Flex || window.FLEX;
+            if (!FlexConstructor) {
                 throw new Error('El SDK Flex Microform de CyberSource no se ha inicializado.');
             }
-
-            // Inicializar microform
-            flexMicroformInstance = window.FLEX.microform({ keyId: captureContext });
 
             // Estilos tipográficos coincidentes con Tailwind Inter
             const customStyles = {
@@ -1159,14 +1157,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             };
 
-            // Crear campos de Número y CVV
-            flexCardNumber = flexMicroformInstance.createField('number', {
-                placeholder: '0000 0000 0000 0000',
+            // 1. Instanciar Flex con el JWT
+            const flex = new FlexConstructor(captureContext);
+
+            // 2. Crear microform con los estilos corporativos
+            flexMicroformInstance = flex.microform({
                 styles: customStyles
             });
+
+            // 3. Crear campos de Número y CVV
+            flexCardNumber = flexMicroformInstance.createField('number', {
+                placeholder: '0000 0000 0000 0000'
+            });
             flexCardCvv = flexMicroformInstance.createField('securityCode', {
-                placeholder: '123',
-                styles: customStyles
+                placeholder: '123'
             });
 
             // Cargar en los contenedores del modal con callbacks de verificación
