@@ -1138,9 +1138,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const client = await window.VAS.UnifiedCheckout(captureContext);
             unifiedCheckoutInstance = await client.createCheckout();
 
-            // Montar pasarela de pago en el contenedor
-            console.log('🔄 Montando pasarela de pago en el contenedor...');
-            const tokenResult = await unifiedCheckoutInstance.mount('#payment-interface', { displayMode: 'orchestration' });
+            // Montar pasarela de pago directamente embebida en el contenedor (sin panel lateral)
+            console.log('🔄 Montando pasarela de pago embebida en el contenedor...');
+            const tokenResult = await unifiedCheckoutInstance.mount('#payment-interface', { displayMode: 'embedded' });
             
             // Si el token es devuelto con éxito, validar datos y procesar el pago en nuestro servidor
             if (tokenResult) {
