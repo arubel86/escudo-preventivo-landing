@@ -1176,6 +1176,7 @@ document.addEventListener('DOMContentLoaded', () => {
             flexCardCvv.load('#flex-card-cvv', (err) => {
                 if (err) {
                     console.error('Error al montar campo CVV:', err);
+                    showCheckoutAlert(`Error en campo CVV: ${err.message || err}`, 'error');
                 } else {
                     console.log('✅ Campo CVV listo e interactivo');
                 }
@@ -1275,8 +1276,10 @@ document.addEventListener('DOMContentLoaded', () => {
         checkoutModal.classList.add('flex');
         document.body.style.overflow = 'hidden';
 
-        // Inicializar pasarela Flex Microform inmediatamente
-        initCyberSourceFlexMicroform();
+        // Dar un breve tick para que el modal esté visible en pantalla antes de calcular el layout del iframe
+        setTimeout(() => {
+            initCyberSourceFlexMicroform();
+        }, 80);
     }
 
     function closeCheckoutModal() {
@@ -1285,6 +1288,7 @@ document.addEventListener('DOMContentLoaded', () => {
         checkoutModal.classList.remove('flex');
         document.body.style.overflow = '';
         hideCheckoutAlert();
+        isFlexInitialized = false;
     }
 
     // Trigger botones de apertura de modal
