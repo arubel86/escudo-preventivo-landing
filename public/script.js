@@ -1069,105 +1069,70 @@ document.addEventListener('DOMContentLoaded', () => {
         if (checkoutAlert) checkoutAlert.classList.add('hidden');
     }
 
-    // Cargar SDK de Unified Checkout dinámicamente decodificando el JWT
-    async function loadUnifiedCheckoutSdk(captureContextJWT) {
-        if (window.VAS) return true;
-        return new Promise((resolve, reject) => {
-            try {
-                const parts = captureContextJWT.split('.');
-                if (parts.length < 2) {
-                    return reject(new Error('Formato JWT inválido para el Capture Context.'));
-                }
-                // Decodificar payload (segundo componente del JWT) con soporte para Base64URL
-                const base64Url = parts[1].replace(/-/g, '+').replace(/_/g, '/');
-                const pad = base64Url.length % 4;
-                const base64 = pad ? base64Url + '='.repeat(4 - pad) : base64Url;
-                const payload = JSON.parse(atob(base64));
-                const ctxData = payload.ctx?.[0]?.data;
-                if (!ctxData || !ctxData.clientLibrary) {
-                    return reject(new Error('No se encontró la URL del SDK clientLibrary en el JWT.'));
-                }
-
-                console.log('🔄 Cargando SDK de Unified Checkout desde:', ctxData.clientLibrary);
-                const script = document.createElement('script');
-                script.src = ctxData.clientLibrary;
-                if (ctxData.clientLibraryIntegrity) {
-                    script.integrity = ctxData.clientLibraryIntegrity;
-                }
-                script.crossOrigin = 'anonymous';
-                script.onload = () => {
-                    if (window.VAS) {
-                        console.log('✅ SDK de Unified Checkout (window.VAS) cargado con éxito');
-                        resolve(true);
-                    } else {
-                        reject(new Error('El SDK se cargó pero window.VAS no está definido.'));
-                    }
-                };
-                script.onerror = () => reject(new Error('Error de red al cargar el SDK de Unified Checkout.'));
-                document.head.appendChild(script);
-            } catch (e) {
-                reject(e);
-            }
-        });
-    }
-
-    // Inicializar Unified Checkout con Capture Context desde nuestro backend
-    async function initCyberSourceUnifiedCheckout() {
-        if (isCheckoutInitialized || isInitializingCheckout) return;
-        isInitializingCheckout = true;
+    // Inicializar CyberSource Flex Microform v2 (Campos 100% integrados en el modal)
+    async function initCyberSourceFlexMicroform() {
+        if (isFlexInitialized) return;
         hideCheckoutAlert();
 
         try {
-            if (cardPlaceholder) cardPlaceholder.textContent = 'Conectando de forma segura con Banco General...';
-
             const resp = await fetch('/api/capture-context');
             if (!resp.ok) {
                 const errData = await resp.json().catch(() => ({}));
-                throw new Error(errData.error || 'Error al obtener la sesión del Capture Context.');
+                throw new Error(errData.error || 'Error al obtener la sesión de Flex.');
             }
 
             const data = await resp.json();
             const captureContext = data.captureContext;
-            checkoutRefCode = data.clientReferenceCode; // Guardar referencia de orden
-            
-            // Cargar SDK dinámico
-            await loadUnifiedCheckoutSdk(captureContext);
+            checkoutRefCode = data.clientReferenceCode;
 
-            // Inicializar VAS client en modo embedded
-            console.log('🔄 Inicializando VAS.UnifiedCheckout en modo embedded...');
-            const client = await window.VAS.UnifiedCheckout(captureContext);
-            unifiedCheckoutInstance = await client.createCheckout({ displayMode: 'embedded' });
-
-            // Montar pasarela de pago directamente embebida en el contenedor (sin panel lateral)
-            console.log('🔄 Montando pasarela de pago embebida en el contenedor...');
-            const tokenResult = await unifiedCheckoutInstance.mount('#payment-interface', { displayMode: 'embedded' });
-            
-            // Si el token es devuelto con éxito, validar datos y procesar el pago en nuestro servidor
-            if (tokenResult) {
-                const firstName = document.getElementById('cs-first-name')?.value?.trim() || '';
-                const lastName = document.getElementById('cs-last-name')?.value?.trim() || '';
-                const email = document.getElementById('cs-email')?.value?.trim() || '';
-                const phone = document.getElementById('cs-phone')?.value?.trim() || '';
-
-                if (!firstName || !lastName || !email || !phone) {
-                    showCheckoutAlert('Por favor completa los campos de contacto arriba para continuar.');
-                    return;
-                }
-                await procesarCargoServidor(tokenResult);
+            // Esperar a que window.FLEX esté listo
+            if (!window.FLEX) {
+                throw new Error('El SDK Flex Microform de CyberSource no se ha cargado.');
             }
+
+            // Inicializar microform
+            flexMicroformInstance = window.FLEX.microform({ keyId: captureContext });
+
+            // Estilos tipográficos coincidentes con Tailwind Inter
+            const customStyles = {
+                'input': {
+                    'font-family': 'Inter, system-ui, sans-serif',
+                    'font-size': '14px',
+                    'color': '#0f172a',
+                    'line-height': '24px'
+                },
+                '::placeholder': {
+                    'color': '#94a3b8'
+                },
+                ':focus': {
+                    'color': '#0f172a'
+                }
+            };
+
+            // Crear campos de Número y CVV
+            flexCardNumber = flexMicroformInstance.createField('number', {
+                placeholder: '0000 0000 0000 0000',
+                styles: customStyles
+            });
+            flexCardCvv = flexMicroformInstance.createField('securityCode', {
+                placeholder: '123',
+                styles: customStyles
+            });
+
+            // Cargar en los contenedores del modal
+            flexCardNumber.load('#flex-card-number');
+            flexCardCvv.load('#flex-card-cvv');
+
+            isFlexInitialized = true;
+            console.log('✅ CyberSource Flex Microform v2 montado directamente en el modal');
         } catch (err) {
-            console.error('Error inicializando CyberSource Unified Checkout:', err);
-            showCheckoutAlert('No se pudo conectar con la pasarela de Banco General. Por favor, vuelve a intentarlo o contáctanos por WhatsApp.', 'error');
-        } finally {
-            isInitializingCheckout = false;
+            console.error('Error inicializando Flex Microform:', err);
+            showCheckoutAlert('No se pudo conectar con la pasarela de Banco General. Por favor, recarga la página o contáctanos por WhatsApp.', 'error');
         }
     }
 
-    // Procesar el cargo en el backend usando el token obtenido del SDK
+    // Procesar el cargo en el backend usando el token obtenido de Flex
     async function procesarCargoServidor(transientToken) {
-        if (cardPlaceholder) {
-            cardPlaceholder.textContent = 'Autorizando transacción con Banco General... No cierres esta ventana.';
-        }
         showCheckoutAlert('Procesando pago seguro, por favor espera...', 'success');
 
         const firstName = document.getElementById('cs-first-name')?.value?.trim() || '';
@@ -1207,40 +1172,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Restablece el modal al estado inicial si hay un error o pago declinado
-    function resetModalToPersonalData() {
-        if (personalDataBtnContainer) personalDataBtnContainer.classList.remove('hidden');
-        if (paymentContainer) paymentContainer.classList.add('hidden');
-
-        // Rehabilitar campos de entrada
-        toggleInputs(false);
-
-        // Destruir instancia previa de checkout para evitar colisiones
-        if (unifiedCheckoutInstance) {
-            try {
-                unifiedCheckoutInstance.destroy();
-            } catch (e) {
-                console.warn('Error al destruir instancia de checkout:', e);
-            }
-            unifiedCheckoutInstance = null;
-        }
-        isCheckoutInitialized = false;
-
-        // Limpiar interfaz
-        const paymentInterface = document.getElementById('payment-interface');
-        if (paymentInterface) {
-            paymentInterface.innerHTML = '<div id="card-placeholder" class="text-xs text-slate-400 text-center py-8">Conectando con la pasarela de Banco General...</div>';
-        }
-    }
-
-    // Habilitar o deshabilitar inputs personales
-    function toggleInputs(disabled) {
-        ['cs-first-name', 'cs-last-name', 'cs-email', 'cs-phone'].forEach(id => {
-            const el = document.getElementById(id);
-            if (el) el.disabled = disabled;
-        });
-    }
-
     // Abrir Modal de Checkout (Carga directa en 1 solo paso)
     function openCheckoutModal() {
         if (!checkoutModal) return;
@@ -1267,8 +1198,8 @@ document.addEventListener('DOMContentLoaded', () => {
         checkoutModal.classList.add('flex');
         document.body.style.overflow = 'hidden';
 
-        // Inicializar pasarela de CyberSource inmediatamente en segundo plano
-        initCyberSourceUnifiedCheckout();
+        // Inicializar pasarela Flex Microform inmediatamente
+        initCyberSourceFlexMicroform();
     }
 
     function closeCheckoutModal() {
@@ -1277,18 +1208,9 @@ document.addEventListener('DOMContentLoaded', () => {
         checkoutModal.classList.remove('flex');
         document.body.style.overflow = '';
         hideCheckoutAlert();
-
-        // Destruir instancia activa de checkout al cerrar
-        if (unifiedCheckoutInstance) {
-            try {
-                unifiedCheckoutInstance.destroy();
-            } catch (e) {}
-            unifiedCheckoutInstance = null;
-        }
-        isCheckoutInitialized = false;
     }
 
-    // Trigger botones de pago
+    // Trigger botones de apertura de modal
     const payBtn = document.getElementById('pay-btn');
     if (payBtn) {
         payBtn.addEventListener('click', (e) => {
@@ -1307,9 +1229,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Escuchar botón "Continuar al Pago" para validar datos de contacto y cargar la pasarela
-    if (continueToPaymentBtn) {
-        continueToPaymentBtn.addEventListener('click', async () => {
+    // Escuchar botón final de Pago (Pagar $79.00 USD)
+    const submitPaymentBtn = document.getElementById('submit-payment-btn');
+    if (submitPaymentBtn) {
+        submitPaymentBtn.addEventListener('click', async () => {
             hideCheckoutAlert();
 
             const firstName = document.getElementById('cs-first-name')?.value?.trim() || '';
