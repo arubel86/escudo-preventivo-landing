@@ -1111,6 +1111,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Variables de estado para CyberSource Flex Microform v2
+    let flexMicroformInstance = null;
+    let flexCardNumber = null;
+    let flexCardCvv = null;
+    let isFlexInitialized = false;
+
     // Inicializar CyberSource Flex Microform v2 (Campos 100% integrados en el modal)
     async function initCyberSourceFlexMicroform() {
         if (isFlexInitialized) return;
