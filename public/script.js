@@ -1163,9 +1163,42 @@ document.addEventListener('DOMContentLoaded', () => {
                 styles: customStyles
             });
 
-            // Cargar en los contenedores del modal
-            flexCardNumber.load('#flex-card-number');
-            flexCardCvv.load('#flex-card-cvv');
+            // Cargar en los contenedores del modal con callbacks de verificación
+            flexCardNumber.load('#flex-card-number', (err) => {
+                if (err) {
+                    console.error('Error al montar campo de tarjeta:', err);
+                    showCheckoutAlert(`Error en campo de tarjeta: ${err.message || err}`, 'error');
+                } else {
+                    console.log('✅ Campo de Número de Tarjeta listo e interactivo');
+                }
+            });
+
+            flexCardCvv.load('#flex-card-cvv', (err) => {
+                if (err) {
+                    console.error('Error al montar campo CVV:', err);
+                } else {
+                    console.log('✅ Campo CVV listo e interactivo');
+                }
+            });
+
+            // Delegar clics en los contenedores para enfocar los iframes de inmediato
+            const numContainer = document.getElementById('flex-card-number');
+            if (numContainer) {
+                numContainer.addEventListener('click', () => {
+                    if (flexCardNumber && typeof flexCardNumber.focus === 'function') {
+                        flexCardNumber.focus();
+                    }
+                });
+            }
+
+            const cvvContainer = document.getElementById('flex-card-cvv');
+            if (cvvContainer) {
+                cvvContainer.addEventListener('click', () => {
+                    if (flexCardCvv && typeof flexCardCvv.focus === 'function') {
+                        flexCardCvv.focus();
+                    }
+                });
+            }
 
             isFlexInitialized = true;
             console.log('✅ CyberSource Flex Microform v2 montado directamente en el modal');
