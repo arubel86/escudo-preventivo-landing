@@ -23,7 +23,7 @@ const CONFIG = {
         // en la pasarela la redirección automática a gracias.html tras el pago.
         pago: 'https://secure.mposglobal.com/mailpos/#/MPREQ-V0buJaOU-XWICI68IRNME',
         whatsapp: 'https://wa.me/50765461527',
-        paginaVideo: 'escudo-preventivo.html',   // Página B
+        paginaVideo: '/escudo-preventivo',       // Página B limpia sin .html
         paginaRecursos: 'recursos-gratuitos.html', // Página C
         gracias: 'gracias.html'
     },
@@ -1118,20 +1118,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let activeUCTrigger = null;
     let isCyberSourceInitialized = false;
 
-    // Inicializar CyberSource incrustado directamente en el modal
+    // Inicializar pasarela oficial CyberSource / Banco General
     async function initCyberSourceFlexMicroform() {
         if (isCyberSourceInitialized) return;
         hideCheckoutAlert();
-
-        const cardFrame = document.getElementById('cyber-card-frame');
-        if (cardFrame) {
-            cardFrame.innerHTML = `
-                <div class="flex items-center justify-center h-28 text-slate-400 text-xs gap-2">
-                    <span class="animate-spin inline-block w-4 h-4 border-2 border-brand-blue border-t-transparent rounded-full"></span>
-                    <span>Conectando con Banco General...</span>
-                </div>
-            `;
-        }
 
         try {
             const resp = await fetch('/api/capture-context');
@@ -1151,57 +1141,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error('El SDK oficial de CyberSource no está disponible.');
             }
 
-            // Inicializar pasarela con sidebar desactivado para montaje 100% incrustado
-            const uc = await window.VAS.UnifiedCheckout(captureContext, { sidebar: false });
+            // Inicializar pasarela oficial
+            const uc = await window.VAS.UnifiedCheckout(captureContext);
 
-            // Escuchar eventos globales válidos (error, *)
+            // Escuchar eventos globales de error
             uc.on('error', (err) => {
                 console.error('Error reportado por pasarela:', err);
                 showCheckoutAlert(`Error en pasarela: ${err.message || 'Verifica los datos de tu tarjeta'}`, 'error');
             });
 
-            // Limpiar contenedor de carga
-            if (cardFrame) cardFrame.innerHTML = '';
-
-            // Montar campos de tarjeta directamente en el contenedor del modal
+            // Enlazar la pasarela oficial directamente al botón de pago
             activeUCTrigger = uc.createTrigger('PANENTRY', {
-                containers: {
-                    paymentScreen: '#cyber-card-frame'
-                }
+                target: '#submit-payment-btn'
             });
 
-            // Validar y ejecutar el montaje del formulario
-            if (activeUCTrigger && typeof activeUCTrigger.show === 'function') {
-                activeUCTrigger.show()
-                    .then((tokenData) => {
-                        console.log('✅ Token transaccional recibido de CyberSource:', tokenData);
-                        const token = typeof tokenData === 'string' ? tokenData : (tokenData.transientToken || tokenData.token || JSON.stringify(tokenData));
-                        procesarCargoServidor(token);
-                    })
-                    .catch((err) => {
-                        if (err && err.reason !== 'ALREADY_SHOWN') {
-                            console.error('Error durante la captura de tarjeta:', err);
-                            showCheckoutAlert(`Error en tarjeta: ${err.message || 'Por favor verifica tus datos'}`, 'error');
-                        }
-                    });
-            } else {
-                console.log('✅ Trigger PANENTRY creado y enlazado a #cyber-card-frame');
-            }
-
             isCyberSourceInitialized = true;
-            console.log('✅ Pasarela de CyberSource / Banco General montada directamente en el modal');
+            console.log('✅ Pasarela CyberSource enlazada exitosamente a #submit-payment-btn');
         } catch (err) {
             console.error('Error inicializando pasarela CyberSource:', err);
             showCheckoutAlert(`Error de conexión: ${err.message || 'No se pudo conectar'}. Por favor, recarga la página.`, 'error');
-            if (cardFrame) {
-                cardFrame.innerHTML = `
-                    <div class="flex flex-col items-center justify-center h-28 text-red-500 text-xs gap-1.5 p-3 text-center">
-                        <i data-lucide="alert-circle" class="w-5 h-5"></i>
-                        <span>No se pudo cargar la pasarela de Banco General. Recarga la página.</span>
-                    </div>
-                `;
-                if (window.lucide) window.lucide.createIcons();
-            }
         }
     }
 

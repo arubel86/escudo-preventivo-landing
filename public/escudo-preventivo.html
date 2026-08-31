@@ -724,26 +724,24 @@
                         </div>
                     </div>
 
-                    <!-- Contenedor Seguro CyberSource / Banco General (100% integrado en el modal) -->
-                    <div id="payment-container" class="pt-2.5 border-t border-slate-100 space-y-2.5">
-                        <div class="flex items-center justify-between mb-0.5">
+                    <!-- Botón de Pago con Pasarela Oficial de Banco General / CyberSource -->
+                    <div id="payment-container" class="pt-3 border-t border-slate-100 space-y-2.5">
+                        <div class="flex items-center justify-between">
                             <span class="text-[11px] font-bold text-slate-700 uppercase tracking-wider flex items-center gap-1.5">
-                                <i data-lucide="credit-card" class="w-3.5 h-3.5 text-brand-blue"></i>
-                                Datos de la Tarjeta
+                                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-green-500"></i>
+                                Pasarela Bancaria Segura
                             </span>
-                            <div class="flex items-center gap-1.5 opacity-75">
-                                <span class="text-[9px] font-bold px-1.5 py-0.5 bg-slate-100 text-slate-600 rounded">VISA</span>
-                                <span class="text-[9px] font-bold px-1.5 py-0.5 bg-slate-100 text-slate-600 rounded">MASTERCARD</span>
+                            <div class="flex items-center gap-1.5 opacity-90">
+                                <span class="text-[10px] font-bold px-2 py-0.5 bg-blue-50 text-brand-blue border border-blue-100 rounded-md">VISA</span>
+                                <span class="text-[10px] font-bold px-2 py-0.5 bg-orange-50 text-brand-orange border border-orange-100 rounded-md">MASTERCARD</span>
                             </div>
                         </div>
 
-                        <!-- Tarjeta y CVV oficial de CyberSource incrustado -->
-                        <div id="cyber-card-frame" class="w-full min-h-[170px] bg-slate-50/50 border border-slate-200/80 rounded-2xl overflow-hidden p-1">
-                            <div class="flex items-center justify-center h-28 text-slate-400 text-xs gap-2">
-                                <span class="animate-spin inline-block w-4 h-4 border-2 border-brand-blue border-t-transparent rounded-full"></span>
-                                <span>Cargando pasarela segura...</span>
-                            </div>
-                        </div>
+                        <button type="button" id="submit-payment-btn"
+                            class="w-full py-3.5 px-6 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white font-extrabold text-sm sm:text-base rounded-2xl transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 cursor-pointer">
+                            <i data-lucide="lock" class="w-4 h-4"></i>
+                            <span>Pagar $79.00 USD con Tarjeta</span>
+                        </button>
                     </div>
 
                     <!-- Badge de Seguridad -->
@@ -778,7 +776,7 @@
         }
     </style>
 
-    <script src="script.js?v=2.1.0" defer></script>
+    <script src="script.js?v=2.2.0" defer></script>
 </body>
 
 </html>

@@ -247,8 +247,17 @@ app.post('/api/process-payment', async (req, res) => {
 });
 
 // ============================================================
-// ARCHIVOS ESTÁTICOS (Landing Page)
+// RUTAS LIMPIAS (Sin extensión .html)
 // ============================================================
+app.get('/escudo-preventivo', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'escudo-preventivo.html'));
+});
+
+app.get('/escudo-preventivo.html', (req, res) => {
+  res.redirect(301, '/escudo-preventivo');
+});
+
+// ARCHIVOS ESTÁTICOS (Landing Page)
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Fallback: cualquier ruta no-API sirve index.html
