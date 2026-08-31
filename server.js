@@ -254,7 +254,8 @@ app.get('/escudo-preventivo', (req, res) => {
 });
 
 app.get('/escudo-preventivo.html', (req, res) => {
-  res.redirect(301, '/escudo-preventivo');
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/escudo-preventivo' + query);
 });
 
 // ARCHIVOS ESTÁTICOS (Landing Page)
