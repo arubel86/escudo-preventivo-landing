@@ -1164,7 +1164,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (cardFrame) cardFrame.innerHTML = '';
 
             // Montar campos de tarjeta directamente en el contenedor del modal
-            activeUCTrigger = uc.createTrigger('panentry', {
+            activeUCTrigger = uc.createTrigger('PANENTRY', {
                 containers: {
                     paymentScreen: '#cyber-card-frame'
                 }
