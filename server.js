@@ -81,20 +81,14 @@ app.get('/api/capture-context', async (req, res) => {
   try {
     const clientRefCode = 'EP-' + Date.now();
     
-    // Obtener origen dinámico de la petición para soportar dominios de Coolify y producción
-    const rawList = [...TARGET_ORIGINS];
-    if (req.headers.origin) rawList.push(req.headers.origin);
-    if (req.headers.host) rawList.push(req.headers.host);
-
-    const originsSet = new Set();
-    for (const item of rawList) {
-      const formatted = formatHttpsOrigin(item);
-      if (formatted) originsSet.add(formatted);
-    }
-    const finalOrigins = Array.from(originsSet);
+    // CyberSource exige que TODOS los targetOrigins sean utilizados por el navegador.
+    // Solo enviamos el origen exacto desde el cual el usuario está navegando.
+    const requestOrigin = req.headers.origin
+      ? formatHttpsOrigin(req.headers.origin)
+      : (req.headers.host ? formatHttpsOrigin(req.headers.host) : formatHttpsOrigin(TARGET_ORIGINS[0]));
 
     const payload = {
-      targetOrigins: finalOrigins,
+      targetOrigins: [requestOrigin],
       allowedPaymentTypes: ['PANENTRY'],
       allowedCardNetworks: ['VISA', 'MASTERCARD'],
       country: 'PA',
