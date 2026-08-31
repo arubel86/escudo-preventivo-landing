@@ -1140,10 +1140,10 @@ document.addEventListener('DOMContentLoaded', () => {
             // Estilos tipográficos coincidentes con Tailwind Inter
             const customStyles = {
                 'input': {
-                    'font-family': 'Inter, system-ui, sans-serif',
+                    'font-family': '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
                     'font-size': '14px',
                     'color': '#0f172a',
-                    'line-height': '24px'
+                    'padding': '12px 14px'
                 },
                 '::placeholder': {
                     'color': '#94a3b8'
