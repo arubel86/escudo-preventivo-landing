@@ -94,7 +94,11 @@ app.get('/api/capture-context', async (req, res) => {
       country: 'PA',
       locale: 'es_PA',
       captureMandate: {
-        billingType: 'FULL'
+        billingType: 'NONE',
+        requestEmail: false,
+        requestPhone: false,
+        requestShipping: false,
+        showAcceptedNetworkIcons: true
       },
       completeMandate: {
         type: 'CAPTURE',

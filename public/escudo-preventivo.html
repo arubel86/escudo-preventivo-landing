@@ -715,29 +715,23 @@
                         </div>
                     </div>
 
-                    <!-- Continuar al Pago (Validador de datos personales) -->
-                    <div id="personal-data-btn-container" class="pt-3">
-                        <button type="button" id="continue-to-payment-btn"
-                            class="w-full py-4 px-6 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white font-extrabold text-base rounded-2xl transition-all shadow-xl hover:shadow-2xl flex items-center justify-center gap-2.5 cursor-pointer">
-                            <span>Continuar al Pago</span>
-                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                        </button>
-                    </div>
-
-                    <!-- Contenedor Unificado de CyberSource Unified Checkout -->
-                    <div id="payment-container" class="hidden pt-2 border-t border-slate-100 space-y-3">
-                        <div class="flex items-center justify-between mb-2">
+                    <!-- Contenedor Unificado de CyberSource Unified Checkout (Directo y sin pasos extras) -->
+                    <div id="payment-container" class="pt-3 border-t border-slate-100 space-y-3">
+                        <div class="flex items-center justify-between mb-1">
                             <span class="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-1.5">
                                 <i data-lucide="credit-card" class="w-3.5 h-3.5 text-brand-blue"></i>
-                                Pago Seguro
+                                Datos de la Tarjeta
                             </span>
                             <div class="flex items-center gap-1.5 opacity-75">
                                 <span class="text-[10px] font-bold px-1.5 py-0.5 bg-slate-100 text-slate-600 rounded">VISA</span>
                                 <span class="text-[10px] font-bold px-1.5 py-0.5 bg-slate-100 text-slate-600 rounded">MASTERCARD</span>
                             </div>
                         </div>
-                        <div id="payment-interface" class="w-full min-h-[150px]">
-                            <div id="card-placeholder" class="text-xs text-slate-400 text-center py-8">Conectando con la pasarela de Banco General...</div>
+                        <div id="payment-interface" class="w-full min-h-[80px]">
+                            <div id="card-placeholder" class="text-xs text-slate-400 text-center py-6 flex items-center justify-center gap-2">
+                                <svg class="animate-spin h-4 w-4 text-brand-blue" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                                <span>Cargando pasarela segura de Banco General...</span>
+                            </div>
                         </div>
                     </div>
 

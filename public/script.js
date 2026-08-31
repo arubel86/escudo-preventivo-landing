@@ -1138,18 +1138,26 @@ document.addEventListener('DOMContentLoaded', () => {
             const client = await window.VAS.UnifiedCheckout(captureContext);
             unifiedCheckoutInstance = await client.createCheckout();
 
-            // Montar en modo Orchestration
+            // Montar pasarela de pago en el contenedor
             console.log('🔄 Montando pasarela de pago en el contenedor...');
             const tokenResult = await unifiedCheckoutInstance.mount('#payment-interface', { displayMode: 'orchestration' });
             
-            // Si el token es devuelto con éxito, procesar el pago en nuestro servidor
+            // Si el token es devuelto con éxito, validar datos y procesar el pago en nuestro servidor
             if (tokenResult) {
+                const firstName = document.getElementById('cs-first-name')?.value?.trim() || '';
+                const lastName = document.getElementById('cs-last-name')?.value?.trim() || '';
+                const email = document.getElementById('cs-email')?.value?.trim() || '';
+                const phone = document.getElementById('cs-phone')?.value?.trim() || '';
+
+                if (!firstName || !lastName || !email || !phone) {
+                    showCheckoutAlert('Por favor completa los campos de contacto arriba para continuar.');
+                    return;
+                }
                 await procesarCargoServidor(tokenResult);
             }
         } catch (err) {
             console.error('Error inicializando CyberSource Unified Checkout:', err);
             showCheckoutAlert('No se pudo conectar con la pasarela de Banco General. Por favor, vuelve a intentarlo o contáctanos por WhatsApp.', 'error');
-            resetModalToPersonalData();
         } finally {
             isInitializingCheckout = false;
         }
@@ -1168,44 +1176,34 @@ document.addEventListener('DOMContentLoaded', () => {
         const phone = document.getElementById('cs-phone')?.value?.trim() || '';
 
         try {
-            const response = await fetch('/api/process-payment', {
+            const resp = await fetch('/api/process-payment', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    transientToken: transientToken,
-                    clientReferenceCode: checkoutRefCode,
+                    transientToken,
+                    clientReferenceCode: checkoutRefCode || ('EP-' + Date.now()),
                     firstName,
                     lastName,
                     email,
-                    phone,
-                    address: 'Panamá'
+                    phone
                 })
             });
 
-            const result = await response.json();
+            const data = await resp.json();
 
-            if (result.status === 'success') {
-                // ✅ Pago Aprobado
-                showCheckoutAlert('¡Pago Aprobado! Redirigiendo a tu agenda...', 'success');
-                saveState({ pagado: true, nombre: `${firstName} ${lastName}`, email: email });
-                
+            if (data.status === 'success') {
+                showCheckoutAlert('¡Pago exitoso! Redirigiendo a tu confirmación...', 'success');
                 setTimeout(() => {
-                    window.location.href = 'gracias.html';
-                }, 1200);
-            } else if (result.status === 'decline') {
-                // ❌ Pago Declinado
-                const msg = result.message || 'Transacción declinada por Banco General. Por favor intenta con otra tarjeta.';
-                showCheckoutAlert(`⚠️ Pago Declinado: ${msg}`, 'error');
-                resetModalToPersonalData();
+                    window.location.href = `gracias.html?ref=${data.cybersource?.ref || ''}&rid=${data.cybersource?.id || ''}&email=${encodeURIComponent(email)}&nombre=${encodeURIComponent(firstName + ' ' + lastName)}`;
+                }, 1500);
+            } else if (data.status === 'decline') {
+                showCheckoutAlert(`Tarjeta declinada: ${data.message}. Por favor intenta con otra tarjeta.`, 'error');
             } else {
-                // ⚠️ Error en proceso
-                showCheckoutAlert(result.message || 'Ocurrió un error al procesar el pago. Intenta nuevamente.', 'error');
-                resetModalToPersonalData();
+                showCheckoutAlert(`Error en el pago: ${data.message || 'Error desconocido'}.`, 'error');
             }
-        } catch (apiErr) {
-            console.error('Error enviando pago al servidor:', apiErr);
-            showCheckoutAlert('Error de conexión con el servidor. Revisa tu conexión a internet o contáctanos por WhatsApp.', 'error');
-            resetModalToPersonalData();
+        } catch (err) {
+            console.error('Error procesando el pago en el servidor:', err);
+            showCheckoutAlert('Error de red al procesar el pago. Por favor contáctanos por WhatsApp.', 'error');
         }
     }
 
@@ -1243,7 +1241,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Abrir Modal de Checkout
+    // Abrir Modal de Checkout (Carga directa en 1 solo paso)
     function openCheckoutModal() {
         if (!checkoutModal) return;
 
@@ -1265,14 +1263,12 @@ document.addEventListener('DOMContentLoaded', () => {
             emailInput.value = st.email;
         }
 
-        // Asegurarse de empezar en el paso 1 (Datos personales)
-        if (personalDataBtnContainer) personalDataBtnContainer.classList.remove('hidden');
-        if (paymentContainer) paymentContainer.classList.add('hidden');
-        toggleInputs(false);
-
         checkoutModal.classList.remove('hidden');
         checkoutModal.classList.add('flex');
         document.body.style.overflow = 'hidden';
+
+        // Inicializar pasarela de CyberSource inmediatamente en segundo plano
+        initCyberSourceUnifiedCheckout();
     }
 
     function closeCheckoutModal() {
