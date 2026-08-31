@@ -1069,6 +1069,48 @@ document.addEventListener('DOMContentLoaded', () => {
         if (checkoutAlert) checkoutAlert.classList.add('hidden');
     }
 
+    // Cargar SDK de Flex Microform dinámicamente desde el origen del JWT
+    async function loadFlexMicroformSdk(captureContextJWT) {
+        if (window.FLEX) return true;
+
+        let sdkOrigin = 'https://testflex.cybersource.com';
+        try {
+            const parts = captureContextJWT.split('.');
+            if (parts.length >= 2) {
+                const base64Url = parts[1].replace(/-/g, '+').replace(/_/g, '/');
+                const pad = base64Url.length % 4;
+                const base64 = pad ? base64Url + '='.repeat(4 - pad) : base64Url;
+                const payload = JSON.parse(atob(base64));
+                if (payload.flx?.origin) {
+                    sdkOrigin = payload.flx.origin;
+                }
+            }
+        } catch (e) {
+            console.warn('No se pudo extraer el origen del JWT:', e);
+        }
+
+        const sdkUrl = `${sdkOrigin}/cybersource/assets/microform/data/v1/flex-microform.min.js`;
+        console.log('🔄 Cargando SDK de Flex Microform desde:', sdkUrl);
+
+        return new Promise((resolve, reject) => {
+            if (window.FLEX) return resolve(true);
+
+            const script = document.createElement('script');
+            script.src = sdkUrl;
+            script.crossOrigin = 'anonymous';
+            script.onload = () => {
+                if (window.FLEX) {
+                    console.log('✅ SDK de Flex Microform cargado con éxito');
+                    resolve(true);
+                } else {
+                    reject(new Error('El script de Flex se cargó pero window.FLEX no está disponible.'));
+                }
+            };
+            script.onerror = () => reject(new Error('Error de red al descargar el SDK de Flex Microform.'));
+            document.head.appendChild(script);
+        });
+    }
+
     // Inicializar CyberSource Flex Microform v2 (Campos 100% integrados en el modal)
     async function initCyberSourceFlexMicroform() {
         if (isFlexInitialized) return;
@@ -1085,9 +1127,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const captureContext = data.captureContext;
             checkoutRefCode = data.clientReferenceCode;
 
-            // Esperar a que window.FLEX esté listo
+            // Cargar SDK dinámico con el origen de Sandbox/Producción
+            await loadFlexMicroformSdk(captureContext);
+
             if (!window.FLEX) {
-                throw new Error('El SDK Flex Microform de CyberSource no se ha cargado.');
+                throw new Error('El SDK Flex Microform de CyberSource no se ha inicializado.');
             }
 
             // Inicializar microform
@@ -1127,7 +1171,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('✅ CyberSource Flex Microform v2 montado directamente en el modal');
         } catch (err) {
             console.error('Error inicializando Flex Microform:', err);
-            showCheckoutAlert('No se pudo conectar con la pasarela de Banco General. Por favor, recarga la página o contáctanos por WhatsApp.', 'error');
+            showCheckoutAlert(`Error de pasarela: ${err.message || 'No se pudo conectar'}. Por favor, recarga la página.`, 'error');
         }
     }
 
