@@ -1148,7 +1148,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         } catch (err) {
             console.error('Error inicializando CyberSource Unified Checkout:', err);
-            showCheckoutAlert(`ERROR TÉCNICO: ${err.message || err}`, 'error');
+            showCheckoutAlert('No se pudo conectar con la pasarela de Banco General. Por favor, vuelve a intentarlo o contáctanos por WhatsApp.', 'error');
             resetModalToPersonalData();
         } finally {
             isInitializingCheckout = false;
