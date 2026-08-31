@@ -1078,8 +1078,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (parts.length < 2) {
                     return reject(new Error('Formato JWT inválido para el Capture Context.'));
                 }
-                // Decodificar payload (segundo componente del JWT)
-                const payload = JSON.parse(atob(parts[1]));
+                // Decodificar payload (segundo componente del JWT) con soporte para Base64URL
+                const base64Url = parts[1].replace(/-/g, '+').replace(/_/g, '/');
+                const pad = base64Url.length % 4;
+                const base64 = pad ? base64Url + '='.repeat(4 - pad) : base64Url;
+                const payload = JSON.parse(atob(base64));
                 const ctxData = payload.ctx?.[0]?.data;
                 if (!ctxData || !ctxData.clientLibrary) {
                     return reject(new Error('No se encontró la URL del SDK clientLibrary en el JWT.'));
