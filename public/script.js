@@ -1239,28 +1239,71 @@ document.addEventListener('DOMContentLoaded', () => {
             const lastName = document.getElementById('cs-last-name')?.value?.trim() || '';
             const email = document.getElementById('cs-email')?.value?.trim() || '';
             const phone = document.getElementById('cs-phone')?.value?.trim() || '';
+            let expMonth = document.getElementById('cs-exp-month')?.value?.trim() || '';
+            let expYear = document.getElementById('cs-exp-year')?.value?.trim() || '';
 
             if (!firstName || !lastName || !email || !phone) {
-                showCheckoutAlert('Por favor completa todos los campos de contacto requeridos.');
+                showCheckoutAlert('Por favor completa todos tus datos personales de contacto.');
                 return;
             }
 
-            // Validar formato de email
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
                 showCheckoutAlert('Por favor ingresa un correo electrónico válido.');
                 return;
             }
 
-            // Bloquear los inputs de contacto
-            toggleInputs(true);
+            if (!expMonth || !expYear) {
+                showCheckoutAlert('Por favor ingresa el mes (MM) y año (AA) de vencimiento de tu tarjeta.');
+                return;
+            }
 
-            // Ocultar botón de continuar y mostrar pasarela
-            if (personalDataBtnContainer) personalDataBtnContainer.classList.add('hidden');
-            if (paymentContainer) paymentContainer.classList.remove('hidden');
+            // Normalizar mes a 2 dígitos (ej: "8" -> "08")
+            if (expMonth.length === 1) expMonth = '0' + expMonth;
+            const monthNum = parseInt(expMonth, 10);
+            if (isNaN(monthNum) || monthNum < 1 || monthNum > 12) {
+                showCheckoutAlert('El mes de vencimiento debe estar entre 01 y 12.');
+                return;
+            }
 
-            // Iniciar pasarela
-            await initCyberSourceUnifiedCheckout();
+            // Normalizar año a 4 dígitos (ej: "26" -> "2026")
+            if (expYear.length === 2) expYear = '20' + expYear;
+            const yearNum = parseInt(expYear, 10);
+            const currentYear = new Date().getFullYear();
+            if (isNaN(yearNum) || yearNum < currentYear || yearNum > currentYear + 25) {
+                showCheckoutAlert(`El año de vencimiento debe ser válido (ej: ${currentYear % 100} o ${currentYear}).`);
+                return;
+            }
+
+            if (!flexMicroformInstance) {
+                showCheckoutAlert('La pasarela de pago se está conectando. Por favor espera un segundo.');
+                return;
+            }
+
+            submitPaymentBtn.disabled = true;
+            submitPaymentBtn.innerHTML = '<span class="flex items-center gap-2 justify-center"><svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Procesando Pago Seguro...</span>';
+
+            const tokenOptions = {
+                expirationMonth: expMonth,
+                expirationYear: expYear
+            };
+
+            flexMicroformInstance.createToken(tokenOptions, async (err, token) => {
+                if (err) {
+                    console.error('Error tokenizando tarjeta con Flex:', err);
+                    submitPaymentBtn.disabled = false;
+                    submitPaymentBtn.innerHTML = '<i data-lucide="lock" class="w-5 h-5"></i><span>Pagar $79.00 USD</span>';
+                    if (window.lucide) window.lucide.createIcons();
+                    showCheckoutAlert('Datos de tarjeta inválidos o incompletos. Por favor verifica el número y CVV.', 'error');
+                    return;
+                }
+
+                // Token obtenido con éxito -> Enviar a /api/process-payment
+                await procesarCargoServidor(token);
+                submitPaymentBtn.disabled = false;
+                submitPaymentBtn.innerHTML = '<i data-lucide="lock" class="w-5 h-5"></i><span>Pagar $79.00 USD</span>';
+                if (window.lucide) window.lucide.createIcons();
+            });
         });
     }
 
