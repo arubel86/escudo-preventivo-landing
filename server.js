@@ -90,19 +90,12 @@ app.get('/api/capture-context', async (req, res) => {
     const payload = {
       targetOrigins: [requestOrigin],
       allowedCardNetworks: ['VISA', 'MASTERCARD'],
-      country: 'PA',
-      locale: 'es_PA',
-      data: {
-        orderInformation: {
-          amountDetails: {
-            totalAmount: '79.00',
-            currency: 'USD'
-          }
-        }
+      clientReferenceInformation: {
+        code: clientRefCode
       }
     };
 
-    const result = await cybersourceRequest('/uc/v1/sessions', payload, CS_CONFIG);
+    const result = await cybersourceRequest('/microform/v2/sessions', payload, CS_CONFIG);
 
     if (result.httpStatus === 200 || result.httpStatus === 201) {
       const jwtString = result.isRaw ? result.rawBody : (result.keyId ? JSON.stringify(result) : result);
@@ -112,9 +105,9 @@ app.get('/api/capture-context', async (req, res) => {
         clientReferenceCode: clientRefCode
       });
     } else {
-      console.error('CyberSource Capture Context Error:', JSON.stringify(result, null, 2));
+      console.error('CyberSource Microform v2 Session Error:', JSON.stringify(result, null, 2));
       res.status(result.httpStatus || 500).json({
-        error: 'Error generando Capture Context de CyberSource',
+        error: 'Error generando Capture Context de CyberSource Microform',
         details: result.message || result
       });
     }

@@ -1069,11 +1069,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (checkoutAlert) checkoutAlert.classList.add('hidden');
     }
 
-    // Cargar SDK oficial de CyberSource dinámicamente desde el origen del JWT
-    async function loadCyberSourceSdk(captureContextJWT) {
-        if (window.VAS && window.VAS.UnifiedCheckout) return true;
+    // Cargar SDK oficial de Flex Microform dinámicamente desde el origen del JWT
+    async function loadFlexMicroformSdk(captureContextJWT) {
+        if (window.Flex || window.FLEX) return true;
 
-        let sdkUrl = null;
+        let sdkUrl = 'https://testflex.cybersource.com/microform/bundle/v1/flex-microform.min.js';
         try {
             const parts = captureContextJWT.split('.');
             if (parts.length >= 2) {
@@ -1089,38 +1089,36 @@ document.addEventListener('DOMContentLoaded', () => {
             console.warn('No se pudo extraer clientLibrary del JWT:', e);
         }
 
-        if (!sdkUrl) {
-            throw new Error('No se encontró la URL de la librería oficial de CyberSource.');
-        }
-
-        console.log('🔄 Cargando librería oficial de CyberSource desde:', sdkUrl);
+        console.log('🔄 Cargando SDK de Flex Microform desde:', sdkUrl);
 
         return new Promise((resolve, reject) => {
-            if (window.VAS && window.VAS.UnifiedCheckout) return resolve(true);
+            if (window.Flex || window.FLEX) return resolve(true);
 
             const script = document.createElement('script');
             script.src = sdkUrl;
             script.crossOrigin = 'anonymous';
             script.onload = () => {
-                if (window.VAS && window.VAS.UnifiedCheckout) {
-                    console.log('✅ CyberSource SDK cargado con éxito');
+                if (window.Flex || window.FLEX) {
+                    console.log('✅ SDK de Flex Microform cargado con éxito');
                     resolve(true);
                 } else {
-                    reject(new Error('La librería de CyberSource se cargó pero window.VAS no está disponible.'));
+                    reject(new Error('El SDK de Flex se cargó pero window.Flex no está disponible.'));
                 }
             };
-            script.onerror = () => reject(new Error('Error al descargar la librería de CyberSource.'));
+            script.onerror = () => reject(new Error('Error al descargar el SDK de Flex Microform.'));
             document.head.appendChild(script);
         });
     }
 
-    // Variables de estado para CyberSource
-    let activeUCTrigger = null;
-    let isCyberSourceInitialized = false;
+    // Variables de estado para CyberSource Flex Microform
+    let flexMicroformInstance = null;
+    let flexCardNumber = null;
+    let flexCardCvv = null;
+    let isFlexInitialized = false;
 
-    // Inicializar pasarela oficial CyberSource / Banco General
+    // Inicializar pasarela oficial CyberSource Flex Microform
     async function initCyberSourceFlexMicroform() {
-        if (isCyberSourceInitialized) return;
+        if (isFlexInitialized) return;
         hideCheckoutAlert();
 
         try {
@@ -1134,27 +1132,67 @@ document.addEventListener('DOMContentLoaded', () => {
             const captureContext = data.captureContext;
             checkoutRefCode = data.clientReferenceCode;
 
-            // Cargar librería oficial de CyberSource
-            await loadCyberSourceSdk(captureContext);
+            // Cargar SDK dinámico
+            await loadFlexMicroformSdk(captureContext);
 
-            if (!window.VAS || !window.VAS.UnifiedCheckout) {
-                throw new Error('El SDK oficial de CyberSource no está disponible.');
+            const FlexConstructor = window.Flex || window.FLEX;
+            if (!FlexConstructor) {
+                throw new Error('El SDK oficial Flex Microform no se ha inicializado.');
             }
 
-            // Inicializar pasarela oficial
-            const uc = await window.VAS.UnifiedCheckout(captureContext);
+            // Estilos tipográficos coincidentes con Tailwind Inter
+            const customStyles = {
+                'input': {
+                    'font-family': '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+                    'font-size': '14px',
+                    'color': '#0f172a',
+                    'padding': '11px 14px'
+                },
+                '::placeholder': {
+                    'color': '#94a3b8'
+                },
+                ':focus': {
+                    'color': '#0f172a'
+                }
+            };
 
-            // Escuchar eventos globales de error
-            uc.on('error', (err) => {
-                console.error('Error reportado por pasarela:', err);
-                showCheckoutAlert(`Error en pasarela: ${err.message || 'Verifica los datos de tu tarjeta'}`, 'error');
+            // 1. Instanciar Flex
+            const flex = new FlexConstructor(captureContext);
+
+            // 2. Crear microform con los estilos corporativos
+            flexMicroformInstance = flex.microform({
+                styles: customStyles
             });
 
-            // Crear el disparador oficial de CyberSource
-            activeUCTrigger = uc.createTrigger('PANENTRY');
+            // 3. Crear campos de Número y CVV
+            flexCardNumber = flexMicroformInstance.createField('number', {
+                placeholder: '0000 0000 0000 0000'
+            });
+            flexCardCvv = flexMicroformInstance.createField('securityCode', {
+                placeholder: '123'
+            });
 
-            isCyberSourceInitialized = true;
-            console.log('✅ Pasarela CyberSource inicializada y lista para procesar');
+            // Cargar en los contenedores del modal
+            flexCardNumber.load('#flex-card-number', (err) => {
+                if (err) {
+                    console.error('Error al montar campo de tarjeta:', err);
+                    showCheckoutAlert(`Error en campo de tarjeta: ${err.message || err}`, 'error');
+                } else {
+                    console.log('✅ Campo de Número de Tarjeta listo');
+                }
+            });
+
+            flexCardCvv.load('#flex-card-cvv', (err) => {
+                if (err) {
+                    console.error('Error al montar campo CVV:', err);
+                    showCheckoutAlert(`Error en campo CVV: ${err.message || err}`, 'error');
+                } else {
+                    console.log('✅ Campo CVV listo');
+                }
+            });
+
+            isFlexInitialized = true;
+            console.log('✅ Pasarela CyberSource Flex Microform montada e incrustada exitosamente');
         } catch (err) {
             console.error('Error inicializando pasarela CyberSource:', err);
             showCheckoutAlert(`Error de conexión: ${err.message || 'No se pudo conectar'}. Por favor, recarga la página.`, 'error');
@@ -1186,19 +1224,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const data = await resp.json();
 
-            if (data.status === 'success') {
-                showCheckoutAlert('¡Pago exitoso! Redirigiendo a tu confirmación...', 'success');
+            if (resp.ok && (data.status === 'AUTHORIZED' || data.status === 'PENDING' || data.status === 'ok')) {
+                showCheckoutAlert('¡Pago procesado con éxito! Redirigiendo...', 'success');
                 setTimeout(() => {
-                    window.location.href = `gracias.html?ref=${data.cybersource?.ref || ''}&rid=${data.cybersource?.id || ''}&email=${encodeURIComponent(email)}&nombre=${encodeURIComponent(firstName + ' ' + lastName)}`;
-                }, 1500);
-            } else if (data.status === 'decline') {
-                showCheckoutAlert(`Tarjeta declinada: ${data.message}. Por favor intenta con otra tarjeta.`, 'error');
+                    window.location.href = CONFIG.links.gracias + `?ref=${checkoutRefCode}&email=${encodeURIComponent(email)}`;
+                }, 1200);
             } else {
-                showCheckoutAlert(`Error en el pago: ${data.message || 'Error desconocido'}.`, 'error');
+                console.error('Error procesando pago en servidor:', data);
+                const msg = data.message || data.error || 'El pago no pudo ser autorizado por el banco. Por favor verifica tus datos de tarjeta.';
+                showCheckoutAlert(msg, 'error');
             }
         } catch (err) {
-            console.error('Error procesando el pago en el servidor:', err);
-            showCheckoutAlert('Error de red al procesar el pago. Por favor contáctanos por WhatsApp.', 'error');
+            console.error('Excepción procesando pago:', err);
+            showCheckoutAlert('Error de comunicación con el servidor de pago. Por favor intenta nuevamente.', 'error');
         }
     }
 
@@ -1273,6 +1311,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const lastName = document.getElementById('cs-last-name')?.value?.trim() || '';
             const email = document.getElementById('cs-email')?.value?.trim() || '';
             const phone = document.getElementById('cs-phone')?.value?.trim() || '';
+            let expMonth = document.getElementById('cs-exp-month')?.value?.trim() || '';
+            let expYear = document.getElementById('cs-exp-year')?.value?.trim() || '';
 
             if (!firstName || !lastName || !email || !phone) {
                 showCheckoutAlert('Por favor completa todos tus datos de contacto (Nombre, Apellido, Correo y WhatsApp).');
@@ -1285,29 +1325,57 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            if (!activeUCTrigger || typeof activeUCTrigger.show !== 'function') {
-                showCheckoutAlert('Conectando con la pasarela de Banco General, por favor espera un segundo...');
+            if (!expMonth || !expYear) {
+                showCheckoutAlert('Por favor ingresa el mes (MM) y año (AA) de vencimiento de tu tarjeta.');
+                return;
+            }
+
+            // Normalizar mes a 2 dígitos (ej: "8" -> "08")
+            if (expMonth.length === 1) expMonth = '0' + expMonth;
+            const monthNum = parseInt(expMonth, 10);
+            if (isNaN(monthNum) || monthNum < 1 || monthNum > 12) {
+                showCheckoutAlert('El mes de vencimiento debe estar entre 01 y 12.');
+                return;
+            }
+
+            // Normalizar año a 4 dígitos (ej: "26" -> "2026")
+            if (expYear.length === 2) expYear = '20' + expYear;
+            const yearNum = parseInt(expYear, 10);
+            const currentYear = new Date().getFullYear();
+            if (isNaN(yearNum) || yearNum < currentYear || yearNum > currentYear + 25) {
+                showCheckoutAlert(`El año de vencimiento debe ser válido (ej: ${currentYear % 100} o ${currentYear}).`);
+                return;
+            }
+
+            if (!flexMicroformInstance) {
+                showCheckoutAlert('La pasarela de pago se está conectando. Por favor espera un segundo.');
                 return;
             }
 
             submitPaymentBtn.disabled = true;
-            submitPaymentBtn.innerHTML = '<span class="flex items-center gap-2 justify-center"><svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Abriendo Pasarela Segura...</span>';
+            submitPaymentBtn.innerHTML = '<span class="flex items-center gap-2 justify-center"><svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Procesando Pago Seguro...</span>';
 
-            try {
-                const tokenData = await activeUCTrigger.show();
-                console.log('✅ Token transaccional recibido de CyberSource:', tokenData);
-                const token = typeof tokenData === 'string' ? tokenData : (tokenData.transientToken || tokenData.token || JSON.stringify(tokenData));
-                await procesarCargoServidor(token);
-            } catch (err) {
-                if (err && err.reason !== 'ALREADY_SHOWN') {
-                    console.error('Error durante la captura de pago:', err);
-                    showCheckoutAlert(`Error en pasarela: ${err.message || 'Verifica los datos de tu tarjeta'}`, 'error');
+            const tokenOptions = {
+                expirationMonth: expMonth,
+                expirationYear: expYear
+            };
+
+            flexMicroformInstance.createToken(tokenOptions, async (err, token) => {
+                if (err) {
+                    console.error('Error tokenizando tarjeta con Flex:', err);
+                    submitPaymentBtn.disabled = false;
+                    submitPaymentBtn.innerHTML = '<i data-lucide="lock" class="w-4 h-4"></i><span>Pagar $79.00 USD</span>';
+                    if (window.lucide) window.lucide.createIcons();
+                    showCheckoutAlert('Datos de tarjeta inválidos o incompletos. Por favor verifica el número y CVV.', 'error');
+                    return;
                 }
-            } finally {
+
+                // Token obtenido con éxito -> Enviar a /api/process-payment
+                await procesarCargoServidor(token);
                 submitPaymentBtn.disabled = false;
-                submitPaymentBtn.innerHTML = '<i data-lucide="lock" class="w-4 h-4"></i><span>Pagar $79.00 USD con Tarjeta</span>';
+                submitPaymentBtn.innerHTML = '<i data-lucide="lock" class="w-4 h-4"></i><span>Pagar $79.00 USD</span>';
                 if (window.lucide) window.lucide.createIcons();
-            }
+            });
         });
     }
 
