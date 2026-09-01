@@ -1360,9 +1360,15 @@ document.addEventListener('DOMContentLoaded', () => {
                         merchantInfo: { merchantName: 'Aizprua S.E. Escudo Preventivo' },
                         transactionInfo: {
                             totalPriceStatus: 'FINAL',
+                            totalPriceLabel: 'Total',
                             totalPrice: '79.00',
                             currencyCode: 'USD',
-                            countryCode: 'PA'
+                            countryCode: 'PA',
+                            displayItems: [{
+                                label: 'Sesión 40 min + 3 Bonos + Hoja de Ruta',
+                                type: 'LINE_ITEM',
+                                price: '79.00'
+                            }]
                         }
                     };
 
