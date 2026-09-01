@@ -687,9 +687,9 @@
                 display: block !important;
             }
         </style>
-        <div class="relative w-full max-w-md sm:max-w-lg bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-100 overflow-hidden transform transition-all animate-fadeIn mx-auto">
+        <div class="relative w-full max-w-md sm:max-w-lg bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-100 overflow-hidden transform transition-all animate-fadeIn mx-auto max-h-[92vh] flex flex-col">
             <!-- Header Modal -->
-            <div class="bg-gradient-to-r from-brand-blue to-brand-blue-dark px-4 sm:px-5 py-3.5 sm:py-4 text-white flex items-center justify-between">
+            <div class="bg-gradient-to-r from-brand-blue to-brand-blue-dark px-4 sm:px-5 py-3 sm:py-3.5 text-white flex items-center justify-between flex-shrink-0">
                 <div class="flex items-center gap-3">
                     <div class="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center backdrop-blur-sm border border-white/20">
                         <i data-lucide="shield-check" class="w-4 h-4 text-green-400"></i>
@@ -701,13 +701,13 @@
                         </p>
                     </div>
                 </div>
-                <button id="close-checkout-modal" class="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/80 hover:text-white transition-colors" aria-label="Cerrar modal">
+                <button id="close-checkout-modal" class="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/80 hover:text-white transition-colors cursor-pointer" aria-label="Cerrar modal">
                     <i data-lucide="x" class="w-4 h-4"></i>
                 </button>
             </div>
 
-            <!-- Modal Body (Sin barra de scroll) -->
-            <div class="p-5 sm:p-6">
+            <!-- Modal Body (Con scroll seguro si la pantalla es muy baja) -->
+            <div class="p-4 sm:p-5 overflow-y-auto no-scrollbar flex-grow">
                 <!-- Alert Messages -->
                 <div id="checkout-alert" class="hidden p-3 rounded-xl text-xs font-medium mb-3"></div>
 
