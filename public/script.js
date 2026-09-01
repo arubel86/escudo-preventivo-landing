@@ -1150,13 +1150,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 showCheckoutAlert(`Error en pasarela: ${err.message || 'Verifica los datos de tu tarjeta'}`, 'error');
             });
 
-            // Enlazar la pasarela oficial directamente al botón de pago
-            activeUCTrigger = uc.createTrigger('PANENTRY', {
-                target: '#submit-payment-btn'
-            });
+            // Crear el disparador oficial de CyberSource
+            activeUCTrigger = uc.createTrigger('PANENTRY');
 
             isCyberSourceInitialized = true;
-            console.log('✅ Pasarela CyberSource enlazada exitosamente a #submit-payment-btn');
+            console.log('✅ Pasarela CyberSource inicializada y lista para procesar');
         } catch (err) {
             console.error('Error inicializando pasarela CyberSource:', err);
             showCheckoutAlert(`Error de conexión: ${err.message || 'No se pudo conectar'}. Por favor, recarga la página.`, 'error');
@@ -1264,10 +1262,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Validación de datos de contacto antes de procesar
+    // Validación y ejecución de pago con la pasarela bancaria
     const submitPaymentBtn = document.getElementById('submit-payment-btn');
     if (submitPaymentBtn) {
         submitPaymentBtn.addEventListener('click', async (e) => {
+            e.preventDefault();
             hideCheckoutAlert();
 
             const firstName = document.getElementById('cs-first-name')?.value?.trim() || '';
@@ -1276,18 +1275,40 @@ document.addEventListener('DOMContentLoaded', () => {
             const phone = document.getElementById('cs-phone')?.value?.trim() || '';
 
             if (!firstName || !lastName || !email || !phone) {
-                e.stopImmediatePropagation();
                 showCheckoutAlert('Por favor completa todos tus datos de contacto (Nombre, Apellido, Correo y WhatsApp).');
                 return;
             }
 
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
-                e.stopImmediatePropagation();
                 showCheckoutAlert('Por favor ingresa un correo electrónico válido.');
                 return;
             }
-        }, true);
+
+            if (!activeUCTrigger || typeof activeUCTrigger.show !== 'function') {
+                showCheckoutAlert('Conectando con la pasarela de Banco General, por favor espera un segundo...');
+                return;
+            }
+
+            submitPaymentBtn.disabled = true;
+            submitPaymentBtn.innerHTML = '<span class="flex items-center gap-2 justify-center"><svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Abriendo Pasarela Segura...</span>';
+
+            try {
+                const tokenData = await activeUCTrigger.show();
+                console.log('✅ Token transaccional recibido de CyberSource:', tokenData);
+                const token = typeof tokenData === 'string' ? tokenData : (tokenData.transientToken || tokenData.token || JSON.stringify(tokenData));
+                await procesarCargoServidor(token);
+            } catch (err) {
+                if (err && err.reason !== 'ALREADY_SHOWN') {
+                    console.error('Error durante la captura de pago:', err);
+                    showCheckoutAlert(`Error en pasarela: ${err.message || 'Verifica los datos de tu tarjeta'}`, 'error');
+                }
+            } finally {
+                submitPaymentBtn.disabled = false;
+                submitPaymentBtn.innerHTML = '<i data-lucide="lock" class="w-4 h-4"></i><span>Pagar $79.00 USD con Tarjeta</span>';
+                if (window.lucide) window.lucide.createIcons();
+            }
+        });
     }
 
     // Prevenir el submit del form completo por defecto
