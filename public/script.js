@@ -1229,7 +1229,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (resp.ok && (data.status === 'success' || data.status === 'AUTHORIZED' || data.status === 'PENDING' || data.status === 'ok')) {
                 showCheckoutAlert('¡Pago procesado con éxito! Redirigiendo...', 'success');
                 setTimeout(() => {
-                    window.location.href = CONFIG.links.gracias + `?ref=${checkoutRefCode}&email=${encodeURIComponent(email)}`;
+                    window.location.href = CONFIG.enlaces.gracias + `?ref=${checkoutRefCode}&email=${encodeURIComponent(email)}`;
                 }, 1200);
             } else {
                 console.error('Error procesando pago en servidor:', data);
