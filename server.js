@@ -38,8 +38,8 @@ function isValidPaymentSession(cookieHeader) {
   const timestamp = parseInt(timestampStr, 10);
   if (isNaN(timestamp)) return false;
   
-  // Validar expiración (60 minutos)
-  const maxAgeMs = 60 * 60 * 1000;
+  // Validar expiración (72 horas / 3 días)
+  const maxAgeMs = 72 * 60 * 60 * 1000;
   if (Date.now() - timestamp > maxAgeMs) return false;
   
   // Validar firma HMAC
@@ -242,9 +242,9 @@ app.post('/api/process-payment', async (req, res) => {
         console.error('   ⚠️ Error registrando en Sheets:', webhookErr.message);
       }
 
-      // 🛡️ Emitir Cookie de sesión de pago autorizada (Válida por 1 hora)
+      // 🛡️ Emitir Cookie de sesión de pago autorizada (Válida por 72 horas / 3 días)
       const sessionToken = generatePaymentSessionCookie(result.id);
-      res.setHeader('Set-Cookie', `ep_paid_session=${sessionToken}; Path=/; Max-Age=3600; HttpOnly; SameSite=Lax`);
+      res.setHeader('Set-Cookie', `ep_paid_session=${sessionToken}; Path=/; Max-Age=259200; HttpOnly; SameSite=Lax`);
 
       return res.json({
         status: 'success',

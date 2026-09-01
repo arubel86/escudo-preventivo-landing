@@ -8,16 +8,16 @@
     <title>Diagnóstico Anti-Multas en Panamá | Escudo Preventivo - Aizprua S.E.</title>
     <meta name="description"
         content="Descubre si tu empresa en Panamá tiene multas silenciosas. Diagnóstico Escudo Preventivo de 40 minutos: revisión legal, detección de riesgos y hoja de ruta con costos claros.">
-    <!-- ⚠️ PRE-PUBLICACIÓN: reemplazar {{DOMINIO}} por la URL pública real (canonical, OG y Schema.org) -->
-    <link rel="canonical" href="{{DOMINIO}}">
+    <!-- Canonical & Favicon -->
+    <link rel="canonical" href="https://escudo.aizpruase.com/">
     <link rel="icon" type="image/svg+xml" href="assets/LOGOS PARA DIGITAL INDIVIDUALES-13.svg">
 
     <meta property="og:title" content="Escudo Preventivo: Tu Diagnóstico Anti-Multas en Panamá | Aizprua S.E.">
     <meta property="og:description"
         content="Diagnóstico de 40 minutos: detecta riesgos de multas antes que llegue la notificación. Hoja de ruta clara, sin sorpresas.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="{{DOMINIO}}">
-    <meta property="og:image" content="{{DOMINIO}}/assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg">
+    <meta property="og:url" content="https://escudo.aizpruase.com/">
+    <meta property="og:image" content="https://escudo.aizpruase.com/assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg">
     <meta property="og:locale" content="es_PA">
 
     <!-- Performance & Preconnect -->
@@ -29,7 +29,7 @@
       "@context": "https://schema.org",
       "@type": "LegalService",
       "name": "Aizprua S.E. - Escudo Preventivo",
-      "image": "{{DOMINIO}}/assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg",
+      "image": "https://escudo.aizpruase.com/assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg",
       "telephone": "+50765461527",
       "email": "info@aizprua.com",
       "address": {
@@ -37,7 +37,7 @@
         "addressLocality": "Panamá Oeste",
         "addressCountry": "PA"
       },
-      "url": "{{DOMINIO}}",
+      "url": "https://escudo.aizpruase.com/",
       "sameAs": [
         "https://facebook.com/aizpruase",
         "https://instagram.com/aizpruase"
@@ -232,8 +232,10 @@
                 dejamos una hoja de ruta con costos claros — antes de que llegue la notificación.</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in">
                 <a href="#diagnostico"
-                    class="px-8 py-3.5 bg-brand-orange text-white rounded-xl font-bold text-base md:text-lg hover:bg-brand-orange-dark transition shadow-xl flex items-center justify-center">Iniciar
-                    mi Diagnóstico <i data-lucide="arrow-down" class="ml-2 w-5 h-5"></i></a>
+                    class="group px-8 py-4 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-2xl font-extrabold text-base md:text-lg transition-all shadow-xl hover:shadow-orange-500/30 flex items-center justify-center transform hover:-translate-y-0.5 cursor-pointer">
+                    <span>Iniciar mi Diagnóstico</span>
+                    <i data-lucide="arrow-down" class="ml-2.5 w-5 h-5 group-hover:translate-y-1 transition-transform"></i>
+                </a>
             </div>
             <p class="text-xs text-slate-400 mt-3 fade-in font-medium">Sin compromiso de contratar · Sesiones martes y jueves</p>
         </div>
@@ -244,21 +246,40 @@
         <div class="max-w-4xl mx-auto px-4">
             <h2 class="text-2xl md:text-3xl font-bold text-center mb-3 fade-in">¿Cómo funciona el proceso?</h2>
             <p class="text-slate-600 text-center mb-8 fade-in max-w-xl mx-auto text-sm sm:text-base">Un flujo rápido y transparente para orientar tu empresa en Panamá</p>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-md text-center fade-in relative">
-                    <div class="w-10 h-10 bg-brand-blue text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4 shadow-md">1</div>
-                    <h3 class="font-bold text-slate-900 mb-2">Responde 3 preguntas</h3>
-                    <p class="text-sm text-slate-600">Toma <strong>menos de 1 minuto</strong>. Evaluamos la situación actual de tu negocio en Panamá.</p>
+            <div class="grid md:grid-cols-3 gap-6 relative">
+                <!-- Paso 1 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-md text-center fade-in relative flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 bg-brand-blue text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4 shadow-md">1</div>
+                        <h3 class="font-bold text-slate-900 mb-2">Responde 3 preguntas</h3>
+                        <p class="text-sm text-slate-600">Toma <strong>menos de 1 minuto</strong>. Evaluamos la situación actual de tu negocio en Panamá.</p>
+                    </div>
+                    <!-- Conector flecha desktop -->
+                    <div class="hidden md:flex absolute -right-3.5 top-1/2 -translate-y-1/2 z-10 w-7 h-7 bg-white rounded-full border border-slate-200 shadow-sm items-center justify-center text-slate-400">
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-md text-center fade-in relative">
-                    <div class="w-10 h-10 bg-brand-orange text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4 shadow-md">2</div>
-                    <h3 class="font-bold text-slate-900 mb-2">Evaluación Instantánea</h3>
-                    <p class="text-sm text-slate-600">El sistema analiza si calificas para el Diagnóstico de 40 min o si te conviene recibir nuestra Guía Gratuita.</p>
+
+                <!-- Paso 2 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-md text-center fade-in relative flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 bg-brand-orange text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4 shadow-md">2</div>
+                        <h3 class="font-bold text-slate-900 mb-2">Evaluación Instantánea</h3>
+                        <p class="text-sm text-slate-600">El sistema analiza si calificas para el Diagnóstico de 40 min o si te conviene recibir nuestra Guía Gratuita.</p>
+                    </div>
+                    <!-- Conector flecha desktop -->
+                    <div class="hidden md:flex absolute -right-3.5 top-1/2 -translate-y-1/2 z-10 w-7 h-7 bg-white rounded-full border border-slate-200 shadow-sm items-center justify-center text-slate-400">
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-md text-center fade-in relative">
-                    <div class="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4 shadow-md">3</div>
-                    <h3 class="font-bold text-slate-900 mb-2">Tu Paso Recomendado</h3>
-                    <p class="text-sm text-slate-600">Accedes de inmediato a la solución adecuada para tu caso, <strong>sin rodeos ni compromisos</strong>.</p>
+
+                <!-- Paso 3 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-md text-center fade-in relative flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4 shadow-md">3</div>
+                        <h3 class="font-bold text-slate-900 mb-2">Tu Paso Recomendado</h3>
+                        <p class="text-sm text-slate-600">Accedes de inmediato a la solución adecuada para tu caso, <strong>sin rodeos ni compromisos</strong>.</p>
+                    </div>
                 </div>
             </div>
         </div>

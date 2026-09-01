@@ -211,7 +211,7 @@
     <div id="oferta-zona">
 
         <!-- Tarjeta de oferta -->
-        <section id="oferta" class="py-20 bg-slate-800 text-white">
+        <section id="oferta" class="py-14 md:py-16 bg-slate-800 text-white">
             <div class="max-w-4xl mx-auto px-4">
                 <div class="bg-white text-slate-800 rounded-2xl shadow-2xl overflow-hidden">
                     <div class="bg-gradient-to-r from-brand-blue to-brand-blue-dark px-8 py-5 text-center">
@@ -263,7 +263,7 @@
         </section>
 
         <!-- Qué Resolvemos en 40 Minutos -->
-        <section class="py-20 bg-white">
+        <section class="py-14 md:py-16 bg-white">
             <div class="max-w-7xl mx-auto px-4">
                 <h2 class="text-3xl font-bold text-center mb-4 fade-in">¿Qué resolvemos en tu sesión de 40 minutos?</h2>
                 <p class="text-slate-600 text-center mb-12 fade-in">Sales de la llamada sabiendo exactamente dónde
@@ -298,7 +298,7 @@
         </section>
 
         <!-- Testimonios de Empresas -->
-        <section id="testimonios" class="py-20 bg-slate-50">
+        <section id="testimonios" class="py-14 md:py-16 bg-slate-50">
             <div class="max-w-7xl mx-auto px-4">
                 <h2 class="text-3xl font-bold text-center mb-4 fade-in">Empresas que confían en el Escudo Preventivo</h2>
                 <p class="text-slate-600 text-center mb-12 fade-in">Resultados reales de empresarios que formalizaron y protegieron sus operaciones con Aizprua S.E.</p>
@@ -380,7 +380,7 @@
         </section>
 
         <!-- Bonos (Sistema B.U.G.: Bonos, Urgencia, Garantías) -->
-        <section id="bonos" class="py-20 bg-slate-50">
+        <section id="bonos" class="py-14 md:py-16 bg-slate-50">
             <div class="max-w-5xl mx-auto px-4">
                 <h2 class="text-3xl font-bold text-center mb-4 fade-in">Bonos incluidos con tu diagnóstico</h2>
                 <p class="text-slate-600 text-center mb-3 fade-in">Todos gratis con tu sesión</p>
@@ -464,11 +464,24 @@
                             <strong>extendemos la sesión en el acto sin costo adicional</strong>.</p>
                     </div>
                 </div>
+
+                <!-- CTA Secundario después de Bonos y Garantías -->
+                <div class="mt-12 text-center max-w-xl mx-auto flex flex-col items-center fade-in">
+                    <button class="open-checkout-trigger w-full sm:w-auto sm:px-10 py-4 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white font-extrabold text-base sm:text-lg rounded-2xl transition-all shadow-xl hover:shadow-2xl flex items-center justify-center gap-3 group transform hover:-translate-y-0.5 cursor-pointer">
+                        <i data-lucide="shield-check" class="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0"></i>
+                        <span>Quiero mi Diagnóstico Escudo Preventivo ($79 USD)</span>
+                        <i data-lucide="arrow-right" class="w-5 h-5 flex-shrink-0 group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                    <p class="text-xs text-slate-500 mt-3 flex items-center justify-center gap-1.5 font-medium">
+                        <i data-lucide="lock" class="w-3.5 h-3.5 text-brand-blue flex-shrink-0"></i>
+                        <span>Los $79 se acreditan al 100% como descuento en tu plan de gestión posterior</span>
+                    </p>
+                </div>
             </div>
         </section>
 
         <!-- FAQ -->
-        <section id="faq" class="py-20 bg-white">
+        <section id="faq" class="py-14 md:py-16 bg-white">
             <div class="max-w-3xl mx-auto px-4">
                 <h2 class="text-3xl font-bold text-center mb-12 fade-in">Preguntas Frecuentes</h2>
                 <div class="space-y-4 fade-in">
@@ -532,6 +545,18 @@
                                 diagnóstico — sin pagos sorpresa a mitad de camino.</p>
                         </div>
                     </div>
+                </div>
+
+                <!-- CTA de Cierre al Final del FAQ -->
+                <div class="mt-14 p-8 bg-slate-50 rounded-3xl border border-slate-200 text-center max-w-2xl mx-auto shadow-lg fade-in">
+                    <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 mb-2">¿Listo para blindar tu negocio en Panamá?</h3>
+                    <p class="text-slate-600 text-sm mb-6 max-w-md mx-auto">40 minutos de revisión legal personalizada que te ahorran miles de dólares en sanciones silenciosas.</p>
+                    <button class="open-checkout-trigger w-full sm:w-auto sm:px-10 py-4 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white font-extrabold text-base sm:text-lg rounded-2xl transition-all shadow-xl hover:shadow-2xl flex items-center justify-center gap-3 mx-auto group transform hover:-translate-y-0.5 cursor-pointer">
+                        <i data-lucide="credit-card" class="w-5 h-5 flex-shrink-0"></i>
+                        <span>Reservar mi Diagnóstico ($79 USD)</span>
+                        <i data-lucide="arrow-right" class="w-5 h-5 flex-shrink-0 group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                    <p class="text-xs text-slate-400 mt-3 font-medium">⚡ Solo 4 cupos disponibles esta semana · Sesiones martes y jueves</p>
                 </div>
             </div>
         </section>
@@ -735,8 +760,43 @@
                         </div>
                         <div>
                             <label class="block text-[11px] font-semibold text-slate-700 mb-1">WhatsApp / Teléfono *</label>
-                            <input type="tel" id="cs-phone" name="phone" required placeholder="6546-1527"
-                                class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue transition">
+                            <div class="flex gap-2 items-center">
+                                <div class="country-picker-container relative">
+                                    <button type="button" class="country-picker-btn w-[80px] sm:w-[85px] px-2 py-2 border border-slate-200 rounded-xl bg-slate-50 hover:bg-white text-xs font-bold text-slate-700 hover:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/30 flex items-center justify-between gap-1 flex-shrink-0 cursor-pointer shadow-sm transition h-[38px]">
+                                        <span class="country-code-val">+507</span>
+                                        <svg class="w-3.5 h-3.5 text-slate-400 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                                    </button>
+                                    <input type="hidden" name="country_code" value="+507">
+
+                                    <div class="country-dropdown hidden absolute bottom-full left-0 mb-1.5 z-50 w-60 bg-white border border-slate-200 rounded-2xl shadow-2xl overflow-hidden text-xs">
+                                        <div class="max-h-48 overflow-y-auto no-scrollbar py-1 divide-y divide-slate-50">
+                                            <div class="country-item px-4 py-2 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+507">Panamá (+507)</div>
+                                            <div class="country-item px-4 py-2 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+1">EE.UU. / Canadá (+1)</div>
+                                            <div class="country-item px-4 py-2 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+57">Colombia (+57)</div>
+                                            <div class="country-item px-4 py-2 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+506">Costa Rica (+506)</div>
+                                            <div class="country-item px-4 py-2 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+52">México (+52)</div>
+                                            <div class="country-item px-4 py-2 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+58">Venezuela (+58)</div>
+                                            <div class="country-item px-4 py-2 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+34">España (+34)</div>
+                                            <div class="country-item px-4 py-2 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+593">Ecuador (+593)</div>
+                                            <div class="country-item px-4 py-2 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+51">Perú (+51)</div>
+                                            <div class="country-item px-4 py-2 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+54">Argentina (+54)</div>
+                                            <div class="country-item px-4 py-2 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+56">Chile (+56)</div>
+                                            <div class="country-item px-4 py-2 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+502">Guatemala (+502)</div>
+                                            <div class="country-item px-4 py-2 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+503">El Salvador (+503)</div>
+                                            <div class="country-item px-4 py-2 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+504">Honduras (+504)</div>
+                                            <div class="country-item px-4 py-2 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+505">Nicaragua (+505)</div>
+                                            <div class="country-item px-4 py-2 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+591">Bolivia (+591)</div>
+                                            <div class="country-item px-4 py-2 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+595">Paraguay (+595)</div>
+                                            <div class="country-item px-4 py-2 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+598">Uruguay (+598)</div>
+                                            <div class="country-item px-4 py-2 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+1809">Rep. Dominicana (+1809)</div>
+                                            <div class="country-item px-4 py-2 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+55">Brasil (+55)</div>
+                                            <div class="country-item px-4 py-2 hover:bg-blue-50 hover:text-brand-blue cursor-pointer font-medium transition" data-code="+">Otro país</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="tel" id="cs-phone" name="phone" required placeholder="6546-1527"
+                                    class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue transition flex-grow h-[38px]">
+                            </div>
                         </div>
                     </div>
 

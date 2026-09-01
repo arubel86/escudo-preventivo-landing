@@ -19,9 +19,6 @@ const CONFIG = {
 
     enlaces: {
         webhook: 'https://script.google.com/macros/s/AKfycbymJiNqZ2uXepyPrr0S-Pn1NH_1f75VuCHA6bi5TYshWxDS7DQgat8Qv3TAx20_yPJ5/exec', // Webhook de Google Apps Script (Sheets + MailerLite)
-        // Pasarela de pago automática (Hotmart / mPOS). Debe estar configurada
-        // en la pasarela la redirección automática a gracias.html tras el pago.
-        pago: 'https://secure.mposglobal.com/mailpos/#/MPREQ-V0buJaOU-XWICI68IRNME',
         whatsapp: 'https://wa.me/50765461527',
         paginaVideo: '/escudo-preventivo',       // Página B limpia sin .html
         paginaRecursos: '/recursos-gratuitos',   // Página C limpia sin .html
@@ -41,8 +38,8 @@ const CONFIG = {
     toastDuracion: 5000,        // 5 segundos visible
     toastMaxPorSesion: 3,       // Máximo 3 notificaciones por visita
 
-    // Exit-Intent (solo Página A): en móvil no hay "mouse fuera", hay respaldo por tiempo/scroll
-    exitIntent: { segundosEnPagina: 45, scrollPorcentaje: 70 }
+    // Exit-Intent (solo Página A): optimizado a 25s en móvil
+    exitIntent: { segundosEnPagina: 25, scrollPorcentaje: 70 }
 };
 
 // ============================================================
@@ -749,21 +746,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }).catch(() => {});
     })();
 
-    // Botón Directo al Pago de $79 USD — Abre el Modal de Pago Seguro CyberSource (Banco General)
-    document.getElementById('pay-btn')?.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (typeof openCyberSourceModal === 'function') {
-            openCyberSourceModal();
-        } else {
-            const csModal = document.getElementById('cybersource-modal');
-            if (csModal) {
-                csModal.classList.remove('hidden');
-                setTimeout(() => {
-                    csModal.classList.remove('opacity-0');
-                    csModal.querySelector('.transform')?.classList.remove('scale-95');
-                }, 10);
+    // Botones de Pago ($79 USD) — Abre el Modal de Pago Seguro CyberSource (Banco General)
+    document.querySelectorAll('#pay-btn, .open-checkout-trigger').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (typeof openCheckoutModal === 'function') {
+                openCheckoutModal();
+            } else if (typeof openCyberSourceModal === 'function') {
+                openCyberSourceModal();
             }
-        }
+        });
     });
 
     // Lead magnet (Página C): captura Nombre + Correo + WhatsApp → redirige a gracias-guia.html
@@ -1210,7 +1202,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const firstName = document.getElementById('cs-first-name')?.value?.trim() || '';
         const lastName = document.getElementById('cs-last-name')?.value?.trim() || '';
         const email = document.getElementById('cs-email')?.value?.trim() || '';
-        const phone = document.getElementById('cs-phone')?.value?.trim() || '';
+        const countryCode = document.querySelector('#cybersource-form input[name="country_code"]')?.value || '+507';
+        const rawPhone = document.getElementById('cs-phone')?.value?.trim() || '';
+        const phone = rawPhone ? (rawPhone.startsWith('+') ? rawPhone : `${countryCode} ${rawPhone}`) : '';
 
         try {
             const resp = await fetch('/api/process-payment', {
@@ -1303,13 +1297,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Trigger botones de apertura de modal
-    const payBtn = document.getElementById('pay-btn');
-    if (payBtn) {
-        payBtn.addEventListener('click', (e) => {
+    document.querySelectorAll('#pay-btn, .open-checkout-trigger').forEach(btn => {
+        btn.addEventListener('click', (e) => {
             e.preventDefault();
             openCheckoutModal();
         });
-    }
+    });
 
     if (closeCheckoutBtn) {
         closeCheckoutBtn.addEventListener('click', closeCheckoutModal);
