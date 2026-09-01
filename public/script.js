@@ -1146,7 +1146,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     'font-family': '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
                     'font-size': '14px',
                     'color': '#0f172a',
-                    'padding': '11px 14px'
+                    'padding-left': '16px',
+                    'padding-right': '16px',
+                    'padding-top': '11px',
+                    'padding-bottom': '11px',
+                    'box-sizing': 'border-box',
+                    'width': '100%',
+                    'height': '100%'
                 },
                 '::placeholder': {
                     'color': '#94a3b8'
