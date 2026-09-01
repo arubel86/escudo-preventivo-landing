@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Allow: /recursos-gratuitos
+Allow: /privacidad
+Allow: /terminos
+Disallow: /escudo-preventivo
+Disallow: /gracias
+Disallow: /gracias-guia
+Disallow: /api/
+
+Sitemap: https://escudo.aizpruase.com/sitemap.xml
