@@ -114,15 +114,27 @@
         }
 
         @keyframes float {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translateY(0);
             }
-
             50% {
                 transform: translateY(-10px);
             }
+        }
+
+        @keyframes float-badge {
+            0%, 100% {
+                transform: translateY(0);
+                box-shadow: 0 4px 14px rgba(239, 68, 68, 0.15);
+            }
+            50% {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 22px rgba(239, 68, 68, 0.28);
+            }
+        }
+
+        .animate-float-badge {
+            animation: float-badge 3s ease-in-out infinite;
         }
 
         .animate-float {
@@ -206,21 +218,21 @@
     </nav>
 
     <!-- Hero (SIN precio — el precio solo existe en la Página B) -->
-    <section id="inicio" class="pt-16 pb-14 lg:pt-24 lg:pb-20 overflow-hidden relative">
+    <section id="inicio" class="pt-6 pb-8 lg:pt-8 lg:pb-12 overflow-hidden relative">
         <div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 bg-brand-blue/20 rounded-full blur-3xl"></div>
         <div class="absolute bottom-0 left-0 -ml-40 w-80 h-80 bg-orange-100 rounded-full blur-3xl"></div>
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
             <span
-                class="inline-block py-1 px-4 rounded-full bg-red-100 text-red-600 text-sm font-semibold mb-6 border border-red-200 fade-in">⚡
+                class="inline-block py-1.5 px-4 rounded-full bg-red-100/90 text-red-600 text-sm font-semibold mb-4 border border-red-200 shadow-sm animate-float-badge backdrop-blur-sm cursor-default">⚡
                 Solo <span class="spots-count font-bold">4</span> cupos esta semana</span>
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 mb-6 fade-in">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 mb-5 fade-in">
                 ¿Tu Empresa en Panamá Tiene <span class="gradient-text">Multas Silenciosas?</span></h1>
-            <p class="text-lg md:text-xl text-slate-600 mb-8 max-w-2xl mx-auto fade-in">Descúbrelo en 40 minutos con el
+            <p class="text-base md:text-lg text-slate-600 mb-6 max-w-2xl mx-auto fade-in">Descúbrelo en 40 minutos con el
                 Diagnóstico <strong>Escudo Preventivo</strong>: revisamos tus documentos, detectamos riesgos y te
                 dejamos una hoja de ruta con costos claros — antes de que llegue la notificación.</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in">
                 <a href="#diagnostico"
-                    class="px-8 py-4 bg-brand-orange text-white rounded-lg font-bold text-lg hover:bg-brand-orange-dark transition shadow-xl flex items-center justify-center">Iniciar
+                    class="px-8 py-3.5 bg-brand-orange text-white rounded-xl font-bold text-base md:text-lg hover:bg-brand-orange-dark transition shadow-xl flex items-center justify-center">Iniciar
                     mi Diagnóstico <i data-lucide="arrow-down" class="ml-2 w-5 h-5"></i></a>
             </div>
             <p class="text-xs text-slate-400 mt-3 fade-in font-medium">Sin compromiso de contratar · Sesiones martes y jueves</p>
@@ -228,10 +240,10 @@
     </section>
 
     <!-- Proceso Transparente en 3 Pasos -->
-    <section class="py-16 bg-slate-50">
+    <section class="py-10 md:py-12 bg-slate-50">
         <div class="max-w-4xl mx-auto px-4">
             <h2 class="text-2xl md:text-3xl font-bold text-center mb-3 fade-in">¿Cómo funciona el proceso?</h2>
-            <p class="text-slate-600 text-center mb-10 fade-in max-w-xl mx-auto">Un flujo rápido y transparente para orientar tu empresa en Panamá</p>
+            <p class="text-slate-600 text-center mb-8 fade-in max-w-xl mx-auto text-sm sm:text-base">Un flujo rápido y transparente para orientar tu empresa en Panamá</p>
             <div class="grid md:grid-cols-3 gap-6">
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-md text-center fade-in relative">
                     <div class="w-10 h-10 bg-brand-blue text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-4 shadow-md">1</div>
@@ -253,7 +265,7 @@
     </section>
 
     <!-- Cuestionario Dinámico — PÁGINA A (filtro del embudo) -->
-    <section id="diagnostico" class="py-20 bg-white">
+    <section id="diagnostico" class="py-12 md:py-14 bg-white">
         <div class="max-w-2xl mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-3 fade-in">Diagnóstico Anti-Multas</h2>
             <p class="text-slate-600 text-center mb-10 fade-in">3 preguntas rápidas para saber si este diagnóstico es
