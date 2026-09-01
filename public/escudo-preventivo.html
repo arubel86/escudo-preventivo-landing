@@ -684,60 +684,8 @@
 
             <!-- Modal Body (Sin barra de scroll) -->
             <div class="p-5 sm:p-6">
-                <!-- Summary Tag -->
-                <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-3 mb-3.5 flex items-center justify-between">
-                    <div>
-                        <p class="text-[11px] font-semibold uppercase tracking-wider text-slate-500">Diagnóstico Escudo Preventivo</p>
-                        <p class="text-xs sm:text-sm font-bold text-slate-900">Sesión 40 min + 3 Bonos + Hoja de Ruta</p>
-                    </div>
-                    <div class="text-right">
-                        <span class="text-lg sm:text-xl font-extrabold text-brand-orange">$79.00</span>
-                        <span class="text-[10px] text-slate-500 font-semibold block">USD</span>
-                    </div>
-                </div>
-
                 <!-- Alert Messages -->
                 <div id="checkout-alert" class="hidden p-3 rounded-xl text-xs font-medium mb-3"></div>
-
-                <!-- Express Checkout (Google Pay / Apple Pay) -->
-                <div class="mb-3.5 space-y-2">
-                    <div class="flex items-center justify-between">
-                        <span class="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 flex items-center gap-1">
-                            <i data-lucide="zap" class="w-3 h-3 text-amber-500"></i>
-                            Pago Rápido Express
-                        </span>
-                    </div>
-
-                    <div class="grid grid-cols-2 gap-2">
-                        <!-- Apple Pay Button -->
-                        <button type="button" id="apple-pay-btn"
-                            class="w-full h-10 bg-black hover:bg-slate-900 text-white rounded-xl font-bold flex items-center justify-center gap-1.5 transition shadow-sm cursor-pointer border border-slate-800">
-                            <svg class="w-4 h-4 fill-current" viewBox="0 0 170 170" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.82.25-9.75-1.84-14.78-6.28-3.23-2.82-7.14-7.46-11.75-13.92-6.53-9.17-11.75-19.46-15.66-30.87-3.92-11.41-5.87-22.18-5.87-32.3 0-14.85 3.73-26.6 11.19-35.25 7.46-8.65 16.71-13.06 27.75-13.23 4.94 0 10.22 1.25 15.84 3.74 5.62 2.49 9.38 3.74 11.28 3.74 1.58 0 5.42-1.32 11.53-3.96 6.11-2.64 11.27-3.88 15.48-3.72 12.16.59 21.72 4.97 28.68 13.14-10.87 6.59-16.18 15.93-15.93 28.02.25 9.53 3.96 17.5 11.13 23.91 7.17 6.41 15.69 10.02 25.56 10.83-2.28 6.77-5.32 13.78-9.12 21.03zM119.22 31.62c0-7.04 2.56-13.88 7.68-20.52 5.12-6.64 11.66-10.59 19.62-11.85.25 1.01.38 1.94.38 2.78 0 7.04-2.58 13.97-7.74 20.79-5.16 6.82-11.7 10.74-19.62 11.75-.08-.85-.32-1.84-.32-2.95z"/>
-                            </svg>
-                            <span class="text-xs tracking-tight font-extrabold">Pay</span>
-                        </button>
-
-                        <!-- Google Pay Button -->
-                        <button type="button" id="google-pay-btn"
-                            class="w-full h-10 bg-slate-900 hover:bg-black text-white rounded-xl font-bold flex items-center justify-center gap-1.5 transition shadow-sm cursor-pointer border border-slate-800">
-                            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
-                                <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.29v3.15C3.26 21.3 7.31 24 12 24z"/>
-                                <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.29C.47 8.21 0 10.05 0 12s.47 3.79 1.29 5.42l3.99-3.15z"/>
-                                <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.58l3.99 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
-                            </svg>
-                            <span class="text-xs tracking-tight font-bold">Pay</span>
-                        </button>
-                    </div>
-
-                    <!-- Divisor sutil -->
-                    <div class="relative flex py-0.5 items-center">
-                        <div class="flex-grow border-t border-slate-200"></div>
-                        <span class="flex-shrink mx-2 text-[9px] uppercase font-bold tracking-wider text-slate-400">o paga con tarjeta</span>
-                        <div class="flex-grow border-t border-slate-200"></div>
-                    </div>
-                </div>
 
                 <!-- Form -->
                 <form id="cybersource-form" class="space-y-3">
@@ -814,6 +762,39 @@
                         </div>
                     </div>
 
+                    <!-- Express Checkout (Google Pay / Apple Pay) ubicado abajo como alternativa -->
+                    <div class="pt-1 space-y-2">
+                        <!-- Divisor sutil -->
+                        <div class="relative flex py-0.5 items-center">
+                            <div class="flex-grow border-t border-slate-200"></div>
+                            <span class="flex-shrink mx-2 text-[9px] uppercase font-bold tracking-wider text-slate-400">o paga con</span>
+                            <div class="flex-grow border-t border-slate-200"></div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2">
+                            <!-- Apple Pay Button -->
+                            <button type="button" id="apple-pay-btn"
+                                class="w-full h-9 bg-black hover:bg-slate-900 text-white rounded-xl font-bold flex items-center justify-center gap-1.5 transition shadow-sm cursor-pointer border border-slate-800">
+                                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 170 170" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.82.25-9.75-1.84-14.78-6.28-3.23-2.82-7.14-7.46-11.75-13.92-6.53-9.17-11.75-19.46-15.66-30.87-3.92-11.41-5.87-22.18-5.87-32.3 0-14.85 3.73-26.6 11.19-35.25 7.46-8.65 16.71-13.06 27.75-13.23 4.94 0 10.22 1.25 15.84 3.74 5.62 2.49 9.38 3.74 11.28 3.74 1.58 0 5.42-1.32 11.53-3.96 6.11-2.64 11.27-3.88 15.48-3.72 12.16.59 21.72 4.97 28.68 13.14-10.87 6.59-16.18 15.93-15.93 28.02.25 9.53 3.96 17.5 11.13 23.91 7.17 6.41 15.69 10.02 25.56 10.83-2.28 6.77-5.32 13.78-9.12 21.03zM119.22 31.62c0-7.04 2.56-13.88 7.68-20.52 5.12-6.64 11.66-10.59 19.62-11.85.25 1.01.38 1.94.38 2.78 0 7.04-2.58 13.97-7.74 20.79-5.16 6.82-11.7 10.74-19.62 11.75-.08-.85-.32-1.84-.32-2.95z"/>
+                                </svg>
+                                <span class="text-xs tracking-tight font-extrabold">Pay</span>
+                            </button>
+
+                            <!-- Google Pay Button -->
+                            <button type="button" id="google-pay-btn"
+                                class="w-full h-9 bg-slate-900 hover:bg-black text-white rounded-xl font-bold flex items-center justify-center gap-1.5 transition shadow-sm cursor-pointer border border-slate-800">
+                                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
+                                    <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.29v3.15C3.26 21.3 7.31 24 12 24z"/>
+                                    <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.29C.47 8.21 0 10.05 0 12s.47 3.79 1.29 5.42l3.99-3.15z"/>
+                                    <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.58l3.99 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+                                </svg>
+                                <span class="text-xs tracking-tight font-bold">Pay</span>
+                            </button>
+                        </div>
+                    </div>
+
                     <!-- Badge de Seguridad -->
                     <div class="flex items-center justify-center gap-2 pt-1 text-center text-[10px] text-slate-400">
                         <i data-lucide="shield-check" class="w-3.5 h-3.5 text-green-500 flex-shrink-0"></i>
@@ -846,7 +827,7 @@
     </style>
 
     <script src="https://pay.google.com/gp/p/js/pay.js"></script>
-    <script src="script.js?v=5.0.3" defer></script>
+    <script src="script.js?v=5.1.0" defer></script>
 </body>
 
 </html>
