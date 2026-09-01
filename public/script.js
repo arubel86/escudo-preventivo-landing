@@ -1300,6 +1300,37 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Handlers para Pago Rápido Express (Google Pay & Apple Pay)
+    const googlePayBtn = document.getElementById('google-pay-btn');
+    const applePayBtn = document.getElementById('apple-pay-btn');
+
+    function checkWalletContactData() {
+        const firstName = document.getElementById('cs-first-name')?.value?.trim() || '';
+        const lastName = document.getElementById('cs-last-name')?.value?.trim() || '';
+        const email = document.getElementById('cs-email')?.value?.trim() || '';
+        const phone = document.getElementById('cs-phone')?.value?.trim() || '';
+
+        if (!firstName || !lastName || !email || !phone) {
+            showCheckoutAlert('Por favor completa primero tus datos de contacto arriba para asociar tu compra.');
+            return false;
+        }
+        return true;
+    }
+
+    if (googlePayBtn) {
+        googlePayBtn.addEventListener('click', () => {
+            if (!checkWalletContactData()) return;
+            showCheckoutAlert('Conectando con Google Pay. En Sandbox de Banco General también puedes usar tu tarjeta abajo.', 'info');
+        });
+    }
+
+    if (applePayBtn) {
+        applePayBtn.addEventListener('click', () => {
+            if (!checkWalletContactData()) return;
+            showCheckoutAlert('Conectando con Apple Pay. En Sandbox de Banco General también puedes usar tu tarjeta abajo.', 'info');
+        });
+    }
+
     // Validación y ejecución de pago con la pasarela bancaria
     const submitPaymentBtn = document.getElementById('submit-payment-btn');
     if (submitPaymentBtn) {
