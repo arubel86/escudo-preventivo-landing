@@ -1498,8 +1498,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     return;
                 }
 
-                // Token obtenido con éxito -> Enviar a /api/process-payment
-                await procesarCargoServidor(token);
+                // Token obtenido con éxito -> Enviar a /api/process-payment (garantizando JWT plano)
+                const jwtPayload = (typeof token === 'object' && token !== null) ? (token.token || token.transientTokenJwt || token.jwt || JSON.stringify(token)) : token;
+                await procesarCargoServidor(jwtPayload);
                 submitPaymentBtn.disabled = false;
                 submitPaymentBtn.innerHTML = '<i data-lucide="lock" class="w-4 h-4"></i><span>Pagar $79.00 USD</span>';
                 if (window.lucide) window.lucide.createIcons();

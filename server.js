@@ -127,10 +127,16 @@ app.post('/api/process-payment', async (req, res) => {
     });
   }
 
-  const { transientToken, firstName, lastName, email, phone, address, clientReferenceCode } = req.body;
+  let { transientToken, firstName, lastName, email, phone, address, clientReferenceCode } = req.body;
 
   if (!transientToken) {
     return res.status(400).json({ error: 'transientToken es requerido.' });
+  }
+
+  // Asegurar que transientTokenJwt sea siempre un string JWT plano
+  let jwtString = transientToken;
+  if (typeof transientToken === 'object' && transientToken !== null) {
+    jwtString = transientToken.token || transientToken.transientTokenJwt || transientToken.jwt || JSON.stringify(transientToken);
   }
 
   try {
@@ -143,7 +149,7 @@ app.post('/api/process-payment', async (req, res) => {
         actionList: ['DECISION_SKIP']
       },
       tokenInformation: {
-        transientTokenJwt: transientToken
+        transientTokenJwt: jwtString
       },
       orderInformation: {
         amountDetails: {
