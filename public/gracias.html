@@ -55,6 +55,8 @@
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
     <style>
         @keyframes reveal-section {
             from { opacity: 0; transform: translateY(20px); }
@@ -297,6 +299,16 @@
 
     <script>
         lucide.createIcons();
+
+        // Disparo sutil de confeti de celebración
+        if (typeof confetti === 'function') {
+            confetti({
+                particleCount: 55,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#3849C8', '#FF8A1E', '#10B981']
+            });
+        }
 
         const CALENDLY_URL = 'https://calendly.com/aizpruase/asesoria-40-minutos';
         const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbyzjL7oBdFHq6nNy80Q23vkNQLjkRbN8BI8PJTa_nn5s0tMr4R6F3yVxhssJen-tzTR/exec';
