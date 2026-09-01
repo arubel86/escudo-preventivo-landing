@@ -139,7 +139,8 @@ app.post('/api/process-payment', async (req, res) => {
         code: clientReferenceCode || ('EP-' + Date.now())
       },
       processingInformation: {
-        commerceIndicator: 'internet'
+        commerceIndicator: 'internet',
+        actionList: ['DECISION_SKIP']
       },
       tokenInformation: {
         transientTokenJwt: transientToken
