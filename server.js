@@ -260,6 +260,14 @@ app.get('/escudo-preventivo.html', (req, res) => {
   res.redirect(301, '/escudo-preventivo' + query);
 });
 
+app.get('/gracias', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'gracias.html'));
+});
+
+app.get('/gracias.html', (req, res) => {
+  res.redirect(301, '/gracias');
+});
+
 // ARCHIVOS ESTÁTICOS (Landing Page)
 app.use(express.static(path.join(__dirname, 'public')));
 
