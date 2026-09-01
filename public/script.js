@@ -1145,11 +1145,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 'input': {
                     'font-family': '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
                     'font-size': '14px',
+                    'font-weight': '400',
                     'color': '#0f172a',
                     'line-height': '22px'
                 },
                 '::placeholder': {
-                    'color': '#94a3b8'
+                    'color': '#94a3b8',
+                    'font-weight': '400'
                 },
                 ':focus': {
                     'color': '#0f172a'
@@ -1461,12 +1463,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // Normalizar año a 4 dígitos (ej: "26" -> "2026")
+            // Normalizar año a 4 dígitos (ej: "28" -> "2028" o "20236" -> "2023")
+            expYear = expYear.replace(/\D/g, '');
+            if (expYear.length > 4) expYear = expYear.slice(0, 4);
             if (expYear.length === 2) expYear = '20' + expYear;
+
             const yearNum = parseInt(expYear, 10);
             const currentYear = new Date().getFullYear();
             if (isNaN(yearNum) || yearNum < currentYear || yearNum > currentYear + 25) {
-                showCheckoutAlert(`El año de vencimiento debe ser válido (ej: ${currentYear % 100} o ${currentYear}).`);
+                showCheckoutAlert(`Por favor ingresa un año de vencimiento válido y futuro (ej: ${currentYear % 100} o ${currentYear}).`);
                 return;
             }
 
