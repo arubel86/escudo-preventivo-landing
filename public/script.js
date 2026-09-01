@@ -24,8 +24,8 @@ const CONFIG = {
         pago: 'https://secure.mposglobal.com/mailpos/#/MPREQ-V0buJaOU-XWICI68IRNME',
         whatsapp: 'https://wa.me/50765461527',
         paginaVideo: '/escudo-preventivo',       // Página B limpia sin .html
-        paginaRecursos: 'recursos-gratuitos.html', // Página C
-        gracias: 'gracias.html'
+        paginaRecursos: '/recursos-gratuitos',   // Página C limpia sin .html
+        gracias: '/gracias'                      // Hub post-pago limpio sin .html
     },
 
     // Social Proof Toast
@@ -813,7 +813,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             saveState({ nombre: resNombre.nombreLimpio, email: resEmail.emailLimpio });
             localStorage.setItem('guiaSolicitada', 'true');
-            window.location.href = 'gracias-guia.html';
+            window.location.href = '/gracias-guia';
         } catch (err) {
             alert('Error al enviar. Intenta de nuevo o escríbenos por WhatsApp.');
             btn.disabled = false;
@@ -1028,7 +1028,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 saveState({ nombre: resNombre.nombreLimpio, email: resEmail.emailLimpio });
                 localStorage.setItem('guiaSolicitada', 'true');
-                window.location.href = 'gracias-guia.html';
+                window.location.href = '/gracias-guia';
             } catch (err) {
                 mostrarErrorCampo(inputEmail, 'Error al enviar. Intenta de nuevo.');
                 btn.disabled = false;

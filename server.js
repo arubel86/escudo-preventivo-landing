@@ -285,6 +285,18 @@ app.post('/api/process-payment', async (req, res) => {
 // ============================================================
 // RUTAS LIMPIAS (Sin extensión .html)
 // ============================================================
+
+// 1. Inicio / Cuestionario
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+app.get('/index.html', (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/' + query);
+});
+
+// 2. Página B: Video y Oferta
 app.get('/escudo-preventivo', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'escudo-preventivo.html'));
 });
@@ -294,6 +306,27 @@ app.get('/escudo-preventivo.html', (req, res) => {
   res.redirect(301, '/escudo-preventivo' + query);
 });
 
+// 3. Página C: Recursos Gratuitos (Lead Magnet)
+app.get('/recursos-gratuitos', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'recursos-gratuitos.html'));
+});
+
+app.get('/recursos-gratuitos.html', (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/recursos-gratuitos' + query);
+});
+
+// 4. Hub Post-Descarga Guía Gratuita
+app.get('/gracias-guia', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'gracias-guia.html'));
+});
+
+app.get('/gracias-guia.html', (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/gracias-guia' + query);
+});
+
+// 5. Hub Post-Pago (Protegido por Sesión Criptográfica)
 app.get('/gracias', (req, res) => {
   if (!isValidPaymentSession(req.headers.cookie)) {
     console.log('🔒 Acceso no autorizado bloqueado a /gracias. Redirigiendo a /escudo-preventivo...');
@@ -304,6 +337,26 @@ app.get('/gracias', (req, res) => {
 
 app.get('/gracias.html', (req, res) => {
   res.redirect(301, '/gracias');
+});
+
+// 6. Política de Privacidad
+app.get('/privacidad', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'privacidad.html'));
+});
+
+app.get('/privacidad.html', (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/privacidad' + query);
+});
+
+// 7. Términos y Condiciones
+app.get('/terminos', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'terminos.html'));
+});
+
+app.get('/terminos.html', (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/terminos' + query);
 });
 
 // ARCHIVOS ESTÁTICOS (Landing Page)
