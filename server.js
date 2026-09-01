@@ -15,7 +15,37 @@
 require('dotenv').config();
 const express = require('express');
 const path = require('path');
+const crypto = require('crypto');
 const { cybersourceRequest } = require('./lib/cybersource-auth');
+
+// Secret para firmar tokens de sesión de pago (1 hora)
+const PAYMENT_SESSION_SECRET = process.env.CS_SHARED_SECRET_B64 || 'aizprua_secure_session_key_2026';
+
+function generatePaymentSessionCookie(transactionId) {
+  const timestamp = Date.now();
+  const data = `${transactionId}:${timestamp}`;
+  const sig = crypto.createHmac('sha256', PAYMENT_SESSION_SECRET).update(data).digest('hex');
+  return `${data}:${sig}`;
+}
+
+function isValidPaymentSession(cookieHeader) {
+  if (!cookieHeader) return false;
+  const match = cookieHeader.match(/ep_paid_session=([^;]+)/);
+  if (!match) return false;
+  const parts = match[1].split(':');
+  if (parts.length !== 3) return false;
+  const [transactionId, timestampStr, sig] = parts;
+  const timestamp = parseInt(timestampStr, 10);
+  if (isNaN(timestamp)) return false;
+  
+  // Validar expiración (60 minutos)
+  const maxAgeMs = 60 * 60 * 1000;
+  if (Date.now() - timestamp > maxAgeMs) return false;
+  
+  // Validar firma HMAC
+  const expectedSig = crypto.createHmac('sha256', PAYMENT_SESSION_SECRET).update(`${transactionId}:${timestamp}`).digest('hex');
+  return sig === expectedSig;
+}
 
 const app = express();
 app.use(express.json());
@@ -212,6 +242,10 @@ app.post('/api/process-payment', async (req, res) => {
         console.error('   ⚠️ Error registrando en Sheets:', webhookErr.message);
       }
 
+      // 🛡️ Emitir Cookie de sesión de pago autorizada (Válida por 1 hora)
+      const sessionToken = generatePaymentSessionCookie(result.id);
+      res.setHeader('Set-Cookie', `ep_paid_session=${sessionToken}; Path=/; Max-Age=3600; HttpOnly; SameSite=Lax`);
+
       return res.json({
         status: 'success',
         message: '¡Pago autorizado por Banco General!',
@@ -261,6 +295,10 @@ app.get('/escudo-preventivo.html', (req, res) => {
 });
 
 app.get('/gracias', (req, res) => {
+  if (!isValidPaymentSession(req.headers.cookie)) {
+    console.log('🔒 Acceso no autorizado bloqueado a /gracias. Redirigiendo a /escudo-preventivo...');
+    return res.redirect('/escudo-preventivo');
+  }
   res.sendFile(path.join(__dirname, 'public', 'gracias.html'));
 });
 
