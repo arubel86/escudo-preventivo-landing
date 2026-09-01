@@ -223,6 +223,7 @@ app.post('/api/process-payment', async (req, res) => {
       });
     } else {
       // ❌ Pago declinado
+      console.log('   ❌ Pago declinado por CyberSource. Detalle completo:', JSON.stringify(result, null, 2));
       const errorMsg = (result.errorInformation && result.errorInformation.message) ||
                         result.message ||
                         'Transacción declinada por CyberSource.';
@@ -232,7 +233,8 @@ app.post('/api/process-payment', async (req, res) => {
         cybersource: {
           id: result.id,
           status: result.status,
-          reason: result.errorInformation?.reason
+          reason: result.errorInformation?.reason,
+          details: result.errorInformation || result
         }
       });
     }
