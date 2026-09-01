@@ -737,17 +737,17 @@
 
                 <!-- Form -->
                 <form id="cybersource-form" class="space-y-3">
-                    <!-- Datos Personales -->
-                    <div class="grid grid-cols-2 gap-2.5">
+                    <!-- Datos Personales (Responsivo: 1 col en celular, 2 col en desktop) -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                         <div>
                             <label class="block text-[11px] font-semibold text-slate-700 mb-1">Nombre *</label>
                             <input type="text" id="cs-first-name" name="firstName" required placeholder="Ej: Carlos"
-                                class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue transition">
+                                class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue transition">
                         </div>
                         <div>
                             <label class="block text-[11px] font-semibold text-slate-700 mb-1">Apellido *</label>
                             <input type="text" id="cs-last-name" name="lastName" required placeholder="Ej: Pérez"
-                                class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue transition">
+                                class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue transition">
                         </div>
                     </div>
 
@@ -755,12 +755,12 @@
                         <div>
                             <label class="block text-[11px] font-semibold text-slate-700 mb-1">Correo Electrónico *</label>
                             <input type="email" id="cs-email" name="email" required placeholder="tu@correo.com"
-                                class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue transition">
+                                class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue transition">
                         </div>
                         <div>
                             <label class="block text-[11px] font-semibold text-slate-700 mb-1">WhatsApp / Teléfono *</label>
                             <input type="tel" id="cs-phone" name="phone" required placeholder="6546-1234"
-                                class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue transition">
+                                class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue transition">
                         </div>
                     </div>
 
@@ -842,7 +842,8 @@
         }
     </style>
 
-    <script src="script.js?v=3.1.0" defer></script>
+    <script src="https://pay.google.com/gp/p/js/pay.js"></script>
+    <script src="script.js?v=3.3.0" defer></script>
 </body>
 
 </html>

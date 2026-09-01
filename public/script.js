@@ -1317,12 +1317,27 @@ document.addEventListener('DOMContentLoaded', () => {
         return true;
     }
 
+    async function ensureGooglePaySdk() {
+        if (window.google?.payments?.api?.PaymentsClient) return true;
+        return new Promise((resolve) => {
+            if (window.google?.payments?.api?.PaymentsClient) return resolve(true);
+            const script = document.createElement('script');
+            script.src = 'https://pay.google.com/gp/p/js/pay.js';
+            script.onload = () => resolve(!!window.google?.payments?.api?.PaymentsClient);
+            script.onerror = () => resolve(false);
+            document.head.appendChild(script);
+        });
+    }
+
     if (googlePayBtn) {
         googlePayBtn.addEventListener('click', async () => {
             if (!checkWalletContactData()) return;
             hideCheckoutAlert();
 
-            if (window.google?.payments?.api?.PaymentsClient) {
+            showCheckoutAlert('Conectando con Google Pay...', 'info');
+
+            const hasGooglePay = await ensureGooglePaySdk();
+            if (hasGooglePay && window.google?.payments?.api?.PaymentsClient) {
                 try {
                     const paymentsClient = new window.google.payments.api.PaymentsClient({ environment: 'TEST' });
                     const paymentDataRequest = {
@@ -1351,7 +1366,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                     };
 
-                    showCheckoutAlert('Abriendo pasarela segura de Google Pay...', 'info');
+                    hideCheckoutAlert();
                     const paymentData = await paymentsClient.loadPaymentData(paymentDataRequest);
                     console.log('✅ Datos de Google Pay recibidos:', paymentData);
                     const token = paymentData?.paymentMethodData?.tokenizationData?.token || JSON.stringify(paymentData);
@@ -1359,13 +1374,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 } catch (err) {
                     if (err?.statusCode !== 'CANCELED') {
                         console.error('Error Google Pay:', err);
-                        showCheckoutAlert('No se pudo completar con Google Pay en este dispositivo. Puedes usar tu tarjeta abajo.', 'info');
+                        showCheckoutAlert('Google Pay no está configurado en este navegador. Puedes usar tu tarjeta abajo.', 'info');
                     } else {
                         hideCheckoutAlert();
                     }
                 }
             } else {
-                showCheckoutAlert('Iniciando Google Pay... En este dispositivo puedes ingresar los datos de tu tarjeta abajo para completar tu prueba.', 'info');
+                showCheckoutAlert('Google Pay no está disponible en este dispositivo. Puedes usar tu tarjeta abajo.', 'info');
             }
         });
     }
