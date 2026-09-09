@@ -57,6 +57,9 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Canvas Confetti -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <!-- Calendly Widget CSS & JS Oficial -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
     <style>
         @keyframes reveal-section {
             from { opacity: 0; transform: translateY(20px); }
@@ -236,6 +239,18 @@
 
                     <div id="calendly-widget" class="calendly-inline-widget" style="min-width:320px;height:700px;">
                     </div>
+
+                    <!-- Barra de ayuda y confirmación si ya agendó -->
+                    <div class="bg-slate-50 border-t border-slate-200/80 px-6 py-3.5 flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
+                        <span class="text-xs text-slate-500 flex items-center gap-1.5 justify-center">
+                            <i data-lucide="calendar-check" class="w-4 h-4 text-emerald-600 flex-shrink-0"></i>
+                            <span>¿Ya completaste la reserva de tu cita arriba?</span>
+                        </span>
+                        <button type="button" id="btn-confirmar-cita-manual"
+                            class="text-xs text-brand-blue hover:text-brand-blue-dark font-bold underline transition hover:opacity-90 py-1 px-2.5 rounded bg-brand-blue/5 hover:bg-brand-blue/10">
+                            Confirmar Cita Agendada ✓
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -247,27 +262,27 @@
                         <div id="ruta-badge-1" class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 text-white font-bold transition-all duration-300 shadow-sm">
                             <i data-lucide="check" class="w-4 h-4"></i>
                         </div>
-                        <p id="ruta-text-1" class="font-semibold text-green-600 transition-colors duration-300">1. Pago de $79 USD realizado ✓</p>
+                        <p id="ruta-text-1" class="font-semibold text-green-600 transition-colors duration-300">Pago de $79 USD realizado ✓</p>
                     </li>
                     <li id="ruta-paso-2" class="flex items-center gap-3">
                         <div id="ruta-badge-2" class="w-8 h-8 bg-brand-orange text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold transition-all duration-300 ring-2 ring-orange-200">2</div>
-                        <p id="ruta-text-2" class="font-semibold text-slate-800 transition-colors duration-300">2. Registro de datos y cuestionario (Paso 1)</p>
+                        <p id="ruta-text-2" class="font-semibold text-slate-800 transition-colors duration-300">Registro de datos y cuestionario (Paso 1)</p>
                     </li>
                     <li id="ruta-paso-3" class="flex items-center gap-3">
                         <div id="ruta-badge-3" class="w-8 h-8 bg-slate-200 text-slate-600 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-xs transition-all duration-300">3</div>
-                        <p id="ruta-text-3" class="text-slate-600 transition-colors duration-300">3. Elección de horario en Calendly (Paso 2 - Martes o Jueves)</p>
+                        <p id="ruta-text-3" class="text-slate-600 transition-colors duration-300">Elección de horario en Calendly (Paso 2 - Martes o Jueves)</p>
                     </li>
                     <li id="ruta-paso-4" class="flex items-center gap-3">
                         <div id="ruta-badge-4" class="w-8 h-8 bg-slate-200 text-slate-600 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-xs transition-all duration-300">4</div>
-                        <p id="ruta-text-4" class="text-slate-600 transition-colors duration-300">4. Recibes tus bonos por correo electrónico</p>
+                        <p id="ruta-text-4" class="text-slate-600 transition-colors duration-300">Recibes tus bonos por correo electrónico</p>
                     </li>
                     <li id="ruta-paso-5" class="flex items-center gap-3">
                         <div id="ruta-badge-5" class="w-8 h-8 bg-slate-200 text-slate-600 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-xs transition-all duration-300">5</div>
-                        <p id="ruta-text-5" class="text-slate-600 transition-colors duration-300">5. Formulario de preparación de la asesoría por correo electrónico</p>
+                        <p id="ruta-text-5" class="text-slate-600 transition-colors duration-300">Formulario de preparación de la asesoría por correo electrónico</p>
                     </li>
                     <li id="ruta-paso-6" class="flex items-center gap-3">
                         <div id="ruta-badge-6" class="w-8 h-8 bg-slate-200 text-slate-600 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-xs transition-all duration-300">6</div>
-                        <p id="ruta-text-6" class="text-slate-600 transition-colors duration-300">6. Tu sesión de diagnóstico con hoja de ruta clara</p>
+                        <p id="ruta-text-6" class="text-slate-600 transition-colors duration-300">Tu sesión de diagnóstico con hoja de ruta clara</p>
                     </li>
                 </ol>
             </div>
@@ -667,16 +682,50 @@
             const nombre = resNombre.nombreLimpio;
             const email = resEmail.emailLimpio;
 
+            cargarWidgetCalendly(nombre, email);
+        });
+
+        // ============================================================
+        // MOTOR DE CARGA OFICIAL DE CALENDLY (Widget JS)
+        // ============================================================
+        function cargarWidgetCalendly(nombre, email) {
+            const widgetContainer = document.getElementById('calendly-widget');
+            if (!widgetContainer) return;
+
             const params = new URLSearchParams({ 
                 hide_gdpr_banner: '1',
-                name: nombre,
-                email: email
+                name: nombre || epState.nombre || '',
+                email: email || epState.email || ''
             });
             const finalCalendlyUrl = CALENDLY_URL + '?' + params.toString();
 
-            const widgetContainer = document.getElementById('calendly-widget');
-            widgetContainer.innerHTML = `<iframe src="${finalCalendlyUrl}" width="100%" height="700" frameborder="0" class="w-full h-[700px] border-0 rounded-b-3xl"></iframe>`;
-        });
+            widgetContainer.innerHTML = '';
+
+            const montarWidget = () => {
+                if (window.Calendly && typeof window.Calendly.initInlineWidget === 'function') {
+                    window.Calendly.initInlineWidget({
+                        url: finalCalendlyUrl,
+                        parentElement: widgetContainer
+                    });
+                } else {
+                    // Fallback con iframe si Calendly script no cargó
+                    widgetContainer.innerHTML = `<iframe src="${finalCalendlyUrl}" width="100%" height="700" frameborder="0" class="w-full h-[700px] border-0 rounded-b-3xl"></iframe>`;
+                }
+            };
+
+            if (window.Calendly) {
+                montarWidget();
+            } else {
+                let checkCount = 0;
+                const checkInterval = setInterval(() => {
+                    checkCount++;
+                    if (window.Calendly || checkCount > 20) {
+                        clearInterval(checkInterval);
+                        montarWidget();
+                    }
+                }, 150);
+            }
+        }
 
         // ============================================================
         // GESTIÓN DINÁMICA DE PASOS ("Tu Ruta Completa de Atención")
@@ -690,6 +739,8 @@
             }
             if (text) {
                 text.className = 'font-semibold text-green-600 transition-colors duration-300';
+                // Limpiar cualquier prefijo numérico "1. ", "2. ", etc. si existiera
+                text.textContent = text.textContent.replace(/^\d+\.\s*/, '');
                 if (!text.textContent.includes('✓')) {
                     text.textContent = text.textContent.trim() + ' ✓';
                 }
@@ -710,18 +761,43 @@
             }
         }
 
+        function confirmarCitaAgendadaExito() {
+            marcarPasoCompletado(3);
+            activarPaso(4);
+            localStorage.setItem('ep_paso3_completado', 'true');
+
+            const bannerCita = document.getElementById('calendly-success');
+            if (bannerCita) {
+                bannerCita.classList.remove('hidden');
+                bannerCita.classList.add('section-reveal');
+            }
+
+            if (typeof confetti === 'function') {
+                confetti({
+                    particleCount: 70,
+                    spread: 80,
+                    origin: { y: 0.5 },
+                    colors: ['#10B981', '#3849C8', '#FF8A1E']
+                });
+            }
+        }
+
         // Listener oficial de Calendly: Captura cuando el usuario agenda la cita (Paso 3)
         function esEventoCalendlyScheduled(e) {
             if (!e.data) return false;
-            if (typeof e.data === 'object' && e.data.event === 'calendly.event_scheduled') {
-                return true;
+            if (typeof e.data === 'object' && e.data !== null) {
+                if (e.data.event === 'calendly.event_scheduled') return true;
+                if (e.data.event && e.data.event.indexOf('event_scheduled') !== -1) return true;
+                if (e.data.action === 'calendly.event_scheduled') return true;
             }
             if (typeof e.data === 'string') {
                 try {
                     const parsed = JSON.parse(e.data);
-                    if (parsed && parsed.event === 'calendly.event_scheduled') return true;
+                    if (parsed && (parsed.event === 'calendly.event_scheduled' || (parsed.event && parsed.event.indexOf('event_scheduled') !== -1))) {
+                        return true;
+                    }
                 } catch (_) {
-                    if (e.data.indexOf('calendly.event_scheduled') !== -1) return true;
+                    if (e.data.indexOf('calendly.event_scheduled') !== -1 || e.data.indexOf('event_scheduled') !== -1) return true;
                 }
             }
             return false;
@@ -729,27 +805,25 @@
 
         window.addEventListener('message', function (e) {
             if (esEventoCalendlyScheduled(e)) {
-                // Al agendar en Calendly, Paso 3 se vuelve verde automáticamente con ganchito ✓
-                marcarPasoCompletado(3);
-                activarPaso(4);
-                localStorage.setItem('ep_paso3_completado', 'true');
-
-                const bannerCita = document.getElementById('calendly-success');
-                if (bannerCita) {
-                    bannerCita.classList.remove('hidden');
-                    bannerCita.classList.add('section-reveal');
-                }
-
-                if (typeof confetti === 'function') {
-                    confetti({
-                        particleCount: 70,
-                        spread: 80,
-                        origin: { y: 0.5 },
-                        colors: ['#10B981', '#3849C8', '#FF8A1E']
-                    });
-                }
+                confirmarCitaAgendadaExito();
             }
         });
+
+        // Botón de confirmación manual de respaldo
+        const btnConfirmarManual = document.getElementById('btn-confirmar-cita-manual');
+        if (btnConfirmarManual) {
+            btnConfirmarManual.addEventListener('click', () => {
+                confirmarCitaAgendadaExito();
+            });
+        }
+
+        // Detección si Calendly redirigió la página con parámetros de confirmación
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('assigned_to') || urlParams.has('invitee_uuid') || urlParams.has('event_start_time') || urlParams.has('event_type_uuid')) {
+            marcarPasoCompletado(2);
+            confirmarCitaAgendadaExito();
+            localStorage.setItem('ep_paso2_completado', 'true');
+        }
 
         // Restauración de estado persistido
         (function restaurarPasosGuardados() {
@@ -766,13 +840,7 @@
 
                 const widgetContainer = document.getElementById('calendly-widget');
                 if (widgetContainer && !widgetContainer.innerHTML.trim()) {
-                    const params = new URLSearchParams({ 
-                        hide_gdpr_banner: '1',
-                        name: epState.nombre || '',
-                        email: epState.email || ''
-                    });
-                    const finalCalendlyUrl = CALENDLY_URL + '?' + params.toString();
-                    widgetContainer.innerHTML = `<iframe src="${finalCalendlyUrl}" width="100%" height="700" frameborder="0" class="w-full h-[700px] border-0 rounded-b-3xl"></iframe>`;
+                    cargarWidgetCalendly(epState.nombre || '', epState.email || '');
                 }
             }
             if (localStorage.getItem('ep_paso3_completado') === 'true') {
