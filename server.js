@@ -359,6 +359,16 @@ app.get('/terminos.html', (req, res) => {
   res.redirect(301, '/terminos' + query);
 });
 
+// 8. Generador Ejecutivo de Hoja de Ruta
+app.get('/hoja-de-ruta', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'hoja-de-ruta.html'));
+});
+
+app.get('/hoja-de-ruta.html', (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/hoja-de-ruta' + query);
+});
+
 // ARCHIVOS ESTÁTICOS (Landing Page)
 app.use(express.static(path.join(__dirname, 'public')));
 

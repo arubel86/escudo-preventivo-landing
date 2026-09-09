@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Ruta & Plan de Regularización — Aizprua S.E.</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/LOGOS%20PARA%20DIGITAL%20INDIVIDUALES-07.svg">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif']
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#3849C8',
+                            'blue-dark': '#2D3A9F',
+                            'blue-light': '#4F5ED4',
+                            orange: '#FF8A1E',
+                            'orange-dark': '#E67A15',
+                            'orange-light': '#FFA04A'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Estilos específicos de pantalla y edición */
+        .editable-field {
+            transition: all 0.2s ease;
+            outline: none;
+            border-radius: 4px;
+            padding: 1px 4px;
+        }
+        .editable-field:hover {
+            background-color: rgba(56, 73, 200, 0.08);
+            box-shadow: 0 0 0 1px #3849C8;
+        }
+        .editable-field:focus {
+            background-color: #FFFFFF;
+            box-shadow: 0 0 0 2px #FF8A1E;
+        }
+
+        /* ESTILOS DE IMPRESIÓN OFICIAL (PDF) */
+        @media print {
+            @page {
+                size: letter;
+                margin: 8mm 10mm 8mm 10mm;
+            }
+            body {
+                background: #FFFFFF !important;
+                color: #0F172A !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .print-container {
+                box-shadow: none !important;
+                border: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+                width: 100% !important;
+            }
+            .page-break-avoid {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+            .editable-field:hover, .editable-field:focus {
+                background-color: transparent !important;
+                box-shadow: none !important;
+            }
+            /* Ruta estilo index.html en 3 columnas fijas para PDF */
+            .route-grid {
+                display: grid !important;
+                grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+                gap: 16px !important;
+                position: relative !important;
+            }
+            .route-connector {
+                display: flex !important;
+            }
+            .bg-brand-blue {
+                background-color: #3849C8 !important;
+                color: #FFFFFF !important;
+            }
+            .bg-brand-orange {
+                background-color: #FF8A1E !important;
+                color: #FFFFFF !important;
+            }
+            .bg-green-500 {
+                background-color: #22C55E !important;
+                color: #FFFFFF !important;
+            }
+            .bg-slate-50 {
+                background-color: #F8FAFC !important;
+            }
+            .bg-white {
+                background-color: #FFFFFF !important;
+            }
+            .border-slate-200 {
+                border-color: #E2E8F0 !important;
+            }
+            .shadow-sm, .shadow-md, .shadow-xl, .shadow-2xl {
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-100 text-slate-800 font-sans min-h-screen py-6 px-4 md:px-8">
+
+    <!-- ============================================================ -->
+    <!-- BARRA DE CONTROL SUPERIOR (SOLO PANTALLA - OCULTA AL IMPRIMIR) -->
+    <!-- ============================================================ -->
+    <div class="no-print max-w-5xl mx-auto mb-6 bg-white border border-slate-200/90 rounded-2xl p-5 shadow-lg">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-slate-100">
+            <div>
+                <div class="flex items-center gap-2 mb-1">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <h1 class="text-lg font-bold text-slate-900 font-heading">
+                        Generador Ejecutivo de Hojas de Ruta · Aizprua S.E.
+                    </h1>
+                </div>
+                <p class="text-xs text-slate-500">
+                    Selecciona un caso pre-cargado, ajusta los datos y descarga el PDF en 1 clic. Todos los textos en la hoja son editables con un clic.
+                </p>
+            </div>
+
+            <!-- Botones de Acción -->
+            <div class="flex flex-wrap items-center gap-2">
+                <button onclick="window.print()"
+                    class="px-5 py-2.5 bg-gradient-to-r from-brand-orange to-brand-orange-dark text-white font-extrabold text-sm rounded-xl shadow-md hover:brightness-110 transition flex items-center gap-2">
+                    <i data-lucide="printer" class="w-4 h-4"></i>
+                    <span>📄 Guardar / Imprimir en PDF</span>
+                </button>
+                <button onclick="reiniciarPlantilla()"
+                    class="px-3.5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs rounded-xl transition flex items-center gap-1.5" title="Restablecer plantilla">
+                    <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+                    <span>Limpiar</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Fila de Selectores Rápidos -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 text-xs">
+            <!-- 1. Casos Pre-cargados -->
+            <div>
+                <label class="block font-bold text-slate-700 mb-1.5 flex items-center gap-1">
+                    <i data-lucide="sparkles" class="w-3.5 h-3.5 text-brand-orange"></i>
+                    <span>1. Cargar Caso Típico:</span>
+                </label>
+                <select id="case-preset-select" onchange="aplicarCaso(this.value)"
+                    class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 font-medium focus:ring-2 focus:ring-brand-blue outline-none">
+                    <option value="caso1">🏢 Caso 1: Sociedad Suspendida / Morosa Tasa Única</option>
+                    <option value="caso2">🏛️ Caso 2: Inconsistencia en Municipio & MICI</option>
+                    <option value="caso3">💼 Caso 3: Migración Persona Natural a S.A./S.E.P.</option>
+                    <option value="caso4">👥 Caso 4: Riesgo Laboral / Regularización CSS</option>
+                    <option value="caso5">🛡️ Caso 5: Auditoría Preventiva de Rutina (Al Día)</option>
+                </select>
+            </div>
+
+            <!-- 2. Planes de Regularización -->
+            <div>
+                <label class="block font-bold text-slate-700 mb-1.5 flex items-center gap-1">
+                    <i data-lucide="briefcase" class="w-3.5 h-3.5 text-brand-blue"></i>
+                    <span>2. Plan de Cierre Propuesto:</span>
+                </label>
+                <select id="plan-select" onchange="actualizarPlan(this.value)"
+                    class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 font-medium focus:ring-2 focus:ring-brand-blue outline-none">
+                    <option value="plan2" selected>🛡️ Plan 2: Blindaje Corporativo Total ($650)</option>
+                    <option value="plan1">🏛️ Plan 1: Saneamiento Municipal & MICI ($350)</option>
+                    <option value="plan3">⚡ Plan 3: Regularización Integral Multi-Entidad ($1,200)</option>
+                    <option value="planPersonalizado">✍️ Plan Personalizado</option>
+                </select>
+            </div>
+
+            <!-- 3. Add-ons / Servicios Adicionales -->
+            <div>
+                <label class="block font-bold text-slate-700 mb-1.5 flex items-center gap-1">
+                    <i data-lucide="check-square" class="w-3.5 h-3.5 text-emerald-600"></i>
+                    <span>3. Servicios Adicionales (Add-ons):</span>
+                </label>
+                <div class="flex flex-wrap gap-2">
+                    <label class="inline-flex items-center gap-1 cursor-pointer bg-slate-50 hover:bg-slate-100 border border-slate-200 px-2 py-1 rounded text-[11px]">
+                        <input type="checkbox" id="addon-ruaf" onchange="recalcularCostos()" class="rounded text-brand-blue">
+                        <span>RUAF (+ $150)</span>
+                    </label>
+                    <label class="inline-flex items-center gap-1 cursor-pointer bg-slate-50 hover:bg-slate-100 border border-slate-200 px-2 py-1 rounded text-[11px]">
+                        <input type="checkbox" id="addon-agente" onchange="recalcularCostos()" class="rounded text-brand-blue">
+                        <span>Agente Residente (+ $200)</span>
+                    </label>
+                    <label class="inline-flex items-center gap-1 cursor-pointer bg-slate-50 hover:bg-slate-100 border border-slate-200 px-2 py-1 rounded text-[11px]">
+                        <input type="checkbox" id="addon-pazysalvo" onchange="recalcularCostos()" class="rounded text-brand-blue">
+                        <span>Paz y Salvo DGI (+ $120)</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- DOCUMENTO EJECUTIVO OFICIAL (LO QUE SE IMPRIME / GUARDA EN PDF) -->
+    <!-- ============================================================ -->
+    <div class="print-container max-w-5xl mx-auto bg-white border border-slate-200/90 shadow-2xl rounded-2xl p-8 md:p-12 transition-all">
+
+        <!-- 1. ENCABEZADO CORPORATIVO -->
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pb-6 border-b-2 border-brand-blue">
+            <div>
+                <h2 class="text-2xl font-black tracking-tight text-slate-900 font-heading">
+                    AIZPRUA <span class="text-brand-orange">S.E.</span>
+                </h2>
+                <p class="text-[10px] sm:text-[11px] uppercase tracking-wider text-slate-500 font-semibold">
+                    Firma Legal & Blindaje Corporativo · República de Panamá
+                </p>
+            </div>
+
+            <div class="text-left sm:text-right">
+                <span class="inline-block px-3 py-1 bg-brand-blue/10 text-brand-blue border border-brand-blue/20 rounded-full text-xs font-extrabold uppercase tracking-wider mb-1">
+                    Diagnóstico Escudo Preventivo
+                </span>
+                <p class="text-xs text-slate-600 font-medium">
+                    Expediente: <strong id="doc-expediente" class="editable-field text-slate-900" contenteditable="true">EP-2026-042</strong>
+                </p>
+                <p class="text-xs text-slate-500">
+                    Fecha de Emisión: <span id="doc-fecha" class="editable-field" contenteditable="true"></span>
+                </p>
+            </div>
+        </div>
+
+        <!-- TÍTULO DEL DOCUMENTO -->
+        <div class="my-6 text-center">
+            <h1 class="text-xl md:text-2xl font-black text-slate-900 uppercase tracking-tight font-heading">
+                Hoja de Ruta Preventiva & Plan de Regularización
+            </h1>
+            <p class="text-xs text-slate-500 max-w-2xl mx-auto mt-1">
+                Dictamen técnico confidencial emitido tras la sesión de auditoría legal y corporativa de 40 minutos.
+            </p>
+        </div>
+
+        <!-- 2. FICHA DEL EXPEDIENTE (DATOS DEL CLIENTE) -->
+        <div class="bg-slate-50 border border-slate-200/80 rounded-xl p-4 mb-6 text-xs">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <div>
+                    <span class="text-[10px] uppercase font-bold text-slate-400 block">Titular / Representante:</span>
+                    <strong id="doc-cliente" class="editable-field text-slate-900 text-sm block" contenteditable="true">Carlos Pérez</strong>
+                </div>
+                <div>
+                    <span class="text-[10px] uppercase font-bold text-slate-400 block">Empresa o Razón Social:</span>
+                    <strong id="doc-empresa" class="editable-field text-slate-900 text-sm block" contenteditable="true">Inversiones Pérez S.A.</strong>
+                </div>
+                <div>
+                    <span class="text-[10px] uppercase font-bold text-slate-400 block">RUC & Dígito Verificador:</span>
+                    <strong id="doc-ruc" class="editable-field text-slate-900 text-sm block font-mono" contenteditable="true">1556789-1-DV 45</strong>
+                </div>
+                <div>
+                    <span class="text-[10px] uppercase font-bold text-slate-400 block">Municipio de Operación:</span>
+                    <strong id="doc-municipio" class="editable-field text-slate-900 text-sm block" contenteditable="true">La Chorrera (Panamá Oeste)</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. MATRIZ SEMÁFORO DE DIAGNÓSTICO -->
+        <div class="mb-6 page-break-avoid">
+            <h3 class="text-xs uppercase font-extrabold tracking-wider text-slate-500 mb-3 flex items-center gap-1.5">
+                <i data-lucide="gauge" class="w-4 h-4 text-brand-blue"></i>
+                <span>Matriz Semáforo de Cumplimiento Normativo:</span>
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                <!-- 1. DGI -->
+                <div class="border border-slate-200 rounded-xl p-3 bg-white relative">
+                    <div class="flex items-center justify-between mb-1.5">
+                        <span class="font-bold text-xs text-slate-900">1. DGI (Tributario)</span>
+                        <span id="badge-dgi" class="px-2 py-0.5 rounded text-[10px] font-extrabold uppercase bg-red-100 text-red-700 border border-red-200">Riesgo Alto</span>
+                    </div>
+                    <p id="desc-dgi" class="text-[11px] text-slate-600 leading-snug editable-field" contenteditable="true">
+                        Declaraciones de renta pendientes en e-Tax 2.0. Riesgo de suspensión de RUC y multas por omisión.
+                    </p>
+                    <!-- Controles semáforo (no-print) -->
+                    <div class="no-print mt-2 pt-2 border-t border-slate-100 flex items-center justify-end gap-1">
+                        <button onclick="setSemaforo('dgi', 'verde')" class="w-4 h-4 rounded-full bg-emerald-500 hover:scale-110 transition" title="Verde"></button>
+                        <button onclick="setSemaforo('dgi', 'amarillo')" class="w-4 h-4 rounded-full bg-amber-400 hover:scale-110 transition" title="Amarillo"></button>
+                        <button onclick="setSemaforo('dgi', 'rojo')" class="w-4 h-4 rounded-full bg-rose-500 hover:scale-110 transition" title="Rojo"></button>
+                    </div>
+                </div>
+
+                <!-- 2. Registro Público -->
+                <div class="border border-slate-200 rounded-xl p-3 bg-white relative">
+                    <div class="flex items-center justify-between mb-1.5">
+                        <span class="font-bold text-xs text-slate-900">2. Registro Público</span>
+                        <span id="badge-registro" class="px-2 py-0.5 rounded text-[10px] font-extrabold uppercase bg-amber-100 text-amber-700 border border-amber-200">Atención</span>
+                    </div>
+                    <p id="desc-registro" class="text-[11px] text-slate-600 leading-snug editable-field" contenteditable="true">
+                        Tasa Única 2024-2025 en mora. Se requiere validar continuidad del Agente Residente y estatus RUAF.
+                    </p>
+                    <div class="no-print mt-2 pt-2 border-t border-slate-100 flex items-center justify-end gap-1">
+                        <button onclick="setSemaforo('registro', 'verde')" class="w-4 h-4 rounded-full bg-emerald-500 hover:scale-110 transition" title="Verde"></button>
+                        <button onclick="setSemaforo('registro', 'amarillo')" class="w-4 h-4 rounded-full bg-amber-400 hover:scale-110 transition" title="Amarillo"></button>
+                        <button onclick="setSemaforo('registro', 'rojo')" class="w-4 h-4 rounded-full bg-rose-500 hover:scale-110 transition" title="Rojo"></button>
+                    </div>
+                </div>
+
+                <!-- 3. Municipio / MICI -->
+                <div class="border border-slate-200 rounded-xl p-3 bg-white relative">
+                    <div class="flex items-center justify-between mb-1.5">
+                        <span class="font-bold text-xs text-slate-900">3. Municipio / MICI</span>
+                        <span id="badge-municipio" class="px-2 py-0.5 rounded text-[10px] font-extrabold uppercase bg-red-100 text-red-700 border border-red-200">Riesgo Alto</span>
+                    </div>
+                    <p id="desc-municipio" class="text-[11px] text-slate-600 leading-snug editable-field" contenteditable="true">
+                        Aviso de Operación desactualizado con actividad comercial real. Inconsistencia tributaria municipal activa.
+                    </p>
+                    <div class="no-print mt-2 pt-2 border-t border-slate-100 flex items-center justify-end gap-1">
+                        <button onclick="setSemaforo('municipio', 'verde')" class="w-4 h-4 rounded-full bg-emerald-500 hover:scale-110 transition" title="Verde"></button>
+                        <button onclick="setSemaforo('municipio', 'amarillo')" class="w-4 h-4 rounded-full bg-amber-400 hover:scale-110 transition" title="Amarillo"></button>
+                        <button onclick="setSemaforo('municipio', 'rojo')" class="w-4 h-4 rounded-full bg-rose-500 hover:scale-110 transition" title="Rojo"></button>
+                    </div>
+                </div>
+
+                <!-- 4. Laboral / CSS -->
+                <div class="border border-slate-200 rounded-xl p-3 bg-white relative">
+                    <div class="flex items-center justify-between mb-1.5">
+                        <span class="font-bold text-xs text-slate-900">4. Laboral & CSS</span>
+                        <span id="badge-css" class="px-2 py-0.5 rounded text-[10px] font-extrabold uppercase bg-emerald-100 text-emerald-700 border border-emerald-200">Al Día / Bajo</span>
+                    </div>
+                    <p id="desc-css" class="text-[11px] text-slate-600 leading-snug editable-field" contenteditable="true">
+                        Operación unipersonal o sin personal en planilla activa. Sin riesgo inmediato de boleta patronal.
+                    </p>
+                    <div class="no-print mt-2 pt-2 border-t border-slate-100 flex items-center justify-end gap-1">
+                        <button onclick="setSemaforo('css', 'verde')" class="w-4 h-4 rounded-full bg-emerald-500 hover:scale-110 transition" title="Verde"></button>
+                        <button onclick="setSemaforo('css', 'amarillo')" class="w-4 h-4 rounded-full bg-amber-400 hover:scale-110 transition" title="Amarillo"></button>
+                        <button onclick="setSemaforo('css', 'rojo')" class="w-4 h-4 rounded-full bg-rose-500 hover:scale-110 transition" title="Rojo"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. HALLAZGOS CRÍTICOS DETECTADOS -->
+        <div class="mb-6 bg-amber-50/70 border border-amber-200/90 rounded-xl p-4 page-break-avoid">
+            <h3 class="text-xs uppercase font-extrabold tracking-wider text-amber-900 mb-2 flex items-center gap-1.5">
+                <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-600"></i>
+                <span>Hallazgos Prioritarios Identificados en la Asesoría:</span>
+            </h3>
+            <ul id="doc-hallazgos" class="space-y-1.5 text-xs text-slate-700">
+                <li class="flex items-start gap-2">
+                    <span class="text-amber-600 font-bold">•</span>
+                    <span class="editable-field" contenteditable="true"><strong>Omisión tributaria en DGI:</strong> Se detectaron obligaciones pendientes que impiden la emisión de Paz y Salvo oficial para operaciones comerciales y bancarias.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="text-amber-600 font-bold">•</span>
+                    <span class="editable-field" contenteditable="true"><strong>Aviso de Operación desajustado:</strong> La actividad registrada ante PanamáEmprende no ampara la totalidad de las actividades comerciales actuales en el Municipio.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="text-amber-600 font-bold">•</span>
+                    <span class="editable-field" contenteditable="true"><strong>Riesgo de suspensión corporativa:</strong> La Tasa Única acumulada coloca a la sociedad en riesgo de ser catalogada como "No Vigente" ante el Registro Público.</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 5. RUTA DE REGULARIZACIÓN EN 3 PASOS (DISEÑO OFICIAL INDEX.HTML) -->
+        <div class="mb-6 bg-slate-50 border border-slate-200 rounded-2xl p-5 md:p-6 page-break-avoid">
+            <div class="text-center mb-5">
+                <span class="text-[10px] uppercase font-extrabold text-brand-blue tracking-wider bg-blue-100/70 border border-blue-200 px-3 py-0.5 rounded-full inline-block mb-1.5">
+                    Ruta de Regularización
+                </span>
+                <h3 class="text-base sm:text-lg font-extrabold text-slate-900 font-heading">
+                    ¿Cómo funciona el proceso de regularización?
+                </h3>
+                <p class="text-xs text-slate-500 max-w-xl mx-auto mt-0.5">
+                    Un flujo rápido y transparente en 3 etapas para sanear y blindar tu empresa en Panamá
+                </p>
+            </div>
+
+            <div class="route-grid grid md:grid-cols-3 gap-4 md:gap-5 relative">
+                <!-- Paso 1 -->
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm text-center relative flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 bg-brand-blue text-white rounded-full flex items-center justify-center font-bold text-base mx-auto mb-3 shadow-md">1</div>
+                        <h4 id="estacion-1-titulo" class="font-bold text-slate-900 text-xs sm:text-sm mb-1.5 editable-field" contenteditable="true">Paso 1: Contención Urgente</h4>
+                        <p id="estacion-1" class="text-xs text-slate-600 leading-relaxed editable-field" contenteditable="true">
+                            Frenar citaciones y bloqueos inmediatos. Presentación de memoriales aclaratorios ante Municipio/DGI y actualización del domicilio fiscal.
+                        </p>
+                    </div>
+                    <!-- Conector flecha desktop y print -->
+                    <div class="route-connector hidden md:flex absolute -right-3.5 top-1/2 -translate-y-1/2 z-10 w-7 h-7 bg-white rounded-full border border-slate-200 shadow-sm items-center justify-center text-slate-400">
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </div>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm text-center relative flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 bg-brand-orange text-white rounded-full flex items-center justify-center font-bold text-base mx-auto mb-3 shadow-md">2</div>
+                        <h4 id="estacion-2-titulo" class="font-bold text-slate-900 text-xs sm:text-sm mb-1.5 editable-field" contenteditable="true">Paso 2: Trámites & Subsanación</h4>
+                        <p id="estacion-2" class="text-xs text-slate-600 leading-relaxed editable-field" contenteditable="true">
+                            Pago de Tasas Únicas atrasadas, actualización de Aviso ante MICI, registro formal de Beneficiarios Finales y asignación de Agente Residente.
+                        </p>
+                    </div>
+                    <!-- Conector flecha desktop y print -->
+                    <div class="route-connector hidden md:flex absolute -right-3.5 top-1/2 -translate-y-1/2 z-10 w-7 h-7 bg-white rounded-full border border-slate-200 shadow-sm items-center justify-center text-slate-400">
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </div>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm text-center relative flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-base mx-auto mb-3 shadow-md">3</div>
+                        <h4 id="estacion-3-titulo" class="font-bold text-slate-900 text-xs sm:text-sm mb-1.5 editable-field" contenteditable="true">Paso 3: Blindaje & Paz y Salvo</h4>
+                        <p id="estacion-3" class="text-xs text-slate-600 leading-relaxed editable-field" contenteditable="true">
+                            Emisión de Paz y Salvo Oficial de DGI y Municipio. Entrega de expediente digital saneado y calendario fiscal preventivo 2026.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. PROPUESTA ECONÓMICA CON CRÉDITO DEL ESCUDO PREVENTIVO -->
+        <div class="mb-6 bg-slate-900 text-white rounded-2xl p-5 md:p-6 page-break-avoid relative overflow-hidden">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-4 pb-4 border-b border-slate-700">
+                <div>
+                    <span class="text-[10px] uppercase tracking-wider font-extrabold text-brand-orange block">
+                        Propuesta de Gestión Integral
+                    </span>
+                    <h4 id="nombre-plan-display" class="text-base sm:text-lg font-bold text-white font-heading">
+                        Plan de Blindaje Corporativo Total
+                    </h4>
+                </div>
+                <div class="text-left sm:text-right">
+                    <span class="text-[11px] text-slate-400 block">Inversión Final de Regularización:</span>
+                    <div class="flex items-baseline gap-2">
+                        <span id="precio-final-display" class="text-2xl sm:text-3xl font-black text-white font-heading">$571.00 USD</span>
+                        <span class="text-xs text-slate-400">neto</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desglose Matemático Transparente -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                <div>
+                    <p class="text-slate-300 font-semibold mb-2">Alcance y servicios incluidos en este plan:</p>
+                    <ul id="lista-servicios-plan" class="space-y-1 text-slate-400 text-[11px]">
+                        <li>✓ Saneamiento y actualización de Aviso de Operación (MICI)</li>
+                        <li>✓ Regularización de Tasa Única ante Registro Público</li>
+                        <li>✓ Representación como Agente Residente legal activo</li>
+                        <li>✓ Tramitación de Paz y Salvo DGI y municipal</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-800/80 rounded-xl p-3.5 border border-slate-700 flex flex-col justify-between">
+                    <div class="space-y-1.5 text-xs">
+                        <div class="flex justify-between text-slate-300">
+                            <span>Honorarios oficiales del plan:</span>
+                            <strong id="subtotal-display" class="font-mono text-white">$650.00 USD</strong>
+                        </div>
+                        <div class="flex justify-between text-emerald-400 font-semibold bg-emerald-950/40 px-2 py-1 rounded">
+                            <span class="flex items-center gap-1">
+                                <i data-lucide="check-circle" class="w-3.5 h-3.5"></i>
+                                Crédito Escudo Preventivo (Asesoría):
+                            </span>
+                            <strong class="font-mono text-emerald-300">-$79.00 USD</strong>
+                        </div>
+                    </div>
+                    <div class="pt-2 mt-2 border-t border-slate-700 flex justify-between items-center text-xs">
+                        <span class="text-slate-300 font-bold uppercase tracking-wider text-[10px]">Total a liquidar:</span>
+                        <strong id="total-neto-box" class="font-black text-base text-brand-orange-light font-mono">$571.00 USD</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7. BOTÓN DE APROBACIÓN POR WHATSAPP & CÓDIGO QR -->
+        <div class="bg-emerald-50/60 border border-emerald-200/90 rounded-xl p-4 mb-6 flex flex-col sm:flex-row items-center justify-between gap-4 page-break-avoid">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center flex-shrink-0 shadow-sm">
+                    <i data-lucide="phone-call" class="w-5 h-5"></i>
+                </div>
+                <div>
+                    <h5 class="text-xs font-bold text-slate-900">¿Deseas que ejecutemos este plan por ti?</h5>
+                    <p class="text-[11px] text-slate-600">
+                        Toca el botón o escanea el código QR para autorizar el inicio del trámite con tu crédito de $79 descontado.
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3 flex-shrink-0">
+                <a id="whatsapp-cta-link" href="https://wa.me/50765461527?text=Hola%20Lic.%20Arubel,%20apruebo%20la%20Hoja%20de%20Ruta%20para%20iniciar%20la%20gestión."
+                    target="_blank"
+                    class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs rounded-xl shadow transition flex items-center gap-1.5">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    <span>Aprobar Plan por WhatsApp</span>
+                </a>
+                <img id="qr-code-img" src="https://api.qrserver.com/v1/create-qr-code/?size=60x60&data=https%3A%2F%2Fwa.me%2F50765461527" alt="QR WhatsApp" class="w-12 h-12 rounded border border-emerald-200 bg-white p-0.5" title="Escanear con tu celular">
+            </div>
+        </div>
+
+        <!-- 8. FIRMA Y CIERRE LEGAL -->
+        <div class="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs page-break-avoid">
+            <div>
+                <p class="text-[11px] text-slate-500 font-medium">Dictaminado y auditado por:</p>
+                <p class="text-sm font-extrabold text-slate-900 font-heading">Lic. Arubel Aizprua</p>
+                <p class="text-[10px] text-slate-600">Director & Consultor Legal Corporativo · Aizprua S.E.</p>
+                <p class="text-[10px] text-brand-blue font-semibold">República de Panamá</p>
+            </div>
+
+            <div class="text-left sm:text-right text-[10px] text-slate-400 max-w-xs">
+                <p>Este informe constituye un plan de regularización preventiva amparado bajo el secreto profesional de la firma Aizprua S.E.</p>
+                <p class="mt-1">Contacto oficial: <strong>+507 6546-1527</strong> · info@aizpruase.com</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- LÓGICA INTERACTIVA JAVASCRIPT -->
+    <!-- ============================================================ -->
+    <script>
+        // Inicializar iconos
+        lucide.createIcons();
+
+        // Poner fecha de hoy por defecto
+        const hoy = new Date();
+        const opcionesFecha = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('doc-fecha').innerText = hoy.toLocaleDateString('es-PA', opcionesFecha);
+
+        // BASE DE DATOS DE CASOS PRE-CARGADOS
+        const CASOS = {
+            caso1: {
+                cliente: 'Carlos Pérez',
+                empresa: 'Inversiones Pérez S.A.',
+                ruc: '1556789-1-DV 45',
+                municipio: 'La Chorrera (Panamá Oeste)',
+                dgi: { semaforo: 'rojo', desc: 'Declaraciones pendientes en e-Tax 2.0. Riesgo de suspensión de RUC y multas por omisión acumulada.' },
+                registro: { semaforo: 'rojo', desc: 'Tasa Única 2024-2025 en mora. Sociedad en riesgo de suspensión de estatus corporativo en Registro Público.' },
+                municipioData: { semaforo: 'amarillo', desc: 'Aviso de Operación requiere actualización de actividad comercial y domicilio fiscal ante el Municipio.' },
+                css: { semaforo: 'verde', desc: 'Sin colaboradores bajo contrato formal. Operación unipersonal sin deuda activa en CSS.' },
+                hallazgos: [
+                    '<strong>Riesgo de suspensión societaria:</strong> La Tasa Única acumulada coloca a la entidad al borde del estado "No Vigente".',
+                    '<strong>Falta de Agente Residente activo:</strong> Se requiere designación formal de abogado para representación legal obligatoria.',
+                    '<strong>Incumplimiento RUAF (Ley 129):</strong> No se ha reportado el Registro de Beneficiarios Finales, con multas diarias acumulativas.'
+                ],
+                estacion1: 'Frenar multas por suspensión en Registro Público y pagar tasas únicas morosas con arreglo fiscal.',
+                estacion2: 'Designación de nuevo Agente Residente legal e inscripción obligatoria en el sistema RUAF.',
+                estacion3: 'Emisión de Certificado de Registro Público al día y entrega de expediente societario blindado.',
+                planSugerido: 'plan2'
+            },
+            caso2: {
+                cliente: 'María González',
+                empresa: 'Servicios MG Panamá',
+                ruc: '8-765-4321-DV 12',
+                municipio: 'Panamá (Distrito Capital)',
+                dgi: { semaforo: 'amarillo', desc: 'RUC activo en persona natural con actividad desactualizada respecto a las facturas emitidas.' },
+                registro: { semaforo: 'verde', desc: 'No aplica sociedad anónima actualmente (operación como Persona Natural comercial).' },
+                municipioData: { semaforo: 'rojo', desc: 'Citación y fiscalización municipal por rótulo publicitario no declarado e inconsistencia de ingresos brutos.' },
+                css: { semaforo: 'verde', desc: 'Sin empleados registrados. Colaboradores tercerizados bajo servicios profesionales.' },
+                hallazgos: [
+                    '<strong>Citación municipal en curso:</strong> Expediente abierto por inspección de carteles comerciales no registrados.',
+                    '<strong>Aviso de Operación desajustado:</strong> Código de actividad comercial en PanamáEmprende no ampara los nuevos servicios ofrecidos.',
+                    '<strong>Falta de declaración jurada municipal:</strong> Omisión de informe anual de ingresos brutos para cálculo impositivo.'
+                ],
+                estacion1: 'Comparecencia ante el Municipio de Panamá con memorial de descargos para frenar boletas de cierre.',
+                estacion2: 'Rectificación de actividad comercial en PanamáEmprende y registro formal del rótulo comercial.',
+                estacion3: 'Obtención de Paz y Salvo Municipal y homologación de la tasa tributaria definitiva.',
+                planSugerido: 'plan1'
+            },
+            caso3: {
+                cliente: 'Rodrigo Castillo',
+                empresa: 'Rodrigo Castillo (A constituir: Castillo Logistics S.A.)',
+                ruc: '4-750-1920-DV 88',
+                municipio: 'David (Chiriquí)',
+                dgi: { semaforo: 'amarillo', desc: 'Facturación elevada como Persona Natural con retención excesiva de impuestos personales.' },
+                registro: { semaforo: 'amarillo', desc: 'Patrimonio personal 100% expuesto a demandas laborales y comerciales por falta de personería jurídica.' },
+                municipioData: { semaforo: 'verde', desc: 'Impuesto municipal al día a título personal.' },
+                css: { semaforo: 'verde', desc: 'Sin planilla activa.' },
+                hallazgos: [
+                    '<strong>Exposición patrimonial grave:</strong> Todos los contratos y cobros se realizan a título personal, arriesgando bienes familiares.',
+                    '<strong>Ineficiencia fiscal:</strong> Paga tasa impositiva de persona natural (hasta 25%) en lugar de deducir gastos mediante personería jurídica.',
+                    '<strong>Dificultad para licitar y bancarizar:</strong> Clientes corporativos exigen factura jurídica con RUC empresarial.'
+                ],
+                estacion1: 'Redacción de Pacto Social y constitución formal de Sociedad Anónima (S.A.) o S.E.P. en Registro Público.',
+                estacion2: 'Inscripción del RUC jurídico en DGI, habilitación de Facturación Electrónica y emisión de Aviso de Operación.',
+                estacion3: 'Apertura de cuenta bancaria corporativa y migración de contratos comerciales a la nueva sociedad.',
+                planSugerido: 'plan2'
+            },
+            caso4: {
+                cliente: 'Fernando Chen',
+                empresa: 'Restaurante & Sabores S.A.',
+                ruc: '1554320-1-DV 90',
+                municipio: 'San Miguelito',
+                dgi: { semaforo: 'verde', desc: 'Facturación electrónica activa y declaraciones de renta al día.' },
+                registro: { semaforo: 'verde', desc: 'Tasa única al día y directores vigentes.' },
+                municipioData: { semaforo: 'amarillo', desc: 'Pendiente actualización de Paz y Salvo municipal anual.' },
+                css: { semaforo: 'rojo', desc: 'Colaboradores contratados bajo "servicios profesionales" que cumplen horario y subordinación (riesgo de alcance CSS).' },
+                hallazgos: [
+                    '<strong>Simulación de contrato de servicios:</strong> Colaboradores cumplen jornada fija y órdenes directas, configurando relación laboral formal.',
+                    '<strong>Riesgo de alcance patronal en CSS:</strong> Exposición a cobro retroactivo de cuotas obrero-patronales con recargo del 10% mensual.',
+                    '<strong>Falta de reglamento interno y contratos tipo:</strong> Ausencia de contratos registrados ante MITRADEL.'
+                ],
+                estacion1: 'Diagnóstico individual de colaboradores y cálculo de pasivos laborales contingentes.',
+                estacion2: 'Inscripción de número patronal en CSS, afiliación de personal clave y redacción de contratos MITRADEL.',
+                estacion3: 'Emisión de Paz y Salvo de Caja de Seguro Social y blindaje contractual contra demandas laborales.',
+                planSugerido: 'plan3'
+            },
+            caso5: {
+                cliente: 'Alejandro Morales',
+                empresa: 'Tecnología e Inversiones Morales S.A.',
+                ruc: '1559812-1-DV 77',
+                municipio: 'Panamá (Distrito Capital)',
+                dgi: { semaforo: 'verde', desc: 'Al día en e-Tax 2.0 y facturación electrónica autorizada.' },
+                registro: { semaforo: 'verde', desc: 'Tasa Única 2026 pagada, Agente Residente activo y directorio vigente.' },
+                municipioData: { semaforo: 'verde', desc: 'Aviso de Operación vigente sin contingencias tributarias.' },
+                css: { semaforo: 'verde', desc: 'Sin trabajadores en relación de dependencia.' },
+                hallazgos: [
+                    '<strong>Auditoría preventiva favorable:</strong> La empresa mantiene un cumplimiento riguroso en sus obligaciones principales.',
+                    '<strong>Oportunidad de optimización:</strong> Se recomienda actualizar el reporte de Beneficiarios Finales RUAF antes del vencimiento anual.',
+                    '<strong>Protección de marca:</strong> No se ha registrado la marca comercial ni el logotipo ante DIGERPI.'
+                ],
+                estacion1: 'Verificación de archivo maestro en DGI y constancia de vigencia en Registro Público.',
+                estacion2: 'Actualización preventiva anual en la plataforma de Beneficiarios Finales (RUAF).',
+                estacion3: 'Entrega de Certificado Oficial de Empresa Blindada 2026 y calendario de vencimientos preventivos.',
+                planSugerido: 'plan1'
+            }
+        };
+
+        // PRECIOS DE PLANES
+        const PLANES = {
+            plan1: { nombre: 'Plan Saneamiento Municipal & MICI', precio: 350, servicios: [
+                '✓ Actualización y rectificación de Aviso de Operación (PanamáEmprende)',
+                '✓ Memorial de descargos y comparecencia ante Municipio',
+                '✓ Tramitación de Paz y Salvo Municipal definitivo',
+                '✓ Homologación de rótulos publicitarios'
+            ]},
+            plan2: { nombre: 'Plan de Blindaje Corporativo Total', precio: 650, servicios: [
+                '✓ Saneamiento y actualización de Aviso de Operación (MICI)',
+                '✓ Regularización de Tasa Única ante Registro Público',
+                '✓ Representación como Agente Residente legal activo (1 año)',
+                '✓ Tramitación de Paz y Salvo DGI y municipal',
+                '✓ Registro formal de Beneficiarios Finales (RUAF)'
+            ]},
+            plan3: { nombre: 'Plan Regularización Integral Multi-Entidad', precio: 1200, servicios: [
+                '✓ Saneamiento simultáneo ante DGI, Municipio, Registro Público y CSS',
+                '✓ Representación como Agente Residente y Poder General',
+                '✓ Subsanación de omisiones tributarias en e-Tax 2.0',
+                '✓ Inscripción Patronal y contratos laborales MITRADEL',
+                '✓ Certificado Oficial de Empresa Blindada 2026'
+            ]},
+            planPersonalizado: { nombre: 'Plan de Regularización a la Medida', precio: 500, servicios: [
+                '✓ Trámites específicos acordados durante la sesión de diagnóstico',
+                '✓ Asistencia jurídica directa de Aizprua S.E.',
+                '✓ Representación ante entidades gubernamentales en Panamá'
+            ]}
+        };
+
+        // Función para cambiar semáforos
+        function setSemaforo(entidad, color) {
+            const badge = document.getElementById(`badge-${entidad}`);
+            if (color === 'verde') {
+                badge.className = 'px-2 py-0.5 rounded text-[10px] font-extrabold uppercase bg-emerald-100 text-emerald-700 border border-emerald-200';
+                badge.innerText = 'Al Día / Bajo';
+            } else if (color === 'amarillo') {
+                badge.className = 'px-2 py-0.5 rounded text-[10px] font-extrabold uppercase bg-amber-100 text-amber-700 border border-amber-200';
+                badge.innerText = 'Atención';
+            } else if (color === 'rojo') {
+                badge.className = 'px-2 py-0.5 rounded text-[10px] font-extrabold uppercase bg-red-100 text-red-700 border border-red-200';
+                badge.innerText = 'Riesgo Alto';
+            }
+        }
+
+        // Aplicar caso predeterminado
+        function aplicarCaso(casoKey) {
+            const data = CASOS[casoKey];
+            if (!data) return;
+
+            document.getElementById('doc-cliente').innerText = data.cliente;
+            document.getElementById('doc-empresa').innerText = data.empresa;
+            document.getElementById('doc-ruc').innerText = data.ruc;
+            document.getElementById('doc-municipio').innerText = data.municipio;
+
+            setSemaforo('dgi', data.dgi.semaforo);
+            document.getElementById('desc-dgi').innerText = data.dgi.desc;
+
+            setSemaforo('registro', data.registro.semaforo);
+            document.getElementById('desc-registro').innerText = data.registro.desc;
+
+            setSemaforo('municipio', data.municipioData.semaforo);
+            document.getElementById('desc-municipio').innerText = data.municipioData.desc;
+
+            setSemaforo('css', data.css.semaforo);
+            document.getElementById('desc-css').innerText = data.css.desc;
+
+            // Hallazgos
+            const hallazgosContainer = document.getElementById('doc-hallazgos');
+            hallazgosContainer.innerHTML = data.hallazgos.map(h => `
+                <li class="flex items-start gap-2">
+                    <span class="text-amber-600 font-bold">•</span>
+                    <span class="editable-field" contenteditable="true">${h}</span>
+                </li>
+            `).join('');
+
+            // Estaciones / Pasos estilo index.html
+            document.getElementById('estacion-1-titulo').innerText = data.estacion1Titulo || 'Paso 1: Contención Urgente';
+            document.getElementById('estacion-1').innerText = data.estacion1;
+            document.getElementById('estacion-2-titulo').innerText = data.estacion2Titulo || 'Paso 2: Trámites & Subsanación';
+            document.getElementById('estacion-2').innerText = data.estacion2;
+            document.getElementById('estacion-3-titulo').innerText = data.estacion3Titulo || 'Paso 3: Blindaje & Paz y Salvo';
+            document.getElementById('estacion-3').innerText = data.estacion3;
+
+            // Plan sugerido
+            if (data.planSugerido) {
+                document.getElementById('plan-select').value = data.planSugerido;
+                actualizarPlan(data.planSugerido);
+            }
+
+            actualizarWhatsAppLink();
+            lucide.createIcons();
+        }
+
+        // Actualizar plan
+        function actualizarPlan(planKey) {
+            const plan = PLANES[planKey];
+            if (!plan) return;
+
+            document.getElementById('nombre-plan-display').innerText = plan.nombre;
+            
+            const lista = document.getElementById('lista-servicios-plan');
+            lista.innerHTML = plan.servicios.map(s => `<li>${s}</li>`).join('');
+
+            recalcularCostos();
+        }
+
+        // Recalcular costos con descuento
+        function recalcularCostos() {
+            const planKey = document.getElementById('plan-select').value;
+            let basePrice = PLANES[planKey] ? PLANES[planKey].precio : 500;
+
+            let addOnsTotal = 0;
+            if (document.getElementById('addon-ruaf').checked) addOnsTotal += 150;
+            if (document.getElementById('addon-agente').checked) addOnsTotal += 200;
+            if (document.getElementById('addon-pazysalvo').checked) addOnsTotal += 120;
+
+            const subtotal = basePrice + addOnsTotal;
+            const creditoEscudo = 79;
+            const totalNeto = Math.max(0, subtotal - creditoEscudo);
+
+            document.getElementById('subtotal-display').innerText = `$${subtotal.toFixed(2)} USD`;
+            document.getElementById('precio-final-display').innerText = `$${totalNeto.toFixed(2)} USD`;
+            document.getElementById('total-neto-box').innerText = `$${totalNeto.toFixed(2)} USD`;
+
+            actualizarWhatsAppLink();
+        }
+
+        // Actualizar link de WhatsApp y QR
+        function actualizarWhatsAppLink() {
+            const cliente = document.getElementById('doc-cliente').innerText.trim();
+            const expediente = document.getElementById('doc-expediente').innerText.trim();
+            const total = document.getElementById('total-neto-box').innerText.trim();
+            const plan = document.getElementById('nombre-plan-display').innerText.trim();
+
+            const mensaje = `Hola Lic. Arubel, soy ${cliente}. Apruebo la Hoja de Ruta (${expediente}) para el "${plan}" con el crédito de $79 aplicado (Total: ${total}). Deseo iniciar la gestión.`;
+            const encoded = encodeURIComponent(mensaje);
+            const waUrl = `https://wa.me/50765461527?text=${encoded}`;
+
+            document.getElementById('whatsapp-cta-link').href = waUrl;
+            document.getElementById('qr-code-img').src = `https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=${encodeURIComponent(waUrl)}`;
+        }
+
+        // Limpiar plantilla
+        function reiniciarPlantilla() {
+            if (confirm('¿Deseas reiniciar la plantilla con valores limpios?')) {
+                aplicarCaso('caso1');
+            }
+        }
+
+        // Detectar cambios en campos editables para refrescar WhatsApp
+        document.getElementById('doc-cliente').addEventListener('input', actualizarWhatsAppLink);
+        document.getElementById('doc-expediente').addEventListener('input', actualizarWhatsAppLink);
+
+        // Inicializar con Caso 1
+        aplicarCaso('caso1');
+    </script>
+</body>
+
+</html>
