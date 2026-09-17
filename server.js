@@ -373,7 +373,7 @@ app.get('/hoja-de-ruta.html', (req, res) => {
 app.get('/masterclass', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'Masterclass-Webinar', 'index.html'));
 });
-app.get('/webinar', (req, res) => {
+app.get(['/webinar', '/clase', '/envivo'], (req, res) => {
   res.redirect(301, '/masterclass');
 });
 app.get('/masterclass/empresa', (req, res) => {
