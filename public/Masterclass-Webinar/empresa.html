@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masterclass para Empresas: Escudo Preventivo | Aizprua S.E.</title>
+    <meta name="description"
+        content="En 90 minutos aprenderás a montar el Escudo Preventivo de tu empresa en Panamá. Blinda tu nómina, contratos y fiscalidad contra multas y demandas.">
+    <link rel="icon" type="image/svg+xml" href="../assets/LOGOS PARA DIGITAL INDIVIDUALES-13.svg">
+
+    <!-- Google Fonts & Tailwind -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#3849C8',
+                            'blue-dark': '#2d3a9f',
+                            'blue-light': '#4f5ed4',
+                            orange: '#FF8A1E',
+                            'orange-dark': '#e67a15',
+                            'orange-light': '#ffa04a'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <!-- Wistia Player Script -->
+    <script src="https://fast.wistia.net/assets/external/E-v1.js" async></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+            color: #1E293B;
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #3849C8, #FF8A1E);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+
+<body class="min-h-screen relative overflow-x-hidden bg-slate-50 text-slate-800">
+
+    <!-- Destellos ambientales idénticos a Escudo Preventivo -->
+    <div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 bg-brand-blue/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-[35%] left-0 -ml-40 w-80 h-80 bg-orange-100/70 rounded-full blur-3xl pointer-events-none"></div>
+
+    <!-- Barra de Anuncio superior corporativa -->
+    <div class="relative z-30 bg-brand-blue text-white py-2.5 px-4 text-center text-xs sm:text-sm font-medium shadow-sm flex items-center justify-center gap-1.5">
+        <svg class="w-3.5 h-3.5 text-amber-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        <span>Masterclass en vivo para empresas — Jueves 24 de Septiembre • 7:00 PM (Panamá)</span>
+    </div>
+
+    <!-- Navegación Corporativa -->
+    <nav class="relative z-20 border-b border-slate-200 bg-white/90 backdrop-blur-md sticky top-0 transition-shadow">
+        <div class="max-w-6xl mx-auto px-6 h-20 sm:h-22 flex items-center justify-between">
+            <a href="index.html" class="flex items-center">
+                <img src="../assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg"
+                    alt="Logo Aizprua S.E. - Trámites Legales Panamá" class="h-28 sm:h-32 w-auto object-contain">
+            </a>
+            <div class="flex items-center gap-4">
+                <span class="hidden sm:inline-flex items-center gap-1.5 text-xs text-slate-600 font-semibold bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    Cupos Disponibles
+                </span>
+                <a href="#registro" class="px-5 py-2.5 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-xl text-xs sm:text-sm font-bold shadow-md hover:shadow-orange-500/20 transition">
+                    Reservar lugar &darr;
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="relative z-10 max-w-6xl mx-auto px-6 pt-8 pb-16 lg:pt-14 lg:pb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+            
+            <!-- Columna Izquierda: Mensaje y Autoridad (7 columnas) -->
+            <div class="lg:col-span-7 space-y-6">
+                
+                <div class="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-red-100/90 text-red-600 text-xs sm:text-sm font-semibold border border-red-200 shadow-sm">
+                    <i data-lucide="video" class="w-4 h-4"></i>
+                    EN VIVO — 90 MINUTOS PRÁCTICOS
+                </div>
+
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.18]">
+                    Monta el <span class="gradient-text">Escudo Preventivo</span> para blindar tu empresa en Panamá
+                </h1>
+
+                <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+                    En 90 minutos vamos a armar el <strong class="text-slate-900 font-semibold">mapa de blindaje legal de tu negocio</strong> con nosotros en vivo — y te llevás la estrategia exacta para blindar tu nómina, contratos y socios sin riesgo de multas de la DGI, MITRADEL o CSS.
+                </p>
+
+                <!-- Puntos clave del evento -->
+                <div class="space-y-4 pt-2">
+                    <div class="flex items-start gap-3.5 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+                        <div class="w-7 h-7 rounded-full bg-brand-blue text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5 shadow-sm">1</div>
+                        <p class="text-sm text-slate-700 leading-relaxed">
+                            Cómo estructurar contratos y relaciones laborales para <strong class="text-slate-900 font-semibold">anular contingencias y demandas ante MITRADEL</strong>.
+                        </p>
+                    </div>
+                    <div class="flex items-start gap-3.5 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+                        <div class="w-7 h-7 rounded-full bg-brand-blue text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5 shadow-sm">2</div>
+                        <p class="text-sm text-slate-700 leading-relaxed">
+                            La arquitectura societaria correcta ante la <strong class="text-slate-900 font-semibold">DGI, Municipio y Registro Público</strong> para evitar recargos y suspensiones.
+                        </p>
+                    </div>
+                    <div class="flex items-start gap-3.5 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+                        <div class="w-7 h-7 rounded-full bg-brand-blue text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5 shadow-sm">3</div>
+                        <p class="text-sm text-slate-700 leading-relaxed">
+                            Por qué casi todos los negocios en Panamá operan expuestos y cómo <strong class="text-slate-900 font-semibold">separar el patrimonio personal de los socios</strong>.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Tarjeta del Expositor -->
+                <div class="flex items-center gap-4 pt-4 border-t border-slate-200">
+                    <div class="w-14 h-14 min-w-[56px] min-h-[56px] rounded-full overflow-hidden border-2 border-brand-blue flex-shrink-0 bg-slate-100 shadow-sm">
+                        <img src="../assets/avatar-arubel.jpg" alt="Aizprua S.E." class="w-full h-full object-cover" width="56" height="56">
+                    </div>
+                    <div>
+                        <p class="text-sm font-bold text-slate-900 flex items-center gap-1.5">
+                            Aizprua S.E.
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-blue"></i>
+                        </p>
+                        <p class="text-xs text-slate-500">Firma Legal & Trámites • 150+ Blindajes • 2,500+ Asistentes</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Columna Derecha: Formulario Flotante de Registro (5 columnas) -->
+            <div id="registro" class="lg:col-span-5 scroll-mt-24">
+                <div class="bg-white rounded-3xl p-7 sm:p-8 shadow-2xl relative border border-slate-200">
+                    
+                    <!-- Header de Fecha y Horarios -->
+                    <div class="mb-6 pb-5 border-b border-slate-100 text-left">
+                        <div class="flex items-center gap-2 text-xs font-bold text-brand-orange mb-1.5 uppercase tracking-wider">
+                            <i data-lucide="calendar" class="w-4 h-4"></i>
+                            Jueves 24 de Septiembre
+                        </div>
+                        <p class="text-xs text-slate-500 font-medium">
+                            7:00 PM Bogotá/Panamá • 9:00 PM Bs. As. • 18:00 CDMX • 02:00 Madrid
+                        </p>
+                    </div>
+
+                    <!-- Mensaje de Error si ocurre -->
+                    <div id="form-error-msg" class="hidden mb-4 p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs font-medium"></div>
+
+                    <!-- Formulario de Registro -->
+                    <form id="webinar-form" class="space-y-4 text-left">
+                        <input type="hidden" name="perfil" value="empresa">
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1.5">Nombre y Apellido <span class="text-brand-orange">*</span></label>
+                            <input type="text" name="name" required placeholder="Ej. Carlos Mendoza"
+                                class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-900 placeholder-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition shadow-sm">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1.5">Correo electrónico corporativo <span class="text-brand-orange">*</span></label>
+                            <input type="email" name="email" required placeholder="ejemplo@tuempresa.com"
+                                class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-900 placeholder-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition shadow-sm">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1.5">WhatsApp (para recordatorio y acceso) <span class="text-brand-orange">*</span></label>
+                            <div class="flex gap-2 items-center">
+                                <div class="country-picker-container relative">
+                                    <button type="button" class="country-picker-btn w-[85px] sm:w-[95px] px-2.5 py-3 border border-slate-200 rounded-xl bg-slate-50 text-xs sm:text-sm font-bold text-slate-700 hover:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue flex items-center justify-between gap-1 flex-shrink-0 cursor-pointer transition shadow-sm">
+                                        <span class="country-code-val">+507</span>
+                                        <svg class="w-3.5 h-3.5 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                                    </button>
+                                    <input type="hidden" name="country_code" value="+507">
+
+                                    <div class="country-dropdown hidden absolute top-full left-0 mt-1.5 z-50 w-64 bg-white border border-slate-200 rounded-2xl shadow-2xl overflow-hidden text-xs sm:text-sm">
+                                        <div class="max-h-60 overflow-y-auto no-scrollbar py-1 divide-y divide-slate-100">
+                                            <div class="country-item px-4 py-2.5 hover:bg-blue-50 hover:text-brand-blue text-slate-700 cursor-pointer font-medium" data-code="+507">🇵🇦 Panamá (+507)</div>
+                                            <div class="country-item px-4 py-2.5 hover:bg-blue-50 hover:text-brand-blue text-slate-700 cursor-pointer font-medium" data-code="+57">🇨🇴 Colombia (+57)</div>
+                                            <div class="country-item px-4 py-2.5 hover:bg-blue-50 hover:text-brand-blue text-slate-700 cursor-pointer font-medium" data-code="+1">🇺🇸 Estados Unidos (+1)</div>
+                                            <div class="country-item px-4 py-2.5 hover:bg-blue-50 hover:text-brand-blue text-slate-700 cursor-pointer font-medium" data-code="+506">🇨🇷 Costa Rica (+506)</div>
+                                            <div class="country-item px-4 py-2.5 hover:bg-blue-50 hover:text-brand-blue text-slate-700 cursor-pointer font-medium" data-code="+52">🇲🇽 México (+52)</div>
+                                            <div class="country-item px-4 py-2.5 hover:bg-blue-50 hover:text-brand-blue text-slate-700 cursor-pointer font-medium" data-code="+58">🇻🇪 Venezuela (+58)</div>
+                                            <div class="country-item px-4 py-2.5 hover:bg-blue-50 hover:text-brand-blue text-slate-700 cursor-pointer font-medium" data-code="+34">🇪🇸 España (+34)</div>
+                                            <div class="country-item px-4 py-2.5 hover:bg-blue-50 hover:text-brand-blue text-slate-700 cursor-pointer font-medium" data-code="+593">🇪🇨 Ecuador (+593)</div>
+                                            <div class="country-item px-4 py-2.5 hover:bg-blue-50 hover:text-brand-blue text-slate-700 cursor-pointer font-medium" data-code="+51">🇵🇪 Perú (+51)</div>
+                                            <div class="country-item px-4 py-2.5 hover:bg-blue-50 hover:text-brand-blue text-slate-700 cursor-pointer font-medium" data-code="+54">🇦🇷 Argentina (+54)</div>
+                                            <div class="country-item px-4 py-2.5 hover:bg-blue-50 hover:text-brand-blue text-slate-700 cursor-pointer font-medium" data-code="+56">🇨🇱 Chile (+56)</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="tel" name="phone" required placeholder="6543-2100"
+                                    class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-900 placeholder-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition shadow-sm">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1.5">Nombre de la Empresa o Rubro <span class="text-slate-400 font-normal">(Opcional)</span></label>
+                            <input type="text" name="company_role" placeholder="Ej. Distribuidora / Logística S.A."
+                                class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm text-slate-900 placeholder-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition shadow-sm">
+                        </div>
+
+                        <!-- Botón CTA Corporativo Naranja de Escudo Preventivo -->
+                        <button type="submit" class="w-full py-4 px-6 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-2xl font-extrabold text-base tracking-wide flex items-center justify-center gap-2 mt-2 cursor-pointer shadow-xl hover:shadow-orange-500/30 transition-all transform hover:-translate-y-0.5">
+                            <span>Reservar mi lugar</span>
+                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </button>
+
+                        <p class="text-xs text-slate-500 text-center pt-2 font-medium">
+                            <svg class="w-3.5 h-3.5 inline-block -mt-0.5 mr-1 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Sin costo • Cupos limitados • 100% en vivo
+                        </p>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- VIDEO VSL TEASER (WISTIA) -->
+    <section class="relative z-10 max-w-4xl mx-auto px-6 py-8 text-center">
+        <div class="bg-white rounded-3xl p-3 sm:p-5 border border-slate-200 shadow-xl relative overflow-hidden group">
+            
+            <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
+                <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+                    <div class="w-full h-full bg-slate-900 rounded-2xl flex flex-col items-center justify-center relative overflow-hidden">
+                        <img src="../assets/IMG-20240809-WA0022.jpg" alt="Video Teaser" class="absolute inset-0 w-full h-full object-cover opacity-35 filter blur-xs">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+                        
+                        <div class="relative z-10 w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-brand-orange text-white flex items-center justify-center pl-1 shadow-2xl border-2 border-white/40 group-hover:scale-110 transition-transform">
+                            <i data-lucide="play" class="w-8 h-8 fill-white"></i>
+                        </div>
+                        <p class="relative z-10 mt-4 text-xs sm:text-sm font-bold text-white tracking-wide">
+                            Aizprua S.E. te explica qué vas a aprender (60 seg)
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <p class="text-xs text-slate-500 mt-3 font-medium">Mira este video corto antes del jueves para conocer la dinámica de la clase.</p>
+    </section>
+
+    <!-- BARRA DE MÉTRICAS -->
+    <section class="relative z-10 max-w-4xl mx-auto px-6 py-10">
+        <div class="grid grid-cols-2 gap-6 bg-white rounded-3xl p-6 sm:p-8 text-center border border-slate-200 shadow-md">
+            <div>
+                <p class="text-3xl sm:text-4xl font-extrabold text-brand-blue">150+</p>
+                <p class="text-xs sm:text-sm text-slate-600 font-medium mt-1">Empresas y Sociedades Blindadas</p>
+            </div>
+            <div>
+                <p class="text-3xl sm:text-4xl font-extrabold text-brand-orange">2,500+</p>
+                <p class="text-xs sm:text-sm text-slate-600 font-medium mt-1">Asistentes a Clases y Webinars</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOQUE COMPARATIVO: "ESTO NO ES OTRO WEBINAR GENÉRICO" -->
+    <section class="relative z-10 max-w-4xl mx-auto px-6 py-14">
+        <div class="text-center mb-10">
+            <span class="text-xs font-bold text-brand-blue uppercase tracking-wider">QUÉ ES Y QUÉ NO</span>
+            <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 mt-1">
+                Esto no es otro webinar <span class="gradient-text">genérico</span>
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- Lo que NO es -->
+            <div class="bg-white rounded-3xl p-7 border border-slate-200 shadow-md space-y-4">
+                <span class="text-xs font-bold text-red-600 uppercase tracking-wider">NO ES</span>
+                <ul class="space-y-3.5 text-sm text-slate-600">
+                    <li class="flex items-start gap-2.5">
+                        <i data-lucide="x" class="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5"></i>
+                        <span>Teoría aburrida sobre códigos y leyes de hace 30 años</span>
+                    </li>
+                    <li class="flex items-start gap-2.5">
+                        <i data-lucide="x" class="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5"></i>
+                        <span>Consejos genéricos de YouTube que no aplican a Panamá</span>
+                    </li>
+                    <li class="flex items-start gap-2.5">
+                        <i data-lucide="x" class="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5"></i>
+                        <span>Modelos de contratos desactualizados que te dejan vulnerable</span>
+                    </li>
+                    <li class="flex items-start gap-2.5">
+                        <i data-lucide="x" class="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5"></i>
+                        <span>Un pitch interminable de venta disfrazado de clase</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Lo que SÍ es -->
+            <div class="bg-gradient-to-br from-blue-50/80 to-indigo-50/40 rounded-3xl p-7 border-2 border-brand-blue shadow-xl space-y-4 relative">
+                <div class="absolute -top-3 right-5 px-3 py-1 rounded-full bg-brand-blue text-[11px] font-bold text-white shadow-sm">
+                    100% PRÁCTICO
+                </div>
+                <span class="text-xs font-bold text-brand-blue uppercase tracking-wider">SÍ ES</span>
+                <ul class="space-y-3.5 text-sm text-slate-700">
+                    <li class="flex items-start gap-2.5">
+                        <i data-lucide="check" class="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5"></i>
+                        <span><strong class="text-slate-900">Armas el escudo de tu empresa</strong> con nosotros en vivo</span>
+                    </li>
+                    <li class="flex items-start gap-2.5">
+                        <i data-lucide="check" class="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5"></i>
+                        <span>Plan <strong class="text-slate-900">paso a paso</strong> para anular multas de DGI, Municipio y CSS</span>
+                    </li>
+                    <li class="flex items-start gap-2.5">
+                        <i data-lucide="check" class="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5"></i>
+                        <span><strong class="text-slate-900">80% casos prácticos</strong>, 10% conceptos clave, 10% preguntas y respuestas</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CRONOGRAMA: "ESTO ES LO QUE VAMOS A ARMAR JUNTOS" -->
+    <section class="relative z-10 max-w-4xl mx-auto px-6 py-14 border-t border-slate-200">
+        <div class="text-center mb-12">
+            <span class="text-xs font-bold text-brand-blue uppercase tracking-wider">AGENDA DE LOS 90 MINUTOS</span>
+            <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 mt-1">
+                Esto es lo que vamos a armar <span class="gradient-text">juntos</span>
+            </h2>
+        </div>
+
+        <div class="space-y-4">
+            
+            <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm flex flex-col sm:flex-row sm:items-center gap-4">
+                <span class="px-3.5 py-1.5 rounded-lg bg-blue-50 text-brand-blue font-bold text-xs whitespace-nowrap flex-shrink-0 border border-blue-100">0 - 20 min</span>
+                <div>
+                    <h3 class="text-base font-bold text-slate-900">El mapa de riesgos empresariales</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 mt-0.5">Identificamos qué vulnerabilidades ponen en riesgo tu empresa (contratos débiles, multas laborales y Tasa Única acumulada).</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm flex flex-col sm:flex-row sm:items-center gap-4">
+                <span class="px-3.5 py-1.5 rounded-lg bg-blue-50 text-brand-blue font-bold text-xs whitespace-nowrap flex-shrink-0 border border-blue-100">20 - 45 min</span>
+                <div>
+                    <h3 class="text-base font-bold text-slate-900">Blindamos juntos #1: Cláusulas y Contratos</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 mt-0.5">Construimos la estructura de contratos de trabajo y prestación de servicios que te protege de demandas abusivas.</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm flex flex-col sm:flex-row sm:items-center gap-4">
+                <span class="px-3.5 py-1.5 rounded-lg bg-blue-50 text-brand-blue font-bold text-xs whitespace-nowrap flex-shrink-0 border border-blue-100">45 - 65 min</span>
+                <div>
+                    <h3 class="text-base font-bold text-slate-900">Blindamos juntos #2: Cumplimiento DGI, CSS y Municipio</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 mt-0.5">Cómo mantener al día el Aviso de Operación, la Tasa Única y el Registro de Beneficiarios Finales sin estrés.</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm flex flex-col sm:flex-row sm:items-center gap-4">
+                <span class="px-3.5 py-1.5 rounded-lg bg-blue-50 text-brand-blue font-bold text-xs whitespace-nowrap flex-shrink-0 border border-blue-100">65 - 75 min</span>
+                <div>
+                    <h3 class="text-base font-bold text-slate-900">Tu plan de blindaje empresarial</h3>
+                    <p class="text-xs sm:text-sm text-slate-600 mt-0.5">Qué tramitar y proteger primero esta misma semana para operar con total tranquilidad financiera.</p>
+                </div>
+            </div>
+
+            <div class="bg-blue-50/80 rounded-2xl p-5 sm:p-6 border-2 border-brand-blue shadow-md flex flex-col sm:flex-row sm:items-center gap-4">
+                <span class="px-3.5 py-1.5 rounded-lg bg-brand-blue text-white font-bold text-xs whitespace-nowrap flex-shrink-0 shadow-sm">75 - 90 min</span>
+                <div>
+                    <h3 class="text-base font-bold text-slate-900">Q&A en vivo: Consultorio Legal Abierto</h3>
+                    <p class="text-xs sm:text-sm text-slate-700 mt-0.5">Resolvemos las dudas y casos concretos de tu empresa directamente con nosotros.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- TESTIMONIOS: "PERSONAS QUE YA APLICAN ESTO" -->
+    <section class="relative z-10 max-w-5xl mx-auto px-6 py-14 border-t border-slate-200">
+        <div class="text-center mb-12">
+            <span class="text-xs font-bold text-brand-blue uppercase tracking-wider">RESULTADOS REALES</span>
+            <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 mt-1">
+                Empresarios que ya <span class="gradient-text">aplican esto</span>
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <div class="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-md flex flex-col justify-between">
+                <p class="text-sm text-slate-600 italic mb-6 leading-relaxed">
+                    "Teníamos 3 años operando sin revisar los contratos de los colaboradores. En la asesoría detectamos un vacío que nos hubiera costado miles de dólares en multas."
+                </p>
+                <div>
+                    <p class="text-sm font-bold text-slate-900">Ana Salazar</p>
+                    <p class="text-xs text-slate-500">Fundadora, Logística & Carga Panamá</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-md flex flex-col justify-between">
+                <p class="text-sm text-slate-600 italic mb-6 leading-relaxed">
+                    "La Tasa Única y el Registro Público nos tenían la sociedad al borde de la suspensión. Con su guía dejamos todo al día en cuestión de días."
+                </p>
+                <div>
+                    <p class="text-sm font-bold text-slate-900">Aurelio Coronado</p>
+                    <p class="text-xs text-slate-500">Director de Operaciones, Grupo Inmobiliario</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-md flex flex-col justify-between">
+                <p class="text-sm text-slate-600 italic mb-6 leading-relaxed">
+                    "Poder hablar con expertos que entienden la burocracia panameña sin rodeos ni cobros excesivos nos dio la paz que necesitábamos para crecer."
+                </p>
+                <div>
+                    <p class="text-sm font-bold text-slate-900">Mauricio Bravo</p>
+                    <p class="text-xs text-slate-500">Emprendedor & Accionista</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES (FAQ) -->
+    <section class="relative z-10 max-w-4xl mx-auto px-6 py-14 border-t border-slate-200">
+        <div class="text-center mb-12">
+            <span class="text-xs font-bold text-brand-blue uppercase tracking-wider">PREGUNTAS FRECUENTES</span>
+            <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 mt-1">
+                Lo que suelen <span class="gradient-text">preguntar</span>
+            </h2>
+        </div>
+
+        <div class="space-y-4">
+            
+            <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+                <h3 class="text-base font-bold text-slate-900 mb-2">¿Es realmente gratis?</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    Sí, 100% gratis. Sin tarjetas de crédito ni letra chica. Es una clase en vivo donde enseñamos la metodología exacta que aplicamos con nuestros clientes corporativos.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+                <h3 class="text-base font-bold text-slate-900 mb-2">¿Necesito saber de leyes para aprovechar la clase?</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    No. Todo se explica en lenguaje claro y de negocios, pensado para que el dueño de empresa entienda exactamente qué hacer sin tecnicismos innecesarios.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+                <h3 class="text-base font-bold text-slate-900 mb-2">¿Sirve para mi tipo de empresa?</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    Si manejas una S.A., S.E.P., SRL o empresa con colaboradores, clientes o contratos comerciales en Panamá — sí. El escudo cubre todas las áreas operativas críticas.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+                <h3 class="text-base font-bold text-slate-900 mb-2">¿Habrá grabación?</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    Sí, por tiempo limitado. Sin embargo, los ejercicios prácticos y las respuestas a dudas concretas se hacen en tiempo real, por lo que se aprovecha al máximo estando en vivo.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+                <h3 class="text-base font-bold text-slate-900 mb-2">¿Cuánto dura?</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    90 minutos exactos: 80% práctica con casos reales de Panamá, 10% conceptos normativos y 10% preguntas y respuestas.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CIERRE FINAL / CTA BOTTOM -->
+    <section class="relative z-10 max-w-4xl mx-auto px-6 py-16 text-center">
+        <div class="bg-gradient-to-r from-brand-blue to-brand-blue-dark rounded-3xl p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden">
+            <div class="absolute -right-20 -top-20 w-64 h-64 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+            
+            <h2 class="relative z-10 text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-snug">
+                Podés tener tu empresa blindada y <br>
+                <span class="text-brand-orange-light">multiplicando tu tranquilidad</span>
+            </h2>
+            <p class="relative z-10 text-sm text-blue-100 mt-3 max-w-md mx-auto">
+                90 minutos. Armamos tu escudo legal juntos. Sin costo ni compromiso.
+            </p>
+
+            <div class="relative z-10 mt-7 max-w-sm mx-auto">
+                <a href="#registro" class="w-full py-4 px-6 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-2xl font-extrabold text-base tracking-wide flex items-center justify-center gap-2 cursor-pointer shadow-xl transition-all transform hover:-translate-y-0.5">
+                    <span>Reservar mi lugar</span>
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+                <p class="text-xs text-blue-200 mt-3 font-medium">Jueves 24 de septiembre • 7:00 PM (Panamá)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER CORPORATIVO -->
+    <footer class="relative z-10 w-full py-8 px-6 border-t border-slate-200 bg-white text-center text-xs text-slate-500 max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p>© 2026 Aizprua S.E. — Firma de Trámites Legales & Blindaje Empresarial en Panamá.</p>
+        <div class="flex gap-4">
+            <a href="../privacidad" class="hover:text-brand-blue transition">Política de Privacidad</a>
+            <a href="../terminos" class="hover:text-brand-blue transition">Términos y Condiciones</a>
+        </div>
+    </footer>
+
+    <script src="webinar.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initWebinarForm('empresa');
+        });
+    </script>
+</body>
+
+</html>

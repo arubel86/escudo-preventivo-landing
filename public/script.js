@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
             {
                 id: 'entidad',
                 pregunta: '¿Qué tipo de entidad o negocio manejas o vas a crear en Panamá?',
-                microcopy: '🔒 Tus respuestas son confidenciales — solo toma 30 segundos.',
+                microcopy: '<svg class="w-3.5 h-3.5 inline-block -mt-0.5 mr-1.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Tus respuestas son confidenciales — solo toma 30 segundos.',
                 opciones: [
                     { valor: 'sociedad', texto: 'Sociedad Jurídica (S.A., S.E.P., SRL, etc.)', icono: 'building-2' },
                     { valor: 'profesional', texto: 'Persona Natural / Profesional (contador, abogado, etc.)', icono: 'briefcase' },
@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Micro-copy de tranquilidad
             const mcEl = document.getElementById('quiz-microcopy');
-            if (mcEl) mcEl.textContent = step.microcopy || '';
+            if (mcEl) mcEl.innerHTML = step.microcopy || '';
 
             // Opciones: usa variantes por entidad si existen (ej. P2 para emprendimiento)
             const opcionesActivas = (step.opcionesPor && step.opcionesPor[quizAnswers.entidad]) || step.opciones;

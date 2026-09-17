@@ -369,6 +369,26 @@ app.get('/hoja-de-ruta.html', (req, res) => {
   res.redirect(301, '/hoja-de-ruta' + query);
 });
 
+// 9. Embudo Masterclass / Webinar
+app.get('/masterclass', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'Masterclass-Webinar', 'index.html'));
+});
+app.get('/webinar', (req, res) => {
+  res.redirect(301, '/masterclass');
+});
+app.get('/masterclass/empresa', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'Masterclass-Webinar', 'empresa.html'));
+});
+app.get('/masterclass/profesional', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'Masterclass-Webinar', 'profesional.html'));
+});
+app.get('/masterclass/gracias-empresa', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'Masterclass-Webinar', 'gracias-empresa.html'));
+});
+app.get('/masterclass/gracias-profesional', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'Masterclass-Webinar', 'gracias-profesional.html'));
+});
+
 // ARCHIVOS ESTÁTICOS (Landing Page)
 app.use(express.static(path.join(__dirname, 'public')));
 

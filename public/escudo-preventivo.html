@@ -171,7 +171,7 @@
             <!-- Alerta de riesgo condicional (Pregunta 2 = "no estoy seguro" / "me falta algo") -->
             <div id="risk-alert"
                 class="hidden max-w-2xl mx-auto mb-8 bg-red-500/15 border border-red-400/40 text-red-200 px-5 py-4 rounded-xl text-center">
-                ⚠️ <strong>Detectamos posibles puntos de riesgo en tu perfil</strong> — el video de abajo te explica
+                <svg class="w-4 h-4 inline-block -mt-0.5 mr-1.5 text-red-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg><strong>Detectamos posibles puntos de riesgo en tu perfil</strong> — el video de abajo te explica
                 qué revisar.
             </div>
             <div class="flex justify-center mb-10">
@@ -393,7 +393,9 @@
                     <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-lg fade-in relative flex flex-col justify-between">
                         <div>
                             <div class="flex items-center justify-between mb-3">
-                                <span class="text-4xl">📄</span>
+                                <div class="w-12 h-12 rounded-2xl bg-blue-50 text-brand-blue flex items-center justify-center border border-blue-100 shadow-xs">
+                                    <svg class="w-6 h-6 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+                                </div>
                                 <span class="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-bold">Valor: $80 USD</span>
                             </div>
                             <h3 class="font-bold text-slate-900 mb-1.5">Bono 1 — Auditoría Legal Personalizada</h3>
@@ -408,7 +410,9 @@
                     <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-lg fade-in relative flex flex-col justify-between">
                         <div>
                             <div class="flex items-center justify-between mb-3">
-                                <span class="text-4xl">📅</span>
+                                <div class="w-12 h-12 rounded-2xl bg-orange-50 text-brand-orange flex items-center justify-center border border-orange-100 shadow-xs">
+                                    <svg class="w-6 h-6 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="m9 16 2 2 4-4"/></svg>
+                                </div>
                                 <span class="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-bold">Valor: $45 USD</span>
                             </div>
                             <h3 class="font-bold text-slate-900 mb-1.5">Bono 2 — Guía Preventiva + Calendario Fiscal 2026</h3>
@@ -422,7 +426,9 @@
                     <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-lg fade-in relative flex flex-col justify-between">
                         <div>
                             <div class="flex items-center justify-between mb-3">
-                                <span class="text-4xl">🤝</span>
+                                <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-100 shadow-xs">
+                                    <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                </div>
                                 <span class="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-bold">Valor: $50 USD</span>
                             </div>
                             <h3 class="font-bold text-slate-900 mb-1.5">Bono 3 — Acceso al Círculo VIP Aizprua</h3>
@@ -556,7 +562,10 @@
                         <span>Reservar mi Diagnóstico ($79 USD)</span>
                         <i data-lucide="arrow-right" class="w-5 h-5 flex-shrink-0 group-hover:translate-x-1 transition-transform"></i>
                     </button>
-                    <p class="text-xs text-slate-400 mt-3 font-medium">⚡ Solo 4 cupos disponibles esta semana · Sesiones martes y jueves</p>
+                    <p class="text-xs text-slate-400 mt-3 font-medium flex items-center justify-center gap-1.5">
+                        <svg class="w-3.5 h-3.5 text-amber-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        <span>Solo 4 cupos disponibles esta semana · Sesiones martes y jueves</span>
+                    </p>
                 </div>
             </div>
         </section>

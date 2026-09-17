@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Registro Confirmado! | Masterclass Escudo Preventivo</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/svg+xml" href="../assets/LOGOS PARA DIGITAL INDIVIDUALES-13.svg">
+
+    <!-- Google Fonts & Tailwind -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#3849C8',
+                            'blue-dark': '#2d3a9f',
+                            'blue-light': '#4f5ed4',
+                            orange: '#FF8A1E',
+                            'orange-dark': '#e67a15',
+                            'orange-light': '#ffa04a'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <!-- Wistia Player Script -->
+    <script src="https://fast.wistia.net/assets/external/E-v1.js" async></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+            color: #1E293B;
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #3849C8, #FF8A1E);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            transition: all 0.25s ease;
+        }
+
+        .btn-whatsapp:hover {
+            background: #20BD5A;
+            transform: translateY(-1px);
+            box-shadow: 0 10px 25px -5px rgba(37, 211, 102, 0.4);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen relative overflow-x-hidden bg-slate-50 text-slate-800 pb-16">
+
+    <!-- Destellos de fondo -->
+    <div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 bg-brand-blue/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 -ml-40 w-80 h-80 bg-orange-100/70 rounded-full blur-3xl pointer-events-none"></div>
+
+    <!-- Contenedor Central -->
+    <main class="relative z-10 max-w-2xl mx-auto px-6 pt-12 sm:pt-16 text-center space-y-8">
+        
+        <!-- Indicador de Éxito -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs sm:text-sm font-bold shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            REGISTRO CONFIRMADO
+        </div>
+
+        <!-- Titular Principal -->
+        <div class="space-y-3">
+            <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.18]">
+                Tenés tu lugar<span id="attendee-name"></span>.<br>
+                <span class="gradient-text">Ahora la parte que casi nadie hace.</span>
+            </h1>
+            <p class="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl mx-auto">
+                El jueves no vamos a hablar de leyes en abstracto: vamos a blindar. Si llegás con tu modelo de contrato o dudas sobre tu facturación o sociedad, salís de la sesión con tu actividad protegida en vez de con simples apuntes.
+            </p>
+        </div>
+
+        <!-- CAJA DE ACCESO A ZOOM -->
+        <div class="bg-white rounded-3xl p-7 border border-slate-200 shadow-xl text-center space-y-3">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">TU ACCESO EN VIVO</span>
+            <a id="btn-zoom-access" href="#" target="_blank" rel="noopener"
+                class="w-full py-4 px-6 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-2xl font-extrabold text-base tracking-wide flex items-center justify-center gap-2 shadow-lg shadow-orange-500/20 transition-all transform hover:-translate-y-0.5">
+                <i data-lucide="video" class="w-5 h-5"></i>
+                <span>Abrir mi acceso a Zoom</span>
+            </a>
+            <p class="text-xs text-slate-500 text-center leading-relaxed">
+                <svg class="w-3.5 h-3.5 inline-block -mt-0.5 mr-1 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Ese enlace es exclusivo para vos, no lo compartas. Zoom también te lo mandó por correo electrónico.
+            </p>
+        </div>
+
+        <!-- VIDEO VSL DE BIENVENIDA / PREPARACIÓN -->
+        <div class="bg-white rounded-3xl p-3 sm:p-5 border border-slate-200 shadow-lg overflow-hidden group">
+            <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
+                <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+                    <div class="w-full h-full bg-slate-900 rounded-2xl flex flex-col items-center justify-center relative overflow-hidden">
+                        <img src="../assets/IMG-20240809-WA0022.jpg" alt="Video Bienvenida" class="absolute inset-0 w-full h-full object-cover opacity-35 filter blur-xs">
+                        <div class="relative z-10 w-16 h-16 rounded-full bg-brand-orange text-white flex items-center justify-center pl-1 shadow-2xl border-2 border-white/40 group-hover:scale-110 transition-transform">
+                            <i data-lucide="play" class="w-7 h-7 fill-white"></i>
+                        </div>
+                        <p class="relative z-10 mt-3 text-xs sm:text-sm font-bold text-white tracking-wide">
+                            Mirá este mensaje antes del jueves — te prepara para aprovechar cada minuto (90 seg)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PASO 1: GRUPO DE WHATSAPP -->
+        <div class="bg-white rounded-3xl p-7 sm:p-8 border-2 border-emerald-500/30 text-left space-y-4 shadow-xl relative overflow-hidden">
+            <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-emerald-700 uppercase tracking-wider">PASO 1 — HACELO AHORA</span>
+                <span class="text-xs px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold">RECOMENDADO</span>
+            </div>
+            
+            <h2 class="text-xl font-bold text-slate-900">Entrá al grupo VIP de WhatsApp</h2>
+            <p class="text-sm text-slate-600 leading-relaxed">
+                Ahí va todo lo que pasa antes, durante y después del jueves:
+            </p>
+
+            <ul class="space-y-2.5 text-sm text-slate-700">
+                <li class="flex items-start gap-2.5">
+                    <i data-lucide="check" class="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5"></i>
+                    <span><strong>Recordatorios directos</strong> para no perder la hora del evento</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                    <i data-lucide="check" class="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5"></i>
+                    <span>Las <strong>respuestas a las dudas</strong> previas sobre clientes y contratos</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                    <i data-lucide="check" class="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5"></i>
+                    <span>Comunidad activa de profesionales independientes en Panamá</span>
+                </li>
+            </ul>
+
+            <!-- Caja con Beneficio al entrar -->
+            <div class="p-4 rounded-2xl bg-emerald-50/80 border border-emerald-200 flex items-center gap-3">
+                <i data-lucide="file-check" class="w-5 h-5 text-emerald-600 flex-shrink-0"></i>
+                <p class="text-xs text-emerald-900">
+                    <strong class="font-bold">Al entrar recibís:</strong> La Guía de Cláusulas Indispensables para Honorarios Profesionales en Panamá.
+                </p>
+            </div>
+
+            <!-- Botón WhatsApp -->
+            <a id="btn-whatsapp-group" href="#" target="_blank" rel="noopener"
+                class="btn-whatsapp w-full py-4 px-6 rounded-2xl font-extrabold text-white text-base tracking-wide flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20">
+                <i data-lucide="message-circle" class="w-5 h-5"></i>
+                <span>Entrar al grupo ahora</span>
+            </a>
+        </div>
+
+        <!-- PASO 2: AGENDALO -->
+        <div class="bg-white rounded-3xl p-7 border border-slate-200 text-left space-y-3 shadow-md">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">PASO 2</span>
+            <h2 class="text-xl font-bold text-slate-900">Agendalo</h2>
+            <p class="text-sm text-slate-600 leading-relaxed">
+                Agregá el evento a tu calendario para que te avise cuando empiece y no pierdas tu lugar en la sala.
+            </p>
+            <a id="btn-google-calendar" href="#" target="_blank" rel="noopener"
+                class="w-full py-3.5 px-4 rounded-2xl border border-slate-300 bg-slate-50 hover:bg-slate-100 font-bold text-sm text-slate-800 flex items-center justify-center gap-2 transition shadow-sm">
+                <i data-lucide="calendar-plus" class="w-4 h-4 text-brand-orange"></i>
+                <span>Agregar a Google Calendar</span>
+            </a>
+        </div>
+
+        <!-- INCENTIVO: SOLO EN VIVO -->
+        <div class="bg-amber-50/80 rounded-3xl p-7 sm:p-8 border border-amber-200 text-left space-y-4 shadow-sm">
+            <div class="flex items-center gap-2 text-amber-700 text-xs font-bold uppercase tracking-wider">
+                <i data-lucide="zap" class="w-4 h-4"></i>
+                SOLO EN VIVO
+            </div>
+            <h2 class="text-xl font-bold text-slate-900">Lo que se entrega durante la sesión:</h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="p-4 rounded-2xl bg-white border border-amber-200 text-center shadow-xs">
+                    <p class="text-2xl font-extrabold text-brand-orange mb-1">3 Modelos</p>
+                    <p class="text-xs text-slate-900 font-bold">Contratos Profesionales</p>
+                    <p class="text-xs text-slate-500 mt-1">Con retención de honorarios y penalidad por atraso de clientes.</p>
+                </div>
+                <div class="p-4 rounded-2xl bg-white border border-amber-200 text-center shadow-xs">
+                    <p class="text-2xl font-extrabold text-brand-blue mb-1">1 Checklist</p>
+                    <p class="text-xs text-slate-900 font-bold">Fiscal & Societario</p>
+                    <p class="text-xs text-slate-500 mt-1">DGI, Factura Electrónica y separación patrimonial paso a paso.</p>
+                </div>
+            </div>
+
+            <p class="text-xs text-amber-900 font-medium flex items-center gap-2 pt-1">
+                <svg class="w-4 h-4 flex-shrink-0 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/>
+                    <line x1="12" y1="9" x2="12" y2="13"/>
+                    <line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+                <span>No se envían por correo ni por el grupo — solo se entregan a los asistentes en vivo.</span>
+            </p>
+        </div>
+
+        <!-- COMPROMISO: ANTES DEL JUEVES -->
+        <div class="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200 text-left space-y-5 shadow-md">
+            <h2 class="text-xl font-bold text-slate-900">Antes del jueves:</h2>
+
+            <div class="space-y-4 text-sm">
+                <div class="flex items-start gap-3">
+                    <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-orange flex-shrink-0 mt-0.5"></i>
+                    <div>
+                        <strong class="text-slate-900">Elegí el acuerdo o cliente que te genere dudas:</strong>
+                        <p class="text-slate-600 mt-0.5">El cliente que se demora en pagar, el trabajo sin contrato o la duda de si debes abrir una sociedad. Eso es lo que resolveremos.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                    <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-orange flex-shrink-0 mt-0.5"></i>
+                    <div>
+                        <strong class="text-slate-900">Traé un ejemplo real, no uno inventado:</strong>
+                        <p class="text-slate-600 mt-0.5">Un contrato que ya tengas o una propuesta comercial. Con datos concretos la solución es inmediata.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                    <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-orange flex-shrink-0 mt-0.5"></i>
+                    <div>
+                        <strong class="text-slate-900">Pensá qué harías con esa seguridad resuelta:</strong>
+                        <p class="text-slate-600 mt-0.5">Cobrar a tiempo y sin miedo a contingencias legales te permite enfocarte 100% en atender a tus mejores clientes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CIERRE DEL REGISTRO -->
+        <div class="space-y-3 pt-4 text-center">
+            <p class="text-sm text-slate-600">
+                Revisá tu correo — te mandamos la confirmación con todos los detalles.
+            </p>
+            <div class="inline-block px-4 py-2 rounded-full bg-orange-50 border border-orange-200 text-xs font-semibold text-brand-orange">
+                Conectate 5 min antes para no perderte la intro
+            </div>
+            <p class="text-xs text-slate-500 pt-2">
+                Jueves 24 de Septiembre • Panamá y Bogotá 7:00 PM • México 6:00 PM • Miami 7:00 PM • Argentina y Chile 9:00 PM • España 02:00
+            </p>
+        </div>
+
+    </main>
+
+    <script src="webinar.js"></script>
+</body>
+
+</html>

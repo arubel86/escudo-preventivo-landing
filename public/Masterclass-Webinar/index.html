@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masterclass Gratuita: Escudo Preventivo | Aizprua S.E.</title>
+    <meta name="description"
+        content="Masterclass en vivo de 90 minutos para blindar tu negocio en Panamá contra multas y demandas. Selecciona tu perfil y personaliza tu clase.">
+    <link rel="icon" type="image/svg+xml" href="../assets/LOGOS PARA DIGITAL INDIVIDUALES-13.svg">
+
+    <!-- Google Fonts & Tailwind -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#3849C8',
+                            'blue-dark': '#2d3a9f',
+                            'blue-light': '#4f5ed4',
+                            orange: '#FF8A1E',
+                            'orange-dark': '#e67a15',
+                            'orange-light': '#ffa04a'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+            color: #1E293B;
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #3849C8, #FF8A1E);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .profile-card {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+            border-color: #3849C8;
+            box-shadow: 0 20px 35px -10px rgba(56, 73, 200, 0.15);
+        }
+
+        .profile-card.orange-hover:hover {
+            border-color: #FF8A1E;
+            box-shadow: 0 20px 35px -10px rgba(255, 138, 30, 0.15);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col justify-between relative overflow-x-hidden bg-slate-50 text-slate-800">
+
+    <!-- Destellos ambientales suaves idénticos a Escudo Preventivo -->
+    <div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 bg-brand-blue/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 -ml-40 w-80 h-80 bg-orange-100/70 rounded-full blur-3xl pointer-events-none"></div>
+
+    <!-- Barra de Anuncio superior corporativa -->
+    <div class="relative z-20 bg-brand-blue text-white py-2.5 px-4 text-center text-xs sm:text-sm font-medium shadow-sm flex items-center justify-center gap-1.5">
+        <svg class="w-3.5 h-3.5 text-amber-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        <span>Masterclass en vivo — Jueves 24 de Septiembre • 7:00 PM (Panamá)</span>
+    </div>
+
+    <!-- Header corporativo con Logo Oficial de Aizprua S.E. -->
+    <header class="relative z-10 w-full pt-4 pb-0 px-6 max-w-6xl mx-auto flex justify-center items-center">
+        <a href="index.html" class="inline-block transition-transform hover:scale-[1.02]">
+            <img src="../assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg"
+                alt="Logo Aizprua S.E. - Trámites Legales Panamá" class="h-24 sm:h-28 w-auto object-contain -mb-5 sm:-mb-6">
+        </a>
+    </header>
+
+    <!-- Contenido Principal: Pantalla de Segmentación -->
+    <main class="relative z-10 max-w-4xl mx-auto px-6 pt-2 pb-8 sm:pb-12 text-center my-auto w-full">
+        
+        <!-- Kicker superior estilo badge de Escudo Preventivo -->
+        <div class="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-blue-50 text-brand-blue text-xs sm:text-sm font-semibold mb-4 border border-blue-200 shadow-sm backdrop-blur-sm">
+            <span class="w-2 h-2 rounded-full bg-brand-orange animate-ping"></span>
+            CLASE 100% GRATUITA EN VIVO
+        </div>
+
+        <!-- H1 con Tipografía y Gradiente Corporativo de Escudo Preventivo -->
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.18] mb-4">
+            Aprende a montar el <br class="hidden sm:inline">
+            <span class="gradient-text">Escudo Preventivo</span> de tu negocio
+        </h1>
+
+        <!-- Subtítulo -->
+        <p class="text-slate-600 text-base sm:text-lg max-w-xl mx-auto mb-10 font-normal leading-relaxed">
+            Selecciona tu perfil para personalizar la clase y abordar tus riesgos legales y fiscales específicos en Panamá:
+        </p>
+
+        <!-- Tarjetas de Selección de Perfil (Bifurcación) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto text-left">
+            
+            <!-- Perfil 1: Negocio / Empresa -->
+            <a href="empresa.html" class="profile-card rounded-3xl p-7 sm:p-8 block cursor-pointer shadow-lg group">
+                <div class="w-14 h-14 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center text-brand-blue mb-5 group-hover:scale-110 group-hover:bg-brand-blue group-hover:text-white transition-all shadow-sm">
+                    <i data-lucide="building-2" class="w-7 h-7"></i>
+                </div>
+                <h2 class="text-xl font-bold text-slate-900 mb-2.5 flex items-center justify-between">
+                    Tengo un negocio
+                    <i data-lucide="arrow-right" class="w-5 h-5 text-slate-400 group-hover:text-brand-blue group-hover:translate-x-1.5 transition-all"></i>
+                </h2>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    Quiero blindar mis contratos, colaboradores y operaciones ante la DGI, MITRADEL y CSS sin pagar multas.
+                </p>
+                <div class="mt-5 pt-4 border-t border-slate-100 flex items-center gap-2 text-xs font-bold text-brand-blue">
+                    <span>Ver temario para empresas</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </div>
+            </a>
+
+            <!-- Perfil 2: Profesional / Emprendedor -->
+            <a href="profesional.html" class="profile-card orange-hover rounded-3xl p-7 sm:p-8 block cursor-pointer shadow-lg group">
+                <div class="w-14 h-14 rounded-2xl bg-orange-50 border border-orange-100 flex items-center justify-center text-brand-orange mb-5 group-hover:scale-110 group-hover:bg-brand-orange group-hover:text-white transition-all shadow-sm">
+                    <i data-lucide="briefcase" class="w-7 h-7"></i>
+                </div>
+                <h2 class="text-xl font-bold text-slate-900 mb-2.5 flex items-center justify-between">
+                    Soy profesional
+                    <i data-lucide="arrow-right" class="w-5 h-5 text-slate-400 group-hover:text-brand-orange group-hover:translate-x-1.5 transition-all"></i>
+                </h2>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    Quiero separar mi patrimonio personal, asegurar mis honorarios y formalizar mis servicios en regla.
+                </p>
+                <div class="mt-5 pt-4 border-t border-slate-100 flex items-center gap-2 text-xs font-bold text-brand-orange">
+                    <span>Ver temario para profesionales</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </div>
+            </a>
+
+        </div>
+
+        <!-- Micro-prueba social inferior -->
+        <p class="mt-10 text-xs sm:text-sm text-slate-500 flex items-center justify-center gap-2 font-medium">
+            <i data-lucide="shield-check" class="w-5 h-5 text-emerald-600"></i>
+            Únete a <strong class="text-slate-800">2,500+ personas</strong> que ya blindaron su actividad en Panamá • 100% gratis
+        </p>
+
+    </main>
+
+    <!-- Footer Corporativo -->
+    <footer class="relative z-10 w-full py-6 px-6 border-t border-slate-200 text-center text-xs text-slate-500 max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-3">
+        <p>© 2026 Aizprua S.E. — Todos los derechos reservados.</p>
+        <div class="flex gap-4">
+            <a href="../privacidad" class="hover:text-brand-blue transition">Política de Privacidad</a>
+            <a href="../terminos" class="hover:text-brand-blue transition">Términos y Condiciones</a>
+        </div>
+    </footer>
+
+    <script src="webinar.js"></script>
+</body>
+
+</html>
