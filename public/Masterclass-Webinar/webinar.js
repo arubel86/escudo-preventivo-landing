@@ -286,9 +286,19 @@ function getGoogleCalendarUrl() {
 // INICIALIZACIÓN GENERAL EN DOM
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
-    // Activar íconos Lucide si están presentes
-    if (window.lucide) {
-        window.lucide.createIcons();
+    // Activar íconos Lucide con reintentos para evitar condiciones de carrera con el CDN en móvil
+    function initLucideSafe() {
+        if (window.lucide && typeof window.lucide.createIcons === 'function') {
+            window.lucide.createIcons();
+            return true;
+        }
+        return false;
+    }
+    if (!initLucideSafe()) {
+        const lucideTimer = setInterval(() => {
+            if (initLucideSafe()) clearInterval(lucideTimer);
+        }, 100);
+        setTimeout(() => clearInterval(lucideTimer), 3000);
     }
 
     // Inicializar selector de país si existe
