@@ -369,31 +369,36 @@ app.get('/hoja-de-ruta.html', (req, res) => {
   res.redirect(301, '/hoja-de-ruta' + query);
 });
 
-// 9. Embudo Masterclass / Webinar
-app.get('/masterclass', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'Masterclass-Webinar', 'index.html'));
+// 9. Embudo Masterclass / Webinar (Completamente aislado sin redirecciones a la landing)
+const masterclassDir = path.join(__dirname, 'public', 'Masterclass-Webinar');
+
+app.get(['/masterclass', '/masterclass/', '/masterclass/index.html', '/Masterclass-Webinar', '/Masterclass-Webinar/'], (req, res) => {
+  res.sendFile(path.join(masterclassDir, 'index.html'));
 });
 app.get(['/webinar', '/clase', '/envivo'], (req, res) => {
-  res.redirect(301, '/masterclass');
+  res.sendFile(path.join(masterclassDir, 'index.html'));
 });
-app.get('/masterclass/empresa', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'Masterclass-Webinar', 'empresa.html'));
+app.get(['/masterclass/empresa', '/masterclass/empresa.html', '/empresa.html'], (req, res) => {
+  res.sendFile(path.join(masterclassDir, 'empresa.html'));
 });
-app.get('/masterclass/profesional', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'Masterclass-Webinar', 'profesional.html'));
+app.get(['/masterclass/profesional', '/masterclass/profesional.html', '/profesional.html'], (req, res) => {
+  res.sendFile(path.join(masterclassDir, 'profesional.html'));
 });
-app.get('/masterclass/gracias-empresa', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'Masterclass-Webinar', 'gracias-empresa.html'));
+app.get(['/masterclass/gracias-empresa', '/masterclass/gracias-empresa.html', '/gracias-empresa.html'], (req, res) => {
+  res.sendFile(path.join(masterclassDir, 'gracias-empresa.html'));
 });
-app.get('/masterclass/gracias-profesional', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'Masterclass-Webinar', 'gracias-profesional.html'));
+app.get(['/masterclass/gracias-profesional', '/masterclass/gracias-profesional.html', '/gracias-profesional.html'], (req, res) => {
+  res.sendFile(path.join(masterclassDir, 'gracias-profesional.html'));
 });
 
 // ARCHIVOS ESTÁTICOS (Landing Page)
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Fallback: cualquier ruta no-API sirve index.html
+// Fallback: cualquier ruta de masterclass se mantiene dentro del embudo
 app.get('*', (req, res) => {
+  if (req.path.toLowerCase().includes('masterclass') || req.path.toLowerCase().includes('webinar')) {
+    return res.sendFile(path.join(masterclassDir, 'index.html'));
+  }
   if (!req.path.startsWith('/api')) {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
   }

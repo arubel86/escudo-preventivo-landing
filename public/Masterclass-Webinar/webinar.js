@@ -251,7 +251,7 @@ function initWebinarForm(perfil) {
         await enviarLeadWebinar(payload);
 
         // Redirigir a página de gracias correspondiente
-        const targetPage = perfil === 'empresa' ? 'gracias-empresa.html' : 'gracias-profesional.html';
+        const targetPage = perfil === 'empresa' ? '/masterclass/gracias-empresa' : '/masterclass/gracias-profesional';
         window.location.href = targetPage;
     });
 
