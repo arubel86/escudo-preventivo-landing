@@ -17,6 +17,7 @@ const express = require('express');
 const path = require('path');
 const crypto = require('crypto');
 const { cybersourceRequest } = require('./lib/cybersource-auth');
+const { runAudit } = require('./lib/scanner-engine');
 
 // Secret para firmar tokens de sesión de pago (1 hora)
 const PAYMENT_SESSION_SECRET = process.env.CS_SHARED_SECRET_B64 || 'aizprua_secure_session_key_2026';
@@ -283,6 +284,26 @@ app.post('/api/process-payment', async (req, res) => {
 });
 
 // ============================================================
+// API: Verificador de Sitios Web & Auditoría de Agentes IA
+// ============================================================
+app.post(['/api/scan', '/verificador/api/scan'], async (req, res) => {
+  try {
+    const { url } = req.body || {};
+    if (!url || typeof url !== 'string') {
+      return res.status(400).json({ error: 'Debes proporcionar una URL válida para analizar.' });
+    }
+    console.log(`[Verificador] Iniciando auditoría para: ${url}`);
+    const auditData = await runAudit(url);
+    return res.json(auditData);
+  } catch (scanErr) {
+    console.error('[Verificador] Error en auditoría:', scanErr);
+    return res.status(500).json({
+      error: `Error al analizar el sitio: ${scanErr.message || 'Fallo inesperado'}`
+    });
+  }
+});
+
+// ============================================================
 // RUTAS LIMPIAS (Sin extensión .html)
 // ============================================================
 
@@ -396,12 +417,31 @@ app.get(['/masterclass/gracias-profesional', '/masterclass/gracias-profesional.h
   res.sendFile(path.join(masterclassDir, 'gracias-profesional.html'));
 });
 
-// ARCHIVOS ESTÁTICOS (Masterclass & Landing Page)
+// 10. Verificador de Sitios Web & Preparación para Agentes IA
+const verificadorDir = path.join(__dirname, 'public', 'verificador');
+
+app.get(['/verificador', '/verificador/', '/verificador/index.html'], (req, res) => {
+  res.sendFile(path.join(verificadorDir, 'index.html'));
+});
+
+app.get(['/demo-100', '/verificador/demo-100'], (req, res) => {
+  res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+  res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('Content-Security-Policy', "default-src 'self' https: data: 'unsafe-inline';");
+  res.sendFile(path.join(verificadorDir, 'plantilla-100', 'index.html'));
+});
+
+// ARCHIVOS ESTÁTICOS (Masterclass, Verificador & Landing Page)
+app.use('/verificador', express.static(verificadorDir));
 app.use('/masterclass', express.static(masterclassDir));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Fallback: cualquier ruta de masterclass se mantiene dentro del embudo
+// Fallback: redirigir cada embudo a su página correspondiente
 app.get('*', (req, res) => {
+  if (req.path.toLowerCase().startsWith('/verificador')) {
+    return res.sendFile(path.join(verificadorDir, 'index.html'));
+  }
   if (req.path.toLowerCase().includes('masterclass') || req.path.toLowerCase().includes('webinar')) {
     return res.sendFile(path.join(masterclassDir, 'index.html'));
   }

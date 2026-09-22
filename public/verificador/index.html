@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="/verificador/">
+  <title>Verificador de Sitios Web & Preparación para Agentes IA | Aizprua S.E.</title>
+  <meta name="description" content="Audita gratis tu sitio web: comprueba SEO, favicon, meta etiquetas, sitemap, velocidad y preparación para Agentes de Inteligencia Artificial con prompts de corrección automáticos.">
+
+  <!-- URL Canónica y Meta Etiquetas Sociales -->
+  <link rel="canonical" href="https://escudo.aizprua.com/verificador">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://escudo.aizprua.com/verificador">
+  <meta property="og:title" content="Verificador de Sitios Web & Preparación para Agentes IA | Aizprua S.E.">
+  <meta property="og:description" content="Audita gratis tu sitio web: comprueba SEO, favicon, meta etiquetas, sitemap, velocidad y preparación para Agentes de Inteligencia Artificial con prompts de corrección automáticos.">
+  <meta property="og:image" content="https://escudo.aizprua.com/verificador/assets/LOGOS%20PARA%20DIGITAL%20INDIVIDUALES-07.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Verificador de Sitios Web | Aizprua S.E.">
+  <meta name="twitter:description" content="Audita gratis tu sitio web: SEO, seguridad, velocidad y compatibilidad con Agentes IA.">
+  <meta name="twitter:image" content="https://escudo.aizprua.com/verificador/assets/LOGOS%20PARA%20DIGITAL%20INDIVIDUALES-07.svg">
+
+  <!-- Preconnect & Fuentes Google Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Iconos Lucide & Favicon de Marca -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="icon" type="image/svg+xml" href="assets/LOGOS PARA DIGITAL INDIVIDUALES-13.svg">
+  <link rel="stylesheet" href="index.css?v=1.0">
+</head>
+<body>
+  <!-- BARRA DE CARGA ESPECTRAL SUPERIOR -->
+  <div id="topLoadingBar" class="top-loading-bar" role="progressbar" aria-label="Auditoría en curso"></div>
+
+  <!-- NAVBAR INSTITUCIONAL -->
+  <header class="navbar">
+    <div class="container navbar-container">
+      <a href="#" class="brand-logo" title="Aizprua S.E.">
+        <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg" alt="Aizprua S.E. Logo" onerror="this.src='assets/LOGOS PARA DIGITAL INDIVIDUALES-21-nobg.svg'">
+      </a>
+
+      <div class="nav-actions">
+        <a href="#faq" class="btn-secondary-link">
+          <i data-lucide="help-circle" style="width: 16px; height: 16px;"></i>
+          <span>¿Cómo funciona?</span>
+        </a>
+        <a href="https://wa.me/50765461527?text=Hola,%20quisiera%20asesor%C3%ADa%20sobre%20la%20auditor%C3%ADa%20y%20optimizaci%C3%B3n%20de%20mi%20sitio%20web" target="_blank" class="btn-whatsapp" title="Hablar con Especialista">
+          <i data-lucide="message-square" style="width: 16px; height: 16px;"></i>
+          <span>Consultar Especialista</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <main class="hero-section">
+    <div class="container">
+      <div class="hero-badge">
+        <i data-lucide="shield-check" style="width: 15px; height: 15px;"></i>
+        <span>Auditoría Web & Agentes de IA • Aizprua S.E.</span>
+      </div>
+
+      <h1 class="hero-title">
+        ¿Tu sitio web está <span class="gradient-text">listo para triunfar?</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Escanea tu sitio web para comprobar SEO, meta etiquetas, favicon, sitemaps, velocidad y compatibilidad con <strong>Agentes de Inteligencia Artificial</strong>. Obtén soluciones instantáneas con prompts listos para copiar.
+      </p>
+
+      <!-- BARRA DE ESCANEO -->
+      <div class="scan-box">
+        <form class="scan-form" id="scanForm">
+          <div class="input-icon-wrap">
+            <i data-lucide="globe" style="width: 20px; height: 20px;"></i>
+            <input 
+              type="url" 
+              id="urlInput" 
+              class="scan-input" 
+              placeholder="https://tudominio.com" 
+              required
+              autocomplete="url"
+            >
+          </div>
+          <button type="submit" id="btnScan" class="btn-scan">
+            <i data-lucide="zap" style="width: 18px; height: 18px;"></i>
+            <span>Analizar Sitio Web</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- CHIPS DE PRUEBA RÁPIDA -->
+      <div class="quick-demos">
+        <span>Prueba rápida con:</span>
+        <button type="button" class="demo-chip" style="background: var(--brand-orange-subtle); color: var(--brand-orange-dark); border-color: var(--brand-orange); font-weight: 700;" data-url="http://localhost:3030/demo-100">⭐️ Sitio Modelo (100%)</button>
+        <button type="button" class="demo-chip" data-url="https://escudo.aizprua.com">escudo.aizprua.com</button>
+        <button type="button" class="demo-chip" data-url="https://cloudflare.com">cloudflare.com</button>
+        <button type="button" class="demo-chip" data-url="https://openai.com">openai.com</button>
+      </div>
+
+      <!-- ESTADO DE CARGA / LOADER -->
+      <div class="scanning-state" id="scanningState">
+        <div class="spinner"></div>
+        <h3 id="loaderStatusTitle" style="font-weight: 800; color: var(--gray-900); margin-bottom: 6px;">
+          Auditoría en curso...
+        </h3>
+        <div class="card-loading-track">
+          <div class="card-loading-bar"></div>
+        </div>
+        <p class="scanning-steps" id="loaderStatusStep">
+          Conectando con el servidor e inspeccionando código HTML, meta etiquetas y protocolos...
+        </p>
+      </div>
+
+      <!-- PANEL DE RESULTADOS -->
+      <section class="results-container" id="resultsContainer">
+        
+        <!-- CARD CENTRAL DE PUNTUACIÓN -->
+        <div class="score-overview-card">
+          <div class="result-target-header">
+            <div class="result-url-info">
+              <div class="label">Resultados del Escaneo</div>
+              <div class="url-title" id="resTargetUrl">https://midominio.com</div>
+            </div>
+
+            <div class="action-buttons-group">
+              <button type="button" class="btn-pill-action" id="btnShareReport" title="Copiar enlace de reporte">
+                <i data-lucide="share-2" style="width: 15px; height: 15px;"></i>
+                <span>Compartir</span>
+              </button>
+              <button type="button" class="btn-pill-action" id="btnRescan" title="Volver a escanear">
+                <i data-lucide="rotate-cw" style="width: 15px; height: 15px;"></i>
+                <span>Re-escanear</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- MEDIDOR CIRCULAR GLOBAL -->
+          <div class="gauge-section">
+            <div class="circle-meter-wrapper">
+              <svg class="circle-meter-svg" viewBox="0 0 160 160">
+                <circle class="circle-meter-bg" cx="80" cy="80" r="70"></circle>
+                <circle class="circle-meter-fill" id="mainMeterFill" cx="80" cy="80" r="70"></circle>
+              </svg>
+              <div class="circle-meter-content">
+                <span class="score-number" id="mainScoreNum">0</span>
+                <span class="score-total">/ 100</span>
+              </div>
+            </div>
+
+            <div class="grade-badge-wrap">
+              <span class="grade-badge" id="gradeBadge">Calculando...</span>
+              <div class="grade-subtitle" id="gradeSubtitle">Estado del sitio</div>
+            </div>
+          </div>
+
+          <!-- SUBMETRICAS POR CATEGORÍA -->
+          <div class="sub-metrics-grid" id="subMetricsGrid">
+            <!-- Se inyectan dinámicamente vía JavaScript -->
+          </div>
+        </div>
+
+        <!-- BARRA DE FILTROS INTERACTIVOS -->
+        <div class="results-filter-bar" id="resultsFilterBar">
+          <button type="button" class="filter-btn active" data-filter="all">
+            <span>Todos</span>
+            <span class="filter-count" id="countAll">0</span>
+          </button>
+          <button type="button" class="filter-btn highlight" data-filter="needs_fix">
+            <i data-lucide="sparkles" style="width:14px;height:14px;"></i>
+            <span>Por Corregir</span>
+            <span class="filter-count" id="countNeedsFix">0</span>
+          </button>
+          <button type="button" class="filter-btn fail" data-filter="fail">
+            <i data-lucide="x-circle" style="width:14px;height:14px;"></i>
+            <span>Fallos</span>
+            <span class="filter-count" id="countFail">0</span>
+          </button>
+          <button type="button" class="filter-btn warning" data-filter="warning">
+            <i data-lucide="alert-triangle" style="width:14px;height:14px;"></i>
+            <span>Advertencias</span>
+            <span class="filter-count" id="countWarning">0</span>
+          </button>
+          <button type="button" class="filter-btn pass" data-filter="pass">
+            <i data-lucide="check-circle" style="width:14px;height:14px;"></i>
+            <span>Aprobados</span>
+            <span class="filter-count" id="countPass">0</span>
+          </button>
+        </div>
+
+        <!-- CONTENEDOR DE CATEGORÍAS Y CHECKS -->
+        <div id="categoriesContainer">
+          <!-- Se inyectan las categorías y acordeones vía JavaScript -->
+        </div>
+
+      </section>
+
+      <!-- SECCIÓN FAQ / PREGUNTAS FRECUENTES (Como en Cloudflare) -->
+      <section class="faq-section" id="faq">
+        <h2 class="faq-title">Preguntas Frecuentes</h2>
+
+        <div class="faq-card">
+          <div class="faq-question">
+            <span>¿Qué aspectos analiza esta herramienta?</span>
+            <i data-lucide="chevron-down" class="accordion-chevron" style="width: 18px; height: 18px;"></i>
+          </div>
+          <div class="faq-answer">
+            Inspeccionamos más de 14 métricas críticas organizadas en 5 categorías fundamentales: 
+            <strong>SEO & Posicionamiento</strong> (Title, Meta Descripción, Encabezados H1, URLs Canónicas), 
+            <strong>Identidad & Social Media</strong> (Favicon, Apple Touch Icon, Open Graph para WhatsApp/LinkedIn), 
+            <strong>Rastreabilidad & Robots</strong> (robots.txt, sitemap.xml, directivas noindex), 
+            <strong>Rendimiento & Seguridad</strong> (HTTPS/SSL, tiempo de respuesta TTFB, diseño móvil viewport) y 
+            <strong>Preparación para Agentes de IA</strong> (archivo llms.txt, políticas para GPTBot/ClaudeBot y datos estructurados Schema.org JSON-LD).
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <div class="faq-question">
+            <span>¿Cómo me ayudan los botones "Copiar Prompt"?</span>
+            <i data-lucide="chevron-down" class="accordion-chevron" style="width: 18px; height: 18px;"></i>
+          </div>
+          <div class="faq-answer">
+            Cada vez que tu web no cumpla un estándar o presente un error, el sistema genera automáticamente un prompt técnico profesional adaptado a tu URL. Con un solo clic copias el prompt, lo pegas en ChatGPT, Claude o Gemini, y la inteligencia artificial te entregará el código exacto que debes insertar en tu sitio web.
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <div class="faq-question">
+            <span>¿Por qué es importante preparar mi web para Agentes de Inteligencia Artificial?</span>
+            <i data-lucide="chevron-down" class="accordion-chevron" style="width: 18px; height: 18px;"></i>
+          </div>
+          <div class="faq-answer">
+            Los motores de búsqueda y navegadores modernos están incorporando agentes autónomos de IA que realizan búsquedas, compras y comparaciones por los usuarios. Contar con estándares como <code>llms.txt</code>, reglas claras de bots en <code>robots.txt</code> y datos estructurados <code>JSON-LD</code> asegura que las IAs recomienden y comprendan tu negocio correctamente.
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER INSTITUCIONAL -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div>
+        © 2026 <strong>Aizprua S.E.</strong> — Tecnología, Asesoría & Inteligencia Digital.
+      </div>
+      <div class="footer-links">
+        <a href="#buscador">Verificador</a>
+        <a href="#faq">Preguntas</a>
+        <a href="https://wa.me/50765461527" target="_blank">Soporte Técnico</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lógica Frontend -->
+  <script src="script.js?v=1.0"></script>
+</body>
+</html>

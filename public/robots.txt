@@ -3,9 +3,23 @@ Allow: /
 Allow: /recursos-gratuitos
 Allow: /privacidad
 Allow: /terminos
+Allow: /verificador
 Disallow: /escudo-preventivo
 Disallow: /gracias
 Disallow: /gracias-guia
 Disallow: /api/
 
 Sitemap: https://escudo.aizpruase.com/sitemap.xml
+
+# Directivas para Agentes de Inteligencia Artificial
+User-agent: GPTBot
+Allow: /verificador
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /verificador
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /verificador
+Allow: /
