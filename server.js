@@ -326,6 +326,11 @@ app.get('/gracias-guia.html', (req, res) => {
   res.redirect(301, '/gracias-guia' + query);
 });
 
+// 4.1. Playbook Oficial & Super-Guía de Blindaje 2026
+app.get(['/playbook', '/playbook.html', '/guia', '/guia.html', '/guia-interactiva', '/docs', '/docs.html', '/blindaje'], (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'guia.html'));
+});
+
 // 5. Hub Post-Pago (Protegido por Sesión Criptográfica)
 app.get('/gracias', (req, res) => {
   if (!isValidPaymentSession(req.headers.cookie)) {
@@ -391,7 +396,8 @@ app.get(['/masterclass/gracias-profesional', '/masterclass/gracias-profesional.h
   res.sendFile(path.join(masterclassDir, 'gracias-profesional.html'));
 });
 
-// ARCHIVOS ESTÁTICOS (Landing Page)
+// ARCHIVOS ESTÁTICOS (Masterclass & Landing Page)
+app.use('/masterclass', express.static(masterclassDir));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Fallback: cualquier ruta de masterclass se mantiene dentro del embudo

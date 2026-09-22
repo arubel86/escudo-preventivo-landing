@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Blindaje & Prevención Anti-Multas 2026 | Aizprua S.E.</title>
+    <meta name="description"
+        content="Playbook oficial y Guía Preventiva 2026 de Aizprua S.E. para blindar contratos, nómina, facturación electrónica y patrimonio contra multas de la DGI, MITRADEL, CSS y Municipios en Panamá.">
+    
+    <!-- Canonical & Favicon -->
+    <link rel="canonical" href="https://escudo.aizpruase.com/playbook">
+    <link rel="icon" type="image/svg+xml" href="assets/LOGOS PARA DIGITAL INDIVIDUALES-13.svg">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Playbook de Blindaje & Prevención Anti-Multas 2026 | Aizprua S.E.">
+    <meta property="og:description" content="Manual de consulta paso a paso para evitar multas de DGI, MITRADEL, CSS y Municipio en Panamá.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://escudo.aizpruase.com/playbook">
+    <meta property="og:image" content="https://escudo.aizpruase.com/assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg">
+    <meta property="og:locale" content="es_PA">
+
+    <!-- Fonts & Tailwind -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#3849C8',
+                            'blue-dark': '#2d3a9f',
+                            'blue-light': '#4f5ed4',
+                            orange: '#FF8A1E',
+                            'orange-dark': '#e67a15',
+                            'orange-light': '#ffa04a'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace']
+                    }
+                }
+            }
+        };
+    </script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Degradado de texto corporativo idéntico a index.html */
+        .gradient-text {
+            background: linear-gradient(to right, #3849C8, #FF8A1E);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Barra de carga fija superior */
+        .top-loading-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3.5px;
+            z-index: 99999;
+            display: none;
+            background: linear-gradient(90deg, 
+                #2563eb, #3849c8, #7c3aed, #c026d3, #db2777, #ea580c, #f59e0b, #3849c8, #2563eb
+            );
+            background-size: 200% 100%;
+            animation: spectralLoading 1.4s linear infinite;
+            box-shadow: 0 0 12px rgba(56, 73, 200, 0.5), 0 0 6px rgba(255, 138, 30, 0.4);
+        }
+
+        .top-loading-bar.active {
+            display: block;
+        }
+
+        @keyframes spectralLoading {
+            0% { background-position: 100% 0; }
+            100% { background-position: -100% 0; }
+        }
+
+        @keyframes float-badge {
+            0%, 100% {
+                transform: translateY(0);
+                box-shadow: 0 4px 14px rgba(239, 68, 68, 0.15);
+            }
+            50% {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 22px rgba(239, 68, 68, 0.28);
+            }
+        }
+
+        .animate-float-badge {
+            animation: float-badge 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(.8);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.4);
+                opacity: 0;
+            }
+        }
+
+        .whatsapp-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 9999px;
+            background: #25D366;
+            animation: pulse-ring 1.5s infinite;
+            z-index: -1;
+        }
+
+        /* Scrollbar elegante */
+        .custom-scroll::-webkit-scrollbar { width: 5px; }
+        .custom-scroll::-webkit-scrollbar-track { background: transparent; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 999px; }
+
+        /* Elemento de navegación activo */
+        .nav-doc-link.active {
+            background-color: #EFF6FF;
+            color: #3849C8;
+            font-weight: 700;
+            border-left: 3.5px solid #3849C8;
+        }
+
+        /* Callouts temáticos */
+        .callout-shield {
+            background: #EEF2FF;
+            border-left: 4px solid #3849C8;
+        }
+
+        .callout-danger {
+            background: #FEF2F2;
+            border-left: 4px solid #EF4444;
+        }
+
+        .callout-warning {
+            background: #FFFBEB;
+            border-left: 4px solid #F59E0B;
+        }
+
+        .callout-success {
+            background: #ECFDF5;
+            border-left: 4px solid #10B981;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 relative min-h-screen flex flex-col">
+
+    <!-- Barra de carga espectral fija -->
+    <div id="topLoadingBar" class="top-loading-bar" role="progressbar" aria-label="Cargando"></div>
+
+    <!-- Barra de Progreso de lectura horizontal (Idéntica a index.html) -->
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-brand-blue to-brand-orange z-[60]" style="width:0%"></div>
+
+    <!-- Announcement Bar (Idéntico a index.html) -->
+    <div id="announcement-bar" class="relative bg-brand-blue text-white py-2 px-4 text-center text-sm z-50">
+        <span>
+            <svg class="w-4 h-4 inline-block -mt-0.5 mr-1.5 text-brand-orange-light flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                <path d="M14.05 2a9 9 0 0 1 8 7.94"/><path d="M14.05 6A5 5 0 0 1 18 10"/>
+            </svg>
+            <strong>Guía Oficial de Blindaje 2026</strong> — Actualizada con normativas de DGI, MITRADEL y CSS Panamá
+        </span>
+        <a href="#diagnostico-cta" class="ml-2 underline font-bold hover:text-brand-orange-light">Revisar mi caso</a>
+        <button id="close-announcement" aria-label="Cerrar anuncio" class="absolute right-4 top-1/2 -translate-y-1/2 hover:text-brand-orange-light">
+            <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+    </div>
+
+    <!-- Navbar Corporativo (100% idéntico a index.html) -->
+    <nav id="navbar" class="bg-white/90 backdrop-blur-md sticky top-0 z-40 border-b border-slate-200 transition-shadow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                
+                <!-- Logo Oficial Aizprua S.E. -->
+                <div class="flex items-center gap-3">
+                    <button id="mobile-menu-btn" aria-label="Abrir menú" class="lg:hidden text-slate-600 p-1.5 rounded-lg hover:bg-slate-100">
+                        <i data-lucide="menu" class="h-6 w-6"></i>
+                    </button>
+                    <a href="/" class="flex items-center">
+                        <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg"
+                            alt="Logo Aizprua S.E. - Trámites Legales Panamá" class="h-28 w-auto object-contain" width="112"
+                            height="112">
+                    </a>
+                </div>
+
+                <!-- Buscador de Artículos y Leyes -->
+                <div class="hidden md:flex flex-1 max-w-md mx-6">
+                    <div class="relative w-full">
+                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                            <i data-lucide="search" class="w-4 h-4"></i>
+                        </div>
+                        <input type="text" id="guideSearchInput" placeholder="Buscar norma, MITRADEL, DGI, multas..."
+                            class="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition shadow-sm">
+                    </div>
+                </div>
+
+                <!-- Enlaces y Botón de WhatsApp -->
+                <div class="hidden lg:flex items-center space-x-6">
+                    <a href="/" class="text-slate-600 hover:text-brand-blue font-medium transition text-sm">Inicio</a>
+                    <a href="/#diagnostico" class="text-slate-600 hover:text-brand-blue font-medium transition text-sm">Diagnóstico</a>
+                    <span class="text-slate-300">|</span>
+                    <a href="tel:+50765461527" class="text-slate-600 flex items-center gap-1.5 text-sm font-medium hover:text-brand-blue transition">
+                        <i data-lucide="phone" class="w-4 h-4 text-brand-orange"></i>6546-1527
+                    </a>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.%2C%20le%C3%AD%20la%20Gu%C3%ADa%20Preventiva%20y%20quisiera%20asesor%C3%ADa" target="_blank"
+                        class="flex items-center gap-2 bg-[#25D366] text-white px-4 sm:px-5 py-2 rounded-full font-semibold hover:bg-[#20bd5a] transition shadow-lg text-xs sm:text-sm">
+                        <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Menú Móvil Desplegable -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white p-4 space-y-3 border-t border-slate-200 shadow-xl">
+            <div class="relative w-full mb-2">
+                <input type="text" id="mobileGuideSearchInput" placeholder="Buscar en la guía..."
+                    class="w-full px-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 placeholder-slate-400">
+            </div>
+            <a href="/" class="block py-2 text-slate-600 font-medium text-sm">Inicio</a>
+            <a href="/#diagnostico" class="block py-2 text-slate-600 font-medium text-sm">Diagnóstico</a>
+            <a href="tel:+50765461527" class="block py-2 text-slate-600 font-medium text-sm">Llamar: 6546-1527</a>
+            <a href="https://wa.me/50765461527" target="_blank" class="block py-2 text-green-600 font-bold text-sm">WhatsApp directo</a>
+        </div>
+    </nav>
+
+    <!-- HERO DE LA GUÍA (Estilo Visual Idéntico a index.html) -->
+    <header class="pt-8 pb-10 overflow-hidden relative border-b border-slate-200/80 bg-white">
+        <!-- Destellos corporativos idénticos a index.html -->
+        <div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 bg-brand-blue/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 -ml-40 w-80 h-80 bg-orange-100/70 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
+            <span class="inline-flex items-center gap-1.5 py-1.5 px-4 rounded-full bg-red-100/90 text-red-600 text-xs sm:text-sm font-semibold mb-4 border border-red-200 shadow-sm animate-float-badge backdrop-blur-sm cursor-default">
+                <i data-lucide="shield-alert" class="w-4 h-4 text-red-600 flex-shrink-0"></i>
+                <span>Manual de Consulta Paso a Paso · Actualizado 2026</span>
+            </span>
+
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-4 leading-tight">
+                Playbook de Blindaje & Prevención de <span class="gradient-text">Multas Corporativas</span>
+            </h1>
+
+            <p class="text-sm sm:text-base md:text-lg text-slate-600 mb-6 max-w-2xl mx-auto leading-relaxed">
+                El 83% de las sanciones impuestas por <strong>DGI, MITRADEL, CSS y Municipios</strong> en Panamá provienen de descuidos administrativos subsanables. Aquí tienes la guía técnica para proteger tu empresa.
+            </p>
+
+            <div class="flex flex-wrap items-center justify-center gap-3">
+                <a href="#mitradel" class="px-6 py-3 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-2xl font-extrabold text-sm transition-all shadow-xl hover:shadow-orange-500/30 flex items-center justify-center transform hover:-translate-y-0.5">
+                    <span>Explorar Capítulos</span>
+                    <i data-lucide="arrow-down" class="ml-2 w-4 h-4"></i>
+                </a>
+                <a href="assets/guia-preventiva-2026.pdf" download class="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-2xl font-bold text-sm border border-slate-200 transition-all flex items-center justify-center gap-2">
+                    <i data-lucide="download" class="w-4 h-4 text-brand-blue"></i>
+                    <span>Descargar Versión PDF</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- CUERPO PRINCIPAL: SIDEBAR DE CONTENIDO + ÁREA DE LECTURA (Estilo Documentación Mintlify/GitBook con DNA de index.html) -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex relative z-10 py-8 lg:py-10 gap-8">
+
+        <!-- SIDEBAR IZQUIERDO: ÍNDICE DE CAPÍTULOS -->
+        <aside id="guideSidebar" class="hidden lg:block w-72 flex-shrink-0 sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto custom-scroll pr-4">
+            
+            <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+                <div>
+                    <span class="text-[11px] font-extrabold uppercase tracking-wider text-slate-400 block mb-3 px-2">
+                        Frentes de Fiscalización
+                    </span>
+                    <nav class="space-y-1" id="guideNavList">
+                        <a href="#intro" class="nav-doc-link active flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs text-slate-700 hover:bg-slate-100 transition">
+                            <span class="w-2 h-2 rounded-full bg-brand-blue"></span>
+                            <span>01. Riesgos & Multas 2026</span>
+                        </a>
+                        <a href="#mitradel" class="nav-doc-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+                            <span class="w-2 h-2 rounded-full bg-slate-300"></span>
+                            <span>02. MITRADEL: Contratos & Nómina</span>
+                        </a>
+                        <a href="#dgi" class="nav-doc-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+                            <span class="w-2 h-2 rounded-full bg-slate-300"></span>
+                            <span>03. DGI: Factura Electrónica & RUC</span>
+                        </a>
+                        <a href="#css" class="nav-doc-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+                            <span class="w-2 h-2 rounded-full bg-slate-300"></span>
+                            <span>04. CSS: Planilla SIPE & Afiliación</span>
+                        </a>
+                        <a href="#municipio" class="nav-doc-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+                            <span class="w-2 h-2 rounded-full bg-slate-300"></span>
+                            <span>05. Municipio & Aviso Operación</span>
+                        </a>
+                        <a href="#societario" class="nav-doc-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+                            <span class="w-2 h-2 rounded-full bg-slate-300"></span>
+                            <span>06. Separación Patrimonial</span>
+                        </a>
+                        <a href="#checklist" class="nav-doc-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs text-brand-orange hover:bg-orange-50 font-bold transition">
+                            <span class="w-2 h-2 rounded-full bg-brand-orange"></span>
+                            <span>07. Checklist de Autoevaluación</span>
+                        </a>
+                    </nav>
+                </div>
+
+                <!-- Tarjeta Lateral de Consulta Rápida -->
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 text-left">
+                    <div class="flex items-center gap-2 mb-2 text-brand-blue font-bold text-xs">
+                        <i data-lucide="shield-check" class="w-4 h-4"></i>
+                        <span>Diagnóstico Escudo</span>
+                    </div>
+                    <p class="text-[11px] text-slate-600 leading-relaxed mb-3">
+                        ¿Sospechas que tu empresa tiene multas silenciosas? Detectamos inconsistencias en 40 min.
+                    </p>
+                    <a href="/#diagnostico" class="block w-full text-center py-2 text-xs font-bold text-white bg-brand-blue hover:bg-brand-blue-dark rounded-lg transition shadow-sm">
+                        Iniciar Evaluación
+                    </a>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- ÁREA CENTRAL DE CONTENIDO (Tarjetas Blancas idénticas al estilo de index.html) -->
+        <main class="flex-1 min-w-0 max-w-4xl space-y-8">
+
+            <!-- CAPÍTULO 1: RIESGOS & MULTAS 2026 -->
+            <article id="intro" class="doc-card bg-white rounded-2xl border border-slate-200 shadow-md p-6 sm:p-8 space-y-6 scroll-mt-24">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-brand-blue text-white rounded-full flex items-center justify-center font-bold text-lg shadow-md flex-shrink-0">
+                        1
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold text-brand-blue uppercase tracking-wider">Capítulo 01</span>
+                        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 leading-tight">
+                            El Riesgo Real de las Multas Silenciosas en Panamá
+                        </h2>
+                    </div>
+                </div>
+
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    En Panamá, las sanciones gubernamentales rara vez llegan en forma de una visita judicial inmediata. En la gran mayoría de los casos, las multas se acumulan <strong class="text-slate-900 font-semibold">de manera invisible dentro de los sistemas digitales</strong> de la DGI, el SIPE de la CSS y el portal del Municipio.
+                </p>
+
+                <!-- Callout de Alerta Roja -->
+                <div class="callout-danger p-4 sm:p-5 rounded-2xl space-y-2">
+                    <div class="flex items-center gap-2 text-red-600 font-bold text-sm">
+                        <i data-lucide="alert-triangle" class="w-4 h-4 flex-shrink-0"></i>
+                        <span>Efecto Bola de Nieve</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                        Una declaración de renta o planilla omitida genera un recargo automático del 10% mensual más intereses acumulados. Para cuando el banco te solicita un <em>Paz y Salvo</em> para renovar un crédito o cuenta corporativa, la deuda ya supera los $3,000 – $5,000 USD.
+                    </p>
+                </div>
+
+                <!-- Tabla de Frentes Críticos -->
+                <div class="space-y-3 pt-2">
+                    <h3 class="text-sm sm:text-base font-bold text-slate-900">
+                        Matriz de Fiscalización 2026: ¿Dónde está el peligro?
+                    </h3>
+                    <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+                        <table class="w-full text-left text-xs sm:text-sm">
+                            <thead class="bg-slate-50 text-slate-700 font-bold border-b border-slate-200">
+                                <tr>
+                                    <th class="p-3">Entidad</th>
+                                    <th class="p-3">Infracción Más Común</th>
+                                    <th class="p-3">Sanción Económica</th>
+                                    <th class="p-3">Impacto</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100 bg-white text-slate-600">
+                                <tr>
+                                    <td class="p-3 font-bold text-slate-900">MITRADEL</td>
+                                    <td class="p-3">Contratos sin sellar o subordinación simulada</td>
+                                    <td class="p-3 font-mono text-red-600 font-bold">$500 – $1,000 / trab.</td>
+                                    <td class="p-3"><span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-red-100 text-red-700">Crítico</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-bold text-slate-900">DGI</td>
+                                    <td class="p-3">No emitir Factura Electrónica o Formulario 03 omitido</td>
+                                    <td class="p-3 font-mono text-red-600 font-bold">$1,000 – $10,000 + Cierre</td>
+                                    <td class="p-3"><span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-red-100 text-red-700">Severo</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-bold text-slate-900">CSS (SIPE)</td>
+                                    <td class="p-3">Omisión de colaboradores o planillas tardías</td>
+                                    <td class="p-3 font-mono text-amber-600 font-bold">Recargo 10% + Causa Penal</td>
+                                    <td class="p-3"><span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-amber-100 text-amber-800">Penal</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-bold text-slate-900">Municipio</td>
+                                    <td class="p-3">No presentar Declaración Anual Jurada de Ingresos</td>
+                                    <td class="p-3 font-mono text-amber-600 font-bold">$500 + Bloqueo de Licencia</td>
+                                    <td class="p-3"><span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-yellow-100 text-yellow-800">Operativo</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </article>
+
+            <!-- CAPÍTULO 2: MITRADEL -->
+            <article id="mitradel" class="doc-card bg-white rounded-2xl border border-slate-200 shadow-md p-6 sm:p-8 space-y-6 scroll-mt-24">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-brand-orange text-white rounded-full flex items-center justify-center font-bold text-lg shadow-md flex-shrink-0">
+                        2
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold text-brand-orange uppercase tracking-wider">Capítulo 02</span>
+                        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 leading-tight">
+                            MITRADEL: Contratos, Relaciones Laborales y Demandas
+                        </h2>
+                    </div>
+                </div>
+
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    El Código de Trabajo panameño se fundamenta en el principio de <strong class="text-slate-900 font-semibold">"Primacía de la Realidad"</strong>. Si una persona tiene horario fijo, recibe órdenes directas y depende económicamente de ti, ante un juez laboral es un empleado formal con derecho a décimo, vacaciones, prima y preaviso, aunque exista un contrato de servicios firmado.
+                </p>
+
+                <!-- Cláusula Modelo con Botón de Copiado -->
+                <div class="callout-shield p-4 sm:p-5 rounded-2xl space-y-3">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <span class="text-xs font-bold text-brand-blue uppercase tracking-wider flex items-center gap-1.5">
+                            <i data-lucide="file-check" class="w-4 h-4"></i>
+                            Cláusula Modelo Recomendada por Aizprua S.E.
+                        </span>
+                        <button type="button" class="btn-copy-clause text-xs text-brand-blue bg-white hover:bg-blue-50 font-bold px-3 py-1.5 rounded-lg border border-blue-200 shadow-sm flex items-center gap-1.5 transition self-start sm:self-auto cursor-pointer" data-target="clauseMitradelText">
+                            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                            <span>Copiar Cláusula</span>
+                        </button>
+                    </div>
+                    <pre id="clauseMitradelText" class="bg-slate-900 p-4 rounded-xl text-xs font-mono text-slate-200 leading-relaxed whitespace-pre-wrap overflow-x-auto border border-slate-800">"CLÁUSULA QUINTA: INDEPENDENCIA Y AUTONOMÍA TÉCNICA. Las partes declaran expresamente que el presente contrato es de naturaleza civil y comercial. EL PRESTADOR ejecutará sus servicios con plena autonomía técnica y funcional, sin sujeción a horario ni subordinación jurídica, utilizando sus propias herramientas y facturando electrónicamente conforme a las normas de la DGI."</pre>
+                </div>
+
+                <!-- Comparativa de Prácticas -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+                    <div class="bg-red-50/70 p-4 rounded-xl border border-red-200">
+                        <h4 class="text-xs font-bold text-red-700 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                            <i data-lucide="x-circle" class="w-4 h-4 text-red-500"></i>
+                            Errores Que Detonan Demandas
+                        </h4>
+                        <ul class="text-xs text-slate-700 space-y-2 list-disc pl-4 leading-relaxed">
+                            <li>Exigir reporte de entrada y salida a contratistas profesionales.</li>
+                            <li>Pagar quincenalmente en la misma fecha y cuenta que la nómina fija.</li>
+                            <li>No registrar oportunamente los contratos en la plataforma MITRADEL digital.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-green-50/70 p-4 rounded-xl border border-green-200">
+                        <h4 class="text-xs font-bold text-green-800 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-green-600"></i>
+                            Blindaje Recomendado
+                        </h4>
+                        <ul class="text-xs text-slate-700 space-y-2 list-disc pl-4 leading-relaxed">
+                            <li>Pagar contra presentación de entregables y factura electrónica válida.</li>
+                            <li>Hacer firmar actas de conformidad técnica de los servicios prestados.</li>
+                            <li>Contar con un reglamento interno de trabajo debidamente aprobado.</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- CAPÍTULO 3: DGI -->
+            <article id="dgi" class="doc-card bg-white rounded-2xl border border-slate-200 shadow-md p-6 sm:p-8 space-y-6 scroll-mt-24">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-md flex-shrink-0">
+                        3
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold text-green-600 uppercase tracking-wider">Capítulo 03</span>
+                        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 leading-tight">
+                            DGI: Factura Electrónica, RUC, DV y Declaraciones
+                        </h2>
+                    </div>
+                </div>
+
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    La Dirección General de Ingresos (DGI) ha masificado la fiscalización cruzada mediante la <strong class="text-slate-900 font-semibold">Factura Electrónica (SFEP / PAC)</strong>. Emitir facturas manuales en talonarios físicos sin autorización excepcional conlleva multas automáticas inmediatas que parten desde los $1,000 USD.
+                </p>
+
+                <!-- Callout Amarillo Advertencia -->
+                <div class="callout-warning p-4 sm:p-5 rounded-2xl space-y-2">
+                    <div class="flex items-center gap-2 text-amber-700 font-bold text-sm">
+                        <i data-lucide="file-warning" class="w-4 h-4 flex-shrink-0"></i>
+                        <span>El Peligro del Formulario 03 y el ITBMS</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                        Si tu empresa retiene ITBMS o fondos de terceros y no los presenta a tiempo, la DGI no lo cataloga como una simple mora comercial, sino como una retención indebida de fondos del Estado, lo cual acarrea sanciones severas e inhabilitación inmediata del RUC.
+                    </p>
+                </div>
+
+                <div class="bg-slate-50 p-4 sm:p-5 rounded-xl border border-slate-200">
+                    <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wider mb-3">
+                        3 Reglas de Oro Fiscal para Empresas en Panamá
+                    </h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-slate-600">
+                        <div class="bg-white p-3 rounded-lg border border-slate-200">
+                            <span class="font-bold text-brand-blue block mb-1">1. Facturación PAC</span>
+                            Verifica que cada factura emitida cuente con su CUFE (Código Único de Factura Electrónica) validado.
+                        </div>
+                        <div class="bg-white p-3 rounded-lg border border-slate-200">
+                            <span class="font-bold text-brand-orange block mb-1">2. Conciliación Mensual</span>
+                            Compara los ingresos reportados en tu software con los recibidos efectivamente en tu cuenta bancaria.
+                        </div>
+                        <div class="bg-white p-3 rounded-lg border border-slate-200">
+                            <span class="font-bold text-green-600 block mb-1">3. Paz y Salvo Vigente</span>
+                            Genera mensualmente tu Paz y Salvo en e-Tax 2.0 para evitar sorpresas antes de licitaciones o créditos.
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- CAPÍTULO 4: CSS -->
+            <article id="css" class="doc-card bg-white rounded-2xl border border-slate-200 shadow-md p-6 sm:p-8 space-y-6 scroll-mt-24">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-brand-blue text-white rounded-full flex items-center justify-center font-bold text-lg shadow-md flex-shrink-0">
+                        4
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold text-brand-blue uppercase tracking-wider">Capítulo 04</span>
+                        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 leading-tight">
+                            CSS: Planilla SIPE, Afiliaciones y Cuotas Obrero-Patronales
+                        </h2>
+                    </div>
+                </div>
+
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    Las obligaciones con la Caja de Seguro Social son de orden público y de <strong class="text-slate-900 font-semibold">responsabilidad personal y solidaria</strong> de los directores y representantes legales. La ley no exime a los administradores aun cuando deleguen la contabilidad en gestores externos.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs text-slate-600 space-y-2">
+                        <span class="font-bold text-slate-900 block text-sm">Plazos Críticos SIPE</span>
+                        <p>Las planillas regulares deben presentarse y pagarse estrictamente dentro de los primeros días del mes siguiente para no generar recargos del 10%.</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs text-slate-600 space-y-2">
+                        <span class="font-bold text-slate-900 block text-sm">Avisos de Entrada y Salida</span>
+                        <p>Inscribir a un trabajador después del inicio de labores o no darlo de baja oportunamente ante una renuncia genera morosidad artificial continuada.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- CAPÍTULO 5: MUNICIPIO -->
+            <article id="municipio" class="doc-card bg-white rounded-2xl border border-slate-200 shadow-md p-6 sm:p-8 space-y-6 scroll-mt-24">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-brand-orange text-white rounded-full flex items-center justify-center font-bold text-lg shadow-md flex-shrink-0">
+                        5
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold text-brand-orange uppercase tracking-wider">Capítulo 05</span>
+                        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 leading-tight">
+                            Municipio & Aviso de Operación: La Trampa de la Doble Tributación
+                        </h2>
+                    </div>
+                </div>
+
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    Muchos emprendedores creen que al obtener el Aviso de Operación en el MICI (Panamá Emprende) el trámite termina. Sin embargo, es mandatorio inscribir la actividad en el Municipio del distrito donde operas (Panamá, San Miguelito, Arraiján, La Chorrera, etc.) y declarar los ingresos brutos anualmente en enero/febrero.
+                </p>
+
+                <div class="callout-shield p-4 sm:p-5 rounded-2xl space-y-2">
+                    <h4 class="text-xs font-bold text-brand-blue uppercase tracking-wider">
+                        ¿Qué pasa si cambiaste de dirección o no estás operando?
+                    </h4>
+                    <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                        El Municipio no suspende impuestos si tú no tramitas formalmente la suspensión o cierre de la cuenta municipal. Aunque tu empresa facture $0, si no presentas la Declaración Jurada se genera una multa fija de $500 USD por año omitido.
+                    </p>
+                </div>
+            </article>
+
+            <!-- CAPÍTULO 6: SEPARACIÓN PATRIMONIAL -->
+            <article id="societario" class="doc-card bg-white rounded-2xl border border-slate-200 shadow-md p-6 sm:p-8 space-y-6 scroll-mt-24">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-md flex-shrink-0">
+                        6
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold text-green-600 uppercase tracking-wider">Capítulo 06</span>
+                        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 leading-tight">
+                            Separación Patrimonial: Protege Tus Bienes Personales (S.A. / S.E.P.)
+                        </h2>
+                    </div>
+                </div>
+
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    Operar a título personal o mezclar las cuentas bancarias de la sociedad con los gastos familiares destruye el "velo corporativo". En caso de una demanda comercial o laboral, los jueces pueden perseguir los vehículos, propiedades y cuentas a nombre personal del socio.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <span class="font-bold text-brand-blue block text-sm mb-1">Sociedad Anónima (S.A.)</span>
+                        <p class="text-xs text-slate-600 leading-relaxed">Ideal para estructuras con múltiples inversionistas, emisión de acciones y protección patrimonial de activos fijos.</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <span class="font-bold text-brand-orange block text-sm mb-1">Sociedad de Emprendimiento (S.E.P.)</span>
+                        <p class="text-xs text-slate-600 leading-relaxed">Exoneración de impuesto sobre la renta por los primeros 2 años y costos de constitución reducidos para microempresarios panameños.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- CAPÍTULO 7: CHECKLIST DE AUTOEVALUACIÓN INTERACTIVO -->
+            <article id="checklist" class="doc-card bg-white rounded-2xl border border-slate-200 shadow-md p-6 sm:p-8 space-y-6 scroll-mt-24">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-brand-orange text-white rounded-full flex items-center justify-center font-bold text-lg shadow-md flex-shrink-0">
+                        7
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold text-brand-orange uppercase tracking-wider">Herramienta Interactiva</span>
+                        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 leading-tight">
+                            Checklist Ejecutivo de Blindaje Legal
+                        </h2>
+                    </div>
+                </div>
+
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    Marca las casillas de las obligaciones que tienes actualmente cubiertas y al día en tu empresa para conocer tu nivel de riesgo:
+                </p>
+
+                <div class="space-y-3" id="checklistForm">
+                    <label class="flex items-start gap-3 p-3.5 bg-slate-50 hover:bg-slate-100 rounded-xl border border-slate-200 cursor-pointer transition">
+                        <input type="checkbox" class="chk-item mt-1 w-4 h-4 text-brand-blue rounded border-slate-300 focus:ring-brand-blue">
+                        <span class="text-xs sm:text-sm text-slate-700">Contratos de trabajo y de servicios debidamente sellados y archivados.</span>
+                    </label>
+
+                    <label class="flex items-start gap-3 p-3.5 bg-slate-50 hover:bg-slate-100 rounded-xl border border-slate-200 cursor-pointer transition">
+                        <input type="checkbox" class="chk-item mt-1 w-4 h-4 text-brand-blue rounded border-slate-300 focus:ring-brand-blue">
+                        <span class="text-xs sm:text-sm text-slate-700">Facturación electrónica PAC activa con CUFE validado en cada venta.</span>
+                    </label>
+
+                    <label class="flex items-start gap-3 p-3.5 bg-slate-50 hover:bg-slate-100 rounded-xl border border-slate-200 cursor-pointer transition">
+                        <input type="checkbox" class="chk-item mt-1 w-4 h-4 text-brand-blue rounded border-slate-300 focus:ring-brand-blue">
+                        <span class="text-xs sm:text-sm text-slate-700">Paz y Salvo vigente emitido en la plataforma e-Tax 2.0 de la DGI.</span>
+                    </label>
+
+                    <label class="flex items-start gap-3 p-3.5 bg-slate-50 hover:bg-slate-100 rounded-xl border border-slate-200 cursor-pointer transition">
+                        <input type="checkbox" class="chk-item mt-1 w-4 h-4 text-brand-blue rounded border-slate-300 focus:ring-brand-blue">
+                        <span class="text-xs sm:text-sm text-slate-700">Planilla SIPE de la CSS al día, sin colaboradores omitidos.</span>
+                    </label>
+
+                    <label class="flex items-start gap-3 p-3.5 bg-slate-50 hover:bg-slate-100 rounded-xl border border-slate-200 cursor-pointer transition">
+                        <input type="checkbox" class="chk-item mt-1 w-4 h-4 text-brand-blue rounded border-slate-300 focus:ring-brand-blue">
+                        <span class="text-xs sm:text-sm text-slate-700">Inscripción y Declaración Jurada Anual al día en el Municipio correspondiente.</span>
+                    </label>
+
+                    <label class="flex items-start gap-3 p-3.5 bg-slate-50 hover:bg-slate-100 rounded-xl border border-slate-200 cursor-pointer transition">
+                        <input type="checkbox" class="chk-item mt-1 w-4 h-4 text-brand-blue rounded border-slate-300 focus:ring-brand-blue">
+                        <span class="text-xs sm:text-sm text-slate-700">Cuentas bancarias de la empresa 100% separadas del patrimonio de los socios.</span>
+                    </label>
+                </div>
+
+                <!-- Indicador de Puntuación Dinámico -->
+                <div id="checklistScoreBox" class="p-4 rounded-xl bg-blue-50 border border-blue-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-brand-blue text-white rounded-full flex items-center justify-center font-bold text-lg">
+                            <span id="chkCount">0</span>/6
+                        </div>
+                        <div>
+                            <span id="chkStatus" class="font-bold text-slate-900 text-sm block">Evaluando cumplimiento...</span>
+                            <span class="text-xs text-slate-500">Selecciona tus casillas para ver tu nivel de blindaje.</span>
+                        </div>
+                    </div>
+                    <a href="/#diagnostico" class="px-4 py-2 bg-brand-orange hover:bg-brand-orange-dark text-white text-xs font-bold rounded-xl transition shadow">
+                        Diagnóstico Completo
+                    </a>
+                </div>
+            </article>
+
+            <!-- TARJETA EJECUTIVA VIP FINAL: Idéntica a la tarjeta de Arubel Aizprua en index.html -->
+            <section id="diagnostico-cta" class="pt-4">
+                <div class="bg-gradient-to-br from-slate-900 via-slate-800 to-brand-blue-dark text-white rounded-3xl p-8 md:p-12 shadow-2xl border border-slate-700/50 relative overflow-hidden">
+                    <!-- Destellos de fondo -->
+                    <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-blue/30 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-brand-orange/20 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div class="relative z-10 text-center max-w-2xl mx-auto space-y-5">
+                        <span class="inline-flex items-center gap-2 py-1 px-4 rounded-full bg-brand-orange/20 text-brand-orange-light text-xs font-bold border border-brand-orange/30">
+                            <i data-lucide="shield" class="w-3.5 h-3.5"></i> Sesión Privada de 40 Minutos
+                        </span>
+
+                        <h3 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight">
+                            ¿Prefieres que auditemos tu empresa y te entreguemos una Hoja de Ruta Clara?
+                        </h3>
+
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            Revisamos tu expediente en <strong>DGI, MITRADEL, CSS y Municipio</strong>, detectamos riesgos antes de cualquier notificación y te dejamos un plan paso a paso con costos exactos.
+                        </p>
+
+                        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+                            <a href="/#diagnostico" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-2xl font-extrabold text-sm sm:text-base shadow-xl hover:shadow-orange-500/30 transition transform hover:-translate-y-0.5">
+                                Iniciar Diagnóstico Escudo Preventivo
+                            </a>
+                            <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.%2C%20le%C3%AD%20la%20Gu%C3%ADa%20y%20quisiera%20asesor%C3%ADa%20para%20mi%20empresa" target="_blank"
+                                class="w-full sm:w-auto px-6 py-4 bg-white/10 hover:bg-white/20 text-white rounded-2xl font-bold text-sm border border-white/20 transition flex items-center justify-center gap-2">
+                                <i data-lucide="message-circle" class="w-4 h-4 text-green-400"></i>
+                                <span>Consultar por WhatsApp</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- FOOTER CORPORATIVO (100% idéntico a index.html) -->
+    <footer class="bg-slate-900 text-slate-400 py-12 mt-16 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:justify-between gap-10 mb-8">
+                <!-- Logo & Redes -->
+                <div class="flex flex-col items-start">
+                    <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-21-nobg.svg" alt="Aizprua S.E. - Firma Legal"
+                        class="h-20 w-auto -mt-7 -mb-4 -ml-3">
+                    <p class="text-sm text-slate-400 mb-3">Tu aliado legal en Panamá.</p>
+                    <div class="flex gap-3">
+                        <a target="_blank" rel="noopener" href="https://instagram.com/aizpruase"
+                            class="w-10 h-10 bg-slate-800 hover:bg-pink-600 rounded-full flex items-center justify-center text-white transition"
+                            aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                            </svg>
+                        </a>
+                        <a target="_blank" rel="noopener" href="https://facebook.com/aizpruase"
+                            class="w-10 h-10 bg-slate-800 hover:bg-brand-blue rounded-full flex items-center justify-center text-white transition"
+                            aria-label="Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a href="https://wa.me/50765461527" target="_blank"
+                            class="w-10 h-10 bg-slate-800 hover:bg-green-500 rounded-full flex items-center justify-center text-white transition"
+                            aria-label="WhatsApp">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- Diagnóstico -->
+                <div>
+                    <h4 class="font-bold text-white mb-4">Diagnóstico</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/#diagnostico" class="hover:text-white transition">Iniciar el cuestionario</a></li>
+                        <li><a href="/playbook" class="text-brand-orange hover:text-white transition font-medium">Playbook de Blindaje 2026</a></li>
+                        <li><a href="/recursos-gratuitos" class="hover:text-white transition">Recursos Gratuitos</a></li>
+                    </ul>
+                </div>
+                <!-- Contacto -->
+                <div>
+                    <h4 class="font-bold text-white mb-4">Contacto</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://wa.me/50765461527" target="_blank" class="hover:text-white">WhatsApp: +507 6546-1527</a></li>
+                        <li><a href="mailto:info@aizprua.com" class="hover:text-white">info@aizprua.com</a></li>
+                    </ul>
+                </div>
+                <!-- Legal -->
+                <div>
+                    <h4 class="font-bold text-white mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/terminos" class="hover:text-white">Términos y Condiciones</a></li>
+                        <li><a href="/privacidad" class="hover:text-white">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 text-center text-sm text-slate-300">
+                &copy; 2026 Aizprua S.E. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Flotante Btn (Idéntico a index.html) -->
+    <button id="whatsapp-toggle" aria-label="Abrir chat de WhatsApp"
+        class="whatsapp-btn fixed bottom-16 right-6 z-[90] bg-[#25D366] hover:bg-[#20bd5a] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 cursor-pointer">
+        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </button>
+
+    <!-- WhatsApp Widget Desplegable (Idéntico a index.html) -->
+    <div id="whatsapp-widget"
+        class="fixed bottom-24 right-6 z-[90] w-80 bg-brand-blue rounded-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.4)] overflow-hidden transform scale-0 origin-bottom-right transition-transform duration-300">
+        <div class="bg-brand-blue p-6 relative">
+            <button id="close-whatsapp" class="absolute top-4 right-4 text-white/80 hover:text-white transition cursor-pointer">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <h3 class="text-white text-lg font-bold pr-6">¿Dudas sobre la Guía o tu empresa?</h3>
+            <p class="text-blue-100 text-sm mt-1">Solemos responder en minutos.</p>
+        </div>
+        <div class="p-6 bg-slate-50 rounded-b-2xl">
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100 mb-4 flex gap-4 items-start">
+                <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <svg class="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                </div>
+                <div>
+                    <p class="text-sm text-slate-500 mb-1">Equipo Aizprua S.E.</p>
+                    <p class="text-slate-800 font-medium text-sm">Hola 👋 ¿En qué podemos ayudarte hoy?</p>
+                </div>
+            </div>
+            <a href="https://wa.me/50765461527?text=Hola,%20tengo%20una%20duda%20sobre%20la%20Gu%C3%ADa%20Preventiva%20y%20el%20Diagn%C3%B3stico"
+                target="_blank"
+                class="block w-full py-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-lg text-center transition shadow-lg hover:shadow-green-500/20 flex items-center justify-center gap-2">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+                Iniciar Chat
+            </a>
+            <p class="text-center text-xs text-slate-400 mt-3 select-none">Se abre en WhatsApp</p>
+        </div>
+    </div>
+
+    <!-- SCRIPTS DE INTERACCIÓN -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.lucide) window.lucide.createIcons();
+
+            const topBar = document.getElementById('topLoadingBar');
+            const progressBar = document.getElementById('progress-bar');
+
+            // Barra de progreso de scroll horizontal
+            window.addEventListener('scroll', () => {
+                const winScroll = document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                if (progressBar) progressBar.style.width = scrolled + '%';
+            });
+
+            // Cerrar anuncio
+            const closeAnnouncement = document.getElementById('close-announcement');
+            if (closeAnnouncement) {
+                closeAnnouncement.addEventListener('click', () => {
+                    document.getElementById('announcement-bar').style.display = 'none';
+                });
+            }
+
+            // Menú móvil
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // WhatsApp Widget Toggle
+            const waToggle = document.getElementById('whatsapp-toggle');
+            const waWidget = document.getElementById('whatsapp-widget');
+            const closeWa = document.getElementById('close-whatsapp');
+            if (waToggle && waWidget) {
+                waToggle.addEventListener('click', () => {
+                    waWidget.classList.toggle('scale-0');
+                });
+            }
+            if (closeWa && waWidget) {
+                closeWa.addEventListener('click', () => {
+                    waWidget.classList.add('scale-0');
+                });
+            }
+
+            // Copiar Cláusula
+            document.querySelectorAll('.btn-copy-clause').forEach(btn => {
+                btn.addEventListener('click', async () => {
+                    const targetId = btn.getAttribute('data-target');
+                    const pre = document.getElementById(targetId);
+                    if (!pre) return;
+                    try {
+                        await navigator.clipboard.writeText(pre.textContent);
+                        const originalHtml = btn.innerHTML;
+                        btn.innerHTML = `<i data-lucide="check" class="w-3.5 h-3.5 text-green-600"></i><span class="text-green-600">¡Copiado!</span>`;
+                        if (window.lucide) window.lucide.createIcons();
+                        setTimeout(() => {
+                            btn.innerHTML = originalHtml;
+                            if (window.lucide) window.lucide.createIcons();
+                        }, 2200);
+                    } catch (e) {}
+                });
+            });
+
+            // Buscador en tiempo real de artículos
+            const searchInputs = [document.getElementById('guideSearchInput'), document.getElementById('mobileGuideSearchInput')];
+            searchInputs.forEach(input => {
+                if (!input) return;
+                input.addEventListener('input', (e) => {
+                    const q = e.target.value.toLowerCase().trim();
+                    document.querySelectorAll('.doc-card').forEach(card => {
+                        const text = card.textContent.toLowerCase();
+                        card.style.display = (q === '' || text.includes(q)) ? 'block' : 'none';
+                    });
+                });
+            });
+
+            // Barra espectral animada al hacer clic en anclas
+            document.querySelectorAll('a[href^="#"]').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (topBar) {
+                        topBar.classList.add('active');
+                        setTimeout(() => topBar.classList.remove('active'), 600);
+                    }
+                });
+            });
+
+            // Scrollspy para resaltar el ítem activo en el Sidebar
+            const sections = document.querySelectorAll('.doc-card');
+            const navLinks = document.querySelectorAll('#guideNavList a');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(sec => {
+                    const top = sec.offsetTop - 140;
+                    if (window.scrollY >= top) {
+                        current = sec.getAttribute('id');
+                    }
+                });
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // Checklist de Autodiagnóstico interactivo
+            const chkItems = document.querySelectorAll('.chk-item');
+            const countDisplay = document.getElementById('chkCount');
+            const statusDisplay = document.getElementById('chkStatus');
+            const scoreBox = document.getElementById('checklistScoreBox');
+
+            function updateScore() {
+                let checked = 0;
+                chkItems.forEach(chk => { if (chk.checked) checked++; });
+                if (countDisplay) countDisplay.textContent = checked;
+
+                if (statusDisplay && scoreBox) {
+                    if (checked <= 2) {
+                        statusDisplay.textContent = "Alerta: Alto Riesgo de Multas Silenciosas";
+                        scoreBox.className = "p-4 rounded-xl bg-red-50 border border-red-200 flex flex-col sm:flex-row items-center justify-between gap-4";
+                    } else if (checked <= 4) {
+                        statusDisplay.textContent = "Precaución: Cumplimiento Parcial";
+                        scoreBox.className = "p-4 rounded-xl bg-amber-50 border border-amber-200 flex flex-col sm:flex-row items-center justify-between gap-4";
+                    } else {
+                        statusDisplay.textContent = "Excelente: Empresa Bien Blindada";
+                        scoreBox.className = "p-4 rounded-xl bg-green-50 border border-green-200 flex flex-col sm:flex-row items-center justify-between gap-4";
+                    }
+                }
+            }
+
+            chkItems.forEach(chk => chk.addEventListener('change', updateScore));
+        });
+    </script>
+</body>
+
+</html>
