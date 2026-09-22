@@ -1,0 +1,53 @@
+/* ==========================================================================
+   AIZPRUA S.E. — MASTERCLASS FUNNEL BARS (ESPECTRAL & PROGRESO)
+   ========================================================================== */
+.top-loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3.5px;
+  z-index: 99999;
+  display: none;
+  background: linear-gradient(90deg, 
+    #2563eb, #3849c8, #7c3aed, #c026d3, #db2777, #ea580c, #f59e0b, #3849c8, #2563eb
+  );
+  background-size: 200% 100%;
+  animation: spectralLoading 1.4s linear infinite;
+  box-shadow: 0 0 12px rgba(56, 73, 200, 0.5), 0 0 6px rgba(255, 138, 30, 0.4);
+}
+
+.top-loading-bar.active {
+  display: block;
+}
+
+@keyframes spectralLoading {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+/* Barra de Progreso Psicológico del Embudo (Funnel Progress Track) */
+.funnel-progress-track {
+  width: 100%;
+  height: 6px;
+  background: #E2E8F0;
+  border-radius: 9999px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.funnel-progress-fill {
+  height: 100%;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, 
+    #2563eb, #3849c8, #7c3aed, #c026d3, #db2777, #ea580c, #f59e0b, #3849c8, #2563eb
+  );
+  background-size: 200% 100%;
+  animation: spectralLoading 2s linear infinite;
+  transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}

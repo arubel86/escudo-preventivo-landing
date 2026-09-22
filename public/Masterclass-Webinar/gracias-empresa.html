@@ -63,9 +63,13 @@
             box-shadow: 0 10px 25px -5px rgba(37, 211, 102, 0.4);
         }
     </style>
+    <link rel="stylesheet" href="webinar-loader.css">
 </head>
 
 <body class="min-h-screen relative overflow-x-hidden bg-slate-50 text-slate-800 pb-16">
+
+    <!-- BARRA DE CARGA ESPECTRAL SUPERIOR -->
+    <div id="topLoadingBar" class="top-loading-bar" role="progressbar" aria-label="Cargando"></div>
 
     <!-- Destellos de fondo -->
     <div class="absolute top-0 right-0 -mr-40 -mt-40 w-96 h-96 bg-brand-blue/15 rounded-full blur-3xl pointer-events-none"></div>
@@ -79,6 +83,22 @@
             <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
             REGISTRO CONFIRMADO
         </div>
+
+        
+        <!-- Progreso Psicológico del Embudo (Paso 2 de 2: 100% Completado) -->
+        <div class="max-w-md mx-auto text-left bg-white/90 backdrop-blur-sm p-3.5 sm:p-4 rounded-2xl border border-slate-200 shadow-sm">
+            <div class="flex items-center justify-between text-xs font-bold mb-1.5">
+                <span class="text-emerald-700 flex items-center gap-1.5">
+                    <svg class="w-4 h-4 text-emerald-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    PASO 2 DE 2: CUPO 100% BLINDADO
+                </span>
+                <span class="text-emerald-700 font-extrabold">100%</span>
+            </div>
+            <div class="funnel-progress-track">
+                <div class="funnel-progress-fill" style="width: 100%;"></div>
+            </div>
+        </div>
+
 
         <!-- Titular Principal -->
         <div class="space-y-3">

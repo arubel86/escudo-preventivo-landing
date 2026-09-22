@@ -190,6 +190,8 @@ function initWebinarForm(perfil) {
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
+        const topLoadingBar = document.getElementById('topLoadingBar');
+        if (topLoadingBar) topLoadingBar.classList.add('active');
 
         const inputNombre = form.querySelector('[name="name"]');
         const inputEmail = form.querySelector('[name="email"]');
@@ -256,6 +258,8 @@ function initWebinarForm(perfil) {
     });
 
     function mostrarError(mensaje, inputTarget) {
+        const topLoadingBar = document.getElementById('topLoadingBar');
+        if (topLoadingBar) topLoadingBar.classList.remove('active');
         const errorEl = document.getElementById('form-error-msg');
         if (errorEl) {
             errorEl.textContent = mensaje;
@@ -286,6 +290,15 @@ function getGoogleCalendarUrl() {
 // INICIALIZACIÓN GENERAL EN DOM
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
+
+    // Feedback inmediato con barra superior al seleccionar perfil en index
+    document.querySelectorAll('.profile-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const topBar = document.getElementById('topLoadingBar');
+            if (topBar) topBar.classList.add('active');
+        });
+    });
+
     // Activar íconos Lucide con reintentos para evitar condiciones de carrera con el CDN en móvil
     function initLucideSafe() {
         if (window.lucide && typeof window.lucide.createIcons === 'function') {
