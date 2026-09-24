@@ -9,7 +9,7 @@ Disallow: /gracias
 Disallow: /gracias-guia
 Disallow: /api/
 
-Sitemap: https://escudo.aizpruase.com/sitemap.xml
+Sitemap: https://escudo.aizprua.com/sitemap.xml
 
 # Directivas para Agentes de Inteligencia Artificial
 User-agent: GPTBot

@@ -72,7 +72,7 @@ function formatHttpsOrigin(str) {
   return s.replace(/\/+$/, '');
 }
 
-const TARGET_ORIGINS = (process.env.TARGET_ORIGINS || 'https://escudo.aizpruase.com,https://localhost:3000').split(',').map(s => s.trim());
+const TARGET_ORIGINS = (process.env.TARGET_ORIGINS || 'https://escudo.aizprua.com,https://escudo.aizpruase.com,https://localhost:3000').split(',').map(s => s.trim());
 const PORT = process.env.PORT || 3000;
 
 // ============================================================
