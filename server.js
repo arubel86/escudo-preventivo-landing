@@ -442,7 +442,12 @@ app.use('/verificador', express.static(verificadorDir));
 app.use('/masterclass', express.static(masterclassDir));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Fallback: redirigir cada embudo a su página correspondiente
+// 11. Página 404 Oficial
+app.get(['/404', '/404.html'], (req, res) => {
+  res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
+});
+
+// Fallback: redirigir cada embudo o servir página 404 con código de estado HTTP 404
 app.get('*', (req, res) => {
   if (req.path.toLowerCase().startsWith('/verificador')) {
     return res.sendFile(path.join(verificadorDir, 'index.html'));
@@ -450,9 +455,10 @@ app.get('*', (req, res) => {
   if (req.path.toLowerCase().includes('masterclass') || req.path.toLowerCase().includes('webinar')) {
     return res.sendFile(path.join(masterclassDir, 'index.html'));
   }
-  if (!req.path.startsWith('/api')) {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  if (req.path.startsWith('/api')) {
+    return res.status(404).json({ error: 'Endpoint API no encontrado' });
   }
+  res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
 });
 
 // ============================================================
