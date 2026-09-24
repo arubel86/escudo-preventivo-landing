@@ -352,6 +352,11 @@ app.get(['/playbook', '/playbook.html', '/guia', '/guia.html', '/guia-interactiv
   res.sendFile(path.join(__dirname, 'public', 'guia.html'));
 });
 
+// 4.2. Guía Práctica: Cómo Conseguir un Préstamo en Panamá 2026
+app.get(['/guia-prestamos', '/guia-prestamos.html', '/prestamos', '/prestamos.html', '/credito-panama'], (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'guia-prestamos.html'));
+});
+
 // 5. Hub Post-Pago (Protegido por Sesión Criptográfica)
 app.get('/gracias', (req, res) => {
   if (!isValidPaymentSession(req.headers.cookie)) {
