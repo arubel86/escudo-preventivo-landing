@@ -435,6 +435,11 @@ app.get(['/demo-100', '/verificador/demo-100', '/plantilla-100', '/plantilla-100
   res.sendFile(path.join(__dirname, 'public', 'plantilla-100.html'));
 });
 
+// 10.1. Hub Oficial de Enlaces & Bio Link (Aizprua S.E. & Escudo Preventivo)
+app.get(['/links', '/links.html', '/links/', '/bio', '/bio.html', '/bio/'], (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'links.html'));
+});
+
 // ARCHIVOS ESTÁTICOS (Masterclass, Verificador & Landing Page)
 app.use('/masterclass', express.static(masterclassDir));
 app.use(express.static(path.join(__dirname, 'public')));
