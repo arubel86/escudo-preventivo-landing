@@ -84,8 +84,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <a href="/" class="flex items-center" title="Aizprua S.E. - Inicio">
-                    <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg"
-                        alt="Logo Aizprua S.E." class="h-24 w-auto object-contain" width="96" height="96">
+                    <img src="assets/logo-aizprua-navbar.svg"
+                        alt="Logo Aizprua S.E." class="h-9 sm:h-10 w-auto object-contain"
+                        onerror="this.src='assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg'">
                 </a>
                 <div class="flex items-center space-x-4 sm:space-x-6">
                     <a href="/" class="text-slate-600 hover:text-brand-blue font-medium transition text-sm sm:text-base">Inicio</a>
@@ -207,11 +208,18 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        function initIcons() {
             if (window.lucide) {
                 window.lucide.createIcons();
+            } else {
+                setTimeout(initIcons, 50);
             }
-        });
+        }
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initIcons);
+        } else {
+            initIcons();
+        }
     </script>
 </body>
 
