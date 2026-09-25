@@ -423,22 +423,19 @@ app.get(['/masterclass/gracias-profesional', '/masterclass/gracias-profesional.h
 });
 
 // 10. Verificador de Sitios Web & Preparación para Agentes IA
-const verificadorDir = path.join(__dirname, 'public', 'verificador');
-
-app.get(['/verificador', '/verificador/', '/verificador/index.html'], (req, res) => {
-  res.sendFile(path.join(verificadorDir, 'index.html'));
+app.get(['/verificador', '/verificador.html', '/verificador/'], (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'verificador.html'));
 });
 
-app.get(['/demo-100', '/verificador/demo-100'], (req, res) => {
+app.get(['/demo-100', '/verificador/demo-100', '/plantilla-100', '/plantilla-100.html'], (req, res) => {
   res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
   res.setHeader('X-Frame-Options', 'SAMEORIGIN');
   res.setHeader('X-Content-Type-Options', 'nosniff');
   res.setHeader('Content-Security-Policy', "default-src 'self' https: data: 'unsafe-inline';");
-  res.sendFile(path.join(verificadorDir, 'plantilla-100', 'index.html'));
+  res.sendFile(path.join(__dirname, 'public', 'plantilla-100.html'));
 });
 
 // ARCHIVOS ESTÁTICOS (Masterclass, Verificador & Landing Page)
-app.use('/verificador', express.static(verificadorDir));
 app.use('/masterclass', express.static(masterclassDir));
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -450,7 +447,7 @@ app.get(['/404', '/404.html'], (req, res) => {
 // Fallback: redirigir cada embudo o servir página 404 con código de estado HTTP 404
 app.get('*', (req, res) => {
   if (req.path.toLowerCase().startsWith('/verificador')) {
-    return res.sendFile(path.join(verificadorDir, 'index.html'));
+    return res.sendFile(path.join(__dirname, 'public', 'verificador.html'));
   }
   if (req.path.toLowerCase().includes('masterclass') || req.path.toLowerCase().includes('webinar')) {
     return res.sendFile(path.join(masterclassDir, 'index.html'));

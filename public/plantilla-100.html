@@ -11,18 +11,18 @@
   <meta name="description" content="Servicios líderes de asesoría fiscal, validación tributaria y preparación digital para empresas en Panamá. Consulta con especialistas de Aizprua S.E.">
   
   <!-- URL Canónica -->
-  <link rel="canonical" href="https://escudo.aizprua.com/verificador/demo-100">
+  <link rel="canonical" href="https://escudo.aizprua.com/demo-100">
   
   <!-- Identidad & Favicons Oficiales -->
-  <link rel="icon" type="image/svg+xml" href="/verificador/assets/LOGOS PARA DIGITAL INDIVIDUALES-13.svg">
-  <link rel="apple-touch-icon" sizes="180x180" href="/verificador/assets/LOGOS PARA DIGITAL INDIVIDUALES-13.svg">
+  <link rel="icon" type="image/svg+xml" href="assets/LOGOS PARA DIGITAL INDIVIDUALES-13.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/LOGOS PARA DIGITAL INDIVIDUALES-13.svg">
   
   <!-- Open Graph para Redes Sociales y Mensajería -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://escudo.aizprua.com/verificador/demo-100">
+  <meta property="og:url" content="https://escudo.aizprua.com/demo-100">
   <meta property="og:title" content="Aizprua S.E. | Asesoría Fiscal y Auditoría Web en Panamá">
   <meta property="og:description" content="Servicios líderes de asesoría fiscal, validación tributaria y preparación digital para empresas en Panamá.">
-  <meta property="og:image" content="https://escudo.aizprua.com/verificador/assets/LOGOS%20PARA%20DIGITAL%20INDIVIDUALES-07.svg">
+  <meta property="og:image" content="https://escudo.aizprua.com/assets/LOGOS%20PARA%20DIGITAL%20INDIVIDUALES-07.svg">
   
   <!-- Datos Estructurados Schema.org JSON-LD para Agentes de IA -->
   <script type="application/ld+json">
@@ -30,8 +30,8 @@
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Aizprua S.E.",
-    "url": "https://escudo.aizprua.com/verificador/demo-100",
-    "logo": "https://escudo.aizprua.com/verificador/assets/LOGOS%20PARA%20DIGITAL%20INDIVIDUALES-07.svg",
+    "url": "https://escudo.aizprua.com/demo-100",
+    "logo": "https://escudo.aizprua.com/assets/LOGOS%20PARA%20DIGITAL%20INDIVIDUALES-07.svg",
     "description": "Firma líder en tecnología, validación fiscal y preparación de sitios web para agentes de inteligencia artificial.",
     "telephone": "+507-6546-1527",
     "address": {
@@ -104,7 +104,11 @@
       justify-content: space-between;
     }
     .header img {
-      height: 38px;
+      height: 36px;
+      max-height: 38px;
+      width: auto;
+      object-fit: contain;
+      display: block;
     }
     .container {
       max-width: 900px;
@@ -112,15 +116,34 @@
       padding: 0 24px;
       text-align: center;
     }
+    @keyframes badgeFloat {
+      0%, 100% {
+        transform: translateY(0);
+        box-shadow: 0 4px 12px rgba(56, 73, 200, 0.08);
+      }
+      50% {
+        transform: translateY(-6px);
+        box-shadow: 0 10px 22px rgba(56, 73, 200, 0.18);
+      }
+    }
     .badge {
       display: inline-block;
-      padding: 6px 16px;
+      padding: 8px 20px;
       background: #eef2ff;
       color: var(--brand-blue);
       border-radius: 9999px;
       font-weight: 700;
       font-size: 0.85rem;
       margin-bottom: 20px;
+      border: 1px solid rgba(56, 73, 200, 0.18);
+      animation: badgeFloat 3.6s ease-in-out infinite;
+      box-shadow: 0 4px 12px rgba(56, 73, 200, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .badge:hover {
+      animation-play-state: paused;
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 14px 28px rgba(56, 73, 200, 0.24);
     }
     h1 {
       font-size: 2.5rem;
@@ -144,6 +167,11 @@
       border-radius: 12px;
       font-weight: 700;
       box-shadow: 0 4px 14px rgba(255, 138, 30, 0.3);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 138, 30, 0.4);
     }
     .card-grid {
       display: grid;
@@ -157,6 +185,7 @@
       padding: 24px;
       border-radius: 16px;
       border: 1px solid #e2e8f0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     }
     .card h3 {
       color: var(--brand-blue);
@@ -168,22 +197,14 @@
       color: var(--gray-600);
       font-size: 0.95rem;
     }
-    .img-wrap {
-      margin-top: 40px;
-    }
-    .img-wrap img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 16px;
-      border: 1px solid #e2e8f0;
-    }
+
   </style>
 </head>
 <body>
 
   <header class="header">
     <a href="/demo-100">
-      <img src="/assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg" alt="Logotipo Institucional de Aizprua S.E.">
+      <img src="assets/logo-aizprua-navbar.svg" alt="Logotipo Institucional de Aizprua S.E." onerror="this.onerror=null; this.src='assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg';">
     </a>
     <a href="https://wa.me/50765461527" target="_blank" rel="noopener noreferrer" class="btn" style="padding: 8px 18px; font-size: 0.88rem;">Contactar</a>
   </header>
@@ -198,12 +219,8 @@
       Esta página modelo implementa el 100% de las 24 directivas técnicas auditadas por el Verificador de Aizprua S.E., incluyendo SEO semántico, seguridad OWASP y preparación para agentes de Inteligencia Artificial.
     </p>
 
-    <a href="/" class="btn">Volver al Verificador</a>
+    <a href="/verificador" class="btn">Volver al Verificador</a>
 
-    <div class="img-wrap">
-      <!-- Imagen en formato vectorial/moderno con alt descriptivo y carga diferida -->
-      <img src="/assets/LOGOS PARA DIGITAL INDIVIDUALES-21-nobg.svg" alt="Emblema de certificación y validación tecnológica de Aizprua S.E." loading="lazy">
-    </div>
 
     <div class="card-grid">
       <div class="card">

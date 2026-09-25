@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <base href="/verificador/">
   <title>Verificador de Sitios Web y Blindaje Digital Legal | Aizprua S.E.</title>
   <meta name="description" content="Audita en segundos si tu sitio web cumple con la Ley 81 de Protección de Datos Personales, Términos Legales y estándares para agentes IA en Panamá.">
 
@@ -37,7 +36,7 @@
   <!-- Iconos Lucide & Favicon de Marca -->
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="icon" type="image/svg+xml" href="assets/LOGOS PARA DIGITAL INDIVIDUALES-13.svg">
-  <link rel="stylesheet" href="index.css?v=1.0">
+  <link rel="stylesheet" href="verificador.css?v=2.0">
 </head>
 <body>
   <!-- BARRA DE CARGA ESPECTRAL SUPERIOR -->
@@ -46,8 +45,8 @@
   <!-- NAVBAR INSTITUCIONAL -->
   <header class="navbar">
     <div class="container navbar-container">
-      <a href="#" class="brand-logo" title="Aizprua S.E.">
-        <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg" alt="Aizprua S.E. Logo" onerror="this.src='assets/LOGOS PARA DIGITAL INDIVIDUALES-21-nobg.svg'">
+      <a href="/verificador" class="brand-logo" title="Aizprua S.E.">
+        <img src="assets/logo-aizprua-navbar.svg" alt="Aizprua S.E. Logo" onerror="this.src='assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg'">
       </a>
 
       <div class="nav-actions">
@@ -103,14 +102,14 @@
       <!-- CHIPS DE PRUEBA RÁPIDA -->
       <div class="quick-demos">
         <span>Prueba rápida con:</span>
-        <button type="button" class="demo-chip" style="background: var(--brand-orange-subtle); color: var(--brand-orange-dark); border-color: var(--brand-orange); font-weight: 700;" data-url="http://localhost:3030/demo-100">⭐️ Sitio Modelo (100%)</button>
+        <button type="button" class="demo-chip" style="background: var(--brand-orange-subtle); color: var(--brand-orange-dark); border-color: var(--brand-orange); font-weight: 700;" data-url="https://escudo.aizprua.com/demo-100">⭐️ Sitio Modelo (100%)</button>
         <button type="button" class="demo-chip" data-url="https://escudo.aizprua.com">escudo.aizprua.com</button>
         <button type="button" class="demo-chip" data-url="https://cloudflare.com">cloudflare.com</button>
         <button type="button" class="demo-chip" data-url="https://openai.com">openai.com</button>
       </div>
 
       <!-- ESTADO DE CARGA / LOADER -->
-      <div class="scanning-state" id="scanningState">
+      <div class="scanning-state" id="scanningState" style="display: none;">
         <div class="spinner"></div>
         <h3 id="loaderStatusTitle" style="font-weight: 800; color: var(--gray-900); margin-bottom: 6px;">
           Auditoría en curso...
@@ -124,7 +123,7 @@
       </div>
 
       <!-- PANEL DE RESULTADOS -->
-      <section class="results-container" id="resultsContainer">
+      <section class="results-container" id="resultsContainer" style="display: none;">
         
         <!-- CARD CENTRAL DE PUNTUACIÓN -->
         <div class="score-overview-card">
@@ -149,9 +148,9 @@
           <!-- MEDIDOR CIRCULAR GLOBAL -->
           <div class="gauge-section">
             <div class="circle-meter-wrapper">
-              <svg class="circle-meter-svg" viewBox="0 0 160 160">
-                <circle class="circle-meter-bg" cx="80" cy="80" r="70"></circle>
-                <circle class="circle-meter-fill" id="mainMeterFill" cx="80" cy="80" r="70"></circle>
+              <svg class="circle-meter-svg" viewBox="0 0 160 160" style="max-width: 160px; max-height: 160px;">
+                <circle class="circle-meter-bg" cx="80" cy="80" r="70" fill="none" stroke="#E2E8F0" stroke-width="12"></circle>
+                <circle class="circle-meter-fill" id="mainMeterFill" cx="80" cy="80" r="70" fill="none" stroke="#3849C8" stroke-width="12"></circle>
               </svg>
               <div class="circle-meter-content">
                 <span class="score-number" id="mainScoreNum">0</span>
@@ -178,7 +177,7 @@
             <span class="filter-count" id="countAll">0</span>
           </button>
           <button type="button" class="filter-btn highlight" data-filter="needs_fix">
-            <i data-lucide="sparkles" style="width:14px;height:14px;"></i>
+            <i data-lucide="alert-circle" style="width:14px;height:14px;"></i>
             <span>Por Corregir</span>
             <span class="filter-count" id="countNeedsFix">0</span>
           </button>
@@ -187,10 +186,10 @@
             <span>Fallos</span>
             <span class="filter-count" id="countFail">0</span>
           </button>
-          <button type="button" class="filter-btn warning" data-filter="warning">
+          <button type="button" class="filter-btn warn" data-filter="warn">
             <i data-lucide="alert-triangle" style="width:14px;height:14px;"></i>
             <span>Advertencias</span>
-            <span class="filter-count" id="countWarning">0</span>
+            <span class="filter-count" id="countWarn">0</span>
           </button>
           <button type="button" class="filter-btn pass" data-filter="pass">
             <i data-lucide="check-circle" style="width:14px;height:14px;"></i>
@@ -256,7 +255,7 @@
         © 2026 <strong>Aizprua S.E.</strong> — Tecnología, Asesoría & Inteligencia Digital.
       </div>
       <div class="footer-links">
-        <a href="#buscador">Verificador</a>
+        <a href="/verificador">Verificador</a>
         <a href="#faq">Preguntas</a>
         <a href="https://wa.me/50765461527" target="_blank">Soporte Técnico</a>
       </div>
@@ -264,6 +263,6 @@
   </footer>
 
   <!-- Lógica Frontend -->
-  <script src="script.js?v=1.0"></script>
+  <script src="verificador.js?v=2.0"></script>
 </body>
 </html>
