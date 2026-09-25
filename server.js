@@ -310,9 +310,19 @@ app.post(['/api/scan', '/verificador/api/scan'], async (req, res) => {
 // RUTAS LIMPIAS (Sin extensión .html)
 // ============================================================
 
-// 1. Inicio / Cuestionario
+// 1. Inicio: Enrutamiento Inteligente por Dominio para la Raíz (/)
+// Si el subdominio es explícitamente escudo. (escudo.aizprua.com), muestra index.html (Escudo Preventivo)
+// Para el dominio principal (aizprua.com, www.aizprua.com), muestra construccion.html
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  const forwardedHost = (req.headers['x-forwarded-host'] || '').split(',')[0].trim().toLowerCase().replace(/:\d+$/, '');
+  const reqHost = (req.headers.host || req.hostname || '').toLowerCase().replace(/:\d+$/, '');
+
+  // Solo si es explícitamente el subdominio escudo.aizprua.com (evita coincidir con el nombre del contenedor escudo-preventivo)
+  if (forwardedHost.startsWith('escudo.') || reqHost.startsWith('escudo.')) {
+    return res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  }
+
+  return res.sendFile(path.join(__dirname, 'public', 'construccion.html'));
 });
 
 app.get('/index.html', (req, res) => {
@@ -448,24 +458,10 @@ app.get(['/construccion', '/construccion.html', '/construccion/', '/proximamente
   res.sendFile(path.join(__dirname, 'public', 'construccion.html'));
 });
 
-// 10.3. Enrutamiento Inteligente por Dominio para la Raíz (/)
-// Si el subdominio es explícitamente escudo. (escudo.aizprua.com), muestra index.html
-// Para el dominio principal (aizprua.com, www.aizprua.com), muestra construccion.html
-app.get('/', (req, res) => {
-  const forwardedHost = (req.headers['x-forwarded-host'] || '').split(',')[0].trim().toLowerCase().replace(/:\d+$/, '');
-  const reqHost = (req.headers.host || req.hostname || '').toLowerCase().replace(/:\d+$/, '');
-
-  // Solo si es explícitamente el subdominio escudo.aizprua.com (evita coincidir con el nombre del contenedor escudo-preventivo)
-  if (forwardedHost.startsWith('escudo.') || reqHost.startsWith('escudo.')) {
-    return res.sendFile(path.join(__dirname, 'public', 'index.html'));
-  }
-
-  return res.sendFile(path.join(__dirname, 'public', 'construccion.html'));
-});
 
 // ARCHIVOS ESTÁTICOS (Masterclass, Verificador & Landing Page)
 app.use('/masterclass', express.static(masterclassDir));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'), { index: false }));
 
 // 11. Página 404 Oficial
 app.get(['/404', '/404.html'], (req, res) => {
