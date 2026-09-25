@@ -440,6 +440,12 @@ app.get(['/links', '/links.html', '/links/', '/bio', '/bio.html', '/bio/'], (req
   res.sendFile(path.join(__dirname, 'public', 'links.html'));
 });
 
+// 10.2. Página de Próximo Lanzamiento / En Construcción (Aizprua S.E.)
+app.get(['/construccion', '/construccion.html', '/construccion/', '/proximamente', '/proximamente.html', '/proximamente/'], (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'construccion.html'));
+});
+
+
 // ARCHIVOS ESTÁTICOS (Masterclass, Verificador & Landing Page)
 app.use('/masterclass', express.static(masterclassDir));
 app.use(express.static(path.join(__dirname, 'public')));
