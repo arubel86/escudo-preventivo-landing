@@ -49,6 +49,7 @@ function isValidPaymentSession(cookieHeader) {
 }
 
 const app = express();
+app.set('trust proxy', true);
 app.use(express.json());
 
 // ============================================================
@@ -449,7 +450,9 @@ app.get(['/construccion', '/construccion.html', '/construccion/', '/proximamente
 // Si entran por aizprua.com o www.aizprua.com muestra construccion.html
 // Si entran por escudo.aizprua.com muestra el embudo de Escudo Preventivo (index.html)
 app.get('/', (req, res) => {
-  const host = (req.hostname || req.headers.host || '').toLowerCase().replace(/:\d+$/, '');
+  const rawForwarded = req.headers['x-forwarded-host'] || '';
+  const forwardedHost = rawForwarded.split(',')[0].trim();
+  const host = (forwardedHost || req.hostname || req.headers.host || '').toLowerCase().replace(/:\d+$/, '');
   if (host === 'aizprua.com' || host === 'www.aizprua.com') {
     return res.sendFile(path.join(__dirname, 'public', 'construccion.html'));
   }
