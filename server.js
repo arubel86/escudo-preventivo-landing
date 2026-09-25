@@ -447,16 +447,15 @@ app.get(['/construccion', '/construccion.html', '/construccion/', '/proximamente
 });
 
 // 10.3. Enrutamiento Inteligente por Dominio para la Raíz (/)
-// Si entran por aizprua.com o www.aizprua.com muestra construccion.html
-// Si entran por escudo.aizprua.com muestra el embudo de Escudo Preventivo (index.html)
+// Si el host contiene 'escudo' (escudo.aizprua.com), muestra el embudo de Escudo Preventivo (index.html).
+// Para aizprua.com, www.aizprua.com o cualquier acceso principal, muestra la página de construcción.
 app.get('/', (req, res) => {
-  const rawForwarded = req.headers['x-forwarded-host'] || '';
-  const forwardedHost = rawForwarded.split(',')[0].trim();
-  const host = (forwardedHost || req.hostname || req.headers.host || '').toLowerCase().replace(/:\d+$/, '');
-  if (host === 'aizprua.com' || host === 'www.aizprua.com') {
-    return res.sendFile(path.join(__dirname, 'public', 'construccion.html'));
+  const rawForwarded = req.headers['x-forwarded-host'] || req.headers.host || req.hostname || '';
+  const host = rawForwarded.split(',')[0].trim().toLowerCase().replace(/:\d+$/, '');
+  if (host.includes('escudo')) {
+    return res.sendFile(path.join(__dirname, 'public', 'index.html'));
   }
-  return res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  return res.sendFile(path.join(__dirname, 'public', 'construccion.html'));
 });
 
 // ARCHIVOS ESTÁTICOS (Masterclass, Verificador & Landing Page)
