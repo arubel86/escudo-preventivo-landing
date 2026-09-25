@@ -72,7 +72,7 @@ function formatHttpsOrigin(str) {
   return s.replace(/\/+$/, '');
 }
 
-const TARGET_ORIGINS = (process.env.TARGET_ORIGINS || 'https://escudo.aizprua.com,https://escudo.aizpruase.com,https://localhost:3000').split(',').map(s => s.trim());
+const TARGET_ORIGINS = (process.env.TARGET_ORIGINS || 'https://escudo.aizprua.com,https://aizprua.com,https://www.aizprua.com,https://escudo.aizpruase.com,https://localhost:3000').split(',').map(s => s.trim());
 const PORT = process.env.PORT || 3000;
 
 // ============================================================
@@ -445,6 +445,16 @@ app.get(['/construccion', '/construccion.html', '/construccion/', '/proximamente
   res.sendFile(path.join(__dirname, 'public', 'construccion.html'));
 });
 
+// 10.3. Enrutamiento Inteligente por Dominio para la Raíz (/)
+// Si entran por aizprua.com o www.aizprua.com muestra construccion.html
+// Si entran por escudo.aizprua.com muestra el embudo de Escudo Preventivo (index.html)
+app.get('/', (req, res) => {
+  const host = (req.hostname || req.headers.host || '').toLowerCase().replace(/:\d+$/, '');
+  if (host === 'aizprua.com' || host === 'www.aizprua.com') {
+    return res.sendFile(path.join(__dirname, 'public', 'construccion.html'));
+  }
+  return res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 // ARCHIVOS ESTÁTICOS (Masterclass, Verificador & Landing Page)
 app.use('/masterclass', express.static(masterclassDir));
