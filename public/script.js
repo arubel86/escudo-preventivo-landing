@@ -143,9 +143,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('announcement-bar')?.remove();
     });
 
-    // Banner "ya pagaste" si vuelve a la landing después del pago
-    if (state.pagado) document.getElementById('paid-banner')?.classList.remove('hidden');
-
     // ============================================================
     // PÁGINA A — CUESTIONARIO DINÁMICO (filtro del embudo)
     // Califica → Página B | Descarta → Página C
