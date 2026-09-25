@@ -96,7 +96,9 @@ app.get('/api/health', (req, res) => {
     service: 'Aizprua S.E. Escudo Preventivo + CyberSource',
     environment: CS_CONFIG.host.includes('test') ? 'SANDBOX' : 'PRODUCTION',
     merchantId: CS_CONFIG.merchantId,
-    configured: !!(CS_CONFIG.keyId && CS_CONFIG.sharedSecretB64)
+    configured: !!(CS_CONFIG.keyId && CS_CONFIG.sharedSecretB64),
+    host: req.headers.host || null,
+    xForwardedHost: req.headers['x-forwarded-host'] || null
   });
 });
 
@@ -447,14 +449,17 @@ app.get(['/construccion', '/construccion.html', '/construccion/', '/proximamente
 });
 
 // 10.3. Enrutamiento Inteligente por Dominio para la Raíz (/)
-// Si el host contiene 'escudo' (escudo.aizprua.com), muestra el embudo de Escudo Preventivo (index.html).
-// Para aizprua.com, www.aizprua.com o cualquier acceso principal, muestra la página de construcción.
+// Si el subdominio es explícitamente escudo. (escudo.aizprua.com), muestra index.html
+// Para el dominio principal (aizprua.com, www.aizprua.com), muestra construccion.html
 app.get('/', (req, res) => {
-  const rawForwarded = req.headers['x-forwarded-host'] || req.headers.host || req.hostname || '';
-  const host = rawForwarded.split(',')[0].trim().toLowerCase().replace(/:\d+$/, '');
-  if (host.includes('escudo')) {
+  const forwardedHost = (req.headers['x-forwarded-host'] || '').split(',')[0].trim().toLowerCase().replace(/:\d+$/, '');
+  const reqHost = (req.headers.host || req.hostname || '').toLowerCase().replace(/:\d+$/, '');
+
+  // Solo si es explícitamente el subdominio escudo.aizprua.com (evita coincidir con el nombre del contenedor escudo-preventivo)
+  if (forwardedHost.startsWith('escudo.') || reqHost.startsWith('escudo.')) {
     return res.sendFile(path.join(__dirname, 'public', 'index.html'));
   }
+
   return res.sendFile(path.join(__dirname, 'public', 'construccion.html'));
 });
 
