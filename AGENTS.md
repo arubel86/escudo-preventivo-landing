@@ -12,3 +12,9 @@
   </p>
   ```
 * **PROHIBICIÓN:** Bajo ninguna circunstancia se debe generar o entregar un correo HTML sin la etiqueta `{$unsubscribe}`. Esto garantiza cumplimiento legal antispam y evita bloqueos al guardar en MailerLite.
+
+## 🎨 Regla de Consistencia de Marca & Sistema de Diseño
+* **MANDATO OBLIGATORIO:** Cualquier página web nueva, modificación de interfaz, encabezado (header) o pie de página (footer) dentro del proyecto **Escudo Preventivo** debe seguir de forma estricta las medidas, clases de Tailwind, colores y estructura definidos en el archivo maestro:
+  `DESIGN_SYSTEM.md`
+* **PROHIBICIÓN:** Queda prohibido alterar las dimensiones del logotipo (`h-28` en header, `h-20` en footer), los colores oficiales de marca (`brand-blue: #3849C8`, `brand-orange: #FF8A1E`, `WhatsApp: #25D366`), la tipografía (`Inter`) o los espaciados canónicos sin autorización explícita del usuario.
+

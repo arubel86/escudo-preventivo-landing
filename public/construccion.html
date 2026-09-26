@@ -129,45 +129,59 @@
   <!-- Top Progress Bar (Idéntico a index.html) -->
   <div class="fixed top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-blue to-brand-orange z-[60]"></div>
 
-  <!-- Announcement Bar (Adaptada para móvil y desktop) -->
-  <div id="announcement-bar" class="relative bg-brand-blue text-white py-2 px-3 sm:px-4 text-center text-[11px] sm:text-sm font-medium z-50 leading-snug">
+  <!-- Announcement Bar Canónica -->
+  <div id="announcement-bar" class="relative bg-brand-blue text-white py-2 px-4 text-center text-sm font-medium z-50">
     <span>
-      <i data-lucide="shield-alert" class="w-3.5 h-3.5 sm:w-4 sm:h-4 inline-block -mt-0.5 mr-1 text-brand-orange-light"></i>
+      <i data-lucide="shield-alert" class="w-4 h-4 inline-block -mt-0.5 mr-1.5 text-brand-orange-light flex-shrink-0"></i>
       Próximo Lanzamiento Oficial en <strong class="text-brand-orange-light">aizprua.com</strong> — Blindaje Legal 2026
     </span>
-    <a href="#notificar" class="ml-1 sm:ml-2 underline font-bold hover:text-brand-orange-light transition-colors whitespace-nowrap">Anotarme</a>
+    <a href="#notificar" class="ml-2 underline font-bold hover:text-brand-orange-light transition-colors">Anotarme</a>
+    <button id="close-announcement" aria-label="Cerrar anuncio" class="absolute right-4 top-1/2 -translate-y-1/2 hover:text-brand-orange-light transition-colors">
+      <i data-lucide="x" class="w-4 h-4"></i>
+    </button>
   </div>
 
-  <!-- Navbar (Optimizada para pantallas móviles) -->
-  <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200">
+  <!-- Navbar Canónica -->
+  <nav id="navbar" class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200 transition-shadow">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between h-16 sm:h-20 items-center">
-        <!-- Logo Oficial Aizprua S.E. -->
-        <a href="https://aizprua.com/" class="flex items-center">
-          <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg" alt="Aizprua S.E. - Escudo Preventivo" class="h-12 sm:h-16 md:h-20 w-auto object-contain"/>
+      <div class="flex justify-between h-16 items-center">
+        <!-- Logo Oficial Canónico -->
+        <a href="/" class="flex items-center" title="Aizprua S.E. - Inicio">
+          <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg" alt="Logo Aizprua S.E. - Trámites Legales Panamá" class="h-28 w-auto object-contain" width="112" height="112"/>
         </a>
 
         <!-- Enlaces & Teléfono (Desktop) -->
         <div class="hidden md:flex items-center space-x-6 text-sm">
-          <a href="https://aizprua.com/" class="text-slate-600 hover:text-brand-blue font-medium transition">Inicio</a>
+          <a href="/" class="text-slate-600 hover:text-brand-blue font-medium transition">Inicio</a>
           <a href="#novedades" class="text-slate-600 hover:text-brand-blue font-medium transition">¿Qué preparamos?</a>
-          <span class="text-slate-300">|</span>
+          <span class="text-slate-400">|</span>
           <a href="tel:+50765461527" class="text-slate-600 hover:text-brand-blue flex items-center gap-1 font-medium">
-            <i data-lucide="phone" class="w-4 h-4 text-brand-blue"></i>
+            <i data-lucide="phone" class="w-4 h-4 text-brand-orange"></i>
             <span>6546-1527</span>
           </a>
         </div>
 
-        <!-- Botón WhatsApp Directo -->
-        <div class="flex items-center gap-2 sm:gap-3">
-          <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.%2C%20quisiera%20consultar%20sobre%20el%20pr%C3%B3ximo%20lanzamiento%20y%20el%20Escudo%20Preventivo." target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 sm:gap-2 bg-[#25D366] text-white px-3 sm:px-5 py-1.5 sm:py-2 rounded-full font-semibold hover:bg-[#20bd5a] transition shadow-md hover:shadow-green-500/25 text-xs sm:text-sm">
-            <i data-lucide="message-circle" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
-            <span>WhatsApp</span>
-          </a>
-        </div>
+        <!-- Botón Hamburguesa Móvil -->
+        <button id="mobile-menu-btn" aria-label="Abrir menú" class="md:hidden text-slate-600">
+          <i data-lucide="menu" class="h-6 w-6"></i>
+        </button>
+
+        <!-- Botón WhatsApp Directo Canónico -->
+        <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.%2C%20quisiera%20consultar%20sobre%20el%20pr%C3%B3ximo%20lanzamiento%20y%20el%20Escudo%20Preventivo." target="_blank" rel="noopener noreferrer" class="hidden md:flex items-center gap-2 bg-[#25D366] text-white px-5 py-2 rounded-full font-semibold hover:bg-[#20bd5a] transition shadow-lg text-sm">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>WhatsApp</span>
+        </a>
       </div>
     </div>
+
+    <!-- Menú Desplegable Móvil -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white p-4 space-y-3 border-t">
+      <a href="/" class="block py-2 text-slate-600 font-medium">Inicio</a>
+      <a href="#novedades" class="block py-2 text-slate-600 font-medium">¿Qué preparamos?</a>
+      <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.%2C%20quisiera%20consultar%20sobre%20el%20pr%C3%B3ximo%20lanzamiento%20y%20el%20Escudo%20Preventivo." target="_blank" rel="noopener noreferrer" class="block py-2 text-green-600 font-bold">WhatsApp directo</a>
+    </div>
   </nav>
+
 
   <!-- Main Canvas -->
   <main class="w-full relative z-10 flex-grow">
@@ -559,6 +573,23 @@
             }, 30);
           }, 300);
         }, 2400);
+      }
+
+      // 4. Listeners del Menú Móvil y Cierre de Anuncio
+      const closeAnnouncementBtn = document.getElementById('close-announcement');
+      const announcementBar = document.getElementById('announcement-bar');
+      if (closeAnnouncementBtn && announcementBar) {
+        closeAnnouncementBtn.addEventListener('click', () => {
+          announcementBar.style.display = 'none';
+        });
+      }
+
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
       }
     });
   </script>
