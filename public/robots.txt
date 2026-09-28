@@ -11,6 +11,10 @@ Disallow: /api/
 
 Sitemap: https://escudo.aizprua.com/sitemap.xml
 
+# Archivo de contexto para Modelos de Lenguaje (LLMs)
+# https://llmstxt.org/
+# https://escudo.aizprua.com/llms.txt
+
 # Directivas para Agentes de Inteligencia Artificial
 User-agent: GPTBot
 Allow: /verificador

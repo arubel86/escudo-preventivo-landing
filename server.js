@@ -310,6 +310,16 @@ app.post(['/api/scan', '/verificador/api/scan'], async (req, res) => {
 // RUTAS LIMPIAS (Sin extensión .html)
 // ============================================================
 
+// Normalizar barra final (trailing slash) excepto en la raíz '/'
+// Ejemplo: /playbook/ -> /playbook con 301 (cumplimiento Google SEO)
+app.use((req, res, next) => {
+  if (req.path.length > 1 && req.path.endsWith('/')) {
+    const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+    return res.redirect(301, req.path.slice(0, -1) + query);
+  }
+  next();
+});
+
 // 1. Inicio: Enrutamiento Inteligente por Dominio para la Raíz (/)
 // Si el subdominio es explícitamente escudo. (escudo.aizprua.com), muestra index.html (Escudo Preventivo)
 // Para el dominio principal (aizprua.com, www.aizprua.com), muestra construccion.html
@@ -360,14 +370,24 @@ app.get('/gracias-guia.html', (req, res) => {
   res.redirect(301, '/gracias-guia' + query);
 });
 
-// 4.1. Playbook Oficial & Super-Guía de Blindaje 2026
-app.get(['/playbook', '/playbook.html', '/guia', '/guia.html', '/guia-interactiva', '/docs', '/docs.html', '/blindaje'], (req, res) => {
+// 4.1. Playbook Oficial & Super-Guía de Blindaje 2026 (Canónica: /playbook)
+app.get('/playbook', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'guia.html'));
 });
 
-// 4.2. Guía Práctica: Cómo Conseguir un Préstamo en Panamá 2026
-app.get(['/guia-prestamos', '/guia-prestamos.html', '/prestamos', '/prestamos.html', '/credito-panama'], (req, res) => {
+app.get(['/playbook.html', '/guia', '/guia.html', '/guia-interactiva', '/docs', '/docs.html', '/blindaje'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/playbook' + query);
+});
+
+// 4.2. Guía Práctica: Cómo Conseguir un Préstamo en Panamá 2026 (Canónica: /guia-prestamos)
+app.get('/guia-prestamos', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'guia-prestamos.html'));
+});
+
+app.get(['/guia-prestamos.html', '/prestamos', '/prestamos.html', '/credito-panama'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/guia-prestamos' + query);
 });
 
 // 5. Hub Post-Pago (Protegido por Sesión Criptográfica)
@@ -435,9 +455,14 @@ app.get(['/masterclass/gracias-profesional', '/masterclass/gracias-profesional.h
   res.sendFile(path.join(masterclassDir, 'gracias-profesional.html'));
 });
 
-// 10. Verificador de Sitios Web & Preparación para Agentes IA
-app.get(['/verificador', '/verificador.html', '/verificador/'], (req, res) => {
+// 10. Verificador de Sitios Web & Preparación para Agentes IA (Canónica: /verificador)
+app.get('/verificador', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'verificador.html'));
+});
+
+app.get('/verificador.html', (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/verificador' + query);
 });
 
 app.get(['/demo-100', '/verificador/demo-100', '/plantilla-100', '/plantilla-100.html'], (req, res) => {
@@ -448,14 +473,24 @@ app.get(['/demo-100', '/verificador/demo-100', '/plantilla-100', '/plantilla-100
   res.sendFile(path.join(__dirname, 'public', 'plantilla-100.html'));
 });
 
-// 10.1. Hub Oficial de Enlaces & Bio Link (Aizprua S.E. & Escudo Preventivo)
-app.get(['/links', '/links.html', '/links/', '/bio', '/bio.html', '/bio/'], (req, res) => {
+// 10.1. Hub Oficial de Enlaces & Bio Link (Canónica: /links)
+app.get('/links', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'links.html'));
 });
 
-// 10.2. Página de Próximo Lanzamiento / En Construcción (Aizprua S.E.)
-app.get(['/construccion', '/construccion.html', '/construccion/', '/proximamente', '/proximamente.html', '/proximamente/'], (req, res) => {
+app.get(['/links.html', '/bio', '/bio.html'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/links' + query);
+});
+
+// 10.2. Página de Próximo Lanzamiento / En Construcción (Canónica: /construccion)
+app.get('/construccion', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'construccion.html'));
+});
+
+app.get(['/construccion.html', '/proximamente', '/proximamente.html'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/construccion' + query);
 });
 
 

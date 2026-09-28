@@ -131,6 +131,41 @@
             transform: translateY(-2px);
             box-shadow: 0 15px 30px -5px rgba(255, 138, 30, 0.25);
         }
+
+        /* Micro-animación de la campanita de alertas */
+        @keyframes bell-ring {
+            0%, 65%, 100% {
+                transform: rotate(0deg);
+            }
+            70% {
+                transform: rotate(14deg);
+            }
+            75% {
+                transform: rotate(-14deg);
+            }
+            80% {
+                transform: rotate(9deg);
+            }
+            85% {
+                transform: rotate(-9deg);
+            }
+            90% {
+                transform: rotate(4deg);
+            }
+            95% {
+                transform: rotate(-2deg);
+            }
+        }
+
+        .bell-animated {
+            transform-origin: top center;
+            animation: bell-ring 3.5s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        .link-card:hover .bell-animated {
+            animation: bell-ring 1.1s ease-in-out infinite;
+        }
     </style>
 </head>
 
@@ -487,8 +522,8 @@
         <section aria-label="Suscripción a Alertas Legales">
             <div class="relative overflow-hidden rounded-2xl link-card p-5 text-center">
                 <div
-                    class="w-10 h-10 rounded-xl bg-blue-50 text-brand-blue mx-auto flex items-center justify-center mb-2.5 border border-blue-200/60 shadow-sm">
-                    <i data-lucide="bell-ring" class="w-5 h-5"></i>
+                    class="w-10 h-10 rounded-xl bg-blue-50 text-brand-blue mx-auto flex items-center justify-center mb-2.5 border border-blue-200/60 shadow-sm transition-transform group-hover:scale-105">
+                    <i data-lucide="bell-ring" class="w-5 h-5 bell-animated"></i>
                 </div>
                 <h3 class="text-base font-extrabold text-slate-900 mb-1">
                     Alertas de Blindaje Legal

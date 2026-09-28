@@ -45,6 +45,34 @@ tailwind.config = {
 
 ---
 
+## 🛡️ 2.1. Favicon Canónico & Optimización de Visibilidad
+
+### Diagnóstico del Problema Anterior:
+* El archivo anterior (`LOGOS PARA DIGITAL INDIVIDUALES-13.svg`) tenía un lienzo rectangular de `382 x 242 px` con más del **55% de márgenes vacíos transparentes** a los laterales.
+* Al ser escalado por los navegadores a `16x16 px` o `32x32 px`, el escudo quedaba microscópico (apenas 7 px reales).
+* En navegadores con pestañas oscuras (Dark Mode de Chrome, Edge o Firefox), el azul oscuro corporativo se mimetizaba con el fondo y resultaba casi invisible.
+
+### Solución Canónica Implementada:
+1. **Lienzo Cuadrado 1:1 (`viewBox="90 20 200 200"`):**
+   * Se eliminó el 100% del aire sobrante. El escudo ahora aprovecha el **92% del área útil** de la pestaña.
+2. **Base de Alto Contraste (Squircle Blanco):**
+   * Contenedor con esquinas redondeadas (`rx="46"`, `fill="#FFFFFF"`, borde fino `#E2E8F0` y sombra sutil).
+   * **Garantía Visual:** El escudo resalta con nitidez absoluta tanto en pestañas en **modo oscuro** como en **modo claro**.
+3. **Archivos Oficiales del Sistema:**
+   * **`assets/favicon.svg` (Principal):** Versión canónica con base blanca de contraste al 92%.
+   * **`assets/favicon-transparent.svg`:** Versión 1:1 con recorte ajustado sin fondo.
+   * **`assets/LOGOS PARA DIGITAL INDIVIDUALES-13.svg`:** Sobrescrito con la versión optimizada para retrocompatibilidad inmediata con cualquier enlace previo.
+   * **`/favicon.svg` (Raíz):** Disponible en la raíz pública para navegadores que solicitan el icono directamente sin consultar el HTML.
+   * **`assets/test-favicon.html`:** Herramienta interna de previsualización en resoluciones reales (16px, 24px, 32px, 48px).
+
+### Snippet HTML Canónico para `<head>`:
+```html
+<!-- Canonical Favicon Aizprua S.E. -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+```
+
+---
+
 ## 🔝 3. Componente: Encabezado Completo (Header)
 
 ### 3.1. Barra de Notificación / Urgencia Superior (`#announcement-bar`)
@@ -252,3 +280,135 @@ En todo correo electrónico, plantilla HTML o comunicación enviada por MailerLi
     <a href="{$unsubscribe}" style="color: #94A3B8; text-decoration: underline;">cancelar tu suscripción aquí</a>.
 </p>
 ```
+
+---
+
+## 🔍 7. Estándares Canónicos de SEO & Metadatos (Google + Semrush)
+
+Toda página pública indexable dentro del ecosistema **Escudo Preventivo / Aizprua S.E.** debe cumplir con las siguientes reglas canónicas antes de ser publicada:
+
+### 7.1. Reglas de Título (`<title>`)
+* **Límite de caracteres:** Máximo **50 a 60 caracteres** (para evitar que Google lo corte con `...` en móvil o escritorio).
+* **Estructura canónica:** `[Beneficio o Búsqueda Real del Usuario] | Aizprua`
+* **Prohibición:** Prohibido el relleno artificial de palabras clave (*keyword stuffing*). Debe reflejar exactamente el encabezado principal (`<h1>`) de la página.
+
+### 7.2. Reglas de Meta Descripción (`meta name="description"`)
+* **Límite de caracteres:** Entre **120 y 155 caracteres** (legible completo en móvil y escritorio).
+* **Estructura requerida:** Verbo de acción al inicio (*Protege, Evita, Descubre, Conoce*) + Propuesta de valor clara + Llamado a la acción (CTA) directo (*aquí, hoy, descarga gratis*).
+* **Prohibición técnica:** No usar comillas dobles `"` dentro del atributo `content` para evitar romper el marcado HTML.
+
+### 7.3. Bloque Canónico de `<head>` (Plantilla Maestra)
+```html
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+
+    <!-- SEO Principal -->
+    <title>Beneficio Claro y Solución al Problema en Panamá | Aizprua</title>
+    <meta name="description"
+        content="Verbo de acción y propuesta clara para tu empresa en Panamá. Detecta riesgos y toma acción hoy. Agenda tu diagnóstico aquí.">
+    
+    <!-- Canonical & Favicon -->
+    <link rel="canonical" href="https://escudo.aizprua.com/[slug]">
+    <link rel="icon" type="image/svg+xml" href="assets/LOGOS PARA DIGITAL INDIVIDUALES-13.svg">
+
+    <!-- Open Graph (WhatsApp / Facebook / LinkedIn) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://escudo.aizprua.com/[slug]">
+    <meta property="og:title" content="Beneficio Claro y Solución al Problema en Panamá | Aizprua">
+    <meta property="og:description"
+        content="Verbo de acción y propuesta clara para tu empresa en Panamá. Detecta riesgos y toma acción hoy. Agenda tu diagnóstico aquí.">
+    <meta property="og:image" content="https://escudo.aizprua.com/assets/aizprua-shield-og.jpg">
+    <meta property="og:image:secure_url" content="https://escudo.aizprua.com/assets/aizprua-shield-og.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="1080">
+    <meta property="og:locale" content="es_PA">
+    <meta property="og:site_name" content="Aizprua S.E.">
+
+    <!-- Twitter / X Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Beneficio Claro y Solución al Problema en Panamá | Aizprua">
+    <meta name="twitter:description"
+        content="Verbo de acción y propuesta clara para tu empresa en Panamá. Detecta riesgos y toma acción hoy. Agenda tu diagnóstico aquí.">
+    <meta name="twitter:image" content="https://escudo.aizprua.com/assets/aizprua-shield-og.jpg">
+</head>
+```
+
+---
+
+## 🤖 8. Estándar de Indexación para Agentes IA & Modelos de Lenguaje (`llms.txt` / GEO)
+
+Para asegurar la visibilidad en motores de búsqueda generativos (ChatGPT Search, Perplexity, Claude y Gemini), el proyecto mantiene la especificación oficial de **llmstxt.org**:
+
+### 8.1. Archivo Canónico `/llms.txt`
+* **Ubicación:** `public/llms.txt` (servido en la raíz pública del dominio).
+* **Estructura obligatoria:**
+  1. **H1 Único:** Título formal de la firma/proyecto (`# Aizprua S.E. — Escudo Preventivo y Blindaje Empresarial en Panamá`).
+  2. **Bloque de resumen (`>`):** Propuesta de valor limpia en texto plano describiendo servicios clave y jurisdicción (Panamá).
+  3. **Directorio de Enlaces Markdown:** Lista con viñetas `[Nombre de la Página](URL): Breve descripción` de todos los recursos canónicos.
+  4. **Canales de contacto oficiales verificados:** WhatsApp, correo y redes.
+
+### 8.2. Sincronización en `robots.txt`
+El archivo `public/robots.txt` debe permitir el acceso explícito a este archivo y habilitar a los rastreadores oficiales de IA:
+```txt
+# Archivo de contexto para Modelos de Lenguaje (LLMs)
+# https://llmstxt.org/
+# https://escudo.aizprua.com/llms.txt
+
+User-agent: GPTBot
+Allow: /verificador
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /verificador
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /verificador
+Allow: /
+```
+
+---
+
+## 🔗 9. Estándar de Estructura de URLs & Enrutamiento Canónico (Google Guidelines)
+
+Siguiendo las especificaciones oficiales de **Google Search Central (URL Structure Guidelines)**, toda ruta web del proyecto debe ceñirse a las siguientes reglas técnicas:
+
+### 9.1. Convención de Nomenclatura de URLs
+* **Uso exclusivo de guiones medios (`-`):** Palabras separadas por `-` (ejemplo: `/guia-prestamos`, `/recursos-gratuitos`). **Prohibido** el uso de guiones bajos (`_`) o espacios codificados (`%20`).
+* **Minúsculas estrictas:** Todas las rutas deben ser en minúsculas para evitar contenido duplicado por sensibilidad a mayúsculas/minúsculas.
+* **Sin extensiones visibles:** Prohibido exponer `.html` en los enlaces públicos.
+
+### 9.2. Normalización de Barra Final (*Trailing Slash*)
+Google trata `/ruta` y `/ruta/` como dos URLs separadas. En el servidor (`server.js`) es **obligatorio** el middleware de normalización que redirige permanentemente con **301** cualquier URL con barra final a su versión canónica limpia:
+```javascript
+app.use((req, res, next) => {
+  if (req.path.length > 1 && req.path.endsWith('/')) {
+    const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+    return res.redirect(301, req.path.slice(0, -1) + query);
+  }
+  next();
+});
+```
+
+### 9.3. Tabla Maestra de Rutas Canónicas vs. Redirecciones 301
+Cualquier enlace alternativo, alias o archivo `.html` legacy debe redirigir con **HTTP 301** a la URL canónica única:
+
+| Recurso / Página | URL Canónica Única (HTTP 200) | Redirecciones 301 Obligatorias (Alias y .html) |
+| :--- | :--- | :--- |
+| **Inicio (Landing Escudo)** | `/` | `/index.html` |
+| **Página B (Oferta)** | `/escudo-preventivo` | `/escudo-preventivo.html` |
+| **Recursos Gratuitos** | `/recursos-gratuitos` | `/recursos-gratuitos.html` |
+| **Playbook Blindaje** | `/playbook` | `/playbook.html`, `/guia`, `/guia.html`, `/docs`, `/blindaje` |
+| **Guía Préstamos** | `/guia-prestamos` | `/guia-prestamos.html`, `/prestamos`, `/credito-panama` |
+| **Verificador Web** | `/verificador` | `/verificador.html` |
+| **Hub de Enlaces** | `/links` | `/links.html`, `/bio`, `/bio.html` |
+| **Términos** | `/terminos` | `/terminos.html` |
+| **Privacidad** | `/privacidad` | `/privacidad.html` |
+| **Hoja de Ruta** | `/hoja-de-ruta` | `/hoja-de-ruta.html` |
+| **En Construcción** | `/construccion` | `/construccion.html`, `/proximamente` |
+
+
+

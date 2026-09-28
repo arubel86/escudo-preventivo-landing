@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparador de Favicons - Aizprua S.E.</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>body { font-family: 'Inter', sans-serif; }</style>
+</head>
+<body class="bg-slate-900 text-slate-100 p-6 sm:p-10 min-h-screen">
+  <div class="max-w-4xl mx-auto space-y-8">
+    
+    <div>
+      <h1 class="text-2xl sm:text-3xl font-bold text-white mb-2">Comparador Visual de Favicons</h1>
+      <p class="text-slate-400 text-sm">Simulación exacta de visibilidad en pestañas del navegador (modo oscuro vs modo claro).</p>
+    </div>
+
+    <!-- Simulación de Pestaña de Navegador Real -->
+    <div class="bg-slate-800/90 rounded-2xl p-6 border border-slate-700 shadow-xl space-y-4">
+      <h2 class="text-sm font-bold uppercase tracking-wider text-slate-300">1. Simulación Pestaña de Navegador (16x16 px real)</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Pestaña Modo Oscuro -->
+        <div class="bg-[#202124] p-3 rounded-xl border border-slate-700">
+          <span class="text-xs text-slate-400 block mb-2 font-medium">Pestaña Modo Oscuro (Chrome / Edge):</span>
+          
+          <div class="space-y-2">
+            <!-- Viejo -->
+            <div class="flex items-center gap-2.5 bg-[#292a2d] px-3 py-2 rounded-lg border border-red-500/30">
+              <img src="LOGOS PARA DIGITAL INDIVIDUALES-13.svg" class="w-4 h-4 object-contain flex-shrink-0" alt="Viejo">
+              <span class="text-xs text-slate-400 truncate">❌ Anterior: Diminuto e invisible</span>
+            </div>
+
+            <!-- Nuevo con Base -->
+            <div class="flex items-center gap-2.5 bg-[#292a2d] px-3 py-2 rounded-lg border border-emerald-500/50 shadow-sm">
+              <img src="favicon.svg" class="w-4 h-4 object-contain flex-shrink-0" alt="Nuevo Base">
+              <span class="text-xs text-white font-semibold truncate">✅ Nuevo (Base Blanca): Nítido y visible</span>
+            </div>
+
+            <!-- Nuevo Transparente -->
+            <div class="flex items-center gap-2.5 bg-[#292a2d] px-3 py-2 rounded-lg border border-blue-500/30">
+              <img src="favicon-transparent.svg" class="w-4 h-4 object-contain flex-shrink-0" alt="Nuevo Transparente">
+              <span class="text-xs text-slate-300 truncate">⚡ Nuevo (Sin fondo): Recortado 1:1</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pestaña Modo Claro -->
+        <div class="bg-[#F1F3F4] p-3 rounded-xl border border-slate-300 text-slate-800">
+          <span class="text-xs text-slate-600 block mb-2 font-medium">Pestaña Modo Claro (Chrome / Safari):</span>
+          
+          <div class="space-y-2">
+            <!-- Viejo -->
+            <div class="flex items-center gap-2.5 bg-white px-3 py-2 rounded-lg border border-red-300">
+              <img src="LOGOS PARA DIGITAL INDIVIDUALES-13.svg" class="w-4 h-4 object-contain flex-shrink-0" alt="Viejo">
+              <span class="text-xs text-slate-500 truncate">❌ Anterior: Pérdida por márgenes</span>
+            </div>
+
+            <!-- Nuevo con Base -->
+            <div class="flex items-center gap-2.5 bg-white px-3 py-2 rounded-lg border border-emerald-500/70 shadow-sm">
+              <img src="favicon.svg" class="w-4 h-4 object-contain flex-shrink-0" alt="Nuevo Base">
+              <span class="text-xs text-slate-900 font-semibold truncate">✅ Nuevo (Base Blanca): Contraste total</span>
+            </div>
+
+            <!-- Nuevo Transparente -->
+            <div class="flex items-center gap-2.5 bg-white px-3 py-2 rounded-lg border border-blue-400">
+              <img src="favicon-transparent.svg" class="w-4 h-4 object-contain flex-shrink-0" alt="Nuevo Transparente">
+              <span class="text-xs text-slate-700 truncate">⚡ Nuevo (Sin fondo): Recortado 1:1</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Escala de Tamaños -->
+    <div class="bg-slate-800/90 rounded-2xl p-6 border border-slate-700 shadow-xl space-y-4">
+      <h2 class="text-sm font-bold uppercase tracking-wider text-slate-300">2. Comparativa en Diferentes Tamaños</h2>
+      
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs text-slate-300">
+          <thead class="bg-slate-950/60 uppercase text-slate-400 border-b border-slate-700">
+            <tr>
+              <th class="p-3">Versión</th>
+              <th class="p-3 text-center">16x16 (Pestaña)</th>
+              <th class="p-3 text-center">24x24 (Marcadores)</th>
+              <th class="p-3 text-center">32x32 (HD)</th>
+              <th class="p-3 text-center">48x48 (Móvil)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-700/60">
+            <tr class="hover:bg-slate-700/30">
+              <td class="p-3 font-semibold text-red-400">Anterior (382x242 rectangular)</td>
+              <td class="p-3 text-center"><img src="LOGOS PARA DIGITAL INDIVIDUALES-13.svg" class="w-4 h-4 mx-auto object-contain"></td>
+              <td class="p-3 text-center"><img src="LOGOS PARA DIGITAL INDIVIDUALES-13.svg" class="w-6 h-6 mx-auto object-contain"></td>
+              <td class="p-3 text-center"><img src="LOGOS PARA DIGITAL INDIVIDUALES-13.svg" class="w-8 h-8 mx-auto object-contain"></td>
+              <td class="p-3 text-center"><img src="LOGOS PARA DIGITAL INDIVIDUALES-13.svg" class="w-12 h-12 mx-auto object-contain"></td>
+            </tr>
+            <tr class="hover:bg-slate-700/30 bg-emerald-950/20">
+              <td class="p-3 font-bold text-emerald-400">Nuevo Recomendado (Base Blanca 1:1)</td>
+              <td class="p-3 text-center"><img src="favicon.svg" class="w-4 h-4 mx-auto object-contain"></td>
+              <td class="p-3 text-center"><img src="favicon.svg" class="w-6 h-6 mx-auto object-contain"></td>
+              <td class="p-3 text-center"><img src="favicon.svg" class="w-8 h-8 mx-auto object-contain"></td>
+              <td class="p-3 text-center"><img src="favicon.svg" class="w-12 h-12 mx-auto object-contain"></td>
+            </tr>
+            <tr class="hover:bg-slate-700/30">
+              <td class="p-3 font-semibold text-blue-400">Nuevo Alternativo (Transparente 1:1)</td>
+              <td class="p-3 text-center"><img src="favicon-transparent.svg" class="w-4 h-4 mx-auto object-contain"></td>
+              <td class="p-3 text-center"><img src="favicon-transparent.svg" class="w-6 h-6 mx-auto object-contain"></td>
+              <td class="p-3 text-center"><img src="favicon-transparent.svg" class="w-8 h-8 mx-auto object-contain"></td>
+              <td class="p-3 text-center"><img src="favicon-transparent.svg" class="w-12 h-12 mx-auto object-contain"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
