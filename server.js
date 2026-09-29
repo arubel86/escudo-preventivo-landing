@@ -507,6 +507,10 @@ app.get(['/construccion.html', '/proximamente', '/proximamente.html'], (req, res
 // ARCHIVOS ESTÁTICOS (Masterclass, Verificador & Landing Page)
 app.use('/masterclass', express.static(masterclassDir));
 app.use(express.static(path.join(__dirname, 'public'), { index: false }));
+// Favicon universal fallback
+app.get('/favicon.ico', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'favicon.svg'));
+});
 
 // 11. Página 404 Oficial
 app.get(['/404', '/404.html'], (req, res) => {
