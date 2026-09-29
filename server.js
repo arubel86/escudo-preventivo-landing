@@ -390,6 +390,16 @@ app.get(['/guia-prestamos.html', '/prestamos', '/prestamos.html', '/credito-pana
   res.redirect(301, '/guia-prestamos' + query);
 });
 
+// 4.3. Plan 360 Empresarial: Kit Físico + Digital (Canónica: /plan-360)
+app.get('/plan-360', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'plan-360.html'));
+});
+
+app.get(['/plan-360.html', '/plan360', '/plan360.html'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/plan-360' + query);
+});
+
 // 5. Hub Post-Pago (Protegido por Sesión Criptográfica)
 app.get('/gracias', (req, res) => {
   if (!isValidPaymentSession(req.headers.cookie)) {

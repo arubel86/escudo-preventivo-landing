@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+
+    <!-- SEO Principal (Regla canónica DESIGN_SYSTEM.md) -->
+    <title>Plan 360 Empresarial: Kit Físico + Digital | Aizprua</title>
+    <meta name="description"
+        content="Estructura tu empresa en Panamá. Recibe el libro Plan 360 físico en tu puerta + PDF interactivo de regalo por solo $35. Pide tu kit oficial aquí hoy.">
+
+    <!-- Canonical & Favicon -->
+    <link rel="canonical" href="https://aizprua.com/plan-360">
+    <link rel="icon" type="image/svg+xml" href="assets/LOGOS PARA DIGITAL INDIVIDUALES-13.svg">
+
+    <!-- Open Graph (WhatsApp / Facebook / LinkedIn) -->
+    <meta property="og:type" content="product">
+    <meta property="og:url" content="https://aizprua.com/plan-360">
+    <meta property="og:title" content="Plan 360 Empresarial: Kit Físico + Digital | Aizprua">
+    <meta property="og:description"
+        content="Estructura tu empresa en Panamá. Recibe el libro Plan 360 físico en tu puerta + PDF interactivo de regalo por solo $35. Pide tu kit oficial aquí hoy.">
+    <meta property="og:image" content="https://escudo.aizprua.com/assets/portada-plan-360.png">
+    <meta property="og:image:secure_url" content="https://escudo.aizprua.com/assets/portada-plan-360.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:locale" content="es_PA">
+    <meta property="og:site_name" content="Aizprua S.E.">
+
+    <!-- Twitter / X Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Plan 360 Empresarial: Kit Físico + Digital | Aizprua">
+    <meta name="twitter:description"
+        content="Estructura tu empresa en Panamá. Recibe el libro Plan 360 físico en tu puerta + PDF interactivo de regalo por solo $35. Pide tu kit oficial aquí hoy.">
+    <meta name="twitter:image" content="https://escudo.aizprua.com/assets/portada-plan-360.png">
+
+    <!-- Fonts & Tailwind CSS CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#3849C8',
+                            'blue-dark': '#2d3a9f',
+                            'blue-light': '#4f5ed4',
+                            orange: '#FF8A1E',
+                            'orange-dark': '#e67a15',
+                            'orange-light': '#ffa04a'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #3849C8 0%, #FF8A1E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gradient-orange {
+            background: linear-gradient(135deg, #FF8A1E 0%, #e67a15 100%);
+        }
+
+        .gradient-blue {
+            background: linear-gradient(135deg, #3849C8 0%, #2d3a9f 100%);
+        }
+
+        .book-3d {
+            box-shadow: -15px 20px 40px -10px rgba(56, 73, 200, 0.3), -5px 5px 15px rgba(0, 0, 0, 0.15);
+            transform: perspective(1000px) rotateY(-8deg) rotateX(2deg);
+            transition: all 0.4s ease;
+        }
+
+        .book-3d:hover {
+            transform: perspective(1000px) rotateY(-2deg) rotateX(0deg) scale(1.02);
+            box-shadow: -20px 25px 50px -10px rgba(56, 73, 200, 0.4);
+        }
+
+        .sheet-card {
+            transition: all 0.3s ease;
+        }
+
+        .sheet-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.12);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease-out;
+        }
+
+        .accordion-content.open {
+            max-height: 400px;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-orange selection:text-white">
+
+    <!-- 1. Barra de Anuncio de Urgencia -->
+    <div class="bg-gradient-to-r from-brand-blue to-brand-blue-dark text-white text-xs sm:text-sm py-2.5 px-4 text-center font-medium sticky top-0 z-50 shadow-md">
+        <div class="max-w-6xl mx-auto flex items-center justify-center gap-2">
+            <span class="inline-flex items-center justify-center bg-brand-orange text-white text-[11px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">Edición 2026</span>
+            <span>📦 <strong>Envíos a todo Panamá:</strong> Solo 50 kits físicos.</span>
+            <a href="#ordenar" class="hidden sm:inline-block ml-2 underline font-bold hover:text-brand-orange-light transition">Pedir el mío &rarr;</a>
+        </div>
+    </div>
+
+    <!-- 2. Header Canónico (Regla DESIGN_SYSTEM.md: h-28 en desktop) -->
+    <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-9 z-40 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20 sm:h-24 md:h-28">
+                <!-- Logotipo Canónico -->
+                <a href="https://aizprua.com/" class="flex items-center">
+                    <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg"
+                        alt="Logo Aizprua S.E. - Firma Legal y Empresarial en Panamá"
+                        class="h-20 sm:h-24 md:h-28 w-auto object-contain" width="112" height="112">
+                </a>
+
+                <!-- Navegación Escritorio -->
+                <nav class="hidden lg:flex items-center space-x-7 text-sm font-semibold text-slate-600">
+                    <a href="#que-incluye" class="hover:text-brand-blue transition">¿Qué incluye?</a>
+                    <a href="#las-6-areas" class="hover:text-brand-blue transition">Las 6 Áreas</a>
+                    <a href="#testimonios" class="hover:text-brand-blue transition">Testimonios</a>
+                    <a href="#bonos" class="hover:text-brand-blue transition">Bonos</a>
+                    <a href="#faq" class="hover:text-brand-blue transition">Preguntas</a>
+                </nav>
+
+                <!-- Botón CTA Header WhatsApp Canónico + Menú Móvil -->
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <a href="https://wa.me/50765461527?text=Hola%2C%20quiero%20información%20del%20Kit%20Físico%20del%20Plan%20360%20Empresarial"
+                        target="_blank"
+                        class="flex items-center gap-2 bg-[#25D366] text-white px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full font-bold text-xs sm:text-sm hover:bg-[#20bd5a] transition shadow-md hover:shadow-lg whitespace-nowrap">
+                        <i data-lucide="message-circle" class="w-4 h-4 flex-shrink-0"></i>
+                        <span>WhatsApp Oficial</span>
+                    </a>
+
+                    <!-- Botón Hamburguesa Móvil -->
+                    <button id="mobile-menu-btn" aria-label="Abrir menú de navegación"
+                        class="lg:hidden p-2 rounded-xl text-slate-700 hover:text-brand-blue hover:bg-slate-100 transition focus:outline-none flex items-center justify-center">
+                        <i data-lucide="menu" id="menu-icon-bars" class="w-6 h-6"></i>
+                        <i data-lucide="x" id="menu-icon-close" class="w-6 h-6 hidden"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Móvil Desplegable -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white/98 backdrop-blur-md border-t border-slate-200 px-5 py-4 space-y-3 shadow-xl transition-all">
+            <nav class="flex flex-col space-y-1.5 text-base font-bold text-slate-700">
+                <a href="#que-incluye" class="mobile-nav-link py-2.5 px-3 rounded-xl hover:bg-slate-50 hover:text-brand-blue transition flex items-center justify-between">
+                    <span>¿Qué incluye?</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+                </a>
+                <a href="#las-6-areas" class="mobile-nav-link py-2.5 px-3 rounded-xl hover:bg-slate-50 hover:text-brand-blue transition flex items-center justify-between">
+                    <span>Las 6 Áreas</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+                </a>
+                <a href="#testimonios" class="mobile-nav-link py-2.5 px-3 rounded-xl hover:bg-slate-50 hover:text-brand-blue transition flex items-center justify-between">
+                    <span>Testimonios</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+                </a>
+                <a href="#bonos" class="mobile-nav-link py-2.5 px-3 rounded-xl hover:bg-slate-50 hover:text-brand-blue transition flex items-center justify-between">
+                    <span>Bonos de Regalo</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+                </a>
+                <a href="#faq" class="mobile-nav-link py-2.5 px-3 rounded-xl hover:bg-slate-50 hover:text-brand-blue transition flex items-center justify-between">
+                    <span>Preguntas Frecuentes</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+                </a>
+            </nav>
+            <div class="pt-3 border-t border-slate-100 flex flex-col gap-2">
+                <a href="#ordenar" class="mobile-nav-link w-full py-3 bg-gradient-to-r from-brand-orange to-brand-orange-dark text-white rounded-xl font-black text-center shadow-md flex items-center justify-center gap-2">
+                    <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                    <span>Pedir mi Kit ($35.00)</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. HERO SECTION: El Gancho Emocional + Presentación de Oferta -->
+    <section class="relative pt-10 pb-16 lg:pt-16 lg:pb-24 overflow-hidden bg-white">
+        <div class="absolute top-0 right-0 -mr-40 -mt-20 w-96 h-96 bg-brand-blue/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 -ml-40 -mb-20 w-96 h-96 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Columna Copywriting Izquierda -->
+                <div class="lg:col-span-7 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-brand-blue font-bold text-xs sm:text-sm mb-5 shadow-sm">
+                        <i data-lucide="sparkles" class="w-4 h-4 text-brand-orange"></i>
+                        <span>Tu socio estratégico para llegar más lejos</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 leading-[1.12] mb-6">
+                        ¿Sientes que te falta una guía para <span class="gradient-text">tomar el control</span> de tu negocio?
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-slate-600 mb-8 max-w-2xl leading-relaxed">
+                        El <strong>Plan 360 Empresarial</strong> no es un simple documento: es tu mapa de ruta físico y digital para aterrizar tu idea, estructurar tus operaciones en Panamá y prepararte para financiamiento bancario.
+                    </p>
+
+                    <!-- Caja Destacada de lo que Recibes -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-5 mb-8 text-left">
+                        <div class="text-xs uppercase font-extrabold text-slate-500 tracking-wider mb-2.5">
+                            Tu compra incluye el Kit Físico + Regalos Digitales:
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm font-semibold text-slate-700">
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 flex-shrink-0"></i>
+                                <span>Libro Físico Plan 360 (35 págs. a color)</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 flex-shrink-0"></i>
+                                <span>Bolsa Reutilizable Oficial (360)</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 flex-shrink-0"></i>
+                                <span>1 Lápiz + Tarjeta de Bienvenida</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 flex-shrink-0"></i>
+                                <span class="text-brand-blue font-bold">Plan 360 en PDF Rellenable (Inmediato)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Call To Action Principal y Precio -->
+                    <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 justify-center lg:justify-start">
+                        <a href="#ordenar"
+                            class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-2xl font-extrabold text-lg sm:text-xl transition-all shadow-xl hover:shadow-orange-500/30 flex items-center justify-center transform hover:-translate-y-0.5">
+                            <span>Pedir mi Kit por solo $35.00</span>
+                            <i data-lucide="arrow-right" class="ml-2.5 w-5 h-5"></i>
+                        </a>
+                        <div class="text-center sm:text-left">
+                            <div class="flex items-center gap-1.5 justify-center sm:justify-start text-brand-orange">
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                            <span class="text-xs text-slate-500 font-medium">Garantía de 7 días · Envíos a todo Panamá</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Visual Derecha: Mockup 3D Real del Plan 360 -->
+                <div class="lg:col-span-5 flex flex-col items-center justify-center relative">
+                    <div class="relative w-full max-w-sm sm:max-w-md">
+                        <!-- Portada 3D del Libro -->
+                        <div class="relative z-10 bg-white p-2 rounded-2xl book-3d">
+                            <img src="assets/portada-plan-360.png"
+                                alt="Portada Oficial Plan 360 Empresarial - Arubel Aizprua"
+                                class="w-full h-auto rounded-xl object-cover shadow-inner">
+                        </div>
+
+                        <!-- Badge Flotante "Kit Físico Completo" (En la esquina superior derecha para no tapar el logo de Aizprua) -->
+                        <div class="absolute -top-5 -right-3 sm:-right-6 z-20 bg-brand-blue text-white py-2 px-3.5 rounded-2xl shadow-xl border-2 border-white flex items-center gap-2">
+                            <i data-lucide="package" class="w-5 h-5 text-brand-orange-light"></i>
+                            <div class="text-left leading-tight">
+                                <span class="text-[10px] uppercase font-bold tracking-wider block text-blue-200">Producto Físico</span>
+                                <span class="text-xs font-black">Libro + Bolsa + Lápiz</span>
+                            </div>
+                        </div>
+
+                        <!-- Badge Flotante "PDF Rellenable Digital" (En la esquina inferior izquierda) -->
+                        <div class="absolute -bottom-5 -left-3 sm:-left-6 z-20 bg-emerald-600 text-white py-2 px-3.5 rounded-2xl shadow-xl border-2 border-white flex items-center gap-2">
+                            <i data-lucide="download" class="w-5 h-5 text-emerald-200"></i>
+                            <div class="text-left leading-tight">
+                                <span class="text-[10px] uppercase font-bold tracking-wider block text-emerald-200">De Regalo Inmediato</span>
+                                <span class="text-xs font-black">PDF Rellenable Tablet/PC</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-8 text-center italic font-medium">
+                        Fotografía referencial del cuaderno ejecutivo oficial de Aizprua S.E.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SECCIÓN: ¿Te sientes identificado? (Los 3 Dolores del Guion) -->
+    <section class="py-16 bg-slate-100 border-y border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="text-xs font-black uppercase tracking-widest text-brand-blue">¿Para quién es el Plan 360?</span>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 mt-2 mb-4">
+                ¿Te identificas con alguna de estas 3 situaciones?
+            </h2>
+            <p class="text-slate-600 max-w-2xl mx-auto mb-12 text-sm sm:text-base">
+                Si alguna vez te has sentido abrumado porque las ideas no se concretan, no estás solo. El Plan 360 fue diseñado exactamente para resolver este caos:
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+                <!-- Tarjeta 1 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 flex flex-col justify-between hover:shadow-md transition">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-red-100 text-red-600 flex items-center justify-center font-black text-lg mb-4">
+                            01
+                        </div>
+                        <h3 class="font-black text-slate-900 text-lg mb-2">Sin una idea clara de negocio</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Quieres emprender y generar ingresos, pero estás disperso. Tienes muchas ganas pero no sabes qué modelo validar ni cómo empezar sin perder dinero.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-slate-100 text-xs font-bold text-red-600 flex items-center gap-1">
+                        <i data-lucide="x-circle" class="w-4 h-4"></i> Frustración por parálisis de análisis
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 flex flex-col justify-between hover:shadow-md transition">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-orange-100 text-brand-orange flex items-center justify-center font-black text-lg mb-4">
+                            02
+                        </div>
+                        <h3 class="font-black text-slate-900 text-lg mb-2">Tienes la idea, pero no sabes darle forma</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Sabes lo que quieres vender, pero te falta la estructura: no tienes claros los costos, ni los precios, ni los trámites legales y licencias necesarias en Panamá.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-slate-100 text-xs font-bold text-brand-orange flex items-center gap-1">
+                        <i data-lucide="alert-triangle" class="w-4 h-4"></i> Riesgo de improvisación y pérdidas
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 flex flex-col justify-between hover:shadow-md transition">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-blue-100 text-brand-blue flex items-center justify-center font-black text-lg mb-4">
+                            03
+                        </div>
+                        <h3 class="font-black text-slate-900 text-lg mb-2">Pyme operando pero sin orden ni control</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Ya estás facturando pero vives apagando fuegos. No sabes con exactitud tus finanzas mensuales, tus inventarios fallan y no tienes cómo presentar tu negocio al banco.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-slate-100 text-xs font-bold text-brand-blue flex items-center gap-1">
+                        <i data-lucide="refresh-cw" class="w-4 h-4"></i> Atrapado en el día a día operativo
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. SECCIÓN UNBOXING: Lo que llega a tu puerta (El Kit Físico) -->
+    <section id="que-incluye" class="py-16 sm:py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="text-xs font-black uppercase tracking-widest text-brand-orange">Experiencia Física & Tangible</span>
+            <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-2 mb-4">
+                El Kit Físico que llega directo a tus manos
+            </h2>
+            <p class="text-slate-600 max-w-2xl mx-auto mb-12 text-sm sm:text-base">
+                A diferencia de los cursos o archivos digitales que se quedan olvidados en una carpeta de descargas, el <strong>Plan 360</strong> es una herramienta física que puedes tocar, subrayar y consultar a diario en tu escritorio:
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+                <!-- Item 1 -->
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 hover:border-brand-blue transition">
+                    <div class="w-12 h-12 rounded-xl bg-blue-100 text-brand-blue flex items-center justify-center mb-4">
+                        <i data-lucide="book-open" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-1.5">Libro Plan 360 Impreso</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        35 páginas en papel de alta calidad a todo color. Encuadernado y listo para estructurar cada área de tu empresa.
+                    </p>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 hover:border-brand-blue transition">
+                    <div class="w-12 h-12 rounded-xl bg-blue-100 text-brand-blue flex items-center justify-center mb-4">
+                        <i data-lucide="shopping-bag" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-1.5">Bolsa Reutilizable Oficial (360)</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Bolsa ecológica de tela con el logo oficial del Plan 360 en azul corporativo para llevar tu material a todas partes.
+                    </p>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 hover:border-brand-blue transition">
+                    <div class="w-12 h-12 rounded-xl bg-blue-100 text-brand-blue flex items-center justify-center mb-4">
+                        <i data-lucide="pen-tool" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-1.5">1 Lápiz</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Lápiz para que empieces a trabajar en tus metas desde el minuto cero.
+                    </p>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 hover:border-brand-blue transition">
+                    <div class="w-12 h-12 rounded-xl bg-blue-100 text-brand-blue flex items-center justify-center mb-4">
+                        <i data-lucide="heart-handshake" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-1.5">Tarjeta de Bienvenida</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Mensaje exclusivo de agradecimiento por tu compra y un descuento en tu próxima compra en alguno de nuestros productos y servicios.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Destacado del modo Digital Interactivo Rellenable -->
+            <div class="mt-8 bg-gradient-to-r from-blue-900 to-brand-blue text-white rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 text-left shadow-xl">
+                <div class="space-y-2">
+                    <span class="inline-block bg-brand-orange text-white text-[11px] font-black uppercase px-2.5 py-0.5 rounded-full">
+                        Acceso Inmediato
+                    </span>
+                    <h3 class="text-xl sm:text-2xl font-black">
+                        ¿No quieres esperar a que llegue el envío físico?
+                    </h3>
+                    <p class="text-sm text-blue-100 max-w-xl">
+                        Al completar tu pedido, recibes de inmediato en tu correo el <strong>PDF Interactivo Rellenable</strong>. Puedes escribir, calcular y guardar tus datos directamente desde tu iPad, tablet o computadora.
+                    </p>
+                </div>
+                <a href="#ordenar"
+                    class="px-6 py-3 bg-white hover:bg-slate-100 text-brand-blue rounded-xl font-bold text-sm transition-all whitespace-nowrap shadow-md">
+                    Ordenar por $35.00 USD
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. SECCIÓN: El Despliegue de Abundancia (Muestra Visual de las Hojas Reales) -->
+    <section class="py-16 bg-slate-900 text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="text-xs font-black uppercase tracking-widest text-brand-orange">Transparencia Total</span>
+            <h2 class="text-3xl sm:text-4xl font-black mt-2 mb-4">
+                Mira las hojas de trabajo que vas a rellenar
+            </h2>
+            <p class="text-slate-400 max-w-2xl mx-auto mb-12 text-sm sm:text-base">
+                Nada de teoría abstracta ni conceptos vacíos. El Plan 360 se compone de matrices de cálculo, calendarios reales y listas de verificación prácticas:
+            </p>
+
+            <!-- Rejilla de Hojas Interiores Reales extraídas del PDF -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 text-left">
+                <!-- Hoja 1 -->
+                <div class="bg-slate-800 rounded-xl p-3 border border-slate-700 sheet-card">
+                    <img src="assets/plan360-preview/01-checklist.png" alt="Checklist Inicial del Negocio"
+                        class="w-full h-auto rounded-lg shadow-md mb-2.5 bg-white">
+                    <span class="text-xs font-bold text-slate-200 block truncate">1. Checklist Inicial</span>
+                    <span class="text-[11px] text-slate-400 block">Estudio, marca y trámites</span>
+                </div>
+
+                <!-- Hoja 2 -->
+                <div class="bg-slate-800 rounded-xl p-3 border border-slate-700 sheet-card">
+                    <img src="assets/plan360-preview/02-tramites-legales.png" alt="Trámites Legales Panamá"
+                        class="w-full h-auto rounded-lg shadow-md mb-2.5 bg-white">
+                    <span class="text-xs font-bold text-slate-200 block truncate">2. Trámites y Licencias</span>
+                    <span class="text-[11px] text-slate-400 block">DGI, Municipio y plazos</span>
+                </div>
+
+                <!-- Hoja 3 -->
+                <div class="bg-slate-800 rounded-xl p-3 border border-slate-700 sheet-card">
+                    <img src="assets/plan360-preview/03-cliente-ideal.png" alt="Ficha Cliente Ideal"
+                        class="w-full h-auto rounded-lg shadow-md mb-2.5 bg-white">
+                    <span class="text-xs font-bold text-slate-200 block truncate">3. Cliente Ideal</span>
+                    <span class="text-[11px] text-slate-400 block">Buyer persona y dolores</span>
+                </div>
+
+                <!-- Hoja 4 -->
+                <div class="bg-slate-800 rounded-xl p-3 border border-slate-700 sheet-card">
+                    <img src="assets/plan360-preview/04-foda.png" alt="Matriz FODA"
+                        class="w-full h-auto rounded-lg shadow-md mb-2.5 bg-white">
+                    <span class="text-xs font-bold text-slate-200 block truncate">4. Análisis FODA</span>
+                    <span class="text-[11px] text-slate-400 block">Fortalezas y amenazas</span>
+                </div>
+
+                <!-- Hoja 5 -->
+                <div class="bg-slate-800 rounded-xl p-3 border border-slate-700 sheet-card">
+                    <img src="assets/plan360-preview/05-plan-financiero.png" alt="Plan Financiero y Proyección"
+                        class="w-full h-auto rounded-lg shadow-md mb-2.5 bg-white">
+                    <span class="text-xs font-bold text-slate-200 block truncate">5. Plan Financiero</span>
+                    <span class="text-[11px] text-slate-400 block">Pronóstico a 3 años</span>
+                </div>
+
+                <!-- Hoja 6 -->
+                <div class="bg-slate-800 rounded-xl p-3 border border-slate-700 sheet-card">
+                    <img src="assets/plan360-preview/06-grafico-gantt.png" alt="Gráfico de Gantt Flujo de Trabajo"
+                        class="w-full h-auto rounded-lg shadow-md mb-2.5 bg-white">
+                    <span class="text-xs font-bold text-slate-200 block truncate">6. Diagrama Gantt</span>
+                    <span class="text-[11px] text-slate-400 block">Flujo de tareas y proyectos</span>
+                </div>
+
+                <!-- Hoja 7 -->
+                <div class="bg-slate-800 rounded-xl p-3 border border-slate-700 sheet-card">
+                    <img src="assets/plan360-preview/07-planificador-semanal.png" alt="Planificador Pomodoro"
+                        class="w-full h-auto rounded-lg shadow-md mb-2.5 bg-white">
+                    <span class="text-xs font-bold text-slate-200 block truncate">7. Agenda Semanal</span>
+                    <span class="text-[11px] text-slate-400 block">Técnica Pomodoro diaria</span>
+                </div>
+
+                <!-- Hoja 8 -->
+                <div class="bg-slate-800 rounded-xl p-3 border border-slate-700 sheet-card">
+                    <img src="assets/plan360-preview/08-redes-sociales.png" alt="Calendario Redes Sociales"
+                        class="w-full h-auto rounded-lg shadow-md mb-2.5 bg-white">
+                    <span class="text-xs font-bold text-slate-200 block truncate">8. Redes Sociales</span>
+                    <span class="text-[11px] text-slate-400 block">Parrilla semanal de pauta</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. SECCIÓN: Las 6 Áreas de Control 360 (Desglose Exhaustivo) -->
+    <section id="las-6-areas" class="py-16 sm:py-24 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-xs font-black uppercase tracking-widest text-brand-blue">Estructura Integral</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-2 mb-4">
+                    Las 6 Áreas Estratégicas que vas a Dominar
+                </h2>
+                <p class="text-slate-600 max-w-2xl mx-auto text-sm sm:text-base">
+                    Un negocio no crece solo con marketing o solo con ventas. El Plan 360 aborda todas las áreas vitales para que tu empresa sea un sistema blindado y rentable:
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Área 1 -->
+                <div class="bg-white rounded-3xl p-7 shadow-sm border border-slate-200 hover:shadow-lg transition">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-50 text-brand-blue flex items-center justify-center font-bold text-lg mb-5">
+                        <i data-lucide="scale" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-black text-slate-900 mb-2.5">1. Estudio y Organización Legal</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                        Elección del nombre comercial, validación de mercado, tipo de sociedad mercantil y la lista exacta de licencias y permisos oficiales en Panamá con fechas límite para evitar multas.
+                    </p>
+                    <ul class="text-xs space-y-1.5 text-slate-700 font-medium">
+                        <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Estructura societaria</li>
+                        <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Trámites oficiales y licencias</li>
+                    </ul>
+                </div>
+
+                <!-- Área 2 -->
+                <div class="bg-white rounded-3xl p-7 shadow-sm border border-slate-200 hover:shadow-lg transition">
+                    <div class="w-12 h-12 rounded-2xl bg-orange-50 text-brand-orange flex items-center justify-center font-bold text-lg mb-5">
+                        <i data-lucide="package-check" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-black text-slate-900 mb-2.5">2. Desarrollo de Producto / Servicio</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                        Describe a detalle lo que vendes, define tus puntos de venta (online vs. físico), calcula el costo unitario real y establece márgenes de beneficio sólidos para no competir por precio.
+                    </p>
+                    <ul class="text-xs space-y-1.5 text-slate-700 font-medium">
+                        <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Costo estimado y precio final</li>
+                        <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Propuesta única de valor</li>
+                    </ul>
+                </div>
+
+                <!-- Área 3 -->
+                <div class="bg-white rounded-3xl p-7 shadow-sm border border-slate-200 hover:shadow-lg transition">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-50 text-brand-blue flex items-center justify-center font-bold text-lg mb-5">
+                        <i data-lucide="megaphone" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-black text-slate-900 mb-2.5">3. Marketing y Redes Sociales</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                        Ficha completa de tu Buyer Persona, personalidad de marca, parrilla de contenidos para Facebook, Instagram, TikTok, YouTube y plantillas para campañas de correo electrónico.
+                    </p>
+                    <ul class="text-xs space-y-1.5 text-slate-700 font-medium">
+                        <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Calendario de publicación semanal</li>
+                        <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Planificador de Email Marketing</li>
+                    </ul>
+                </div>
+
+                <!-- Área 4 -->
+                <div class="bg-white rounded-3xl p-7 shadow-sm border border-slate-200 hover:shadow-lg transition">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-lg mb-5">
+                        <i data-lucide="dollar-sign" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-black text-slate-900 mb-2.5">4. Planificación Financiera y Fiscal</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                        Presupuesto inicial para arrancar, metas financieras anuales, pronóstico de ventas a 3 años, control de ingresos/gastos mensuales y registro de deducciones fiscales para tributar con orden.
+                    </p>
+                    <ul class="text-xs space-y-1.5 text-slate-700 font-medium">
+                        <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Finanzas mensuales (Ingresos - Gastos)</li>
+                        <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Registro de deducciones fiscales</li>
+                    </ul>
+                </div>
+
+                <!-- Área 5 -->
+                <div class="bg-white rounded-3xl p-7 shadow-sm border border-slate-200 hover:shadow-lg transition">
+                    <div class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold text-lg mb-5">
+                        <i data-lucide="boxes" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-black text-slate-900 mb-2.5">5. Gestión de Suministros y Stock</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                        Tablas estructuradas para controlar órdenes de suministros, fechas de pedido, inventario de productos y costos por proveedor para evitar quiebres de stock o sobrecostos.
+                    </p>
+                    <ul class="text-xs space-y-1.5 text-slate-700 font-medium">
+                        <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Control de inventario en tiempo real</li>
+                        <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Directorio y pedidos a proveedores</li>
+                    </ul>
+                </div>
+
+                <!-- Área 6 -->
+                <div class="bg-white rounded-3xl p-7 shadow-sm border border-slate-200 hover:shadow-lg transition">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-lg mb-5">
+                        <i data-lucide="clock" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-black text-slate-900 mb-2.5">6. Productividad y Diagrama Gantt</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                        Horarios por hora, agendas diarias de llamadas/reuniones, planificación semanal aplicando la técnica Pomodoro y diagrama de Gantt para ejecutar proyectos grandes a tiempo.
+                    </p>
+                    <ul class="text-xs space-y-1.5 text-slate-700 font-medium">
+                        <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Gráfico de Gantt mensual</li>
+                        <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Planificador diario de prioridades</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. SECCIÓN TESTIMONIOS: Validación y Casos de Éxito Reales en Panamá -->
+    <section id="testimonios" class="py-16 sm:py-20 bg-white border-t border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="text-xs font-black uppercase tracking-widest text-brand-blue">Prueba Social Verificada</span>
+            <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-2 mb-4">
+                Emprendedores reales que ya han ordenado su negocio con nosotros
+            </h2>
+            <p class="text-slate-600 max-w-2xl mx-auto mb-12 text-sm sm:text-base">
+                No tomes solo nuestra palabra. Escucha directamente a dueños de negocio en Panamá que han transformado su operación de la mano de Aizprua Soluciones Empresariales:
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                <!-- Testimonio 1: Isacar's Kitchen -->
+                <div class="bg-slate-50 border border-slate-200 rounded-3xl p-6 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-md mb-4 bg-slate-900">
+                            <iframe class="w-full h-full"
+                                src="https://www.youtube-nocookie.com/embed/BdRnagSjFic"
+                                title="Testimonio de Zaitel y Gerardo Lombardo - Isacar's Kitchen"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen loading="lazy"></iframe>
+                        </div>
+                        <div class="flex items-center gap-1 text-brand-orange mb-2">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <h4 class="font-black text-slate-900 text-lg">Zaitel & Gerardo Lombardo</h4>
+                        <p class="text-xs font-bold text-brand-blue mb-2">Fundadores de Isacar's Kitchen (Gastronomía, Panamá)</p>
+                        <p class="text-xs text-slate-600 leading-relaxed italic">
+                            "Aizprua nos ayudó a poner orden en nuestra estructura y en los procesos para poder crecer con tranquilidad. Contar con una guía clara nos dio la seguridad que necesitábamos."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Testimonio 2: Adaías Panamá -->
+                <div class="bg-slate-50 border border-slate-200 rounded-3xl p-6 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-md mb-4 bg-slate-900">
+                            <iframe class="w-full h-full"
+                                src="https://www.youtube-nocookie.com/embed/JGA7hXvsNuc"
+                                title="Testimonio de Frederick - Adaías Panamá"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen loading="lazy"></iframe>
+                        </div>
+                        <div class="flex items-center gap-1 text-brand-orange mb-2">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <h4 class="font-black text-slate-900 text-lg">Frederick</h4>
+                        <p class="text-xs font-bold text-brand-blue mb-2">Director en Adaías Panamá (Comercio & Servicios)</p>
+                        <p class="text-xs text-slate-600 leading-relaxed italic">
+                            "Tener la asesoría y las herramientas de Aizprua te ahorra dolores de cabeza y errores costosos. Totalmente recomendado para cualquier emprendedor que quiera hacer las cosas bien."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. SECCIÓN BONOS GRATUITOS (5 Bonos Incluidos con los $35 USD) -->
+    <section id="bonos" class="py-16 sm:py-20 bg-gradient-to-b from-slate-50 to-blue-50/40">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100 text-brand-orange font-bold text-xs uppercase tracking-wider mb-2">
+                Sin costo adicional
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mb-4">
+                5 Bonos Exclusivos de Regalo con tu Compra
+            </h2>
+            <p class="text-slate-600 max-w-2xl mx-auto mb-12 text-sm sm:text-base">
+                Queremos que tengas todo lo necesario para que no te detengas. Al pedir tu Kit Plan 360, desbloqueas estos 5 recursos complementarios:
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+                <!-- Bono 1 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+                    <span class="text-[11px] font-black uppercase text-brand-orange tracking-wider block mb-1">Bono #1</span>
+                    <h4 class="font-bold text-slate-900 text-base mb-2">Plantillas de Creación de Idea</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Formatos rápidos para lluvia de ideas, definición de modelo de negocio y matriz de propuestas de valor.
+                    </p>
+                </div>
+
+                <!-- Bono 2 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+                    <span class="text-[11px] font-black uppercase text-brand-orange tracking-wider block mb-1">Bono #2</span>
+                    <h4 class="font-bold text-slate-900 text-base mb-2">Formulario de Validación de Mercado</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Cuestionario listo para aplicar a clientes potenciales y confirmar si tu producto o servicio realmente se venderá.
+                    </p>
+                </div>
+
+                <!-- Bono 3 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+                    <span class="text-[11px] font-black uppercase text-brand-orange tracking-wider block mb-1">Bono #3</span>
+                    <h4 class="font-bold text-slate-900 text-base mb-2">Directorio Curado de Herramientas</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Lista con enlaces directos a las mejores webs, aplicaciones y plataformas gratuitas para potenciar y automatizar tu empresa.
+                    </p>
+                </div>
+
+                <!-- Bono 4 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+                    <span class="text-[11px] font-black uppercase text-brand-orange tracking-wider block mb-1">Bono #4</span>
+                    <h4 class="font-bold text-slate-900 text-base mb-2">Masterclass Explicativa en Video</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Sesión en video paso a paso donde te guiamos por cada página del Plan 360 para que lo completes sin dudas.
+                    </p>
+                </div>
+
+                <!-- Bono 5 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 sm:col-span-2 lg:col-span-2">
+                    <span class="text-[11px] font-black uppercase text-brand-orange tracking-wider block mb-1">Bono #5</span>
+                    <h4 class="font-bold text-slate-900 text-base mb-2">Acceso Exclusivo a la Comunidad de WhatsApp</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Comunidad oficial de Aizprua S.E. donde compartimos noticias tributarias de Panamá, actualizaciones de leyes, eventos y networking entre emprendedores.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. SECCIÓN CHECKOUT & ORDER BUMP / UPSELL (El Cierre de Venta) -->
+    <section id="ordenar" class="py-16 sm:py-24 bg-white border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center mb-10">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 font-bold text-xs uppercase tracking-wider mb-2">
+                    Edición Limitada 2026
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900">
+                    Pide tu Kit Plan 360 Empresarial
+                </h2>
+                <p class="text-slate-600 text-sm mt-2">
+                    Completa tu pedido a continuación. Recibe tu kit físico en la puerta de tu casa u oficina y descarga la versión digital interactiva de inmediato.
+                </p>
+            </div>
+
+            <!-- Caja Principal de la Oferta -->
+            <div class="bg-slate-50 border-2 border-brand-blue/30 rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-brand-blue text-white text-[11px] font-black px-4 py-1.5 rounded-bl-xl uppercase tracking-wider">
+                    Oferta de Lanzamiento
+                </div>
+
+                <!-- Resumen del Producto Base ($35.00) -->
+                <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 pb-8 border-b border-slate-200">
+                    <img src="assets/portada-plan-360.png" alt="Libro Plan 360"
+                        class="w-28 sm:w-32 h-auto rounded-xl shadow-md border border-slate-200 flex-shrink-0">
+                    
+                    <div class="space-y-2 text-center sm:text-left flex-grow">
+                        <div class="flex items-center justify-center sm:justify-start gap-2">
+                            <h3 class="text-xl sm:text-2xl font-black text-slate-900">Kit Plan 360 Empresarial</h3>
+                            <span class="bg-blue-100 text-brand-blue text-xs font-bold px-2 py-0.5 rounded-full">Físico + Digital</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-600">
+                            Incluye el libro físico impreso a color (35 págs.), bolsa reutilizable oficial (360), lápiz, tarjeta de bienvenida, Plan 360 en PDF rellenable y los 5 bonos de regalo.
+                        </p>
+                        <div class="flex items-baseline justify-center sm:justify-start gap-2 pt-1">
+                            <span class="text-3xl sm:text-4xl font-black text-slate-900">$35.00</span>
+                            <span class="text-sm text-slate-400 line-through">USD $70.00</span>
+                            <span class="text-xs font-extrabold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md">50% de Descuento</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 🌟 CAJA DE UPSELL / ORDER BUMP (Kit de Resolución de Problemas) -->
+                <div class="my-8 bg-amber-50/80 border-2 border-dashed border-amber-300 rounded-2xl p-5 sm:p-6 transition-all hover:bg-amber-50">
+                    <div class="flex flex-col sm:flex-row items-start gap-4">
+                        <label class="flex items-start gap-3 cursor-pointer select-none flex-grow">
+                            <input type="checkbox" id="upsell-toggle"
+                                class="mt-1 w-6 h-6 text-brand-orange border-amber-400 rounded focus:ring-brand-orange cursor-pointer">
+                            <div>
+                                <span class="inline-block bg-brand-orange text-white text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded mb-1">
+                                    ¡OFERTA EXCLUSIVA EN ESTA PÁGINA (+65% DCTO)!
+                                </span>
+                                <h4 class="text-base sm:text-lg font-black text-slate-900">
+                                    Sí, agregar el Kit de Resolución de Problemas Empresariales por solo +$17.00 USD
+                                </h4>
+                                <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                                    <strong>Tu botiquín de primeros auxilios empresariales:</strong> Más de 50 problemas comunes resueltos paso a paso en gestión, finanzas, ventas, operaciones y recursos humanos + Plantilla de acción interactiva.
+                                    <span class="text-slate-400 line-through">(Precio regular: $47.00 USD)</span>.
+                                </p>
+                            </div>
+                        </label>
+                        <img src="assets/portada-kit-problemas.png" alt="Kit de Problemas"
+                            class="w-20 sm:w-24 h-auto rounded-lg shadow-sm border border-amber-200 self-center sm:self-start flex-shrink-0">
+                    </div>
+                </div>
+
+                <!-- TOTAL DINÁMICO Y BOTÓN DE COMPRA -->
+                <div class="pt-2 text-center sm:text-left">
+                    <div class="flex flex-col lg:flex-row items-center justify-between gap-5 mb-6 bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm">
+                        <div class="text-center sm:text-left w-full lg:w-auto">
+                            <span class="text-xs text-slate-500 font-bold uppercase tracking-wider block mb-1">Total a Pagar:</span>
+                            <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
+                                <span id="total-price" class="text-3xl sm:text-4xl font-black text-brand-blue whitespace-nowrap">$35.00 USD</span>
+                                <span id="savings-badge" class="hidden text-xs font-black text-emerald-700 bg-emerald-100 border border-emerald-200 px-3 py-1 rounded-full whitespace-nowrap shadow-sm">
+                                    ¡Ahorraste $65 USD!
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Botón Principal -->
+                        <a id="btn-comprar"
+                            href="https://wa.me/50765461527?text=Hola%2C%20quiero%20ordenar%20el%20Plan%20360%20Empresarial%20(%2435.00%20USD)%20con%20env%C3%ADo%20en%20Panam%C3%A1."
+                            target="_blank"
+                            class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-2xl font-black text-base sm:text-lg transition-all shadow-xl hover:shadow-orange-500/30 flex items-center justify-center gap-2.5 transform hover:-translate-y-0.5 whitespace-nowrap flex-shrink-0">
+                            <i data-lucide="shopping-cart" class="w-5 h-5 flex-shrink-0"></i>
+                            <span id="btn-text">Completar Pedido ($35.00)</span>
+                        </a>
+                    </div>
+
+                    <div class="flex flex-wrap items-center justify-center gap-4 text-xs text-slate-500 font-medium pt-2">
+                        <span class="flex items-center gap-1.5"><i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i> Pago 100% Seguro</span>
+                        <span class="flex items-center gap-1.5"><i data-lucide="truck" class="w-4 h-4 text-blue-600"></i> Envíos a todo Panamá</span>
+                        <span class="flex items-center gap-1.5"><i data-lucide="rotate-ccw" class="w-4 h-4 text-amber-600"></i> Garantía 7 días</span>
+                        <span class="flex items-center gap-1.5"><i data-lucide="credit-card" class="w-4 h-4 text-slate-600"></i> Tarjeta o Yappy / Transferencia</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Sello de Garantía -->
+            <div class="mt-8 bg-slate-100 rounded-2xl p-5 border border-slate-200 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+                <div class="w-14 h-14 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center font-black text-xl flex-shrink-0">
+                    7D
+                </div>
+                <div>
+                    <h4 class="font-black text-slate-900 text-sm">Garantía Incondicional de 7 Días</h4>
+                    <p class="text-xs text-slate-600 mt-0.5">
+                        Si al recibir tu Plan 360 sientes que no es la herramienta que necesitabas para estructurar tu empresa, te devolvemos el 100% de tu dinero. Sin preguntas ni complicaciones.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 11. SECCIÓN: Preguntas Frecuentes (FAQ) -->
+    <section id="faq" class="py-16 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-xs font-black uppercase tracking-widest text-brand-blue">Resuelve tus Dudas</span>
+                <h2 class="text-3xl font-black text-slate-900 mt-1">Preguntas Frecuentes</h2>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+                    <button class="accordion-toggle w-full flex justify-between items-center text-left font-bold text-slate-900 text-sm sm:text-base focus:outline-none">
+                        <span>¿Cómo funciona el envío del kit físico en Panamá?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="text-xs sm:text-sm text-slate-600 mt-3 pt-3 border-t border-slate-100 leading-relaxed">
+                            Realizamos envíos a Ciudad de Panamá y a todas las provincias del país mediante mensajería y empresas de encomienda autorizadas. Una vez realizado tu pedido, nuestro equipo se pone en contacto contigo por WhatsApp para confirmar tu dirección exacta y número de guía.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+                    <button class="accordion-toggle w-full flex justify-between items-center text-left font-bold text-slate-900 text-sm sm:text-base focus:outline-none">
+                        <span>¿Cuándo recibo la versión digital interactiva?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="text-xs sm:text-sm text-slate-600 mt-3 pt-3 border-t border-slate-100 leading-relaxed">
+                            De forma <strong>inmediata</strong>. En cuanto se confirma tu pedido, te llega un correo con el enlace de descarga del PDF Interactivo Rellenable y los 5 bonos de regalo, para que puedas empezar a planificar hoy mismo desde tu tablet o computadora mientras tu kit físico va en camino.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+                    <button class="accordion-toggle w-full flex justify-between items-center text-left font-bold text-slate-900 text-sm sm:text-base focus:outline-none">
+                        <span>¿Qué formas de pago aceptan?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="text-xs sm:text-sm text-slate-600 mt-3 pt-3 border-t border-slate-100 leading-relaxed">
+                            Aceptamos tarjetas de crédito/débito (Visa, Mastercard a través de pasarela bancaria segura), transferencias directas de Banco General, Yappy y depósitos bancarios.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+                    <button class="accordion-toggle w-full flex justify-between items-center text-left font-bold text-slate-900 text-sm sm:text-base focus:outline-none">
+                        <span>¿Sirve si apenas estoy empezando y no tengo experiencia previa en administración o negocios?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="text-xs sm:text-sm text-slate-600 mt-3 pt-3 border-t border-slate-100 leading-relaxed">
+                            ¡Exactamente para eso fue creado! El Plan 360 no contiene tecnicismos complicados ni teorías pesadas. Todo está explicado con un método visual paso a paso, ejercicios prácticos y ejemplos reales para que estructures tu negocio desde cero con total claridad.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. FOOTER CANÓNICO (Regla Estricta DESIGN_SYSTEM.md) -->
+    <footer class="bg-slate-900 text-slate-300 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- Columna Marca y Redes -->
+                <div class="flex flex-col items-start">
+                    <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-21-nobg.svg"
+                        alt="Aizprua S.E. - Firma Legal y Empresarial" class="h-20 w-auto -mt-7 -mb-4 -ml-3">
+                    <p class="text-sm text-slate-400 mb-3">Tu aliado legal y empresarial en Panamá.</p>
+                    <div class="flex gap-3">
+                        <a target="_blank" rel="noopener" href="https://instagram.com/aizpruase"
+                            class="w-10 h-10 bg-slate-800 hover:bg-pink-600 rounded-full flex items-center justify-center text-white transition"
+                            aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                            </svg>
+                        </a>
+                        <a target="_blank" rel="noopener" href="https://facebook.com/aizpruase"
+                            class="w-10 h-10 bg-slate-800 hover:bg-brand-blue rounded-full flex items-center justify-center text-white transition"
+                            aria-label="Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a href="https://wa.me/50765461527" target="_blank"
+                            class="w-10 h-10 bg-slate-800 hover:bg-green-500 rounded-full flex items-center justify-center text-white transition"
+                            aria-label="WhatsApp">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Diagnóstico y Enlaces -->
+                <div>
+                    <h4 class="font-bold text-white mb-4">Soluciones</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/plan-360" class="hover:text-white transition font-semibold text-brand-orange-light">Plan 360 Empresarial</a></li>
+                        <li><a href="/" class="hover:text-white transition">Escudo Preventivo Anti-Multas</a></li>
+                        <li><a href="/playbook" class="hover:text-white transition">Playbook de Blindaje</a></li>
+                        <li><a href="/recursos-gratuitos" class="hover:text-white transition">Guía Preventiva 2026 (gratis)</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contacto -->
+                <div>
+                    <h4 class="font-bold text-white mb-4">Contacto</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://wa.me/50765461527" target="_blank" class="hover:text-white">WhatsApp: +507 6546-1527</a></li>
+                        <li><a href="mailto:info@aizprua.com" class="hover:text-white">info@aizprua.com</a></li>
+                        <li class="text-slate-400">Panamá, República de Panamá</li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div>
+                    <h4 class="font-bold text-white mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/terminos" class="hover:text-white">Términos y Condiciones</a></li>
+                        <li><a href="/privacidad" class="hover:text-white">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 text-center text-sm text-slate-400">
+                &copy; 2026 Aizprua S.E. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón WhatsApp Flotante -->
+    <a href="https://wa.me/50765461527?text=Hola%2C%20tengo%20una%20consulta%20sobre%20el%20Plan%20360%20Empresarial"
+        target="_blank"
+        class="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20bd5a] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center"
+        aria-label="Abrir WhatsApp">
+        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+
+    <!-- Lógica Interactiva del Checkout & Acordeón -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Inicializar iconos Lucide
+            if (window.lucide) {
+                window.lucide.createIcons();
+            }
+
+            // Menú Móvil Hamburguesa
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIconBars = document.getElementById('menu-icon-bars');
+            const menuIconClose = document.getElementById('menu-icon-close');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    const isClosed = mobileMenu.classList.contains('hidden');
+                    if (isClosed) {
+                        mobileMenu.classList.remove('hidden');
+                        if (menuIconBars) menuIconBars.classList.add('hidden');
+                        if (menuIconClose) menuIconClose.classList.remove('hidden');
+                    } else {
+                        mobileMenu.classList.add('hidden');
+                        if (menuIconBars) menuIconBars.classList.remove('hidden');
+                        if (menuIconClose) menuIconClose.classList.add('hidden');
+                    }
+                });
+
+                mobileNavLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                        if (menuIconBars) menuIconBars.classList.remove('hidden');
+                        if (menuIconClose) menuIconClose.classList.add('hidden');
+                    });
+                });
+            }
+
+            // 2. Acordeón FAQ
+            const toggles = document.querySelectorAll('.accordion-toggle');
+            toggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const content = toggle.nextElementSibling;
+                    const icon = toggle.querySelector('[data-lucide="chevron-down"]');
+                    const isOpen = content.classList.contains('open');
+
+                    // Cerrar todos los demás
+                    document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('open'));
+                    document.querySelectorAll('.accordion-toggle [data-lucide="chevron-down"]').forEach(i => i.style.transform = 'rotate(0deg)');
+
+                    if (!isOpen) {
+                        content.classList.add('open');
+                        if (icon) icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+
+            // 3. Lógica Interactiva del Upsell / Order Bump
+            const upsellCheckbox = document.getElementById('upsell-toggle');
+            const totalPriceEl = document.getElementById('total-price');
+            const savingsBadge = document.getElementById('savings-badge');
+            const btnComprar = document.getElementById('btn-comprar');
+            const btnText = document.getElementById('btn-text');
+
+            function updatePricing() {
+                const isUpsellChecked = upsellCheckbox.checked;
+                if (isUpsellChecked) {
+                    totalPriceEl.textContent = '$52.00 USD';
+                    savingsBadge.classList.remove('hidden');
+                    btnText.textContent = 'Pedir Combo Completo ($52.00)';
+                    const msg = encodeURIComponent('¡Hola Aizprua! Quiero ordenar el COMBO COMPLETO: Plan 360 Empresarial Físico + Kit de Resolución de Problemas ($52.00 USD total). ¿Cuáles son los métodos de pago?');
+                    btnComprar.href = `https://wa.me/50765461527?text=${msg}`;
+                } else {
+                    totalPriceEl.textContent = '$35.00 USD';
+                    savingsBadge.classList.add('hidden');
+                    btnText.textContent = 'Completar Pedido ($35.00)';
+                    const msg = encodeURIComponent('¡Hola Aizprua! Quiero ordenar el Kit Físico del Plan 360 Empresarial ($35.00 USD con envío en Panamá). ¿Cuáles son los métodos de pago?');
+                    btnComprar.href = `https://wa.me/50765461527?text=${msg}`;
+                }
+            }
+
+            if (upsellCheckbox) {
+                upsellCheckbox.addEventListener('change', updatePricing);
+            }
+        });
+    </script>
+</body>
+
+</html>

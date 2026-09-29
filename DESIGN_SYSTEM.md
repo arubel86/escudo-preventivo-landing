@@ -401,6 +401,7 @@ Cualquier enlace alternativo, alias o archivo `.html` legacy debe redirigir con 
 | **Inicio (Landing Escudo)** | `/` | `/index.html` |
 | **Página B (Oferta)** | `/escudo-preventivo` | `/escudo-preventivo.html` |
 | **Recursos Gratuitos** | `/recursos-gratuitos` | `/recursos-gratuitos.html` |
+| **Plan 360 Empresarial** | `/plan-360` | `/plan-360.html`, `/plan360`, `/plan360.html` |
 | **Playbook Blindaje** | `/playbook` | `/playbook.html`, `/guia`, `/guia.html`, `/docs`, `/blindaje` |
 | **Guía Préstamos** | `/guia-prestamos` | `/guia-prestamos.html`, `/prestamos`, `/credito-panama` |
 | **Verificador Web** | `/verificador` | `/verificador.html` |
