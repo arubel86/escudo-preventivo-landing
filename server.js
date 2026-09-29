@@ -507,9 +507,12 @@ app.get(['/construccion.html', '/proximamente', '/proximamente.html'], (req, res
 // ARCHIVOS ESTÁTICOS (Masterclass, Verificador & Landing Page)
 app.use('/masterclass', express.static(masterclassDir));
 app.use(express.static(path.join(__dirname, 'public'), { index: false }));
-// Favicon universal fallback
-app.get('/favicon.ico', (req, res) => {
+// Favicon universal fallback (Sincronizado con YouTube)
+app.get(['/favicon.ico', '/favicon.svg'], (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'favicon.svg'));
+});
+app.get('/favicon.png', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'favicon.png'));
 });
 
 // 11. Página 404 Oficial

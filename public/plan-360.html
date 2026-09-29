@@ -11,10 +11,11 @@
     <meta name="description"
         content="Estructura tu empresa en Panamá. Recibe el libro Plan 360 físico en tu puerta + PDF interactivo de regalo por solo $35. Pide tu kit oficial aquí hoy.">
 
-    <!-- Canonical & Favicon -->
+    <!-- Canonical & Favicon (Sincronizado con YouTube) -->
     <link rel="canonical" href="https://aizprua.com/plan-360">
+    <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="alternate icon" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/favicon.png">
 
     <!-- Open Graph (WhatsApp / Facebook / LinkedIn) -->
     <meta property="og:type" content="product">
@@ -138,12 +139,12 @@
                 </a>
 
                 <!-- Navegación Escritorio -->
-                <nav class="hidden lg:flex items-center space-x-7 text-sm font-semibold text-slate-600">
-                    <a href="#que-incluye" class="hover:text-brand-blue transition">¿Qué incluye?</a>
-                    <a href="#las-6-areas" class="hover:text-brand-blue transition">Las 6 Áreas</a>
-                    <a href="#testimonios" class="hover:text-brand-blue transition">Testimonios</a>
-                    <a href="#bonos" class="hover:text-brand-blue transition">Bonos</a>
-                    <a href="#faq" class="hover:text-brand-blue transition">Preguntas</a>
+                <nav class="hidden lg:flex items-center space-x-8 text-base font-bold text-slate-700">
+                    <a href="#que-incluye" class="hover:text-brand-blue transition-colors">¿Qué incluye?</a>
+                    <a href="#las-6-areas" class="hover:text-brand-blue transition-colors">Las 6 Áreas</a>
+                    <a href="#testimonios" class="hover:text-brand-blue transition-colors">Testimonios</a>
+                    <a href="#bonos" class="hover:text-brand-blue transition-colors">Bonos</a>
+                    <a href="#faq" class="hover:text-brand-blue transition-colors">Preguntas</a>
                 </nav>
 
                 <!-- Botón CTA Header WhatsApp Canónico + Menú Móvil -->
@@ -646,13 +647,15 @@
                 <!-- Testimonio 1: Isacar's Kitchen -->
                 <div class="bg-slate-50 border border-slate-200 rounded-3xl p-6 shadow-sm flex flex-col justify-between">
                     <div>
-                        <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-md mb-4 bg-slate-900">
-                            <iframe class="w-full h-full"
-                                src="https://www.youtube-nocookie.com/embed/BdRnagSjFic"
-                                title="Testimonio de Zaitel y Gerardo Lombardo - Isacar's Kitchen"
-                                frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen loading="lazy"></iframe>
+                        <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-md mb-4 bg-black">
+                            <video class="w-full h-full object-cover"
+                                controls
+                                preload="metadata"
+                                playsinline
+                                poster="assets/testimonio-isacar-poster.jpg">
+                                <source src="assets/testimonio-isacars-kitchen.mp4" type="video/mp4">
+                                Tu navegador no soporta reproducción de video.
+                            </video>
                         </div>
                         <div class="flex items-center gap-1 text-brand-orange mb-2">
                             <i data-lucide="star" class="w-4 h-4 fill-current"></i>
@@ -672,13 +675,15 @@
                 <!-- Testimonio 2: Adaías Panamá -->
                 <div class="bg-slate-50 border border-slate-200 rounded-3xl p-6 shadow-sm flex flex-col justify-between">
                     <div>
-                        <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-md mb-4 bg-slate-900">
-                            <iframe class="w-full h-full"
-                                src="https://www.youtube-nocookie.com/embed/JGA7hXvsNuc"
-                                title="Testimonio de Frederick - Adaías Panamá"
-                                frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen loading="lazy"></iframe>
+                        <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-md mb-4 bg-black">
+                            <video class="w-full h-full object-cover"
+                                controls
+                                preload="metadata"
+                                playsinline
+                                poster="assets/testimonio-adaias-poster.jpg">
+                                <source src="assets/testimonio-adaias-panama.mp4" type="video/mp4">
+                                Tu navegador no soporta reproducción de video.
+                            </video>
                         </div>
                         <div class="flex items-center gap-1 text-brand-orange mb-2">
                             <i data-lucide="star" class="w-4 h-4 fill-current"></i>
