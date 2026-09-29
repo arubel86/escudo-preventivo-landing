@@ -118,10 +118,13 @@
 
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-orange selection:text-white">
 
+    <!-- Barra de Progreso de Lectura Canónica (Scroll Indicator) -->
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-brand-blue to-brand-orange z-[60]" style="width:0%"></div>
+
     <!-- 1. Barra de Anuncio de Urgencia -->
     <div class="bg-gradient-to-r from-brand-blue to-brand-blue-dark text-white text-xs sm:text-sm py-2.5 px-4 text-center font-medium sticky top-0 z-50 shadow-md">
         <div class="max-w-6xl mx-auto flex items-center justify-center gap-2">
-            <span class="inline-flex items-center justify-center bg-brand-orange text-white text-[11px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">Edición 2026</span>
+            <span class="hidden sm:inline-flex items-center justify-center bg-brand-orange text-white text-[11px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">Edición 2026</span>
             <span>📦 <strong>Envíos a todo Panamá:</strong> Solo 50 kits físicos.</span>
             <a href="#ordenar" class="hidden sm:inline-block ml-2 underline font-bold hover:text-brand-orange-light transition">Pedir el mío &rarr;</a>
         </div>
@@ -834,7 +837,7 @@
 
                 <!-- TOTAL DINÁMICO Y BOTÓN DE COMPRA -->
                 <div class="pt-2 text-center sm:text-left">
-                    <div class="flex flex-col lg:flex-row items-center justify-between gap-5 mb-6 bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <div class="flex flex-col lg:flex-row items-center justify-between gap-5 mb-6 bg-white p-4 sm:p-6 rounded-2xl border border-slate-200 shadow-sm">
                         <div class="text-center sm:text-left w-full lg:w-auto">
                             <span class="text-xs text-slate-500 font-bold uppercase tracking-wider block mb-1">Total a Pagar:</span>
                             <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
@@ -849,7 +852,7 @@
                         <a id="btn-comprar"
                             href="https://wa.me/50765461527?text=Hola%2C%20quiero%20ordenar%20el%20Plan%20360%20Empresarial%20(%2435.00%20USD)%20con%20env%C3%ADo%20en%20Panam%C3%A1."
                             target="_blank"
-                            class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-2xl font-black text-base sm:text-lg transition-all shadow-xl hover:shadow-orange-500/30 flex items-center justify-center gap-2.5 transform hover:-translate-y-0.5 whitespace-nowrap flex-shrink-0">
+                            class="w-full sm:w-auto px-4 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-2xl font-black text-sm sm:text-base md:text-lg transition-all shadow-xl hover:shadow-orange-500/30 flex items-center justify-center gap-2 sm:gap-2.5 transform hover:-translate-y-0.5 text-center">
                             <i data-lucide="shopping-cart" class="w-5 h-5 flex-shrink-0"></i>
                             <span id="btn-text">Completar Pedido ($35.00)</span>
                         </a>
@@ -1114,6 +1117,15 @@
             if (upsellCheckbox) {
                 upsellCheckbox.addEventListener('change', updatePricing);
             }
+
+            // 4. Barra de Progreso de Lectura Canónica
+            window.addEventListener('scroll', () => {
+                const bar = document.getElementById('progress-bar');
+                if (!bar) return;
+                const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const prog = totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0;
+                bar.style.width = prog + '%';
+            });
         });
     </script>
 </body>
