@@ -332,7 +332,8 @@ app.get('/', (req, res) => {
     return res.sendFile(path.join(__dirname, 'public', 'index.html'));
   }
 
-  return res.sendFile(path.join(__dirname, 'public', 'construccion.html'));
+  // Dominio principal (aizprua.com, www.aizprua.com, localhost): nuevo portal principal
+  return res.sendFile(path.join(__dirname, 'public', 'principal.html'));
 });
 
 app.get('/index.html', (req, res) => {
@@ -418,6 +419,75 @@ app.get('/gracias-plan-360-digital', (req, res) => {
 app.get(['/gracias-plan-360-digital.html', '/gracias-360-digital'], (req, res) => {
   const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
   res.redirect(301, '/gracias-plan-360-digital' + query);
+});
+
+// 4.6. Embudo Test de Auditoría Rápida: Captura (Canónica: /test-empresarial)
+app.get('/test-empresarial', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'test-empresarial.html'));
+});
+
+app.get(['/test-empresarial.html', '/test', '/test.html', '/auditoria', '/auditoria.html'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/test-empresarial' + query);
+});
+
+// 4.7. Embudo Test de Auditoría: Gracias + Oferta Tripwire Plan 360 (Canónica: /gracias-test)
+app.get('/gracias-test', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'gracias-test.html'));
+});
+
+app.get(['/gracias-test.html', '/oferta-test', '/oferta-test.html'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/gracias-test' + query);
+});
+
+// 4.8. Embudo Test de Auditoría: Web App Interactiva (Canónica: /test-interactivo)
+app.get('/test-interactivo', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'test-interactivo.html'));
+});
+
+app.get(['/test-interactivo.html', '/quiz', '/quiz.html', '/auditoria-interactiva', '/auditoria-interactiva.html'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/test-interactivo' + query);
+});
+
+// 4.9. Tienda Online de Kits y Soluciones (Canónica: /tienda)
+app.get('/tienda', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'tienda.html'));
+});
+
+app.get(['/tienda.html', '/catalogo', '/catalogo.html', '/productos', '/productos.html', '/store'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/tienda' + query);
+});
+
+// 4.10. Blog de Inteligencia Empresarial & Legal (Canónica: /blog)
+app.get('/blog', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'blog.html'));
+});
+
+app.get(['/blog.html', '/articulos', '/articulos.html', '/noticias'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/blog' + query);
+});
+
+// 4.11. Artículos Individuales del Blog
+app.get('/articulo-emprender', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'articulo-emprender.html'));
+});
+
+app.get(['/articulo-emprender.html', '/como-empezar-a-emprender', '/como-empezar-a-emprender.html'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/articulo-emprender' + query);
+});
+
+app.get('/articulo-mentalidad', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'articulo-mentalidad.html'));
+});
+
+app.get(['/articulo-mentalidad.html', '/cambiar-manera-de-pensar', '/cambiar-manera-de-pensar.html'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/articulo-mentalidad' + query);
 });
 
 // 5. Hub Post-Pago (Protegido por Sesión Criptográfica)

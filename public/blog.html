@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+
+    <!-- SEO & Metatags -->
+    <title>Blog de Inteligencia Empresarial y Blindaje Legal en Panamá | Aizprua S.E.</title>
+    <meta name="description"
+        content="Artículos, guías prácticas y consejos de expertos sobre cómo emprender, gestionar finanzas y blindar legalmente tu empresa en Panamá.">
+    <link rel="canonical" href="https://aizprua.com/blog">
+
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="apple-touch-icon" href="/favicon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aizprua.com/blog">
+    <meta property="og:title" content="Blog de Inteligencia Empresarial y Blindaje Legal | Aizprua S.E.">
+    <meta property="og:description" content="Estrategias de emprendimiento, prevención de multas y control financiero en Panamá.">
+    <meta property="og:image" content="https://aizprua.com/assets/plan-360-og.jpg">
+
+    <!-- Google Fonts & Tailwind CSS CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#3849C8',
+                            'blue-dark': '#2d3a9f',
+                            'blue-light': '#4f5ed4',
+                            orange: '#FF8A1E',
+                            'orange-dark': '#e67a15',
+                            'orange-light': '#ffa04a'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+</head>
+
+<body class="bg-slate-50 text-slate-800 antialiased flex flex-col min-h-screen selection:bg-brand-orange selection:text-white">
+
+    <!-- Header Canónico Oficial -->
+    <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20 sm:h-24 md:h-28">
+                <a href="/" class="flex items-center flex-shrink-0" aria-label="Aizprua S.E. Inicio">
+                    <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg"
+                        onerror="this.onerror=null; this.src='/assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg';"
+                        alt="Logo Aizprua S.E. - Firma Legal y Empresarial en Panamá"
+                        class="h-20 sm:h-24 md:h-28 w-auto object-contain" width="112" height="112">
+                </a>
+
+                <nav class="hidden lg:flex items-center space-x-8 text-sm font-semibold text-slate-700">
+                    <a href="/#servicios" class="hover:text-brand-blue transition">Servicios</a>
+                    <a href="/tienda" class="hover:text-brand-blue transition">Tienda Online</a>
+                    <a href="/blog" class="text-brand-blue font-bold flex items-center gap-1.5">
+                        <span>Blog</span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span>
+                    </a>
+                    <a href="/#comunidad" class="hover:text-brand-blue transition flex items-center gap-1 text-slate-500">
+                        <i data-lucide="graduation-cap" class="w-4 h-4 text-brand-blue"></i>
+                        <span>Academia</span>
+                    </a>
+                    <span class="text-slate-300">|</span>
+                    <a href="tel:+50765461527" class="flex items-center gap-1.5 text-slate-600 hover:text-brand-blue transition">
+                        <i data-lucide="phone" class="w-4 h-4 text-brand-orange"></i>
+                        <span>6546-1527</span>
+                    </a>
+                </nav>
+
+                <div class="hidden sm:flex items-center gap-3">
+                    <a href="https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20para%20el%20equipo%20editorial%20de%20Aizprua"
+                        target="_blank" rel="noopener"
+                        class="flex items-center gap-2 bg-[#25D366] text-white px-5 py-2.5 rounded-full font-bold text-sm hover:bg-[#20bd5a] transition shadow-md whitespace-nowrap">
+                        <i data-lucide="message-circle" class="w-4 h-4 flex-shrink-0"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
+
+                <div class="flex items-center lg:hidden">
+                    <button onclick="toggleMobileMenu()" aria-label="Abrir menú" class="text-slate-700 p-2">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Móvil -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-200 px-4 py-4 space-y-3">
+            <a href="/#servicios" class="block py-2 text-slate-700 font-bold">Servicios (Asesoría & Trámites)</a>
+            <a href="/tienda" class="block py-2 text-slate-700 font-bold">Tienda Online (Kits & Soluciones)</a>
+            <a href="/blog" class="block py-2 text-brand-blue font-bold">Blog de Inteligencia</a>
+            <a href="/test-interactivo" class="block py-2 text-brand-orange font-bold">Test de Auditoría Gratis</a>
+        </div>
+    </header>
+
+    <!-- Hero / Portada del Blog -->
+    <div class="bg-slate-900 text-white py-12 sm:py-16 border-b border-slate-800 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-3xl">
+                <span class="text-xs font-black uppercase tracking-wider text-brand-orange bg-brand-orange/10 px-3.5 py-1 rounded-full border border-brand-orange/20">
+                    Centro de Inteligencia & Guías 2026
+                </span>
+                <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight mt-3 mb-3">
+                    Blog Legal y Empresarial
+                </h1>
+                <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                    Estrategias claras, consejos prácticos de mentalidad y guías paso a paso para que estructures, formalices y protejas tu negocio en Panamá.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenedor Principal: Layout Editorial WordPress (2 Columnas) -->
+    <main class="flex-grow py-10 sm:py-14 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+
+            <!-- ============================================== -->
+            <!-- COLUMNA PRINCIPAL (8/12): ARTÍCULOS EDITORIALES -->
+            <!-- ============================================== -->
+            <div class="lg:col-span-8 space-y-10">
+
+                <!-- 1. ARTÍCULO DESTACADO (FEATURED POST) -->
+                <article class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition duration-300 group">
+                    <div class="relative aspect-[16/9] bg-slate-800 overflow-hidden">
+                        <img src="assets/plan-360-og.jpg" alt="Cómo empezar a emprender" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+                        <span class="absolute top-4 left-4 bg-brand-orange text-white text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full shadow">
+                            Artículo Destacado
+                        </span>
+                    </div>
+
+                    <div class="p-6 sm:p-8 space-y-4">
+                        <div class="flex items-center gap-3 text-xs text-slate-500 font-semibold">
+                            <span class="text-brand-blue font-bold">EMPRENDIMIENTO & FORMALIZACIÓN</span>
+                            <span>•</span>
+                            <span class="flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5"></i> 5 min de lectura</span>
+                            <span>•</span>
+                            <span>Por Arubel Aizprua</span>
+                        </div>
+
+                        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 group-hover:text-brand-blue transition leading-snug">
+                            <a href="/articulo-emprender">
+                                Cómo empezar a emprender en Panamá: Lo que nadie te dice sobre dar el salto con éxito
+                            </a>
+                        </h2>
+
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                            Muchas personas tienen grandes ideas pero no logran canalizarlas en un negocio rentable y formal. Conoce los principios reales de mentalidad, orden financiero y estructura legal para empezar con pie derecho y sin perder tiempo ni dinero.
+                        </p>
+
+                        <div class="pt-3 flex items-center justify-between border-t border-slate-100">
+                            <a href="/articulo-emprender" class="inline-flex items-center gap-2 text-brand-blue font-black text-sm hover:gap-3 transition-all">
+                                <span>Leer artículo completo</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </a>
+                            <span class="text-xs text-slate-400">Actualizado 2026</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 2. CUADRÍCULA DE ARTÍCULOS ADICIONALES -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                    <!-- POST 2: 5 CONSEJOS DE MENTALIDAD -->
+                    <article class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-lg transition flex flex-col justify-between group">
+                        <div class="p-6 sm:p-7 space-y-3">
+                            <div class="flex items-center gap-2 text-[11px] text-slate-500 font-bold">
+                                <span class="text-brand-orange uppercase">MENTALIDAD EMPRESARIAL</span>
+                                <span>•</span>
+                                <span>4 min lectura</span>
+                            </div>
+
+                            <h3 class="text-lg font-black text-slate-900 group-hover:text-brand-blue transition leading-snug">
+                                <a href="/articulo-mentalidad">
+                                    5 consejos para cambiar nuestra manera de pensar y cumplir objetivos de negocio
+                                </a>
+                            </h3>
+
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                No es lo mismo ser empleado que empleador. Descubre cómo reprogramar tus hábitos, encontrar un espacio de pensamiento y rodearte de personas que te impulsen a construir una empresa sólida.
+                            </p>
+                        </div>
+
+                        <div class="p-6 pt-0 border-t border-slate-100 mt-auto flex items-center justify-between">
+                            <a href="/articulo-mentalidad" class="text-xs font-bold text-brand-blue hover:underline inline-flex items-center gap-1.5 pt-4">
+                                <span>Leer artículo</span>
+                                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                            </a>
+                            <span class="text-[11px] text-slate-400 pt-4">Por Arubel Aizprua</span>
+                        </div>
+                    </article>
+
+                    <!-- POST 3: GUÍA ANTI-MULTAS (EDUCATIVO) -->
+                    <article class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-lg transition flex flex-col justify-between group">
+                        <div class="p-6 sm:p-7 space-y-3">
+                            <div class="flex items-center gap-2 text-[11px] text-slate-500 font-bold">
+                                <span class="text-emerald-600 uppercase">BLINDAJE & CUMPLIMIENTO</span>
+                                <span>•</span>
+                                <span>6 min lectura</span>
+                            </div>
+
+                            <h3 class="text-lg font-black text-slate-900 group-hover:text-brand-blue transition leading-snug">
+                                <a href="/recursos-gratuitos">
+                                    Las 7 multas ocultas más frecuentes de la DGI y CSS en Panamá (y cómo prevenirlas)
+                                </a>
+                            </h3>
+
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Desde el atraso en timbres municipales hasta contratos laborales mal redactados. Conoce las sanciones más severas a las que se expone una empresa panameña y la hoja de ruta para blindarte.
+                            </p>
+                        </div>
+
+                        <div class="p-6 pt-0 border-t border-slate-100 mt-auto flex items-center justify-between">
+                            <a href="/recursos-gratuitos" class="text-xs font-bold text-emerald-600 hover:underline inline-flex items-center gap-1.5 pt-4">
+                                <span>Ver guía completa</span>
+                                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                            </a>
+                            <span class="text-[11px] text-slate-400 pt-4">Recurso Gratuito</span>
+                        </div>
+                    </article>
+
+                </div>
+
+            </div>
+
+            <!-- ============================================== -->
+            <!-- BARRA LATERAL DERECHA (4/12): SIDEBAR WORDPRESS -->
+            <!-- ============================================== -->
+            <aside class="lg:col-span-4 space-y-8 sticky top-32">
+
+                <!-- 1. Buscador de Artículos -->
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                    <h4 class="text-xs font-black uppercase tracking-wider text-slate-500 mb-3">Buscar en el Blog</h4>
+                    <div class="relative">
+                        <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+                        <input type="text" placeholder="Buscar por tema..."
+                            class="w-full pl-10 pr-4 py-2.5 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-brand-blue">
+                    </div>
+                </div>
+
+                <!-- 2. Ficha de Autor / Firma -->
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm text-center">
+                    <img src="assets/avatar-arubel.jpg" onerror="this.onerror=null; this.src='/assets/avatar-arubel.jpg';" alt="Arubel Aizprua" class="w-20 h-20 rounded-full object-cover border-2 border-brand-blue/20 shadow-md mx-auto mb-3">
+                    <h4 class="font-black text-sm text-slate-900">Arubel Aizprua</h4>
+                    <p class="text-[11px] text-brand-blue font-bold mb-3">Fundador de Aizprua S.E.</p>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                        Especialista en estructuración de empresas, blindaje legal preventivo y control financiero para negocios en Panamá.
+                    </p>
+                    <a href="/#servicios" class="inline-flex items-center gap-1.5 text-xs font-bold text-slate-800 hover:text-brand-blue underline">
+                        <span>Conoce nuestros servicios</span>
+                        <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                    </a>
+                </div>
+
+                <!-- 3. Widget Banner de Conversión: Test Interactivo -->
+                <div class="bg-gradient-to-br from-brand-blue to-brand-blue-dark text-white p-6 rounded-3xl shadow-lg relative overflow-hidden text-center space-y-3">
+                    <span class="inline-flex items-center gap-1 bg-white/20 text-brand-orange-light text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full">
+                        <i data-lucide="zap" class="w-3 h-3"></i> Test Gratuito
+                    </span>
+                    <h4 class="text-lg font-black leading-snug">
+                        ¿Tu negocio tiene riesgos de multas?
+                    </h4>
+                    <p class="text-xs text-blue-100 leading-relaxed">
+                        Haz el autodiagnóstico de 15 puntos en 3 minutos y descubre tu semáforo de riesgo en tiempo real.
+                    </p>
+                    <a href="/test-interactivo"
+                        class="w-full inline-flex items-center justify-center gap-2 py-3 bg-brand-orange hover:bg-brand-orange-dark text-white rounded-xl text-xs font-black shadow transition">
+                        <span>Comenzar Test en Vivo</span>
+                        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </a>
+                </div>
+
+                <!-- 4. Widget Banner de Producto: Plan 360 -->
+                <div class="bg-slate-900 text-white p-6 rounded-3xl border border-slate-800 text-center space-y-3">
+                    <span class="text-[10px] font-black uppercase text-brand-orange tracking-wider">Solución Lista</span>
+                    <h4 class="text-base font-black">Plan 360 Empresarial</h4>
+                    <p class="text-xs text-slate-300">
+                        Plantillas en Word y Excel para blindar contratos y ordenar el flujo de caja de tu empresa.
+                    </p>
+                    <div class="text-xl font-black text-white">$19.99 <span class="text-xs font-normal text-slate-400">USD</span></div>
+                    <a href="/tienda" class="w-full inline-flex items-center justify-center gap-2 py-2.5 bg-white text-slate-900 rounded-xl text-xs font-bold hover:bg-slate-100 transition">
+                        <span>Ver en la Tienda</span>
+                        <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    </a>
+                </div>
+
+                <!-- 5. Categorías -->
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                    <h4 class="text-xs font-black uppercase tracking-wider text-slate-500 mb-3">Temas Principales</h4>
+                    <div class="space-y-2 text-xs font-bold text-slate-700">
+                        <a href="/blog" class="flex justify-between items-center py-1 hover:text-brand-blue">
+                            <span>Emprendimiento & Formalización</span>
+                            <span class="text-slate-400">(2)</span>
+                        </a>
+                        <a href="/blog" class="flex justify-between items-center py-1 hover:text-brand-blue">
+                            <span>Blindaje Legal & Laboral</span>
+                            <span class="text-slate-400">(3)</span>
+                        </a>
+                        <a href="/blog" class="flex justify-between items-center py-1 hover:text-brand-blue">
+                            <span>Finanzas & Flujo de Caja</span>
+                            <span class="text-slate-400">(2)</span>
+                        </a>
+                        <a href="/blog" class="flex justify-between items-center py-1 hover:text-brand-blue">
+                            <span>Prevención de Multas (DGI / CSS)</span>
+                            <span class="text-slate-400">(1)</span>
+                        </a>
+                    </div>
+                </div>
+
+            </aside>
+
+        </div>
+
+    </main>
+
+    <!-- Footer Canónico Oficial -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                
+                <div class="flex flex-col items-start">
+                    <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-21-nobg.svg"
+                        onerror="this.onerror=null; this.src='/assets/LOGOS PARA DIGITAL INDIVIDUALES-21-nobg.svg';"
+                        alt="Aizprua S.E." class="h-20 w-auto -mt-7 -mb-4 -ml-3">
+                    <p class="text-sm text-slate-400 mb-3">Tu aliado legal y empresarial en Panamá.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-white mb-4">Soluciones</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="/escudo-preventivo" class="hover:text-white transition">Asesoría Escudo Preventivo</a></li>
+                        <li><a href="/tienda" class="hover:text-white transition">Tienda Online</a></li>
+                        <li><a href="/test-interactivo" class="hover:text-white transition">Test de Auditoría</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-white mb-4">Contacto</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="https://wa.me/50765461527" target="_blank" class="hover:text-white transition">WhatsApp: +507 6546-1527</a></li>
+                        <li><a href="mailto:info@aizprua.com" class="hover:text-white transition">info@aizprua.com</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-white mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="/privacidad" class="hover:text-white transition">Política de Privacidad</a></li>
+                        <li><a href="/terminos" class="hover:text-white transition">Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 text-center text-xs text-slate-400">
+                &copy; 2026 Aizprua S.E. Firma Legal y Empresarial en Panamá. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+        });
+    </script>
+</body>
+
+</html>
