@@ -400,6 +400,26 @@ app.get(['/plan-360.html', '/plan360', '/plan360.html'], (req, res) => {
   res.redirect(301, '/plan-360' + query);
 });
 
+// 4.4. Plan 360 Empresarial: Edición Digital Global Hotmart (Canónica: /plan-360-digital)
+app.get('/plan-360-digital', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'plan-360-digital.html'));
+});
+
+app.get(['/plan-360-digital.html', '/plan360-digital', '/plan360-digital.html', '/digital-360'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/plan-360-digital' + query);
+});
+
+// 4.5. Página de Agradecimiento Hotmart Plan 360 Digital (Canónica: /gracias-plan-360-digital)
+app.get('/gracias-plan-360-digital', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'gracias-plan-360-digital.html'));
+});
+
+app.get(['/gracias-plan-360-digital.html', '/gracias-360-digital'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/gracias-plan-360-digital' + query);
+});
+
 // 5. Hub Post-Pago (Protegido por Sesión Criptográfica)
 app.get('/gracias', (req, res) => {
   if (!isValidPaymentSession(req.headers.cookie)) {
