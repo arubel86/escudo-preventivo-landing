@@ -116,6 +116,8 @@
 </head>
 
 <body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+    <!-- Barra de progreso de lectura horizontal -->
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-brand-orange z-[60] transition-all duration-75" style="width:0%"></div>
 
     <!-- Navbar Simple -->
     <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200">
@@ -240,11 +242,12 @@
                     <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i data-lucide="check-circle" class="w-8 h-8 text-green-500"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">✅ ¡Tu guía está lista!</h3>
+                    <h3 class="text-xl font-bold mb-3 text-slate-900">¡Tu guía está lista!</h3>
                     <p class="text-slate-600 mb-6">La descarga debería iniciar sola. Si no, usa el botón de abajo —
                         también te la enviamos a tu correo.</p>
                     <a id="guia-download" href="assets/guia-preventiva-2026.pdf"
                         download="Guia-Preventiva-2026-Aizprua.pdf"
+                        target="_blank" rel="noopener"
                         class="inline-flex items-center px-8 py-4 bg-brand-blue text-white font-bold rounded-xl hover:bg-brand-blue-dark transition shadow-lg">
                         <i data-lucide="file-down" class="w-5 h-5 mr-2"></i>Descargar Guía Preventiva 2026 (PDF)
                     </a>

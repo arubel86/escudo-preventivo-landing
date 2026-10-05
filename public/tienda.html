@@ -68,15 +68,18 @@
 
 <body class="bg-slate-50 text-slate-800 antialiased flex flex-col min-h-screen selection:bg-brand-orange selection:text-white">
 
+    <!-- Barra de Progreso de Lectura Canónica -->
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-brand-orange z-[60] transition-all duration-75" style="width:0%"></div>
+
     <!-- Header Canónico Oficial -->
     <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20 sm:h-24 md:h-28">
+            <div class="flex justify-between items-center h-20">
                 <a href="/" class="flex items-center flex-shrink-0" aria-label="Aizprua S.E. Inicio">
                     <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg"
                         onerror="this.onerror=null; this.src='/assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg';"
                         alt="Logo Aizprua S.E. - Firma Legal y Empresarial en Panamá"
-                        class="h-20 sm:h-24 md:h-28 w-auto object-contain" width="112" height="112">
+                        class="h-28 w-auto object-contain" width="112" height="112">
                 </a>
 
                 <nav class="hidden lg:flex items-center space-x-8 text-sm font-semibold text-slate-700">
@@ -85,11 +88,11 @@
                         <span>Tienda Online</span>
                         <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span>
                     </a>
-                    <a href="/blog" class="hover:text-brand-blue transition">Blog</a>
-                    <a href="/#comunidad" class="hover:text-brand-blue transition flex items-center gap-1 text-slate-500">
+                    <a href="/escuela" class="hover:text-brand-blue transition flex items-center gap-1 text-slate-500">
                         <i data-lucide="graduation-cap" class="w-4 h-4 text-brand-blue"></i>
-                        <span>Academia</span>
+                        <span>Escuela</span>
                     </a>
+                    <a href="/blog" class="hover:text-brand-blue transition">Blog</a>
                     <span class="text-slate-300">|</span>
                     <a href="tel:+50765461527" class="flex items-center gap-1.5 text-slate-600 hover:text-brand-blue transition">
                         <i data-lucide="phone" class="w-4 h-4 text-brand-orange"></i>
@@ -119,21 +122,21 @@
             <a href="/#servicios" class="block py-2 text-slate-700 font-bold">Servicios (Asesoría & Trámites)</a>
             <a href="/tienda" class="block py-2 text-brand-blue font-bold">Tienda Online (Kits & Soluciones)</a>
             <a href="/blog" class="block py-2 text-slate-700 font-bold">Blog de Inteligencia</a>
-            <a href="/test-interactivo" class="block py-2 text-brand-orange font-bold">Test de Auditoría Gratis</a>
+            <a href="/test-interactivo" class="block py-2 text-brand-orange font-bold">Test de auditoría gratis</a>
         </div>
     </header>
 
-    <!-- Encabezado de la Tienda -->
-    <div class="bg-slate-900 text-white py-10 sm:py-14 border-b border-slate-800 relative overflow-hidden">
+    <!-- Encabezado de la Tienda (Color Continuo con la Página) -->
+    <div class="bg-slate-50 py-8 sm:py-10 border-b border-slate-200/80 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="max-w-3xl">
                 <span class="text-xs font-black uppercase tracking-wider text-brand-orange bg-brand-orange/10 px-3.5 py-1 rounded-full border border-brand-orange/20">
-                    Catálogo Oficial Aizprua S.E.
+                    Catálogo oficial Aizprua S.E.
                 </span>
-                <h1 class="text-3xl sm:text-4xl font-black text-white tracking-tight mt-3 mb-2">
-                    Tienda Online de Soluciones Empresariales
+                <h1 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mt-3 mb-2">
+                    Tienda online de soluciones empresariales
                 </h1>
-                <p class="text-xs sm:text-sm text-slate-300">
+                <p class="text-xs sm:text-sm text-slate-600">
                     Kits descargables y herramientas físicas para ordenar tus finanzas, blindar contratos y resolver contingencias en Panamá.
                 </p>
             </div>
@@ -214,27 +217,84 @@
                             <input type="radio" name="category-filter" value="auditoria" onchange="filterProducts()" class="text-brand-blue focus:ring-brand-blue">
                             <span>Auditoría & Diagnóstico</span>
                         </label>
+                        <label class="flex items-center gap-2.5 cursor-pointer hover:text-brand-blue">
+                            <input type="radio" name="category-filter" value="merch" onchange="filterProducts()" class="text-brand-blue focus:ring-brand-blue">
+                            <span>Merchandising & Comunidad</span>
+                        </label>
                     </div>
                 </div>
 
-                <!-- 3. Rango de Precios -->
-                <div>
-                    <h4 class="text-xs font-black uppercase tracking-wider text-slate-500 mb-3">Inversión</h4>
-                    <div class="space-y-2 text-xs font-semibold text-slate-700">
-                        <label class="flex items-center gap-2.5 cursor-pointer hover:text-brand-blue">
-                            <input type="radio" name="price-filter" value="all" checked onchange="filterProducts()" class="text-brand-blue focus:ring-brand-blue">
-                            <span>Cualquier precio</span>
-                        </label>
-                        <label class="flex items-center gap-2.5 cursor-pointer hover:text-brand-blue">
-                            <input type="radio" name="price-filter" value="under20" onchange="filterProducts()" class="text-brand-blue focus:ring-brand-blue">
-                            <span>Hasta $20.00 USD</span>
-                        </label>
-                        <label class="flex items-center gap-2.5 cursor-pointer hover:text-brand-blue">
-                            <input type="radio" name="price-filter" value="under50" onchange="filterProducts()" class="text-brand-blue focus:ring-brand-blue">
-                            <span>$20.00 a $50.00 USD</span>
-                        </label>
+                <!-- 3. Rango de Precios Dinámico Auto-Calibrable -->
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between gap-2">
+                        <h4 class="text-xs font-black uppercase tracking-wider text-slate-500 whitespace-nowrap">Inversión</h4>
+                        <span id="price-slider-badge" class="whitespace-nowrap text-[11px] font-bold text-brand-blue bg-brand-blue/10 px-2.5 py-0.5 rounded-full border border-brand-blue/20 shrink-0">
+                            Cualquier precio
+                        </span>
+                    </div>
+
+                    <!-- Slider Interactivo con Relleno Dinámico y Thumb Premium -->
+                    <div class="space-y-1.5 pt-1">
+                        <input id="price-range-slider" type="range" min="0" max="50" step="1" value="50"
+                            oninput="onPriceSliderChange(this.value)"
+                            class="w-full h-2 rounded-lg appearance-none cursor-pointer focus:outline-none transition">
+                        
+                        <div class="flex justify-between items-center text-[10px] font-bold text-slate-400">
+                            <span>$0</span>
+                            <span id="price-slider-mid">$25</span>
+                            <span id="price-slider-max">$50+</span>
+                        </div>
+                    </div>
+
+                    <!-- Accesos Rápidos Compactos -->
+                    <div class="flex flex-wrap items-center gap-1.5 pt-1">
+                        <button type="button" onclick="setPriceFilter('free')" 
+                            class="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 transition shadow-2xs">
+                            Gratis ($0)
+                        </button>
+                        <button type="button" onclick="setPriceFilter('under25')" 
+                            class="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 transition shadow-2xs">
+                            Hasta $25
+                        </button>
+                        <button type="button" onclick="setPriceFilter('all')" 
+                            class="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-brand-blue/10 hover:bg-brand-blue/20 text-brand-blue transition shadow-2xs">
+                            Todos
+                        </button>
                     </div>
                 </div>
+
+                <style>
+                    #price-range-slider::-webkit-slider-thumb {
+                        -webkit-appearance: none;
+                        appearance: none;
+                        width: 18px;
+                        height: 18px;
+                        border-radius: 50%;
+                        background: #FFFFFF;
+                        border: 2.5px solid #3849C8;
+                        cursor: pointer;
+                        box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+                        transition: transform 0.15s ease, box-shadow 0.15s ease;
+                    }
+                    #price-range-slider::-webkit-slider-thumb:hover {
+                        transform: scale(1.18);
+                        box-shadow: 0 2px 6px rgba(56, 73, 200, 0.4);
+                    }
+                    #price-range-slider::-moz-range-thumb {
+                        width: 18px;
+                        height: 18px;
+                        border-radius: 50%;
+                        background: #FFFFFF;
+                        border: 2.5px solid #3849C8;
+                        cursor: pointer;
+                        box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+                        transition: transform 0.15s ease, box-shadow 0.15s ease;
+                    }
+                    #price-range-slider::-moz-range-thumb:hover {
+                        transform: scale(1.18);
+                        box-shadow: 0 2px 6px rgba(56, 73, 200, 0.4);
+                    }
+                </style>
 
                 <!-- Aviso Fiscal -->
                 <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 text-[11px] text-slate-500 leading-relaxed">
@@ -251,10 +311,10 @@
 
                 <!-- Barra Superior de Búsqueda y Contador -->
                 <div class="bg-white p-4 sm:p-5 rounded-3xl border border-slate-200 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <div class="relative w-full sm:w-96">
+                    <div class="relative w-full sm:flex-1 sm:max-w-lg">
                         <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
                         <input id="search-input" type="text" onkeyup="filterProducts()"
-                            placeholder="Buscar por palabra clave (ej. contratos, caja, 360)..."
+                            placeholder="Buscar (ej. contratos, taza, 360)..."
                             class="w-full pl-10 pr-4 py-2.5 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-brand-blue focus:bg-white transition">
                     </div>
                     <span id="product-count" class="text-xs font-bold text-slate-500 whitespace-nowrap">
@@ -263,185 +323,1003 @@
                 </div>
 
                 <!-- Grilla de Productos -->
-                <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6 scroll-mt-28">
 
                     <!-- PRODUCTO 1: PLAN 360 DIGITAL -->
-                    <div class="product-card bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition group"
-                        data-delivery="digital" data-category="blindaje" data-price="19.99" data-keywords="plan 360 digital contratos plantillas word excel finanzas flujo de caja">
-                        <div>
-                            <div class="relative bg-slate-100 rounded-2xl overflow-hidden mb-4 aspect-[4/3] flex items-center justify-center">
-                                <img src="assets/plan-360-og.jpg" alt="Plan 360 Digital" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                                <span class="absolute top-3 left-3 bg-brand-blue text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full">
-                                    Digital Inmediato
+                    <div class="product-card bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition group h-full"
+                        data-delivery="digital" data-category="blindaje" data-price="19.99" data-keywords="plan 360 digital interactivo pdf rellenable ipad tablet pc contratos finanzas costos marketing bonos panama">
+                        <div class="flex-1 flex flex-col">
+                            <!-- Portada Showcase Full-Bleed con Badge Digital -->
+                            <div class="relative bg-slate-100 rounded-2xl overflow-hidden mb-4 aspect-[4/3] border border-slate-200/80">
+                                <img src="assets/portada-plan-360-digital.jpg" alt="Plan 360 Empresarial Edición Digital Multi-Dispositivo"
+                                    data-title="Plan 360 Digital" data-icon="laptop" data-badge="100% Interactivo"
+                                    onerror="handleProductImageError(this)"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <span class="absolute top-3 left-3 bg-brand-blue text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-md">
+                                    100% Interactivo
+                                </span>
+                                <span class="absolute top-3 right-3 bg-emerald-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-md">
+                                    Descarga Inmediata
                                 </span>
                             </div>
-                            <span class="text-[10px] font-black uppercase tracking-wider text-brand-blue">Estructuración Integral</span>
-                            <h3 class="text-base sm:text-lg font-black text-slate-900 mt-1 mb-2">Plan 360 Empresarial (Edición Digital)</h3>
-                            <p class="text-xs text-slate-600 mb-4 leading-relaxed">
-                                El paquete maestro con contratos laborales y comerciales en Word, plantillas automáticas de flujo de caja en Excel y manuales paso a paso para Panamá.
+
+                            <span class="text-[10px] font-black uppercase tracking-wider text-brand-blue block min-h-[1.25rem]">Estructuración Integral · Edición 2026</span>
+                            <h3 class="text-base sm:text-lg font-black text-slate-900 mt-1 mb-2 min-h-[3.25rem] flex items-center leading-snug">
+                                Plan 360 empresarial (edición digital)
+                            </h3>
+                            <p class="text-xs text-slate-600 mb-4 leading-relaxed min-h-[3.75rem] flex items-start">
+                                Cuaderno maestro en PDF interactivo rellenable de 35 páginas a color para tablet, iPad, laptop y PC. Domina las 6 áreas vitales de tu negocio desde cualquier país con descarga inmediata.
                             </p>
+
+                            <!-- Entregables Principales (3 Bullets Estandarizados) -->
+                            <div class="space-y-2 mb-4 bg-slate-50 p-3.5 rounded-2xl border border-slate-100 min-h-[8.5rem] flex flex-col justify-center">
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>PDF rellenable (35 págs.):</strong> Campos editables con guardado automático.</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Las 6 áreas clave:</strong> Legal, costos, marketing, finanzas, operaciones y blindaje.</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Acceso multiplataforma:</strong> Compatible con iPad, tablet, laptop y PC con guardado ilimitado.</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="pt-4 border-t border-slate-100">
-                            <div class="flex items-baseline justify-between mb-3">
-                                <div>
-                                    <span class="text-xs text-slate-400 line-through mr-1">$47.00</span>
+
+                        <!-- Bloque Inferior / Acciones (Altura Estandarizada) -->
+                        <div class="pt-4 border-t border-slate-100 space-y-2.5 mt-auto">
+                            <div class="flex items-baseline justify-between min-h-[2rem]">
+                                <div class="flex items-baseline gap-1.5">
+                                    <span class="text-xs text-slate-400 line-through mr-1">$39.99</span>
                                     <span class="text-2xl font-black text-slate-900">$19.99</span>
                                     <span class="text-[10px] font-bold text-slate-500">USD</span>
+                                    <span class="text-[10px] font-black text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md ml-1">50% DCTO</span>
                                 </div>
                                 <span class="text-xs font-bold text-emerald-600">Garantía 7 días</span>
                             </div>
-                            <a onclick="return false;" href="https://pay.hotmart.com/V88356406E?checkoutMode=2"
-                                class="hotmart-fb w-full inline-flex items-center justify-center gap-2 py-3 bg-brand-blue hover:bg-brand-blue-dark text-white rounded-xl text-xs sm:text-sm font-bold transition shadow">
-                                <i data-lucide="shopping-bag" class="w-4 h-4"></i>
-                                <span>Descargar por $19.99</span>
-                            </a>
+
+                            <div class="min-h-[5.5rem] flex flex-col justify-end space-y-2">
+                                <a href="https://pay.hotmart.com/V88356406E?checkoutMode=2"
+                                    target="_blank" rel="noopener"
+                                    class="hotmart-fb w-full inline-flex items-center justify-center gap-2 py-3 bg-brand-blue hover:bg-brand-blue-dark text-white rounded-xl text-xs sm:text-sm font-bold transition shadow hover:shadow-md">
+                                    <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                                    <span>Descargar por $19.99 USD</span>
+                                </a>
+
+                                <a href="/plan-360-digital"
+                                    class="w-full inline-flex items-center justify-center gap-1.5 py-1 text-xs font-bold text-brand-blue hover:text-brand-blue-dark hover:underline transition">
+                                    <span>Ver temario completo y detalles</span>
+                                    <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
 
                     <!-- PRODUCTO 2: PLAN 360 KIT FÍSICO -->
-                    <div class="product-card bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition group"
-                        data-delivery="physical" data-category="blindaje" data-price="47.00" data-keywords="plan 360 fisico kit caja carpetas usb manuales panama domicilio unoexpress">
-                        <div>
-                            <div class="relative bg-slate-900 text-white rounded-2xl overflow-hidden mb-4 aspect-[4/3] flex items-center justify-center p-6 text-center">
-                                <div>
-                                    <i data-lucide="package" class="w-12 h-12 mx-auto text-brand-orange mb-2"></i>
-                                    <span class="text-xs font-bold block">Kit Físico en Caja</span>
-                                    <span class="text-[10px] text-slate-400 block">Envío a todo Panamá</span>
-                                </div>
-                                <span class="absolute top-3 left-3 bg-brand-orange text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full">
-                                    Envío a Domicilio
+                    <div class="product-card bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition group h-full"
+                        data-delivery="physical" data-category="blindaje" data-price="39.99" data-keywords="plan 360 fisico kit libro anillado bolsa lapiz panama domicilio unoexpress servientrega pdf digital">
+                        <div class="flex-1 flex flex-col">
+                            <!-- Portada Showcase Full-Bleed con Badge Físico -->
+                            <div class="relative bg-slate-100 rounded-2xl overflow-hidden mb-4 aspect-[4/3] border border-slate-200/80">
+                                <img src="assets/portada-plan-360-fisico.jpg" alt="Kit Plan 360 Físico + Digital"
+                                    data-title="Plan 360 Kit Físico" data-icon="package" data-badge="Kit Físico Oficial"
+                                    onerror="handleProductImageError(this)"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <span class="absolute top-3 left-3 bg-brand-orange text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-md">
+                                    Kit Físico Oficial
+                                </span>
+                                <span class="absolute top-3 right-3 bg-slate-900/90 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-md">
+                                    Envíos en Panamá
                                 </span>
                             </div>
-                            <span class="text-[10px] font-black uppercase tracking-wider text-brand-orange">Kit Corporativo</span>
-                            <h3 class="text-base sm:text-lg font-black text-slate-900 mt-1 mb-2">Plan 360 Empresarial (Kit Físico)</h3>
-                            <p class="text-xs text-slate-600 mb-4 leading-relaxed">
-                                Caja ejecutiva con manuales impresos, carpetas organizadoras de blindaje y memoria USB con todo el software de plantillas listo para instalar.
+
+                            <span class="text-[10px] font-black uppercase tracking-wider text-brand-orange block min-h-[1.25rem]">Kit Corporativo Físico + Digital</span>
+                            <h3 class="text-base sm:text-lg font-black text-slate-900 mt-1 mb-2 min-h-[3.25rem] flex items-center leading-snug">
+                                Plan 360 empresarial (kit físico)
+                            </h3>
+                            <p class="text-xs text-slate-600 mb-4 leading-relaxed min-h-[3.75rem] flex items-start">
+                                Recibe en tu puerta el libro físico a color para planificar a mano, más acceso instantáneo a la versión digital interactiva para estructurar y blindar tu empresa en Panamá.
                             </p>
-                        </div>
-                        <div class="pt-4 border-t border-slate-100">
-                            <div class="flex items-baseline justify-between mb-3">
-                                <div>
-                                    <span class="text-xs text-slate-400 line-through mr-1">$97.00</span>
-                                    <span class="text-2xl font-black text-slate-900">$47.00</span>
-                                    <span class="text-[10px] font-bold text-slate-500">USD</span>
+
+                            <!-- Entregables Principales (3 Bullets Estandarizados) -->
+                            <div class="space-y-2 mb-4 bg-slate-50 p-3.5 rounded-2xl border border-slate-100 min-h-[8.5rem] flex flex-col justify-center">
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Libro físico Plan 360:</strong> 35 páginas a color, anillado de alta durabilidad.</span>
                                 </div>
-                                <span class="text-xs font-bold text-slate-500">Yappy / Efectivo</span>
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Kit ejecutivo:</strong> Bolsa ecológica oficial (360) + lápiz + tarjeta.</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Suite digital incluida:</strong> PDF rellenable interactivo para iPad, tablet o PC.</span>
+                                </div>
                             </div>
-                            <a href="/plan-360"
-                                class="w-full inline-flex items-center justify-center gap-2 py-3 bg-white border border-slate-300 hover:border-brand-orange text-slate-800 rounded-xl text-xs sm:text-sm font-bold transition shadow-sm">
-                                <i data-lucide="truck" class="w-4 h-4 text-brand-orange"></i>
-                                <span>Ver y Pedir Kit Físico</span>
-                            </a>
+                        </div>
+
+                        <!-- Bloque Inferior / Acciones (Altura Estandarizada) -->
+                        <div class="pt-4 border-t border-slate-100 space-y-2.5 mt-auto">
+                            <div class="flex items-baseline justify-between min-h-[2rem]">
+                                <div class="flex items-baseline gap-1.5">
+                                    <span class="text-xs text-slate-400 line-through mr-1">$79.99</span>
+                                    <span class="text-2xl font-black text-slate-900">$39.99</span>
+                                    <span class="text-[10px] font-bold text-slate-500">USD</span>
+                                    <span class="text-[11px] font-extrabold text-orange-700 bg-orange-100 px-2 py-0.5 rounded-md ml-1">50% DCTO</span>
+                                </div>
+                                <span class="text-xs font-bold text-slate-500">Yappy / Tarjeta</span>
+                            </div>
+
+                            <div class="min-h-[5.5rem] flex flex-col justify-end space-y-2">
+                                <a href="https://wa.me/50765461527?text=Hola%2C%20quiero%20ordenar%20el%20Plan%20360%20Empresarial%20(%2439.99%20USD)%20con%20env%C3%ADo%20en%20Panam%C3%A1."
+                                    target="_blank" rel="noopener"
+                                    class="w-full inline-flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-xl text-xs sm:text-sm font-bold transition shadow hover:shadow-md">
+                                    <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                                    <span>Pedir Kit Físico por $39.99 USD</span>
+                                </a>
+
+                                <a href="/plan-360"
+                                    class="w-full inline-flex items-center justify-center gap-1.5 py-1 text-xs font-bold text-brand-orange-dark hover:text-brand-orange hover:underline transition">
+                                    <span>Ver landing page y fotos del kit</span>
+                                    <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PRODUCTO: TAZA CORPORATIVA PLAN 360 -->
+                    <div class="product-card bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition group h-full"
+                        data-delivery="physical" data-category="merch" data-price="12.99" data-keywords="taza mug cafe ceramica plan 360 empresarial un plan para llegar mas lejos merchandising oficial regalo ejecutivo panama">
+                        <div class="flex-1 flex flex-col">
+                            <!-- Portada Showcase Full-Bleed con Badge -->
+                            <div class="relative bg-slate-100 rounded-2xl overflow-hidden mb-4 aspect-[4/3] border border-slate-200/80">
+                                <img src="assets/taza-plan-360.jpg" alt="Taza Corporativa Plan 360 Empresarial"
+                                    data-title="Taza Plan 360" data-icon="coffee" data-badge="Merch Oficial"
+                                    onerror="handleProductImageError(this)"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <span class="absolute top-3 left-3 bg-brand-orange text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-md">
+                                    Merch Oficial
+                                </span>
+                                <span class="absolute top-3 right-3 bg-slate-900/90 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-md">
+                                    Envíos en Panamá
+                                </span>
+                            </div>
+
+                            <span class="text-[10px] font-black uppercase tracking-wider text-brand-orange block min-h-[1.25rem]">Identidad Emprendedora · Edición 2026</span>
+                            <h3 class="text-base sm:text-lg font-black text-slate-900 mt-1 mb-2 min-h-[3.25rem] flex items-center leading-snug">
+                                Taza corporativa Plan 360 empresarial
+                            </h3>
+                            <p class="text-xs text-slate-600 mb-4 leading-relaxed min-h-[3.75rem] flex items-start">
+                                Taza de cerámica ejecutiva bicolor de 11 oz con interior y asa en naranja de marca y el lema oficial «Un plan para llegar más lejos». El complemento ideal para tus mañanas de enfoque.
+                            </p>
+
+                            <!-- Entregables Principales (3 Bullets Estandarizados) -->
+                            <div class="space-y-2 mb-4 bg-slate-50 p-3.5 rounded-2xl border border-slate-100 min-h-[8.5rem] flex flex-col justify-center">
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Cerámica bicolor (11 oz):</strong> Exterior blanco brillante con interior y asa en naranja corporativo (#FF8A1E).</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Estampado permanente:</strong> Logo oficial Plan 360 y frase motivacional en ambas caras de la taza.</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Empaque protector seguro:</strong> Caja individual acondicionada para entrega en Ciudad de Panamá e interior.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bloque Inferior / Acciones (Altura Estandarizada) -->
+                        <div class="pt-4 border-t border-slate-100 space-y-2.5 mt-auto">
+                            <div class="flex items-baseline justify-between min-h-[2rem]">
+                                <div class="flex items-baseline gap-1.5">
+                                    <span class="text-xs text-slate-400 line-through mr-1">$18.00</span>
+                                    <span class="text-2xl font-black text-slate-900">$12.99</span>
+                                    <span class="text-[10px] font-bold text-slate-500">USD</span>
+                                    <span class="text-[10px] font-black text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md ml-1">OFERTA</span>
+                                </div>
+                                <span class="text-xs font-bold text-slate-500">Yappy / Tarjeta</span>
+                            </div>
+
+                            <div class="min-h-[5.5rem] flex flex-col justify-end space-y-2">
+                                <a href="https://wa.me/50765461527?text=Hola,%20deseo%20pedir%20la%20Taza%20Corporativa%20del%20Plan%20360%20Empresarial%20($12.99%20USD)%20con%20env%C3%ADo%20en%20Panam%C3%A1"
+                                    target="_blank" rel="noopener"
+                                    class="w-full inline-flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-xl text-xs sm:text-sm font-bold transition shadow hover:shadow-md">
+                                    <i data-lucide="coffee" class="w-4 h-4"></i>
+                                    <span>Pedir Taza por $12.99 USD</span>
+                                </a>
+
+                                <a href="https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20la%20Taza%20del%20Plan%20360%20($12.99%20USD)"
+                                    target="_blank" rel="noopener"
+                                    class="w-full inline-flex items-center justify-center gap-1.5 py-1 text-xs font-bold text-slate-500 hover:text-brand-blue transition">
+                                    <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-500"></i>
+                                    <span>Consultar por WhatsApp</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PRODUCTO: HOODIE OFICIAL MÉTODO 4E -->
+                    <div class="product-card bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition group h-full"
+                        data-delivery="physical" data-category="merch" data-price="38.00" data-keywords="hoodie sueter sudadera metodo 4e curso arubel aizprua escuela ropa merchandising oficial algodon panama yappy">
+                        <div class="flex-1 flex flex-col">
+                            <!-- Portada Showcase Full-Bleed con Badge y Selector Dual -->
+                            <div class="relative bg-slate-100 rounded-2xl overflow-hidden mb-4 aspect-[4/3] border border-slate-200/80">
+                                <img id="hoodie-cover-img" src="assets/sueter-metodo-4e-azul.jpg" alt="Hoodie Suéter Oficial Método 4E Aizprua Edición Azul"
+                                    data-title="Hoodie Método 4E" data-icon="shirt" data-badge="Merch Oficial"
+                                    onerror="handleProductImageError(this)"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <span class="absolute top-3 left-3 bg-brand-orange text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-md z-10">
+                                    Merch Oficial
+                                </span>
+                                <span class="absolute top-3 right-3 bg-slate-900/90 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-md z-10">
+                                    Envíos en Panamá
+                                </span>
+
+                                <!-- Selector de Color Interactivo Dual (Azul Principal / Negro) -->
+                                <div class="absolute bottom-2.5 left-2.5 z-20 flex items-center gap-1.5 bg-slate-950/85 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20 shadow-lg">
+                                    <span class="text-[9px] font-bold text-white uppercase tracking-wider">Color:</span>
+                                    <button type="button" onclick="selectHoodieColor('azul', this)" title="Azul Corporativo (Principal)"
+                                        class="hoodie-color-btn active w-4 h-4 rounded-full bg-brand-blue ring-2 ring-white cursor-pointer transition hover:scale-110 active:scale-95 shadow-xs"></button>
+                                    <button type="button" onclick="selectHoodieColor('negro', this)" title="Negro Carbón (Black Edition)"
+                                        class="hoodie-color-btn w-4 h-4 rounded-full bg-slate-900 border border-slate-600 ring-1 ring-transparent hover:ring-white/50 cursor-pointer transition hover:scale-110 active:scale-95 shadow-xs"></button>
+                                    <span id="hoodie-color-label" class="text-[9px] font-black text-blue-200 ml-0.5">Azul</span>
+                                </div>
+                            </div>
+
+                            <span class="text-[10px] font-black uppercase tracking-wider text-brand-orange block min-h-[1.25rem]">Identidad Emprendedora · Edición 2026</span>
+                            <h3 class="text-base sm:text-lg font-black text-slate-900 mt-1 mb-2 min-h-[3.25rem] flex items-center leading-snug">
+                                Hoodie oficial Método 4E (Azul / Black Edition)
+                            </h3>
+                            <p class="text-xs text-slate-600 mb-4 leading-relaxed min-h-[3.75rem] flex items-start">
+                                Suéter con capucha premium en algodón perchado con bolsillo canguro y emblema Método 4E. Disponible en Azul Corporativo (principal) y Negro Carbón.
+                            </p>
+
+                            <!-- Entregables Principales (3 Bullets Estandarizados) -->
+                            <div class="space-y-2 mb-4 bg-slate-50 p-3.5 rounded-2xl border border-slate-100 min-h-[8.5rem] flex flex-col justify-center">
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Algodón perchado premium:</strong> Tejido térmico transpirable y suave al tacto con bolsillo canguro y cordón reforzado.</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>2 Colores exclusivos:</strong> Elige entre Azul Corporativo (principal) o Negro Carbón con emblema oficial de alta durabilidad.</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Tallas S a XL con envío:</strong> Confección unisex con entregas seguras en Ciudad de Panamá e interior vía encomienda.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bloque Inferior / Acciones (Altura Estandarizada) -->
+                        <div class="pt-4 border-t border-slate-100 space-y-2.5 mt-auto">
+                            <div class="flex items-baseline justify-between min-h-[2rem]">
+                                <div class="flex items-baseline gap-1.5">
+                                    <span class="text-xs text-slate-400 line-through mr-1">$48.00</span>
+                                    <span class="text-2xl font-black text-slate-900">$38.00</span>
+                                    <span class="text-[10px] font-bold text-slate-500">USD</span>
+                                    <span class="text-[10px] font-black text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md ml-1">OFERTA</span>
+                                </div>
+                                <span class="text-xs font-bold text-slate-500">Yappy / Tarjeta</span>
+                            </div>
+
+                            <div class="min-h-[5.5rem] flex flex-col justify-end space-y-2">
+                                <a id="hoodie-buy-btn" href="https://wa.me/50765461527?text=Hola,%20deseo%20pedir%20el%20Hoodie%20Oficial%20del%20M%C3%A9todo%204E%20en%20Color%20Azul%20($38.00%20USD)%20con%20env%C3%ADo%20en%20Panam%C3%A1"
+                                    target="_blank" rel="noopener"
+                                    class="w-full inline-flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-xl text-xs sm:text-sm font-bold transition shadow hover:shadow-md">
+                                    <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                                    <span id="hoodie-buy-text">Pedir Hoodie Azul por $38.00 USD</span>
+                                </a>
+
+                                <a href="https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20las%20tallas%20del%20Hoodie%20M%C3%A9todo%204E%20($38.00%20USD)"
+                                    target="_blank" rel="noopener"
+                                    class="w-full inline-flex items-center justify-center gap-1.5 py-1 text-xs font-bold text-slate-500 hover:text-brand-blue transition">
+                                    <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-500"></i>
+                                    <span>Consultar tallas por WhatsApp</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PRODUCTO: TAZA OFICIAL MÉTODO 4E -->
+                    <div class="product-card bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition group h-full"
+                        data-delivery="physical" data-category="merch" data-price="14.00" data-keywords="taza mug jarro cafe metodo 4e curso arubel aizprua escuela merchandising oficial ceramica panama yappy">
+                        <div class="flex-1 flex flex-col">
+                            <!-- Portada Showcase Full-Bleed con Badge y Selector Dual -->
+                            <div class="relative bg-slate-100 rounded-2xl overflow-hidden mb-4 aspect-[4/3] border border-slate-200/80">
+                                <img id="taza-metodo-4e-cover-img" src="assets/taza-metodo-4e-azul.jpg" alt="Taza Oficial Método 4E Aizprua Edición Azul y Negra"
+                                    data-title="Taza Método 4E" data-icon="coffee" data-badge="Merch Oficial"
+                                    onerror="handleProductImageError(this)"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <span class="absolute top-3 left-3 bg-brand-orange text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-md z-10">
+                                    Merch Oficial
+                                </span>
+                                <span class="absolute top-3 right-3 bg-slate-900/90 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-md z-10">
+                                    Envíos en Panamá
+                                </span>
+
+                                <!-- Selector de Color Interactivo Dual (Azul Principal / Negro) -->
+                                <div class="absolute bottom-2.5 left-2.5 z-20 flex items-center gap-1.5 bg-slate-950/85 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20 shadow-lg">
+                                    <span class="text-[9px] font-bold text-white uppercase tracking-wider">Color:</span>
+                                    <button type="button" onclick="selectProductColor('taza-metodo-4e', 'azul', this)" title="Azul Corporativo (Principal)"
+                                        class="color-choice-btn hoodie-color-btn active w-4 h-4 rounded-full bg-brand-blue ring-2 ring-white cursor-pointer transition hover:scale-110 active:scale-95 shadow-xs"></button>
+                                    <button type="button" onclick="selectProductColor('taza-metodo-4e', 'negro', this)" title="Negro Carbón (Black Edition)"
+                                        class="color-choice-btn hoodie-color-btn w-4 h-4 rounded-full bg-slate-900 border border-slate-600 ring-1 ring-transparent hover:ring-white/50 cursor-pointer transition hover:scale-110 active:scale-95 shadow-xs"></button>
+                                    <span id="taza-metodo-4e-color-label" class="text-[9px] font-black text-blue-200 ml-0.5">Azul</span>
+                                </div>
+                            </div>
+
+                            <span class="text-[10px] font-black uppercase tracking-wider text-brand-orange block min-h-[1.25rem]">Identidad Emprendedora · Edición 2026</span>
+                            <h3 class="text-base sm:text-lg font-black text-slate-900 mt-1 mb-2 min-h-[3.25rem] flex items-center leading-snug">
+                                Taza oficial Método 4E (Azul / Black Edition)
+                            </h3>
+                            <p class="text-xs text-slate-600 mb-4 leading-relaxed min-h-[3.75rem] flex items-start">
+                                Taza de cerámica premium de 11 oz con diseño oficial del Método 4E. Apta para microondas y lavavajillas. Disponible en Azul Corporativo y Negro Carbón.
+                            </p>
+
+                            <!-- Entregables Principales (3 Bullets Estandarizados) -->
+                            <div class="space-y-2 mb-4 bg-slate-50 p-3.5 rounded-2xl border border-slate-100 min-h-[8.5rem] flex flex-col justify-center">
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Cerámica resistente 11 oz:</strong> Acabado brillante de alta durabilidad, apta para microondas y lavavajillas con agarre ergonómico.</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>2 Colores de colección:</strong> Elige entre Azul Corporativo (principal) o Negro Carbón con escudo oficial 4E en relieve.</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Empaque seguro para envíos:</strong> Caja protectora de impacto con entregas en Ciudad de Panamá e interior vía encomienda.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bloque Inferior / Acciones (Altura Estandarizada) -->
+                        <div class="pt-4 border-t border-slate-100 space-y-2.5 mt-auto">
+                            <div class="flex items-baseline justify-between min-h-[2rem]">
+                                <div class="flex items-baseline gap-1.5">
+                                    <span class="text-xs text-slate-400 line-through mr-1">$18.00</span>
+                                    <span class="text-2xl font-black text-slate-900">$14.00</span>
+                                    <span class="text-[10px] font-bold text-slate-500">USD</span>
+                                    <span class="text-[10px] font-black text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md ml-1">OFERTA</span>
+                                </div>
+                                <span class="text-xs font-bold text-slate-500">Yappy / Tarjeta</span>
+                            </div>
+
+                            <div class="min-h-[5.5rem] flex flex-col justify-end space-y-2">
+                                <a id="taza-metodo-4e-buy-btn" href="https://wa.me/50765461527?text=Hola,%20deseo%20pedir%20la%20Taza%20Oficial%20del%20M%C3%A9todo%204E%20en%20Color%20Azul%20($14.00%20USD)%20con%20env%C3%ADo%20en%20Panam%C3%A1"
+                                    target="_blank" rel="noopener"
+                                    class="w-full inline-flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-xl text-xs sm:text-sm font-bold transition shadow hover:shadow-md">
+                                    <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                                    <span id="taza-metodo-4e-buy-text">Pedir Taza Azul por $14.00 USD</span>
+                                </a>
+
+                                <a href="https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20la%20Taza%20M%C3%A9todo%204E%20($14.00%20USD)"
+                                    target="_blank" rel="noopener"
+                                    class="w-full inline-flex items-center justify-center gap-1.5 py-1 text-xs font-bold text-slate-500 hover:text-brand-blue transition">
+                                    <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-500"></i>
+                                    <span>Consultar envíos por WhatsApp</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
 
                     <!-- PRODUCTO 3: KIT RESOLUCIÓN DE PROBLEMAS -->
-                    <div class="product-card bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition group"
-                        data-delivery="digital" data-category="blindaje" data-price="29.99" data-keywords="kit resolucion problemas contingencia socios morosos multas inspecciones dgi">
-                        <div>
-                            <div class="relative bg-slate-800 text-white rounded-2xl overflow-hidden mb-4 aspect-[4/3] flex items-center justify-center p-6 text-center">
-                                <div>
-                                    <i data-lucide="alert-octagon" class="w-12 h-12 mx-auto text-amber-400 mb-2"></i>
-                                    <span class="text-xs font-bold block">Protocolos de Crisis</span>
-                                    <span class="text-[10px] text-slate-400 block">Descarga Digital</span>
-                                </div>
-                                <span class="absolute top-3 left-3 bg-amber-500 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full">
-                                    Contingencias
+                    <div class="product-card bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition group h-full"
+                        data-delivery="digital" data-category="blindaje" data-price="16.99" data-keywords="kit resolucion problemas contingencia socios morosos multas inspecciones dgi 50 soluciones">
+                        <div class="flex-1 flex flex-col">
+                            <!-- Portada Showcase Full-Bleed con Badge Digital -->
+                            <div class="relative bg-slate-100 rounded-2xl overflow-hidden mb-4 aspect-[4/3] border border-slate-200/80">
+                                <img src="assets/portada-kit-problemas-digital.jpg" alt="Kit de Resolución de Problemas Empresariales Multi-Dispositivo"
+                                    data-title="Kit de Resolución" data-icon="laptop" data-badge="Multi-Dispositivo"
+                                    onerror="handleProductImageError(this)"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <span class="absolute top-3 left-3 bg-amber-500 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-md">
+                                    Protocolos de Crisis
+                                </span>
+                                <span class="absolute top-3 right-3 bg-slate-900/90 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-md">
+                                    Descarga Digital
                                 </span>
                             </div>
-                            <span class="text-[10px] font-black uppercase tracking-wider text-amber-600">Protocolos de Acción</span>
-                            <h3 class="text-base sm:text-lg font-black text-slate-900 mt-1 mb-2">Kit de Resolución de Problemas</h3>
-                            <p class="text-xs text-slate-600 mb-4 leading-relaxed">
-                                Cartas notariales, acuerdos de salida de socios, contratos de cobro prejudicial para clientes morosos y respuestas ante citaciones.
+
+                            <span class="text-[10px] font-black uppercase tracking-wider text-amber-600 block min-h-[1.25rem]">Protocolos de Acción Rápida</span>
+                            <h3 class="text-base sm:text-lg font-black text-slate-900 mt-1 mb-2 min-h-[3.25rem] flex items-center leading-snug">
+                                Kit de resolución de problemas
+                            </h3>
+                            <p class="text-xs text-slate-600 mb-4 leading-relaxed min-h-[3.75rem] flex items-start">
+                                Tu botiquín de primeros auxilios empresariales: más de 50 soluciones paso a paso ante contingencias de negocio + 1 plantilla rellenable para diagnosticar y solucionar problemas paso a paso.
                             </p>
-                        </div>
-                        <div class="pt-4 border-t border-slate-100">
-                            <div class="flex items-baseline justify-between mb-3">
-                                <div>
-                                    <span class="text-2xl font-black text-slate-900">$29.99</span>
-                                    <span class="text-[10px] font-bold text-slate-500">USD</span>
+
+                            <!-- Entregables Principales (3 Bullets Estandarizados) -->
+                            <div class="space-y-2 mb-4 bg-slate-50 p-3.5 rounded-2xl border border-slate-100 min-h-[8.5rem] flex flex-col justify-center">
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>+50 casos críticos:</strong> Finanzas, socios, ventas y gestión de personal.</span>
                                 </div>
-                                <span class="text-xs font-bold text-emerald-600">Hotmart Secure</span>
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>1 plantilla rellenable:</strong> Formato interactivo guiado para resolver problemas.</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Protocolos de acción:</strong> Respuestas inmediatas ante contingencias y cobros.</span>
+                                </div>
                             </div>
-                            <a href="https://wa.me/50765461527?text=Hola,%20me%20interesa%20adquirir%20el%20Kit%20de%20Resoluci%C3%B3n%20de%20Problemas"
-                                target="_blank" rel="noopener"
-                                class="w-full inline-flex items-center justify-center gap-2 py-3 bg-slate-900 hover:bg-brand-blue text-white rounded-xl text-xs sm:text-sm font-bold transition shadow">
-                                <i data-lucide="shield" class="w-4 h-4"></i>
-                                <span>Solicitar por WhatsApp</span>
-                            </a>
+                        </div>
+
+                        <!-- Bloque Inferior / Acciones (Altura Estandarizada) -->
+                        <div class="pt-4 border-t border-slate-100 space-y-2.5 mt-auto">
+                            <div class="flex items-baseline justify-between min-h-[2rem]">
+                                <div class="flex items-baseline gap-1.5">
+                                    <span class="text-xs text-slate-400 line-through mr-1">$47.00</span>
+                                    <span class="text-2xl font-black text-slate-900">$16.99</span>
+                                    <span class="text-[10px] font-bold text-slate-500">USD</span>
+                                    <span class="text-[10px] font-black text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md ml-1">65% DCTO</span>
+                                </div>
+                                <span class="text-xs font-bold text-emerald-600">Garantía 7 días</span>
+                            </div>
+
+                            <div class="min-h-[5.5rem] flex flex-col justify-end space-y-2">
+                                <a href="https://pay.hotmart.com/Q88322358Q?checkoutMode=2"
+                                    target="_blank" rel="noopener"
+                                    class="hotmart-fb w-full inline-flex items-center justify-center gap-2 py-3 bg-brand-blue hover:bg-brand-blue-dark text-white rounded-xl text-xs sm:text-sm font-bold transition shadow hover:shadow-md">
+                                    <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                                    <span>Descargar por $16.99 USD</span>
+                                </a>
+
+                                <a href="https://wa.me/50765461527?text=Hola%2C%20tengo%20una%20consulta%20sobre%20el%20Kit%20de%20Resoluci%C3%B3n%20de%20Problemas%20(%2416.99%20USD)"
+                                    target="_blank" rel="noopener"
+                                    class="w-full inline-flex items-center justify-center gap-1.5 py-1 text-xs font-bold text-slate-500 hover:text-brand-blue transition">
+                                    <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-500"></i>
+                                    <span>Consultar por WhatsApp</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- PRODUCTO 4: TEST DE AUDITORÍA GRATUITO -->
-                    <div class="product-card bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition group"
+                    <!-- PRODUCTO 4: PACK LABORAL (CONTRATO + DESPIDO + MUTUO ACUERDO) -->
+                    <div class="product-card bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition group h-full"
+                        data-delivery="digital" data-category="blindaje" data-price="39.99" data-keywords="pack laboral contratacion desvinculacion contrato individual de trabajo carta despido mutuo acuerdo articulo 213 articulo 210 mitradel panama word docx">
+                        <div class="flex-1 flex flex-col">
+                            <!-- Portada Showcase con Badge -->
+                            <div class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-brand-blue-dark rounded-2xl overflow-hidden mb-4 aspect-[4/3] flex items-center justify-center p-4 border border-slate-700/60 shadow-inner">
+                                <div class="text-center p-3">
+                                    <div class="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-brand-orange mx-auto flex items-center justify-center mb-2 shadow-lg">
+                                        <i data-lucide="users" class="w-8 h-8"></i>
+                                    </div>
+                                    <span class="text-xs font-bold text-white block leading-tight">Pack Laboral Completo</span>
+                                    <span class="text-[10px] text-brand-orange-light font-bold block mt-0.5">Contratación & Desvinculación</span>
+                                </div>
+                                <span class="absolute top-3 left-3 bg-brand-orange text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+                                    Pack 3 en 1
+                                </span>
+                                <span class="absolute top-3 right-3 bg-emerald-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+                                    Descarga Inmediata
+                                </span>
+                            </div>
+
+                            <span class="text-[10px] font-black uppercase tracking-wider text-brand-orange block min-h-[1.25rem]">Blindaje Laboral & Contratos</span>
+                            <h3 class="text-base sm:text-lg font-black text-slate-900 mt-1 mb-2 min-h-[3.25rem] flex items-center leading-snug">
+                                Pack laboral de contratación & desvinculación
+                            </h3>
+                            <p class="text-xs text-slate-600 mb-4 leading-relaxed min-h-[3.75rem] flex items-start">
+                                Las 3 plantillas jurídicas clave en Word para contratar personal en regla con el MITRADEL y formalizar salidas sin riesgos de demandas ni salarios caídos.
+                            </p>
+
+                            <!-- Entregables Principales (3 Bullets Estandarizados) -->
+                            <div class="space-y-2 mb-4 bg-slate-50 p-3.5 rounded-2xl border border-slate-100 min-h-[8.5rem] flex flex-col justify-center">
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Contrato individual de trabajo (Word):</strong> Modelo oficial con período probatorio de 3 meses según MITRADEL.</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Modelo de carta de despido (Word):</strong> Notificación formal con causales legales bajo el Art. 213 del Código.</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Mutuo acuerdo de terminación (Word):</strong> Rescisión pacífica bajo el Art. 210 para evitar juzgados y conflictos.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bloque Inferior / Acciones (Altura Estandarizada) -->
+                        <div class="pt-4 border-t border-slate-100 space-y-2.5 mt-auto">
+                            <div class="flex items-baseline justify-between min-h-[2rem]">
+                                <div class="flex items-baseline gap-1.5">
+                                    <span class="text-xs text-slate-400 line-through mr-1">$79.99</span>
+                                    <span class="text-2xl font-black text-slate-900">$39.99</span>
+                                    <span class="text-[10px] font-bold text-slate-500">USD</span>
+                                    <span class="text-[10px] font-black text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md ml-1">50% DCTO</span>
+                                </div>
+                                <span class="text-xs font-bold text-emerald-600">Garantía Aizprua</span>
+                            </div>
+
+                            <div class="min-h-[5.5rem] flex flex-col justify-end space-y-2">
+                                <a href="https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20el%20Pack%20Laboral%20(Contrato%20Individual%20+%20Despido%20+%20Mutuo%20Acuerdo)%20por%20$39.99%20USD"
+                                    target="_blank" rel="noopener"
+                                    class="w-full inline-flex items-center justify-center gap-2 py-3 bg-brand-blue hover:bg-brand-blue-dark text-white rounded-xl text-xs sm:text-sm font-bold transition shadow hover:shadow-md">
+                                    <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                                    <span>Comprar Pack por $39.99 USD</span>
+                                </a>
+
+                                <a href="https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20el%20Pack%20Laboral%20($39.99%20USD)"
+                                    target="_blank" rel="noopener"
+                                    class="w-full inline-flex items-center justify-center gap-1.5 py-1 text-xs font-bold text-slate-500 hover:text-brand-blue transition">
+                                    <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-500"></i>
+                                    <span>Consultar por WhatsApp</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PRODUCTO 5: ACUERDO DE CONFIDENCIALIDAD (NDA) -->
+                    <div class="product-card bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition group h-full"
+                        data-delivery="digital" data-category="blindaje" data-price="19.99" data-keywords="acuerdo de confidencialidad no divulgacion nda secretos comerciales proteccion clientes base de datos panama word docx">
+                        <div class="flex-1 flex flex-col">
+                            <!-- Portada Showcase con Badge -->
+                            <div class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-brand-blue-dark rounded-2xl overflow-hidden mb-4 aspect-[4/3] flex items-center justify-center p-4 border border-slate-700/60 shadow-inner">
+                                <div class="text-center p-3">
+                                    <div class="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-brand-orange mx-auto flex items-center justify-center mb-2 shadow-lg">
+                                        <i data-lucide="shield-check" class="w-8 h-8"></i>
+                                    </div>
+                                    <span class="text-xs font-bold text-white block leading-tight">Acuerdo de Confidencialidad</span>
+                                    <span class="text-[10px] text-brand-orange-light font-bold block mt-0.5">Contrato NDA Blindado</span>
+                                </div>
+                                <span class="absolute top-3 left-3 bg-brand-blue text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+                                    Documento Blindado
+                                </span>
+                                <span class="absolute top-3 right-3 bg-emerald-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+                                    Descarga Inmediata
+                                </span>
+                            </div>
+
+                            <span class="text-[10px] font-black uppercase tracking-wider text-brand-blue block min-h-[1.25rem]">Blindaje Legal & Confidencialidad</span>
+                            <h3 class="text-base sm:text-lg font-black text-slate-900 mt-1 mb-2 min-h-[3.25rem] flex items-center leading-snug">
+                                Acuerdo de confidencialidad y no divulgación (NDA)
+                            </h3>
+                            <p class="text-xs text-slate-600 mb-4 leading-relaxed min-h-[3.75rem] flex items-start">
+                                Plantilla jurídica en Word lista para firmar con colaboradores, contratistas, socios o proveedores y proteger la información confidencial y clientes de tu empresa.
+                            </p>
+
+                            <!-- Entregables Principales (3 Bullets Estandarizados) -->
+                            <div class="space-y-2 mb-4 bg-slate-50 p-3.5 rounded-2xl border border-slate-100 min-h-[8.5rem] flex flex-col justify-center">
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Contrato NDA en Word (.docx):</strong> Formato profesional aplicable a empleados, socios, proveedores y clientes.</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Protección de secretos y clientes:</strong> Cláusulas expresas contra el desvío de clientela y fuga de información.</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Cláusula penal e indemnización:</strong> Sanciones y vías legales ejecutables ante tribunales en Panamá.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bloque Inferior / Acciones (Altura Estandarizada) -->
+                        <div class="pt-4 border-t border-slate-100 space-y-2.5 mt-auto">
+                            <div class="flex items-baseline justify-between min-h-[2rem]">
+                                <div class="flex items-baseline gap-1.5">
+                                    <span class="text-xs text-slate-400 line-through mr-1">$39.99</span>
+                                    <span class="text-2xl font-black text-slate-900">$19.99</span>
+                                    <span class="text-[10px] font-bold text-slate-500">USD</span>
+                                    <span class="text-[10px] font-black text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md ml-1">50% DCTO</span>
+                                </div>
+                                <span class="text-xs font-bold text-emerald-600">Garantía Aizprua</span>
+                            </div>
+
+                            <div class="min-h-[5.5rem] flex flex-col justify-end space-y-2">
+                                <a href="https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20el%20Acuerdo%20de%20Confidencialidad%20(NDA)%20por%20$19.99%20USD"
+                                    target="_blank" rel="noopener"
+                                    class="w-full inline-flex items-center justify-center gap-2 py-3 bg-brand-blue hover:bg-brand-blue-dark text-white rounded-xl text-xs sm:text-sm font-bold transition shadow hover:shadow-md">
+                                    <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                                    <span>Comprar NDA por $19.99 USD</span>
+                                </a>
+
+                                <a href="https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20el%20Acuerdo%20de%20Confidencialidad%20(NDA)%20($19.99%20USD)"
+                                    target="_blank" rel="noopener"
+                                    class="w-full inline-flex items-center justify-center gap-1.5 py-1 text-xs font-bold text-slate-500 hover:text-brand-blue transition">
+                                    <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-500"></i>
+                                    <span>Consultar por WhatsApp</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PRODUCTO 6: PACK DÚO FINANZAS 360 (FINPULSE + FINCORE) -->
+                    <div class="product-card bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition group h-full"
+                        data-delivery="digital" data-category="finanzas" data-price="49.99" data-keywords="pack duo finanzas 360 finpulse fincore plantilla excel finanzas personales finanzas del negocio flujo de caja proyeccion dashboard panama">
+                        <div class="flex-1 flex flex-col">
+                            <!-- Portada Showcase con Badge -->
+                            <div class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-brand-blue-dark rounded-2xl overflow-hidden mb-4 aspect-[4/3] flex items-center justify-center p-4 border border-slate-700/60 shadow-inner">
+                                <div class="text-center p-3">
+                                    <div class="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-brand-orange mx-auto flex items-center justify-center mb-2 shadow-lg">
+                                        <i data-lucide="layers" class="w-8 h-8"></i>
+                                    </div>
+                                    <span class="text-xs font-bold text-white block leading-tight">Pack Dúo Finanzas 360</span>
+                                    <span class="text-[10px] text-brand-orange-light font-bold block mt-0.5">FinPulse + FinCore Suite</span>
+                                </div>
+                                <span class="absolute top-3 left-3 bg-brand-orange text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+                                    Pack 2 en 1
+                                </span>
+                                <span class="absolute top-3 right-3 bg-emerald-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+                                    Mejor Valor
+                                </span>
+                            </div>
+
+                            <span class="text-[10px] font-black uppercase tracking-wider text-brand-blue block min-h-[1.25rem]">Finanzas & Flujo de Caja · Suite 360</span>
+                            <h3 class="text-base sm:text-lg font-black text-slate-900 mt-1 mb-2 min-h-[3.25rem] flex items-center leading-snug">
+                                Pack dúo finanzas 360 (FinPulse + FinCore)
+                            </h3>
+                            <p class="text-xs text-slate-600 mb-4 leading-relaxed min-h-[3.75rem] flex items-start">
+                                La suite financiera definitiva para separar la plata personal de la del negocio, blindar tus flujos de caja y proyectar tu crecimiento con total claridad.
+                            </p>
+
+                            <!-- Entregables Principales (3 Bullets Estandarizados) -->
+                            <div class="space-y-2 mb-4 bg-slate-50 p-3.5 rounded-2xl border border-slate-100 min-h-[8.5rem] flex flex-col justify-center">
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>FinPulse + FinCore (.xlsx):</strong> Ambas herramientas completas con fórmulas avanzadas y listas para usar.</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Doble dashboard de proyecciones:</strong> Visualización ejecutiva de tus finanzas personales y empresariales en tiempo real.</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Tutoriales en video incluidos:</strong> Guías prácticas paso a paso para dominar ambas plataformas sin rodeos.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bloque Inferior / Acciones (Altura Estandarizada) -->
+                        <div class="pt-4 border-t border-slate-100 space-y-2.5 mt-auto">
+                            <div class="flex items-baseline justify-between min-h-[2rem]">
+                                <div class="flex items-baseline gap-1.5">
+                                    <span class="text-xs text-slate-400 line-through mr-1">$99.99</span>
+                                    <span class="text-2xl font-black text-slate-900">$49.99</span>
+                                    <span class="text-[10px] font-bold text-slate-500">USD</span>
+                                    <span class="text-[10px] font-black text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md ml-1">50% DCTO</span>
+                                </div>
+                                <span class="text-xs font-bold text-emerald-600">Ahorra $10 USD</span>
+                            </div>
+
+                            <div class="min-h-[5.5rem] flex flex-col justify-end space-y-2">
+                                <a href="https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20el%20Pack%20D%C3%BAo%20Finanzas%20360%20(FinPulse%20+%20FinCore)%20por%20$49.99%20USD"
+                                    target="_blank" rel="noopener"
+                                    class="w-full inline-flex items-center justify-center gap-2 py-3 bg-brand-blue hover:bg-brand-blue-dark text-white rounded-xl text-xs sm:text-sm font-bold transition shadow hover:shadow-md">
+                                    <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                                    <span>Comprar Pack Dúo por $49.99 USD</span>
+                                </a>
+
+                                <a href="https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20el%20Pack%20D%C3%BAo%20Finanzas%20360%20($49.99%20USD)"
+                                    target="_blank" rel="noopener"
+                                    class="w-full inline-flex items-center justify-center gap-1.5 py-1 text-xs font-bold text-slate-500 hover:text-brand-blue transition">
+                                    <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-500"></i>
+                                    <span>Consultar por WhatsApp</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PRODUCTO 7: FINCORE · FINANZAS DEL NEGOCIO -->
+                    <div class="product-card bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition group h-full"
+                        data-delivery="digital" data-category="finanzas" data-price="34.99" data-keywords="fincore finanzas del negocio flujo de caja punto de equilibrio margen ganancia rentabilidad plantilla excel dashboard empresarial panama">
+                        <div class="flex-1 flex flex-col">
+                            <!-- Portada Showcase con Badge -->
+                            <div class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-brand-blue-dark rounded-2xl overflow-hidden mb-4 aspect-[4/3] flex items-center justify-center p-4 border border-slate-700/60 shadow-inner">
+                                <div class="text-center p-3">
+                                    <div class="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-brand-orange mx-auto flex items-center justify-center mb-2 shadow-lg">
+                                        <i data-lucide="bar-chart-3" class="w-8 h-8"></i>
+                                    </div>
+                                    <span class="text-xs font-bold text-white block leading-tight">FinCore Business</span>
+                                    <span class="text-[10px] text-brand-orange-light font-bold block mt-0.5">Control Financiero Empresarial</span>
+                                </div>
+                                <span class="absolute top-3 left-3 bg-brand-blue text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+                                    Herramienta Pro
+                                </span>
+                                <span class="absolute top-3 right-3 bg-emerald-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+                                    Descarga Inmediata
+                                </span>
+                            </div>
+
+                            <span class="text-[10px] font-black uppercase tracking-wider text-brand-blue block min-h-[1.25rem]">Finanzas Empresariales · Flujo de Caja</span>
+                            <h3 class="text-base sm:text-lg font-black text-slate-900 mt-1 mb-2 min-h-[3.25rem] flex items-center leading-snug">
+                                FinCore · Sistema de finanzas del negocio
+                            </h3>
+                            <p class="text-xs text-slate-600 mb-4 leading-relaxed min-h-[3.75rem] flex items-start">
+                                Control financiero empresarial completo: flujo de caja proyectado, cuentas por cobrar/pagar, punto de equilibrio y cálculo de margen de ganancia real.
+                            </p>
+
+                            <!-- Entregables Principales (3 Bullets Estandarizados) -->
+                            <div class="space-y-2 mb-4 bg-slate-50 p-3.5 rounded-2xl border border-slate-100 min-h-[8.5rem] flex flex-col justify-center">
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Plantilla financiera empresarial (.xlsx):</strong> Flujo de caja diario, semanal y mensual con control de ingresos y egresos.</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Dashboard ejecutivo de proyección:</strong> Métricas de rentabilidad, alertas de liquidez y punto de equilibrio en tiempo real.</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Video tutorial de implementación:</strong> Guía práctica para proyectar tus números y tomar decisiones certeras.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bloque Inferior / Acciones (Altura Estandarizada) -->
+                        <div class="pt-4 border-t border-slate-100 space-y-2.5 mt-auto">
+                            <div class="flex items-baseline justify-between min-h-[2rem]">
+                                <div class="flex items-baseline gap-1.5">
+                                    <span class="text-xs text-slate-400 line-through mr-1">$69.99</span>
+                                    <span class="text-2xl font-black text-slate-900">$34.99</span>
+                                    <span class="text-[10px] font-bold text-slate-500">USD</span>
+                                    <span class="text-[10px] font-black text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md ml-1">50% DCTO</span>
+                                </div>
+                                <span class="text-xs font-bold text-emerald-600">Garantía Aizprua</span>
+                            </div>
+
+                            <div class="min-h-[5.5rem] flex flex-col justify-end space-y-2">
+                                <a href="https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20FinCore%20(Finanzas%20del%20Negocio)%20por%20$34.99%20USD"
+                                    target="_blank" rel="noopener"
+                                    class="w-full inline-flex items-center justify-center gap-2 py-3 bg-brand-blue hover:bg-brand-blue-dark text-white rounded-xl text-xs sm:text-sm font-bold transition shadow hover:shadow-md">
+                                    <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                                    <span>Comprar FinCore por $34.99 USD</span>
+                                </a>
+
+                                <a href="https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20FinCore%20($34.99%20USD)"
+                                    target="_blank" rel="noopener"
+                                    class="w-full inline-flex items-center justify-center gap-1.5 py-1 text-xs font-bold text-slate-500 hover:text-brand-blue transition">
+                                    <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-500"></i>
+                                    <span>Consultar por WhatsApp</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PRODUCTO 8: FINPULSE · FINANZAS PERSONALES -->
+                    <div class="product-card bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition group h-full"
+                        data-delivery="digital" data-category="finanzas" data-price="24.99" data-keywords="finpulse finanzas personales ingresos gastos presupuesto ahorro patrimonio personal plantilla excel dashboard panama">
+                        <div class="flex-1 flex flex-col">
+                            <!-- Portada Showcase con Badge -->
+                            <div class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-brand-blue-dark rounded-2xl overflow-hidden mb-4 aspect-[4/3] flex items-center justify-center p-4 border border-slate-700/60 shadow-inner">
+                                <div class="text-center p-3">
+                                    <div class="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-brand-orange mx-auto flex items-center justify-center mb-2 shadow-lg">
+                                        <i data-lucide="wallet" class="w-8 h-8"></i>
+                                    </div>
+                                    <span class="text-xs font-bold text-white block leading-tight">FinPulse Personal</span>
+                                    <span class="text-[10px] text-brand-orange-light font-bold block mt-0.5">Control Financiero Individual</span>
+                                </div>
+                                <span class="absolute top-3 left-3 bg-brand-orange text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+                                    Dashboard Visual
+                                </span>
+                                <span class="absolute top-3 right-3 bg-emerald-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+                                    Descarga Inmediata
+                                </span>
+                            </div>
+
+                            <span class="text-[10px] font-black uppercase tracking-wider text-brand-orange block min-h-[1.25rem]">Finanzas Personales & Patrimonio</span>
+                            <h3 class="text-base sm:text-lg font-black text-slate-900 mt-1 mb-2 min-h-[3.25rem] flex items-center leading-snug">
+                                FinPulse · Sistema de finanzas personales
+                            </h3>
+                            <p class="text-xs text-slate-600 mb-4 leading-relaxed min-h-[3.75rem] flex items-start">
+                                Mucho más que un Excel: una herramienta integral para controlar tus ingresos, categorizar gastos, planificar metas de ahorro y monitorear tu patrimonio personal.
+                            </p>
+
+                            <!-- Entregables Principales (3 Bullets Estandarizados) -->
+                            <div class="space-y-2 mb-4 bg-slate-50 p-3.5 rounded-2xl border border-slate-100 min-h-[8.5rem] flex flex-col justify-center">
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Plantilla inteligente automatizada (.xlsx):</strong> Registro de ingresos, gastos fijos y variables con cálculo automático.</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Dashboard interactivo de proyección:</strong> Gráficos visuales en tiempo real de liquidez, nivel de deuda y ahorro.</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Video tutorial paso a paso:</strong> Guía de uso para dominar la herramienta sin saber de contabilidad avanzada.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bloque Inferior / Acciones (Altura Estandarizada) -->
+                        <div class="pt-4 border-t border-slate-100 space-y-2.5 mt-auto">
+                            <div class="flex items-baseline justify-between min-h-[2rem]">
+                                <div class="flex items-baseline gap-1.5">
+                                    <span class="text-xs text-slate-400 line-through mr-1">$49.99</span>
+                                    <span class="text-2xl font-black text-slate-900">$24.99</span>
+                                    <span class="text-[10px] font-bold text-slate-500">USD</span>
+                                    <span class="text-[10px] font-black text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md ml-1">50% DCTO</span>
+                                </div>
+                                <span class="text-xs font-bold text-emerald-600">Garantía Aizprua</span>
+                            </div>
+
+                            <div class="min-h-[5.5rem] flex flex-col justify-end space-y-2">
+                                <a href="https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20FinPulse%20(Finanzas%20Personales)%20por%20$24.99%20USD"
+                                    target="_blank" rel="noopener"
+                                    class="w-full inline-flex items-center justify-center gap-2 py-3 bg-brand-blue hover:bg-brand-blue-dark text-white rounded-xl text-xs sm:text-sm font-bold transition shadow hover:shadow-md">
+                                    <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                                    <span>Comprar FinPulse por $24.99 USD</span>
+                                </a>
+
+                                <a href="https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20FinPulse%20($24.99%20USD)"
+                                    target="_blank" rel="noopener"
+                                    class="w-full inline-flex items-center justify-center gap-1.5 py-1 text-xs font-bold text-slate-500 hover:text-brand-blue transition">
+                                    <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-500"></i>
+                                    <span>Consultar por WhatsApp</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PRODUCTO 9: TEST DE AUDITORÍA GRATUITO -->
+                    <div class="product-card bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition group h-full"
                         data-delivery="free" data-category="auditoria" data-price="0.00" data-keywords="test auditoria express 15 puntos semaforo autodiagnostico gratis pdf">
-                        <div>
-                            <div class="relative bg-emerald-50 rounded-2xl overflow-hidden mb-4 aspect-[4/3] flex items-center justify-center p-6 text-center border border-emerald-100">
-                                <div>
-                                    <i data-lucide="clipboard-check" class="w-12 h-12 mx-auto text-emerald-600 mb-2"></i>
-                                    <span class="text-xs font-bold text-slate-800 block">Autodiagnóstico 15 Puntos</span>
+                        <div class="flex-1 flex flex-col">
+                            <!-- Portada Showcase con Badge -->
+                            <div class="relative bg-gradient-to-br from-emerald-50 via-slate-50 to-teal-50/70 rounded-2xl overflow-hidden mb-4 aspect-[4/3] flex items-center justify-center p-3 border border-slate-200/80">
+                                <div class="text-center p-4">
+                                    <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-700 mx-auto flex items-center justify-center mb-2 shadow-inner">
+                                        <i data-lucide="clipboard-check" class="w-8 h-8"></i>
+                                    </div>
+                                    <span class="text-xs font-bold text-slate-800 block">Autodiagnóstico 15 puntos</span>
                                     <span class="text-[10px] text-emerald-600 font-bold block">100% Gratuito</span>
                                 </div>
-                                <span class="absolute top-3 left-3 bg-emerald-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full">
+                                <span class="absolute top-3 left-3 bg-emerald-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
                                     Gratis ($0)
                                 </span>
+                                <span class="absolute top-3 right-3 bg-slate-900 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+                                    En Línea
+                                </span>
                             </div>
-                            <span class="text-[10px] font-black uppercase tracking-wider text-emerald-600">Diagnóstico Express</span>
-                            <h3 class="text-base sm:text-lg font-black text-slate-900 mt-1 mb-2">Test de Auditoría Empresarial (PDF)</h3>
-                            <p class="text-xs text-slate-600 mb-4 leading-relaxed">
-                                Descubre en 3 minutos el semáforo de riesgo de tu negocio en finanzas, blindaje legal y operaciones con la matriz oficial.
+
+                            <span class="text-[10px] font-black uppercase tracking-wider text-emerald-600 block min-h-[1.25rem]">Diagnóstico express</span>
+                            <h3 class="text-base sm:text-lg font-black text-slate-900 mt-1 mb-2 min-h-[3.25rem] flex items-center leading-snug">
+                                Test de auditoría empresarial (PDF)
+                            </h3>
+                            <p class="text-xs text-slate-600 mb-4 leading-relaxed min-h-[3.75rem] flex items-start">
+                                Descubre en 3 minutos el semáforo de riesgo de tu negocio en finanzas, blindaje legal y operaciones con la matriz oficial desarrollada para Panamá.
                             </p>
+
+                            <!-- Entregables Principales (3 Bullets Estandarizados) -->
+                            <div class="space-y-2 mb-4 bg-slate-50 p-3.5 rounded-2xl border border-slate-100 min-h-[8.5rem] flex flex-col justify-center">
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Matriz semáforo:</strong> Evaluación en 15 puntos (Legal, Finanzas y Operaciones).</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Resultado inmediato:</strong> Conoce tu nivel de vulnerabilidad en 3 minutos.</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>100% gratuito:</strong> Autoevaluación interactiva sin costo ni registro de tarjeta.</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="pt-4 border-t border-slate-100">
-                            <div class="flex items-baseline justify-between mb-3">
+
+                        <!-- Bloque Inferior / Acciones (Altura Estandarizada) -->
+                        <div class="pt-4 border-t border-slate-100 space-y-2.5 mt-auto">
+                            <div class="flex items-baseline justify-between min-h-[2rem]">
                                 <div>
                                     <span class="text-2xl font-black text-emerald-600">GRATIS</span>
+                                    <span class="text-[10px] font-bold text-slate-500 ml-1">USD</span>
                                 </div>
-                                <span class="text-xs font-bold text-slate-500">Acceso Inmediato</span>
+                                <span class="text-xs font-bold text-slate-500">Acceso inmediato</span>
                             </div>
-                            <a href="/test-interactivo"
-                                class="w-full inline-flex items-center justify-center gap-2 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs sm:text-sm font-bold transition shadow">
-                                <i data-lucide="play" class="w-4 h-4"></i>
-                                <span>Hacer Test en Línea</span>
-                            </a>
+
+                            <div class="min-h-[5.5rem] flex flex-col justify-end space-y-2">
+                                <a href="/test-interactivo"
+                                    class="w-full inline-flex items-center justify-center gap-2 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs sm:text-sm font-bold transition shadow hover:shadow-md">
+                                    <i data-lucide="play" class="w-4 h-4"></i>
+                                    <span>Hacer test en línea</span>
+                                </a>
+
+                                <span class="w-full inline-flex items-center justify-center gap-1.5 py-1 text-xs font-bold text-slate-400">
+                                    <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-500"></i>
+                                    <span>Herramienta gratuita oficial Aizprua</span>
+                                </span>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- PRODUCTO 5: GUÍA ANTI-MULTAS 2026 -->
-                    <div class="product-card bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition group"
+                    <!-- PRODUCTO 7: GUÍA ANTI-MULTAS 2026 -->
+                    <div class="product-card bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition group h-full"
                         data-delivery="free" data-category="blindaje" data-price="0.00" data-keywords="guia anti multas 2026 dgi css mitradel sanciones panama pdf gratis">
-                        <div>
-                            <div class="relative bg-orange-50 rounded-2xl overflow-hidden mb-4 aspect-[4/3] flex items-center justify-center p-6 text-center border border-orange-100">
-                                <div>
-                                    <i data-lucide="file-warning" class="w-12 h-12 mx-auto text-brand-orange mb-2"></i>
-                                    <span class="text-xs font-bold text-slate-800 block">Guía Preventiva 2026</span>
-                                    <span class="text-[10px] text-brand-orange font-bold block">100% Gratuita</span>
-                                </div>
-                                <span class="absolute top-3 left-3 bg-brand-orange text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full">
+                        <div class="flex-1 flex flex-col">
+                            <!-- Portada Showcase con Badge -->
+                            <div class="relative bg-slate-100 rounded-2xl overflow-hidden mb-4 aspect-[4/3] border border-slate-200/80">
+                                <img src="assets/guia-preventiva-cover.png" alt="Las 7 Multas Ocultas en Panamá"
+                                    data-title="Guía Anti-Multas" data-icon="shield-alert" data-badge="Guía Gratuita ($0)"
+                                    onerror="handleProductImageError(this)"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                                <span class="absolute top-3 left-3 bg-brand-orange text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
                                     Gratis ($0)
                                 </span>
+                                <span class="absolute top-3 right-3 bg-slate-900 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+                                    PDF 2026
+                                </span>
                             </div>
-                            <span class="text-[10px] font-black uppercase tracking-wider text-brand-orange">Guía Anti-Sanciones</span>
-                            <h3 class="text-base sm:text-lg font-black text-slate-900 mt-1 mb-2">Las 7 Multas Ocultas en Panamá</h3>
-                            <p class="text-xs text-slate-600 mb-4 leading-relaxed">
-                                Documento con las 7 sanciones más frecuentes que la DGI, CSS y MITRADEL aplican a las empresas y cómo prevenirlas a tiempo.
+
+                            <span class="text-[10px] font-black uppercase tracking-wider text-brand-orange block min-h-[1.25rem]">Guía Anti-Sanciones</span>
+                            <h3 class="text-base sm:text-lg font-black text-slate-900 mt-1 mb-2 min-h-[3.25rem] flex items-center leading-snug">
+                                Las 7 multas ocultas en Panamá
+                            </h3>
+                            <p class="text-xs text-slate-600 mb-4 leading-relaxed min-h-[3.75rem] flex items-start">
+                                Documento con las 7 sanciones más frecuentes que la DGI, CSS y MITRADEL aplican a las empresas y cómo blindar tus operaciones a tiempo.
                             </p>
+
+                            <!-- Entregables Principales (3 Bullets Estandarizados) -->
+                            <div class="space-y-2 mb-4 bg-slate-50 p-3.5 rounded-2xl border border-slate-100 min-h-[8.5rem] flex flex-col justify-center">
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Sanciones Críticas:</strong> Las multas más costosas de DGI, CSS y Mitradel.</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Casos Reales:</strong> Cómo evitar citaciones, embargos y multas de cierre.</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Guía Descargable:</strong> Formato PDF listo para lectura inmediata en móvil o PC.</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="pt-4 border-t border-slate-100">
-                            <div class="flex items-baseline justify-between mb-3">
+
+                        <!-- Bloque Inferior / Acciones (Altura Estandarizada) -->
+                        <div class="pt-4 border-t border-slate-100 space-y-2.5 mt-auto">
+                            <div class="flex items-baseline justify-between min-h-[2rem]">
                                 <div>
                                     <span class="text-2xl font-black text-brand-orange">GRATIS</span>
+                                    <span class="text-[10px] font-bold text-slate-500 ml-1">USD</span>
                                 </div>
                                 <span class="text-xs font-bold text-slate-500">PDF Descargable</span>
                             </div>
-                            <a href="/recursos-gratuitos"
-                                class="w-full inline-flex items-center justify-center gap-2 py-3 bg-slate-900 hover:bg-brand-blue text-white rounded-xl text-xs sm:text-sm font-bold transition shadow">
-                                <i data-lucide="download" class="w-4 h-4"></i>
-                                <span>Descargar Guía</span>
-                            </a>
+
+                            <div class="min-h-[5.5rem] flex flex-col justify-end space-y-2">
+                                <a href="/recursos-gratuitos"
+                                    class="w-full inline-flex items-center justify-center gap-2 py-3 bg-slate-900 hover:bg-brand-blue text-white rounded-xl text-xs sm:text-sm font-bold transition shadow hover:shadow-md">
+                                    <i data-lucide="download" class="w-4 h-4"></i>
+                                    <span>Descargar Guía en PDF</span>
+                                </a>
+
+                                <span class="w-full inline-flex items-center justify-center gap-1.5 py-1 text-xs font-bold text-slate-400">
+                                    <i data-lucide="shield" class="w-3.5 h-3.5 text-brand-orange"></i>
+                                    <span>Sin costo · Descarga directa en 1 clic</span>
+                                </span>
+                            </div>
                         </div>
                     </div>
 
+                </div>
+
+                <!-- COMPONENTE DE PAGINACIÓN DE LA TIENDA -->
+                <div id="products-pagination" class="pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <p id="shop-pagination-info" class="text-xs text-slate-500 font-medium">
+                        Mostrando <span id="shop-pag-start" class="font-bold text-slate-900">1</span>–<span id="shop-pag-end" class="font-bold text-slate-900">4</span> de <span id="shop-pag-total" class="font-bold text-slate-900">5</span> soluciones
+                    </p>
+                    <div class="flex items-center gap-2">
+                        <button id="prev-shop-btn" onclick="goToShopPage(currentShopPage - 1)" class="px-3.5 py-2 rounded-xl text-xs font-bold text-slate-600 bg-white hover:bg-slate-50 border border-slate-200 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-1 shadow-xs">
+                            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                            <span>Anterior</span>
+                        </button>
+                        <div id="shop-pagination-numbers" class="flex items-center gap-1.5">
+                            <!-- Los números de página se renderizan dinámicamente -->
+                        </div>
+                        <button id="next-shop-btn" onclick="goToShopPage(currentShopPage + 1)" class="px-3.5 py-2 rounded-xl text-xs font-bold text-slate-600 bg-white hover:bg-slate-50 border border-slate-200 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-1 shadow-xs">
+                            <span>Siguiente</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Mensaje cuando no hay resultados de búsqueda -->
@@ -471,19 +1349,21 @@
                         alt="Aizprua S.E." class="h-20 w-auto -mt-7 -mb-4 -ml-3">
                     <p class="text-sm text-slate-400 mb-3">Tu aliado legal y empresarial en Panamá.</p>
                     <div class="flex gap-3">
-                        <a target="_blank" rel="noopener" href="https://instagram.com/aizpruase" class="w-10 h-10 bg-slate-800 hover:bg-pink-600 rounded-full flex items-center justify-center text-white transition"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-                        <a target="_blank" rel="noopener" href="https://facebook.com/aizpruase" class="w-10 h-10 bg-slate-800 hover:bg-brand-blue rounded-full flex items-center justify-center text-white transition"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-                        <a href="https://wa.me/50765461527" target="_blank" class="w-10 h-10 bg-slate-800 hover:bg-green-500 rounded-full flex items-center justify-center text-white transition"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+                        <a target="_blank" rel="noopener" href="https://instagram.com/aizpruase" class="w-10 h-10 bg-slate-800 hover:bg-pink-600 rounded-full flex items-center justify-center text-white transition" aria-label="Instagram"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                        <a target="_blank" rel="noopener" href="https://facebook.com/aizpruase" class="w-10 h-10 bg-slate-800 hover:bg-brand-blue rounded-full flex items-center justify-center text-white transition" aria-label="Facebook"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                        <a target="_blank" rel="noopener" href="https://www.youtube.com/@AizpruaSE" class="w-10 h-10 bg-slate-800 hover:bg-red-600 rounded-full flex items-center justify-center text-white transition" aria-label="YouTube"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+                        <a href="https://wa.me/50765461527" target="_blank" class="w-10 h-10 bg-slate-800 hover:bg-green-500 rounded-full flex items-center justify-center text-white transition" aria-label="WhatsApp"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
                     </div>
                 </div>
 
                 <div>
                     <h4 class="font-bold text-white mb-4">Soluciones</h4>
                     <ul class="space-y-2 text-sm text-slate-400">
-                        <li><a href="/escudo-preventivo" class="hover:text-white transition">Asesoría Escudo Preventivo</a></li>
+                        <li><a href="https://escudo.aizprua.com/" class="hover:text-white transition">Asesoría Escudo Preventivo</a></li>
                         <li><a href="/tienda" class="hover:text-white transition font-semibold text-brand-orange-light">Tienda Online</a></li>
                         <li><a href="/plan-360-digital" class="hover:text-white transition">Plan 360 Digital ($19.99)</a></li>
-                        <li><a href="/test-interactivo" class="hover:text-white transition">Test de Auditoría Gratis</a></li>
+                        <li><a href="/plan-360" class="hover:text-white transition">Plan 360 Kit Físico ($39.99)</a></li>
+                        <li><a href="/test-interactivo" class="hover:text-white transition">Test de auditoría gratis</a></li>
                     </ul>
                 </div>
 
@@ -492,7 +1372,7 @@
                     <ul class="space-y-2 text-sm text-slate-400">
                         <li><a href="https://wa.me/50765461527" target="_blank" class="hover:text-white transition">WhatsApp: +507 6546-1527</a></li>
                         <li><a href="mailto:info@aizprua.com" class="hover:text-white transition">info@aizprua.com</a></li>
-                        <li>Panamá, República de Panamá</li>
+                        <li>Panamá Oeste, La Chorrera</li>
                     </ul>
                 </div>
 
@@ -513,6 +1393,7 @@
     </footer>
 
     <!-- Lógica de Filtros Dinámicos Estilo Shopify -->
+    <script src="products-data.js"></script>
     <script>
         function toggleMobileMenu() {
             document.getElementById('mobile-menu').classList.toggle('hidden');
@@ -523,14 +1404,107 @@
             sidebar.classList.toggle('hidden');
         }
 
-        function filterProducts() {
+        let currentShopPage = 1;
+        const PRODUCTS_PER_PAGE = 4;
+        let maxCatalogPrice = 50;
+        let currentMaxPrice = 50;
+
+        // Auto-detección del precio máximo real del catálogo
+        function initPriceSlider() {
+            const cards = document.querySelectorAll('.product-card');
+            let highest = 0;
+            cards.forEach(card => {
+                const p = parseFloat(card.dataset.price) || 0;
+                if (p > highest) highest = p;
+            });
+
+            // Redondeo amigable hacia arriba según la magnitud de los precios
+            if (highest <= 50) {
+                maxCatalogPrice = 50;
+            } else if (highest <= 100) {
+                maxCatalogPrice = Math.ceil(highest / 10) * 10;
+            } else if (highest <= 1000) {
+                maxCatalogPrice = Math.ceil(highest / 50) * 50;
+            } else {
+                maxCatalogPrice = Math.ceil(highest / 100) * 100;
+            }
+
+            const slider = document.getElementById('price-range-slider');
+            const badge = document.getElementById('price-slider-badge');
+            const maxEl = document.getElementById('price-slider-max');
+            const midEl = document.getElementById('price-slider-mid');
+
+            let step = 1;
+            if (maxCatalogPrice > 2000) step = 50;
+            else if (maxCatalogPrice > 500) step = 25;
+            else if (maxCatalogPrice > 100) step = 10;
+            else step = 1;
+
+            if (slider) {
+                slider.min = 0;
+                slider.max = maxCatalogPrice;
+                slider.step = step;
+                slider.value = maxCatalogPrice;
+                currentMaxPrice = maxCatalogPrice;
+                updateSliderVisualFill(slider);
+            }
+            if (maxEl) maxEl.textContent = `$${maxCatalogPrice.toLocaleString('en-US')}+`;
+            if (midEl) midEl.textContent = `$${Math.round(maxCatalogPrice / 2).toLocaleString('en-US')}`;
+            if (badge) badge.textContent = 'Cualquier precio';
+        }
+
+        function updateSliderVisualFill(slider) {
+            if (!slider) return;
+            const percent = ((slider.value - slider.min) / (slider.max - slider.min)) * 100;
+            slider.style.background = `linear-gradient(to right, #3849C8 0%, #3849C8 ${percent}%, #E2E8F0 ${percent}%, #E2E8F0 100%)`;
+        }
+
+        function onPriceSliderChange(val) {
+            currentMaxPrice = parseFloat(val);
+            const slider = document.getElementById('price-range-slider');
+            if (slider) updateSliderVisualFill(slider);
+
+            const badge = document.getElementById('price-slider-badge');
+            if (currentMaxPrice >= maxCatalogPrice) {
+                if (badge) badge.textContent = 'Cualquier precio';
+            } else if (currentMaxPrice === 0) {
+                if (badge) badge.textContent = 'Solo Gratis ($0)';
+            } else {
+                const formatted = Number.isInteger(currentMaxPrice) 
+                    ? currentMaxPrice.toLocaleString('en-US') 
+                    : currentMaxPrice.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                badge.textContent = `Hasta $${formatted} USD`;
+            }
+            filterProducts(true);
+        }
+
+        function setPriceFilter(type) {
+            const slider = document.getElementById('price-range-slider');
+            if (!slider) return;
+            if (type === 'free') {
+                slider.value = 0;
+                onPriceSliderChange(0);
+            } else if (type === 'under25') {
+                const target = Math.min(25, maxCatalogPrice);
+                slider.value = target;
+                onPriceSliderChange(target);
+            } else {
+                slider.value = maxCatalogPrice;
+                onPriceSliderChange(maxCatalogPrice);
+            }
+        }
+
+        function filterProducts(resetPage = true) {
+            if (resetPage) {
+                currentShopPage = 1;
+            }
+
             const query = document.getElementById('search-input').value.toLowerCase().trim();
             const delivery = document.querySelector('input[name="delivery-type"]:checked').value;
             const category = document.querySelector('input[name="category-filter"]:checked').value;
-            const price = document.querySelector('input[name="price-filter"]:checked').value;
 
             const cards = document.querySelectorAll('.product-card');
-            let visibleCount = 0;
+            const matchingCards = [];
 
             cards.forEach(card => {
                 const cardDelivery = card.dataset.delivery;
@@ -544,10 +1518,15 @@
                 // Match Category
                 let matchCategory = (category === 'all') || (cardCat === category);
 
-                // Match Price
+                // Match Price Dinámico
                 let matchPrice = true;
-                if (price === 'under20') matchPrice = (cardPrice <= 20.00);
-                if (price === 'under50') matchPrice = (cardPrice >= 20.00 && cardPrice <= 50.00);
+                if (currentMaxPrice < maxCatalogPrice) {
+                    if (currentMaxPrice === 0) {
+                        matchPrice = (cardPrice === 0);
+                    } else {
+                        matchPrice = (cardPrice <= currentMaxPrice);
+                    }
+                }
 
                 // Match Search Query
                 let matchQuery = true;
@@ -556,8 +1535,23 @@
                 }
 
                 if (matchDelivery && matchCategory && matchPrice && matchQuery) {
+                    matchingCards.push(card);
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            const totalMatching = matchingCards.length;
+            const totalPages = Math.ceil(totalMatching / PRODUCTS_PER_PAGE) || 1;
+            if (currentShopPage > totalPages) currentShopPage = totalPages;
+            if (currentShopPage < 1) currentShopPage = 1;
+
+            const start = (currentShopPage - 1) * PRODUCTS_PER_PAGE;
+            const end = Math.min(start + PRODUCTS_PER_PAGE, totalMatching);
+
+            matchingCards.forEach((card, index) => {
+                if (index >= start && index < end) {
                     card.classList.remove('hidden');
-                    visibleCount++;
                 } else {
                     card.classList.add('hidden');
                 }
@@ -566,13 +1560,64 @@
             // Actualizar contador y estado de vacío
             const countEl = document.getElementById('product-count');
             const noResults = document.getElementById('no-results');
+            const paginationEl = document.getElementById('products-pagination');
 
-            countEl.innerText = `Mostrando ${visibleCount} soluci${visibleCount === 1 ? 'ón' : 'ones'}`;
-
-            if (visibleCount === 0) {
-                noResults.classList.remove('hidden');
+            if (totalMatching === 0) {
+                if (countEl) countEl.innerText = '0 soluciones encontradas';
+                if (noResults) noResults.classList.remove('hidden');
+                if (paginationEl) paginationEl.classList.add('hidden');
             } else {
-                noResults.classList.add('hidden');
+                if (countEl) {
+                    countEl.innerText = `Mostrando ${start + 1}–${end} de ${totalMatching} soluci${totalMatching === 1 ? 'ón' : 'ones'}`;
+                }
+                if (noResults) noResults.classList.add('hidden');
+                if (paginationEl) {
+                    paginationEl.classList.remove('hidden');
+
+                    const pStart = document.getElementById('shop-pag-start');
+                    const pEnd = document.getElementById('shop-pag-end');
+                    const pTotal = document.getElementById('shop-pag-total');
+                    if (pStart) pStart.textContent = start + 1;
+                    if (pEnd) pEnd.textContent = end;
+                    if (pTotal) pTotal.textContent = totalMatching;
+
+                    const prevBtn = document.getElementById('prev-shop-btn');
+                    const nextBtn = document.getElementById('next-shop-btn');
+                    if (prevBtn) prevBtn.disabled = (currentShopPage === 1);
+                    if (nextBtn) nextBtn.disabled = (currentShopPage === totalPages);
+
+                    const numbersContainer = document.getElementById('shop-pagination-numbers');
+                    if (numbersContainer) {
+                        let html = '';
+                        for (let i = 1; i <= totalPages; i++) {
+                            const isActive = (i === currentShopPage);
+                            html += `
+                                <button onclick="goToShopPage(${i})" aria-label="Ir a página ${i}"
+                                    class="w-9 h-9 rounded-xl text-xs font-bold transition flex items-center justify-center ${
+                                        isActive 
+                                        ? 'bg-brand-blue text-white shadow-md' 
+                                        : 'bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 shadow-xs'
+                                    }">
+                                    ${i}
+                                </button>
+                            `;
+                        }
+                        numbersContainer.innerHTML = html;
+                    }
+                }
+            }
+
+            if (typeof lucide !== 'undefined' && lucide.createIcons) {
+                lucide.createIcons();
+            }
+        }
+
+        function goToShopPage(page) {
+            currentShopPage = page;
+            filterProducts(false);
+            const grid = document.getElementById('products-grid');
+            if (grid) {
+                grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         }
 
@@ -580,11 +1625,137 @@
             document.getElementById('search-input').value = '';
             document.querySelector('input[name="delivery-type"][value="all"]').checked = true;
             document.querySelector('input[name="category-filter"][value="all"]').checked = true;
-            document.querySelector('input[name="price-filter"][value="all"]').checked = true;
-            filterProducts();
+            const slider = document.getElementById('price-range-slider');
+            if (slider) {
+                slider.value = maxCatalogPrice;
+                updateSliderVisualFill(slider);
+            }
+            currentMaxPrice = maxCatalogPrice;
+            const badge = document.getElementById('price-slider-badge');
+            if (badge) badge.textContent = 'Cualquier precio';
+            filterProducts(true);
         }
 
+        // Manejador Fallback Ultra-Premium para imágenes faltantes o rotas
+        function handleProductImageError(img) {
+            const parent = img.parentElement;
+            if (!parent) return;
+            const title = img.dataset.title || 'Solución Empresarial';
+            const icon = img.dataset.icon || 'package';
+            const badge = img.dataset.badge || 'Oficial';
+
+            parent.className = "relative bg-gradient-to-br from-slate-900 via-slate-800 to-brand-blue-dark rounded-2xl overflow-hidden mb-4 aspect-[4/3] flex items-center justify-center p-4 border border-slate-700/60 shadow-inner";
+            parent.innerHTML = `
+                <div class="text-center p-3">
+                    <div class="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-brand-orange mx-auto flex items-center justify-center mb-2 shadow-lg">
+                        <i data-lucide="${icon}" class="w-8 h-8"></i>
+                    </div>
+                    <span class="text-xs font-bold text-white block leading-tight">${title}</span>
+                    <span class="text-[10px] text-brand-orange-light font-bold block mt-0.5">Solución Oficial Aizprua</span>
+                </div>
+                <span class="absolute top-3 left-3 bg-brand-orange text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+                    ${badge}
+                </span>
+            `;
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }
+
+        function selectProductColor(productId, color, btn) {
+            const isHoodie = (productId === 'sueter-metodo-4e');
+            const imgId = isHoodie ? 'hoodie-cover-img' : `${productId}-cover-img`;
+            const labelId = isHoodie ? 'hoodie-color-label' : `${productId}-color-label`;
+            const buyBtnId = isHoodie ? 'hoodie-buy-btn' : `${productId}-buy-btn`;
+            const buyTextId = isHoodie ? 'hoodie-buy-text' : `${productId}-buy-text`;
+
+            const img = document.getElementById(imgId);
+            const label = document.getElementById(labelId);
+            const buyBtn = document.getElementById(buyBtnId);
+            const buyText = document.getElementById(buyTextId);
+
+            const card = btn ? btn.closest('.product-card') : null;
+            const buttons = card ? card.querySelectorAll('.color-choice-btn, .hoodie-color-btn') : document.querySelectorAll('.color-choice-btn');
+
+            buttons.forEach(b => {
+                b.classList.remove('active');
+                b.classList.remove('ring-2', 'ring-white');
+                b.classList.add('ring-1', 'ring-transparent');
+            });
+            if (btn) {
+                btn.classList.add('ring-2', 'ring-white');
+                btn.classList.remove('ring-1', 'ring-transparent');
+            }
+
+            if (!img) return;
+
+            img.style.transition = 'opacity 0.18s ease';
+            img.style.opacity = '0.35';
+
+            setTimeout(() => {
+                if (productId === 'sueter-metodo-4e') {
+                    if (color === 'azul') {
+                        img.src = 'assets/sueter-metodo-4e-azul.jpg';
+                        img.alt = 'Hoodie Suéter Oficial Método 4E Aizprua Edición Azul';
+                        if (label) {
+                            label.innerText = 'Azul';
+                            label.className = 'text-[9px] font-black text-blue-200 ml-0.5';
+                        }
+                        if (buyBtn) buyBtn.href = "https://wa.me/50765461527?text=Hola,%20deseo%20pedir%20el%20Hoodie%20Oficial%20del%20M%C3%A9todo%204E%20en%20Color%20Azul%20($38.00%20USD)%20con%20env%C3%ADo%20en%20Panam%C3%A1";
+                        if (buyText) buyText.innerText = "Pedir Hoodie Azul por $38.00 USD";
+                    } else {
+                        img.src = 'assets/sueter-metodo-4e-negro.jpg';
+                        img.alt = 'Hoodie Suéter Oficial Método 4E Aizprua Edición Negra';
+                        if (label) {
+                            label.innerText = 'Negro';
+                            label.className = 'text-[9px] font-black text-slate-300 ml-0.5';
+                        }
+                        if (buyBtn) buyBtn.href = "https://wa.me/50765461527?text=Hola,%20deseo%20pedir%20el%20Hoodie%20Oficial%20del%20M%C3%A9todo%204E%20en%20Color%20Negro%20($38.00%20USD)%20con%20env%C3%ADo%20en%20Panam%C3%A1";
+                        if (buyText) buyText.innerText = "Pedir Hoodie Negro por $38.00 USD";
+                    }
+                } else if (productId === 'taza-metodo-4e') {
+                    if (color === 'azul') {
+                        img.src = 'assets/taza-metodo-4e-azul.jpg';
+                        img.alt = 'Taza Oficial Método 4E Aizprua Edición Azul';
+                        if (label) {
+                            label.innerText = 'Azul';
+                            label.className = 'text-[9px] font-black text-blue-200 ml-0.5';
+                        }
+                        if (buyBtn) buyBtn.href = "https://wa.me/50765461527?text=Hola,%20deseo%20pedir%20la%20Taza%20Oficial%20del%20M%C3%A9todo%204E%20en%20Color%20Azul%20($14.00%20USD)%20con%20env%C3%ADo%20en%20Panam%C3%A1";
+                        if (buyText) buyText.innerText = "Pedir Taza Azul por $14.00 USD";
+                    } else {
+                        img.src = 'assets/taza-metodo-4e-negro.jpg';
+                        img.alt = 'Taza Oficial Método 4E Aizprua Edición Negra';
+                        if (label) {
+                            label.innerText = 'Negro';
+                            label.className = 'text-[9px] font-black text-slate-300 ml-0.5';
+                        }
+                        if (buyBtn) buyBtn.href = "https://wa.me/50765461527?text=Hola,%20deseo%20pedir%20la%20Taza%20Oficial%20del%20M%C3%A9todo%204E%20en%20Color%20Negro%20($14.00%20USD)%20con%20env%C3%ADo%20en%20Panam%C3%A1";
+                        if (buyText) buyText.innerText = "Pedir Taza Negra por $14.00 USD";
+                    }
+                }
+                img.style.opacity = '1';
+            }, 160);
+        }
+
+        function selectHoodieColor(color, btn) {
+            selectProductColor('sueter-metodo-4e', color, btn);
+        }
+
+        window.addEventListener('scroll', () => {
+            const docEl = document.documentElement;
+            const scrollTotal = docEl.scrollHeight - docEl.clientHeight;
+            const scrolled = (window.scrollY / (scrollTotal || 1)) * 100;
+            const bar = document.getElementById('progress-bar');
+            if (bar) bar.style.width = Math.min(100, Math.max(0, scrolled)) + '%';
+        });
+
         document.addEventListener('DOMContentLoaded', () => {
+            if (typeof renderShopProducts === 'function') {
+                renderShopProducts('products-grid');
+            }
+            initPriceSlider();
+            filterProducts(false);
             if (typeof lucide !== 'undefined') lucide.createIcons();
         });
     </script>

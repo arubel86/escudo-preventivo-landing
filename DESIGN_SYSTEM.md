@@ -34,8 +34,13 @@ tailwind.config = {
 | `brand-orange-dark` | `#E67A15` | Sombra/gradiente inferior del botón de acción principal. |
 | `brand-orange-light`| `#FFA04A` | Texto de urgencia (número de cupos en barra superior). |
 | `WhatsApp` | `#25D366` | Botón WhatsApp y enlaces directos de chat (Hover: `#20BD5A`). |
-| `Fondo Footer` | `#0F172A` | `bg-slate-900` - Fondo elegante del pie de página. |
-| `Superficie Footer` | `#1E293B` | `bg-slate-800` - Círculos de iconos sociales y divisores (`border-slate-800`). |
+| `Fondo Footer & Tarjetas Oscuras` | `#0F172A` | `bg-slate-900` - Fondo elegante corporativo (sin gradientes extraños). |
+| `Superficie / Cards Secundarias` | `#1E293B` | `bg-slate-800` - Tarjetas internas y divisores (`border-slate-800` / `border-slate-700`). |
+
+### 🚫 Reglas Estrictas de Pureza de Color y Fondos Oscuros
+1. **Fondo Oscuro Canónico:** En banners, infografías o secciones oscuras, utilizar exclusivamente `bg-slate-900` (`#0F172A`) con superficies `bg-slate-800` (`#1E293B`) y bordes `border-slate-800` o `border-slate-700`.
+2. **Prohibición de Tintes Extraños:** Queda **terminantemente prohibido** mezclar gradientes o usar luces ambientales (`blur-3xl`) que generen tonos violetas, púrpuras, amarillos chillones o verdes que desentonen con la marca.
+3. **Acentos Exclusivos:** Los únicos colores permitidos para badges, luces, bordes destacados e iconos son `brand-blue` (`#3849C8`), `brand-orange` (`#FF8A1E`) y neutros (`slate-100` a `slate-400`). El verde solo se reserva para el botón oficial de WhatsApp (`#25D366`).
 
 ---
 
@@ -85,13 +90,13 @@ tailwind.config = {
 * **Botón Cerrar (X):** `absolute right-4 top-1/2 -translate-y-1/2 hover:text-brand-orange-light`
 
 ### 3.2. Barra de Navegación (`#navbar`)
-* **Contenedor:** `bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200 transition-shadow`
-  * Altura fija: `64px` (`h-16`).
+* **Contenedor:** `bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-slate-200 transition-all`
+  * Altura estandarizada: **`80px`** (`h-20`).
   * Ancho máximo: `1280px` (`max-w-7xl mx-auto`).
   * Padding lateral: `16px` móvil (`px-4`), `24px` tablet (`sm:px-6`), `32px` escritorio (`lg:px-8`).
 * **Logo Principal:**
   * Archivo: `assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg`
-  * Dimensiones: Altura **`112px`** (`h-28 w-auto object-contain`), centrado en flex.
+  * Dimensiones: Altura **`56px - 64px`** (`h-14 sm:h-16 w-auto object-contain`), centrado verticalmente en flex.
 * **Menú Escritorio (`hidden md:flex`):**
   * Separación: **`24px`** (`space-x-6`).
   * Enlaces: `text-slate-600 hover:text-brand-blue font-medium transition`
@@ -206,6 +211,9 @@ tailwind.config = {
                     </a>
                     <a target="_blank" rel="noopener" href="https://facebook.com/aizpruase" class="w-10 h-10 bg-slate-800 hover:bg-brand-blue rounded-full flex items-center justify-center text-white transition" aria-label="Facebook">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a target="_blank" rel="noopener" href="https://www.youtube.com/@AizpruaSE" class="w-10 h-10 bg-slate-800 hover:bg-red-600 rounded-full flex items-center justify-center text-white transition" aria-label="YouTube">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                     </a>
                     <a href="https://wa.me/50765461527" target="_blank" class="w-10 h-10 bg-slate-800 hover:bg-green-500 rounded-full flex items-center justify-center text-white transition" aria-label="WhatsApp">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -402,7 +410,7 @@ Cualquier enlace alternativo, alias o archivo `.html` legacy debe redirigir con 
 | **Página B (Oferta)** | `/escudo-preventivo` | `/escudo-preventivo.html` |
 | **Recursos Gratuitos** | `/recursos-gratuitos` | `/recursos-gratuitos.html` |
 | **Plan 360 Empresarial** | `/plan-360` | `/plan-360.html`, `/plan360`, `/plan360.html` |
-| **Playbook Blindaje** | `/playbook` | `/playbook.html`, `/guia`, `/guia.html`, `/docs`, `/blindaje` |
+| **Playbook Blindaje** | `/guia-blindaje` | `/guia-blindaje.html`, `/playbook`, `/playbook.html`, `/guia`, `/guia.html`, `/docs`, `/blindaje` |
 | **Guía Préstamos** | `/guia-prestamos` | `/guia-prestamos.html`, `/prestamos`, `/credito-panama` |
 | **Verificador Web** | `/verificador` | `/verificador.html` |
 | **Hub de Enlaces** | `/links` | `/links.html`, `/bio`, `/bio.html` |
@@ -410,6 +418,208 @@ Cualquier enlace alternativo, alias o archivo `.html` legacy debe redirigir con 
 | **Privacidad** | `/privacidad` | `/privacidad.html` |
 | **Hoja de Ruta** | `/hoja-de-ruta` | `/hoja-de-ruta.html` |
 | **En Construcción** | `/construccion` | `/construccion.html`, `/proximamente` |
+| **Blog Principal** | `/blog` | `/blog.html` |
+| **Artículo Emprender** | `/articulo-emprender` | `/articulo-emprender.html` |
+| **Artículo Mentalidad** | `/articulo-mentalidad` | `/articulo-mentalidad.html` |
 
+---
+
+## 🖼️ 10. Estándar Canónico de Portadas de Blog & Mockups
+
+### 10.1. Portadas Panorámicas Nativas (`654 x 315 px`)
+* **Proporción de Lienzo:** `654 x 315 px` (Aspect Ratio: `aspect-[654/315]` o `2.076:1`).
+* **Regla de Contenedor en Cards (`blog.html`):**
+  ```html
+  <div class="relative aspect-[654/315] bg-slate-900 overflow-hidden">
+      <img src="assets/portada-articulo-..." alt="..." class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+  </div>
+  ```
+* **Garantía Visual:** Cero recorte de píxeles. Marcas de agua (`@arubel68`), pies de foto y encabezados quedan 100% visibles.
+* **Prohibición:** No colocar badges flotantes en esquinas superiores si la imagen de portada ya contiene textos o números en ese cuadrante.
+
+### 10.2. Portadas Verticales / Mockups de Libros (1:1 o 3:4)
+* **Técnica Showcase Ambiental:**
+  ```html
+  <div class="relative aspect-[16/9] bg-slate-950 overflow-hidden flex items-center justify-center p-3">
+      <!-- Fondo difuminado ambiental -->
+      <img src="assets/guia-cover.png" alt="" class="absolute inset-0 w-full h-full object-cover blur-xl opacity-40 scale-125 pointer-events-none">
+      <div class="absolute inset-0 bg-slate-950/40 pointer-events-none"></div>
+      
+      <!-- Portada completa con sombra 3D -->
+      <img src="assets/guia-cover.png" alt="..." class="relative z-10 max-h-full w-auto object-contain rounded-xl shadow-2xl group-hover:scale-105 transition duration-500">
+  </div>
+  ```
+
+---
+
+## 📑 11. Arquitectura de Navegación Lateral (Sidebar TOC)
+
+* **Contenedor Maestro:**
+  ```html
+  <aside id="guideSidebar" class="hidden lg:block w-72 flex-shrink-0 sticky top-36 max-h-[calc(100vh-10rem)] overflow-y-auto no-scrollbar pr-2">
+      <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm">
+          <span class="text-[11px] font-extrabold uppercase tracking-wider text-slate-400 block mb-3 px-2">
+              Contenido del Artículo
+          </span>
+          <nav class="space-y-0.5" id="guideNavList">
+              <a href="#id" class="nav-doc-link flex items-center gap-2.5 px-3 py-1.5 rounded-xl text-xs ...">
+                  ...
+              </a>
+          </nav>
+      </div>
+  </aside>
+  ```
+* **Regla Anti-Recorte:**
+  * El sidebar debe albergar **exclusivamente el índice de contenidos**.
+  * Los enlaces deben usar `px-3 py-1.5` con `space-y-0.5` para garantizar que hasta 13 o 15 secciones quepan holgadamente en laptops de 13" sin cortarse.
+  * No colocar tarjetas de conversión debajo del índice en el sidebar. El CTA debe ir dentro del cuerpo del artículo.
+  * Ocultar scrollbar con `.no-scrollbar { display: none; scrollbar-width: none; }`.
+
+---
+
+## 📰 12. Anatomía Maestra Canónica para Artículos de Blog (15 Componentes Obligatorios)
+
+Todo artículo nuevo en `/public` debe construirse respetando estrictamente esta secuencia estructural de 15 pasos:
+
+1. **Header Canónico Oficial:** `#announcement-bar` + `#navbar` estándar `h-20` (80px), logotipo `h-28` (112px) y botón WhatsApp.
+2. **Barra de Progreso de Lectura:** `#progress-bar` fijada arriba con `bg-brand-orange` (naranja oficial).
+3. **Contenedor Maestro de 2 Columnas (Flex):**
+   ```html
+   <main class="flex-grow py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+       <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start relative">
+           <!-- Columna Izquierda: aside#guideSidebar (w-72) -->
+           <!-- Columna Derecha: div (flex-1 min-w-0 max-w-3xl) -->
+       </div>
+   </main>
+   ```
+4. **Sidebar TOC Izquierdo (`#guideSidebar`):** Índice numérico (`01. Introducción`, etc.) con scrollspy.
+5. **Cuerpo del Artículo (`max-w-3xl`):**
+   - **5.1. Migas de Pan (Breadcrumbs):** `Inicio / Blog / Categoría`.
+   - **5.2. Píldora de Categoría:** `bg-brand-orange/10 text-brand-orange px-3.5 py-1 rounded-full border border-brand-orange/20`.
+   - **5.3. Título H1 en Estilo Natural en Español (Sentence Case):** Mayúscula inicial únicamente en la primera palabra del título y en nombres propios o siglas (Panamá, DGI, CSS, etc.). Evitar mayúsculas en cada palabra.
+   - **5.4. Barra de Autor & Metadatos:** Foto de Arubel (`w-8 h-8`), nombre, tiempo estimado (`bg-brand-blue/10`), edición 2026 y 4 botones de compartir (WhatsApp, LinkedIn, X, Copiar).
+   - **5.5. Portada Oficial:** `654x315 px`, `rounded-3xl`, borde fino y marca de agua `AIZPRUA S.E.` de 10px.
+   - **5.6. Introducción:** Apertura atractiva sin relleno.
+   - **5.7. Resumen Ejecutivo (TL;DR) en 3 Tarjetas:**
+     ```html
+     <div class="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-7 shadow-xs">
+         <span class="text-xs font-black uppercase tracking-wider text-brand-orange">Resumen Ejecutivo (TL;DR) en 30 segundos</span>
+         <div class="grid sm:grid-cols-3 gap-4 mt-4">
+             <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs">...</div>
+             <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs">...</div>
+             <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs">...</div>
+         </div>
+     </div>
+     ```
+   - **5.8. Secciones Numéricas:** Encabezados con badges circulares `w-8 h-8 rounded-full bg-brand-blue text-white` alineados con line-height matching.
+   - **5.9. Tabla Comparativa:** Informal / Riesgo vs. Blindado con Escudo Preventivo.
+   - **5.10. Lead Magnet Temático:** Banner `bg-slate-900` con mockup 3D y CTA relevante.
+   - **5.11. Acordeón Schema FAQ:** 3-5 preguntas en `<details>` para SEO de Google.
+   - **5.12. Barra Inferior de Compartir:** Compartir en WhatsApp y botón Copiar Enlace.
+   - **5.13. Ficha de Autor Inferior:** Biografía completa de Arubel con enlace a WhatsApp.
+   - **5.14. Artículos Recomendados:** Cuadrícula de 2 columnas con enlaces a otros artículos con títulos en estilo natural en español (Sentence Case).
+6. **Footer Canónico Oficial:** 4 columnas (Marca, Soluciones, Contacto, Legal) + Copyright 2026.
+7. **Botones Flotantes:** Volver arriba (`#scroll-top-btn`) + Botón flotante WhatsApp.
+8. **Scripts Oficiales:** Inicialización Lucide, barra de scroll, scroll to top, copiar enlace con portapapeles y scrollspy.
+
+---
+
+## 🛍️ 4.4. Componente Canónico: Tarjeta de Catálogo E-Commerce & Fallback Visual
+
+### Estructura Anti-Descuadre Visual (Alturas Idénticas Infalibles):
+1. **Contenedor Principal:** `h-full flex flex-col justify-between bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-lg transition group`
+2. **Cuerpo Superior (`.card-body`):** `flex-1 flex flex-col`
+3. **Showcase Visual:** `aspect-[4/3] max-h-[175px]` con imagen centrada o componente fallback.
+4. **Píldora de Categoría:** `min-h-[1.25rem] text-[10px] font-black uppercase tracking-wider block`
+5. **Título (`<h3>`):** `min-h-[3.25rem] flex items-center leading-snug text-base sm:text-lg font-black text-slate-900 mt-1 mb-2`
+6. **Descripción:** `min-h-[3.75rem] flex items-start text-xs text-slate-600 mb-4 leading-relaxed`
+7. **Caja de Entregables:** Exactamente 3 bullets con `space-y-2 mb-4 bg-slate-50 p-3.5 rounded-2xl border border-slate-100 min-h-[8.5rem] flex flex-col justify-center`
+8. **Bloque Inferior / Acciones:** `pt-4 border-t border-slate-100 space-y-2.5 mt-auto` con fila de precio `min-h-[2rem]` y contenedor de botones `min-h-[5.5rem] flex flex-col justify-end space-y-2`.
+
+### Snippet Oficial de Fallback sin Imagen (Puro HTML + Tailwind):
+```html
+<div class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-brand-blue-dark rounded-2xl overflow-hidden mb-4 aspect-[4/3] flex items-center justify-center p-4 border border-slate-700/60 shadow-inner">
+    <div class="text-center p-3">
+        <div class="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-brand-orange mx-auto flex items-center justify-center mb-2 shadow-lg">
+            <i data-lucide="package" class="w-8 h-8"></i>
+        </div>
+        <span class="text-xs font-bold text-white block">Nombre del Producto</span>
+        <span class="text-[10px] text-brand-orange-light font-bold block">Solución Oficial Aizprua</span>
+    </div>
+    <span class="absolute top-3 left-3 bg-brand-orange text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+        Entrega Inmediata
+    </span>
+</div>
+```
+
+---
+
+## ⭐ 4.5. Componente Canónico: Tarjeta de Testimonios con Altura e Identidad Idéntica (Anti-Descuadre Permanente)
+
+### Estructura Canónica de Nivelación:
+1. **Grilla Contenedora:** `grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch`
+2. **Contenedor Principal de la Tarjeta:** `bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm h-full flex flex-col justify-between hover:shadow-md transition`
+3. **Bloque de Calificación (Estrellas):** `flex text-amber-400 gap-1 mb-4 shrink-0`
+4. **Párrafo del Testimonio (Cita):** `flex-1 min-h-[6.5rem] sm:min-h-[7.25rem] flex items-start text-xs sm:text-sm text-slate-700 leading-relaxed italic mb-6`
+5. **Ficha Inferior del Autor:** `mt-auto pt-4 border-t border-slate-100 flex items-center gap-3 min-h-[3.75rem] shrink-0`
+6. **Logotipo de Empresa o Avatar Circular:** `w-10 h-10 rounded-full border border-slate-200/90 bg-white p-1 flex items-center justify-center shrink-0 shadow-xs overflow-hidden` con `img.w-full.h-full.object-contain.rounded-full` (o círculo de iniciales).
+7. **Bloque de Textos del Autor:** `min-w-0` con `h5` y `span` con `truncate` para evitar saltos accidentales de línea.
+
+### Snippet Oficial de Tarjeta de Testimonio (con Logo Oficial):
+```html
+<div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm h-full flex flex-col justify-between hover:shadow-md transition">
+    <div class="flex text-amber-400 gap-1 mb-4 shrink-0">
+        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+    </div>
+    <p class="flex-1 min-h-[6.5rem] sm:min-h-[7.25rem] flex items-start text-xs sm:text-sm text-slate-700 leading-relaxed italic mb-6">
+        "Texto del testimonio con experiencia de cliente..."
+    </p>
+    <div class="mt-auto pt-4 border-t border-slate-100 flex items-center gap-3 min-h-[3.75rem] shrink-0">
+        <div class="w-10 h-10 rounded-full border border-slate-200/90 bg-white p-1 flex items-center justify-center shrink-0 shadow-xs overflow-hidden">
+            <img src="assets/logo-empresa.png" alt="Logo Empresa" class="w-full h-full object-contain rounded-full">
+        </div>
+        <div class="min-w-0">
+            <h5 class="text-xs sm:text-sm font-bold text-slate-900 truncate">Nombre del Cliente</h5>
+            <span class="text-[11px] text-slate-500 block truncate">Nombre de la Empresa o Ciudad</span>
+        </div>
+    </div>
+</div>
+```
+
+---
+
+## 🎯 4.6. Componente Canónico: Tarjetas de Selección Táctil de Quizzes y Evaluadores (Alineación Superior Anti-Descuadre)
+
+### Especificaciones de Arquitectura Visual:
+1. **Contenedor Principal:** `w-full p-4 rounded-2xl border-2 border-slate-200 hover:border-brand-blue hover:bg-brand-blue/5 text-left transition flex items-start justify-between group active:scale-[0.99] cursor-pointer`
+2. **Bloque Izquierdo:** `flex items-start gap-3` (Estrictamente `items-start`, jamás `items-center`).
+3. **Selector Circular / Radio:** `w-5 h-5 rounded-full border-2 border-brand-blue flex items-center justify-center bg-white group-hover:bg-brand-blue transition shrink-0 mt-0.5` con punto interior `w-2.5 h-2.5 rounded-full bg-brand-blue group-hover:bg-white transition`.
+4. **Textos:**
+   - Título: `text-sm font-bold text-slate-800 group-hover:text-brand-blue transition block leading-tight`
+   - Descripción: `text-xs text-slate-500 mt-1 block leading-normal`
+5. **Badge Lateral (Pill):** `text-xs font-bold px-2.5 py-1 rounded-full hidden sm:inline-block shrink-0 ml-2`
+6. **Botón Anterior Pre-Finalización (`#prev-btn`):** `inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 hover:text-brand-blue transition active:scale-95 cursor-pointer`
+   - Disponible durante el test (oculto estrictamente al llegar a la pantalla de resultados).
+
+### Snippet Canónico de Tarjeta de Selección Táctil:
+```html
+<button type="button" onclick="selectOption('opcion_id')"
+    class="w-full p-4 rounded-2xl border-2 border-slate-200 hover:border-brand-blue hover:bg-brand-blue/5 text-left transition flex items-start justify-between group active:scale-[0.99] cursor-pointer">
+    <div class="flex items-start gap-3">
+        <span class="w-5 h-5 rounded-full border-2 border-brand-blue flex items-center justify-center bg-white group-hover:bg-brand-blue transition shrink-0 mt-0.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-brand-blue group-hover:bg-white transition"></span>
+        </span>
+        <div>
+            <span class="text-sm font-bold text-slate-800 group-hover:text-brand-blue transition block leading-tight">Título de la Opción</span>
+            <span class="text-xs text-slate-500 mt-1 block">Descripción explicativa o alcance formal del punto evaluado.</span>
+        </div>
+    </div>
+    <span class="text-brand-blue text-xs font-bold bg-brand-blue/10 px-2.5 py-1 rounded-full hidden sm:inline-block shrink-0 ml-2">Badge</span>
+</button>
+```
 
 

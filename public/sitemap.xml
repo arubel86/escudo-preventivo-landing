@@ -1,51 +1,138 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- 1. Páginas Principales e Institucionales -->
   <url>
-    <loc>https://escudo.aizprua.com/</loc>
-    <lastmod>2026-09-01</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://aizprua.com/</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://aizprua.com/plan-360</loc>
-    <lastmod>2026-09-28</lastmod>
+    <loc>https://escudo.aizprua.com/</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://escudo.aizprua.com/playbook</loc>
-    <lastmod>2026-09-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://aizprua.com/tienda</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://escudo.aizprua.com/guia-prestamos</loc>
-    <lastmod>2026-09-24</lastmod>
+    <loc>https://aizprua.com/escuela</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://aizprua.com/blog</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://aizprua.com/test-interactivo</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 2. Artículos del Blog de Inteligencia y Blindaje Legal -->
+  <url>
+    <loc>https://aizprua.com/articulo-emprender</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://aizprua.com/articulo-mentalidad</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://aizprua.com/articulo-credito-bancario</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://aizprua.com/articulo-contratos-comerciales</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://aizprua.com/articulo-multas-panama</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 3. Soluciones y Kits Oficiales -->
+  <url>
+    <loc>https://aizprua.com/plan-360-digital</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://aizprua.com/plan-360</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 4. Herramientas y Diagnósticos -->
+  <url>
+    <loc>https://aizprua.com/verificador</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://aizprua.com/hoja-de-ruta</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://escudo.aizprua.com/recursos-gratuitos</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://escudo.aizprua.com/privacidad</loc>
-    <lastmod>2026-09-01</lastmod>
+    <loc>https://aizprua.com/guia-blindaje</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://aizprua.com/guia-prestamos</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 5. Hub de Enlaces y Políticas Legales -->
+  <url>
+    <loc>https://aizprua.com/links</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://aizprua.com/privacidad</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.30</priority>
   </url>
   <url>
-    <loc>https://escudo.aizprua.com/verificador</loc>
-    <lastmod>2026-09-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://escudo.aizprua.com/terminos</loc>
-    <lastmod>2026-09-01</lastmod>
+    <loc>https://aizprua.com/terminos</loc>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.30</priority>
   </url>
 </urlset>

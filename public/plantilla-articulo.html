@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+
+    <!-- SEO & Metatags (Mayúscula Inicial Natural en Español) -->
+    <title>{{TITULO_DEL_ARTICULO_EN_MAYUSCULA_INICIAL}} | Aizprua S.E.</title>
+    <meta name="description"
+        content="{{DESCRIPCION_SEO_DEL_ARTICULO_150_CARACTERES}}">
+    <link rel="canonical" href="https://aizprua.com/{{SLUG_ARTICULO}}">
+
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="apple-touch-icon" href="/favicon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://aizprua.com/{{SLUG_ARTICULO}}">
+    <meta property="og:title" content="{{TITULO_DEL_ARTICULO}} | Aizprua S.E.">
+    <meta property="og:description" content="{{DESCRIPCION_CORTA}}">
+    <meta property="og:image" content="https://aizprua.com/assets/{{NOMBRE_PORTADA}}.png">
+
+    <!-- Google Fonts & Tailwind CSS CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#3849C8',
+                            'blue-dark': '#2d3a9f',
+                            'blue-light': '#4f5ed4',
+                            orange: '#FF8A1E',
+                            'orange-dark': '#e67a15',
+                            'orange-light': '#ffa04a'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <style>
+        .custom-scroll::-webkit-scrollbar,
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .custom-scroll,
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .nav-doc-link.active {
+            background-color: #EEF2FF !important;
+            color: #3849C8 !important;
+            font-weight: 700;
+        }
+        .nav-doc-link.active .dot-indicator {
+            background-color: #3849C8 !important;
+            transform: scale(1.25);
+        }
+    </style>
+</head>
+
+<body class="bg-white text-slate-800 font-sans antialiased min-h-screen flex flex-col selection:bg-brand-orange selection:text-white">
+
+    <!-- 1. Barra de Lectura Canónica Interactiva -->
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-brand-orange z-[60] transition-all duration-75" style="width:0%"></div>
+
+    <!-- 2. Barra Superior de Anuncios -->
+    <div id="announcement-bar" class="relative bg-brand-blue text-white py-2 px-4 text-center text-xs sm:text-sm">
+        <span class="inline-flex items-center gap-1.5 flex-wrap justify-center">
+            <i data-lucide="shield-alert" class="w-4 h-4 text-brand-orange-light shrink-0"></i>
+            <span>Diagnóstico de Blindaje Legal en Panamá:</span>
+            <span class="font-bold text-brand-orange-light">Solo 4 cupos disponibles esta semana</span>
+        </span>
+        <a href="/test-interactivo" class="ml-2 underline font-bold hover:text-brand-orange-light">Evaluar mi negocio</a>
+    </div>
+
+    <!-- 3. Header Canónico Oficial -->
+    <header class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+
+                <a href="/" class="flex items-center flex-shrink-0" aria-label="Aizprua S.E. Inicio">
+                    <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg"
+                        onerror="this.onerror=null; this.src='/assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg';"
+                        alt="Logo Aizprua S.E. - Firma Legal y Empresarial en Panamá"
+                        class="h-28 w-auto object-contain" width="112" height="112">
+                </a>
+
+                <nav class="hidden lg:flex items-center space-x-8 text-sm font-semibold text-slate-700">
+                    <a href="/#servicios" class="hover:text-brand-blue transition">Servicios</a>
+                    <a href="/tienda" class="hover:text-brand-blue transition flex items-center gap-1.5">
+                        <span>Tienda Online</span>
+                        <span class="bg-brand-orange/10 text-brand-orange text-[10px] font-black px-2 py-0.5 rounded-full border border-brand-orange/20">Kits</span>
+                    </a>
+                    <a href="/escuela" class="hover:text-brand-blue transition flex items-center gap-1 text-slate-500">
+                        <i data-lucide="graduation-cap" class="w-4 h-4 text-brand-blue"></i>
+                        <span>Escuela</span>
+                    </a>
+                    <a href="/blog" class="text-brand-blue font-bold flex items-center gap-1.5">
+                        <span>Blog</span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span>
+                    </a>
+                    <span class="text-slate-300">|</span>
+                    <a href="tel:+50765461527" class="flex items-center gap-1.5 text-slate-600 hover:text-brand-blue transition">
+                        <i data-lucide="phone" class="w-4 h-4 text-brand-orange"></i>
+                        <span>6546-1527</span>
+                    </a>
+                </nav>
+
+                <div class="hidden sm:flex items-center gap-3">
+                    <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20tengo%20una%20consulta"
+                        target="_blank" rel="noopener"
+                        class="flex items-center gap-2 bg-[#25D366] text-white px-5 py-2.5 rounded-full font-bold text-sm hover:bg-[#20bd5a] transition shadow-md hover:shadow-lg whitespace-nowrap transform hover:-translate-y-0.5">
+                        <i data-lucide="message-circle" class="w-4 h-4 flex-shrink-0"></i>
+                        <span>WhatsApp Oficial</span>
+                    </a>
+                </div>
+
+                <div class="lg:hidden flex items-center">
+                    <button type="button" onclick="toggleMobileMenu()"
+                        class="text-slate-700 hover:text-brand-blue p-2 rounded-lg" aria-label="Abrir menú">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-2">
+            <a href="/#servicios" class="block py-2 text-slate-700 font-semibold hover:text-brand-blue">Servicios</a>
+            <a href="/tienda" class="block py-2 text-slate-700 font-semibold hover:text-brand-blue">Tienda Online</a>
+            <a href="/blog" class="block py-2 text-brand-blue font-bold">Blog</a>
+            <a href="https://wa.me/50765461527" target="_blank" class="block py-2 text-emerald-600 font-bold">WhatsApp Oficial (+507 6546-1527)</a>
+        </div>
+    </header>
+
+    <!-- 4. Contenedor Principal: Layout de 2 Columnas -->
+    <main class="flex-grow py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+        
+        <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start relative">
+
+            <!-- SIDEBAR IZQUIERDO: CONTENIDO DEL ARTÍCULO (TOC) -->
+            <aside id="guideSidebar" class="hidden lg:block w-72 flex-shrink-0 sticky top-36 max-h-[calc(100vh-10rem)] overflow-y-auto custom-scroll pr-2">
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+                    <div>
+                        <span class="text-[11px] font-extrabold uppercase tracking-wider text-slate-400 block mb-3 px-2">
+                            Contenido del Artículo
+                        </span>
+                        <nav class="space-y-0.5" id="guideNavList">
+                            <a href="#introduccion" class="nav-doc-link active flex items-center gap-2.5 px-3 py-1.5 rounded-xl text-xs text-slate-700 hover:bg-slate-100 transition">
+                                <span class="dot-indicator w-2 h-2 rounded-full bg-brand-blue flex-shrink-0"></span>
+                                <span>01. Introducción</span>
+                            </a>
+                            <a href="#resumen-ejecutivo" class="nav-doc-link flex items-center gap-2.5 px-3 py-1.5 rounded-xl text-xs text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+                                <span class="dot-indicator w-2 h-2 rounded-full bg-slate-300 flex-shrink-0"></span>
+                                <span>02. Resumen Ejecutivo (TL;DR)</span>
+                            </a>
+                            <!-- Agregar enlaces 03, 04, 05... según las secciones del artículo -->
+                            <a href="#seccion-1" class="nav-doc-link flex items-center gap-2.5 px-3 py-1.5 rounded-xl text-xs text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+                                <span class="dot-indicator w-2 h-2 rounded-full bg-slate-300 flex-shrink-0"></span>
+                                <span>03. 1. Nombre Sección 1</span>
+                            </a>
+                            <a href="#tabla-comparativa" class="nav-doc-link flex items-center gap-2.5 px-3 py-1.5 rounded-xl text-xs text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+                                <span class="dot-indicator w-2 h-2 rounded-full bg-slate-300 flex-shrink-0"></span>
+                                <span>04. Tabla Comparativa</span>
+                            </a>
+                            <a href="#lead-magnet" class="nav-doc-link flex items-center gap-2.5 px-3 py-1.5 rounded-xl text-xs text-brand-orange hover:bg-orange-50 font-bold transition">
+                                <span class="dot-indicator w-2 h-2 rounded-full bg-brand-orange flex-shrink-0"></span>
+                                <span>05. Recurso / Solución</span>
+                            </a>
+                            <a href="#preguntas-frecuentes" class="nav-doc-link flex items-center gap-2.5 px-3 py-1.5 rounded-xl text-xs text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+                                <span class="dot-indicator w-2 h-2 rounded-full bg-slate-300 flex-shrink-0"></span>
+                                <span>06. Preguntas Frecuentes (FAQ)</span>
+                            </a>
+                            <a href="#autor" class="nav-doc-link flex items-center gap-2.5 px-3 py-1.5 rounded-xl text-xs text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition">
+                                <span class="dot-indicator w-2 h-2 rounded-full bg-slate-300 flex-shrink-0"></span>
+                                <span>07. Sobre el Autor</span>
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- COLUMNA PRINCIPAL: CUERPO DEL ARTÍCULO (MAX-W-3XL) -->
+            <div class="flex-1 min-w-0 max-w-3xl">
+                
+                <!-- 5.1. Migas de Pan (Breadcrumbs) -->
+                <div class="flex items-center gap-2 text-xs font-semibold text-slate-400 mb-4">
+                    <a href="/" class="hover:text-brand-blue">Inicio</a>
+                    <span>/</span>
+                    <a href="/blog" class="hover:text-brand-blue">Blog</a>
+                    <span>/</span>
+                    <span class="text-slate-600">{{NOMBRE_CATEGORIA}}</span>
+                </div>
+
+                <!-- 5.2. Píldora de Categoría & 5.3. Título H1 (Title Case) -->
+                <div class="space-y-4 mb-6">
+                    <span class="text-xs font-black uppercase tracking-wider text-brand-orange bg-brand-orange/10 px-3.5 py-1 rounded-full border border-brand-orange/20 inline-block">
+                        {{BADGE_CATEGORIA_OFICIAL}}
+                    </span>
+                    <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                        {{TITULO_DEL_ARTICULO_EN_TITLE_CASE}}
+                    </h1>
+                    
+                    <!-- 5.4. Ficha de Autor & Metadatos (Cabecera) -->
+                    <div class="flex flex-wrap items-center justify-between gap-4 pt-2 border-b border-slate-200 pb-5">
+                        <div class="flex flex-wrap items-center gap-3 text-xs text-slate-500 font-semibold">
+                            <div class="flex items-center gap-2">
+                                <img src="assets/avatar-arubel.jpg" onerror="this.onerror=null; this.src='/assets/avatar-arubel.jpg';" alt="Arubel Aizprua" class="w-8 h-8 rounded-full object-cover border border-brand-blue/30 shadow-xs">
+                                <span class="text-slate-900 font-bold">Arubel Aizprua</span>
+                            </div>
+                            <span>•</span>
+                            <span class="bg-brand-blue/10 text-brand-blue px-2 py-0.5 rounded-full font-bold">{{TIEMPO_LECTURA}} min de lectura</span>
+                            <span>•</span>
+                            <span>Edición Panamá 2026</span>
+                        </div>
+
+                        <!-- 4 Botones de Compartir -->
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-[11px] font-bold text-slate-400 mr-1 hidden sm:inline">Compartir:</span>
+                            <a href="https://api.whatsapp.com/send?text={{TITULO_URLENCODED}}%20https%3A%2F%2Faizprua.com%2F{{SLUG}}" target="_blank" rel="noopener noreferrer" title="Compartir en WhatsApp"
+                                class="w-8 h-8 rounded-full bg-emerald-50 text-[#25D366] hover:bg-[#25D366] hover:text-white border border-emerald-200 flex items-center justify-center transition shadow-xs">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                            </a>
+                            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Faizprua.com%2F{{SLUG}}" target="_blank" rel="noopener noreferrer" title="Compartir en LinkedIn"
+                                class="w-8 h-8 rounded-full bg-blue-50 text-[#0A66C2] hover:bg-[#0A66C2] hover:text-white border border-blue-200 flex items-center justify-center transition shadow-xs">
+                                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.59 1.59 0 1 0 0-3.18 1.59 1.59 0 0 0 0 3.18m1.39 9.74v-8.37H5.07v8.37h2.78z"/></svg>
+                            </a>
+                            <a href="https://twitter.com/intent/tweet?text={{TITULO_URLENCODED}}&url=https%3A%2F%2Faizprua.com%2F{{SLUG}}" target="_blank" rel="noopener noreferrer" title="Compartir en X"
+                                class="w-8 h-8 rounded-full bg-slate-100 text-slate-800 hover:bg-black hover:text-white border border-slate-200 flex items-center justify-center transition shadow-xs">
+                                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                            </a>
+                            <button type="button" onclick="copiarEnlace(this)" title="Copiar enlace"
+                                class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition border border-slate-200">
+                                <i data-lucide="link" class="w-3.5 h-3.5"></i>
+                                <span class="btn-copy-text">Copiar</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5.5. Portada Oficial (Proporción 654x315) -->
+                <div class="rounded-3xl overflow-hidden mb-10 shadow-lg border border-slate-200">
+                    <img src="assets/{{NOMBRE_PORTADA}}.png" onerror="this.onerror=null; this.src='/assets/{{NOMBRE_PORTADA}}.png';" alt="{{TITULO_DEL_ARTICULO}}" class="w-full h-auto object-cover max-h-96">
+                </div>
+
+                <!-- Contenido Prosaico -->
+                <article class="prose prose-slate max-w-none space-y-8 text-slate-700 leading-relaxed text-sm sm:text-base">
+
+                    <!-- 5.6. Introducción Inicial -->
+                    <div id="introduccion" class="doc-card scroll-mt-36 space-y-4">
+                        <p class="text-base sm:text-lg font-semibold text-slate-900 leading-relaxed">
+                            {{PARRAFO_INTRODUCTORIO_DESTACADO}}
+                        </p>
+                        <p>
+                            {{DESARROLLO_INTRODUCCION}}
+                        </p>
+                    </div>
+
+                    <!-- 5.7. Resumen Ejecutivo (TL;DR) en 3 Tarjetas en Columna -->
+                    <div id="resumen-ejecutivo" class="doc-card scroll-mt-36 my-8 p-6 sm:p-7 rounded-3xl bg-slate-50 border border-slate-200 not-prose shadow-xs">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="w-2.5 h-2.5 rounded-full bg-brand-orange animate-pulse"></span>
+                            <span class="text-xs font-black uppercase tracking-wider text-brand-orange">
+                                Resumen Ejecutivo (TL;DR) en 30 segundos
+                            </span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs space-y-1.5">
+                                <div class="w-8 h-8 rounded-xl bg-brand-blue/10 text-brand-blue flex items-center justify-center font-bold text-xs">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+                                </div>
+                                <h4 class="font-bold text-xs sm:text-sm text-slate-900">{{CLAVE_1_TITULO}}</h4>
+                                <p class="text-xs text-slate-600 leading-relaxed">{{CLAVE_1_DESCRIPCION}}</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs space-y-1.5">
+                                <div class="w-8 h-8 rounded-xl bg-brand-orange/10 text-brand-orange flex items-center justify-center font-bold text-xs">
+                                    <i data-lucide="alert-circle" class="w-4 h-4"></i>
+                                </div>
+                                <h4 class="font-bold text-xs sm:text-sm text-slate-900">{{CLAVE_2_TITULO}}</h4>
+                                <p class="text-xs text-slate-600 leading-relaxed">{{CLAVE_2_DESCRIPCION}}</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs space-y-1.5">
+                                <div class="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-xs">
+                                    <i data-lucide="shield-check" class="w-4 h-4"></i>
+                                </div>
+                                <h4 class="font-bold text-xs sm:text-sm text-slate-900">{{CLAVE_3_TITULO}}</h4>
+                                <p class="text-xs text-slate-600 leading-relaxed">{{CLAVE_3_DESCRIPCION}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5.8. Secciones Numéricas de Contenido (Alineación Infalible de Badges) -->
+                    <div id="seccion-1" class="doc-card scroll-mt-36 space-y-4 pt-2">
+                        <div class="flex items-start gap-3.5">
+                            <span class="shrink-0 w-8 h-8 rounded-full bg-brand-blue text-white flex items-center justify-center font-bold text-sm shadow-xs">
+                                1
+                            </span>
+                            <h2 class="text-xl sm:text-2xl font-black text-slate-900 leading-8 m-0">
+                                {{TITULO_SECCION_1}}
+                            </h2>
+                        </div>
+                        <p>
+                            {{CONTENIDO_SECCION_1}}
+                        </p>
+
+                        <!-- Callout de Alerta o Principio Legal -->
+                        <div class="p-4 sm:p-5 rounded-2xl bg-amber-50/70 border border-amber-200 not-prose flex items-start gap-3 text-xs sm:text-sm text-slate-700">
+                            <i data-lucide="alert-triangle" class="w-5 h-5 text-amber-600 shrink-0 mt-0.5"></i>
+                            <div>
+                                <strong class="text-slate-900 block mb-0.5">{{TITULO_ALERTA_LEGAL}}:</strong>
+                                {{DETALLE_ALERTA_LEGAL}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5.9. Tabla Comparativa de Alto Impacto -->
+                    <div id="tabla-comparativa" class="doc-card scroll-mt-36 my-10 not-prose space-y-4 pt-2">
+                        <div class="border-b border-slate-200 pb-2">
+                            <span class="text-[11px] font-black uppercase tracking-wider text-brand-orange">Análisis Comparativo</span>
+                            <h3 class="text-xl font-black text-slate-900">
+                                {{TITULO_TABLA_COMPARATIVA}}
+                            </h3>
+                        </div>
+
+                        <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
+                            <table class="w-full text-left text-xs sm:text-sm">
+                                <thead class="bg-slate-50 border-b border-slate-200 text-slate-800 font-black">
+                                    <tr>
+                                        <th class="p-3.5 sm:p-4 text-slate-500 uppercase tracking-wider text-[11px]">Criterio</th>
+                                        <th class="p-3.5 sm:p-4 bg-red-50/60 text-red-700 border-l border-r border-red-100">
+                                            <div class="inline-flex items-center gap-1.5">
+                                                <i data-lucide="alert-triangle" class="w-4 h-4 text-red-500 shrink-0"></i>
+                                                <span>Negocio Informal / En Riesgo</span>
+                                            </div>
+                                        </th>
+                                        <th class="p-3.5 sm:p-4 bg-emerald-50/60 text-emerald-800">
+                                            <div class="inline-flex items-center gap-1.5">
+                                                <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                                                <span>Negocio Blindado (Aizprua S.E.)</span>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-100 bg-white">
+                                    <tr class="hover:bg-slate-50/50 transition">
+                                        <td class="p-3.5 sm:p-4 font-bold text-slate-900">{{CRITERIO_1}}</td>
+                                        <td class="p-3.5 sm:p-4 bg-red-50/20 text-slate-600 border-l border-r border-red-50">{{SITUACION_RIESGO_1}}</td>
+                                        <td class="p-3.5 sm:p-4 bg-emerald-50/20 text-slate-700">{{SITUACION_BLINDADA_1}}</td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50 transition">
+                                        <td class="p-3.5 sm:p-4 font-bold text-slate-900">{{CRITERIO_2}}</td>
+                                        <td class="p-3.5 sm:p-4 bg-red-50/20 text-slate-600 border-l border-r border-red-50">{{SITUACION_RIESGO_2}}</td>
+                                        <td class="p-3.5 sm:p-4 bg-emerald-50/20 text-slate-700">{{SITUACION_BLINDADA_2}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- 5.10. Lead Magnet & Conversión Temático -->
+                    <div id="lead-magnet" class="doc-card scroll-mt-36 my-10 p-6 sm:p-8 rounded-3xl bg-slate-900 border border-slate-800 text-white shadow-2xl relative overflow-hidden not-prose">
+                        <div class="absolute -right-20 -bottom-20 w-72 h-72 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none"></div>
+                        <div class="absolute -left-20 -top-20 w-72 h-72 bg-brand-blue/15 rounded-full blur-3xl pointer-events-none"></div>
+
+                        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                            <div class="lg:col-span-8 space-y-4 text-left">
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-brand-orange text-white shadow-md">
+                                    <i data-lucide="zap" class="w-3.5 h-3.5"></i> {{BADGE_OFERTA}}
+                                </span>
+                                <h3 class="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-tight">
+                                    {{TITULO_LEAD_MAGNET}}
+                                </h3>
+                                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                    {{DESCRIPCION_LEAD_MAGNET}}
+                                </p>
+                                <div class="pt-2 flex flex-col sm:flex-row flex-wrap items-center gap-3">
+                                    <a href="{{LINK_CTA_PRINCIPAL}}" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 bg-brand-orange hover:bg-brand-orange-dark text-white font-bold rounded-xl text-xs sm:text-sm transition shadow-lg whitespace-nowrap shrink-0">
+                                        <span>{{TEXTO_CTA_PRINCIPAL}}</span>
+                                        <i data-lucide="arrow-right" class="w-4 h-4 shrink-0"></i>
+                                    </a>
+                                    <a href="https://wa.me/50765461527" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl text-xs sm:text-sm transition border border-slate-700 whitespace-nowrap shrink-0">
+                                        <i data-lucide="message-circle" class="w-4 h-4 shrink-0 text-[#25D366]"></i>
+                                        <span>Consultar por WhatsApp</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="lg:col-span-4 flex justify-center items-center">
+                                <div class="relative group">
+                                    <div class="absolute -inset-2 bg-brand-blue/20 rounded-2xl blur-xl group-hover:bg-brand-blue/30 transition duration-500"></div>
+                                    <img src="{{MOCKUP_ASSET_PATH}}" alt="{{ALT_MOCKUP}}" class="relative max-h-56 sm:max-h-64 w-auto object-contain rounded-xl shadow-2xl transform group-hover:scale-105 transition duration-500">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5.11. Acordeón de Preguntas Frecuentes (FAQ para SEO de Google) -->
+                    <div id="preguntas-frecuentes" class="doc-card scroll-mt-36 my-10 not-prose space-y-5 pt-4">
+                        <div class="border-b border-slate-200 pb-3">
+                            <span class="text-[11px] font-black uppercase tracking-wider text-brand-orange">Dudas Frecuentes</span>
+                            <h3 class="text-xl sm:text-2xl font-black text-slate-900">
+                                Preguntas Frecuentes sobre {{TEMA_FAQ}}
+                            </h3>
+                        </div>
+
+                        <div class="space-y-3">
+                            <details class="group bg-white rounded-2xl border border-slate-200 p-4 transition-all duration-200 open:shadow-md open:border-brand-blue">
+                                <summary class="flex items-center justify-between font-bold text-slate-800 text-sm cursor-pointer list-none">
+                                    <span>{{PREGUNTA_1}}</span>
+                                    <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform"></i>
+                                </summary>
+                                <p class="text-xs sm:text-sm text-slate-600 pt-3 leading-relaxed border-t border-slate-100 mt-3">
+                                    {{RESPUESTA_1}}
+                                </p>
+                            </details>
+                            <details class="group bg-white rounded-2xl border border-slate-200 p-4 transition-all duration-200 open:shadow-md open:border-brand-blue">
+                                <summary class="flex items-center justify-between font-bold text-slate-800 text-sm cursor-pointer list-none">
+                                    <span>{{PREGUNTA_2}}</span>
+                                    <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform"></i>
+                                </summary>
+                                <p class="text-xs sm:text-sm text-slate-600 pt-3 leading-relaxed border-t border-slate-100 mt-3">
+                                    {{RESPUESTA_2}}
+                                </p>
+                            </details>
+                        </div>
+                    </div>
+
+                </article>
+
+                <!-- 5.12. Barra de Compartir al Final del Artículo -->
+                <div class="mt-8 p-4 rounded-2xl bg-slate-100/80 border border-slate-200 flex flex-wrap items-center justify-between gap-3">
+                    <span class="text-xs font-bold text-slate-700 flex items-center gap-1.5">
+                        <i data-lucide="share-2" class="w-4 h-4 text-brand-orange"></i>
+                        ¿Te sirvió esta lectura? Compártela con un socio o amigo:
+                    </span>
+                    <div class="flex items-center gap-2">
+                        <a href="https://api.whatsapp.com/send?text={{TITULO_URLENCODED}}%20https%3A%2F%2Faizprua.com%2F{{SLUG}}" target="_blank" class="px-3 py-1.5 bg-[#25D366] text-white rounded-lg text-xs font-bold hover:brightness-110 flex items-center gap-1.5 shadow-xs">
+                            <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                            <span>WhatsApp</span>
+                        </a>
+                        <button type="button" onclick="copiarEnlace(this)" class="px-3 py-1.5 bg-white border border-slate-300 text-slate-700 rounded-lg text-xs font-bold hover:bg-slate-50 flex items-center gap-1.5 shadow-xs">
+                            <i data-lucide="link" class="w-3.5 h-3.5"></i>
+                            <span class="btn-copy-text">Copiar Enlace</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 5.13. Ficha de Autor Inferior -->
+                <div id="autor" class="doc-card scroll-mt-36 mt-10 p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
+                    <img src="assets/avatar-arubel.jpg" onerror="this.onerror=null; this.src='/assets/avatar-arubel.jpg';" alt="Arubel Aizprua" class="w-20 h-20 rounded-full object-cover border-2 border-brand-blue/20 shadow-md flex-shrink-0">
+                    <div>
+                        <h4 class="font-black text-slate-900 text-base">Arubel Aizprua</h4>
+                        <p class="text-xs font-bold text-brand-blue mb-2">Fundador & Especialista en Estructuración Empresarial</p>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-3">
+                            Especialista en leyes y finanzas aplicadas a empresas en Panamá. Creador de los programas Escudo Preventivo y Plan 360 Empresarial.
+                        </p>
+                        <a href="https://wa.me/50765461527" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#25D366] hover:underline">
+                            <i data-lucide="message-circle" class="w-4 h-4"></i>
+                            <span>Contactar directamente por WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 5.14. Artículos Recomendados (Sentence Case / Dinámico) -->
+                <div class="mt-12 pt-8 border-t border-slate-200 space-y-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-[11px] font-black uppercase tracking-wider text-brand-orange">Continúa Leyendo</span>
+                            <h3 class="text-xl font-black text-slate-900">Artículos recomendados</h3>
+                        </div>
+                        <a href="/blog" class="text-xs font-bold text-brand-blue hover:underline inline-flex items-center gap-1">
+                            <span>Ver todo el blog</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+
+                    <div id="recommended-articles-grid" data-current-slug="{{SLUG_ACTUAL}}" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <!-- Se inyectan dinámicamente 2 artículos por serie de lectura con blog-recommendations.js -->
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- 6. Footer Canónico Oficial -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                
+                <div class="flex flex-col items-start">
+                    <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-21-nobg.svg"
+                        onerror="this.onerror=null; this.src='/assets/LOGOS PARA DIGITAL INDIVIDUALES-21-nobg.svg';"
+                        alt="Aizprua S.E. - Firma Legal y Empresarial" class="h-20 w-auto -mt-7 -mb-4 -ml-3">
+                    <p class="text-sm text-slate-400 mb-3">Tu aliado legal y empresarial en Panamá.</p>
+                    <div class="flex gap-3">
+                        <a target="_blank" rel="noopener" href="https://instagram.com/aizpruase"
+                            class="w-10 h-10 bg-slate-800 hover:bg-pink-600 rounded-full flex items-center justify-center text-white transition"
+                            aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" /></svg>
+                        </a>
+                        <a target="_blank" rel="noopener" href="https://facebook.com/aizpruase"
+                            class="w-10 h-10 bg-slate-800 hover:bg-brand-blue rounded-full flex items-center justify-center text-white transition"
+                            aria-label="Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" /></svg>
+                        </a>
+                        <a href="https://wa.me/50765461527" target="_blank"
+                            class="w-10 h-10 bg-slate-800 hover:bg-green-500 rounded-full flex items-center justify-center text-white transition"
+                            aria-label="WhatsApp">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-white mb-4">Soluciones</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="https://escudo.aizprua.com/" class="hover:text-white transition">Asesoría Escudo Preventivo</a></li>
+                        <li><a href="/tienda" class="hover:text-white transition font-semibold text-brand-orange-light">Tienda Online</a></li>
+                        <li><a href="/plan-360-digital" class="hover:text-white transition">Plan 360 Digital ($19.99)</a></li>
+                        <li><a href="/test-interactivo" class="hover:text-white transition">Test de Auditoría Gratis</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-white mb-4">Contacto</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="https://wa.me/50765461527" target="_blank" class="hover:text-white transition">WhatsApp: +507 6546-1527</a></li>
+                        <li><a href="mailto:info@aizprua.com" class="hover:text-white transition">info@aizprua.com</a></li>
+                        <li>Panamá Oeste, La Chorrera</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-white mb-4">Cumplimiento Legal</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="/privacidad" class="hover:text-white transition">Política de Privacidad (Ley 81)</a></li>
+                        <li><a href="/terminos" class="hover:text-white transition">Términos y Condiciones</a></li>
+                        <li><a href="https://whatsapp.com/channel/0029Va64qHbJJhzeH6DHa61a" target="_blank" rel="noopener" class="text-emerald-400 hover:text-emerald-300 font-semibold transition">Comunidad Oficial WhatsApp</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 text-center text-xs text-slate-400">
+                &copy; 2026 Aizprua S.E. Firma Legal y Empresarial en Panamá. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- 7. Botones Flotantes Canónicos -->
+    <div class="fixed bottom-6 right-6 z-40 flex flex-col items-center gap-3 pointer-events-none">
+        <button id="scroll-top-btn" onclick="scrollToTop()" aria-label="Volver arriba"
+            class="w-11 h-11 bg-white/95 backdrop-blur border border-slate-300 hover:border-brand-blue text-slate-700 hover:text-brand-blue rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:-translate-y-1 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="chevron-up" class="w-5 h-5"></i>
+        </button>
+
+        <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20tengo%20una%20consulta%20empresarial"
+            target="_blank" rel="noopener" aria-label="Abrir WhatsApp"
+            class="pointer-events-auto w-14 h-14 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center group relative flex-shrink-0">
+            <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            <span class="absolute right-full mr-3 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
+                ¿Dudas? Chatea con nosotros
+            </span>
+        </a>
+    </div>
+
+    <!-- 8. Scripts Canónicos -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu) menu.classList.toggle('hidden');
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.addEventListener('scroll', () => {
+            const bar = document.getElementById('progress-bar');
+            if (bar) {
+                const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                bar.style.width = scrolled + '%';
+            }
+
+            const btn = document.getElementById('scroll-top-btn');
+            if (btn) {
+                if (window.scrollY > 400) {
+                    btn.classList.remove('opacity-0', 'pointer-events-none');
+                    btn.classList.add('opacity-100', 'pointer-events-auto');
+                } else {
+                    btn.classList.add('opacity-0', 'pointer-events-none');
+                    btn.classList.remove('opacity-100', 'pointer-events-auto');
+                }
+            }
+        });
+
+        function copiarEnlace(btn) {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                const textSpan = btn.querySelector('.btn-copy-text');
+                const originalText = textSpan ? textSpan.textContent : '';
+                if (textSpan) textSpan.textContent = '¡Copiado!';
+                btn.classList.add('bg-emerald-100', 'text-emerald-700', 'border-emerald-300');
+                setTimeout(() => {
+                    if (textSpan) textSpan.textContent = originalText;
+                    btn.classList.remove('bg-emerald-100', 'text-emerald-700', 'border-emerald-300');
+                }, 2000);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+
+            const sections = document.querySelectorAll('.doc-card');
+            const navLinks = document.querySelectorAll('#guideNavList a');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(sec => {
+                    const top = sec.offsetTop - 160;
+                    if (window.scrollY >= top) {
+                        current = sec.getAttribute('id');
+                    }
+                });
+                if (current) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${current}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+    <!-- Motor de Recomendaciones Dinámicas -->
+    <script src="blog-recommendations.js" defer></script>
+</body>
+
+</html>

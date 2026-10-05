@@ -9,14 +9,14 @@
         content="Aprende a estructurar tu negocio: contratos, DGI, CSS, marcas y gobierno corporativo en Panamá. Accede al playbook empresarial 2026.">
     
     <!-- Canonical & Favicon -->
-    <link rel="canonical" href="https://escudo.aizprua.com/playbook">
+    <link rel="canonical" href="https://aizprua.com/guia-blindaje">
     <link rel="icon" type="image/svg+xml" href="assets/LOGOS PARA DIGITAL INDIVIDUALES-13.svg">
 
     <!-- Open Graph (WhatsApp, Facebook, LinkedIn) -->
     <meta property="og:title" content="Playbook de Blindaje Legal para Empresas en Panamá | Aizprua">
     <meta property="og:description" content="Aprende a estructurar tu negocio: contratos, DGI, CSS, marcas y gobierno corporativo en Panamá. Accede al playbook empresarial 2026.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://escudo.aizprua.com/playbook">
+    <meta property="og:url" content="https://aizprua.com/guia-blindaje">
     <meta property="og:image" content="https://escudo.aizprua.com/assets/guia-preventiva-cover.jpg">
     <meta property="og:image:secure_url" content="https://escudo.aizprua.com/assets/guia-preventiva-cover.jpg">
     <meta property="og:image:type" content="image/jpeg">
@@ -88,7 +88,7 @@
             z-index: 99999;
             display: none;
             background: linear-gradient(90deg, 
-                #2563eb, #3849c8, #7c3aed, #c026d3, #db2777, #ea580c, #f59e0b, #3849c8, #2563eb
+                #3849C8, #4F5ED4, #FF8A1E, #FFA04A, #3849C8
             );
             background-size: 200% 100%;
             animation: spectralLoading 1.4s linear infinite;
@@ -140,10 +140,11 @@
             z-index: -1;
         }
 
-        /* Scrollbar elegante */
-        .custom-scroll::-webkit-scrollbar { width: 5px; }
-        .custom-scroll::-webkit-scrollbar-track { background: transparent; }
-        .custom-scroll::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 999px; }
+        /* Ocultar barra de scroll manteniendo desplazamiento fluido */
+        .custom-scroll::-webkit-scrollbar,
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .custom-scroll,
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
         /* Elemento de navegación activo */
         .nav-doc-link.active {
@@ -181,8 +182,8 @@
     <!-- Barra de carga espectral fija -->
     <div id="topLoadingBar" class="top-loading-bar" role="progressbar" aria-label="Cargando"></div>
 
-    <!-- Barra de Progreso de lectura horizontal (Idéntica a index.html) -->
-    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-brand-blue to-brand-orange z-[60]" style="width:0%"></div>
+    <!-- Barra de Progreso de lectura horizontal -->
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-brand-orange z-[60] transition-all duration-75" style="width:0%"></div>
 
     <!-- Announcement Bar (Idéntico a index.html) -->
     <div id="announcement-bar" class="relative bg-brand-blue text-white py-2 px-4 text-center text-sm z-50">
@@ -266,7 +267,7 @@
             </span>
 
             <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-4 leading-tight">
-                Playbook de Blindaje & Prevención de <span class="gradient-text">Multas Corporativas</span>
+                Playbook de blindaje & prevención de <span class="gradient-text">multas corporativas</span>
             </h1>
 
             <p class="text-sm sm:text-base md:text-lg text-slate-600 mb-6 max-w-2xl mx-auto leading-relaxed">
@@ -278,7 +279,7 @@
                     <span>Explorar Capítulos</span>
                     <i data-lucide="arrow-down" class="ml-2 w-4 h-4"></i>
                 </a>
-                <a href="assets/guia-preventiva-2026.pdf" download="Guia-Preventiva-AntiMultas-2026-Aizprua.pdf" class="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-2xl font-bold text-sm border border-slate-200 transition-all flex items-center justify-center gap-2">
+                <a href="assets/guia-preventiva-2026.pdf" download="Guia-Preventiva-AntiMultas-2026-Aizprua.pdf" target="_blank" rel="noopener" class="px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-2xl font-bold text-sm border border-slate-200 transition-all flex items-center justify-center gap-2">
                     <i data-lucide="download" class="w-4 h-4 text-brand-blue"></i>
                     <span>Descargar Versión PDF</span>
                 </a>
@@ -319,31 +320,31 @@
                     <nav class="space-y-1" id="guideNavList">
                         <a href="#intro" class="nav-doc-link active flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs text-slate-700 hover:bg-slate-100 transition">
                             <span class="w-2 h-2 rounded-full bg-brand-blue"></span>
-                            <span>01. Riesgos & Multas 2026</span>
+                            <span>01. Riesgos & multas 2026</span>
                         </a>
                         <a href="#mitradel" class="nav-doc-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
                             <span class="w-2 h-2 rounded-full bg-slate-300"></span>
-                            <span>02. MITRADEL: Contratos & Nómina</span>
+                            <span>02. MITRADEL: Contratos & nómina</span>
                         </a>
                         <a href="#dgi" class="nav-doc-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
                             <span class="w-2 h-2 rounded-full bg-slate-300"></span>
-                            <span>03. DGI: Factura Electrónica & RUC</span>
+                            <span>03. DGI: Factura electrónica & RUC</span>
                         </a>
                         <a href="#css" class="nav-doc-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
                             <span class="w-2 h-2 rounded-full bg-slate-300"></span>
-                            <span>04. CSS: Planilla SIPE & Afiliación</span>
+                            <span>04. CSS: Planilla SIPE & afiliación</span>
                         </a>
                         <a href="#municipio" class="nav-doc-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
                             <span class="w-2 h-2 rounded-full bg-slate-300"></span>
-                            <span>05. Municipio & Aviso Operación</span>
+                            <span>05. Municipio & aviso de operación</span>
                         </a>
                         <a href="#societario" class="nav-doc-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
                             <span class="w-2 h-2 rounded-full bg-slate-300"></span>
-                            <span>06. Separación Patrimonial</span>
+                            <span>06. Separación patrimonial</span>
                         </a>
                         <a href="#checklist" class="nav-doc-link flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs text-brand-orange hover:bg-orange-50 font-bold transition">
                             <span class="w-2 h-2 rounded-full bg-brand-orange"></span>
-                            <span>07. Checklist de Autoevaluación</span>
+                            <span>07. Checklist de autoevaluación</span>
                         </a>
                     </nav>
                 </div>
@@ -377,7 +378,7 @@
                     <div>
                         <span class="text-xs font-bold text-brand-blue uppercase tracking-wider">Capítulo 01</span>
                         <h2 class="text-xl sm:text-2xl font-bold text-slate-900 leading-tight">
-                            El Riesgo Real de las Multas Silenciosas en Panamá
+                            El riesgo real de las multas silenciosas en Panamá
                         </h2>
                     </div>
                 </div>
@@ -452,7 +453,7 @@
                     <div>
                         <span class="text-xs font-bold text-brand-orange uppercase tracking-wider">Capítulo 02</span>
                         <h2 class="text-xl sm:text-2xl font-bold text-slate-900 leading-tight">
-                            MITRADEL: Contratos, Relaciones Laborales y Demandas
+                            MITRADEL: Contratos, relaciones laborales y demandas
                         </h2>
                     </div>
                 </div>
@@ -512,7 +513,7 @@
                     <div>
                         <span class="text-xs font-bold text-green-600 uppercase tracking-wider">Capítulo 03</span>
                         <h2 class="text-xl sm:text-2xl font-bold text-slate-900 leading-tight">
-                            DGI: Factura Electrónica, RUC, DV y Declaraciones
+                            DGI: Factura electrónica, RUC, DV y declaraciones
                         </h2>
                     </div>
                 </div>
@@ -562,7 +563,7 @@
                     <div>
                         <span class="text-xs font-bold text-brand-blue uppercase tracking-wider">Capítulo 04</span>
                         <h2 class="text-xl sm:text-2xl font-bold text-slate-900 leading-tight">
-                            CSS: Planilla SIPE, Afiliaciones y Cuotas Obrero-Patronales
+                            CSS: Planilla SIPE, afiliaciones y cuotas obrero-patronales
                         </h2>
                     </div>
                 </div>
@@ -592,7 +593,7 @@
                     <div>
                         <span class="text-xs font-bold text-brand-orange uppercase tracking-wider">Capítulo 05</span>
                         <h2 class="text-xl sm:text-2xl font-bold text-slate-900 leading-tight">
-                            Municipio & Aviso de Operación: La Trampa de la Doble Tributación
+                            Municipio & aviso de operación: La trampa de la doble tributación
                         </h2>
                     </div>
                 </div>
@@ -620,7 +621,7 @@
                     <div>
                         <span class="text-xs font-bold text-green-600 uppercase tracking-wider">Capítulo 06</span>
                         <h2 class="text-xl sm:text-2xl font-bold text-slate-900 leading-tight">
-                            Separación Patrimonial: Protege Tus Bienes Personales (S.A. / S.E.P.)
+                            Separación patrimonial: Protege tus bienes personales (S.A. / S.E.P.)
                         </h2>
                     </div>
                 </div>
@@ -650,7 +651,7 @@
                     <div>
                         <span class="text-xs font-bold text-brand-orange uppercase tracking-wider">Herramienta Interactiva</span>
                         <h2 class="text-xl sm:text-2xl font-bold text-slate-900 leading-tight">
-                            Checklist Ejecutivo de Blindaje Legal
+                            Checklist ejecutivo de blindaje legal
                         </h2>
                     </div>
                 </div>
@@ -783,7 +784,7 @@
                 <div>
                     <h4 class="font-bold text-white mb-4">Diagnóstico</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="/playbook" class="text-brand-orange hover:text-white transition font-medium">Playbook Anti-Multas 2026</a></li>
+                        <li><a href="/guia-blindaje" class="text-brand-orange hover:text-white transition font-medium">Playbook Anti-Multas 2026</a></li>
                         <li><a href="/guia-prestamos" class="hover:text-white transition">Guía Práctica Préstamos 2026</a></li>
                         <li><a href="/#diagnostico" class="hover:text-white transition">Iniciar el cuestionario</a></li>
                         <li><a href="/recursos-gratuitos" class="hover:text-white transition">Recursos Gratuitos</a></li>

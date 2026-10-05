@@ -9,6 +9,7 @@ Disallow: /gracias
 Disallow: /gracias-guia
 Disallow: /api/
 
+Sitemap: https://aizprua.com/sitemap.xml
 Sitemap: https://escudo.aizprua.com/sitemap.xml
 
 # Archivo de contexto para Modelos de Lenguaje (LLMs)

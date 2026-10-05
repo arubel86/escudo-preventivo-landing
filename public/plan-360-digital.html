@@ -106,6 +106,46 @@
             box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.12);
         }
 
+        /* Micro-animación de Estrellas en Cascada (Exclusiva de Hover) */
+        .stars-rating-group {
+            display: inline-flex;
+            align-items: center;
+        }
+        .stars-rating-group i,
+        .stars-rating-group svg {
+            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.25s ease;
+            transform-origin: center;
+            display: inline-block;
+        }
+        .stars-rating-group:hover i,
+        .stars-rating-group:hover svg {
+            animation: starCascade 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+        }
+        .stars-rating-group:hover i:nth-child(1),
+        .stars-rating-group:hover svg:nth-child(1) { animation-delay: 0.00s; }
+        .stars-rating-group:hover i:nth-child(2),
+        .stars-rating-group:hover svg:nth-child(2) { animation-delay: 0.08s; }
+        .stars-rating-group:hover i:nth-child(3),
+        .stars-rating-group:hover svg:nth-child(3) { animation-delay: 0.16s; }
+        .stars-rating-group:hover i:nth-child(4),
+        .stars-rating-group:hover svg:nth-child(4) { animation-delay: 0.24s; }
+        .stars-rating-group:hover i:nth-child(5),
+        .stars-rating-group:hover svg:nth-child(5) { animation-delay: 0.32s; }
+
+        .stars-rating-group i:hover,
+        .stars-rating-group svg:hover {
+            animation: none !important;
+            transform: scale(1.35) rotate(10deg) !important;
+            filter: drop-shadow(0 3px 8px rgba(245, 158, 11, 0.85)) !important;
+        }
+
+        @keyframes starCascade {
+            0% { transform: scale(1); }
+            35% { transform: scale(1.32) rotate(8deg); filter: drop-shadow(0 2px 8px rgba(251, 191, 36, 0.75)); }
+            70% { transform: scale(0.92) rotate(-4deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+
         .accordion-content {
             max-height: 0;
             overflow: hidden;
@@ -124,13 +164,13 @@
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-orange selection:text-white">
 
     <!-- Barra de Progreso de Lectura Canónica (Scroll Indicator) -->
-    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-brand-blue to-brand-orange z-[60]" style="width:0%"></div>
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-brand-orange z-[60] transition-all duration-75" style="width:0%"></div>
 
     <!-- 1. Barra de Anuncio de Urgencia -->
     <div class="bg-gradient-to-r from-brand-blue to-brand-blue-dark text-white text-xs sm:text-sm py-2.5 px-4 text-center font-medium sticky top-0 z-50 shadow-md">
         <div class="max-w-6xl mx-auto flex items-center justify-center gap-2">
             <span class="hidden sm:inline-flex items-center justify-center bg-brand-orange text-white text-[11px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">Edición 2026</span>
-            <span>🌍 <strong>Acceso Digital Inmediato:</strong> Descarga y comienza a planificar hoy mismo desde cualquier país.</span>
+            <span class="inline-flex items-center gap-1.5"><i data-lucide="globe" class="w-4 h-4 text-blue-200 inline-block -mt-0.5"></i><span><strong>Acceso Digital Inmediato:</strong> Descarga y comienza a planificar hoy mismo desde cualquier país.</span></span>
             <a href="#ordenar" class="hidden sm:inline-block ml-2 underline font-bold hover:text-brand-orange-light transition">Obtener mi Acceso &rarr;</a>
         </div>
     </div>
@@ -258,7 +298,8 @@
 
                     <!-- Call To Action Principal y Precio -->
                     <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 justify-center lg:justify-start">
-                        <a onclick="return false;" href="https://pay.hotmart.com/V88356406E?checkoutMode=2"
+                        <a href="https://pay.hotmart.com/V88356406E?checkoutMode=2"
+                            target="_blank" rel="noopener"
                             class="hotmart-fb w-full sm:w-auto px-5 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-2xl font-extrabold text-base sm:text-lg transition-all shadow-xl hover:shadow-orange-500/30 flex items-center justify-center gap-2.5 transform hover:-translate-y-0.5 cursor-pointer text-center whitespace-nowrap">
                             <i data-lucide="download" class="w-5 h-5 flex-shrink-0"></i>
                             <span>Descargar por $19.99</span>
@@ -446,7 +487,8 @@
                         Al completar tu pedido, recibes de inmediato en tu correo el <strong>PDF Interactivo Rellenable</strong>. Puedes escribir, calcular y guardar tus datos directamente desde tu iPad, tablet o computadora.
                     </p>
                 </div>
-                <a onclick="return false;" href="https://pay.hotmart.com/V88356406E?checkoutMode=2"
+                <a href="https://pay.hotmart.com/V88356406E?checkoutMode=2"
+                    target="_blank" rel="noopener"
                     class="hotmart-fb px-6 py-3 bg-white hover:bg-slate-100 text-brand-blue rounded-xl font-bold text-sm transition-all whitespace-nowrap shadow-md cursor-pointer">
                     Descargar por $19.99 USD
                 </a>
@@ -610,7 +652,7 @@
 
                 <!-- Área 5 -->
                 <div class="bg-white rounded-3xl p-7 shadow-sm border border-slate-200 hover:shadow-lg transition">
-                    <div class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold text-lg mb-5">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-50 text-brand-blue flex items-center justify-center font-bold text-lg mb-5">
                         <i data-lucide="boxes" class="w-6 h-6"></i>
                     </div>
                     <h3 class="text-lg font-black text-slate-900 mb-2.5">5. Gestión de Suministros y Stock</h3>
@@ -666,7 +708,7 @@
                                 Tu navegador no soporta reproducción de video.
                             </video>
                         </div>
-                        <div class="flex items-center gap-1 text-brand-orange mb-2">
+                        <div class="stars-rating-group flex items-center gap-1 text-brand-orange mb-2 cursor-pointer">
                             <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                             <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                             <i data-lucide="star" class="w-4 h-4 fill-current"></i>
@@ -694,7 +736,7 @@
                                 Tu navegador no soporta reproducción de video.
                             </video>
                         </div>
-                        <div class="flex items-center gap-1 text-brand-orange mb-2">
+                        <div class="stars-rating-group flex items-center gap-1 text-brand-orange mb-2 cursor-pointer">
                             <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                             <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                             <i data-lucide="star" class="w-4 h-4 fill-current"></i>
@@ -719,7 +761,7 @@
                 Sin costo adicional
             </span>
             <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mb-4">
-                5 Bonos Exclusivos de Regalo con tu Compra
+                5 bonos exclusivos de regalo con tu compra
             </h2>
             <p class="text-slate-600 max-w-2xl mx-auto mb-12 text-sm sm:text-base">
                 Queremos que tengas todo lo necesario para que no te detengas. Al adquirir tu Plan 360 Digital, recibes de inmediato estos 5 recursos complementarios:
@@ -803,7 +845,7 @@
                     
                     <div class="space-y-2 text-center sm:text-left flex-grow">
                         <div class="flex items-center justify-center sm:justify-start gap-2">
-                            <h3 class="text-xl sm:text-2xl font-black text-slate-900">Plan 360 Empresarial (Edición Digital)</h3>
+                            <h3 class="text-xl sm:text-2xl font-black text-slate-900">Plan 360 Empresarial (edición digital)</h3>
                             <span class="bg-blue-100 text-brand-blue text-xs font-bold px-2 py-0.5 rounded-full">100% Interactivo</span>
                         </div>
                         <p class="text-xs sm:text-sm text-slate-600">
@@ -812,7 +854,7 @@
                         <div class="flex items-baseline justify-center sm:justify-start gap-2 pt-1">
                             <span class="text-3xl sm:text-4xl font-black text-slate-900">$19.99</span>
                             <span class="text-sm text-slate-400 line-through">USD $39.99</span>
-                            <span class="text-xs font-extrabold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md">50% de Descuento Global</span>
+                            <span class="text-xs font-extrabold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md">50% de descuento global</span>
                         </div>
                     </div>
                 </div>
@@ -831,7 +873,7 @@
                                 Puedes agregar el Kit de Resolución de Problemas (+50 soluciones) por solo +$16.99 USD
                             </h4>
                             <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
-                                <strong>Tu botiquín de primeros auxilios empresariales:</strong> Encuentra soluciones paso a paso a los 50 problemas más críticos en finanzas, operaciones, ventas y gestión de personal. Podrás marcar la casilla directamente dentro de la pasarela segura de Hotmart.
+                                <strong>Tu botiquín de primeros auxilios empresariales:</strong> Encuentra soluciones paso a paso a los 50 problemas más críticos en finanzas, operaciones, ventas y gestión de personal + 1 plantilla rellenable para solucionar problemas. Podrás marcar la casilla directamente dentro de la pasarela segura de Hotmart.
                                 <span class="text-slate-400 line-through">(Precio regular: $47.00 USD)</span>.
                             </p>
                         </div>
@@ -854,8 +896,8 @@
                         </div>
 
                         <!-- Botón Principal Hotmart Lightbox -->
-                        <a onclick="return false;"
-                            href="https://pay.hotmart.com/V88356406E?checkoutMode=2"
+                        <a href="https://pay.hotmart.com/V88356406E?checkoutMode=2"
+                            target="_blank" rel="noopener"
                             class="hotmart-fb w-full sm:w-auto px-5 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-2xl font-black text-sm sm:text-base md:text-lg transition-all shadow-xl hover:shadow-orange-500/30 flex items-center justify-center gap-2.5 transform hover:-translate-y-0.5 text-center cursor-pointer whitespace-nowrap">
                             <i data-lucide="lock" class="w-5 h-5 flex-shrink-0"></i>
                             <span>Pagar en Hotmart ($19.99)</span>
@@ -996,7 +1038,7 @@
                     <ul class="space-y-2 text-sm">
                         <li><a href="/plan-360" class="hover:text-white transition font-semibold text-brand-orange-light">Plan 360 Empresarial</a></li>
                         <li><a href="/" class="hover:text-white transition">Escudo Preventivo Anti-Multas</a></li>
-                        <li><a href="/playbook" class="hover:text-white transition">Playbook de Blindaje</a></li>
+                        <li><a href="/guia-blindaje" class="hover:text-white transition">Playbook de Blindaje</a></li>
                         <li><a href="/recursos-gratuitos" class="hover:text-white transition">Guía Preventiva 2026 (gratis)</a></li>
                     </ul>
                 </div>
@@ -1007,7 +1049,7 @@
                     <ul class="space-y-2 text-sm">
                         <li><a href="https://wa.me/50765461527" target="_blank" class="hover:text-white">WhatsApp: +507 6546-1527</a></li>
                         <li><a href="mailto:info@aizprua.com" class="hover:text-white">info@aizprua.com</a></li>
-                        <li class="text-slate-400">Panamá, República de Panamá</li>
+                        <li class="text-slate-400">Panamá Oeste, La Chorrera</li>
                     </ul>
                 </div>
 

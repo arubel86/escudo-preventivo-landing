@@ -27,6 +27,8 @@
 </head>
 
 <body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+    <!-- Barra de progreso de lectura canónica -->
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-brand-orange z-[60] transition-all duration-75" style="width:0%"></div>
 
     <!-- Navbar Simple -->
     <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200">
@@ -49,7 +51,7 @@
             <div class="prose prose-slate max-w-none">
                 <p class="text-slate-600 mb-6"><strong>Última actualización:</strong> Julio 2026</p>
 
-                <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">1. Información Recopilada</h2>
+                <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">1. Información recopilada</h2>
                 <p class="mb-4 text-slate-700 leading-relaxed">Recopilamos datos que usted proporciona voluntariamente a
                     través de nuestros formularios, el cuestionario de diagnóstico, correos electrónicos o comunicación
                     por WhatsApp. Esto puede incluir:</p>
@@ -60,7 +62,7 @@
                     <li>Detalles sobre su negocio que comparta durante la asesoría.</li>
                 </ul>
 
-                <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">2. Uso de Datos</h2>
+                <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">2. Uso de datos</h2>
                 <p class="mb-4 text-slate-700 leading-relaxed">La información recopilada se utiliza exclusivamente para:
                 </p>
                 <ul class="list-disc pl-5 mb-4 text-slate-700 space-y-2">
@@ -72,7 +74,7 @@
                         momento).</li>
                 </ul>
 
-                <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">3. Terceros que Procesan Datos</h2>
+                <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">3. Terceros que procesan datos</h2>
                 <p class="mb-4 text-slate-700 leading-relaxed">Para operar este sitio utilizamos servicios de terceros
                     que procesan datos de forma limitada:</p>
                 <ul class="list-disc pl-5 mb-4 text-slate-700 space-y-2">
@@ -85,13 +87,13 @@
                         de su tarjeta.</li>
                 </ul>
 
-                <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">4. Protección y Compartición</h2>
+                <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">4. Protección y compartición</h2>
                 <p class="mb-4 text-slate-700 leading-relaxed">Sus datos son tratados con estricta confidencialidad. No
                     vendemos ni alquilamos su información a terceros. Solo compartimos la información estrictamente
                     necesaria con entidades gubernamentales (como la DGI, Municipios, Registro Público) para la
                     ejecución de los trámites contratados.</p>
 
-                <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">5. Sus Derechos</h2>
+                <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">5. Sus derechos</h2>
                 <p class="mb-4 text-slate-700 leading-relaxed">Puede solicitar en cualquier momento la corrección o
                     eliminación de sus datos personales escribiéndonos a nuestros canales de contacto.</p>
 
@@ -99,7 +101,7 @@
                 <p class="text-slate-700">Si tiene dudas sobre nuestra política de privacidad, contáctenos:</p>
                 <p class="mt-2 text-slate-700">Email: <a href="mailto:info@aizprua.com"
                         class="text-brand-blue hover:underline">info@aizprua.com</a><br>
-                    WhatsApp: <a href="https://wa.me/50765461527" class="text-brand-blue hover:underline">+507
+                    WhatsApp: <a href="https://wa.me/50765461527" target="_blank" rel="noopener" class="text-brand-blue hover:underline">+507
                         6546-1527</a></p>
             </div>
         </div>
@@ -112,6 +114,14 @@
 
     <script>
         lucide.createIcons();
+        window.addEventListener('scroll', () => {
+            const bar = document.getElementById('progress-bar');
+            if (bar) {
+                const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                bar.style.width = ((winScroll / height) * 100) + '%';
+            }
+        });
     </script>
 </body>
 

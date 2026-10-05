@@ -14,6 +14,12 @@ pruebas/
 public/assets/*.pem
 public/assets/*.xlsx
 public/assets/~$*.xlsx
+public/assets/IMG_*
+public/assets/*.mp4
+public/assets/*.gif
+public/assets/Diseño sin título (3).png
+public/assets/e2c95554-*.png
+public/assets/watermarked_img_*.jpg
 
 # Logs and temporary files
 *.log

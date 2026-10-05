@@ -371,14 +371,14 @@ app.get('/gracias-guia.html', (req, res) => {
   res.redirect(301, '/gracias-guia' + query);
 });
 
-// 4.1. Playbook Oficial & Super-Guía de Blindaje 2026 (Canónica: /playbook)
-app.get('/playbook', (req, res) => {
+// 4.1. Playbook Oficial & Super-Guía de Blindaje 2026 (Canónica: /guia-blindaje)
+app.get('/guia-blindaje', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'guia.html'));
 });
 
-app.get(['/playbook.html', '/guia', '/guia.html', '/guia-interactiva', '/docs', '/docs.html', '/blindaje'], (req, res) => {
+app.get(['/guia-blindaje.html', '/playbook', '/playbook.html', '/guia', '/guia.html', '/guia-interactiva', '/docs', '/docs.html', '/blindaje'], (req, res) => {
   const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
-  res.redirect(301, '/playbook' + query);
+  res.redirect(301, '/guia-blindaje' + query);
 });
 
 // 4.2. Guía Práctica: Cómo Conseguir un Préstamo en Panamá 2026 (Canónica: /guia-prestamos)
@@ -461,6 +461,16 @@ app.get(['/tienda.html', '/catalogo', '/catalogo.html', '/productos', '/producto
   res.redirect(301, '/tienda' + query);
 });
 
+// 4.9.1. Escuela de Negocios Aizprua S.E. (Canónica: /escuela)
+app.get('/escuela', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'escuela.html'));
+});
+
+app.get(['/escuela.html', '/campus', '/campus.html', '/academia', '/academia.html'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/escuela' + query);
+});
+
 // 4.10. Blog de Inteligencia Empresarial & Legal (Canónica: /blog)
 app.get('/blog', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'blog.html'));
@@ -488,6 +498,33 @@ app.get('/articulo-mentalidad', (req, res) => {
 app.get(['/articulo-mentalidad.html', '/cambiar-manera-de-pensar', '/cambiar-manera-de-pensar.html'], (req, res) => {
   const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
   res.redirect(301, '/articulo-mentalidad' + query);
+});
+
+app.get('/articulo-credito-bancario', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'articulo-credito-bancario.html'));
+});
+
+app.get(['/articulo-credito-bancario.html', '/requisitos-credito-bancario', '/credito-comercial-panama'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/articulo-credito-bancario' + query);
+});
+
+app.get('/articulo-contratos-comerciales', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'articulo-contratos-comerciales.html'));
+});
+
+app.get(['/articulo-contratos-comerciales.html', '/errores-contratos-comerciales', '/contratos-panama'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/articulo-contratos-comerciales' + query);
+});
+
+app.get('/articulo-multas-panama', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'articulo-multas-panama.html'));
+});
+
+app.get(['/articulo-multas-panama.html', '/multas-dgi-css', '/multas-dgi-panama', '/multas-ocultas-panama'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/articulo-multas-panama' + query);
 });
 
 // 5. Hub Post-Pago (Protegido por Sesión Criptográfica)

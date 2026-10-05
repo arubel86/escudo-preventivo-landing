@@ -7,7 +7,7 @@
     <meta name="robots" content="index, follow">
 
     <!-- SEO & Metatags -->
-    <title>5 Consejos para Cambiar Nuestra Manera de Pensar y Cumplir Metas | Aizprua S.E.</title>
+    <title>5 consejos para cambiar nuestra manera de pensar y cumplir metas | Aizprua S.E.</title>
     <meta name="description"
         content="Descubre los 5 hábitos de mentalidad empresarial para pasar de autoempleado a dueño de negocio, enfocarte en metas reales y construir sistemas sostenibles.">
     <link rel="canonical" href="https://aizprua.com/articulo-mentalidad">
@@ -18,7 +18,7 @@
     <!-- Open Graph -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://aizprua.com/articulo-mentalidad">
-    <meta property="og:title" content="5 Consejos para Cambiar Nuestra Manera de Pensar | Aizprua S.E.">
+    <meta property="og:title" content="5 consejos para cambiar nuestra manera de pensar | Aizprua S.E.">
     <meta property="og:description" content="Hábitos y mentalidad práctica para dueños de negocio y emprendedores.">
     <meta property="og:image" content="https://aizprua.com/assets/plan-360-og.jpg">
 
@@ -49,203 +49,984 @@
         }
     </script>
     <script src="https://unpkg.com/lucide@latest" defer></script>
+    <style>
+        /* Ocultar barra de scroll manteniendo desplazamiento fluido */
+        .custom-scroll::-webkit-scrollbar,
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .custom-scroll,
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Elemento de navegación activo */
+        .nav-doc-link.active {
+            background-color: #EFF6FF;
+            color: #3849C8;
+            font-weight: 700;
+            border-left: 3.5px solid #3849C8;
+        }
+        .nav-doc-link.active span.dot-indicator {
+            background-color: #3849C8 !important;
+        }
+    </style>
 </head>
 
-<body class="bg-slate-50 text-slate-800 antialiased flex flex-col min-h-screen selection:bg-brand-orange selection:text-white">
+<body class="bg-slate-50 text-slate-800 antialiased flex flex-col min-h-screen selection:bg-brand-orange selection:text-white relative">
 
-    <!-- Header Canónico Oficial -->
-    <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40">
+    <!-- Barra de Progreso de Lectura Canónica -->
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-brand-orange z-[60] transition-all duration-75" style="width:0%"></div>
+
+    <!-- ==================================================== -->
+    <!-- 1. BARRA SUPERIOR DE ANUNCIOS (ANNOUNCEMENT BAR)     -->
+    <!-- ==================================================== -->
+    <div id="announcement-bar" class="relative bg-brand-blue text-white py-2.5 px-4 text-center text-xs sm:text-sm font-semibold z-50">
+        <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 flex-wrap">
+            <span class="hidden sm:inline-flex items-center gap-1.5 bg-white/10 px-2 py-0.5 rounded-full text-brand-orange-light text-[11px] font-black uppercase tracking-wider">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                Autodiagnóstico 2026
+            </span>
+            <span>¿Tu empresa tiene fugas de dinero o riesgos de multas sin darte cuenta?</span>
+            <a href="/test-interactivo" class="inline-flex items-center gap-1 text-white underline font-bold hover:text-brand-orange-light transition">
+                <span>Hacer Test en 3 minutos</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+        </div>
+        <button onclick="document.getElementById('announcement-bar').style.display='none'"
+            aria-label="Cerrar aviso" class="absolute right-3 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition p-1">
+            <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+    </div>
+
+    <!-- ==================================================== -->
+    <!-- 2. HEADER CANÓNICO OFICIAL (NAVBAR LIMPIO)            -->
+    <!-- ==================================================== -->
+    <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40 transition-all">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20 sm:h-24 md:h-28">
+            <div class="flex justify-between items-center h-20">
+
+                <!-- Logotipo Canónico Oficial -->
                 <a href="/" class="flex items-center flex-shrink-0" aria-label="Aizprua S.E. Inicio">
                     <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg"
                         onerror="this.onerror=null; this.src='/assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg';"
-                        alt="Logo Aizprua S.E." class="h-20 sm:h-24 md:h-28 w-auto object-contain" width="112" height="112">
+                        alt="Logo Aizprua S.E. - Firma Legal y Empresarial en Panamá"
+                        class="h-28 w-auto object-contain" width="112" height="112">
                 </a>
 
+                <!-- Navegación de Escritorio Limpia -->
                 <nav class="hidden lg:flex items-center space-x-8 text-sm font-semibold text-slate-700">
                     <a href="/#servicios" class="hover:text-brand-blue transition">Servicios</a>
-                    <a href="/tienda" class="hover:text-brand-blue transition">Tienda Online</a>
-                    <a href="/blog" class="text-brand-blue font-bold">Blog</a>
-                    <a href="/test-interactivo" class="text-brand-orange font-bold">Test de Auditoría</a>
+                    <a href="/tienda" class="hover:text-brand-blue transition flex items-center gap-1.5">
+                        <span>Tienda Online</span>
+                        <span class="bg-brand-orange/10 text-brand-orange text-[10px] font-black px-2 py-0.5 rounded-full border border-brand-orange/20">Kits</span>
+                    </a>
+                    <a href="/escuela" class="hover:text-brand-blue transition flex items-center gap-1 text-slate-500">
+                        <i data-lucide="graduation-cap" class="w-4 h-4 text-brand-blue"></i>
+                        <span>Escuela</span>
+                    </a>
+                    <a href="/blog" class="text-brand-blue font-bold flex items-center gap-1.5">
+                        <span>Blog</span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span>
+                    </a>
+                    <span class="text-slate-300">|</span>
+                    <a href="tel:+50765461527" class="flex items-center gap-1.5 text-slate-600 hover:text-brand-blue transition">
+                        <i data-lucide="phone" class="w-4 h-4 text-brand-orange"></i>
+                        <span>6546-1527</span>
+                    </a>
                 </nav>
 
-                <div class="flex items-center gap-3">
-                    <a href="/blog" class="text-xs sm:text-sm font-bold text-slate-600 hover:text-brand-blue flex items-center gap-1.5 transition">
-                        <i data-lucide="arrow-left" class="w-4 h-4"></i>
-                        <span>Volver al Blog</span>
+                <!-- Botón CTA WhatsApp Oficial Canónico -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20sobre%20sus%20servicios"
+                        target="_blank" rel="noopener"
+                        class="flex items-center gap-2 bg-[#25D366] text-white px-5 py-2.5 rounded-full font-bold text-sm hover:bg-[#20bd5a] transition shadow-md whitespace-nowrap">
+                        <i data-lucide="message-circle" class="w-4 h-4 flex-shrink-0"></i>
+                        <span>WhatsApp</span>
                     </a>
                 </div>
+
+                <!-- Botón Menú Móvil -->
+                <div class="flex items-center lg:hidden">
+                    <button onclick="toggleMobileMenu()" aria-label="Abrir menú" class="text-slate-700 p-2">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
             </div>
+        </div>
+
+        <!-- Menú Móvil Desplegable -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-200 px-4 py-4 space-y-3">
+            <a href="/#servicios" class="block py-2 text-slate-700 font-bold">Servicios (Asesoría & Trámites)</a>
+            <a href="/tienda" class="block py-2 text-slate-700 font-bold">Tienda Online (Kits & Soluciones)</a>
+            <a href="/blog" class="block py-2 text-brand-blue font-bold">Blog de Inteligencia</a>
+            <a href="/test-interactivo" class="block py-2 text-brand-orange font-bold">Test de Auditoría Gratis</a>
+            <a href="https://wa.me/50765461527" target="_blank" class="block py-2 text-emerald-600 font-bold">Contactar por WhatsApp</a>
         </div>
     </header>
 
-    <!-- Contenido del Artículo Editorial -->
-    <main class="flex-grow py-10 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
+
+    <!-- Contenido del Artículo Editorial con Sidebar de Lectura -->
+    <main class="flex-grow py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         
-        <!-- Migas de pan -->
-        <div class="flex items-center gap-2 text-xs font-semibold text-slate-400 mb-6">
-            <a href="/" class="hover:text-brand-blue">Inicio</a>
-            <span>/</span>
-            <a href="/blog" class="hover:text-brand-blue">Blog</a>
-            <span>/</span>
-            <span class="text-slate-600">Mentalidad Empresarial</span>
-        </div>
+        <!-- Layout de 2 Columnas: Sidebar Flotante + Contenido del Artículo -->
+        <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start relative">
 
-        <!-- Encabezado del Post -->
-        <div class="space-y-4 mb-8">
-            <span class="text-xs font-black uppercase tracking-wider text-brand-orange bg-brand-orange/10 px-3.5 py-1 rounded-full border border-brand-orange/20">
-                Mentalidad & Liderazgo de Negocios
-            </span>
-            <h1 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
-                5 consejos para cambiar nuestra manera de pensar y cumplir objetivos de negocio
-            </h1>
-            <div class="flex flex-wrap items-center gap-4 text-xs text-slate-500 font-semibold pt-2 border-b border-slate-200 pb-6">
-                <div class="flex items-center gap-2.5">
-                    <img src="assets/avatar-arubel.jpg" onerror="this.onerror=null; this.src='/assets/avatar-arubel.jpg';" alt="Arubel Aizprua" class="w-8 h-8 rounded-full object-cover border border-brand-orange/30 shadow-xs">
-                    <span class="text-slate-900 font-bold">Arubel Aizprua</span>
+            <!-- SIDEBAR IZQUIERDO: CONTENIDO DEL ARTÍCULO (TOC) -->
+            <aside id="guideSidebar" class="hidden lg:block w-72 flex-shrink-0 sticky top-36 max-h-[calc(100vh-10rem)] overflow-y-auto custom-scroll pr-2">
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+                    <div>
+                        <span class="text-[11px] font-extrabold uppercase tracking-wider text-slate-400 block mb-3 px-2">
+                            Contenido del Artículo
+                        </span>
+                        <nav class="space-y-0.5" id="guideNavList">
+                            <a href="#introduccion" class="nav-doc-link active flex items-center gap-2.5 px-3 py-1.5 rounded-xl text-xs text-slate-700 hover:bg-slate-100 transition">
+                                <span class="dot-indicator w-2 h-2 rounded-full bg-brand-orange flex-shrink-0"></span>
+                                <span>01. Introducción</span>
+                            </a>
+                            <a href="#resumen-ejecutivo" class="nav-doc-link flex items-center gap-2.5 px-3 py-1.5 rounded-xl text-xs text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+                                <span class="dot-indicator w-2 h-2 rounded-full bg-slate-300 flex-shrink-0"></span>
+                                <span>02. Resumen Ejecutivo (TL;DR)</span>
+                            </a>
+                            <a href="#espacio-pensar" class="nav-doc-link flex items-center gap-2.5 px-3 py-1.5 rounded-xl text-xs text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+                                <span class="dot-indicator w-2 h-2 rounded-full bg-slate-300 flex-shrink-0"></span>
+                                <span>03. Espacio para pensar</span>
+                            </a>
+                            <a href="#material-valioso" class="nav-doc-link flex items-center gap-2.5 px-3 py-1.5 rounded-xl text-xs text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+                                <span class="dot-indicator w-2 h-2 rounded-full bg-slate-300 flex-shrink-0"></span>
+                                <span>04. Material valioso</span>
+                            </a>
+                            <a href="#capacitacion" class="nav-doc-link flex items-center gap-2.5 px-3 py-1.5 rounded-xl text-xs text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+                                <span class="dot-indicator w-2 h-2 rounded-full bg-slate-300 flex-shrink-0"></span>
+                                <span>05. Capacitación clave</span>
+                            </a>
+                            <a href="#entorno" class="nav-doc-link flex items-center gap-2.5 px-3 py-1.5 rounded-xl text-xs text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+                                <span class="dot-indicator w-2 h-2 rounded-full bg-slate-300 flex-shrink-0"></span>
+                                <span>06. Entorno de calidad</span>
+                            </a>
+                            <a href="#despejar-mente" class="nav-doc-link flex items-center gap-2.5 px-3 py-1.5 rounded-xl text-xs text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+                                <span class="dot-indicator w-2 h-2 rounded-full bg-slate-300 flex-shrink-0"></span>
+                                <span>07. Despejar la mente</span>
+                            </a>
+                            <a href="#matriz-pilares" class="nav-doc-link flex items-center gap-2.5 px-3 py-1.5 rounded-xl text-xs text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+                                <span class="dot-indicator w-2 h-2 rounded-full bg-slate-300 flex-shrink-0"></span>
+                                <span>08. Matriz de los 5 pilares</span>
+                            </a>
+                            <a href="#tabla-comparativa" class="nav-doc-link flex items-center gap-2.5 px-3 py-1.5 rounded-xl text-xs text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+                                <span class="dot-indicator w-2 h-2 rounded-full bg-slate-300 flex-shrink-0"></span>
+                                <span>09. Tabla comparativa</span>
+                            </a>
+                            <a href="#test-habitos" class="nav-doc-link flex items-center gap-2.5 px-3 py-1.5 rounded-xl text-xs text-brand-orange hover:bg-orange-50 font-bold transition">
+                                <span class="dot-indicator w-2 h-2 rounded-full bg-brand-orange flex-shrink-0"></span>
+                                <span>10. Test de hábitos gratis</span>
+                            </a>
+                            <a href="#preguntas-frecuentes" class="nav-doc-link flex items-center gap-2.5 px-3 py-1.5 rounded-xl text-xs text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+                                <span class="dot-indicator w-2 h-2 rounded-full bg-slate-300 flex-shrink-0"></span>
+                                <span>11. Preguntas frecuentes (FAQ)</span>
+                            </a>
+                            <a href="#autor" class="nav-doc-link flex items-center gap-2.5 px-3 py-1.5 rounded-xl text-xs text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition">
+                                <span class="dot-indicator w-2 h-2 rounded-full bg-slate-300 flex-shrink-0"></span>
+                                <span>12. Sobre el autor</span>
+                            </a>
+                        </nav>
+                    </div>
                 </div>
-                <span>•</span>
-                <span>Lectura estimada: 4 minutos</span>
-                <span>•</span>
-                <span>Edición Panamá 2026</span>
-            </div>
-        </div>
+            </aside>
 
-        <!-- Cuerpo del Artículo -->
-        <article class="prose prose-slate max-w-none space-y-6 text-sm sm:text-base text-slate-700 leading-relaxed">
-            
-            <p class="text-base sm:text-lg text-slate-800 font-medium leading-relaxed">
-                Cambiar nuestra manera de pensar trae consigo beneficios decisivos al momento de querer cumplir objetivos de negocio. Primero que todo, es fundamental reconocer qué factores debemos mejorar y cuáles hábitos pueden estar frenando el crecimiento de nuestra empresa.
-            </p>
-
-            <p>
-                A continuación te presento los <b>5 consejos prácticos</b> que debes aplicar de ahora en adelante para reprogramar tu enfoque y liderar con claridad:
-            </p>
-
-            <div class="space-y-8 pt-4">
+            <!-- COLUMNA PRINCIPAL: CUERPO DEL ARTÍCULO (ALINEADO) -->
+            <div class="flex-1 min-w-0 max-w-3xl">
                 
-                <!-- CONSEJO 1 -->
-                <div class="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
-                    <div class="flex items-center gap-3">
-                        <span class="w-8 h-8 rounded-full bg-brand-blue/10 text-brand-blue font-black flex items-center justify-center text-sm flex-shrink-0">1</span>
-                        <h3 class="text-lg font-black text-slate-900">Encuentra un espacio y hora exclusiva para pensar</h3>
-                    </div>
-                    <p class="text-sm text-slate-600 leading-relaxed">
-                        Tener un lugar tranquilo donde puedan fluir tus ideas es esencial. Se trata de un espacio donde no existan notificaciones, llamadas ni emergencias operativas. En mi caso personal, mi espacio para reflexionar es en mi habitación durante la noche: allí tengo una carpeta donde anoto cada idea y la convierto en metas medibles. Recuerda que tus metas deben ser realistas y visualizadas paso a paso.
-                    </p>
+                <!-- Migas de pan alineadas -->
+                <div class="flex items-center gap-2 text-xs font-semibold text-slate-400 mb-4">
+                    <a href="/" class="hover:text-brand-blue">Inicio</a>
+                    <span>/</span>
+                    <a href="/blog" class="hover:text-brand-blue">Blog</a>
+                    <span>/</span>
+                    <span class="text-slate-600">Mentalidad Empresarial</span>
                 </div>
 
-                <!-- CONSEJO 2 -->
-                <div class="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
-                    <div class="flex items-center gap-3">
-                        <span class="w-8 h-8 rounded-full bg-brand-blue/10 text-brand-blue font-black flex items-center justify-center text-sm flex-shrink-0">2</span>
-                        <h3 class="text-lg font-black text-slate-900">Consume material valioso que aporte criterio</h3>
+                <!-- Encabezado del Post alineado -->
+                <div class="space-y-4 mb-6">
+                    <span class="text-xs font-black uppercase tracking-wider text-brand-orange bg-brand-orange/10 px-3.5 py-1 rounded-full border border-brand-orange/20 inline-block">
+                        Mentalidad & Liderazgo de Negocios
+                    </span>
+                    <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                        5 consejos para cambiar nuestra manera de pensar y cumplir objetivos de negocio
+                    </h1>
+                    
+                    <!-- Ficha de Autor & Metadatos -->
+                    <div class="flex flex-wrap items-center justify-between gap-4 pt-2 border-b border-slate-200 pb-5">
+                        <div class="flex flex-wrap items-center gap-3 text-xs text-slate-500 font-semibold">
+                            <div class="flex items-center gap-2">
+                                <img src="assets/avatar-arubel.jpg" onerror="this.onerror=null; this.src='/assets/avatar-arubel.jpg';" alt="Arubel Aizprua" class="w-8 h-8 rounded-full object-cover border border-brand-orange/30 shadow-xs">
+                                <span class="text-slate-900 font-bold">Arubel Aizprua</span>
+                            </div>
+                            <span>•</span>
+                            <span class="bg-brand-orange/10 text-brand-orange px-2 py-0.5 rounded-full font-bold">7 min de lectura</span>
+                            <span>•</span>
+                            <span>Edición Panamá 2026</span>
+                        </div>
+
+                        <!-- Botones de Compartir (Cabecera) -->
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-[11px] font-bold text-slate-400 mr-1 hidden sm:inline">Compartir:</span>
+                            <!-- WhatsApp -->
+                            <a href="https://api.whatsapp.com/send?text=5%20consejos%20para%20cambiar%20nuestra%20manera%20de%20pensar%20https%3A%2F%2Faizprua.com%2Farticulo-mentalidad" target="_blank" rel="noopener noreferrer" title="Compartir en WhatsApp"
+                                class="w-8 h-8 rounded-full bg-emerald-50 text-[#25D366] hover:bg-[#25D366] hover:text-white border border-emerald-200 flex items-center justify-center transition shadow-xs">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                            </a>
+                            <!-- LinkedIn -->
+                            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Faizprua.com%2Farticulo-mentalidad" target="_blank" rel="noopener noreferrer" title="Compartir en LinkedIn"
+                                class="w-8 h-8 rounded-full bg-blue-50 text-[#0A66C2] hover:bg-[#0A66C2] hover:text-white border border-blue-200 flex items-center justify-center transition shadow-xs">
+                                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.59 1.59 0 1 0 0-3.18 1.59 1.59 0 0 0 0 3.18m1.39 9.74v-8.37H5.07v8.37h2.78z"/></svg>
+                            </a>
+                            <!-- X (Twitter) -->
+                            <a href="https://twitter.com/intent/tweet?text=5%20consejos%20para%20cambiar%20nuestra%20manera%20de%20pensar&url=https%3A%2F%2Faizprua.com%2Farticulo-mentalidad" target="_blank" rel="noopener noreferrer" title="Compartir en X"
+                                class="w-8 h-8 rounded-full bg-slate-100 text-slate-800 hover:bg-black hover:text-white border border-slate-200 flex items-center justify-center transition shadow-xs">
+                                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                            </a>
+                            <!-- Copiar Enlace -->
+                            <button type="button" onclick="copiarEnlace(this)" title="Copiar enlace"
+                                class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition border border-slate-200">
+                                <i data-lucide="link" class="w-3.5 h-3.5"></i>
+                                <span class="btn-copy-text">Copiar</span>
+                            </button>
+                        </div>
                     </div>
-                    <p class="text-sm text-slate-600 leading-relaxed">
-                        Nos referimos a libros, análisis financieros y manuales técnicos que expandan tu visión. El aprendizaje constante es indispensable para evolucionar como persona y como empresario. Dedicar al menos <b>30 minutos diarios a la lectura constructiva</b> te permite salir de tu zona de confort y anticiparte a los problemas que otros sufren por ignorancia.
-                    </p>
                 </div>
 
-                <!-- CONSEJO 3 -->
-                <div class="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
-                    <div class="flex items-center gap-3">
-                        <span class="w-8 h-8 rounded-full bg-brand-blue/10 text-brand-blue font-black flex items-center justify-center text-sm flex-shrink-0">3</span>
-                        <h3 class="text-lg font-black text-slate-900">Capacítate en lo que te cuesta delegar</h3>
-                    </div>
-                    <p class="text-sm text-slate-600 leading-relaxed">
-                        Hay un refrán que dice que todos los días se aprende algo nuevo, pero si no tienes un plan estructurado de capacitación, los resultados tardarán años. Hoy en día existen cursos y recursos especializados para dominar finanzas, marketing y leyes. Haz anotaciones de tus dudas y capacítate para poder exigir y auditar a tu equipo con propiedad.
-                    </p>
+                <!-- Imagen de Portada del Artículo (Proporción Canónica Oficial 654x315) -->
+                <div class="relative aspect-[654/315] bg-slate-900 rounded-3xl overflow-hidden mb-10 shadow-lg border border-slate-200">
+                    <img src="assets/portada-articulo-mentalidad.png" onerror="this.onerror=null; this.src='/assets/portada-articulo-mentalidad.png';" alt="5 consejos que te cambiarán la forma de pensar y cumplir objetivos de negocio" class="w-full h-full object-cover">
                 </div>
 
-                <!-- CONSEJO 4 -->
-                <div class="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
-                    <div class="flex items-center gap-3">
-                        <span class="w-8 h-8 rounded-full bg-brand-blue/10 text-brand-blue font-black flex items-center justify-center text-sm flex-shrink-0">4</span>
-                        <h3 class="text-lg font-black text-slate-900">Rodéate de personas que eleven tu estándar</h3>
+                <!-- Cuerpo del Artículo -->
+                <article class="prose prose-slate max-w-none space-y-6 text-sm sm:text-base text-slate-700 leading-relaxed">
+                    
+                    <!-- 1. INTRODUCCIÓN (Planteamiento del problema & gancho) -->
+                    <div id="introduccion" class="doc-card scroll-mt-36 space-y-4">
+                        <p class="text-base sm:text-lg text-slate-800 font-medium leading-relaxed">
+                            Muchos fundadores y profesionales independientes en Panamá creen que su mayor reto empresarial es la falta de capital, la recesión económica o el algoritmo de las redes sociales. Sin embargo, tras años de asesorar empresas, la realidad demuestra una verdad incómoda: <b>el crecimiento de tu negocio jamás superará el nivel de tu mentalidad empresarial</b>.
+                        </p>
+
+                        <p>
+                            Si operas con mentalidad de autoempleado, tu empresa se convierte rápidamente en una cárcel de 14 horas al día donde eres el bombero apagando incendios continuos: cobros atrasados, reclamos de clientes y desorden operativo. En cambio, cuando cambias tu manera de pensar y adquieres el criterio de un <b>fundador estratégico</b>, dejas de ser la máquina y pasas a diseñar el sistema que te da libertad y protección.
+                        </p>
+
+                        <div class="p-6 rounded-2xl bg-orange-50/60 border-l-4 border-brand-orange my-6">
+                            <h3 class="text-base font-black text-brand-orange mb-2">El Principio de la Psicología del Fundador</h3>
+                            <p class="text-xs sm:text-sm text-slate-700 leading-relaxed mb-0">
+                                Tu negocio es un reflejo exacto de tus decisiones diarias. Si no ordenas tus pensamientos, no podrás ordenar tus finanzas; si no aprendes a decir «no», tu tiempo será secuestrado por urgencias ajenas; y si no confías en procesos formales, vivirás atrapado en la microgestión.
+                            </p>
+                        </div>
                     </div>
-                    <p class="text-sm text-slate-600 leading-relaxed">
-                        El entorno en el que te desenvuelves influye de forma directa en cómo ves los negocios. Las relaciones tóxicas o quejumbrosas solo generan conflictos y apatía. Haz una lista de las personas con las que pasas más tiempo y pregúntate si te impulsan a resolver o te anclan a la queja. Mantén cerca a quienes aporten soluciones y tengan hambre de construir.
+
+                    <!-- 2. RESUMEN EJECUTIVO / TL;DR (Retención & Síntesis) -->
+                    <div id="resumen-ejecutivo" class="doc-card scroll-mt-36 p-6 sm:p-7 rounded-3xl bg-gradient-to-br from-brand-orange/[0.04] to-brand-orange/[0.08] border-2 border-brand-orange/20 shadow-sm space-y-4 not-prose my-8">
+                        <div class="flex items-center gap-2">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-brand-orange text-white shadow-xs">
+                                <i data-lucide="zap" class="w-3.5 h-3.5 text-white"></i>
+                                <span>Resumen Ejecutivo (TL;DR)</span>
+                            </span>
+                            <span class="text-xs text-slate-500 font-semibold">• 30 segundos de lectura</span>
+                        </div>
+                        <h2 class="text-lg sm:text-xl font-black text-slate-900 leading-snug">
+                            Las 3 claves de mentalidad para liderar una empresa en Panamá:
+                        </h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-1 items-stretch">
+                            <div class="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs flex flex-col justify-between h-full">
+                                <div>
+                                    <div class="w-8 h-8 rounded-xl bg-brand-orange/15 text-brand-orange flex items-center justify-center font-black text-sm mb-2.5">
+                                        1
+                                    </div>
+                                    <h3 class="font-bold text-slate-900 text-xs mb-1">Del Bombero al Arquitecto</h3>
+                                    <p class="text-[11px] text-slate-600 leading-relaxed">
+                                        Tu trabajo como dueño no es apagar fuegos operativos, sino diseñar los procesos que impidan que el fuego comience.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs flex flex-col justify-between h-full">
+                                <div>
+                                    <div class="w-8 h-8 rounded-xl bg-brand-blue/15 text-brand-blue flex items-center justify-center font-black text-sm mb-2.5">
+                                        2
+                                    </div>
+                                    <h3 class="font-bold text-slate-900 text-xs mb-1">Tiempo Sagrado de Pensar</h3>
+                                    <p class="text-[11px] text-slate-600 leading-relaxed">
+                                        Sin un bloque diario no negociable de silencio y planificación, la urgencia de otros consumirá el 100% de tus horas útiles.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs flex flex-col justify-between h-full">
+                                <div>
+                                    <div class="w-8 h-8 rounded-xl bg-brand-orange/15 text-brand-orange flex items-center justify-center font-black text-sm mb-2.5">
+                                        3
+                                    </div>
+                                    <h3 class="font-bold text-slate-900 text-xs mb-1">Delegación con Contratos</h3>
+                                    <p class="text-[11px] text-slate-600 leading-relaxed">
+                                        Delegar «de palabra» genera traiciones y pleitos; delegar con contratos blindados y manuales claros genera paz mental y escala.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. CONTENIDO: 5 CONSEJOS PRÁCTICOS DESGLOSADOS -->
+                    <div class="space-y-8 pt-2">
+                        
+                        <!-- CONSEJO 1 -->
+                        <div id="espacio-pensar" class="doc-card scroll-mt-36 p-6 sm:p-7 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
+                            <div class="flex items-start gap-3 sm:gap-3.5">
+                                <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-brand-orange/10 text-brand-orange font-black flex items-center justify-center text-xs sm:text-sm shrink-0 select-none">1</span>
+                                <h3 class="text-lg sm:text-xl font-black text-slate-900 leading-7 sm:leading-8 m-0">Encuentra un espacio y hora exclusiva para pensar</h3>
+                            </div>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                La trampa más común del emprendedor moderno es la hiperconectividad: responder mensajes instantáneos de WhatsApp, revisar correos a medianoche y atender crisis de última hora. Cuando operas en ese estado de alerta continua, <b>tu corteza prefrontal no tiene espacio para tomar decisiones estratégicas</b>.
+                            </p>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                Necesitas instituir un bloque diario o semanal sagrado y no negociable. En mi rutina personal, dedico tiempo en la noche, en completo silencio y sin pantallas, con una libreta física. Anoto las decisiones difíciles, evalúo si los clientes actuales son rentables y proyecto los números del mes. Recuerda: una sola hora de pensamiento estratégico en calma puede ahorrarte meses de trabajo desperdiciado.
+                            </p>
+                        </div>
+
+                        <!-- CONSEJO 2 -->
+                        <div id="material-valioso" class="doc-card scroll-mt-36 p-6 sm:p-7 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
+                            <div class="flex items-start gap-3 sm:gap-3.5">
+                                <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-brand-orange/10 text-brand-orange font-black flex items-center justify-center text-xs sm:text-sm shrink-0 select-none">2</span>
+                                <h3 class="text-lg sm:text-xl font-black text-slate-900 leading-7 sm:leading-8 m-0">Consume material valioso que aporte criterio empresarial</h3>
+                            </div>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                Existe una diferencia abismal entre «consumir información» y «construir criterio». Las redes sociales están saturadas de frases motivacionales vacías de 15 segundos que generan entusiasmo pasajero, pero cero herramientas prácticas para negociar un contrato, leer un estado de pérdidas y ganancias o estructurar una sociedad.
+                            </p>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                Dedica al menos <b>30 minutos diarios a la lectura constructiva</b>: libros de gestión empresarial, análisis de jurisprudencia comercial, guías tributarias de la DGI y biografías de líderes que construyeron empresas sostenibles. Cuando adquieres criterio técnico, los problemas que antes te paralizaban se convierten en simples problemas de lógica con soluciones claras.
+                            </p>
+                        </div>
+
+                        <!-- CONSEJO 3 -->
+                        <div id="capacitacion" class="doc-card scroll-mt-36 p-6 sm:p-7 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
+                            <div class="flex items-start gap-3 sm:gap-3.5">
+                                <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-brand-orange/10 text-brand-orange font-black flex items-center justify-center text-xs sm:text-sm shrink-0 select-none">3</span>
+                                <h3 class="text-lg sm:text-xl font-black text-slate-900 leading-7 sm:leading-8 m-0">Capacítate en lo que más te cuesta delegar</h3>
+                            </div>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                El cuello de botella más peligroso de una empresa en crecimiento es la frase: <i>«Nadie lo hace tan bien como yo»</i>. Esta creencia es un veneno que limita tu negocio al tamaño de tu resistencia física. No puedes delegar lo que no entiendes, pero tampoco necesitas ser el ejecutor eterno.
+                            </p>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                Si te asusta la contabilidad, capacítate en lo básico para saber cómo auditar a tu contador. Si te cuesta la parte legal, aprende las cláusulas esenciales para no firmar acuerdos abusivos. <b>El objetivo de capacitarte no es hacer el trabajo tú mismo, sino tener la autoridad y el conocimiento para supervisar y exigir con exactitud a tu equipo.</b>
+                            </p>
+                        </div>
+
+                        <!-- CONSEJO 4 -->
+                        <div id="entorno" class="doc-card scroll-mt-36 p-6 sm:p-7 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
+                            <div class="flex items-start gap-3 sm:gap-3.5">
+                                <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-brand-orange/10 text-brand-orange font-black flex items-center justify-center text-xs sm:text-sm shrink-0 select-none">4</span>
+                                <h3 class="text-lg sm:text-xl font-black text-slate-900 leading-7 sm:leading-8 m-0">Rodéate de personas que eleven tu estándar de ejecución</h3>
+                            </div>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                Eres el promedio de las cinco personas con las que más interactúas. Si tu círculo de amigos o socios vive quejándose de la economía panameña, buscando atajos informales o justificando el fracaso, terminarás adoptando esas mismas excusas para tu negocio.
+                            </p>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                Haz una auditoría despiadada de tu entorno. Busca mentores, clientes exigentes y colegas que jueguen a un nivel superior: empresarios que formalizan, que pagan a tiempo, que respetan contratos y que construyen a largo plazo. La cercanía con personas de alto rendimiento normaliza la disciplina y eleva tus estándares de forma natural.
+                            </p>
+                        </div>
+
+                        <!-- CONSEJO 5 -->
+                        <div id="despejar-mente" class="doc-card scroll-mt-36 p-6 sm:p-7 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
+                            <div class="flex items-start gap-3 sm:gap-3.5">
+                                <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-brand-orange/10 text-brand-orange font-black flex items-center justify-center text-xs sm:text-sm shrink-0 select-none">5</span>
+                                <h3 class="text-lg sm:text-xl font-black text-slate-900 leading-7 sm:leading-8 m-0">Conoce nuevos lugares y despeja tu mente para resolver con calma</h3>
+                            </div>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                Estar ocupado no es lo mismo que ser productivo. Quemarte trabajando 16 horas seguidas sin descanso nubla tu juicio y provoca decisiones reactivas que pueden costarle miles de dólares a tu empresa en litigios o multas evitables.
+                            </p>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                Salir de tu oficina, visitar el interior de Panamá o viajar a otros países rompe tus patrones mentales habituales. Te permite observar cómo operan otras industrias, cómo atienden al cliente en otros mercados y te da la distancia psicológica necesaria para encontrar la solución a ese problema que parecía insoluble en el estrés de la oficina.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <!-- INFOGRAFÍA: LA RUTA DE ASCENSO DEL FUNDADOR (DISEÑO AMPLIO & ELEGANTE) -->
+                    <div id="matriz-pilares" class="not-prose my-10 p-6 sm:p-8 rounded-3xl bg-slate-900 border border-slate-800 text-white shadow-2xl relative overflow-hidden">
+                        <!-- Resplandor ambiental sobrio oficial -->
+                        <div class="absolute -right-20 -top-20 w-80 h-80 bg-brand-blue/15 rounded-full blur-3xl pointer-events-none"></div>
+                        <div class="absolute -left-20 -bottom-20 w-80 h-80 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                        <!-- Encabezado con Insignia Oficial -->
+                        <div class="relative z-10 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-5">
+                            <div class="flex items-center gap-3.5">
+                                <div class="w-10 h-10 rounded-2xl bg-brand-orange/15 border border-brand-orange/30 flex items-center justify-center text-brand-orange shrink-0 shadow-inner">
+                                    <i data-lucide="brain-circuit" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-base sm:text-lg font-black text-white m-0">La Ruta de Ascenso: 5 Hábitos del Fundador</h4>
+                                    <p class="text-xs text-slate-400 m-0">El mapa mental para pasar de apagar fuegos a construir una empresa que opera sin ti</p>
+                                </div>
+                            </div>
+                            <span class="self-start sm:self-center inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-[11px] font-black uppercase tracking-wider bg-brand-blue/20 text-brand-blue-light border border-brand-blue/40 shrink-0">
+                                <i data-lucide="shield" class="w-3.5 h-3.5 text-brand-orange"></i> Método Escudo Preventivo
+                            </span>
+                        </div>
+
+                        <!-- 5 Tarjetas Horizontales Espaciosas y Cómodas -->
+                        <div class="relative z-10 space-y-4">
+                            <!-- Hábito 1 -->
+                            <div class="p-5 sm:p-6 rounded-2xl bg-slate-800/80 border border-slate-700/80 hover:border-brand-blue transition group flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                <div class="flex items-start sm:items-center gap-4">
+                                    <div class="w-10 h-10 rounded-xl bg-brand-blue text-white font-black text-sm flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition">
+                                        1
+                                    </div>
+                                    <div class="space-y-1">
+                                        <div class="flex items-center gap-2">
+                                            <span class="text-[10px] font-black uppercase tracking-wider text-brand-orange bg-brand-orange/15 px-2 py-0.5 rounded-md">Pilar 01 • Enfoque</span>
+                                            <i data-lucide="clock" class="w-3.5 h-3.5 text-brand-orange"></i>
+                                        </div>
+                                        <h5 class="text-sm sm:text-base font-black text-white m-0">Encuentra un espacio y hora exclusiva para pensar</h5>
+                                        <p class="text-xs text-slate-300 m-0 leading-relaxed max-w-xl">
+                                            Bloque sagrado diario sin pantallas para evaluar la rentabilidad de clientes y tomar decisiones estratégicas en calma.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="sm:self-center shrink-0">
+                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700 text-brand-orange-light text-xs font-semibold">
+                                        <i data-lucide="zap" class="w-3.5 h-3.5 text-brand-orange"></i> Foco Estratégico
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Hábito 2 -->
+                            <div class="p-5 sm:p-6 rounded-2xl bg-slate-800/80 border border-slate-700/80 hover:border-brand-blue transition group flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                <div class="flex items-start sm:items-center gap-4">
+                                    <div class="w-10 h-10 rounded-xl bg-brand-blue text-white font-black text-sm flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition">
+                                        2
+                                    </div>
+                                    <div class="space-y-1">
+                                        <div class="flex items-center gap-2">
+                                            <span class="text-[10px] font-black uppercase tracking-wider text-brand-blue-light bg-brand-blue/20 px-2 py-0.5 rounded-md">Pilar 02 • Criterio</span>
+                                            <i data-lucide="book-open" class="w-3.5 h-3.5 text-brand-orange"></i>
+                                        </div>
+                                        <h5 class="text-sm sm:text-base font-black text-white m-0">Consume material valioso que construya criterio empresarial</h5>
+                                        <p class="text-xs text-slate-300 m-0 leading-relaxed max-w-xl">
+                                            Lectura constructiva de leyes comerciales, normativas de la DGI y finanzas prácticas para resolver con lógica en lugar de intuición.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="sm:self-center shrink-0">
+                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700 text-slate-200 text-xs font-semibold">
+                                        <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-brand-blue-light"></i> Conocimiento Real
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Hábito 3 -->
+                            <div class="p-5 sm:p-6 rounded-2xl bg-slate-800/80 border border-slate-700/80 hover:border-brand-blue transition group flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                <div class="flex items-start sm:items-center gap-4">
+                                    <div class="w-10 h-10 rounded-xl bg-brand-blue text-white font-black text-sm flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition">
+                                        3
+                                    </div>
+                                    <div class="space-y-1">
+                                        <div class="flex items-center gap-2">
+                                            <span class="text-[10px] font-black uppercase tracking-wider text-brand-orange bg-brand-orange/15 px-2 py-0.5 rounded-md">Pilar 03 • Liderazgo</span>
+                                            <i data-lucide="file-check-2" class="w-3.5 h-3.5 text-brand-orange"></i>
+                                        </div>
+                                        <h5 class="text-sm sm:text-base font-black text-white m-0">Capacítate en lo que más te cuesta delegar</h5>
+                                        <p class="text-xs text-slate-300 m-0 leading-relaxed max-w-xl">
+                                            Domina los fundamentos de contratos laborales y flujo de caja para auditar con firmeza y autoridad a tu contador y equipo.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="sm:self-center shrink-0">
+                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700 text-brand-orange-light text-xs font-semibold">
+                                        <i data-lucide="shield-check" class="w-3.5 h-3.5 text-brand-orange"></i> Supervisión Segura
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Hábito 4 -->
+                            <div class="p-5 sm:p-6 rounded-2xl bg-slate-800/80 border border-slate-700/80 hover:border-brand-blue transition group flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                <div class="flex items-start sm:items-center gap-4">
+                                    <div class="w-10 h-10 rounded-xl bg-brand-blue text-white font-black text-sm flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition">
+                                        4
+                                    </div>
+                                    <div class="space-y-1">
+                                        <div class="flex items-center gap-2">
+                                            <span class="text-[10px] font-black uppercase tracking-wider text-brand-blue-light bg-brand-blue/20 px-2 py-0.5 rounded-md">Pilar 04 • Estándares</span>
+                                            <i data-lucide="users" class="w-3.5 h-3.5 text-brand-orange"></i>
+                                        </div>
+                                        <h5 class="text-sm sm:text-base font-black text-white m-0">Rodéate de personas que eleven tu estándar de ejecución</h5>
+                                        <p class="text-xs text-slate-300 m-0 leading-relaxed max-w-xl">
+                                            Audita tu entorno y conecta con empresarios formales que respetan contratos y juegan a largo plazo para normalizar la excelencia.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="sm:self-center shrink-0">
+                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700 text-slate-200 text-xs font-semibold">
+                                        <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-brand-blue-light"></i> Estándar Elevado
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Hábito 5 -->
+                            <div class="p-5 sm:p-6 rounded-2xl bg-slate-800/80 border border-slate-700/80 hover:border-brand-blue transition group flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                <div class="flex items-start sm:items-center gap-4">
+                                    <div class="w-10 h-10 rounded-xl bg-brand-blue text-white font-black text-sm flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition">
+                                        5
+                                    </div>
+                                    <div class="space-y-1">
+                                        <div class="flex items-center gap-2">
+                                            <span class="text-[10px] font-black uppercase tracking-wider text-brand-orange bg-brand-orange/15 px-2 py-0.5 rounded-md">Pilar 05 • Claridad</span>
+                                            <i data-lucide="compass" class="w-3.5 h-3.5 text-brand-orange"></i>
+                                        </div>
+                                        <h5 class="text-sm sm:text-base font-black text-white m-0">Conoce nuevos lugares y despeja tu mente para resolver con calma</h5>
+                                        <p class="text-xs text-slate-300 m-0 leading-relaxed max-w-xl">
+                                            Rompe patrones fuera de la oficina para obtener distancia psicológica y destrabar los desafíos más complejos de tu empresa.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="sm:self-center shrink-0">
+                                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700 text-slate-200 text-xs font-semibold">
+                                        <i data-lucide="lock" class="w-3.5 h-3.5 text-brand-blue-light"></i> Decisiones Claras
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TABLA COMPARATIVA: MENTALIDAD REACTIVA VS ESTRATÉGICA -->
+                    <div id="tabla-comparativa" class="doc-card scroll-mt-36 my-10 not-prose space-y-4">
+                        <div class="flex items-center justify-between flex-wrap gap-2">
+                            <div>
+                                <span class="text-[11px] font-black uppercase tracking-wider text-brand-orange">Contraste de Liderazgo</span>
+                                <h3 class="text-lg sm:text-2xl font-black text-slate-900">
+                                    Mentalidad Reactiva (Apaga-Fuegos) vs. Mentalidad Estratégica (Fundador Blindado)
+                                </h3>
+                            </div>
+                            <span class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-full border border-slate-200">
+                                Rendimiento Empresarial
+                            </span>
+                        </div>
+
+                        <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
+                            <table class="w-full text-left text-xs sm:text-sm">
+                                <thead class="bg-slate-50 border-b border-slate-200 text-slate-800 font-black">
+                                    <tr>
+                                        <th class="p-3.5 sm:p-4 text-slate-500 uppercase tracking-wider text-[11px]">Área de Gestión</th>
+                                        <th class="p-3.5 sm:p-4 bg-red-50/60 text-red-700 border-l border-r border-red-100">
+                                            <div class="inline-flex items-center gap-1.5">
+                                                <i data-lucide="alert-triangle" class="w-4 h-4 text-red-500 flex-shrink-0"></i>
+                                                <span>Mentalidad Reactiva (Autoempleado)</span>
+                                            </div>
+                                        </th>
+                                        <th class="p-3.5 sm:p-4 bg-emerald-50/60 text-emerald-800">
+                                            <div class="inline-flex items-center gap-1.5">
+                                                <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600 flex-shrink-0"></i>
+                                                <span>Mentalidad Estratégica (Blindado Aizprua)</span>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-100 bg-white">
+                                    <tr class="hover:bg-slate-50/50 transition">
+                                        <td class="p-3.5 sm:p-4 font-bold text-slate-900">Manejo del Tiempo</td>
+                                        <td class="p-3.5 sm:p-4 bg-red-50/20 text-slate-600 border-l border-r border-red-50">
+                                            Responde WhatsApps todo el día sin agenda; vive en urgencia constante.
+                                        </td>
+                                        <td class="p-3.5 sm:p-4 bg-emerald-50/20 text-slate-700">
+                                            Bloques sagrados de pensamiento estratégico y tareas por orden de impacto.
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50 transition">
+                                        <td class="p-3.5 sm:p-4 font-bold text-slate-900">Control Financiero</td>
+                                        <td class="p-3.5 sm:p-4 bg-red-50/20 text-slate-600 border-l border-r border-red-50">
+                                            Usa la cuenta del negocio como billetera personal y desconoce su margen real.
+                                        </td>
+                                        <td class="p-3.5 sm:p-4 bg-emerald-50/20 text-slate-700">
+                                            Sueldo fijo establecido, flujo de caja proyectado y reserva para impuestos DGI.
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50 transition">
+                                        <td class="p-3.5 sm:p-4 font-bold text-slate-900">Delegación y Equipo</td>
+                                        <td class="p-3.5 sm:p-4 bg-red-50/20 text-slate-600 border-l border-r border-red-50">
+                                            Delega de palabra sin manuales; sufre traiciones o pleitos laborales ante Mitradel.
+                                        </td>
+                                        <td class="p-3.5 sm:p-4 bg-emerald-50/20 text-slate-700">
+                                            Contratos laborales claros con cláusulas de confidencialidad y metas medibles.
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-slate-50/50 transition">
+                                        <td class="p-3.5 sm:p-4 font-bold text-slate-900">Respuesta a Problemas</td>
+                                        <td class="p-3.5 sm:p-4 bg-red-50/20 text-slate-600 border-l border-r border-red-50">
+                                            Culpa a los clientes, a los empleados o a la economía por las pérdidas.
+                                        </td>
+                                        <td class="p-3.5 sm:p-4 bg-emerald-50/20 text-slate-700">
+                                            Asume responsabilidad total, audita el proceso y ajusta el blindaje preventivo.
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Banner de Conversión Temático: Test Interactivo de Hábitos y Criterio Empresarial -->
+                    <div id="test-habitos" class="doc-card scroll-mt-36 my-10 p-6 sm:p-8 rounded-3xl bg-slate-900 border border-slate-800 text-white shadow-2xl relative overflow-hidden not-prose">
+                        <div class="absolute -right-20 -bottom-20 w-72 h-72 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none"></div>
+                        <div class="absolute -left-20 -top-20 w-72 h-72 bg-brand-blue/15 rounded-full blur-3xl pointer-events-none"></div>
+
+                        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                            <!-- Columna Izquierda: Copy + CTAs -->
+                            <div class="lg:col-span-7 space-y-4 text-left">
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-brand-orange text-white shadow-md">
+                                    <i data-lucide="zap" class="w-3.5 h-3.5"></i> Autodiagnóstico Express Gratuito
+                                </span>
+                                <h3 class="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-tight">
+                                    ¿Operas como autoempleado o como dueño estratégico?
+                                </h3>
+                                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                    Descubre en 3 minutos tu nivel real de madurez empresarial, detecta las fugas ocultas de tiempo en tu operación y recibe una hoja de ruta clara para construir un negocio formal y protegido.
+                                </p>
+                                <div class="pt-2 flex flex-col sm:flex-row flex-wrap items-center gap-3">
+                                    <a href="/test-interactivo" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 bg-brand-orange hover:bg-brand-orange-dark text-white font-bold rounded-xl text-xs sm:text-sm transition shadow-lg whitespace-nowrap shrink-0">
+                                        <span>Hacer Test de Hábitos Gratis</span>
+                                        <i data-lucide="arrow-right" class="w-4 h-4 shrink-0"></i>
+                                    </a>
+                                    <a href="https://wa.me/50765461527" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl text-xs sm:text-sm transition border border-slate-700 whitespace-nowrap shrink-0">
+                                        <i data-lucide="message-circle" class="w-4 h-4 shrink-0 text-[#25D366]"></i>
+                                        <span>Consultar con Arubel Aizprua</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Columna Derecha: Tarjeta Visual de Semáforo de Liderazgo -->
+                            <div class="lg:col-span-5 flex justify-center items-center">
+                                <div class="w-full max-w-sm p-5 rounded-2xl bg-slate-800/90 border border-slate-700 shadow-xl space-y-3.5 relative overflow-hidden group hover:border-brand-blue transition duration-300">
+                                    <div class="flex items-center justify-between border-b border-slate-700/80 pb-3">
+                                        <div class="flex items-center gap-2">
+                                            <span class="w-2.5 h-2.5 rounded-full bg-brand-orange animate-pulse"></span>
+                                            <span class="text-xs font-bold text-slate-200">Semáforo de Hábitos</span>
+                                        </div>
+                                        <span class="text-[10px] font-black uppercase tracking-wider bg-brand-blue/20 text-brand-blue-light px-2.5 py-0.5 rounded-full border border-brand-blue/30">
+                                            100% Gratis
+                                        </span>
+                                    </div>
+                                    
+                                    <!-- Métricas Evaluadas -->
+                                    <div class="space-y-2">
+                                        <div class="p-2.5 rounded-xl bg-slate-900/80 border border-slate-700 flex items-center justify-between text-xs">
+                                            <span class="text-slate-300 flex items-center gap-2">
+                                                <i data-lucide="clock" class="w-4 h-4 text-brand-orange"></i> Tiempo en Operación
+                                            </span>
+                                            <span class="font-bold text-brand-orange-light">¿Apagas Fuegos?</span>
+                                        </div>
+                                        <div class="p-2.5 rounded-xl bg-slate-900/80 border border-slate-700 flex items-center justify-between text-xs">
+                                            <span class="text-slate-300 flex items-center gap-2">
+                                                <i data-lucide="shield-check" class="w-4 h-4 text-brand-blue-light"></i> Delegación con Contratos
+                                            </span>
+                                            <span class="font-bold text-slate-200">Blindaje Legal</span>
+                                        </div>
+                                        <div class="p-2.5 rounded-xl bg-slate-900/80 border border-slate-700 flex items-center justify-between text-xs">
+                                            <span class="text-slate-300 flex items-center gap-2">
+                                                <i data-lucide="trending-up" class="w-4 h-4 text-brand-orange"></i> Criterio Financiero
+                                            </span>
+                                            <span class="font-bold text-brand-orange">Escala Real</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="pt-1 text-center">
+                                        <p class="text-[11px] text-slate-400 m-0 flex items-center justify-center gap-1.5"><i data-lucide="clock" class="w-3.5 h-3.5 text-slate-400 inline-block"></i><span>Resultado instantáneo en pantalla • 3 minutos</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECCIÓN: PREGUNTAS FRECUENTES (FAQ PARA SEO DE GOOGLE) -->
+                    <div id="preguntas-frecuentes" class="doc-card scroll-mt-36 my-10 not-prose space-y-5 pt-4">
+                        <div class="border-b border-slate-200 pb-3">
+                            <span class="text-[11px] font-black uppercase tracking-wider text-brand-orange">Dudas Frecuentes</span>
+                            <h3 class="text-xl sm:text-2xl font-black text-slate-900">
+                                Preguntas frecuentes sobre mentalidad y gestión de negocios
+                            </h3>
+                        </div>
+
+                        <div class="space-y-3">
+                            <!-- FAQ 1 -->
+                            <details class="group bg-white rounded-2xl border border-slate-200 p-4 transition-all duration-200 open:shadow-md open:border-brand-orange">
+                                <summary class="flex items-center justify-between font-bold text-slate-800 text-sm cursor-pointer list-none">
+                                    <span>¿Cómo superar el miedo a delegar tareas operativas en mi negocio?</span>
+                                    <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform"></i>
+                                </summary>
+                                <p class="text-xs sm:text-sm text-slate-600 pt-3 leading-relaxed border-t border-slate-100 mt-3">
+                                    El miedo a delegar surge cuando no existen procesos escritos ni contratos formales. Para delegar con tranquilidad, redacta un checklist paso a paso de la tarea, contrata bajo un contrato laboral o de servicios blindado que especifique responsabilidades y establece revisiones semanales de resultados en vez de supervisar cada minuto.
+                                </p>
+                            </details>
+
+                            <!-- FAQ 2 -->
+                            <details class="group bg-white rounded-2xl border border-slate-200 p-4 transition-all duration-200 open:shadow-md open:border-brand-orange">
+                                <summary class="flex items-center justify-between font-bold text-slate-800 text-sm cursor-pointer list-none">
+                                    <span>¿Cuánto tiempo a la semana debería dedicar un fundador a pensar en estrategia?</span>
+                                    <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform"></i>
+                                </summary>
+                                <p class="text-xs sm:text-sm text-slate-600 pt-3 leading-relaxed border-t border-slate-100 mt-3">
+                                    Al menos un 20% de tu semana (aproximadamente una jornada completa o dos bloques de 4 horas). En ese tiempo debes analizar los márgenes por producto, la retención de clientes, el cumplimiento tributario ante la DGI y la optimización de los costos operativos.
+                                </p>
+                            </details>
+
+                            <!-- FAQ 3 -->
+                            <details class="group bg-white rounded-2xl border border-slate-200 p-4 transition-all duration-200 open:shadow-md open:border-brand-orange">
+                                <summary class="flex items-center justify-between font-bold text-slate-800 text-sm cursor-pointer list-none">
+                                    <span>¿Por qué ordenar la empresa legalmente ayuda a la salud mental del dueño?</span>
+                                    <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform"></i>
+                                </summary>
+                                <p class="text-xs sm:text-sm text-slate-600 pt-3 leading-relaxed border-t border-slate-100 mt-3">
+                                    Operar en la informalidad o con contratos flojos genera un estado de estrés subconsciente constante por el temor a auditorías sorpresa, multas de la CSS o demandas de excolaboradores. Cuando tu negocio cuenta con un Escudo Preventivo, duermes con la certeza de que tu patrimonio personal y familiar está 100% blindado.
+                                </p>
+                            </details>
+
+                            <!-- FAQ 4 -->
+                            <details class="group bg-white rounded-2xl border border-slate-200 p-4 transition-all duration-200 open:shadow-md open:border-brand-orange">
+                                <summary class="flex items-center justify-between font-bold text-slate-800 text-sm cursor-pointer list-none">
+                                    <span>¿Cómo mantener la disciplina cuando las ventas bajan?</span>
+                                    <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform"></i>
+                                </summary>
+                                <p class="text-xs sm:text-sm text-slate-600 pt-3 leading-relaxed border-t border-slate-100 mt-3">
+                                    En periodos de ventas bajas, el fundador promedio recorta en pánico o paraliza la inversión. La mentalidad estratégica utiliza esos momentos para auditar ineficiencias, depurar la cartera de clientes, capacitar al equipo y contactar activamente a clientes anteriores con nuevas ofertas de alto valor.
+                                </p>
+                            </details>
+                        </div>
+                    </div>
+
+                    <p class="pt-2">
+                        Cambiar nuestra manera de pensar no es una fórmula mágica que ocurre de la noche a la mañana: requiere voluntad, constancia diaria y la humildad de rodearte de herramientas y aliados jurídicos y contables que te respalden en cada etapa de crecimiento.
                     </p>
+
+                </article>
+
+                <!-- Barra de Compartir al Final del Artículo -->
+                <div class="mt-8 p-4 rounded-2xl bg-slate-100/80 border border-slate-200 flex flex-wrap items-center justify-between gap-3">
+                    <span class="text-xs font-bold text-slate-700 flex items-center gap-1.5">
+                        <i data-lucide="share-2" class="w-4 h-4 text-brand-orange"></i>
+                        ¿Te sirvió esta lectura? Compártela con un socio o amigo:
+                    </span>
+                    <div class="flex items-center gap-2">
+                        <a href="https://api.whatsapp.com/send?text=5%20consejos%20para%20cambiar%20nuestra%20manera%20de%20pensar%20https%3A%2F%2Faizprua.com%2Farticulo-mentalidad" target="_blank" class="px-3 py-1.5 bg-[#25D366] text-white rounded-lg text-xs font-bold hover:brightness-110 flex items-center gap-1.5 shadow-xs">
+                            <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                            <span>WhatsApp</span>
+                        </a>
+                        <button type="button" onclick="copiarEnlace(this)" class="px-3 py-1.5 bg-white border border-slate-300 text-slate-700 rounded-lg text-xs font-bold hover:bg-slate-50 flex items-center gap-1.5 shadow-xs">
+                            <i data-lucide="link" class="w-3.5 h-3.5"></i>
+                            <span class="btn-copy-text">Copiar Enlace</span>
+                        </button>
+                    </div>
                 </div>
 
-                <!-- CONSEJO 5 -->
-                <div class="p-6 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3">
-                    <div class="flex items-center gap-3">
-                        <span class="w-8 h-8 rounded-full bg-brand-blue/10 text-brand-blue font-black flex items-center justify-center text-sm flex-shrink-0">5</span>
-                        <h3 class="text-lg font-black text-slate-900">Conoce nuevos lugares y despeja tu mente</h3>
+                <!-- Ficha de Autor -->
+                <div id="autor" class="doc-card scroll-mt-36 mt-10 p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
+                    <img src="assets/avatar-arubel.jpg" onerror="this.onerror=null; this.src='/assets/avatar-arubel.jpg';" alt="Arubel Aizprua" class="w-20 h-20 rounded-full object-cover border-2 border-brand-orange/20 shadow-md flex-shrink-0">
+                    <div>
+                        <h4 class="font-black text-slate-900 text-base">Arubel Aizprua</h4>
+                        <p class="text-xs font-bold text-brand-orange mb-2">Fundador & Especialista en Estructuración Empresarial</p>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-3">
+                            Especialista en leyes y finanzas aplicadas a empresas en Panamá. Creador de los programas Escudo Preventivo y Plan 360 Empresarial.
+                        </p>
+                        <a href="https://wa.me/50765461527" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#25D366] hover:underline">
+                            <i data-lucide="message-circle" class="w-4 h-4"></i>
+                            <span>Contactar directamente por WhatsApp</span>
+                        </a>
                     </div>
-                    <p class="text-sm text-slate-600 leading-relaxed">
-                        Viajar, cambiar de entorno y visitar nuevos horizontes abre tu mente a modelos de negocio que no habías considerado. Te da la paz necesaria para resolver ese problema que en la oficina parecía imposible. Al regresar con la mente despejada, las decisiones complejas se toman con serenidad y firmeza.
-                    </p>
+                </div>
+
+                <!-- SECCIÓN: LECTURAS RECOMENDADAS -->
+                <div class="mt-12 pt-8 border-t border-slate-200 space-y-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-[11px] font-black uppercase tracking-wider text-brand-orange">Continúa Leyendo</span>
+                            <h3 class="text-xl font-black text-slate-900">Artículos recomendados</h3>
+                        </div>
+                        <a href="/blog" class="text-xs font-bold text-brand-blue hover:underline inline-flex items-center gap-1">
+                            <span>Ver todo el blog</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+
+                    <div id="recommended-articles-grid" data-current-slug="articulo-mentalidad" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <!-- Se inyectan dinámicamente 2 artículos por serie de lectura con blog-recommendations.js -->
+                    </div>
                 </div>
 
             </div>
 
-            <!-- Banner de Conversión al Plan 360 -->
-            <div class="my-10 p-8 rounded-3xl bg-slate-900 text-white text-center space-y-4 border border-slate-800 shadow-xl">
-                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-brand-blue text-white">
-                    Pasa de la Mentalidad a la Estructura
-                </span>
-                <h3 class="text-xl sm:text-2xl font-black">Plan 360 Empresarial Digital ($19.99 USD)</h3>
-                <p class="text-xs sm:text-sm text-slate-300 max-w-lg mx-auto leading-relaxed">
-                    Todo lo que necesitas para dejar de apagar fuegos: contratos blindados, flujos de caja y manuales de operaciones listos para implementar en tu empresa.
-                </p>
-                <div class="pt-2 flex justify-center gap-3">
-                    <a href="/tienda" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white font-bold rounded-xl text-sm transition shadow-lg">
-                        <span>Adquirir Plan 360 en la Tienda</span>
-                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </a>
-                </div>
-            </div>
-
-            <p class="pt-2">
-                Cambiar nuestra manera de pensar no es difícil; requiere voluntad, constancia y la disciplina de rodearte de herramientas y aliados que te respalden en el camino.
-            </p>
-
-        </article>
-
-        <!-- Ficha de Autor -->
-        <div class="mt-12 p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
-            <img src="assets/avatar-arubel.jpg" onerror="this.onerror=null; this.src='/assets/avatar-arubel.jpg';" alt="Arubel Aizprua" class="w-20 h-20 rounded-full object-cover border-2 border-brand-orange/20 shadow-md flex-shrink-0">
-            <div>
-                <h4 class="font-black text-slate-900 text-base">Arubel Aizprua</h4>
-                <p class="text-xs font-bold text-brand-orange mb-2">Fundador & Especialista en Estructuración Empresarial</p>
-                <p class="text-xs text-slate-600 leading-relaxed mb-3">
-                    Especialista en leyes y finanzas aplicadas a empresas en Panamá. Creador de los programas Escudo Preventivo y Plan 360 Empresarial.
-                </p>
-                <a href="https://wa.me/50765461527" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#25D366] hover:underline">
-                    <i data-lucide="message-circle" class="w-4 h-4"></i>
-                    <span>Contactar directamente por WhatsApp</span>
-                </a>
-            </div>
         </div>
 
     </main>
 
-    <!-- Footer Canónico -->
+    <!-- ==================================================== -->
+    <!-- 9. FOOTER CANÓNICO OFICIAL                           -->
+    <!-- ==================================================== -->
     <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800 mt-auto">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs text-slate-400">
-            <a href="/" class="inline-block mb-3">
-                <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-21-nobg.svg"
-                    onerror="this.onerror=null; this.src='/assets/LOGOS PARA DIGITAL INDIVIDUALES-21-nobg.svg';"
-                    alt="Logo Aizprua S.E." class="h-16 w-auto mx-auto object-contain">
-            </a>
-            <div class="flex justify-center gap-4 mb-2">
-                <a href="/" class="hover:text-white">Inicio</a>
-                <a href="/tienda" class="hover:text-white">Tienda Online</a>
-                <a href="/blog" class="hover:text-white">Blog</a>
-                <a href="/privacidad" class="hover:text-white">Privacidad</a>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                
+                <!-- Columna 1: Marca y Redes -->
+                <div class="flex flex-col items-start">
+                    <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-21-nobg.svg"
+                        onerror="this.onerror=null; this.src='/assets/LOGOS PARA DIGITAL INDIVIDUALES-21-nobg.svg';"
+                        alt="Aizprua S.E. - Firma Legal y Empresarial" class="h-20 w-auto -mt-7 -mb-4 -ml-3">
+                    <p class="text-sm text-slate-400 mb-3">Tu aliado legal y empresarial en Panamá.</p>
+                    <div class="flex gap-3">
+                        <a target="_blank" rel="noopener" href="https://instagram.com/aizpruase"
+                            class="w-10 h-10 bg-slate-800 hover:bg-pink-600 rounded-full flex items-center justify-center text-white transition"
+                            aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                            </svg>
+                        </a>
+                        <a target="_blank" rel="noopener" href="https://facebook.com/aizpruase"
+                            class="w-10 h-10 bg-slate-800 hover:bg-brand-blue rounded-full flex items-center justify-center text-white transition"
+                            aria-label="Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a href="https://wa.me/50765461527" target="_blank"
+                            class="w-10 h-10 bg-slate-800 hover:bg-green-500 rounded-full flex items-center justify-center text-white transition"
+                            aria-label="WhatsApp">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Soluciones -->
+                <div>
+                    <h4 class="font-bold text-white mb-4">Soluciones</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="https://escudo.aizprua.com/" class="hover:text-white transition">Asesoría Escudo Preventivo</a></li>
+                        <li><a href="/tienda" class="hover:text-white transition font-semibold text-brand-orange-light">Tienda Online</a></li>
+                        <li><a href="/plan-360-digital" class="hover:text-white transition">Plan 360 Digital ($19.99)</a></li>
+                        <li><a href="/test-interactivo" class="hover:text-white transition">Test de Auditoría Gratis</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Contacto -->
+                <div>
+                    <h4 class="font-bold text-white mb-4">Contacto</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="https://wa.me/50765461527" target="_blank" class="hover:text-white transition">WhatsApp: +507 6546-1527</a></li>
+                        <li><a href="mailto:info@aizprua.com" class="hover:text-white transition">info@aizprua.com</a></li>
+                        <li>Panamá Oeste, La Chorrera</li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Legal -->
+                <div>
+                    <h4 class="font-bold text-white mb-4">Cumplimiento Legal</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="/privacidad" class="hover:text-white transition">Política de Privacidad (Ley 81)</a></li>
+                        <li><a href="/terminos" class="hover:text-white transition">Términos y Condiciones</a></li>
+                        <li><a href="https://whatsapp.com/channel/0029Va64qHbJJhzeH6DHa61a" target="_blank" rel="noopener" class="text-emerald-400 hover:text-emerald-300 font-semibold transition">Comunidad Oficial WhatsApp</a></li>
+                    </ul>
+                </div>
+
             </div>
-            <p>&copy; 2026 Aizprua S.E. Firma Legal y Empresarial en Panamá. Todos los derechos reservados.</p>
+
+            <!-- Copyright inferior -->
+            <div class="border-t border-slate-800 pt-8 text-center text-xs text-slate-400">
+                &copy; 2026 Aizprua S.E. Firma Legal y Empresarial en Panamá. Todos los derechos reservados.
+            </div>
         </div>
     </footer>
 
+    <!-- Contenedor Flotante de Acciones (Alineación Centrada Perfecta) -->
+    <div class="fixed bottom-6 right-6 z-40 flex flex-col items-center gap-3 pointer-events-none">
+        <!-- Botón Flotante "Volver Arriba" (Scroll to Top) -->
+        <button id="scroll-top-btn" onclick="scrollToTop()" aria-label="Volver arriba"
+            class="w-11 h-11 bg-white/95 backdrop-blur border border-slate-300 hover:border-brand-blue text-slate-700 hover:text-brand-blue rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:-translate-y-1 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="chevron-up" class="w-5 h-5"></i>
+        </button>
+
+        <!-- Botón Flotante de WhatsApp Fijo -->
+        <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20tengo%20una%20consulta%20empresarial"
+            target="_blank" rel="noopener" aria-label="Abrir WhatsApp"
+            class="pointer-events-auto w-14 h-14 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center group relative flex-shrink-0">
+            <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            <span class="absolute right-full mr-3 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
+                ¿Dudas? Chatea con nosotros
+            </span>
+        </a>
+    </div>
+
     <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu) menu.classList.toggle('hidden');
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.addEventListener('scroll', () => {
+            const bar = document.getElementById('progress-bar');
+            if (bar) {
+                const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                bar.style.width = scrolled + '%';
+            }
+
+            const btn = document.getElementById('scroll-top-btn');
+            if (btn) {
+                if (window.scrollY > 400) {
+                    btn.classList.remove('opacity-0', 'pointer-events-none');
+                    btn.classList.add('opacity-100', 'pointer-events-auto');
+                } else {
+                    btn.classList.add('opacity-0', 'pointer-events-none');
+                    btn.classList.remove('opacity-100', 'pointer-events-auto');
+                }
+            }
+        });
+
+        // Función para copiar enlace con confirmación visual
+        function copiarEnlace(btn) {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                const textSpan = btn.querySelector('.btn-copy-text');
+                const originalText = textSpan ? textSpan.textContent : '';
+                if (textSpan) textSpan.textContent = '¡Copiado!';
+                btn.classList.add('bg-emerald-100', 'text-emerald-700', 'border-emerald-300');
+                setTimeout(() => {
+                    if (textSpan) textSpan.textContent = originalText;
+                    btn.classList.remove('bg-emerald-100', 'text-emerald-700', 'border-emerald-300');
+                }, 2000);
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             if (typeof lucide !== 'undefined') lucide.createIcons();
+
+            // Scrollspy para resaltar el ítem activo en el Sidebar de Contenido
+            const sections = document.querySelectorAll('.doc-card');
+            const navLinks = document.querySelectorAll('#guideNavList a');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(sec => {
+                    const top = sec.offsetTop - 160;
+                    if (window.scrollY >= top) {
+                        current = sec.getAttribute('id');
+                    }
+                });
+                if (current) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${current}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
         });
     </script>
+    <!-- Motor de Recomendaciones Dinámicas -->
+    <script src="blog-recommendations.js" defer></script>
 </body>
 
 </html>

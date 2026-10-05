@@ -64,23 +64,136 @@
         }
         importHotmart();
     </script>
+
+    <!-- Estilos de Impresión y Reporte PDF Canónico (Configuración Exacta a 2 Hojas sin Margen Excesivo) -->
+    <style>
+        @media print {
+            @page {
+                size: letter portrait;
+                margin: 6mm 12mm 6mm 12mm;
+            }
+            html, body {
+                background: #ffffff !important;
+                color: #0f172a !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            /* Ocultar todo el árbol de la página web (luces decorativas, fondos, navbar, etc.) */
+            main, header, footer, #top-progress-bar, .no-print, [class*="no-print"], .print\:hidden, #report-modal-backdrop, .modal-action-bar {
+                display: none !important;
+                visibility: hidden !important;
+                height: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                border: none !important;
+            }
+            #report-modal {
+                position: static !important;
+                display: block !important;
+                background: transparent !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                overflow: visible !important;
+            }
+            #report-modal-content {
+                max-width: 100% !important;
+                box-shadow: none !important;
+                border: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                border-radius: 0 !important;
+            }
+            #printable-audit-report {
+                display: block !important;
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            .print-page-1 {
+                page-break-after: always !important;
+                break-after: page !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+                display: block !important;
+                box-sizing: border-box !important;
+                margin-top: 0 !important;
+                padding-top: 0 !important;
+            }
+            .print-page-2 {
+                page-break-after: avoid !important;
+                break-after: avoid !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+                display: block !important;
+                box-sizing: border-box !important;
+                margin-top: 0 !important;
+                padding-top: 0 !important;
+            }
+            .print-page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+                display: block !important;
+                height: 0 !important;
+                line-height: 0 !important;
+                font-size: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                border: none !important;
+                visibility: hidden !important;
+            }
+            .page-break-avoid {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+            /* Supresión estricta de elementos inyectados por extensiones del navegador (RSS, podcast, TTS, etc.) */
+            #printable-audit-report [class*="extension"],
+            #printable-audit-report [id*="extension"],
+            #printable-audit-report [class*="pocket"],
+            #printable-audit-report [class*="podcast"],
+            #printable-audit-report [class*="feedly"],
+            #printable-audit-report [class*="speechify"],
+            #printable-audit-report [class*="loom"],
+            #printable-audit-report iframe,
+            #printable-audit-report audio,
+            #printable-audit-report video {
+                display: none !important;
+                visibility: hidden !important;
+            }
+            table tr td {
+                padding-top: 3px !important;
+                padding-bottom: 3px !important;
+            }
+            table tr th {
+                padding-top: 4px !important;
+                padding-bottom: 4px !important;
+            }
+        }
+    </style>
 </head>
 
 <body class="bg-slate-50 text-slate-800 antialiased flex flex-col min-h-screen selection:bg-brand-orange selection:text-white">
 
-    <!-- Header Canónico Limpio (Sin distracciones para el test) -->
-    <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6">
-            <div class="flex justify-between items-center h-20 sm:h-24 md:h-28">
-                <a href="https://aizprua.com/" class="flex items-center">
+    <!-- Barra de Progreso de Lectura Canónica Oficial -->
+    <div id="top-progress-bar" class="fixed top-0 left-0 h-1 bg-brand-orange z-[60] transition-all duration-300" style="width: 6.66%"></div>
+
+    <!-- Header Canónico Oficial (Formato Distraction-Free sin Fugas) -->
+    <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40 transition-all">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logotipo Canónico Oficial -->
+                <a href="https://aizprua.com/" class="flex items-center flex-shrink-0" aria-label="Aizprua S.E. Inicio">
                     <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg"
                         onerror="this.onerror=null; this.src='/assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg';"
-                        alt="Logo Aizprua S.E. - Firma Legal y Empresarial"
-                        class="h-20 sm:h-24 md:h-28 w-auto object-contain" width="112" height="112">
+                        alt="Logo Aizprua S.E. - Firma Legal y Empresarial en Panamá"
+                        class="h-28 w-auto object-contain" width="112" height="112">
                 </a>
-                <div class="flex items-center gap-1.5 text-xs font-bold text-slate-500 bg-slate-100 px-3.5 py-1.5 rounded-full border border-slate-200">
-                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                    <span>Test en Vivo</span>
+                
+                <!-- Badge Distraction-Free Oficial -->
+                <div class="flex items-center gap-2 text-xs font-bold text-slate-700 bg-white/90 px-3.5 py-1.5 rounded-full border border-slate-200/90 shadow-xs">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse flex-shrink-0"></span>
+                    <span>Test en Vivo · Diagnóstico 2026</span>
                 </div>
             </div>
         </div>
@@ -95,25 +208,116 @@
         <div class="max-w-2xl w-full mx-auto relative z-10">
 
             <!-- ========================================== -->
+            <!-- VISTA 0: PERFIL EMPRESARIAL INICIAL (PASO 0) -->
+            <!-- ========================================== -->
+            <div id="profile-view" class="space-y-6 animate-fadeIn">
+                <!-- Barra de Estado Inicial -->
+                <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm">
+                    <div class="flex justify-between items-center text-xs font-bold text-slate-500 mb-2">
+                        <span class="text-brand-blue uppercase tracking-wider flex items-center gap-1.5">
+                            <i data-lucide="sliders" class="w-3.5 h-3.5 text-brand-orange"></i>
+                            PERFIL EMPRESARIAL · PASO INICIAL
+                        </span>
+                        <span class="text-slate-400 font-semibold">Paso 0 de 15 · 0 Puntos</span>
+                    </div>
+                    <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
+                        <div class="bg-brand-blue/30 h-2.5 rounded-full w-full"></div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta de Selección de Perfil -->
+                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-xl transition-all">
+                    <div class="flex items-start gap-3 mb-2">
+                        <span class="w-8 h-8 rounded-full bg-brand-blue/10 text-brand-blue font-black text-sm flex items-center justify-center shrink-0 mt-0.5">
+                            <i data-lucide="building-2" class="w-4 h-4 text-brand-blue"></i>
+                        </span>
+                        <h2 class="text-lg sm:text-xl font-black text-slate-900 leading-snug">
+                            ¿Cómo está conformado tu equipo de trabajo actualmente?
+                        </h2>
+                    </div>
+
+                    <p class="text-xs sm:text-sm text-slate-600 mb-6 leading-relaxed pl-11">
+                        Selecciona tu modelo operativo para calibrar de forma exacta las 15 preguntas de tu diagnóstico. Esta selección no suma ni resta puntos.
+                    </p>
+
+                    <!-- Opciones de Perfil Táctiles -->
+                    <div class="space-y-3">
+                        <!-- Opción 1: Planilla -->
+                        <button type="button" onclick="selectProfile('PLANILLA')"
+                            class="w-full p-4 rounded-2xl border-2 border-slate-200 hover:border-brand-blue hover:bg-brand-blue/5 text-left transition flex items-start justify-between group active:scale-[0.99] cursor-pointer">
+                            <div class="flex items-start gap-3">
+                                <span class="w-5 h-5 rounded-full border-2 border-brand-blue flex items-center justify-center bg-white group-hover:bg-brand-blue transition shrink-0 mt-0.5">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-brand-blue group-hover:bg-white transition"></span>
+                                </span>
+                                <div>
+                                    <span class="text-sm font-bold text-slate-800 group-hover:text-brand-blue transition block leading-tight">Empresa con equipo fijo en planilla</span>
+                                    <span class="text-xs text-slate-500 mt-1 block">Colaboradores contratados bajo relación laboral formal y código de trabajo.</span>
+                                </div>
+                            </div>
+                            <span class="text-brand-blue text-xs font-bold bg-brand-blue/10 px-2.5 py-1 rounded-full hidden sm:inline-block shrink-0 ml-2">Con Planilla</span>
+                        </button>
+
+                        <!-- Opción 2: Freelancers / Remoto -->
+                        <button type="button" onclick="selectProfile('FREELANCE')"
+                            class="w-full p-4 rounded-2xl border-2 border-slate-200 hover:border-brand-orange hover:bg-brand-orange/5 text-left transition flex items-start justify-between group active:scale-[0.99] cursor-pointer">
+                            <div class="flex items-start gap-3">
+                                <span class="w-5 h-5 rounded-full border-2 border-brand-orange flex items-center justify-center bg-white group-hover:bg-brand-orange transition shrink-0 mt-0.5">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-brand-orange group-hover:bg-white transition"></span>
+                                </span>
+                                <div>
+                                    <span class="text-sm font-bold text-slate-800 group-hover:text-brand-orange-dark transition block leading-tight">Colaboradores externos o freelancers</span>
+                                    <span class="text-xs text-slate-500 mt-1 block">Asistentes virtuales, diseñadores, programadores o servicios tercerizados.</span>
+                                </div>
+                            </div>
+                            <span class="text-brand-orange-dark text-xs font-bold bg-brand-orange/10 px-2.5 py-1 rounded-full hidden sm:inline-block shrink-0 ml-2">Freelancers</span>
+                        </button>
+
+                        <!-- Opción 3: Solopreneur -->
+                        <button type="button" onclick="selectProfile('SOLO')"
+                            class="w-full p-4 rounded-2xl border-2 border-slate-200 hover:border-emerald-500 hover:bg-emerald-50/50 text-left transition flex items-start justify-between group active:scale-[0.99] cursor-pointer">
+                            <div class="flex items-start gap-3">
+                                <span class="w-5 h-5 rounded-full border-2 border-emerald-500 flex items-center justify-center bg-white group-hover:bg-emerald-500 transition shrink-0 mt-0.5">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 group-hover:bg-white transition"></span>
+                                </span>
+                                <div>
+                                    <span class="text-sm font-bold text-slate-800 group-hover:text-emerald-700 transition block leading-tight">Operación 100% individual</span>
+                                    <span class="text-xs text-slate-500 mt-1 block">Aún no delego en nadie; realizo personalmente todas las funciones del negocio.</span>
+                                </div>
+                            </div>
+                            <span class="text-emerald-700 text-xs font-bold bg-emerald-100 px-2.5 py-1 rounded-full hidden sm:inline-block shrink-0 ml-2">Solopreneur</span>
+                        </button>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400">
+                        <span class="flex items-center gap-1.5">
+                            <i data-lucide="shield-check" class="w-3.5 h-3.5 text-brand-orange"></i>
+                            Diagnóstico oficial 100% confidencial
+                        </span>
+                        <span>Toca una opción para iniciar</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================== -->
             <!-- VISTA 1: QUIZ ACTIVO (PREGUNTAS)           -->
             <!-- ========================================== -->
-            <div id="quiz-view" class="space-y-6">
+            <div id="quiz-view" class="space-y-6 hidden">
 
                 <!-- Barra de Progreso Superior -->
                 <div class="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-sm">
-                    <div class="flex justify-between items-center text-xs font-bold text-slate-500 mb-2">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs font-bold text-slate-500 mb-2 gap-1">
                         <span id="category-badge" class="text-brand-blue uppercase tracking-wider">ÁREA 1: FINANZAS</span>
-                        <span id="progress-text">Pregunta 1 de 15</span>
+                        <span id="progress-text" class="text-slate-600 font-semibold">Respondidas: 0 de 15 · Te faltan 15</span>
                     </div>
                     <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
-                        <div id="progress-bar" class="bg-gradient-to-r from-brand-blue to-brand-orange h-2.5 rounded-full transition-all duration-300" style="width: 6.66%;"></div>
+                        <div id="progress-bar" class="bg-brand-orange h-2.5 rounded-full transition-all duration-300" style="width: 6.66%;"></div>
                     </div>
                 </div>
 
                 <!-- Tarjeta de Pregunta -->
                 <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-xl transition-all">
-                    <div class="flex items-center gap-3 mb-3">
-                        <span id="question-number" class="w-8 h-8 rounded-full bg-brand-blue/10 text-brand-blue font-black text-sm flex items-center justify-center flex-shrink-0">
+                    <div class="flex items-start gap-3 mb-3">
+                        <span id="question-number" class="w-8 h-8 rounded-full bg-brand-blue/10 text-brand-blue font-black text-sm flex items-center justify-center shrink-0 mt-0.5">
                             1
                         </span>
                         <h2 id="question-title" class="text-lg sm:text-xl font-black text-slate-900 leading-snug">
@@ -128,57 +332,57 @@
                     <!-- Opciones Semáforo Táctiles -->
                     <div class="space-y-3">
                         <!-- Opción Verde -->
-                        <button onclick="selectOption('V')"
-                            class="w-full p-4 rounded-2xl border-2 border-slate-200 hover:border-emerald-500 hover:bg-emerald-50/50 text-left transition flex items-center justify-between group active:scale-[0.99]">
-                            <div class="flex items-center gap-3">
-                                <span class="w-5 h-5 rounded-full border-2 border-emerald-500 flex items-center justify-center bg-white group-hover:bg-emerald-500 transition">
+                        <button id="opt-btn-V" onclick="selectOption('V')"
+                            class="w-full p-4 rounded-2xl border-2 border-slate-200 hover:border-emerald-500 hover:bg-emerald-50/50 text-left transition flex items-start justify-between group active:scale-[0.99] cursor-pointer">
+                            <div class="flex items-start gap-3">
+                                <span class="w-5 h-5 rounded-full border-2 border-emerald-500 flex items-center justify-center bg-white group-hover:bg-emerald-500 transition shrink-0 mt-0.5">
                                     <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 group-hover:bg-white transition"></span>
                                 </span>
                                 <div>
-                                    <span class="text-sm font-bold text-slate-800 block">[ V ] Sí, al 100%</span>
-                                    <span class="text-xs text-slate-500">Implementado formalmente y al día.</span>
+                                    <span class="text-sm font-bold text-slate-800 block leading-tight">Sí, al 100%</span>
+                                    <span class="text-xs text-slate-500 mt-1 block">Implementado formalmente y al día.</span>
                                 </div>
                             </div>
-                            <span class="text-emerald-600 text-xs font-bold bg-emerald-100 px-2.5 py-1 rounded-full hidden sm:inline-block">Bajo riesgo</span>
+                            <span class="text-emerald-600 text-xs font-bold bg-emerald-100 px-2.5 py-1 rounded-full hidden sm:inline-block shrink-0 ml-2">Bajo riesgo</span>
                         </button>
 
                         <!-- Opción Amarilla -->
-                        <button onclick="selectOption('A')"
-                            class="w-full p-4 rounded-2xl border-2 border-slate-200 hover:border-amber-500 hover:bg-amber-50/50 text-left transition flex items-center justify-between group active:scale-[0.99]">
-                            <div class="flex items-center gap-3">
-                                <span class="w-5 h-5 rounded-full border-2 border-amber-500 flex items-center justify-center bg-white group-hover:bg-amber-500 transition">
+                        <button id="opt-btn-A" onclick="selectOption('A')"
+                            class="w-full p-4 rounded-2xl border-2 border-slate-200 hover:border-amber-500 hover:bg-amber-50/50 text-left transition flex items-start justify-between group active:scale-[0.99] cursor-pointer">
+                            <div class="flex items-start gap-3">
+                                <span class="w-5 h-5 rounded-full border-2 border-amber-500 flex items-center justify-center bg-white group-hover:bg-amber-500 transition shrink-0 mt-0.5">
                                     <span class="w-2.5 h-2.5 rounded-full bg-amber-500 group-hover:bg-white transition"></span>
                                 </span>
                                 <div>
-                                    <span class="text-sm font-bold text-slate-800 block">[ A ] A medias / Dudoso</span>
-                                    <span class="text-xs text-slate-500">Se hace parcialmente o está desactualizado.</span>
+                                    <span class="text-sm font-bold text-slate-800 block leading-tight">A medias / Dudoso</span>
+                                    <span class="text-xs text-slate-500 mt-1 block">Se hace parcialmente o está desactualizado.</span>
                                 </div>
                             </div>
-                            <span class="text-amber-700 text-xs font-bold bg-amber-100 px-2.5 py-1 rounded-full hidden sm:inline-block">Alerta</span>
+                            <span class="text-amber-700 text-xs font-bold bg-amber-100 px-2.5 py-1 rounded-full hidden sm:inline-block shrink-0 ml-2">Alerta</span>
                         </button>
 
                         <!-- Opción Roja -->
-                        <button onclick="selectOption('R')"
-                            class="w-full p-4 rounded-2xl border-2 border-slate-200 hover:border-rose-500 hover:bg-rose-50/50 text-left transition flex items-center justify-between group active:scale-[0.99]">
-                            <div class="flex items-center gap-3">
-                                <span class="w-5 h-5 rounded-full border-2 border-rose-500 flex items-center justify-center bg-white group-hover:bg-rose-500 transition">
+                        <button id="opt-btn-R" onclick="selectOption('R')"
+                            class="w-full p-4 rounded-2xl border-2 border-slate-200 hover:border-rose-500 hover:bg-rose-50/50 text-left transition flex items-start justify-between group active:scale-[0.99] cursor-pointer">
+                            <div class="flex items-start gap-3">
+                                <span class="w-5 h-5 rounded-full border-2 border-rose-500 flex items-center justify-center bg-white group-hover:bg-rose-500 transition shrink-0 mt-0.5">
                                     <span class="w-2.5 h-2.5 rounded-full bg-rose-500 group-hover:bg-white transition"></span>
                                 </span>
                                 <div>
-                                    <span class="text-sm font-bold text-slate-800 block">[ R ] No / Inexistente</span>
-                                    <span class="text-xs text-slate-500">No se tiene, no se hace o se ignora.</span>
+                                    <span class="text-sm font-bold text-slate-800 block leading-tight">No / Inexistente</span>
+                                    <span class="text-xs text-slate-500 mt-1 block">No se tiene, no se hace o se ignora.</span>
                                 </div>
                             </div>
-                            <span class="text-rose-700 text-xs font-bold bg-rose-100 px-2.5 py-1 rounded-full hidden sm:inline-block">Peligro</span>
+                            <span class="text-rose-700 text-xs font-bold bg-rose-100 px-2.5 py-1 rounded-full hidden sm:inline-block shrink-0 ml-2">Peligro</span>
                         </button>
                     </div>
 
-                    <!-- Navegación Retroceso -->
+                    <!-- Navegación Retroceso (Solo disponible antes de terminar el test) -->
                     <div class="flex justify-between items-center mt-6 pt-4 border-t border-slate-100">
-                        <button id="prev-btn" onclick="prevQuestion()" disabled
-                            class="text-xs font-semibold text-slate-400 hover:text-slate-700 disabled:opacity-30 disabled:pointer-events-none flex items-center gap-1 transition">
-                            <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
-                            <span>Anterior</span>
+                        <button id="prev-btn" type="button" onclick="prevQuestion()"
+                            class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 hover:text-brand-blue transition active:scale-95 cursor-pointer">
+                            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                            <span id="prev-btn-text">Pregunta Anterior</span>
                         </button>
                         <span class="text-[11px] text-slate-400">Toca una opción para avanzar</span>
                     </div>
@@ -225,60 +429,151 @@
                         </div>
                     </div>
 
-                    <!-- Botones de Acción Inmediata -->
-                    <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-                        <a href="assets/test-auditoria-empresarial-15.pdf" download="Test-Auditoria-Empresarial-15-Puntos-Aizprua.pdf"
-                            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs sm:text-sm rounded-xl transition border border-slate-300">
-                            <i data-lucide="download" class="w-4 h-4"></i>
-                            <span>Descargar Informe en PDF</span>
-                        </a>
+                    <!-- Botones de Acción Inmediata (Alineación Canónica Anti-Descuadre) -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-3 w-full">
+                        <button type="button" onclick="handleReportUnlock()"
+                            class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-brand-blue hover:bg-brand-blue-dark text-white font-extrabold text-xs sm:text-sm rounded-xl transition shadow-md hover:shadow-lg whitespace-nowrap shrink-0 cursor-pointer">
+                            <i data-lucide="file-check-2" class="w-4 h-4 shrink-0 text-brand-orange"></i>
+                            <span>Ver Informe Oficial (PDF)</span>
+                        </button>
 
                         <a href="https://whatsapp.com/channel/0029Va64qHbJJhzeH6DHa61a" target="_blank" rel="noopener"
-                            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#25D366] hover:bg-[#20ba59] text-white font-extrabold text-xs sm:text-sm rounded-xl transition shadow-md hover:shadow-lg">
-                            <i data-lucide="message-circle" class="w-4 h-4 flex-shrink-0"></i>
+                            class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-[#25D366] hover:bg-[#20ba59] text-white font-extrabold text-xs sm:text-sm rounded-xl transition shadow-md hover:shadow-lg whitespace-nowrap shrink-0">
+                            <i data-lucide="message-circle" class="w-4 h-4 shrink-0"></i>
                             <span>Entrar a la Comunidad WhatsApp</span>
                         </a>
                     </div>
                 </div>
 
-                <!-- Oferta Tripwire del Plan 360 Digital -->
-                <div class="bg-gradient-to-br from-slate-900 via-slate-800 to-brand-blue-dark text-white p-6 sm:p-8 rounded-3xl shadow-2xl border border-slate-700 relative overflow-hidden">
-                    <div class="absolute -top-24 -right-24 w-80 h-80 bg-brand-orange/20 rounded-full blur-3xl pointer-events-none"></div>
+                <!-- ==================================================== -->
+                <!-- OFERTA A: ESCUDO PREVENTIVO (Para Crítico o Vulnerable) -->
+                <!-- ==================================================== -->
+                <div id="offer-escudo" class="bg-gradient-to-br from-slate-900 via-slate-800 to-brand-blue-dark text-white p-6 sm:p-9 rounded-3xl shadow-2xl border border-slate-700 relative overflow-hidden">
+                    <div class="absolute -top-24 -right-24 w-80 h-80 bg-rose-500/20 rounded-full blur-3xl pointer-events-none"></div>
 
                     <div class="relative z-10 text-center max-w-xl mx-auto">
-                        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-orange/20 border border-brand-orange/30 text-brand-orange-light text-xs font-black uppercase tracking-wider mb-3">
-                            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-                            <span>SOLUCIÓN RECOMENDADA PARA TUS RESULTADOS</span>
+                        <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-rose-500/20 border border-rose-400/40 text-rose-300 text-xs font-black uppercase tracking-wider mb-3">
+                            <i data-lucide="shield-alert" class="w-3.5 h-3.5 text-rose-400"></i>
+                            <span>INTERVENCIÓN PRIORITARIA RECOMENDADA</span>
                         </div>
 
                         <h3 class="text-xl sm:text-3xl font-black text-white tracking-tight leading-tight mb-3">
-                            Corrige tus alertas con el <span class="text-brand-orange-light">Plan 360 Digital</span>
+                            No arriesgues tu patrimonio con plantillas:<br>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange-light to-amber-300">Activa tu Escudo Preventivo</span>
                         </h3>
 
                         <p class="text-xs sm:text-sm text-slate-300 mb-6 leading-relaxed">
-                            No te quedes con la incertidumbre. El Plan 360 incluye las <b>35 páginas interactivas</b> listas para rellenar en tablet o PC con los modelos de contratos, flujo de caja y manuales para corregir cada alerta hoy mismo.
+                            Tus respuestas indican alertas de alta exposición ante la DGI, Mitradel y contratos desactualizados. Una sola sanción puede costarte miles de dólares. Deja tu empresa en manos de especialistas legales y tributarios.
                         </p>
 
-                        <!-- Caja de Precio y Botón Hotmart -->
-                        <div class="bg-slate-900/90 border border-brand-orange/40 p-5 rounded-2xl max-w-sm mx-auto shadow-2xl mb-4">
-                            <div class="text-center mb-3">
-                                <span class="text-[11px] text-slate-400 font-semibold uppercase block">Precio Especial de Diagnóstico</span>
-                                <div class="text-3xl font-black text-white flex items-center justify-center gap-2 mt-0.5">
-                                    <span class="text-emerald-400">$19.99</span>
-                                    <span class="text-xs text-slate-400 font-normal">USD • Pago único</span>
-                                </div>
+                        <!-- Caja de Beneficios Clave del Escudo -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-left mb-6">
+                            <div class="bg-white/5 border border-white/10 p-3 rounded-2xl">
+                                <i data-lucide="file-check-2" class="w-4 h-4 text-brand-orange mb-1"></i>
+                                <span class="text-xs font-bold text-white block">Revisión de Contratos</span>
+                                <span class="text-[11px] text-slate-400">Blindaje contra demandas laborales.</span>
                             </div>
+                            <div class="bg-white/5 border border-white/10 p-3 rounded-2xl">
+                                <i data-lucide="scale" class="w-4 h-4 text-emerald-400 mb-1"></i>
+                                <span class="text-xs font-bold text-white block">Filtro Fiscal DGI</span>
+                                <span class="text-[11px] text-slate-400">Prevención de multas tributarias.</span>
+                            </div>
+                            <div class="bg-white/5 border border-white/10 p-3 rounded-2xl">
+                                <i data-lucide="map" class="w-4 h-4 text-blue-400 mb-1"></i>
+                                <span class="text-xs font-bold text-white block">Hoja de Ruta 2026</span>
+                                <span class="text-[11px] text-slate-400">Plan paso a paso personalizado.</span>
+                            </div>
+                        </div>
 
-                            <a onclick="return false;" href="https://pay.hotmart.com/V88356406E?checkoutMode=2"
-                                class="hotmart-fb w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-emerald-500 hover:bg-emerald-600 text-white font-black text-sm sm:text-base rounded-xl shadow-xl hover:shadow-2xl transition duration-200 transform hover:-translate-y-0.5 whitespace-nowrap">
-                                <i data-lucide="shield-check" class="w-4 h-4 flex-shrink-0"></i>
-                                <span>Descargar Plan 360 por $19.99</span>
+                        <!-- CTA Principal Escudo Preventivo -->
+                        <div class="bg-slate-900/90 border border-brand-orange/40 p-5 rounded-2xl max-w-sm mx-auto shadow-2xl mb-4">
+                            <span class="text-[11px] text-brand-orange-light font-black uppercase tracking-wider block mb-1">Diagnóstico Estratégico Personalizado</span>
+                            <p class="text-xs text-slate-300 mb-3">Revisión legal y fiscal directa con el equipo de Aizprua S.E.</p>
+                            
+                            <a href="https://escudo.aizprua.com/"
+                                target="_blank" rel="noopener"
+                                class="w-full inline-flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white font-black text-sm sm:text-base rounded-xl shadow-xl hover:shadow-orange-500/30 transition duration-200 transform hover:-translate-y-0.5 whitespace-nowrap">
+                                <i data-lucide="shield-check" class="w-5 h-5 flex-shrink-0"></i>
+                                <span>Solicitar Escudo Preventivo</span>
                             </a>
 
-                            <div class="flex items-center justify-center gap-2 text-[10px] text-slate-400 pt-2">
-                                <i data-lucide="shield" class="w-3 h-3 text-brand-orange"></i>
-                                <span>Garantía de 7 días Hotmart • Descarga inmediata</span>
+                            <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20acabo%20de%20hacer%20el%20test%20y%20me%20salieron%20alertas%20cr%C3%ADticas.%20Deseo%20activar%20el%20Escudo%20Preventivo."
+                                target="_blank" rel="noopener"
+                                class="mt-3 inline-flex items-center justify-center gap-1.5 text-xs font-bold text-slate-400 hover:text-emerald-400 transition">
+                                <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400"></i>
+                                <span>¿Urgencia? Consulta por WhatsApp</span>
+                            </a>
+                        </div>
+
+                        <button onclick="restartQuiz()" class="text-xs text-slate-400 hover:text-white underline transition">
+                            Repetir el test desde el inicio
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ==================================================== -->
+                <!-- OFERTA B: MÉTODO 4E ESCUELA (Para Bajo Riesgo / Positivo) -->
+                <!-- ==================================================== -->
+                <div id="offer-metodo4e" class="hidden bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-950 text-white p-6 sm:p-9 rounded-3xl shadow-2xl border border-slate-700 relative overflow-hidden">
+                    <div class="absolute -top-24 -right-24 w-80 h-80 bg-emerald-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div class="relative z-10 text-center max-w-xl mx-auto">
+                        <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 text-xs font-black uppercase tracking-wider mb-3">
+                            <i data-lucide="award" class="w-3.5 h-3.5 text-emerald-400"></i>
+                            <span>SIGUIENTE NIVEL EMPRESARIAL · ESCUELA DE NEGOCIOS</span>
+                        </div>
+
+                        <h3 class="text-xl sm:text-3xl font-black text-white tracking-tight leading-tight mb-3">
+                            Tus bases están sanas.<br>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200">Es hora de escalar con el Método 4E</span>
+                        </h3>
+
+                        <p class="text-xs sm:text-sm text-slate-300 mb-6 leading-relaxed">
+                            Has demostrado un excelente orden financiero y operativo. El siguiente paso ya no es apagar incendios, sino dominar las 4 etapas de una empresa rentable, automatizada y escalable en Panamá.
+                        </p>
+
+                        <!-- Las 4 Fases del Método 4E -->
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-left mb-6">
+                            <div class="bg-white/5 border border-white/10 p-3 rounded-2xl">
+                                <span class="text-[10px] font-black text-brand-orange uppercase block">Fase 1</span>
+                                <span class="text-xs font-bold text-white block mt-0.5">Estructura</span>
+                                <span class="text-[10px] text-slate-400">Formalización sólida.</span>
                             </div>
+                            <div class="bg-white/5 border border-white/10 p-3 rounded-2xl">
+                                <span class="text-[10px] font-black text-emerald-400 uppercase block">Fase 2</span>
+                                <span class="text-xs font-bold text-white block mt-0.5">Estrategia</span>
+                                <span class="text-[10px] text-slate-400">Precios y márgenes.</span>
+                            </div>
+                            <div class="bg-white/5 border border-white/10 p-3 rounded-2xl">
+                                <span class="text-[10px] font-black text-blue-400 uppercase block">Fase 3</span>
+                                <span class="text-xs font-bold text-white block mt-0.5">Expande</span>
+                                <span class="text-[10px] text-slate-400">Procesos y roles.</span>
+                            </div>
+                            <div class="bg-white/5 border border-white/10 p-3 rounded-2xl">
+                                <span class="text-[10px] font-black text-purple-400 uppercase block">Fase 4</span>
+                                <span class="text-xs font-bold text-white block mt-0.5">Escala</span>
+                                <span class="text-[10px] text-slate-400">Automatización total.</span>
+                            </div>
+                        </div>
+
+                        <!-- CTA Principal Escuela / Método 4E -->
+                        <div class="bg-slate-900/90 border border-emerald-500/40 p-5 rounded-2xl max-w-sm mx-auto shadow-2xl mb-4">
+                            <span class="text-[11px] text-emerald-400 font-black uppercase tracking-wider block mb-1">Campus Virtual Aizprua</span>
+                            <p class="text-xs text-slate-300 mb-3">Capacitación práctica para fundadores que quieren liderar empresas de alto impacto.</p>
+                            
+                            <a href="/escuela"
+                                target="_blank" rel="noopener"
+                                class="w-full inline-flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-emerald-500 to-teal-600 hover:brightness-110 text-white font-black text-sm sm:text-base rounded-xl shadow-xl hover:shadow-emerald-500/30 transition duration-200 transform hover:-translate-y-0.5 whitespace-nowrap">
+                                <i data-lucide="graduation-cap" class="w-5 h-5 flex-shrink-0"></i>
+                                <span>Conocer el Método 4E</span>
+                            </a>
+
+                            <a href="https://escuela.aizprua.com"
+                                target="_blank" rel="noopener"
+                                class="mt-3 inline-flex items-center justify-center gap-1.5 text-xs font-bold text-slate-400 hover:text-white transition">
+                                <i data-lucide="log-in" class="w-3.5 h-3.5 text-brand-orange"></i>
+                                <span>Ingresar al Campus Virtual</span>
+                            </a>
                         </div>
 
                         <button onclick="restartQuiz()" class="text-xs text-slate-400 hover:text-white underline transition">
@@ -292,122 +587,365 @@
         </div>
     </main>
 
-    <!-- Footer Canónico Limpio -->
-    <footer class="bg-slate-900 text-slate-300 py-8 border-t border-slate-800 mt-auto">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <a href="https://aizprua.com/" class="inline-block mb-3">
+    <!-- Footer Canónico Distraction-Free (Confianza & Cumplimiento Legal) -->
+    <footer class="bg-slate-900 text-slate-400 py-10 sm:py-12 border-t border-slate-800 mt-auto">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <!-- Logotipo Canónico Negativo Oficial -->
+            <a href="https://aizprua.com/" class="inline-block mb-4" aria-label="Aizprua S.E. Inicio">
                 <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-21-nobg.svg"
                     onerror="this.onerror=null; this.src='/assets/LOGOS PARA DIGITAL INDIVIDUALES-21-nobg.svg';"
-                    alt="Logo Aizprua S.E."
-                    class="h-16 sm:h-20 w-auto object-contain mx-auto" width="80" height="80">
+                    alt="Logo Aizprua S.E. - Firma Legal y Empresarial"
+                    class="h-20 w-auto object-contain mx-auto" width="112" height="80">
             </a>
+
+            <!-- Sellos de Confianza y Respaldo Institucional -->
+            <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs text-slate-400 mb-6 font-medium">
+                <div class="flex items-center gap-1.5">
+                    <i data-lucide="shield-check" class="w-4 h-4 text-brand-orange flex-shrink-0"></i>
+                    <span>Diagnóstico 100% Confidencial</span>
+                </div>
+                <span class="text-slate-700 hidden sm:inline">•</span>
+                <div class="flex items-center gap-1.5">
+                    <i data-lucide="lock" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                    <span>Conexión Segura SSL 256-bit</span>
+                </div>
+                <span class="text-slate-700 hidden sm:inline">•</span>
+                <div class="flex items-center gap-1.5">
+                    <i data-lucide="scale" class="w-4 h-4 text-brand-blue-light flex-shrink-0"></i>
+                    <span>Normativa Legal & DGI Panamá</span>
+                </div>
+            </div>
+
+            <!-- Enlaces Legales Mínimos (Cumplimiento Meta Ads & Ley 81 sin fugas a contenido) -->
+            <div class="flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400 mb-5">
+                <a href="/privacidad" class="hover:text-white transition underline underline-offset-4 decoration-slate-600 hover:decoration-brand-orange">Política de Privacidad (Ley 81)</a>
+                <span class="text-slate-700">·</span>
+                <a href="/terminos" class="hover:text-white transition underline underline-offset-4 decoration-slate-600 hover:decoration-brand-orange">Términos y Condiciones</a>
+            </div>
+
+            <!-- Subtítulo Institucional y Copyright Oficial -->
             <p class="text-xs text-slate-400 mb-2">
-                Herramienta de diagnóstico empresarial preventivo desarrollada por <b>Aizprua S.E.</b>
+                Herramienta de diagnóstico empresarial preventivo desarrollada por <b class="text-white font-semibold">Aizprua S.E.</b>
             </p>
-            <p class="text-[11px] text-slate-500">
+            <p class="text-[11px] text-slate-400">
                 &copy; 2026 Aizprua S.E. Firma Legal y Empresarial en Panamá. Todos los derechos reservados.
             </p>
         </div>
     </footer>
 
+    <!-- ==================================================== -->
+    <!-- MODAL: CAPTURA DE LEAD PARA DESBLOQUEAR EL INFORME   -->
+    <!-- ==================================================== -->
+    <div id="lead-modal" class="fixed inset-0 z-50 hidden overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="lead-modal-title">
+        <!-- Backdrop -->
+        <div class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm transition-opacity cursor-pointer" onclick="closeLeadModal()"></div>
+
+        <!-- Modal Container -->
+        <div class="relative min-h-screen flex items-center justify-center p-4">
+            <div class="relative w-full max-w-md bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col p-6 sm:p-8">
+                <button type="button" onclick="closeLeadModal()" aria-label="Cerrar modal"
+                    class="absolute top-5 right-5 p-2 text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-xl transition cursor-pointer">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+
+                <div class="w-12 h-12 rounded-2xl bg-brand-blue/10 text-brand-blue flex items-center justify-center mb-4">
+                    <i data-lucide="file-text" class="w-6 h-6 text-brand-orange"></i>
+                </div>
+
+                <span class="text-xs font-black uppercase tracking-wider text-brand-blue mb-1">Diagnóstico Oficial de 15 Puntos</span>
+                <h3 id="lead-modal-title" class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-snug mb-2">
+                    Personaliza y Desbloquea tu Informe Oficial
+                </h3>
+                <p class="text-xs text-slate-600 mb-5 leading-relaxed">
+                    Ingresa tus datos para emitir tu informe oficial de auditoría personalizado a 2 hojas y enviarte una copia de respaldo.
+                </p>
+
+                <form onsubmit="handleLeadSubmit(event)" class="space-y-4">
+                    <div>
+                        <label for="lead-name" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Nombre Completo o Razón Social *</label>
+                        <input type="text" id="lead-name" required placeholder="Ej: Arubel Aizprua / Mi Empresa S.A."
+                            class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 text-sm outline-none transition">
+                    </div>
+
+                    <div>
+                        <label for="lead-email" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Correo Electrónico Corporativo *</label>
+                        <input type="email" id="lead-email" required placeholder="tucorreo@empresa.com"
+                            class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 text-sm outline-none transition">
+                    </div>
+
+                    <div>
+                        <label for="lead-phone" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">WhatsApp de Contacto (Opcional)</label>
+                        <input type="tel" id="lead-phone" placeholder="+507 6000-0000"
+                            class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 text-sm outline-none transition">
+                    </div>
+
+                    <button type="submit"
+                        class="w-full py-4 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-xl font-black text-sm tracking-wide shadow-lg hover:shadow-orange-500/25 transition duration-200 transform hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer">
+                        <i data-lucide="file-check-2" class="w-4 h-4"></i>
+                        <span>Generar y Ver Informe en PDF (2 Hojas)</span>
+                    </button>
+
+                    <p class="text-[11px] text-slate-400 text-center flex items-center justify-center gap-1.5 pt-1">
+                        <i data-lucide="lock" class="w-3.5 h-3.5 text-emerald-600"></i>
+                        <span>Datos protegidos bajo la Ley 81 de Protección de Datos de Panamá.</span>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================================================== -->
+    <!-- MODAL: INFORME PERSONALIZADO DE AUDITORÍA CON RESPUESTAS -->
+    <!-- ==================================================== -->
+    <div id="report-modal" class="fixed inset-0 z-50 hidden overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="report-modal-title">
+        <!-- Backdrop -->
+        <div id="report-modal-backdrop" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm transition-opacity cursor-pointer" onclick="closeReportModal()"></div>
+
+        <!-- Modal Container -->
+        <div class="relative min-h-screen flex items-center justify-center p-3 sm:p-6">
+            <div id="report-modal-content" class="relative w-full max-w-4xl bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col my-8">
+                
+                <!-- Barra de Acciones del Modal (no-print) -->
+                <div class="modal-action-bar no-print sticky top-0 z-30 bg-slate-900 text-white px-4 sm:px-6 py-3.5 flex flex-wrap items-center justify-between gap-3 border-b border-slate-800">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="file-check-2" class="w-5 h-5 text-brand-orange"></i>
+                        <span id="report-modal-title" class="font-extrabold text-xs sm:text-sm tracking-wide">Informe Oficial de Diagnóstico (15 Puntos)</span>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <button type="button" onclick="window.print()"
+                            class="inline-flex items-center gap-1.5 px-4 py-2 bg-brand-orange hover:bg-brand-orange-dark text-white rounded-xl font-black text-xs transition shadow-sm cursor-pointer">
+                            <i data-lucide="printer" class="w-4 h-4"></i>
+                            <span>Guardar en PDF / Imprimir</span>
+                        </button>
+
+                        <a href="assets/test-auditoria-empresarial-15.pdf" target="_blank" rel="noopener" download="Test-Auditoria-Empresarial-15-Puntos-Aizprua-Blanco.pdf"
+                            class="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white rounded-xl font-bold text-xs transition border border-slate-700">
+                            <i data-lucide="file-down" class="w-3.5 h-3.5"></i>
+                            <span>Plantilla en Blanco</span>
+                        </a>
+
+                        <button type="button" onclick="closeReportModal()" aria-label="Cerrar modal"
+                            class="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded-xl transition cursor-pointer">
+                            <i data-lucide="x" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Documento Imprimible del Informe -->
+                <div id="printable-audit-report" class="p-4 sm:p-6 sm:pt-4 bg-white text-slate-900 text-xs sm:text-sm font-sans leading-normal">
+                    <!-- Renderizado dinámicamente por generateReportHTML() -->
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Lógica Interactiva del Quiz -->
     <script>
-        const QUESTIONS = [
-            // ÁREA 1: FINANZAS
-            {
-                category: "ÁREA 1: FINANZAS & CAJA",
-                title: "¿Tienes cuentas bancarias 100% separadas?",
-                desc: "No mezclas gastos del hogar o personales con los ingresos y gastos de la empresa."
-            },
-            {
-                category: "ÁREA 1: FINANZAS & CAJA",
-                title: "¿Tienes un sueldo o retiro fijo mensual asignado?",
-                desc: "En lugar de retirar dinero de la caja cada vez que lo necesitas sin control contable."
-            },
-            {
-                category: "ÁREA 1: FINANZAS & CAJA",
-                title: "¿Llevas un registro de flujo de caja proyectado?",
-                desc: "Cuentas con una herramienta que te permite prever déficit con al menos 30 días de anticipación."
-            },
-            {
-                category: "ÁREA 1: FINANZAS & CAJA",
-                title: "¿Conoces tu Punto de Equilibrio mensual exacto?",
-                desc: "Sabes la cifra mínima en dólares que necesitas facturar cada mes para no perder dinero."
-            },
-            {
-                category: "ÁREA 1: FINANZAS & CAJA",
-                title: "¿Tienes un colchón o fondo de reserva de 2 a 3 meses?",
-                desc: "Un fondo de emergencia en el banco que cubra costos fijos si las ventas se detienen."
-            },
-            // ÁREA 2: LEGAL & LABORAL
-            {
-                category: "ÁREA 2: BLINDAJE LEGAL Y LABORAL",
-                title: "¿Todos tus colaboradores tienen contratos firmados?",
-                desc: "Personal a tiempo completo, medio tiempo o servicios profesionales con contratos vigentes."
-            },
-            {
-                category: "ÁREA 2: BLINDAJE LEGAL Y LABORAL",
-                title: "¿Tienes respaldo firmado de pagos y liquidaciones?",
-                desc: "Constancias de entrega de salarios, descansos y vacaciones según la legislación laboral."
-            },
-            {
-                category: "ÁREA 2: BLINDAJE LEGAL Y LABORAL",
-                title: "¿Tu negocio está al día con sus declaraciones fiscales?",
-                desc: "Declaraciones y timbres básicos al día para evitar bloqueos y multas de DGI o CSS."
-            },
-            {
-                category: "ÁREA 2: BLINDAJE LEGAL Y LABORAL",
-                title: "¿Tienes protegida tu marca o nombre comercial?",
-                desc: "Registro formal para evitar que un competidor o tercero se apropie de tu identidad."
-            },
-            {
-                category: "ÁREA 2: BLINDAJE LEGAL Y LABORAL",
-                title: "¿Están por escrito los acuerdos entre socios?",
-                desc: "Reglas claras sobre utilidades, funciones y qué pasa si un socio decide retirarse o vender."
-            },
-            // ÁREA 3: OPERACIONES & GOBIERNO
-            {
-                category: "ÁREA 3: OPERACIONES Y PROCESOS",
-                title: "¿Tienen tus puestos un Manual de Funciones?",
-                desc: "Responsabilidades escritas para que el negocio no dependa exclusivamente de tu presencia."
-            },
-            {
-                category: "ÁREA 3: OPERACIONES Y PROCESOS",
-                title: "¿Están documentados los procesos clave de venta y cobro?",
-                desc: "Pasos estandarizados para vender, facturar y cobrar sin cometer errores recurrentes."
-            },
-            {
-                category: "ÁREA 3: OPERACIONES Y PROCESOS",
-                title: "¿Utilizas Acuerdos de Confidencialidad (NDA)?",
-                desc: "Proteges tu cartera de clientes, tarifas y secretos con cláusulas firmadas por el equipo."
-            },
-            {
-                category: "ÁREA 3: OPERACIONES Y PROCESOS",
-                title: "¿Llevas un control formal de activos y herramientas?",
-                desc: "Inventario de computadoras, llaves y accesos entregados al personal de la empresa."
-            },
-            {
-                category: "ÁREA 3: OPERACIONES Y PROCESOS",
-                title: "¿Haces revisiones preventivas anuales?",
-                desc: "Auditas tus números y contratos al menos una vez al año antes de que estalle un conflicto."
-            }
-        ];
+        let selectedProfile = 'PLANILLA';
+        let clientName = '';
+        let clientEmail = '';
+        let clientPhone = '';
 
+        let QUESTIONS = [];
         let currentQuestion = 0;
-        const answers = new Array(QUESTIONS.length).fill(null);
+        let answers = new Array(15).fill(null);
+
+        function getProfileLabel(profile) {
+            switch(profile) {
+                case 'PLANILLA': return 'Empresa con Equipo en Planilla';
+                case 'FREELANCE': return 'Colaboradores Externos / Freelancers';
+                case 'SOLO': return 'Operación 100% Individual';
+                default: return 'Empresarial';
+            }
+        }
+
+        function initQuestionsForProfile() {
+            QUESTIONS = [
+                // ==========================================
+                // ÁREA 1: FINANZAS & CAJA (1 A 5)
+                // ==========================================
+                {
+                    category: "ÁREA 1: FINANZAS & CONTROL DEL DINERO",
+                    title: "¿Mantienes una separación estricta entre tus finanzas personales y las del negocio?",
+                    desc: "Cuentas bancarias exclusivas para la empresa, evitando cubrir gastos personales o familiares con dinero operativo."
+                },
+                {
+                    category: "ÁREA 1: FINANZAS & CAJA",
+                    title: "¿Tienes asignada una remuneración o retiro fijo mensual como dueño?",
+                    desc: "Cobras un monto fijo periódico en lugar de retirar fondos de la caja de forma irregular y sin registro contable."
+                },
+                {
+                    category: "ÁREA 1: FINANZAS & CAJA",
+                    title: "¿Cuentas con visibilidad de tu flujo de caja proyectado a 30 días?",
+                    desc: "Dispones de una herramienta que te permite anticipar déficits o faltantes de liquidez antes de que termine el mes."
+                },
+                {
+                    category: "ÁREA 1: FINANZAS & CAJA",
+                    title: "¿Conoces la facturación mínima mensual que requiere tu negocio para no perder dinero?",
+                    desc: "Tienes clara la cifra exacta en ventas (Punto de Equilibrio) necesaria para cubrir todos tus costos fijos y operativos."
+                },
+                {
+                    category: "ÁREA 1: FINANZAS & CAJA",
+                    title: "¿Tu empresa dispone de un fondo de reserva para contingencias de 2 a 3 meses?",
+                    desc: "Un respaldo bancario que cubra los costos fijos si las ventas se reducen o los cobros de clientes se retrasan."
+                },
+
+                // ==========================================
+                // ÁREA 2: BLINDAJE LEGAL Y FISCAL (6 A 10)
+                // ==========================================
+                {
+                    category: "ÁREA 2: BLINDAJE LEGAL, LABORAL Y FISCAL",
+                    title: selectedProfile === 'PLANILLA'
+                        ? "¿Todos tus colaboradores cuentan con contratos de trabajo debidamente firmados?"
+                        : (selectedProfile === 'FREELANCE'
+                            ? "¿Firmas contratos de servicios y cesión de derechos con tus freelancers o asistentes?"
+                            : "¿Firmas contratos de prestación de servicios con tus clientes antes de iniciar trabajos?"),
+                    desc: selectedProfile === 'PLANILLA'
+                        ? "Ninguna relación laboral es verbal; todo el personal subordinado tiene contrato vigente según la normativa de Panamá."
+                        : (selectedProfile === 'FREELANCE'
+                            ? "Respaldas por escrito que los entregables, diseños, códigos y tareas pertenecen legalmente a tu empresa y no al freelancer."
+                            : "Respaldas por escrito el alcance, los entregables, los tiempos y las condiciones de pago para evitar impagos o disputas.")
+                },
+                {
+                    category: "ÁREA 2: BLINDAJE LEGAL, LABORAL Y FISCAL",
+                    title: selectedProfile === 'PLANILLA'
+                        ? "¿Cuentas con constancias firmadas de pagos de salarios, descansos y vacaciones?"
+                        : (selectedProfile === 'FREELANCE'
+                            ? "¿Exiges facturas o comprobantes fiscales de los pagos realizados a freelancers?"
+                            : "¿Documentas formalmente la entrega y aceptación de tus servicios a clientes?"),
+                    desc: selectedProfile === 'PLANILLA'
+                        ? "Registros documentados y firmados de cada pago laboral para protegerte ante cualquier reclamo o demanda ante Mitradel."
+                        : (selectedProfile === 'FREELANCE'
+                            ? "Sustento formal de egresos para poder deducir esos gastos operacionales ante la DGI y evitar reparos tributarios."
+                            : "Respaldos por escrito (actas de entrega, correos o comprobantes) que certifiquen el cumplimiento de lo acordado.")
+                },
+                {
+                    category: "ÁREA 2: BLINDAJE LEGAL, LABORAL Y FISCAL",
+                    title: "¿Tu negocio se encuentra al día con sus obligaciones tributarias ante la DGI?",
+                    desc: "Declaraciones y pagos al día para evitar multas, recargos, sanciones y bloqueos de cuentas bancarias."
+                },
+                {
+                    category: "ÁREA 2: BLINDAJE LEGAL, LABORAL Y FISCAL",
+                    title: "¿Tienes registrada formalmente tu marca o nombre comercial ante DIGERPI?",
+                    desc: "Protección legal de tu identidad empresarial para que ningún competidor o tercero pueda apropiarse de ella en Panamá."
+                },
+                {
+                    category: "ÁREA 2: BLINDAJE LEGAL, LABORAL Y FISCAL",
+                    title: "¿Está formalizada legalmente la estructura y propiedad de tu empresa?",
+                    desc: "Pactos de socios por escrito si tienes socios; o personería jurídica propia (S.A. / S. de R.L.) si eres dueño único para proteger tus bienes personales."
+                },
+
+                // ==========================================
+                // ÁREA 3: OPERACIONES Y PROCESOS (11 A 15)
+                // ==========================================
+                {
+                    category: "ÁREA 3: OPERACIONES, PROCESOS Y GOBIERNO",
+                    title: selectedProfile === 'PLANILLA'
+                        ? "¿Cuentan tus puestos de trabajo con descripciones y funciones por escrito?"
+                        : "¿Tienes estandarizado y documentado el paso a paso de tus servicios principales?",
+                    desc: selectedProfile === 'PLANILLA'
+                        ? "Responsabilidades claras para que la operación diaria del negocio no dependa exclusivamente de tu supervisión constante."
+                        : "Metodología clara que te permite entregar tus servicios con consistencia, calidad profesional y sin improvisar."
+                },
+                {
+                    category: "ÁREA 3: OPERACIONES, PROCESOS Y GOBIERNO",
+                    title: "¿Tienes establecidas políticas formales de cobro y anticipos para clientes?",
+                    desc: "Condiciones de pago claras (ej. anticipo inicial obligatorio y plazos de facturación) que protegen tu liquidez y reducen la morosidad."
+                },
+                {
+                    category: "ÁREA 3: OPERACIONES, PROCESOS Y GOBIERNO",
+                    title: selectedProfile === 'PLANILLA'
+                        ? "¿Firmas acuerdos de confidencialidad (NDA) para proteger tu información y clientes?"
+                        : (selectedProfile === 'FREELANCE'
+                            ? "¿Firmas acuerdos de confidencialidad (NDA) al dar accesos a freelancers o externos?"
+                            : "¿Proteges tu información estratégica mediante acuerdos de confidencialidad con terceros?"),
+                    desc: selectedProfile === 'PLANILLA'
+                        ? "Cláusulas formales que impiden que colaboradores o exempleados utilicen tu base de datos, tarifas o estrategias comerciales."
+                        : (selectedProfile === 'FREELANCE'
+                            ? "Proteges que personal remoto o externo con accesos no se quede con tus bases de datos, contraseñas, archivos ni clientes."
+                            : "Resguardo legal de datos sensibles, métodos y cartera al subcontratar proveedores de sistemas, diseño o asesoría externa.")
+                },
+                {
+                    category: "ÁREA 3: OPERACIONES, PROCESOS Y GOBIERNO",
+                    title: "¿Llevas un inventario formal de los activos, equipos y accesos clave de la empresa?",
+                    desc: "Control documentado de computadoras, herramientas, licencias de software y credenciales de acceso institucional."
+                },
+                {
+                    category: "ÁREA 3: OPERACIONES, PROCESOS Y GOBIERNO",
+                    title: "¿Realizas revisiones preventivas periódicas del estado legal y financiero de tu negocio?",
+                    desc: "Auditorías anuales de contratos, números y cumplimiento para corregir riesgos antes de que generen pérdidas patrimoniales."
+                }
+            ];
+            answers = new Array(QUESTIONS.length).fill(null);
+        }
+
+        function selectProfile(profile) {
+            selectedProfile = profile;
+            initQuestionsForProfile();
+            currentQuestion = 0;
+            answers.fill(null);
+
+            const profileView = document.getElementById('profile-view');
+            const quizView = document.getElementById('quiz-view');
+            if (profileView) profileView.classList.add('hidden');
+            if (quizView) quizView.classList.remove('hidden');
+
+            updateQuestionUI();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+        }
 
         function updateQuestionUI() {
+            if (!QUESTIONS.length) initQuestionsForProfile();
             const q = QUESTIONS[currentQuestion];
+            if (!q) return;
+
             document.getElementById('category-badge').innerText = q.category;
-            document.getElementById('progress-text').innerText = `Pregunta ${currentQuestion + 1} de ${QUESTIONS.length}`;
+            
+            const remaining = QUESTIONS.length - currentQuestion;
+            const remainingText = remaining === 1 
+                ? '¡Última pregunta!' 
+                : `Te faltan ${remaining} (${Math.max(1, Math.ceil(remaining * 0.15))} min)`;
+            document.getElementById('progress-text').innerText = `Respondidas: ${currentQuestion} de ${QUESTIONS.length} · ${remainingText}`;
+
             document.getElementById('question-number').innerText = currentQuestion + 1;
             document.getElementById('question-title').innerText = q.title;
             document.getElementById('question-desc').innerText = q.desc;
 
             const progressPct = ((currentQuestion + 1) / QUESTIONS.length) * 100;
             document.getElementById('progress-bar').style.width = `${progressPct}%`;
+            const topBar = document.getElementById('top-progress-bar');
+            if (topBar) topBar.style.width = `${progressPct}%`;
 
-            document.getElementById('prev-btn').disabled = (currentQuestion === 0);
+            const prevBtn = document.getElementById('prev-btn');
+            const prevBtnText = document.getElementById('prev-btn-text');
+            if (prevBtn && prevBtnText) {
+                if (currentQuestion === 0) {
+                    prevBtnText.innerText = "Cambiar Perfil";
+                } else {
+                    prevBtnText.innerText = "Pregunta Anterior";
+                }
+            }
+
+            // Resaltar respuesta previamente seleccionada si se retrocede para corregir
+            const currentAns = answers[currentQuestion];
+            const btnV = document.getElementById('opt-btn-V');
+            const btnA = document.getElementById('opt-btn-A');
+            const btnR = document.getElementById('opt-btn-R');
+            [btnV, btnA, btnR].forEach(btn => {
+                if (btn) {
+                    btn.classList.remove('ring-2', 'ring-brand-blue', 'bg-blue-50/40', 'border-brand-blue');
+                }
+            });
+            if (currentAns === 'V' && btnV) {
+                btnV.classList.add('ring-2', 'ring-brand-blue', 'bg-blue-50/40', 'border-brand-blue');
+            } else if (currentAns === 'A' && btnA) {
+                btnA.classList.add('ring-2', 'ring-brand-blue', 'bg-blue-50/40', 'border-brand-blue');
+            } else if (currentAns === 'R' && btnR) {
+                btnR.classList.add('ring-2', 'ring-brand-blue', 'bg-blue-50/40', 'border-brand-blue');
+            }
+
             if (typeof lucide !== 'undefined') lucide.createIcons();
         }
 
@@ -417,6 +955,7 @@
             if (currentQuestion < QUESTIONS.length - 1) {
                 currentQuestion++;
                 updateQuestionUI();
+                window.scrollTo({ top: 100, behavior: 'smooth' });
             } else {
                 showResults();
             }
@@ -426,6 +965,15 @@
             if (currentQuestion > 0) {
                 currentQuestion--;
                 updateQuestionUI();
+                window.scrollTo({ top: 100, behavior: 'smooth' });
+            } else {
+                // En la primera pregunta, regresar a la selección de perfil
+                const profileView = document.getElementById('profile-view');
+                const quizView = document.getElementById('quiz-view');
+                if (quizView) quizView.classList.add('hidden');
+                if (profileView) profileView.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                if (typeof lucide !== 'undefined') lucide.createIcons();
             }
         }
 
@@ -440,48 +988,61 @@
             const opsReds = answers.slice(10, 15).filter(a => a === 'R' || a === 'A').length;
 
             document.getElementById('score-finanzas').innerHTML = finanzasReds === 0 
-                ? '<span class="text-emerald-600">✓ Controlado</span>' 
-                : `<span class="text-amber-600">${finanzasReds} alerta(s)</span>`;
+                ? '<span class="text-emerald-600 font-bold">✓ Controlado</span>' 
+                : `<span class="text-amber-600 font-bold">${finanzasReds} alerta(s)</span>`;
 
             document.getElementById('score-legal').innerHTML = legalReds === 0 
-                ? '<span class="text-emerald-600">✓ Blindado</span>' 
-                : `<span class="text-rose-600">${legalReds} alerta(s)</span>`;
+                ? '<span class="text-emerald-600 font-bold">✓ Blindado</span>' 
+                : `<span class="text-rose-600 font-bold">${legalReds} alerta(s)</span>`;
 
             document.getElementById('score-operaciones').innerHTML = opsReds === 0 
-                ? '<span class="text-emerald-600">✓ Estable</span>' 
-                : `<span class="text-amber-600">${opsReds} alerta(s)</span>`;
+                ? '<span class="text-emerald-600 font-bold">✓ Estable</span>' 
+                : `<span class="text-amber-600 font-bold">${opsReds} alerta(s)</span>`;
 
             const iconContainer = document.getElementById('result-icon-container');
             const badge = document.getElementById('result-badge');
             const title = document.getElementById('result-title');
             const summary = document.getElementById('result-summary');
 
+            const offerEscudo = document.getElementById('offer-escudo');
+            const offerMetodo4E = document.getElementById('offer-metodo4e');
+
             if (redCount <= 2 && yellowCount <= 3) {
-                // BAJO
+                // BAJO RIESGO (POSITIVO) -> OFERTA MÉTODO 4E
                 iconContainer.className = "w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 bg-emerald-100 text-emerald-600 shadow-inner";
                 iconContainer.innerHTML = '<i data-lucide="check-circle-2" class="w-10 h-10"></i>';
                 badge.className = "inline-flex items-center gap-1.5 py-1 px-3.5 rounded-full text-xs font-black uppercase tracking-wider mb-2 bg-emerald-100 text-emerald-700 border border-emerald-300";
                 badge.innerText = "Nivel: Bajo Riesgo / En Control";
                 title.innerText = "¡Tu empresa cuenta con bases sanas!";
-                summary.innerText = `Detectamos solo ${redCount} alerta(s) roja(s). Tu prioridad ahora es optimizar procesos, documentar manuales y escalar sin descuidar el control financiero.`;
+                summary.innerText = `Detectamos solo ${redCount} alerta(s) roja(s). Tu prioridad ahora es optimizar procesos, profesionalizar tu operación y escalar con el Método 4E en nuestra Escuela.`;
+
+                if (offerEscudo) offerEscudo.classList.add('hidden');
+                if (offerMetodo4E) offerMetodo4E.classList.remove('hidden');
             } else if (redCount <= 5) {
-                // VULNERABLE
+                // VULNERABLE (NEGATIVO) -> OFERTA ESCUDO PREVENTIVO
                 iconContainer.className = "w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 bg-amber-100 text-amber-600 shadow-inner";
                 iconContainer.innerHTML = '<i data-lucide="alert-triangle" class="w-10 h-10"></i>';
                 badge.className = "inline-flex items-center gap-1.5 py-1 px-3.5 rounded-full text-xs font-black uppercase tracking-wider mb-2 bg-amber-100 text-amber-700 border border-amber-300";
                 badge.innerText = "Nivel: Vulnerable (Fugas Detectadas)";
                 title.innerText = `Detectamos ${redCount} alertas críticas y ${yellowCount} advertencias`;
-                summary.innerText = "Tu negocio tiene fugas silenciosas de dinero o debilidades contractuales que podrían derivar en multas o demandas imprevistas. Corregir estos puntos debe ser tu prioridad número uno.";
+                summary.innerText = "Tu negocio presenta fugas silenciosas de dinero o debilidades contractuales que podrían derivar en multas o demandas imprevistas. Corregir estos puntos con el Escudo Preventivo debe ser tu prioridad número uno.";
+
+                if (offerEscudo) offerEscudo.classList.remove('hidden');
+                if (offerMetodo4E) offerMetodo4E.classList.add('hidden');
             } else {
-                // CRÍTICO
+                // CRÍTICO (NEGATIVO) -> OFERTA ESCUDO PREVENTIVO
                 iconContainer.className = "w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 bg-rose-100 text-rose-600 shadow-inner";
                 iconContainer.innerHTML = '<i data-lucide="shield-alert" class="w-10 h-10"></i>';
                 badge.className = "inline-flex items-center gap-1.5 py-1 px-3.5 rounded-full text-xs font-black uppercase tracking-wider mb-2 bg-rose-100 text-rose-700 border border-rose-300";
                 badge.innerText = "Nivel: Riesgo Crítico / Urgente";
                 title.innerText = `Atención: ${redCount} puntos operan en zona de peligro`;
-                summary.innerText = "Tu empresa opera con alta exposición a sanciones fiscales, demandas laborales o colapso por falta de liquidez. Necesitas una reestructuración inmediata de contratos y finanzas.";
+                summary.innerText = "Tu empresa opera con alta exposición a sanciones fiscales, demandas laborales o colapso por falta de liquidez. Necesitas una intervención inmediata del Escudo Preventivo para proteger tu patrimonio.";
+
+                if (offerEscudo) offerEscudo.classList.remove('hidden');
+                if (offerMetodo4E) offerMetodo4E.classList.add('hidden');
             }
 
+            // Ocultar quiz y mostrar resultados (Sellando respuestas, sin retroceso)
             document.getElementById('quiz-view').classList.add('hidden');
             document.getElementById('results-view').classList.remove('hidden');
 
@@ -493,13 +1054,373 @@
             currentQuestion = 0;
             answers.fill(null);
             document.getElementById('results-view').classList.add('hidden');
-            document.getElementById('quiz-view').classList.remove('hidden');
-            updateQuestionUI();
+            document.getElementById('quiz-view').classList.add('hidden');
+            document.getElementById('profile-view').classList.remove('hidden');
+            const topBar = document.getElementById('top-progress-bar');
+            if (topBar) topBar.style.width = '0%';
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (typeof lucide !== 'undefined') lucide.createIcons();
         }
 
+        // ====================================================
+        // GESTIÓN DE CAPTURA DE LEAD (NOMBRE Y CORREO)
+        // ====================================================
+        function handleReportUnlock() {
+            if (clientName && clientEmail) {
+                openPersonalizedReportModal();
+                return;
+            }
+            try {
+                const saved = localStorage.getItem('aizprua_audit_lead');
+                if (saved) {
+                    const parsed = JSON.parse(saved);
+                    if (parsed.name && parsed.email) {
+                        clientName = parsed.name;
+                        clientEmail = parsed.email;
+                        clientPhone = parsed.phone || '';
+                        openPersonalizedReportModal();
+                        return;
+                    }
+                }
+            } catch (e) {}
+
+            const modal = document.getElementById('lead-modal');
+            if (modal) {
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+        }
+
+        function closeLeadModal() {
+            const modal = document.getElementById('lead-modal');
+            if (modal) {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+        }
+
+        function handleLeadSubmit(event) {
+            event.preventDefault();
+            const nameInput = document.getElementById('lead-name');
+            const emailInput = document.getElementById('lead-email');
+            const phoneInput = document.getElementById('lead-phone');
+
+            clientName = (nameInput && nameInput.value) ? nameInput.value.trim() : 'Empresario';
+            clientEmail = (emailInput && emailInput.value) ? emailInput.value.trim() : '';
+            clientPhone = (phoneInput && phoneInput.value) ? phoneInput.value.trim() : '';
+
+            try {
+                localStorage.setItem('aizprua_audit_lead', JSON.stringify({
+                    name: clientName,
+                    email: clientEmail,
+                    phone: clientPhone,
+                    profile: selectedProfile,
+                    date: new Date().toISOString()
+                }));
+            } catch (e) {}
+
+            closeLeadModal();
+            openPersonalizedReportModal();
+        }
+
+        // ====================================================
+        // GESTIÓN DEL INFORME PERSONALIZADO CON RESPUESTAS (V, A, R)
+        // ====================================================
+        function generateReportHTML() {
+            const redCount = answers.filter(a => a === 'R').length;
+            const yellowCount = answers.filter(a => a === 'A').length;
+            const greenCount = answers.filter(a => a === 'V').length;
+
+            let riskLevel = 'BAJO';
+            let riskBadgeClass = 'bg-emerald-100 text-emerald-800 border-emerald-300';
+            let riskText = 'BAJO RIESGO / EN CONTROL';
+            let riskSummaryText = 'Tu empresa cuenta con bases sanas. Tu prioridad ahora es optimizar procesos, profesionalizar tu operación y escalar sin descuidar el control financiero.';
+            let recTitle = 'MÉTODO 4E (ESCUELA DE NEGOCIOS)';
+            let recDesc = 'Tu empresa cuenta con bases sanas. La prioridad técnica recomendada es la optimización operativa y escalabilidad estructurada a través de los programas del Método 4E.';
+            let recLink = 'https://aizprua.com/escuela';
+            let recBtnText = 'Conocer el Método 4E';
+
+            if (redCount > 5) {
+                riskLevel = 'CRÍTICO';
+                riskBadgeClass = 'bg-rose-100 text-rose-800 border-rose-300';
+                riskText = 'RIESGO CRÍTICO / INTERVENCIÓN URGENTE';
+                riskSummaryText = 'Tu negocio opera en zona de peligro alto. Una inspección fiscal, una demanda de un colaborador o un mes bajo de ventas puede quebrar la operación.';
+                recTitle = 'ACTIVAR EL ESCUDO PREVENTIVO';
+                recDesc = 'Debido a la alta exposición en contratos, finanzas o cumplimiento laboral, se recomienda la intervención prioritaria del Escudo Preventivo para blindar tu patrimonio antes de que estallen multas o litigios.';
+                recLink = 'https://escudo.aizprua.com/';
+                recBtnText = 'Activar Escudo Preventivo';
+            } else if (redCount > 2 || yellowCount > 3) {
+                riskLevel = 'VULNERABLE';
+                riskBadgeClass = 'bg-amber-100 text-amber-800 border-amber-300';
+                riskText = 'VULNERABLE (FUGAS Y RIESGOS DETECTADOS)';
+                riskSummaryText = 'Existen fugas de dinero no detectadas y debilidades contractuales que podrían derivar en multas o demandas imprevistas.';
+                recTitle = 'ACTIVAR EL ESCUDO PREVENTIVO';
+                recDesc = 'Tu negocio presenta vulnerabilidades críticas en finanzas o contratos. Te sugerimos activar el Escudo Preventivo para corregir cada punto antes de sufrir pérdidas patrimoniales.';
+                recLink = 'https://escudo.aizprua.com/';
+                recBtnText = 'Activar Escudo Preventivo';
+            }
+
+            const today = new Intl.DateTimeFormat('es-PA', { 
+                day: 'numeric', 
+                month: 'long', 
+                year: 'numeric' 
+            }).format(new Date());
+
+            const profileBadgeText = getProfileLabel(selectedProfile);
+
+            function renderRows(startIdx, endIdx) {
+                let html = '';
+                for (let i = startIdx; i < endIdx; i++) {
+                    const q = QUESTIONS[i] || { title: `Criterio ${i + 1}`, desc: '' };
+                    const ans = answers[i];
+                    const isV = (ans === 'V');
+                    const isA = (ans === 'A');
+                    const isR = (ans === 'R');
+
+                    const vBox = isV 
+                        ? '<div class="w-6 h-6 rounded bg-emerald-600 text-white flex items-center justify-center font-black text-xs shadow-xs mx-auto">✓</div>' 
+                        : '<div class="w-6 h-6 rounded border-2 border-slate-300 mx-auto"></div>';
+
+                    const aBox = isA 
+                        ? '<div class="w-6 h-6 rounded bg-amber-500 text-white flex items-center justify-center font-black text-xs shadow-xs mx-auto">✓</div>' 
+                        : '<div class="w-6 h-6 rounded border-2 border-slate-300 mx-auto"></div>';
+
+                    const rBox = isR 
+                        ? '<div class="w-6 h-6 rounded bg-rose-600 text-white flex items-center justify-center font-black text-xs shadow-xs mx-auto">✓</div>' 
+                        : '<div class="w-6 h-6 rounded border-2 border-slate-300 mx-auto"></div>';
+
+                    html += `
+                        <tr class="border-b border-slate-200 hover:bg-slate-50/50 transition">
+                            <td class="py-2 px-3 align-top">
+                                <div class="font-bold text-slate-900 text-xs leading-snug">${i + 1}. ${q.title.replace('¿', '').replace('?', '')}</div>
+                                <div class="text-[11px] text-slate-500 mt-0.5 leading-tight">${q.desc}</div>
+                            </td>
+                            <td class="py-2 px-1 text-center align-middle w-12 bg-emerald-50/30">${vBox}</td>
+                            <td class="py-2 px-1 text-center align-middle w-12 bg-amber-50/30">${aBox}</td>
+                            <td class="py-2 px-1 text-center align-middle w-12 bg-rose-50/30">${rBox}</td>
+                        </tr>
+                    `;
+                }
+                return html;
+            }
+
+            return `
+                <!-- ============================================== -->
+                <!-- HOJA 1: FINANZAS Y BLINDAJE LEGAL              -->
+                <!-- ============================================== -->
+                <div class="print-page-1">
+                    <!-- Encabezado Oficial de Hoja 1 -->
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-2.5 border-b-2 border-brand-blue pt-0">
+                        <div class="flex items-center">
+                            <img src="assets/logo-aizprua-navbar.svg" alt="Logo Aizprua S.E. Firma Legal y Empresarial" class="h-7 w-auto object-contain">
+                        </div>
+                        <div class="sm:text-right">
+                            <div class="inline-block px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider border ${riskBadgeClass}">
+                                ${riskText}
+                            </div>
+                            <div class="text-[11px] text-slate-700 mt-1 font-bold">
+                                Emitido para: <span class="text-brand-blue">${clientName || 'Empresario'}</span>
+                            </div>
+                            <div class="text-[10px] text-slate-500 font-medium">Perfil: ${profileBadgeText} · Evaluado el: ${today}</div>
+                        </div>
+                    </div>
+
+                    <!-- Título y Descripción -->
+                    <div class="my-3">
+                        <h2 class="text-base sm:text-lg font-black text-slate-900 leading-tight">
+                            INFORME DE AUDITORÍA EMPRESARIAL: 15 PUNTOS CRÍTICOS
+                        </h2>
+                        <p class="text-xs text-slate-600 mt-0.5">
+                            Autodiagnóstico preventivo de vulnerabilidades y fugas en Finanzas, Blindaje Legal y Operaciones.
+                        </p>
+                    </div>
+
+                    <!-- Resumen de Puntuación -->
+                    <div class="grid grid-cols-3 gap-2 sm:gap-3 mb-4 text-center">
+                        <div class="bg-emerald-50 border border-emerald-200 p-2 rounded-xl">
+                            <span class="text-[10px] font-bold text-emerald-700 uppercase block">En Control [ V ]</span>
+                            <span class="text-base sm:text-lg font-black text-emerald-800">${greenCount} / 15</span>
+                        </div>
+                        <div class="bg-amber-50 border border-amber-200 p-2 rounded-xl">
+                            <span class="text-[10px] font-bold text-amber-700 uppercase block">Advertencias [ A ]</span>
+                            <span class="text-base sm:text-lg font-black text-amber-800">${yellowCount} / 15</span>
+                        </div>
+                        <div class="bg-rose-50 border border-rose-200 p-2 rounded-xl">
+                            <span class="text-[10px] font-bold text-rose-700 uppercase block">Puntos Críticos [ R ]</span>
+                            <span class="text-base sm:text-lg font-black text-rose-800">${redCount} / 15</span>
+                        </div>
+                    </div>
+
+                    <!-- TABLA 1: FINANZAS -->
+                    <div class="mb-4 border border-slate-200 rounded-xl overflow-hidden shadow-xs">
+                        <div class="bg-brand-blue text-white px-3 py-1.5 flex items-center justify-between text-xs font-black tracking-wide">
+                            <span>ÁREA 1: FINANZAS & CONTROL DEL FLUJO DE DINERO</span>
+                            <span class="text-[10px] font-normal opacity-90">5 Criterios Evaluados</span>
+                        </div>
+                        <table class="w-full border-collapse">
+                            <thead>
+                                <tr class="bg-slate-100 text-[10px] font-extrabold text-slate-700 uppercase border-b border-slate-200">
+                                    <th class="py-1 px-3 text-left">Criterio de Control Evaluado</th>
+                                    <th class="py-1 px-1 text-center w-12 text-emerald-700 bg-emerald-100/50">V</th>
+                                    <th class="py-1 px-1 text-center w-12 text-amber-700 bg-amber-100/50">A</th>
+                                    <th class="py-1 px-1 text-center w-12 text-rose-700 bg-rose-100/50">R</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${renderRows(0, 5)}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- TABLA 2: LEGAL & LABORAL -->
+                    <div class="mb-4 border border-slate-200 rounded-xl overflow-hidden shadow-xs">
+                        <div class="bg-brand-blue text-white px-3 py-1.5 flex items-center justify-between text-xs font-black tracking-wide">
+                            <span>ÁREA 2: BLINDAJE LEGAL, LABORAL Y FISCAL</span>
+                            <span class="text-[10px] font-normal opacity-90">5 Criterios Evaluados</span>
+                        </div>
+                        <table class="w-full border-collapse">
+                            <thead>
+                                <tr class="bg-slate-100 text-[10px] font-extrabold text-slate-700 uppercase border-b border-slate-200">
+                                    <th class="py-1 px-3 text-left">Criterio de Control Evaluado</th>
+                                    <th class="py-1 px-1 text-center w-12 text-emerald-700 bg-emerald-100/50">V</th>
+                                    <th class="py-1 px-1 text-center w-12 text-amber-700 bg-amber-100/50">A</th>
+                                    <th class="py-1 px-1 text-center w-12 text-rose-700 bg-rose-100/50">R</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${renderRows(5, 10)}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Pie de Página de Hoja 1 -->
+                    <div class="mt-4 pt-2.5 border-t border-slate-200 flex items-center justify-between text-[10px] text-slate-500">
+                        <div><b>AIZPRUA S.E.</b> · Informe de Diagnóstico Empresarial · Documento Confidencial</div>
+                        <div class="font-bold text-slate-700">Página 1 de 2</div>
+                    </div>
+                </div>
+
+                <!-- Salto de Página Forzado Exclusivo de Impresión (invisible, sin contenido) -->
+                <div class="print-page-break my-6 no-print print:hidden" aria-hidden="true"></div>
+
+                <!-- ============================================== -->
+                <!-- HOJA 2: OPERACIONES, MATRIZ Y RECOMENDACIÓN    -->
+                <!-- ============================================== -->
+                <div class="print-page-2">
+                    <!-- Encabezado de Continuación de Hoja 2 -->
+                    <div class="flex items-center justify-between pb-2.5 mb-3 border-b-2 border-brand-blue pt-0">
+                        <div class="flex items-center gap-2 overflow-hidden">
+                            <img src="assets/logo-aizprua-navbar.svg" alt="Aizprua S.E." class="h-6 w-auto object-contain shrink-0">
+                            <span class="text-xs font-black text-slate-700 uppercase tracking-wider whitespace-nowrap">· Diagnóstico Preventivo (Continuación)</span>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-[11px] font-bold text-slate-800 uppercase tracking-wider">${riskText}</div>
+                            <div class="text-[10px] text-slate-500 font-medium">Emitido para: ${clientName || 'Empresario'} · Pág. 2 de 2</div>
+                        </div>
+                    </div>
+
+                    <!-- TABLA 3: OPERACIONES -->
+                    <div class="mb-4 border border-slate-200 rounded-xl overflow-hidden shadow-xs">
+                        <div class="bg-brand-blue text-white px-3 py-1.5 flex items-center justify-between text-xs font-black tracking-wide">
+                            <span>ÁREA 3: OPERACIONES, PROCESOS Y GOBIERNO</span>
+                            <span class="text-[10px] font-normal opacity-90">5 Criterios Evaluados</span>
+                        </div>
+                        <table class="w-full border-collapse">
+                            <thead>
+                                <tr class="bg-slate-100 text-[10px] font-extrabold text-slate-700 uppercase border-b border-slate-200">
+                                    <th class="py-1 px-3 text-left">Criterio de Control Evaluado</th>
+                                    <th class="py-1 px-1 text-center w-12 text-emerald-700 bg-emerald-100/50">V</th>
+                                    <th class="py-1 px-1 text-center w-12 text-amber-700 bg-amber-100/50">A</th>
+                                    <th class="py-1 px-1 text-center w-12 text-rose-700 bg-rose-100/50">R</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${renderRows(10, 15)}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- MATRIZ DE INTERPRETACIÓN -->
+                    <div class="mt-4 border border-slate-200 rounded-xl overflow-hidden shadow-xs">
+                        <div class="bg-slate-100 px-3 py-2 font-bold text-xs text-slate-800 uppercase tracking-wider flex items-center justify-between">
+                            <span>Matriz Oficial de Riesgo e Interpretación</span>
+                            <span class="text-[10px] text-slate-500 font-medium">Baremos Institucionales 2026</span>
+                        </div>
+                        <div class="divide-y divide-slate-200 text-xs">
+                            <div class="p-2.5 flex items-start gap-2.5 ${riskLevel === 'BAJO' ? 'bg-emerald-50/80 font-bold border-l-4 border-emerald-500' : 'bg-white'}">
+                                <span class="w-20 shrink-0 font-extrabold text-emerald-700">0 a 2 [ R ]</span>
+                                <span class="w-28 shrink-0 font-bold text-slate-800">BAJO / CONTROL</span>
+                                <span class="text-slate-600">Bases sanas. Prioridad: optimizar procesos y escalar sin perder control.</span>
+                                ${riskLevel === 'BAJO' ? '<span class="ml-auto shrink-0 px-2 py-0.5 bg-emerald-600 text-white text-[10px] font-black rounded-full uppercase">Tu Resultado</span>' : ''}
+                            </div>
+                            <div class="p-2.5 flex items-start gap-2.5 ${riskLevel === 'VULNERABLE' ? 'bg-amber-50/80 font-bold border-l-4 border-amber-500' : 'bg-white'}">
+                                <span class="w-20 shrink-0 font-extrabold text-amber-700">3 a 5 [ R ]</span>
+                                <span class="w-28 shrink-0 font-bold text-slate-800">VULNERABLE</span>
+                                <span class="text-slate-600">Fugas de dinero y debilidades contractuales con riesgo de multas imprevistas.</span>
+                                ${riskLevel === 'VULNERABLE' ? '<span class="ml-auto shrink-0 px-2 py-0.5 bg-amber-600 text-white text-[10px] font-black rounded-full uppercase">Tu Resultado</span>' : ''}
+                            </div>
+                            <div class="p-2.5 flex items-start gap-2.5 ${riskLevel === 'CRÍTICO' ? 'bg-rose-50/80 font-bold border-l-4 border-rose-500' : 'bg-white'}">
+                                <span class="w-20 shrink-0 font-extrabold text-rose-700">6 o más [ R ]</span>
+                                <span class="w-28 shrink-0 font-bold text-slate-800">CRÍTICO</span>
+                                <span class="text-slate-600">Operación en peligro alto por riesgo de sanciones o problemas de liquidez.</span>
+                                ${riskLevel === 'CRÍTICO' ? '<span class="ml-auto shrink-0 px-2 py-0.5 bg-rose-600 text-white text-[10px] font-black rounded-full uppercase">Tu Resultado</span>' : ''}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RECOMENDACIÓN TÉCNICA INSTITUCIONAL -->
+                    <div class="mt-4 p-4 rounded-xl border-2 ${riskLevel === 'BAJO' ? 'border-emerald-300 bg-emerald-50/40' : 'border-brand-blue/30 bg-slate-50'}">
+                        <div class="font-black text-xs uppercase tracking-wider mb-1 ${riskLevel === 'BAJO' ? 'text-emerald-700' : 'text-brand-blue'}">
+                            RECOMENDACIÓN TÉCNICA: ${recTitle}
+                        </div>
+                        <p class="text-xs text-slate-700 leading-relaxed mb-2">${recDesc}</p>
+                        <div class="text-[11px] text-slate-500 font-medium">
+                            Canal oficial de consulta y activación: 
+                            <a href="${recLink}" target="_blank" class="font-bold text-brand-blue underline">${recLink}</a>
+                        </div>
+                    </div>
+
+                    <!-- Pie de Página de Hoja 2 -->
+                    <div class="mt-4 pt-3 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between text-[10px] text-slate-400 gap-1.5">
+                        <div><b>Aizprua S.E.</b> · Firma Legal y Empresarial en Panamá · RUC Oficial</div>
+                        <div class="font-bold text-slate-600">Página 2 de 2 · www.aizprua.com</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function openPersonalizedReportModal() {
+            const reportContainer = document.getElementById('printable-audit-report');
+            if (reportContainer) {
+                reportContainer.innerHTML = generateReportHTML();
+            }
+            const modal = document.getElementById('report-modal');
+            if (modal) {
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+        }
+
+        function closeReportModal() {
+            const modal = document.getElementById('report-modal');
+            if (modal) {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeReportModal();
+                closeLeadModal();
+            }
+        });
+
         document.addEventListener('DOMContentLoaded', () => {
-            updateQuestionUI();
+            initQuestionsForProfile();
+            if (typeof lucide !== 'undefined') lucide.createIcons();
         });
     </script>
 </body>

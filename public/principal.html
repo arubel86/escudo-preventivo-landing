@@ -75,6 +75,115 @@
         .animate-subtle-float:hover {
             animation-play-state: paused;
         }
+
+        /* Marquee Infinito Institucional */
+        @keyframes marqueeScroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marqueeScroll 48s linear infinite;
+        }
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+        .marquee-mask {
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+        }
+
+        /* Scroll Reveal Ultra-Suave */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .stagger-1 { transition-delay: 90ms; }
+        .stagger-2 { transition-delay: 180ms; }
+        .stagger-3 { transition-delay: 270ms; }
+        .stagger-4 { transition-delay: 360ms; }
+
+        /* Micro-animación de Estrellas en Cascada (Exclusiva de Hover) */
+        .stars-rating-group {
+            display: inline-flex;
+            align-items: center;
+        }
+        .stars-rating-group i,
+        .stars-rating-group svg {
+            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.25s ease;
+            transform-origin: center;
+            display: inline-block;
+        }
+        /* Ola en cascada secuencial al pasar el ratón sobre el contenedor o la tarjeta */
+        .stars-rating-group:hover i,
+        .stars-rating-group:hover svg,
+        .testimonial-card:hover .stars-rating-group i,
+        .testimonial-card:hover .stars-rating-group svg {
+            animation: starCascade 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+        }
+        .stars-rating-group:hover i:nth-child(1),
+        .stars-rating-group:hover svg:nth-child(1),
+        .testimonial-card:hover .stars-rating-group i:nth-child(1),
+        .testimonial-card:hover .stars-rating-group svg:nth-child(1) { animation-delay: 0.00s; }
+
+        .stars-rating-group:hover i:nth-child(2),
+        .stars-rating-group:hover svg:nth-child(2),
+        .testimonial-card:hover .stars-rating-group i:nth-child(2),
+        .testimonial-card:hover .stars-rating-group svg:nth-child(2) { animation-delay: 0.08s; }
+
+        .stars-rating-group:hover i:nth-child(3),
+        .stars-rating-group:hover svg:nth-child(3),
+        .testimonial-card:hover .stars-rating-group i:nth-child(3),
+        .testimonial-card:hover .stars-rating-group svg:nth-child(3) { animation-delay: 0.16s; }
+
+        .stars-rating-group:hover i:nth-child(4),
+        .stars-rating-group:hover svg:nth-child(4),
+        .testimonial-card:hover .stars-rating-group i:nth-child(4),
+        .testimonial-card:hover .stars-rating-group svg:nth-child(4) { animation-delay: 0.24s; }
+
+        .stars-rating-group:hover i:nth-child(5),
+        .stars-rating-group:hover svg:nth-child(5),
+        .testimonial-card:hover .stars-rating-group i:nth-child(5),
+        .testimonial-card:hover .stars-rating-group svg:nth-child(5) { animation-delay: 0.32s; }
+
+        /* Efecto pop individual aumentado al pasar directamente sobre una estrella */
+        .stars-rating-group i:hover,
+        .stars-rating-group svg:hover {
+            animation: none !important;
+            transform: scale(1.35) rotate(10deg) !important;
+            filter: drop-shadow(0 3px 8px rgba(245, 158, 11, 0.85)) !important;
+        }
+
+        @keyframes starCascade {
+            0% { transform: scale(1); }
+            35% { transform: scale(1.32) rotate(8deg); filter: drop-shadow(0 2px 8px rgba(251, 191, 36, 0.75)); }
+            70% { transform: scale(0.92) rotate(-4deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal-on-scroll {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+            .stars-rating-group i,
+            .stars-rating-group svg {
+                animation: none !important;
+                transform: none !important;
+            }
+        }
     </style>
     <script src="https://unpkg.com/lucide@latest" defer></script>
 
@@ -120,12 +229,15 @@
 
 <body class="bg-slate-50 text-slate-800 antialiased flex flex-col min-h-screen selection:bg-brand-orange selection:text-white relative">
 
+    <!-- Barra de Progreso de Lectura Canónica -->
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-brand-orange z-[60] transition-all duration-75" style="width:0%"></div>
+
     <!-- ==================================================== -->
     <!-- 1. BARRA SUPERIOR DE ANUNCIOS (ANNOUNCEMENT BAR)     -->
     <!-- ==================================================== -->
     <div id="announcement-bar" class="relative bg-brand-blue text-white py-2.5 px-4 text-center text-xs sm:text-sm font-semibold z-50">
         <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 flex-wrap">
-            <span class="inline-flex items-center gap-1.5 bg-white/10 px-2 py-0.5 rounded-full text-brand-orange-light text-[11px] font-black uppercase tracking-wider">
+            <span class="hidden sm:inline-flex items-center gap-1.5 bg-white/10 px-2 py-0.5 rounded-full text-brand-orange-light text-[11px] font-black uppercase tracking-wider">
                 <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                 Autodiagnóstico 2026
             </span>
@@ -146,14 +258,14 @@
     <!-- ==================================================== -->
     <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40 transition-all">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20 sm:h-24 md:h-28">
+            <div class="flex justify-between items-center h-20">
 
-                <!-- Logotipo Canónico Oficial (h-28 en desktop según DESIGN_SYSTEM.md) -->
+                <!-- Logotipo Canónico Oficial -->
                 <a href="/" class="flex items-center flex-shrink-0" aria-label="Aizprua S.E. Inicio">
                     <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg"
                         onerror="this.onerror=null; this.src='/assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg';"
                         alt="Logo Aizprua S.E. - Firma Legal y Empresarial en Panamá"
-                        class="h-20 sm:h-24 md:h-28 w-auto object-contain" width="112" height="112">
+                        class="h-28 w-auto object-contain" width="112" height="112">
                 </a>
 
                 <!-- Navegación de Escritorio Limpia (Sin "Inicio" ni "Quiénes Somos") -->
@@ -163,11 +275,12 @@
                         <span>Tienda Online</span>
                         <span class="bg-brand-orange/10 text-brand-orange text-[10px] font-black px-2 py-0.5 rounded-full border border-brand-orange/20">Kits</span>
                     </a>
-                    <a href="/blog" class="hover:text-brand-blue transition">Blog</a>
-                    <a href="#comunidad" class="hover:text-brand-blue transition flex items-center gap-1 text-slate-500">
+                    <a href="/escuela" class="hover:text-brand-blue transition flex items-center gap-1.5 text-slate-700">
                         <i data-lucide="graduation-cap" class="w-4 h-4 text-brand-blue"></i>
-                        <span>Academia</span>
+                        <span>Escuela</span>
+                        <span class="bg-brand-blue/10 text-brand-blue text-[10px] font-black px-2 py-0.5 rounded-full border border-brand-blue/20">Campus</span>
                     </a>
+                    <a href="/blog" class="hover:text-brand-blue transition">Blog</a>
                     <span class="text-slate-300">|</span>
                     <a href="tel:+50765461527" class="flex items-center gap-1.5 text-slate-600 hover:text-brand-blue transition">
                         <i data-lucide="phone" class="w-4 h-4 text-brand-orange"></i>
@@ -204,6 +317,10 @@
             <a href="/tienda" class="block py-2 text-slate-700 font-bold hover:text-brand-blue border-b border-slate-100">
                 Tienda Online (Plan 360 & Kits)
             </a>
+            <a href="/escuela" class="block py-2 text-slate-700 font-bold hover:text-brand-blue border-b border-slate-100 flex items-center justify-between">
+                <span>Escuela (Campus Virtual)</span>
+                <span class="bg-brand-blue/10 text-brand-blue text-[10px] font-black px-2 py-0.5 rounded-full">Nuevo</span>
+            </a>
             <a href="/blog" class="block py-2 text-slate-700 font-bold hover:text-brand-blue border-b border-slate-100">
                 Blog de Inteligencia Empresarial
             </a>
@@ -237,15 +354,13 @@
                     </div>
 
                     <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.15]">
-                        Blindamos y formalizamos tu 
-                        <span id="roulette-container" class="inline-block relative overflow-hidden text-brand-blue transition-[width] duration-500 ease-out" style="vertical-align: -0.16em;">
-                            <span id="roulette-wheel" class="inline-flex flex-col items-start text-left transition-transform duration-650 ease-[cubic-bezier(0.34,1.45,0.64,1)]">
-                                <span class="roulette-item inline-block whitespace-nowrap leading-[1.15]">empresa</span>
-                                <span class="roulette-item inline-block whitespace-nowrap leading-[1.15]">negocio</span>
-                                <span class="roulette-item inline-block whitespace-nowrap leading-[1.15]">empresa</span>
-                            </span>
+                        Blindamos y formalizamos tu empresa para que crezcas 
+                        <span class="relative inline-block text-brand-blue sm:whitespace-nowrap">
+                            sin miedo a multas.
+                            <svg class="absolute -bottom-1.5 sm:-bottom-2.5 left-0 w-full h-2.5 sm:h-4 text-brand-orange pointer-events-none" viewBox="0 0 240 12" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                                <path d="M3 9C60 3.5 180 3.5 237 8" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/>
+                            </svg>
                         </span>
-                        para que crezcas <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-blue-dark">sin miedo a multas.</span>
                     </h1>
 
                     <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
@@ -254,10 +369,13 @@
 
                     <!-- Acciones Principales Duales -->
                     <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-                        <a href="/test-interactivo"
-                            class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-2xl font-black text-base shadow-xl hover:shadow-orange-500/25 transition-all transform hover:-translate-y-0.5">
-                            <i data-lucide="clipboard-check" class="w-5 h-5 flex-shrink-0"></i>
-                            <span>Iniciar Test de Auditoría Gratis</span>
+                        <a href="https://escudo.aizprua.com/"
+                            class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-2xl font-black text-base shadow-xl hover:shadow-orange-500/25 transition-all transform hover:-translate-y-0.5 whitespace-nowrap">
+                            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                <path d="m9 12 2 2 4-4"/>
+                            </svg>
+                            <span>Escudo Preventivo</span>
                         </a>
 
                         <a href="https://wa.me/50765461527?text=Hola,%20quisiera%20consultar%20sobre%20asesor%C3%ADa%20empresarial%20o%20tr%C3%A1mites"
@@ -314,40 +432,40 @@
                                         <p class="text-[11px] text-slate-500">Contratos, DGI, CSS y MITRADEL</p>
                                     </div>
                                 </div>
-                                <span class="text-xs font-black text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-200">
+                                <span class="text-xs font-black text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-200 whitespace-nowrap shrink-0">
                                     Blindado
                                 </span>
                             </div>
 
                             <!-- 2. Finanzas & Flujo -->
-                            <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-150 flex items-center justify-between">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-xl bg-orange-100 text-brand-orange flex items-center justify-center font-bold">
+                            <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-150 flex items-center justify-between gap-2">
+                                <div class="flex items-center gap-3 min-w-0">
+                                    <div class="w-10 h-10 rounded-xl bg-orange-100 text-brand-orange flex items-center justify-center font-bold shrink-0">
                                         <i data-lucide="dollar-sign" class="w-5 h-5"></i>
                                     </div>
-                                    <div>
-                                        <h4 class="text-xs sm:text-sm font-bold text-slate-800">Finanzas & Flujo de Caja</h4>
-                                        <p class="text-[11px] text-slate-500">Separación de cuentas y punto de equilibrio</p>
+                                    <div class="min-w-0">
+                                        <h4 class="text-xs sm:text-sm font-bold text-slate-800 truncate">Finanzas & Flujo de Caja</h4>
+                                        <p class="text-[11px] text-slate-500 truncate">Separación de cuentas y punto de equilibrio</p>
                                     </div>
                                 </div>
-                                <span class="text-xs font-black text-brand-blue bg-blue-50 px-2.5 py-1 rounded-lg border border-blue-200">
-                                    En Control
+                                <span class="text-xs font-black text-brand-blue bg-blue-50 px-2.5 py-1 rounded-lg border border-blue-200 whitespace-nowrap shrink-0">
+                                    Control
                                 </span>
                             </div>
 
                             <!-- 3. Trámites & Licencias -->
-                            <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-150 flex items-center justify-between">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold">
+                            <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-150 flex items-center justify-between gap-2">
+                                <div class="flex items-center gap-3 min-w-0">
+                                    <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold shrink-0">
                                         <i data-lucide="building" class="w-5 h-5"></i>
                                     </div>
-                                    <div>
-                                        <h4 class="text-xs sm:text-sm font-bold text-slate-800">Trámites Llave en Mano</h4>
-                                        <p class="text-[11px] text-slate-500">Aviso de Operación y Registro de Marca</p>
+                                    <div class="min-w-0">
+                                        <h4 class="text-xs sm:text-sm font-bold text-slate-800 truncate">Trámites Llave en Mano</h4>
+                                        <p class="text-[11px] text-slate-500 truncate">Aviso de Operación y Registro de Marca</p>
                                     </div>
                                 </div>
-                                <span class="text-xs font-black text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-200">
-                                    Al Día
+                                <span class="text-xs font-black text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-200 whitespace-nowrap shrink-0">
+                                    Al día
                                 </span>
                             </div>
                         </div>
@@ -370,29 +488,80 @@
     </section>
 
     <!-- ==================================================== -->
-    <!-- 4. BARRA DE CONFIANZA Y SELLOS INSTITUCIONALES       -->
+    <!-- 4. BARRA DE CONFIANZA Y SELLOS INSTITUCIONALES (MARQUEE) -->
     <!-- ==================================================== -->
-    <section class="py-8 bg-white border-y border-slate-200/80">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p class="text-center text-xs font-extrabold uppercase tracking-wider text-slate-600 mb-6">
+    <section class="py-7 bg-slate-50/70 border-y border-slate-200/80 reveal-on-scroll overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4">
+            <p class="text-center text-xs font-extrabold uppercase tracking-wider text-slate-500">
                 Estructuración, cumplimiento y trámites conforme a las instituciones de Panamá:
             </p>
-            <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-slate-500 font-bold text-xs sm:text-sm">
-                <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-100 border border-slate-200">
-                    <i data-lucide="file-check" class="w-4 h-4 text-brand-blue"></i>
-                    <span>DGI (Tributario & Factura)</span>
+        </div>
+
+        <!-- Contenedor Marquee Infinito con Desvanecimiento Lateral -->
+        <div class="relative w-full overflow-hidden marquee-mask">
+            <div class="marquee-track flex items-center gap-6 py-1 select-none">
+                <!-- Set 1 -->
+                <div class="flex items-center gap-6 shrink-0">
+                    <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white border border-slate-200 shadow-xs hover:border-brand-blue/50 hover:shadow-sm transition shrink-0">
+                        <i data-lucide="file-check" class="w-4 h-4 text-brand-blue shrink-0"></i>
+                        <span class="text-xs sm:text-sm font-bold text-slate-700 whitespace-nowrap">DGI (Tributario & Factura)</span>
+                    </div>
+                    <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white border border-slate-200 shadow-xs hover:border-brand-orange/50 hover:shadow-sm transition shrink-0">
+                        <i data-lucide="shield-check" class="w-4 h-4 text-brand-orange shrink-0"></i>
+                        <span class="text-xs sm:text-sm font-bold text-slate-700 whitespace-nowrap">CSS (Seguridad Social Patronal)</span>
+                    </div>
+                    <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white border border-slate-200 shadow-xs hover:border-brand-blue/50 hover:shadow-sm transition shrink-0">
+                        <i data-lucide="building-2" class="w-4 h-4 text-brand-blue shrink-0"></i>
+                        <span class="text-xs sm:text-sm font-bold text-slate-700 whitespace-nowrap">MICI (Avisos de Operación)</span>
+                    </div>
+                    <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white border border-slate-200 shadow-xs hover:border-emerald-500/50 hover:shadow-sm transition shrink-0">
+                        <i data-lucide="award" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                        <span class="text-xs sm:text-sm font-bold text-slate-700 whitespace-nowrap">DIGERPI (Marcas Registradas)</span>
+                    </div>
+                    <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white border border-slate-200 shadow-xs hover:border-brand-orange/50 hover:shadow-sm transition shrink-0">
+                        <i data-lucide="briefcase" class="w-4 h-4 text-brand-orange shrink-0"></i>
+                        <span class="text-xs sm:text-sm font-bold text-slate-700 whitespace-nowrap">Mitradel (Contratos Laborales)</span>
+                    </div>
+                    <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white border border-slate-200 shadow-xs hover:border-brand-blue/50 hover:shadow-sm transition shrink-0">
+                        <i data-lucide="landmark" class="w-4 h-4 text-brand-blue shrink-0"></i>
+                        <span class="text-xs sm:text-sm font-bold text-slate-700 whitespace-nowrap">Registro Público (Sociedades S.E.)</span>
+                    </div>
+                    <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white border border-slate-200 shadow-xs hover:border-emerald-500/50 hover:shadow-sm transition shrink-0">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                        <span class="text-xs sm:text-sm font-bold text-slate-700 whitespace-nowrap">Municipio (Impuestos Municipales)</span>
+                    </div>
                 </div>
-                <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-100 border border-slate-200">
-                    <i data-lucide="shield-check" class="w-4 h-4 text-brand-orange"></i>
-                    <span>CSS (Seguridad Social Patronal)</span>
-                </div>
-                <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-100 border border-slate-200">
-                    <i data-lucide="building-2" class="w-4 h-4 text-brand-blue"></i>
-                    <span>MICI (Avisos de Operación)</span>
-                </div>
-                <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-100 border border-slate-200">
-                    <i data-lucide="award" class="w-4 h-4 text-emerald-600"></i>
-                    <span>DIGERPI (Marcas Registradas)</span>
+
+                <!-- Set 2 (Duplicado para loop infinito continuo) -->
+                <div class="flex items-center gap-6 shrink-0" aria-hidden="true">
+                    <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white border border-slate-200 shadow-xs hover:border-brand-blue/50 hover:shadow-sm transition shrink-0">
+                        <i data-lucide="file-check" class="w-4 h-4 text-brand-blue shrink-0"></i>
+                        <span class="text-xs sm:text-sm font-bold text-slate-700 whitespace-nowrap">DGI (Tributario & Factura)</span>
+                    </div>
+                    <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white border border-slate-200 shadow-xs hover:border-brand-orange/50 hover:shadow-sm transition shrink-0">
+                        <i data-lucide="shield-check" class="w-4 h-4 text-brand-orange shrink-0"></i>
+                        <span class="text-xs sm:text-sm font-bold text-slate-700 whitespace-nowrap">CSS (Seguridad Social Patronal)</span>
+                    </div>
+                    <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white border border-slate-200 shadow-xs hover:border-brand-blue/50 hover:shadow-sm transition shrink-0">
+                        <i data-lucide="building-2" class="w-4 h-4 text-brand-blue shrink-0"></i>
+                        <span class="text-xs sm:text-sm font-bold text-slate-700 whitespace-nowrap">MICI (Avisos de Operación)</span>
+                    </div>
+                    <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white border border-slate-200 shadow-xs hover:border-emerald-500/50 hover:shadow-sm transition shrink-0">
+                        <i data-lucide="award" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                        <span class="text-xs sm:text-sm font-bold text-slate-700 whitespace-nowrap">DIGERPI (Marcas Registradas)</span>
+                    </div>
+                    <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white border border-slate-200 shadow-xs hover:border-brand-orange/50 hover:shadow-sm transition shrink-0">
+                        <i data-lucide="briefcase" class="w-4 h-4 text-brand-orange shrink-0"></i>
+                        <span class="text-xs sm:text-sm font-bold text-slate-700 whitespace-nowrap">Mitradel (Contratos Laborales)</span>
+                    </div>
+                    <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white border border-slate-200 shadow-xs hover:border-brand-blue/50 hover:shadow-sm transition shrink-0">
+                        <i data-lucide="landmark" class="w-4 h-4 text-brand-blue shrink-0"></i>
+                        <span class="text-xs sm:text-sm font-bold text-slate-700 whitespace-nowrap">Registro Público (Sociedades S.E.)</span>
+                    </div>
+                    <div class="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white border border-slate-200 shadow-xs hover:border-emerald-500/50 hover:shadow-sm transition shrink-0">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                        <span class="text-xs sm:text-sm font-bold text-slate-700 whitespace-nowrap">Municipio (Impuestos Municipales)</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -404,7 +573,7 @@
     <section id="servicios" class="py-16 sm:py-24 bg-slate-50 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <div class="text-center max-w-3xl mx-auto mb-14">
+            <div class="text-center max-w-3xl mx-auto mb-14 reveal-on-scroll">
                 <span class="text-xs font-black uppercase tracking-wider text-brand-blue bg-brand-blue/10 px-3.5 py-1 rounded-full border border-brand-blue/20">
                     Nuestros Servicios
                 </span>
@@ -419,7 +588,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
                 
                 <!-- PILAR 1: ASESORÍA EMPRESARIAL (ESCUDO PREVENTIVO) -->
-                <div class="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-xl flex flex-col justify-between hover:shadow-2xl transition duration-300 relative group overflow-hidden">
+                <div class="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-xl flex flex-col justify-between hover:shadow-2xl transition duration-300 relative group overflow-hidden reveal-on-scroll stagger-1">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-brand-blue/10 rounded-bl-full pointer-events-none transition group-hover:scale-110"></div>
                     
                     <div>
@@ -433,7 +602,7 @@
                         </div>
 
                         <h3 class="text-2xl font-black text-slate-900 mb-3">
-                            Asesoría Empresarial: Escudo Preventivo
+                            Asesoría empresarial: Escudo Preventivo
                         </h3>
                         <p class="text-sm text-slate-600 mb-6 leading-relaxed">
                             Diseñado para dueños de empresas que ya operan y quieren blindar sus contratos, ordenar sus finanzas y evitar demandas laborales o multas millonarias de la DGI y la CSS antes de que ocurran.
@@ -455,7 +624,7 @@
                         </ul>
                     </div>
 
-                    <a href="/escudo-preventivo"
+                    <a href="https://escudo.aizprua.com/"
                         class="w-full inline-flex items-center justify-center gap-2 py-4 px-6 bg-brand-blue hover:bg-brand-blue-dark text-white rounded-2xl font-extrabold text-sm sm:text-base transition shadow-md">
                         <span>Conoce el Escudo Preventivo</span>
                         <i data-lucide="arrow-right" class="w-4 h-4"></i>
@@ -463,7 +632,7 @@
                 </div>
 
                 <!-- PILAR 2: TRÁMITES EMPRESARIALES (LLAVE EN MANO) -->
-                <div class="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-xl flex flex-col justify-between hover:shadow-2xl transition duration-300 relative group overflow-hidden">
+                <div class="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-xl flex flex-col justify-between hover:shadow-2xl transition duration-300 relative group overflow-hidden reveal-on-scroll stagger-2">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-brand-orange/10 rounded-bl-full pointer-events-none transition group-hover:scale-110"></div>
                     
                     <div>
@@ -477,7 +646,7 @@
                         </div>
 
                         <h3 class="text-2xl font-black text-slate-900 mb-3">
-                            Trámites Empresariales: Llave en Mano
+                            Trámites empresariales: llave en mano
                         </h3>
                         <p class="text-sm text-slate-600 mb-6 leading-relaxed">
                             Todo lo que necesitas para constituir y formalizar tu negocio en Panamá de principio a fin. Nos encargamos de todo el papeleo legal para que abras tus puertas sin temor a clausuras o sanciones.
@@ -518,13 +687,13 @@
     <section class="py-16 sm:py-24 bg-white border-b border-slate-200/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 reveal-on-scroll">
                 <div>
                     <span class="text-xs font-black uppercase tracking-wider text-brand-orange bg-brand-orange/10 px-3.5 py-1 rounded-full border border-brand-orange/20">
                         Tienda Online
                     </span>
                     <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mt-3">
-                        Kits y Soluciones Listas para Descargar o Recibir
+                        Kits y soluciones listas para descargar o recibir
                     </h2>
                     <p class="text-base text-slate-600 mt-2">
                         Herramientas prácticas desarrolladas para solucionar problemas reales hoy mismo.
@@ -537,85 +706,109 @@
             </div>
 
             <!-- Grid de 3 Productos Estrella -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div id="home-featured-products-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
                 <!-- PRODUCTO 1: PLAN 360 DIGITAL -->
-                <div class="bg-slate-50 rounded-3xl p-6 border border-slate-200 flex flex-col justify-between hover:border-brand-blue transition group">
+                <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:border-brand-blue hover:shadow-lg transition group reveal-on-scroll stagger-1">
                     <div>
-                        <div class="relative bg-slate-200 rounded-2xl overflow-hidden mb-5 aspect-[4/3] flex items-center justify-center p-4">
-                            <img src="assets/plan-360-og.jpg" alt="Plan 360 Digital" class="w-full h-full object-cover rounded-xl shadow group-hover:scale-105 transition duration-300">
-                            <span class="absolute top-3 left-3 bg-brand-blue text-white text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full">
-                                Descarga Inmediata
+                        <!-- Portada Showcase sin recortes (Full-Bleed Cover) -->
+                        <div class="relative bg-slate-100 rounded-2xl overflow-hidden mb-5 aspect-[4/3] border border-slate-200/80">
+                            <img src="assets/portada-plan-360-digital.jpg" alt="Plan 360 Empresarial - Edición Digital"
+                                data-title="Plan 360 Digital" data-icon="laptop" data-badge="Edición Digital Global"
+                                onerror="handleProductImageError(this)"
+                                class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <span class="absolute top-3 left-3 bg-brand-blue text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-md">
+                                Edición digital global
+                            </span>
+                            <span class="absolute top-3 right-3 bg-emerald-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-md">
+                                Descarga inmediata
                             </span>
                         </div>
-                        <h4 class="text-lg font-black text-slate-900 mb-1">Plan 360 Empresarial (Edición Digital)</h4>
-                        <p class="text-xs text-slate-600 mb-4">Plantillas de contratos, flujos de caja y manuales listos para personalizar en Word y Excel.</p>
+                        <h4 class="text-lg font-black text-slate-900 mb-1">Plan 360 empresarial (edición digital)</h4>
+                        <p class="text-xs text-slate-600 mb-4 leading-relaxed">
+                            Cuaderno maestro en PDF interactivo rellenable de 35 páginas a color para tablet, iPad, laptop y PC. Domina las 6 áreas vitales de tu negocio con guardado ilimitado.
+                        </p>
                     </div>
                     <div>
                         <div class="flex items-baseline justify-between pt-4 border-t border-slate-200 mb-4">
-                            <div>
-                                <span class="text-xs text-slate-400 line-through mr-1">$47.00</span>
+                            <div class="flex items-baseline gap-1">
+                                <span class="text-xs text-slate-400 line-through mr-1">$39.99</span>
                                 <span class="text-2xl font-black text-slate-900">$19.99</span>
                                 <span class="text-[11px] font-bold text-slate-500">USD</span>
+                                <span class="text-[10px] font-black text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md ml-1">50% DCTO</span>
                             </div>
                             <span class="text-xs font-bold text-emerald-600">Garantía 7 días</span>
                         </div>
-                        <a onclick="return false;" href="https://pay.hotmart.com/V88356406E?checkoutMode=2"
+                        <a href="https://pay.hotmart.com/V88356406E?checkoutMode=2"
+                            target="_blank" rel="noopener"
                             class="hotmart-fb w-full inline-flex items-center justify-center gap-2 py-3 bg-brand-blue hover:bg-brand-blue-dark text-white rounded-xl text-xs sm:text-sm font-bold transition shadow">
                             <i data-lucide="shopping-bag" class="w-4 h-4"></i>
-                            <span>Comprar por $19.99</span>
+                            <span>Descargar por $19.99 USD</span>
                         </a>
                     </div>
                 </div>
 
                 <!-- PRODUCTO 2: PLAN 360 KIT FÍSICO -->
-                <div class="bg-slate-50 rounded-3xl p-6 border border-slate-200 flex flex-col justify-between hover:border-brand-orange transition group">
+                <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:border-brand-orange hover:shadow-lg transition group reveal-on-scroll stagger-2">
                     <div>
-                        <div class="relative bg-slate-200 rounded-2xl overflow-hidden mb-5 aspect-[4/3] flex items-center justify-center p-4 bg-gradient-to-br from-slate-800 to-slate-900 text-white text-center">
-                            <div class="space-y-1">
-                                <i data-lucide="package" class="w-12 h-12 mx-auto text-brand-orange"></i>
-                                <span class="text-xs font-bold block">Kit Físico en Caja</span>
-                                <span class="text-[10px] text-slate-400 block">Envío a todo Panamá</span>
-                            </div>
-                            <span class="absolute top-3 left-3 bg-brand-orange text-white text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full">
-                                Entrega a Domicilio
+                        <!-- Portada Showcase con Badge Físico (Full-Bleed Cover) -->
+                        <div class="relative bg-slate-100 rounded-2xl overflow-hidden mb-5 aspect-[4/3] border border-slate-200/80">
+                            <img src="assets/portada-plan-360-fisico.jpg" alt="Kit Plan 360 Físico + Digital"
+                                data-title="Plan 360 Kit Físico" data-icon="package" data-badge="Kit Físico Oficial"
+                                onerror="handleProductImageError(this)"
+                                class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <span class="absolute top-3 left-3 bg-brand-orange text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-md">
+                                Kit físico oficial
+                            </span>
+                            <span class="absolute top-3 right-3 bg-slate-900 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-md">
+                                Envíos en Panamá
                             </span>
                         </div>
-                        <h4 class="text-lg font-black text-slate-900 mb-1">Plan 360 Empresarial (Kit Físico)</h4>
-                        <p class="text-xs text-slate-600 mb-4">Caja corporativa con manuales impresos, carpetas de blindaje y memoria USB con plantillas.</p>
+                        <h4 class="text-lg font-black text-slate-900 mb-1">Plan 360 empresarial (kit físico)</h4>
+                        <p class="text-xs text-slate-600 mb-4 leading-relaxed">
+                            Libro físico a color (35 págs.) para planificar a mano, más kit ejecutivo oficial y acceso inmediato a la versión digital interactiva.
+                        </p>
                     </div>
                     <div>
                         <div class="flex items-baseline justify-between pt-4 border-t border-slate-200 mb-4">
-                            <div>
-                                <span class="text-xs text-slate-400 line-through mr-1">$97.00</span>
-                                <span class="text-2xl font-black text-slate-900">$47.00</span>
+                            <div class="flex items-baseline gap-1">
+                                <span class="text-xs text-slate-400 line-through mr-1">$79.99</span>
+                                <span class="text-2xl font-black text-slate-900">$39.99</span>
                                 <span class="text-[11px] font-bold text-slate-500">USD</span>
+                                <span class="text-[10px] font-black text-brand-orange bg-orange-100 px-2 py-0.5 rounded-md ml-1">Kit Oficial</span>
                             </div>
                             <span class="text-xs font-bold text-slate-500">Yappy / Efectivo</span>
                         </div>
                         <a href="/plan-360"
-                            class="w-full inline-flex items-center justify-center gap-2 py-3 bg-white border border-slate-300 hover:border-brand-orange text-slate-800 rounded-xl text-xs sm:text-sm font-bold transition shadow-sm">
-                            <i data-lucide="truck" class="w-4 h-4 text-brand-orange"></i>
-                            <span>Ver Detalles del Kit</span>
+                            class="w-full inline-flex items-center justify-center gap-2 py-3 bg-brand-orange hover:bg-brand-orange-dark text-white rounded-xl text-xs sm:text-sm font-bold transition shadow">
+                            <i data-lucide="truck" class="w-4 h-4"></i>
+                            <span>Ver detalles del kit</span>
                         </a>
                     </div>
                 </div>
 
                 <!-- PRODUCTO 3: TEST AUDITORÍA GRATIS -->
-                <div class="bg-slate-50 rounded-3xl p-6 border border-slate-200 flex flex-col justify-between hover:border-emerald-500 transition group">
+                <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:border-emerald-500 hover:shadow-lg transition group reveal-on-scroll stagger-3">
                     <div>
-                        <div class="relative bg-emerald-50 rounded-2xl overflow-hidden mb-5 aspect-[4/3] flex items-center justify-center p-4 border border-emerald-100 text-center">
+                        <div class="relative bg-gradient-to-br from-emerald-50 via-slate-50 to-teal-50/70 rounded-2xl overflow-hidden mb-5 aspect-[4/3] flex items-center justify-center p-4 border border-emerald-100 text-center">
                             <div class="space-y-1">
-                                <i data-lucide="clipboard-check" class="w-12 h-12 mx-auto text-emerald-600"></i>
-                                <span class="text-xs font-bold text-slate-800 block">Autodiagnóstico 15 Puntos</span>
-                                <span class="text-[10px] text-emerald-600 font-bold block">100% Gratuito</span>
+                                <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 mx-auto flex items-center justify-center shadow-xs">
+                                    <i data-lucide="clipboard-check" class="w-7 h-7"></i>
+                                </div>
+                                <span class="text-xs font-bold text-slate-800 block">Autodiagnóstico 15 puntos</span>
+                                <span class="text-[10px] text-emerald-600 font-bold block">100% gratuito</span>
                             </div>
-                            <span class="absolute top-3 left-3 bg-emerald-600 text-white text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full">
-                                Recurso Gratuito
+                            <span class="absolute top-3 left-3 bg-emerald-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+                                Recurso gratuito
+                            </span>
+                            <span class="absolute top-3 right-3 bg-slate-900 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+                                En línea
                             </span>
                         </div>
-                        <h4 class="text-lg font-black text-slate-900 mb-1">Test de Auditoría Empresarial (PDF)</h4>
-                        <p class="text-xs text-slate-600 mb-4">Semáforo de riesgo para evaluar tus áreas contable, legal y operativa en 3 minutos.</p>
+                        <h4 class="text-lg font-black text-slate-900 mb-1">Test de auditoría empresarial (PDF)</h4>
+                        <p class="text-xs text-slate-600 mb-4 leading-relaxed">
+                            Semáforo de riesgo para evaluar tus áreas contable, legal y operativa en 3 minutos. Obtén tu diagnóstico y recomendaciones inmediatas.
+                        </p>
                     </div>
                     <div>
                         <div class="flex items-baseline justify-between pt-4 border-t border-slate-200 mb-4">
@@ -627,7 +820,7 @@
                         <a href="/test-interactivo"
                             class="w-full inline-flex items-center justify-center gap-2 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs sm:text-sm font-bold transition shadow">
                             <i data-lucide="play" class="w-4 h-4"></i>
-                            <span>Hacer Test en Línea</span>
+                            <span>Hacer test en línea</span>
                         </a>
                     </div>
                 </div>
@@ -635,7 +828,7 @@
             </div>
 
             <!-- Banner Sello Factura Electrónica DGI -->
-            <div class="mt-10 p-4 rounded-2xl bg-slate-100 border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-bold text-slate-600 text-center sm:text-left">
+            <div class="mt-10 p-4 rounded-2xl bg-slate-100 border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-bold text-slate-600 text-center sm:text-left reveal-on-scroll">
                 <div class="flex items-center gap-3">
                     <span class="w-8 h-8 rounded-full bg-brand-blue text-white flex items-center justify-center flex-shrink-0">
                         <i data-lucide="receipt" class="w-4 h-4"></i>
@@ -649,12 +842,434 @@
     </section>
 
     <!-- ==================================================== -->
-    <!-- 7. PRUEBA SOCIAL Y TESTIMONIOS REALES               -->
+    <!-- 7. ESCUELA AIZPRUA S.E. (CAMPUS VIRTUAL DIDACTA LMS)  -->
     <!-- ==================================================== -->
-    <section class="py-16 sm:py-24 bg-slate-50">
+    <section id="academia" class="py-16 sm:py-24 bg-gradient-to-b from-white via-slate-50 to-white border-b border-slate-200/80 relative overflow-hidden">
+        <!-- Luces ambientales de marca oficial -->
+        <div class="absolute -top-32 -left-32 w-96 h-96 bg-brand-blue/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-brand-orange/5 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+            <!-- Encabezado Institucional de la Sección -->
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
+                <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-xs font-black uppercase tracking-wider">
+                    <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-brand-blue"></i>
+                    Campus Virtual & Formación Ejecutiva · Aizprua S.E.
+                </span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight mt-3 mb-4">
+                    Aprende a estructurar, blindar y escalar tu empresa paso a paso
+                </h2>
+                <p class="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+                    Nuestra propia aula virtual alojada en servidores dedicados de alta velocidad. Clases audiovisuales, análisis de contingencias reales ante la DGI y el MITRADEL, y plantillas explicadas cláusula por cláusula.
+                </p>
+            </div>
+
+            <!-- Grilla de 3 Programas / Pilares de Formación con Altura Estandarizada -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch mb-14">
+
+                <!-- PROGRAMA 1: MÉTODO 4E (EXPANDE TU EMPRENDIMIENTO) -->
+                <div class="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-xl hover:border-brand-blue/50 transition group h-full reveal-on-scroll stagger-1">
+                    <div class="flex-1 flex flex-col">
+                        <!-- Showcase Visual con Badges -->
+                        <div class="relative bg-gradient-to-br from-brand-blue/10 via-slate-50 to-blue-50/60 rounded-2xl overflow-hidden mb-5 aspect-[4/3] flex items-center justify-center p-4 border border-brand-blue/15 text-center">
+                            <div class="space-y-1.5">
+                                <div class="w-12 h-12 rounded-2xl bg-brand-blue text-white mx-auto flex items-center justify-center shadow-md">
+                                    <i data-lucide="layers" class="w-6 h-6"></i>
+                                </div>
+                                <span class="text-xs font-bold text-slate-900 block leading-tight">Método 4E</span>
+                                <span class="text-[10px] text-brand-blue font-bold block">Expande tu Emprendimiento</span>
+                            </div>
+                            <span class="absolute top-3 left-3 bg-brand-blue text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+                                4 Etapas
+                            </span>
+                            <span class="absolute top-3 right-3 bg-emerald-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+                                100% Práctico
+                            </span>
+                        </div>
+
+                        <span class="text-[10px] font-black uppercase tracking-wider text-brand-blue block min-h-[1.25rem]">Ruta Estratégica · Método 4E</span>
+                        <h3 class="text-base sm:text-lg font-black text-slate-900 mt-1 mb-2 min-h-[3.25rem] flex items-center leading-snug">
+                            Programa integral Método 4E
+                        </h3>
+                        <p class="text-xs text-slate-600 mb-4 leading-relaxed min-h-[3.75rem] flex items-start">
+                            Sistema guiado paso a paso para validar tu idea, estructurar tu modelo de negocio, profesionalizar tu operación y escalar sin improvisar.
+                        </p>
+
+                        <!-- Entregables / Módulos -->
+                        <div class="space-y-2 mb-4 bg-slate-50 p-3.5 rounded-2xl border border-slate-100 min-h-[8.5rem] flex flex-col justify-center">
+                            <div class="flex items-start gap-2.5 text-xs text-slate-700 font-medium">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                <span class="leading-snug"><strong>4 etapas maestras:</strong> Explora (validación), Estructura (oferta), Expande (procesos) y Escala (crecimiento).</span>
+                            </div>
+                            <div class="flex items-start gap-2.5 text-xs text-slate-700 font-medium">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                <span class="leading-snug"><strong>Herramientas y plantillas:</strong> Canvas, finanzas, guías de procesos y KPIs listos para implementar.</span>
+                            </div>
+                            <div class="flex items-start gap-2.5 text-xs text-slate-700 font-medium">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                <span class="leading-snug"><strong>Resultados sostenibles:</strong> Convierte tu idea en una empresa que facture y crezca de forma organizada.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botón Inferior -->
+                    <div class="pt-4 border-t border-slate-100 mt-auto">
+                        <a href="/escuela#metodo-4e"
+                            class="w-full inline-flex items-center justify-center gap-2 py-3 bg-brand-blue hover:bg-brand-blue-dark text-white rounded-xl text-xs sm:text-sm font-bold transition shadow-sm hover:shadow-md">
+                            <i data-lucide="compass" class="w-4 h-4"></i>
+                            <span>Conocer el Método 4E</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PROGRAMA 2: MASTERCLASSES DE BLINDAJE & CONTINGENCIAS -->
+                <div class="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-xl hover:border-brand-orange/50 transition group h-full reveal-on-scroll stagger-2">
+                    <div class="flex-1 flex flex-col">
+                        <!-- Showcase Visual con Badges -->
+                        <div class="relative bg-gradient-to-br from-brand-orange/10 via-slate-50 to-amber-50/60 rounded-2xl overflow-hidden mb-5 aspect-[4/3] flex items-center justify-center p-4 border border-brand-orange/15 text-center">
+                            <div class="space-y-1.5">
+                                <div class="w-12 h-12 rounded-2xl bg-brand-orange text-white mx-auto flex items-center justify-center shadow-md">
+                                    <i data-lucide="video" class="w-6 h-6"></i>
+                                </div>
+                                <span class="text-xs font-bold text-slate-900 block leading-tight">Masterclasses de Blindaje</span>
+                                <span class="text-[10px] text-brand-orange font-bold block">En Vivo & Grabadas</span>
+                            </div>
+                            <span class="absolute top-3 left-3 bg-brand-orange text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+                                Formación Continua
+                            </span>
+                            <span class="absolute top-3 right-3 bg-slate-900 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+                                Casos DGI / CSS
+                            </span>
+                        </div>
+
+                        <span class="text-[10px] font-black uppercase tracking-wider text-brand-orange block min-h-[1.25rem]">Prevención Legal & Tributaria</span>
+                        <h3 class="text-base sm:text-lg font-black text-slate-900 mt-1 mb-2 min-h-[3.25rem] flex items-center leading-snug">
+                            Masterclasses de blindaje empresarial
+                        </h3>
+                        <p class="text-xs text-slate-600 mb-4 leading-relaxed min-h-[3.75rem] flex items-start">
+                            Sesiones especializadas con consultores para entender cómo operan las auditorías de DGI, liquidaciones laborales y fiscalizaciones en Panamá.
+                        </p>
+
+                        <!-- Entregables / Módulos -->
+                        <div class="space-y-2 mb-4 bg-slate-50 p-3.5 rounded-2xl border border-slate-100 min-h-[8.5rem] flex flex-col justify-center">
+                            <div class="flex items-start gap-2.5 text-xs text-slate-700 font-medium">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                <span class="leading-snug"><strong>Protocolos de inspección:</strong> Qué hacer y qué no decir si llega el MITRADEL o la CSS.</span>
+                            </div>
+                            <div class="flex items-start gap-2.5 text-xs text-slate-700 font-medium">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                <span class="leading-snug"><strong>Cero alucinaciones fiscales:</strong> Desmitificación de deducciones y facturación electrónica.</span>
+                            </div>
+                            <div class="flex items-start gap-2.5 text-xs text-slate-700 font-medium">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                <span class="leading-snug"><strong>Grabaciones disponibles:</strong> Repasa cada clase y sesión de preguntas cuando lo necesites.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botón Inferior -->
+                    <div class="pt-4 border-t border-slate-100 mt-auto">
+                        <a href="https://wa.me/50765461527?text=Hola,%20deseo%20informaci%C3%B3n%20sobre%20las%20Masterclasses%20de%20Blindaje%20Empresarial"
+                            target="_blank" rel="noopener"
+                            class="w-full inline-flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-xl text-xs sm:text-sm font-bold transition shadow-sm hover:shadow-md">
+                            <i data-lucide="calendar" class="w-4 h-4"></i>
+                            <span>Próximas Fechas & Acceso</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PROGRAMA 3: CURSO PRÁCTICO DE FINANZAS & CONTROL DE CAJA -->
+                <div class="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-xl hover:border-emerald-500/50 transition group h-full reveal-on-scroll stagger-3">
+                    <div class="flex-1 flex flex-col">
+                        <!-- Showcase Visual con Badges -->
+                        <div class="relative bg-gradient-to-br from-emerald-500/10 via-slate-50 to-teal-50/60 rounded-2xl overflow-hidden mb-5 aspect-[4/3] flex items-center justify-center p-4 border border-emerald-500/15 text-center">
+                            <div class="space-y-1.5">
+                                <div class="w-12 h-12 rounded-2xl bg-emerald-600 text-white mx-auto flex items-center justify-center shadow-md">
+                                    <i data-lucide="trending-up" class="w-6 h-6"></i>
+                                </div>
+                                <span class="text-xs font-bold text-slate-900 block leading-tight">Curso Práctico</span>
+                                <span class="text-[10px] text-emerald-700 font-bold block">Finanzas & Control de Caja</span>
+                            </div>
+                            <span class="absolute top-3 left-3 bg-emerald-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+                                Formato Video
+                            </span>
+                            <span class="absolute top-3 right-3 bg-slate-900 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+                                Campus 24/7
+                            </span>
+                        </div>
+
+                        <span class="text-[10px] font-black uppercase tracking-wider text-emerald-700 block min-h-[1.25rem]">Control Financiero & Escala</span>
+                        <h3 class="text-base sm:text-lg font-black text-slate-900 mt-1 mb-2 min-h-[3.25rem] flex items-center leading-snug">
+                            Curso práctico de finanzas y control de caja
+                        </h3>
+                        <p class="text-xs text-slate-600 mb-4 leading-relaxed min-h-[3.75rem] flex items-start">
+                            Aprende a fijar precios rentables, proyectar tu flujo de caja mensual y separar con orden las cuentas personales de las del negocio sin descapitalizarte.
+                        </p>
+
+                        <!-- Entregables / Módulos -->
+                        <div class="space-y-2 mb-4 bg-slate-50 p-3.5 rounded-2xl border border-slate-100 min-h-[8.5rem] flex flex-col justify-center">
+                            <div class="flex items-start gap-2.5 text-xs text-slate-700 font-medium">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                <span class="leading-snug"><strong>Estructura de costos:</strong> Domina la fijación de precios que garanticen margen real.</span>
+                            </div>
+                            <div class="flex items-start gap-2.5 text-xs text-slate-700 font-medium">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                <span class="leading-snug"><strong>Control de tesorería:</strong> Reglas claras para salario del fundador y caja viva.</span>
+                            </div>
+                            <div class="flex items-start gap-2.5 text-xs text-slate-700 font-medium">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                <span class="leading-snug"><strong>Tableros de decisión:</strong> Proyecciones sencillas para operar con números fríos.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botón Inferior -->
+                    <div class="pt-4 border-t border-slate-100 mt-auto">
+                        <a href="/escuela#programas"
+                            class="w-full inline-flex items-center justify-center gap-2 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs sm:text-sm font-bold transition shadow-sm hover:shadow-md">
+                            <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+                            <span>Ingresar al Curso</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Banner Showcase del Campus Virtual (Didacta LMS / Coolify) -->
+            <div class="relative bg-gradient-to-br from-slate-950 via-slate-900 to-brand-blue-dark rounded-3xl sm:rounded-[2.5rem] p-8 sm:p-12 text-white overflow-hidden shadow-2xl border border-slate-800 reveal-on-scroll">
+                <!-- Luces decorativas internas -->
+                <div class="absolute -top-24 -right-24 w-80 h-80 bg-brand-orange/20 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -bottom-24 -left-24 w-80 h-80 bg-brand-blue/30 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
+                    <div class="max-w-2xl space-y-4 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-brand-orange-light text-[11px] font-black uppercase tracking-wider">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                            Aula Virtual Dedicada · escuela.aizprua.com
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-black text-white tracking-tight leading-snug">
+                            Una experiencia de estudio moderna, privada y sin interrupciones
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                            Al inscribirte en cualquiera de nuestros programas obtienes acceso directo a nuestro campus privado. Sin suscripciones infladas de terceros ni límites de tiempo para repasar tus lecciones.
+                        </p>
+                    </div>
+
+                    <!-- Botones de Acción del Campus Virtual -->
+                    <div class="flex flex-col sm:flex-row lg:flex-col gap-3.5 w-full sm:w-auto lg:w-72 shrink-0">
+                        <a href="https://escuela.aizprua.com"
+                            target="_blank" rel="noopener"
+                            class="w-full sm:w-auto lg:w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-brand-orange hover:bg-brand-orange-dark text-white rounded-xl font-bold text-sm shadow-xl hover:shadow-orange-500/25 transition transform hover:-translate-y-0.5 whitespace-nowrap">
+                            <i data-lucide="log-in" class="w-4 h-4 shrink-0"></i>
+                            <span>Ingresar al Campus Virtual</span>
+                        </a>
+
+                        <a href="https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20las%20capacitaciones%20de%20la%20Escuela%20Aizprua"
+                            target="_blank" rel="noopener"
+                            class="w-full sm:w-auto lg:w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-xl font-bold text-sm shadow-sm hover:shadow-white/10 transition transform hover:-translate-y-0.5 whitespace-nowrap">
+                            <i data-lucide="message-circle" class="w-4 h-4 shrink-0 text-[#25D366]"></i>
+                            <span>Consultar por WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================================================== -->
+    <!-- 8. NUESTRO EQUIPO: RESPALDO HUMANO Y PROFESIONAL     -->
+    <!-- ==================================================== -->
+    <section id="equipo" class="py-16 sm:py-24 bg-slate-50 border-b border-slate-200/80 relative overflow-hidden">
+        <!-- Luces ambientales sutiles oficiales -->
+        <div class="absolute -top-32 -right-32 w-96 h-96 bg-brand-blue/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-brand-orange/5 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
+                <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-xs font-black uppercase tracking-wider">
+                    <i data-lucide="users" class="w-3.5 h-3.5 text-brand-blue"></i>
+                    Respaldo Humano & Cercanía
+                </span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight mt-3 mb-4">
+                    Las personas detrás del blindaje de tu negocio
+                </h2>
+                <p class="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+                    Profesionales reales y accesibles en Panamá listos para que delegues tus obligaciones contables, tributarias y legales con total certeza.
+                </p>
+            </div>
+
+            <!-- Grilla Simétrica de 2 Tarjetas con Altura Idéntica Infalible -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 max-w-5xl mx-auto items-stretch">
+                
+                <!-- Tarjeta 1: Arubel Aizprua -->
+                <div class="h-full flex flex-col justify-between bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-lg hover:shadow-xl transition-all duration-300 relative group overflow-hidden reveal-on-scroll stagger-1">
+                    <!-- Borde superior de acento corporativo -->
+                    <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-blue via-brand-blue-light to-brand-orange"></div>
+
+                    <div class="flex-1 flex flex-col">
+                        <!-- Header con Foto y Datos Principales -->
+                        <div class="flex flex-col sm:flex-row items-center sm:items-start gap-5 pb-6 border-b border-slate-100 text-center sm:text-left">
+                            <div class="relative shrink-0">
+                                <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border-2 border-brand-blue/30 shadow-md group-hover:scale-105 transition-transform duration-300 bg-brand-blue-dark">
+                                    <img src="assets/avatar-arubel.jpg" alt="Arubel Aizprua - Director General y Consultor Empresarial" class="w-full h-full object-cover">
+                                </div>
+                                <span class="absolute -bottom-2 -right-2 inline-flex items-center gap-1 bg-emerald-50 text-emerald-700 text-[10px] font-bold px-2 py-0.5 rounded-full border border-emerald-200 shadow-xs">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                                    Activo
+                                </span>
+                            </div>
+
+                            <div class="min-w-0 flex-1">
+                                <span class="inline-block text-[10px] font-black uppercase tracking-wider text-brand-orange bg-brand-orange/10 px-2.5 py-0.5 rounded-full border border-brand-orange/20 mb-1.5">
+                                    Socio Fundador
+                                </span>
+                                <h3 class="text-xl sm:text-2xl font-black text-slate-900 leading-tight">
+                                    Arubel Aizprua
+                                </h3>
+                                <p class="text-xs sm:text-sm font-bold text-brand-blue mt-1">
+                                    Director General & Consultor Empresarial
+                                </p>
+                                <p class="text-[11px] text-slate-500 mt-1 flex items-center justify-center sm:justify-start gap-1">
+                                    <i data-lucide="map-pin" class="w-3.5 h-3.5 text-slate-400"></i>
+                                    Panamá — Cobertura Nacional
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Párrafo Descriptivo con min-h anti-descuadre -->
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed my-5 min-h-[3.75rem] flex items-center">
+                            Lidera la supervisión estratégica de cada negocio, la confección tributaria ante la DGI y la estructuración llave en mano de trámites clave para que crezcas protegido.
+                        </p>
+
+                        <!-- Bloque de Especialidades con altura fija estandarizada -->
+                        <div class="bg-slate-50 rounded-2xl p-4 border border-slate-100 space-y-3 mb-6 min-h-[10.5rem] flex flex-col justify-center">
+                            <span class="text-[10px] font-black uppercase tracking-wider text-slate-500 block">
+                                Áreas de Enfoque Directo:
+                            </span>
+                            <div class="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
+                                <div class="w-5 h-5 rounded-md bg-brand-blue/10 text-brand-blue flex items-center justify-center shrink-0 mt-0.5">
+                                    <i data-lucide="calculator" class="w-3.5 h-3.5"></i>
+                                </div>
+                                <span class="leading-snug">Confección de Declaraciones de Renta e ITBMS (DGI).</span>
+                            </div>
+                            <div class="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
+                                <div class="w-5 h-5 rounded-md bg-brand-blue/10 text-brand-blue flex items-center justify-center shrink-0 mt-0.5">
+                                    <i data-lucide="file-check" class="w-3.5 h-3.5"></i>
+                                </div>
+                                <span class="leading-snug">Trámites digitales llave en mano y Aviso de Operación.</span>
+                            </div>
+                            <div class="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
+                                <div class="w-5 h-5 rounded-md bg-brand-blue/10 text-brand-blue flex items-center justify-center shrink-0 mt-0.5">
+                                    <i data-lucide="shield" class="w-3.5 h-3.5"></i>
+                                </div>
+                                <span class="leading-snug">Diagnóstico de blindaje y resolución de multas complejas.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Acción Inferior Directa -->
+                    <div class="mt-auto pt-2">
+                        <a href="https://wa.me/50765461527?text=Hola%20Arubel,%20deseo%20una%20consultor%C3%ADa%20estrat%C3%A9gica%20para%20mi%20negocio"
+                            target="_blank" rel="noopener"
+                            class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 bg-brand-blue hover:bg-brand-blue-dark text-white rounded-xl font-bold text-xs sm:text-sm transition shadow-sm hover:shadow-brand-blue/20">
+                            <i data-lucide="message-circle" class="w-4 h-4 text-[#25D366]"></i>
+                            <span>Consultar con Arubel por WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2: Erika de Aizprua -->
+                <div class="h-full flex flex-col justify-between bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-lg hover:shadow-xl transition-all duration-300 relative group overflow-hidden reveal-on-scroll stagger-2">
+                    <!-- Borde superior de acento corporativo -->
+                    <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-orange via-brand-orange-light to-brand-blue"></div>
+
+                    <div class="flex-1 flex flex-col">
+                        <!-- Header con Foto y Datos Principales -->
+                        <div class="flex flex-col sm:flex-row items-center sm:items-start gap-5 pb-6 border-b border-slate-100 text-center sm:text-left">
+                            <div class="relative shrink-0">
+                                <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border-2 border-brand-orange/30 shadow-md group-hover:scale-105 transition-transform duration-300 bg-brand-blue-dark">
+                                    <img src="assets/erika-aizprua.jpg" alt="Erika de Aizprua - Gestora Administrativa y Operaciones" class="w-full h-full object-cover">
+                                </div>
+                                <span class="absolute -bottom-2 -right-2 inline-flex items-center gap-1 bg-emerald-50 text-emerald-700 text-[10px] font-bold px-2 py-0.5 rounded-full border border-emerald-200 shadow-xs">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                                    Activo
+                                </span>
+                            </div>
+
+                            <div class="min-w-0 flex-1">
+                                <span class="inline-block text-[10px] font-black uppercase tracking-wider text-brand-blue bg-brand-blue/10 px-2.5 py-0.5 rounded-full border border-brand-blue/20 mb-1.5">
+                                    Gestión & Control
+                                </span>
+                                <h3 class="text-xl sm:text-2xl font-black text-slate-900 leading-tight">
+                                    Erika de Aizprua
+                                </h3>
+                                <p class="text-xs sm:text-sm font-bold text-brand-blue mt-1">
+                                    Gestora Administrativa & Operaciones
+                                </p>
+                                <p class="text-[11px] text-slate-500 mt-1 flex items-center justify-center sm:justify-start gap-1">
+                                    <i data-lucide="map-pin" class="w-3.5 h-3.5 text-slate-400"></i>
+                                    Panamá — Cobertura Nacional
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Párrafo Descriptivo con min-h anti-descuadre -->
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed my-5 min-h-[3.75rem] flex items-center">
+                            Primer punto de contacto y aliada constante; valida que tu expediente cumpla todos los requisitos y coordina cada etapa para que tus trámites se completen sin retrasos.
+                        </p>
+
+                        <!-- Bloque de Especialidades con altura fija estandarizada -->
+                        <div class="bg-slate-50 rounded-2xl p-4 border border-slate-100 space-y-3 mb-6 min-h-[10.5rem] flex flex-col justify-center">
+                            <span class="text-[10px] font-black uppercase tracking-wider text-slate-500 block">
+                                Áreas de Enfoque Directo:
+                            </span>
+                            <div class="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
+                                <div class="w-5 h-5 rounded-md bg-brand-orange/10 text-brand-orange flex items-center justify-center shrink-0 mt-0.5">
+                                    <i data-lucide="headset" class="w-3.5 h-3.5"></i>
+                                </div>
+                                <span class="leading-snug">Atención ágil, filtro inicial y orientación personalizada.</span>
+                            </div>
+                            <div class="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
+                                <div class="w-5 h-5 rounded-md bg-brand-orange/10 text-brand-orange flex items-center justify-center shrink-0 mt-0.5">
+                                    <i data-lucide="clipboard-check" class="w-3.5 h-3.5"></i>
+                                </div>
+                                <span class="leading-snug">Validación y control riguroso de requisitos y expedientes.</span>
+                            </div>
+                            <div class="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
+                                <div class="w-5 h-5 rounded-md bg-brand-orange/10 text-brand-orange flex items-center justify-center shrink-0 mt-0.5">
+                                    <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                                </div>
+                                <span class="leading-snug">Control de tiempos de entrega, facturación y seguimiento.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Acción Inferior Directa -->
+                    <div class="mt-auto pt-2">
+                        <a href="https://wa.me/50765461527?text=Hola%20Erika,%20deseo%20consultar%20sobre%20el%20estado%20o%20requisitos%20de%20mi%20tr%C3%A1mite"
+                            target="_blank" rel="noopener"
+                            class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 bg-slate-900 hover:bg-brand-blue text-white rounded-xl font-bold text-xs sm:text-sm transition shadow-sm hover:shadow-slate-900/20">
+                            <i data-lucide="message-circle" class="w-4 h-4 text-[#25D366]"></i>
+                            <span>Contactar con Erika por WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================================================== -->
+    <!-- 9. PRUEBA SOCIAL Y TESTIMONIOS REALES               -->
+    <!-- ==================================================== -->
+    <section class="py-16 sm:py-24 bg-white border-b border-slate-200/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <div class="text-center max-w-2xl mx-auto mb-14">
+            <div class="text-center max-w-2xl mx-auto mb-14 reveal-on-scroll">
                 <span class="text-xs font-black uppercase tracking-wider text-brand-blue bg-blue-100 px-3.5 py-1 rounded-full">
                     Casos de Éxito
                 </span>
@@ -666,70 +1281,73 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
                 
-                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm">
-                    <div class="flex text-amber-400 gap-1 mb-4">
+                <!-- Testimonio 1: Adaías Panamá -->
+                <div class="testimonial-card bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm h-full flex flex-col justify-between hover:shadow-md transition reveal-on-scroll stagger-1">
+                    <div class="stars-rating-group flex text-amber-400 gap-1 mb-4 shrink-0 cursor-pointer">
                         <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
                     </div>
-                    <p class="text-xs sm:text-sm text-slate-700 leading-relaxed italic mb-6">
-                        "Teníamos 3 contratos de colaboradores con cláusulas desactualizadas que nos pudieron costar miles en Mitradel. Con la auditoría de Aizprua S.E. blindamos toda la planilla en 10 días."
+                    <p class="flex-1 min-h-[6.5rem] sm:min-h-[7.25rem] flex items-start text-xs sm:text-sm text-slate-700 leading-relaxed italic mb-6">
+                        "Cuando iniciamos no sabíamos por dónde empezar con los trámites. El equipo de Aizprua S.E. nos asesoró y nos entregó todo llave en mano, lo que nos permitió comenzar a facturar rápido y sin multas."
                     </p>
-                    <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
-                        <div class="w-10 h-10 rounded-full bg-brand-blue/10 text-brand-blue font-black flex items-center justify-center text-sm">
-                            FD
+                    <div class="mt-auto pt-4 border-t border-slate-100 flex items-center gap-3 min-h-[3.75rem] shrink-0">
+                        <div class="w-10 h-10 rounded-full border border-slate-200/90 bg-white p-1 flex items-center justify-center shrink-0 shadow-xs overflow-hidden">
+                            <img src="assets/logo-adaias.jpg" alt="Logo Adaías Panamá" class="w-full h-full object-contain rounded-full">
                         </div>
-                        <div>
-                            <h5 class="text-xs sm:text-sm font-bold text-slate-900">Frederick De La Cruz</h5>
-                            <span class="text-[11px] text-slate-500">Director de Operaciones, Panamá</span>
+                        <div class="min-w-0">
+                            <h5 class="text-xs sm:text-sm font-bold text-slate-900 truncate">Frederick De La Cruz</h5>
+                            <span class="text-[11px] text-slate-500 block truncate">Adaías Panamá</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm">
-                    <div class="flex text-amber-400 gap-1 mb-4">
+                <!-- Testimonio 2: Grupo JM Panamá -->
+                <div class="testimonial-card bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm h-full flex flex-col justify-between hover:shadow-md transition reveal-on-scroll stagger-2">
+                    <div class="stars-rating-group flex text-amber-400 gap-1 mb-4 shrink-0 cursor-pointer">
                         <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
                     </div>
-                    <p class="text-xs sm:text-sm text-slate-700 leading-relaxed italic mb-6">
-                        "El trámite de mi Aviso de Operación y RUC me tenía detenido por semanas. El equipo se encargó de todo llave en mano y pude empezar a facturar sin miedo a multas sorpresa."
+                    <p class="flex-1 min-h-[6.5rem] sm:min-h-[7.25rem] flex items-start text-xs sm:text-sm text-slate-700 leading-relaxed italic mb-6">
+                        "Teníamos problemas de multas y deudas por una mala gestión anterior. El equipo de Aizprua S.E. nos organizó, puso todo al día y su acompañamiento continuo nos ha blindado de sanciones en la DGI y la CSS."
                     </p>
-                    <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
-                        <div class="w-10 h-10 rounded-full bg-brand-orange/10 text-brand-orange font-black flex items-center justify-center text-sm">
-                            AM
+                    <div class="mt-auto pt-4 border-t border-slate-100 flex items-center gap-3 min-h-[3.75rem] shrink-0">
+                        <div class="w-10 h-10 rounded-full border border-slate-200/90 bg-white p-1 flex items-center justify-center shrink-0 shadow-xs overflow-hidden">
+                            <img src="assets/logo-grupojm.jpg" alt="Logo Grupo JM Panamá" class="w-full h-full object-contain rounded-full">
                         </div>
-                        <div>
-                            <h5 class="text-xs sm:text-sm font-bold text-slate-900">Ángel Mojica</h5>
-                            <span class="text-[11px] text-slate-500">Fundador de Negocio Comercial</span>
+                        <div class="min-w-0">
+                            <h5 class="text-xs sm:text-sm font-bold text-slate-900 truncate">Angel Mojica</h5>
+                            <span class="text-[11px] text-slate-500 block truncate">Grupo JM Panamá</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm">
-                    <div class="flex text-amber-400 gap-1 mb-4">
+                <!-- Testimonio 3: Academia de Danza Elohim -->
+                <div class="testimonial-card bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm h-full flex flex-col justify-between hover:shadow-md transition reveal-on-scroll stagger-3">
+                    <div class="stars-rating-group flex text-amber-400 gap-1 mb-4 shrink-0 cursor-pointer">
                         <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
                     </div>
-                    <p class="text-xs sm:text-sm text-slate-700 leading-relaxed italic mb-6">
-                        "El Plan 360 Digital nos dio una plantilla clara de flujo de caja y contratos listos. Por $19.99 recibimos más valor que en asesorías que me cotizaban en $500."
+                    <p class="flex-1 min-h-[6.5rem] sm:min-h-[7.25rem] flex items-start text-xs sm:text-sm text-slate-700 leading-relaxed italic mb-6">
+                        "Adquirir el Plan 360 Empresarial en su edición física por $39.99 fue clave para organizar y estructurar nuestra academia de danza. Nos dio el paso a paso exacto para ordenar la administración y crecer con bases sólidas."
                     </p>
-                    <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
-                        <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 font-black flex items-center justify-center text-sm">
-                            NC
+                    <div class="mt-auto pt-4 border-t border-slate-100 flex items-center gap-3 min-h-[3.75rem] shrink-0">
+                        <div class="w-10 h-10 rounded-full border border-slate-200/90 bg-white p-1 flex items-center justify-center shrink-0 shadow-xs overflow-hidden">
+                            <img src="assets/logo-ade.png" alt="Logo Academia de Danza Elohim" class="w-full h-full object-contain rounded-full">
                         </div>
-                        <div>
-                            <h5 class="text-xs sm:text-sm font-bold text-slate-900">Norma Cedeño</h5>
-                            <span class="text-[11px] text-slate-500">Servicios Profesionales, Panamá</span>
+                        <div class="min-w-0">
+                            <h5 class="text-xs sm:text-sm font-bold text-slate-900 truncate">Norma Alabarca</h5>
+                            <span class="text-[11px] text-slate-500 block truncate">Academia de Danza Elohim</span>
                         </div>
                     </div>
                 </div>
@@ -740,63 +1358,70 @@
     </section>
 
     <!-- ==================================================== -->
-    <!-- 8. HUB DE CONTACTO ÁGIL                             -->
+    <!-- 10. BANNER DE CIERRE Y CONVERSIÓN: ESCUDO PREVENTIVO -->
     <!-- ==================================================== -->
-    <section class="py-16 sm:py-20 bg-slate-900 text-white relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                
-                <div>
-                    <span class="text-xs font-black uppercase tracking-wider text-brand-orange bg-brand-orange/10 px-3.5 py-1 rounded-full border border-brand-orange/20">
-                        Contacto Directo
+    <section class="py-16 sm:py-24 bg-gradient-to-b from-white via-slate-50 to-slate-100 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="relative bg-gradient-to-br from-brand-blue-dark via-brand-blue to-slate-900 rounded-3xl sm:rounded-[2.5rem] p-8 sm:p-14 text-white overflow-hidden shadow-2xl text-center border border-white/10 reveal-on-scroll">
+                <!-- Luces ambientales y destellos corporativos -->
+                <div class="absolute -top-20 -right-20 w-72 h-72 bg-brand-orange/20 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -bottom-20 -left-20 w-72 h-72 bg-brand-blue-light/30 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="relative z-10 max-w-3xl mx-auto space-y-6">
+                    <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-brand-orange-light text-xs font-black uppercase tracking-wider">
+                        <i data-lucide="shield-check" class="w-4 h-4 text-brand-orange"></i>
+                        Tu empresa protegida en Panamá
                     </span>
-                    <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight mt-3 mb-4">
-                        ¿Tienes una duda urgente sobre tu empresa o un trámite?
+
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
+                        ¿Listo para blindar tu negocio y crecer sin miedo a multas?
                     </h2>
-                    <p class="text-sm sm:text-base text-slate-300 leading-relaxed mb-6">
-                        No dejes que una duda legal o contable se convierta en una multa. Escríbenos directamente o llámanos; atendemos de forma ágil y confidencial en toda la República de Panamá.
+
+                    <p class="text-sm sm:text-base text-blue-100/90 max-w-2xl mx-auto leading-relaxed">
+                        Agenda una sesión con nuestros especialistas para diagnosticar tu situación, ordenar tus trámites llave en mano y proteger tu patrimonio empresarial.
                     </p>
-                    <div class="space-y-3 text-sm text-slate-300">
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="map-pin" class="w-5 h-5 text-brand-orange flex-shrink-0"></i>
-                            <span>Panamá, República de Panamá</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="clock" class="w-5 h-5 text-brand-orange flex-shrink-0"></i>
-                            <span>Lunes a Viernes: 8:00 a.m. a 5:00 p.m.</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="mail" class="w-5 h-5 text-brand-orange flex-shrink-0"></i>
-                            <span>info@aizprua.com</span>
-                        </div>
+
+                    <!-- Acciones Duales de Conversión -->
+                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="https://escudo.aizprua.com/"
+                            class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-brand-orange hover:bg-brand-orange-dark text-white rounded-2xl font-black text-base shadow-xl hover:shadow-orange-500/30 transition transform hover:-translate-y-0.5 whitespace-nowrap">
+                            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                <path d="m9 12 2 2 4-4"/>
+                            </svg>
+                            <span>Conocer Escudo Preventivo</span>
+                        </a>
+
+                        <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20deseo%20consultar%20sobre%20el%20blindaje%20de%20mi%20empresa"
+                            target="_blank" rel="noopener"
+                            class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 bg-white/10 hover:bg-white/20 text-white backdrop-blur border border-white/30 rounded-2xl font-bold text-base transition shadow-sm whitespace-nowrap">
+                            <i data-lucide="message-circle" class="w-5 h-5 text-[#25D366]"></i>
+                            <span>Consultar por WhatsApp</span>
+                        </a>
+                    </div>
+
+                    <!-- Micro-garantías de Confianza -->
+                    <div class="pt-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-xs font-semibold text-blue-200">
+                        <span class="inline-flex items-center gap-1.5">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+                            Atención en todo Panamá
+                        </span>
+                        <span class="inline-flex items-center gap-1.5">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+                            100% Confidencial
+                        </span>
+                        <span class="inline-flex items-center gap-1.5">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+                            Respuesta inmediata
+                        </span>
                     </div>
                 </div>
-
-                <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700 text-center space-y-4">
-                    <div class="w-16 h-16 rounded-full bg-[#25D366]/20 text-[#25D366] flex items-center justify-center mx-auto mb-2">
-                        <i data-lucide="message-circle" class="w-8 h-8"></i>
-                    </div>
-                    <h3 class="text-xl font-black text-white">Canal Oficial de WhatsApp</h3>
-                    <p class="text-xs text-slate-300 max-w-sm mx-auto">
-                        Inicia una conversación directa con un especialista de la firma para consultar sobre asesorías, trámites llave en mano o kits empresariales.
-                    </p>
-                    <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20me%20gustar%C3%ADa%20hacer%20una%20consulta%20empresarial"
-                        target="_blank" rel="noopener"
-                        class="w-full inline-flex items-center justify-center gap-2 py-4 px-6 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-2xl font-black text-sm sm:text-base transition shadow-lg">
-                        <i data-lucide="message-circle" class="w-5 h-5"></i>
-                        <span>Chatear al +507 6546-1527</span>
-                    </a>
-                    <a href="tel:+50765461527" class="block text-xs text-slate-400 hover:text-white underline pt-1">
-                        O llamar directamente al 6546-1527
-                    </a>
-                </div>
-
             </div>
         </div>
     </section>
 
     <!-- ==================================================== -->
-    <!-- 9. FOOTER CANÓNICO OFICIAL (4 COLUMNAS DESIGN_SYSTEM) -->
+    <!-- 11. FOOTER CANÓNICO OFICIAL (4 COLUMNAS DESIGN_SYSTEM) -->
     <!-- ==================================================== -->
     <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -825,6 +1450,14 @@
                                     d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                             </svg>
                         </a>
+                        <a target="_blank" rel="noopener" href="https://www.youtube.com/@AizpruaSE"
+                            class="w-10 h-10 bg-slate-800 hover:bg-red-600 rounded-full flex items-center justify-center text-white transition"
+                            aria-label="YouTube">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                            </svg>
+                        </a>
                         <a href="https://wa.me/50765461527" target="_blank"
                             class="w-10 h-10 bg-slate-800 hover:bg-green-500 rounded-full flex items-center justify-center text-white transition"
                             aria-label="WhatsApp">
@@ -840,8 +1473,9 @@
                 <div>
                     <h4 class="font-bold text-white mb-4">Soluciones</h4>
                     <ul class="space-y-2 text-sm text-slate-400">
-                        <li><a href="/escudo-preventivo" class="hover:text-white transition">Asesoría Escudo Preventivo</a></li>
+                        <li><a href="https://escudo.aizprua.com/" class="hover:text-white transition">Asesoría Escudo Preventivo</a></li>
                         <li><a href="/tienda" class="hover:text-white transition font-semibold text-brand-orange-light">Tienda Online</a></li>
+                        <li><a href="https://escuela.aizprua.com" target="_blank" rel="noopener" class="hover:text-white transition font-semibold text-brand-blue-light flex items-center gap-1.5">Campus Virtual (Escuela) <i data-lucide="external-link" class="w-3 h-3 text-brand-orange"></i></a></li>
                         <li><a href="/plan-360-digital" class="hover:text-white transition">Plan 360 Digital ($19.99)</a></li>
                         <li><a href="/test-interactivo" class="hover:text-white transition">Test de Auditoría Gratis</a></li>
                     </ul>
@@ -853,7 +1487,7 @@
                     <ul class="space-y-2 text-sm text-slate-400">
                         <li><a href="https://wa.me/50765461527" target="_blank" class="hover:text-white transition">WhatsApp: +507 6546-1527</a></li>
                         <li><a href="mailto:info@aizprua.com" class="hover:text-white transition">info@aizprua.com</a></li>
-                        <li>Panamá, República de Panamá</li>
+                        <li>Panamá Oeste, La Chorrera</li>
                     </ul>
                 </div>
 
@@ -877,24 +1511,27 @@
     </footer>
 
     <!-- ==================================================== -->
-    <!-- 10. COMPONENTES GLOBALES FLOTANTES                   -->
+    <!-- 12. COMPONENTES GLOBALES FLOTANTES                   -->
     <!-- ==================================================== -->
 
-    <!-- Botón Flotante de WhatsApp Fijo -->
-    <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20tengo%20una%20consulta%20empresarial"
-        target="_blank" rel="noopener" aria-label="Abrir WhatsApp"
-        class="fixed bottom-6 right-6 z-40 bg-[#25D366] hover:bg-[#20bd5a] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center group">
-        <i data-lucide="message-circle" class="w-7 h-7"></i>
-        <span class="absolute right-full mr-3 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
-            ¿Dudas? Chatea con nosotros
-        </span>
-    </a>
+    <!-- Contenedor Flotante de Acciones (Alineación Centrada Perfecta) -->
+    <div class="fixed bottom-6 right-6 z-40 flex flex-col items-center gap-3 pointer-events-none">
+        <!-- Botón Flotante "Volver Arriba" (Scroll to Top) -->
+        <button id="scroll-top-btn" onclick="scrollToTop()" aria-label="Volver arriba"
+            class="w-11 h-11 bg-white/95 backdrop-blur border border-slate-300 hover:border-brand-blue text-slate-700 hover:text-brand-blue rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:-translate-y-1 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="chevron-up" class="w-5 h-5"></i>
+        </button>
 
-    <!-- Botón Flotante "Volver Arriba" (Scroll to Top) -->
-    <button id="scroll-top-btn" onclick="scrollToTop()" aria-label="Volver arriba"
-        class="fixed bottom-24 right-6 z-30 bg-white/90 backdrop-blur border border-slate-300 hover:border-brand-blue text-slate-700 hover:text-brand-blue p-3 rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:-translate-y-1">
-        <i data-lucide="chevron-up" class="w-5 h-5"></i>
-    </button>
+        <!-- Botón Flotante de WhatsApp Fijo -->
+        <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20tengo%20una%20consulta%20empresarial"
+            target="_blank" rel="noopener" aria-label="Abrir WhatsApp"
+            class="pointer-events-auto w-14 h-14 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center group relative flex-shrink-0">
+            <i data-lucide="message-circle" class="w-7 h-7"></i>
+            <span class="absolute right-full mr-3 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
+                ¿Dudas? Chatea con nosotros
+            </span>
+        </a>
+    </div>
 
     <!-- Banner Flotante de Cookies (Ley 81 de Panamá) -->
     <div id="cookie-banner"
@@ -920,7 +1557,7 @@
     </div>
 
     <!-- ==================================================== -->
-    <!-- 11. MODAL ELEGANTE EXIT-INTENT (ESCUDO PREVENTIVO)   -->
+    <!-- 12. MODAL ELEGANTE EXIT-INTENT (ESCUDO PREVENTIVO)   -->
     <!-- ==================================================== -->
     <div id="exit-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
         <div class="relative w-full max-w-lg bg-slate-900 text-white rounded-3xl p-8 sm:p-10 border border-slate-700 shadow-2xl transform scale-95 transition-transform duration-300 text-center">
@@ -948,7 +1585,7 @@
             </p>
 
             <!-- Botón CTA Naranja -->
-            <a href="/escudo-preventivo"
+            <a href="https://escudo.aizprua.com/"
                 class="w-full inline-flex items-center justify-center gap-2 py-4 px-6 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-2xl font-black text-sm sm:text-base shadow-xl transition transform hover:-translate-y-0.5">
                 <span>Blindar Mi Negocio Ahora</span>
                 <i data-lucide="arrow-right" class="w-5 h-5"></i>
@@ -961,8 +1598,9 @@
     </div>
 
     <!-- ==================================================== -->
-    <!-- 12. SCRIPTS DINÁMICOS & INTERACCIÓN                  -->
+    <!-- 13. SCRIPTS DINÁMICOS & INTERACCIÓN                  -->
     <!-- ==================================================== -->
+    <script src="products-data.js"></script>
     <script>
         // Toggle Menú Móvil
         function toggleMobileMenu() {
@@ -977,12 +1615,14 @@
 
         window.addEventListener('scroll', () => {
             const btn = document.getElementById('scroll-top-btn');
-            if (window.scrollY > 400) {
-                btn.classList.remove('opacity-0', 'pointer-events-none');
-                btn.classList.add('opacity-100');
-            } else {
-                btn.classList.add('opacity-0', 'pointer-events-none');
-                btn.classList.remove('opacity-100');
+            if (btn) {
+                if (window.scrollY > 400) {
+                    btn.classList.remove('opacity-0', 'pointer-events-none');
+                    btn.classList.add('opacity-100', 'pointer-events-auto');
+                } else {
+                    btn.classList.add('opacity-0', 'pointer-events-none');
+                    btn.classList.remove('opacity-100', 'pointer-events-auto');
+                }
             }
         });
 
@@ -1021,6 +1661,17 @@
             modal.querySelector('div').classList.add('scale-95');
         }
 
+        // Cierre accesible con tecla Escape y clic fuera del modal
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeExitModal();
+        });
+        const exitModalEl = document.getElementById('exit-modal');
+        if (exitModalEl) {
+            exitModalEl.addEventListener('click', (e) => {
+                if (e.target === exitModalEl) closeExitModal();
+            });
+        }
+
         // Detectar intención de salida (mouse sube hacia la barra de pestañas en desktop)
         document.addEventListener('mouseleave', (e) => {
             if (e.clientY <= 10) {
@@ -1028,78 +1679,80 @@
             }
         });
 
-        // Efecto Ruleta de Palabras (Slot Machine Wheel / Cilindro Odometer)
-        let rouletteIndex = 0;
-        let rouletteInterval = null;
 
-        function updateRouletteDimensions(index) {
-            const container = document.getElementById('roulette-container');
-            const wheel = document.getElementById('roulette-wheel');
-            if (!container || !wheel) return;
 
-            const items = wheel.querySelectorAll('.roulette-item');
-            if (!items.length) return;
+        window.addEventListener('scroll', () => {
+            const bar = document.getElementById('progress-bar');
+            if (bar) {
+                const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                bar.style.width = scrolled + '%';
+            }
+        });
 
-            const currentItem = items[index] || items[0];
-            const itemHeight = items[0].getBoundingClientRect().height;
-            const itemWidth = currentItem.getBoundingClientRect().width;
+        // Manejador Fallback Ultra-Premium para imágenes faltantes o rotas
+        function handleProductImageError(img) {
+            const parent = img.parentElement;
+            if (!parent) return;
+            const title = img.dataset.title || 'Solución Empresarial';
+            const icon = img.dataset.icon || 'package';
+            const badge = img.dataset.badge || 'Oficial';
 
-            container.style.height = `${itemHeight}px`;
-            container.style.width = `${itemWidth}px`;
-            wheel.style.transform = `translateY(-${index * itemHeight}px)`;
+            parent.className = "relative bg-gradient-to-br from-slate-900 via-slate-800 to-brand-blue-dark rounded-2xl overflow-hidden mb-5 aspect-[4/3] flex items-center justify-center p-4 border border-slate-700/60 shadow-inner";
+            parent.innerHTML = `
+                <div class="text-center p-3">
+                    <div class="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-brand-orange mx-auto flex items-center justify-center mb-2 shadow-lg">
+                        <i data-lucide="${icon}" class="w-8 h-8"></i>
+                    </div>
+                    <span class="text-xs font-bold text-white block leading-tight">${title}</span>
+                    <span class="text-[10px] text-brand-orange-light font-bold block mt-0.5">Solución Oficial Aizprua</span>
+                </div>
+                <span class="absolute top-3 left-3 bg-brand-orange text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+                    ${badge}
+                </span>
+            `;
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
         }
 
-        function initWordRoulette() {
-            const container = document.getElementById('roulette-container');
-            const wheel = document.getElementById('roulette-wheel');
-            if (!container || !wheel) return;
+        // Función de Scroll Reveal con IntersectionObserver
+        function initScrollReveal() {
+            const reveals = document.querySelectorAll('.reveal-on-scroll');
+            if (!reveals.length) return;
 
-            const items = wheel.querySelectorAll('.roulette-item');
-            if (!items.length) return;
-
-            // Ajuste inicial de dimensiones
-            updateRouletteDimensions(0);
-
-            // Reajustar cuando las fuentes personalizadas estén 100% listas
-            if (document.fonts) {
-                document.fonts.ready.then(() => updateRouletteDimensions(rouletteIndex));
+            if (!('IntersectionObserver' in window)) {
+                reveals.forEach(el => el.classList.add('is-visible'));
+                return;
             }
 
-            window.addEventListener('resize', () => updateRouletteDimensions(rouletteIndex));
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0.12,
+                rootMargin: '0px 0px -30px 0px'
+            });
 
-            // Giro continuo de la Ruleta
-            rouletteInterval = setInterval(() => {
-                rouletteIndex++;
-                const itemHeight = items[0].getBoundingClientRect().height;
-                const targetItem = items[rouletteIndex];
-                if (!targetItem) return;
-
-                // 1. Giro limpio y 100% nítido con rebote elástico de ruleta
-                wheel.style.transition = 'transform 0.65s cubic-bezier(0.34, 1.45, 0.64, 1)';
-                wheel.style.transform = `translateY(-${rouletteIndex * itemHeight}px)`;
-                container.style.width = `${targetItem.getBoundingClientRect().width}px`;
-
-                // 3. Al llegar al clon de "empresa" (último elemento), reiniciar suavemente sin salto visible
-                if (rouletteIndex === items.length - 1) {
-                    setTimeout(() => {
-                        wheel.style.transition = 'none';
-                        rouletteIndex = 0;
-                        wheel.style.transform = 'translateY(0px)';
-                        container.style.width = `${items[0].getBoundingClientRect().width}px`;
-                        void wheel.offsetHeight; // Forzar reflujo
-                        wheel.style.transition = '';
-                    }, 670);
-                }
-            }, 2800);
+            reveals.forEach(el => observer.observe(el));
         }
 
         // Inicialización
         document.addEventListener('DOMContentLoaded', () => {
+            if (typeof renderHomeFeaturedProducts === 'function') {
+                renderHomeFeaturedProducts('home-featured-products-grid');
+            }
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
             }
             checkCookieConsent();
-            initWordRoulette();
+            initScrollReveal();
         });
     </script>
 </body>

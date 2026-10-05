@@ -1309,6 +1309,11 @@ document.addEventListener('DOMContentLoaded', () => {
         checkoutModal.addEventListener('click', (e) => {
             if (e.target === checkoutModal) closeCheckoutModal();
         });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !checkoutModal.classList.contains('hidden')) {
+                closeCheckoutModal();
+            }
+        });
     }
 
     // Handlers para Pago Rápido Express (Google Pay & Apple Pay)

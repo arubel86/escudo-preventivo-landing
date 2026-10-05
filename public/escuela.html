@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escuela de Negocios · Aizprua S.E. | Capacitación Empresarial en Panamá</title>
+    <meta name="description"
+        content="Formación empresarial estratégica y práctica en Panamá. Descubre el Método 4E, Masterclasses de blindaje legal y tributario, y accede a nuestro Campus Virtual privado.">
+    <meta name="keywords" content="escuela de negocios panama, metodo 4e, capacitacion empresarial panama, cursos para emprendedores panama, aula virtual aizprua, blindaje empresarial">
+    <meta name="author" content="Aizprua S.E.">
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://aizprua.com/escuela">
+
+    <!-- Open Graph / Redes Sociales -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Escuela de Negocios · Aizprua S.E. | Capacitación Empresarial en Panamá">
+    <meta property="og:description" content="Formación empresarial estratégica y práctica en Panamá. Descubre el Método 4E, Masterclasses de blindaje legal y tributario, y accede a nuestro Campus Virtual privado.">
+    <meta property="og:url" content="https://aizprua.com/escuela">
+    <meta property="og:image" content="https://aizprua.com/assets/portada-plan-360.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Tipografía Google Fonts Oficial -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#3849C8',
+                            'blue-dark': '#2D3A9F',
+                            'blue-light': '#4F5ED4',
+                            orange: '#FF8A1E',
+                            'orange-dark': '#E67A15',
+                            'orange-light': '#FFA04A'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+                        heading: ['"Outfit"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        .custom-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        .custom-scroll {
+            scrollbar-width: none;
+        }
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-orange selection:text-white flex flex-col min-h-screen">
+
+    <!-- Barra de Progreso de Lectura Canónica (Naranja Oficial) -->
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-brand-orange z-[60] transition-all duration-75" style="width:0%"></div>
+
+    <!-- 1. Barra Superior de Anuncios -->
+    <div id="announcement-bar" class="bg-slate-900 text-white text-xs sm:text-sm py-2 px-4 text-center font-medium sticky top-0 z-50 shadow-sm border-b border-slate-800">
+        <div class="max-w-7xl mx-auto flex items-center justify-center gap-2">
+            <span class="inline-flex items-center gap-1.5 bg-brand-orange/20 text-brand-orange-light text-[10px] sm:text-xs font-black px-2.5 py-0.5 rounded-full border border-brand-orange/30 uppercase tracking-wider">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                Campus Activo
+            </span>
+            <span class="truncate">Plataforma de formación empresarial 100% privada y disponible 24/7.</span>
+            <a href="https://escuela.aizprua.com" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center gap-1 text-brand-orange-light hover:text-white font-bold ml-1 transition underline">
+                <span>Ir al Campus</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5 inline"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- 2. Navbar Canónica (h-20 / Logo h-28) -->
+    <header class="bg-white/95 backdrop-blur-md sticky top-9 z-40 border-b border-slate-200/80 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Logotipo Centrado Oficial -->
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center" aria-label="Aizprua S.E. Inicio">
+                        <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-21-nobg.svg"
+                            onerror="this.onerror=null; this.src='/assets/LOGOS PARA DIGITAL INDIVIDUALES-21-nobg.svg';"
+                            alt="Aizprua S.E. - Consultoría Legal y Empresarial"
+                            class="h-28 w-auto transform transition-transform hover:scale-105">
+                    </a>
+                </div>
+
+                <!-- Menú Desktop -->
+                <nav class="hidden lg:flex items-center gap-8">
+                    <a href="/#servicios" class="text-sm font-semibold text-slate-700 hover:text-brand-blue transition">Servicios</a>
+                    <a href="/escuela" class="text-sm font-bold text-brand-blue border-b-2 border-brand-blue pb-0.5">Escuela</a>
+                    <a href="/tienda" class="text-sm font-semibold text-slate-700 hover:text-brand-blue transition">Tienda</a>
+                    <a href="/blog" class="text-sm font-semibold text-slate-700 hover:text-brand-blue transition">Blog</a>
+                    <a href="/test-interactivo" class="text-sm font-semibold text-brand-orange hover:text-brand-orange-dark transition flex items-center gap-1">
+                        <i data-lucide="shield-check" class="w-4 h-4"></i>
+                        <span>Auditoría Gratis</span>
+                    </a>
+                </nav>
+
+                <!-- Acciones Rápidas -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <a href="https://escuela.aizprua.com" target="_blank" rel="noopener"
+                        class="flex items-center gap-2 bg-brand-blue hover:bg-brand-blue-dark text-white px-5 py-2.5 rounded-full font-bold text-sm shadow-md transition transform hover:-translate-y-0.5 whitespace-nowrap">
+                        <i data-lucide="log-in" class="w-4 h-4 shrink-0"></i>
+                        <span>Ingresar al Campus</span>
+                    </a>
+                </div>
+
+                <!-- Botón Menú Móvil -->
+                <div class="flex items-center lg:hidden">
+                    <button onclick="toggleMobileMenu()" aria-label="Abrir menú" class="text-slate-700 p-2 focus:outline-hidden">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Móvil Desplegable -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-200 px-4 py-4 space-y-3">
+            <a href="/#servicios" class="block py-2 text-slate-700 font-bold">Servicios (Asesoría & Trámites)</a>
+            <a href="/escuela" class="block py-2 text-brand-blue font-bold">Escuela (Campus & Cursos)</a>
+            <a href="/tienda" class="block py-2 text-slate-700 font-bold">Tienda Online (Kits & Soluciones)</a>
+            <a href="/blog" class="block py-2 text-slate-700 font-bold">Blog de Inteligencia</a>
+            <a href="/test-interactivo" class="block py-2 text-brand-orange font-bold">Test de auditoría gratis</a>
+            <div class="pt-2 border-t border-slate-100">
+                <a href="https://escuela.aizprua.com" target="_blank" rel="noopener"
+                    class="w-full flex items-center justify-center gap-2 bg-brand-blue text-white py-3 rounded-xl font-bold text-sm">
+                    <i data-lucide="log-in" class="w-4 h-4"></i>
+                    <span>Ingresar al Campus Virtual</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. HERO SECTION CLARO PREMIUM (ESCUELA DE NEGOCIOS) -->
+    <section class="relative bg-gradient-to-b from-blue-50/60 via-slate-50 to-white text-slate-800 py-16 sm:py-24 overflow-hidden border-b border-slate-200/80">
+        <!-- Luces Ambientales Sutiles Oficiales -->
+        <div class="absolute -top-32 -right-32 w-96 h-96 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-brand-blue/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Columna Izquierda: Mensaje y Conversión -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-xs font-black uppercase tracking-wider">
+                        <span class="w-2 h-2 rounded-full bg-brand-orange animate-pulse"></span>
+                        Escuela de Negocios Aizprua S.E. · Edición 2026
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-tight">
+                        De la idea al crecimiento ordenado: formación empresarial <span class="relative inline-block text-brand-blue whitespace-nowrap">sin improvisar<svg class="absolute -bottom-2 sm:-bottom-2.5 left-0 w-full h-2.5 sm:h-3.5 text-brand-orange pointer-events-none" viewBox="0 0 240 12" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M3 9C60 3.5 180 3.5 237 8" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/></svg></span>.
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        El 90% de los emprendimientos se estanca por falta de un sistema estructurado. Te enseñamos a validar tu oferta, organizar tus finanzas, blindar contratos y escalar tu operación con metodologías reales aplicadas al mercado panameño.
+                    </p>
+
+                    <!-- CTAs Principales -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="https://escuela.aizprua.com" target="_blank" rel="noopener"
+                            class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-brand-orange hover:bg-brand-orange-dark text-white rounded-2xl font-black text-base shadow-xl hover:shadow-orange-500/25 transition transform hover:-translate-y-0.5">
+                            <i data-lucide="log-in" class="w-5 h-5"></i>
+                            <span>Ingresar al Campus Virtual</span>
+                        </a>
+
+                        <a href="#metodo-4e"
+                            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 rounded-2xl font-bold text-base shadow-xs hover:shadow-md transition">
+                            <i data-lucide="compass" class="w-5 h-5 text-brand-blue"></i>
+                            <span>Conocer el Método 4E</span>
+                        </a>
+                    </div>
+
+                    <!-- Prueba Social / Comunidad Internacional -->
+                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5">
+                        <!-- Avatares Solapados (3 alumnos + 1 distintivo global) -->
+                        <div class="flex items-center -space-x-2.5 shrink-0">
+                            <img class="w-9 h-9 rounded-full border-2 border-white object-cover shadow-xs"
+                                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=80"
+                                alt="Emprendedora miembro de la Escuela" loading="lazy">
+                            <img class="w-9 h-9 rounded-full border-2 border-white object-cover shadow-xs"
+                                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&auto=format&fit=crop&q=80"
+                                alt="Fundador miembro de la Escuela" loading="lazy">
+                            <img class="w-9 h-9 rounded-full border-2 border-white object-cover shadow-xs"
+                                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=120&auto=format&fit=crop&q=80"
+                                alt="Empresaria miembro de la Escuela" loading="lazy">
+                            <!-- Indicador de Red Global -->
+                            <div class="w-9 h-9 rounded-full border-2 border-white bg-gradient-to-br from-brand-blue to-brand-blue-dark text-white flex items-center justify-center shadow-xs" title="Acceso Internacional">
+                                <i data-lucide="globe" class="w-4 h-4 text-white"></i>
+                            </div>
+                        </div>
+
+                        <!-- Texto Descriptivo Honesto y de Prestigio -->
+                        <div class="text-center sm:text-left leading-snug">
+                            <div class="flex items-center justify-center sm:justify-start gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
+                                <span class="text-xs font-black text-slate-900 tracking-tight">Comunidad internacional activa</span>
+                            </div>
+                            <p class="text-xs text-slate-600 mt-0.5">
+                                Emprendedores estructurando negocios reales sin improvisar.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Tarjeta de Acceso Rápido al Aula Virtual (Blanco Pulcro) -->
+                <div class="lg:col-span-5">
+                    <div class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 shadow-xl relative overflow-hidden">
+                        <div class="flex items-center justify-between pb-6 border-b border-slate-100">
+                            <div>
+                                <span class="text-[10px] font-black uppercase tracking-wider text-brand-orange block">Campus Oficial</span>
+                                <h3 class="text-lg font-black text-slate-900">Acceso de Estudiantes</h3>
+                            </div>
+                            <div class="w-10 h-10 rounded-2xl bg-brand-blue/10 border border-brand-blue/20 text-brand-blue flex items-center justify-center">
+                                <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                            </div>
+                        </div>
+
+                        <div class="py-6 space-y-4">
+                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/80">
+                                <span class="text-xs text-slate-500 block mb-1">Subdominio seguro del campus:</span>
+                                <div class="flex items-center gap-2 font-mono text-sm text-brand-blue font-bold">
+                                    <i data-lucide="lock" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                                    <span>https://escuela.aizprua.com</span>
+                                </div>
+                            </div>
+
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Si ya estás inscrito en el <strong>Método 4E</strong>, <strong>Plan 360</strong> o cualquiera de nuestras <strong>Masterclasses</strong>, inicia sesión con tu correo electrónico para ver tus lecciones y descargar material de trabajo.
+                            </p>
+
+                            <div class="space-y-2 text-xs text-slate-600">
+                                <div class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i>
+                                    <span>Acceso 24/7 desde computadora, tablet o móvil</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i>
+                                    <span>Descarga directa de plantillas Word y Excel</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i>
+                                    <span>Sin mensualidades ocultas ni renovaciones forzadas</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="https://escuela.aizprua.com" target="_blank" rel="noopener"
+                            class="w-full flex items-center justify-center gap-2 py-3.5 bg-brand-blue hover:bg-brand-blue-dark text-white rounded-xl font-bold text-sm shadow-md hover:shadow-lg transition">
+                            <i data-lucide="key" class="w-4 h-4"></i>
+                            <span>Entrar al Aula Virtual</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SECCIÓN MAESTRA: EL MÉTODO 4E -->
+    <section id="metodo-4e" class="py-16 sm:py-24 bg-white border-b border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-black uppercase tracking-wider text-brand-blue bg-brand-blue/10 px-3.5 py-1 rounded-full border border-brand-blue/20">
+                    Metodología Propietaria Aizprua S.E.
+                </span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight mt-3 mb-4">
+                    El Método 4E: Tu hoja de ruta de la idea a la expansión
+                </h2>
+                <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+                    <em>"Emprender no es improvisar, es evolucionar paso a paso."</em> Un sistema progresivo de 4 fases validado con empresas reales para eliminar saltos al vacío y construir bases indestructibles.
+                </p>
+            </div>
+
+            <!-- Grilla de las 4 Fases (Explora, Estructura, Expande, Escala) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch mb-14">
+                
+                <!-- FASE 1: EXPLORA -->
+                <div class="bg-slate-50 rounded-3xl p-6 border border-slate-200 hover:border-brand-blue/60 hover:shadow-xl transition flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 rounded-2xl bg-brand-blue text-white flex items-center justify-center font-black text-lg shadow-md">
+                                01
+                            </div>
+                            <span class="text-[10px] font-black uppercase px-2.5 py-1 bg-brand-blue/10 text-brand-blue rounded-full">Validación</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-black text-slate-900 mb-1">Explora</h3>
+                            <p class="text-xs font-bold text-brand-blue">De la idea al modelo validado</p>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Convierte suposiciones en certezas antes de gastar ahorros. Define tu avatar de cliente y prueba el mercado con evidencia real.
+                        </p>
+                        <ul class="space-y-2 pt-2 border-t border-slate-200/80 text-xs text-slate-700">
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5"></i>
+                                <span>Lluvia de ideas y viabilidad</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5"></i>
+                                <span>Avatar del cliente ideal</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5"></i>
+                                <span>Prototipo MVP y primeras ventas</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 mt-6 border-t border-slate-200/60 text-[11px] font-semibold text-slate-500">
+                        🎯 <strong>Entregable:</strong> Oferta mínima viable validada con clientes.
+                    </div>
+                </div>
+
+                <!-- FASE 2: ESTRUCTURA -->
+                <div class="bg-slate-50 rounded-3xl p-6 border border-slate-200 hover:border-brand-orange/60 hover:shadow-xl transition flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 rounded-2xl bg-brand-orange text-white flex items-center justify-center font-black text-lg shadow-md">
+                                02
+                            </div>
+                            <span class="text-[10px] font-black uppercase px-2.5 py-1 bg-brand-orange/10 text-brand-orange rounded-full">Bases</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-black text-slate-900 mb-1">Estructura</h3>
+                            <p class="text-xs font-bold text-brand-orange">Del modelo al negocio sólido</p>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Crea los cimientos de tu empresa: qué vendes, cómo lo vendes, a qué precio y cuál es tu plan financiero de arranque.
+                        </p>
+                        <ul class="space-y-2 pt-2 border-t border-slate-200/80 text-xs text-slate-700">
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5"></i>
+                                <span>Estrategia de precios y margen</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5"></i>
+                                <span>Propuestas de valor irresistibles</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5"></i>
+                                <span>Plan de negocio y canales</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 mt-6 border-t border-slate-200/60 text-[11px] font-semibold text-slate-500">
+                        🎯 <strong>Entregable:</strong> Plan de negocio y modelo financiero listo.
+                    </div>
+                </div>
+
+                <!-- FASE 3: EXPANDE -->
+                <div class="bg-slate-50 rounded-3xl p-6 border border-slate-200 hover:border-emerald-600/60 hover:shadow-xl transition flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-black text-lg shadow-md">
+                                03
+                            </div>
+                            <span class="text-[10px] font-black uppercase px-2.5 py-1 bg-emerald-100 text-emerald-700 rounded-full">Operación</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-black text-slate-900 mb-1">Expande</h3>
+                            <p class="text-xs font-bold text-emerald-700">A la operación profesional</p>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Haz que tu negocio funcione sin depender 100% de ti. Documenta manuales de procesos, políticas y organigrama de roles.
+                        </p>
+                        <ul class="space-y-2 pt-2 border-t border-slate-200/80 text-xs text-slate-700">
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5"></i>
+                                <span>Manuales de procesos clave</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5"></i>
+                                <span>Organigrama y delegación</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5"></i>
+                                <span>Control financiero e indicadores (KPIs)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 mt-6 border-t border-slate-200/60 text-[11px] font-semibold text-slate-500">
+                        🎯 <strong>Entregable:</strong> Sistema operativo documentado y delegable.
+                    </div>
+                </div>
+
+                <!-- FASE 4: ESCALA -->
+                <div class="bg-slate-50 rounded-3xl p-6 border border-slate-200 hover:border-slate-800/60 hover:shadow-xl transition flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center font-black text-lg shadow-md">
+                                04
+                            </div>
+                            <span class="text-[10px] font-black uppercase px-2.5 py-1 bg-slate-200 text-slate-800 rounded-full">Crecimiento</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-black text-slate-900 mb-1">Escala</h3>
+                            <p class="text-xs font-bold text-slate-800">Crecimiento sostenible</p>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Multiplica resultados, diversifica líneas de ingresos y automatiza con tecnología para abarcar más mercado con eficiencia.
+                        </p>
+                        <ul class="space-y-2 pt-2 border-t border-slate-200/80 text-xs text-slate-700">
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5"></i>
+                                <span>Embudos y marketing escalable</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5"></i>
+                                <span>Automatización de tareas repetitivas</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5"></i>
+                                <span>Proyección y expansión a 3-5 años</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pt-4 mt-6 border-t border-slate-200/60 text-[11px] font-semibold text-slate-500">
+                        🎯 <strong>Entregable:</strong> Hoja de ruta estratégica de escalamiento.
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Banner CTA de Diagnóstico Gratuito -->
+            <div class="bg-gradient-to-r from-brand-blue-dark via-brand-blue to-slate-900 rounded-3xl p-8 sm:p-10 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="space-y-2 text-center md:text-left">
+                    <span class="text-xs font-bold uppercase tracking-wider text-brand-orange-light">¿En qué etapa está tu empresa?</span>
+                    <h3 class="text-2xl sm:text-3xl font-black">Solicita una sesión de diagnóstico del Método 4E</h3>
+                    <p class="text-xs sm:text-sm text-slate-200 max-w-xl">
+                        Evaluamos juntos si estás en fase de Exploración, Estructura, Expansión o Escala y te entregamos la ruta exacta a seguir.
+                    </p>
+                </div>
+                <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20deseo%20solicitar%20un%20diagn%C3%B3stico%20del%20M%C3%A9todo%204E%20para%20mi%20negocio"
+                    target="_blank" rel="noopener"
+                    class="shrink-0 px-7 py-3.5 bg-brand-orange hover:bg-brand-orange-dark text-white rounded-xl font-bold text-sm shadow-md transition transform hover:-translate-y-0.5 flex items-center gap-2">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    <span>Agendar Diagnóstico por WhatsApp</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. CATÁLOGO DE PROGRAMAS DE FORMACIÓN -->
+    <section id="programas" class="py-16 sm:py-24 bg-slate-50 border-b border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-xs font-black uppercase tracking-wider text-brand-orange bg-brand-orange/10 px-3.5 py-1 rounded-full border border-brand-orange/20">
+                    Oferta Académica Oficial
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mt-3 mb-4">
+                    Programas diseñados para la realidad jurídica y comercial de Panamá
+                </h2>
+                <p class="text-sm sm:text-base text-slate-600">
+                    Desde la estructuración operativa hasta el blindaje preventivo ante auditorías fiscales.
+                </p>
+            </div>
+
+            <!-- Grilla de 3 Programas Armonizados con Altura Estandarizada -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+                
+                <!-- PROGRAMA 1: MÉTODO 4E -->
+                <div class="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-xl hover:border-brand-blue/50 transition group h-full">
+                    <div class="flex-1 flex flex-col">
+                        <div class="relative bg-gradient-to-br from-brand-blue/10 via-slate-50 to-blue-50/60 rounded-2xl overflow-hidden mb-5 aspect-[4/3] flex items-center justify-center p-4 border border-brand-blue/15 text-center">
+                            <div class="space-y-1.5">
+                                <div class="w-12 h-12 rounded-2xl bg-brand-blue text-white mx-auto flex items-center justify-center shadow-md">
+                                    <i data-lucide="layers" class="w-6 h-6"></i>
+                                </div>
+                                <span class="text-xs font-bold text-slate-900 block leading-tight">Método 4E</span>
+                                <span class="text-[10px] text-brand-blue font-bold block">Expande tu Emprendimiento</span>
+                            </div>
+                            <span class="absolute top-3 left-3 bg-brand-blue text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+                                4 Etapas
+                            </span>
+                            <span class="absolute top-3 right-3 bg-emerald-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+                                100% Práctico
+                            </span>
+                        </div>
+
+                        <span class="text-[10px] font-black uppercase tracking-wider text-brand-blue block min-h-[1.25rem]">Ruta Estratégica · Método 4E</span>
+                        <h3 class="text-base sm:text-lg font-black text-slate-900 mt-1 mb-2 min-h-[3.25rem] flex items-center leading-snug">
+                            Programa integral Método 4E
+                        </h3>
+                        <p class="text-xs text-slate-600 mb-4 leading-relaxed min-h-[3.75rem] flex items-start">
+                            Sistema guiado paso a paso para validar tu idea, estructurar tu modelo de negocio, profesionalizar tu operación y escalar sin improvisar.
+                        </p>
+
+                        <div class="space-y-2 mb-4 bg-slate-50 p-3.5 rounded-2xl border border-slate-100 min-h-[8.5rem] flex flex-col justify-center">
+                            <div class="flex items-start gap-2.5 text-xs text-slate-700 font-medium">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                <span class="leading-snug"><strong>4 etapas maestras:</strong> Explora, Estructura, Expande y Escala.</span>
+                            </div>
+                            <div class="flex items-start gap-2.5 text-xs text-slate-700 font-medium">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                <span class="leading-snug"><strong>Herramientas y plantillas:</strong> Canvas, finanzas y KPIs operativos.</span>
+                            </div>
+                            <div class="flex items-start gap-2.5 text-xs text-slate-700 font-medium">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                <span class="leading-snug"><strong>Resultados sostenibles:</strong> Convierte tu idea en una empresa organizada.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-100 mt-auto">
+                        <a href="#metodo-4e"
+                            class="w-full inline-flex items-center justify-center gap-2 py-3 bg-brand-blue hover:bg-brand-blue-dark text-white rounded-xl text-xs sm:text-sm font-bold transition shadow-sm hover:shadow-md">
+                            <i data-lucide="compass" class="w-4 h-4"></i>
+                            <span>Conocer el Método 4E</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PROGRAMA 2: MASTERCLASSES DE BLINDAJE & CONTINGENCIAS -->
+                <div class="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-xl hover:border-brand-orange/50 transition group h-full">
+                    <div class="flex-1 flex flex-col">
+                        <div class="relative bg-gradient-to-br from-brand-orange/10 via-slate-50 to-amber-50/60 rounded-2xl overflow-hidden mb-5 aspect-[4/3] flex items-center justify-center p-4 border border-brand-orange/15 text-center">
+                            <div class="space-y-1.5">
+                                <div class="w-12 h-12 rounded-2xl bg-brand-orange text-white mx-auto flex items-center justify-center shadow-md">
+                                    <i data-lucide="video" class="w-6 h-6"></i>
+                                </div>
+                                <span class="text-xs font-bold text-slate-900 block leading-tight">Masterclasses de Blindaje</span>
+                                <span class="text-[10px] text-brand-orange font-bold block">En Vivo & Grabadas</span>
+                            </div>
+                            <span class="absolute top-3 left-3 bg-brand-orange text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+                                Formación Continua
+                            </span>
+                            <span class="absolute top-3 right-3 bg-slate-900 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+                                Casos DGI / CSS
+                            </span>
+                        </div>
+
+                        <span class="text-[10px] font-black uppercase tracking-wider text-brand-orange block min-h-[1.25rem]">Prevención Legal & Tributaria</span>
+                        <h3 class="text-base sm:text-lg font-black text-slate-900 mt-1 mb-2 min-h-[3.25rem] flex items-center leading-snug">
+                            Masterclasses de blindaje empresarial
+                        </h3>
+                        <p class="text-xs text-slate-600 mb-4 leading-relaxed min-h-[3.75rem] flex items-start">
+                            Sesiones especializadas con consultores para entender cómo operan las auditorías de DGI, liquidaciones laborales y fiscalizaciones en Panamá.
+                        </p>
+
+                        <div class="space-y-2 mb-4 bg-slate-50 p-3.5 rounded-2xl border border-slate-100 min-h-[8.5rem] flex flex-col justify-center">
+                            <div class="flex items-start gap-2.5 text-xs text-slate-700 font-medium">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                <span class="leading-snug"><strong>Protocolos de inspección:</strong> Qué hacer si llega el MITRADEL o la CSS.</span>
+                            </div>
+                            <div class="flex items-start gap-2.5 text-xs text-slate-700 font-medium">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                <span class="leading-snug"><strong>Cero alucinaciones fiscales:</strong> Facturación electrónica y deducciones.</span>
+                            </div>
+                            <div class="flex items-start gap-2.5 text-xs text-slate-700 font-medium">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                <span class="leading-snug"><strong>Grabaciones disponibles:</strong> Repasa cada sesión cuando lo requieras.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-100 mt-auto">
+                        <a href="https://wa.me/50765461527?text=Hola,%20deseo%20informaci%C3%B3n%20sobre%20las%20Masterclasses%20de%20Blindaje%20Empresarial"
+                            target="_blank" rel="noopener"
+                            class="w-full inline-flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-xl text-xs sm:text-sm font-bold transition shadow-sm hover:shadow-md">
+                            <i data-lucide="calendar" class="w-4 h-4"></i>
+                            <span>Próximas Fechas & Acceso</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PROGRAMA 3: CURSO PRÁCTICO DE FINANZAS & CONTROL DE CAJA -->
+                <div class="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-xl hover:border-emerald-500/50 transition group h-full">
+                    <div class="flex-1 flex flex-col">
+                        <div class="relative bg-gradient-to-br from-emerald-500/10 via-slate-50 to-teal-50/60 rounded-2xl overflow-hidden mb-5 aspect-[4/3] flex items-center justify-center p-4 border border-emerald-500/15 text-center">
+                            <div class="space-y-1.5">
+                                <div class="w-12 h-12 rounded-2xl bg-emerald-600 text-white mx-auto flex items-center justify-center shadow-md">
+                                    <i data-lucide="trending-up" class="w-6 h-6"></i>
+                                </div>
+                                <span class="text-xs font-bold text-slate-900 block leading-tight">Curso Práctico</span>
+                                <span class="text-[10px] text-emerald-700 font-bold block">Finanzas & Control de Caja</span>
+                            </div>
+                            <span class="absolute top-3 left-3 bg-emerald-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+                                Formato Video
+                            </span>
+                            <span class="absolute top-3 right-3 bg-slate-900 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+                                Campus 24/7
+                            </span>
+                        </div>
+
+                        <span class="text-[10px] font-black uppercase tracking-wider text-emerald-700 block min-h-[1.25rem]">Control Financiero & Escala</span>
+                        <h3 class="text-base sm:text-lg font-black text-slate-900 mt-1 mb-2 min-h-[3.25rem] flex items-center leading-snug">
+                            Curso práctico de finanzas y control de caja
+                        </h3>
+                        <p class="text-xs text-slate-600 mb-4 leading-relaxed min-h-[3.75rem] flex items-start">
+                            Aprende a fijar precios rentables, proyectar tu flujo de caja mensual y separar con orden las cuentas personales de las del negocio sin descapitalizarte.
+                        </p>
+
+                        <div class="space-y-2 mb-4 bg-slate-50 p-3.5 rounded-2xl border border-slate-100 min-h-[8.5rem] flex flex-col justify-center">
+                            <div class="flex items-start gap-2.5 text-xs text-slate-700 font-medium">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                <span class="leading-snug"><strong>Estructura de costos:</strong> Domina la fijación de precios que garanticen margen real.</span>
+                            </div>
+                            <div class="flex items-start gap-2.5 text-xs text-slate-700 font-medium">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                <span class="leading-snug"><strong>Control de tesorería:</strong> Reglas claras para salario del fundador y caja viva.</span>
+                            </div>
+                            <div class="flex items-start gap-2.5 text-xs text-slate-700 font-medium">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                <span class="leading-snug"><strong>Tableros de decisión:</strong> Proyecciones sencillas para operar con números fríos.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-100 mt-auto">
+                        <a href="https://escuela.aizprua.com" target="_blank" rel="noopener"
+                            class="w-full inline-flex items-center justify-center gap-2 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs sm:text-sm font-bold transition shadow-sm hover:shadow-md">
+                            <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+                            <span>Ingresar al Curso</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 6. SHOWCASE TECNOLÓGICO DEL AULA VIRTUAL (escuela.aizprua.com) -->
+    <section class="py-16 sm:py-24 bg-white border-b border-slate-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="relative bg-gradient-to-br from-slate-950 via-slate-900 to-brand-blue-dark rounded-3xl sm:rounded-[2.5rem] p-8 sm:p-12 text-white overflow-hidden shadow-2xl border border-slate-800">
+                <!-- Luces decorativas internas -->
+                <div class="absolute -top-24 -right-24 w-80 h-80 bg-brand-orange/20 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -bottom-24 -left-24 w-80 h-80 bg-brand-blue/30 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
+                    <div class="max-w-2xl space-y-4 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-brand-orange-light text-[11px] font-black uppercase tracking-wider">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                            Aula Virtual Dedicada · escuela.aizprua.com
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-black text-white tracking-tight leading-snug">
+                            Una experiencia de estudio moderna, privada y sin interrupciones
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                            Al inscribirte en cualquiera de nuestros programas obtienes acceso directo a nuestro campus privado en <strong>escuela.aizprua.com</strong>. Sin publicidad invasiva de terceros ni límites de tiempo para repasar tus lecciones.
+                        </p>
+                    </div>
+
+                    <!-- Botones de Acción del Campus Virtual -->
+                    <div class="flex flex-col sm:flex-row lg:flex-col gap-3.5 w-full sm:w-auto lg:w-72 shrink-0">
+                        <a href="https://escuela.aizprua.com"
+                            target="_blank" rel="noopener"
+                            class="w-full sm:w-auto lg:w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-brand-orange hover:bg-brand-orange-dark text-white rounded-xl font-bold text-sm shadow-xl hover:shadow-orange-500/25 transition transform hover:-translate-y-0.5 whitespace-nowrap">
+                            <i data-lucide="log-in" class="w-4 h-4 shrink-0"></i>
+                            <span>Ingresar al Campus Virtual</span>
+                        </a>
+
+                        <a href="https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20las%20capacitaciones%20de%20la%20Escuela%20Aizprua"
+                            target="_blank" rel="noopener"
+                            class="w-full sm:w-auto lg:w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-xl font-bold text-sm shadow-sm hover:shadow-white/10 transition transform hover:-translate-y-0.5 whitespace-nowrap">
+                            <i data-lucide="message-circle" class="w-4 h-4 shrink-0 text-[#25D366]"></i>
+                            <span>Consultar por WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. PREGUNTAS FRECUENTES (FAQ) -->
+    <section class="py-16 sm:py-24 bg-slate-50 border-b border-slate-200/80">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-xs font-black uppercase tracking-wider text-brand-blue bg-brand-blue/10 px-3.5 py-1 rounded-full border border-brand-blue/20">
+                    Preguntas Frecuentes
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mt-3 mb-2">
+                    Dudas comunes sobre la Escuela Aizprua
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-600">
+                    Todo lo que necesitas saber antes de iniciar tu formación empresarial.
+                </p>
+            </div>
+
+            <div class="space-y-4">
+                <details class="group bg-white rounded-2xl border border-slate-200 p-5 open:shadow-md transition">
+                    <summary class="flex justify-between items-center font-bold text-slate-900 cursor-pointer list-none text-sm sm:text-base">
+                        <span>¿Cómo accedo al Campus Virtual tras inscribirme?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-500 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed border-t border-slate-100 pt-3">
+                        Una vez confirmada tu inscripción, recibirás un correo electrónico con tus credenciales de acceso directo a <strong>https://escuela.aizprua.com</strong>. Podrás entrar desde cualquier dispositivo (computadora, tablet o smartphone) y empezar tus lecciones inmediatamente.
+                    </p>
+                </details>
+
+                <details class="group bg-white rounded-2xl border border-slate-200 p-5 open:shadow-md transition">
+                    <summary class="flex justify-between items-center font-bold text-slate-900 cursor-pointer list-none text-sm sm:text-base">
+                        <span>¿Las capacitaciones son teóricas o prácticas?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-500 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed border-t border-slate-100 pt-3">
+                        Son <strong>100% prácticas y aplicadas</strong>. Cada módulo del Método 4E y de nuestras Masterclasses incluye plantillas editables (Word y Excel), casos reales de empresas en Panamá y guías paso a paso para que implementes los cambios de inmediato en tu operación.
+                    </p>
+                </details>
+
+                <details class="group bg-white rounded-2xl border border-slate-200 p-5 open:shadow-md transition">
+                    <summary class="flex justify-between items-center font-bold text-slate-900 cursor-pointer list-none text-sm sm:text-base">
+                        <span>¿Recibo algún certificado de culminación?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-500 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed border-t border-slate-100 pt-3">
+                        Sí. Al completar todas las lecciones y ejercicios requeridos de cada programa, el campus emite un <strong>Certificado Oficial emitido por Aizprua S.E.</strong> con código único de verificación.
+                    </p>
+                </details>
+
+                <details class="group bg-white rounded-2xl border border-slate-200 p-5 open:shadow-md transition">
+                    <summary class="flex justify-between items-center font-bold text-slate-900 cursor-pointer list-none text-sm sm:text-base">
+                        <span>¿Por cuánto tiempo tendré acceso a las lecciones?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-500 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed border-t border-slate-100 pt-3">
+                        Tienes <strong>acceso continuo y sin límite de tiempo</strong> para repasar los contenidos, actualizaciones del material y descargar recursos cada vez que tu empresa lo requiera.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. FOOTER CANÓNICO OFICIAL -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                
+                <!-- Columna 1: Marca y Redes -->
+                <div class="flex flex-col items-start">
+                    <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-21-nobg.svg"
+                        onerror="this.onerror=null; this.src='/assets/LOGOS PARA DIGITAL INDIVIDUALES-21-nobg.svg';"
+                        alt="Aizprua S.E." class="h-20 w-auto -mt-7 -mb-4 -ml-3">
+                    <p class="text-sm text-slate-400 mb-3">Tu aliado legal y empresarial en Panamá.</p>
+                    <div class="flex gap-3">
+                        <a target="_blank" rel="noopener" href="https://instagram.com/aizpruase" class="w-10 h-10 bg-slate-800 hover:bg-pink-600 rounded-full flex items-center justify-center text-white transition" aria-label="Instagram"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                        <a target="_blank" rel="noopener" href="https://facebook.com/aizpruase" class="w-10 h-10 bg-slate-800 hover:bg-brand-blue rounded-full flex items-center justify-center text-white transition" aria-label="Facebook"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                        <a target="_blank" rel="noopener" href="https://www.youtube.com/@AizpruaSE" class="w-10 h-10 bg-slate-800 hover:bg-red-600 rounded-full flex items-center justify-center text-white transition" aria-label="YouTube"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+                        <a href="https://wa.me/50765461527" target="_blank" class="w-10 h-10 bg-slate-800 hover:bg-green-500 rounded-full flex items-center justify-center text-white transition" aria-label="WhatsApp"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Soluciones -->
+                <div>
+                    <h4 class="font-bold text-white mb-4">Soluciones</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="https://escudo.aizprua.com/" class="hover:text-white transition">Asesoría Escudo Preventivo</a></li>
+                        <li><a href="/tienda" class="hover:text-white transition">Tienda Online</a></li>
+                        <li><a href="/plan-360-digital" class="hover:text-white transition">Plan 360 Digital ($19.99)</a></li>
+                        <li><a href="/plan-360" class="hover:text-white transition">Plan 360 Kit Físico ($39.99)</a></li>
+                        <li><a href="/test-interactivo" class="hover:text-white transition">Test de auditoría gratis</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Escuela y Formación -->
+                <div>
+                    <h4 class="font-bold text-white mb-4">Escuela Aizprua</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="https://escuela.aizprua.com" target="_blank" rel="noopener" class="text-brand-orange-light font-bold hover:text-white transition">Acceso al Campus Virtual</a></li>
+                        <li><a href="#metodo-4e" class="hover:text-white transition">El Método 4E</a></li>
+                        <li><a href="#programas" class="hover:text-white transition">Masterclasses de Blindaje</a></li>
+                        <li><a href="#programas" class="hover:text-white transition">Laboratorio de Finanzas</a></li>
+                        <li><a href="/blog" class="hover:text-white transition">Blog de Inteligencia</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Contacto y Legal -->
+                <div>
+                    <h4 class="font-bold text-white mb-4">Contacto & Soporte</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="https://wa.me/50765461527" target="_blank" class="hover:text-white flex items-center gap-1.5"><i data-lucide="phone" class="w-3.5 h-3.5 text-brand-orange"></i><span>+507 6546-1527</span></a></li>
+                        <li><a href="mailto:info@aizprua.com" class="hover:text-white flex items-center gap-1.5"><i data-lucide="mail" class="w-3.5 h-3.5 text-brand-blue-light"></i><span>info@aizprua.com</span></a></li>
+                        <li><span class="text-slate-400">Panamá Oeste, La Chorrera</span></li>
+                        <li class="pt-2 border-t border-slate-800 flex gap-4 text-xs">
+                            <a href="/privacidad" class="hover:text-white transition">Privacidad</a>
+                            <a href="/terminos" class="hover:text-white transition">Términos</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Copyright Oficial -->
+            <div class="pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
+                &copy; 2026 Aizprua S.E. Todos los derechos reservados. Consultoría Legal y Formación Empresarial Estratégica.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contenedor Flotante de Acciones -->
+    <div class="fixed bottom-6 right-6 z-40 flex flex-col items-center gap-3 pointer-events-none">
+        <button id="scroll-top-btn" onclick="scrollToTop()" aria-label="Volver arriba"
+            class="w-11 h-11 bg-white/95 backdrop-blur border border-slate-300 hover:border-brand-blue text-slate-700 hover:text-brand-blue rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:-translate-y-1 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="chevron-up" class="w-5 h-5"></i>
+        </button>
+
+        <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20tengo%20una%20consulta%20sobre%20la%20Escuela%20de%20Negocios"
+            target="_blank" rel="noopener" aria-label="Abrir WhatsApp"
+            class="pointer-events-auto w-14 h-14 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center group relative flex-shrink-0">
+            <i data-lucide="message-circle" class="w-7 h-7"></i>
+            <span class="absolute right-full mr-3 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
+                ¿Consultas? Chatea con nosotros
+            </span>
+        </a>
+    </div>
+
+    <!-- Scripts Oficiales de Interacción -->
+    <script>
+        // Toggle Menú Móvil
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Scroll to Top
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.addEventListener('scroll', () => {
+            const btn = document.getElementById('scroll-top-btn');
+            if (btn) {
+                if (window.scrollY > 400) {
+                    btn.classList.remove('opacity-0', 'pointer-events-none');
+                    btn.classList.add('opacity-100', 'pointer-events-auto');
+                } else {
+                    btn.classList.add('opacity-0', 'pointer-events-none');
+                    btn.classList.remove('opacity-100', 'pointer-events-auto');
+                }
+            }
+
+            const bar = document.getElementById('progress-bar');
+            if (bar) {
+                const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                bar.style.width = scrolled + '%';
+            }
+        });
+
+        // Inicialización
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
+    </script>
+</body>
+
+</html>

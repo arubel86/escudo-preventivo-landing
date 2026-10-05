@@ -51,29 +51,61 @@
     <script src="https://unpkg.com/lucide@latest" defer></script>
 </head>
 
-<body class="bg-slate-50 text-slate-800 antialiased flex flex-col min-h-screen selection:bg-brand-orange selection:text-white">
+<body class="bg-slate-50 text-slate-800 antialiased flex flex-col min-h-screen selection:bg-brand-orange selection:text-white relative">
 
-    <!-- Header Canónico Oficial -->
-    <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40">
+    <!-- Barra de Progreso de Lectura Canónica -->
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-brand-orange z-[60] transition-all duration-75" style="width:0%"></div>
+
+    <!-- ==================================================== -->
+    <!-- 1. BARRA SUPERIOR DE ANUNCIOS (ANNOUNCEMENT BAR)     -->
+    <!-- ==================================================== -->
+    <div id="announcement-bar" class="relative bg-brand-blue text-white py-2.5 px-4 text-center text-xs sm:text-sm font-semibold z-50">
+        <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 flex-wrap">
+            <span class="hidden sm:inline-flex items-center gap-1.5 bg-white/10 px-2 py-0.5 rounded-full text-brand-orange-light text-[11px] font-black uppercase tracking-wider">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                Autodiagnóstico 2026
+            </span>
+            <span>¿Tu empresa tiene fugas de dinero o riesgos de multas sin darte cuenta?</span>
+            <a href="/test-interactivo" class="inline-flex items-center gap-1 text-white underline font-bold hover:text-brand-orange-light transition">
+                <span>Hacer Test en 3 minutos</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+        </div>
+        <button onclick="document.getElementById('announcement-bar').style.display='none'"
+            aria-label="Cerrar aviso" class="absolute right-3 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition p-1">
+            <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+    </div>
+
+    <!-- ==================================================== -->
+    <!-- 2. HEADER CANÓNICO OFICIAL (NAVBAR LIMPIO)            -->
+    <!-- ==================================================== -->
+    <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40 transition-all">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20 sm:h-24 md:h-28">
+            <div class="flex justify-between items-center h-20">
+
+                <!-- Logotipo Canónico Oficial -->
                 <a href="/" class="flex items-center flex-shrink-0" aria-label="Aizprua S.E. Inicio">
                     <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg"
                         onerror="this.onerror=null; this.src='/assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg';"
                         alt="Logo Aizprua S.E. - Firma Legal y Empresarial en Panamá"
-                        class="h-20 sm:h-24 md:h-28 w-auto object-contain" width="112" height="112">
+                        class="h-28 w-auto object-contain" width="112" height="112">
                 </a>
 
+                <!-- Navegación de Escritorio Limpia -->
                 <nav class="hidden lg:flex items-center space-x-8 text-sm font-semibold text-slate-700">
                     <a href="/#servicios" class="hover:text-brand-blue transition">Servicios</a>
-                    <a href="/tienda" class="hover:text-brand-blue transition">Tienda Online</a>
+                    <a href="/tienda" class="hover:text-brand-blue transition flex items-center gap-1.5">
+                        <span>Tienda Online</span>
+                        <span class="bg-brand-orange/10 text-brand-orange text-[10px] font-black px-2 py-0.5 rounded-full border border-brand-orange/20">Kits</span>
+                    </a>
+                    <a href="/escuela" class="hover:text-brand-blue transition flex items-center gap-1 text-slate-500">
+                        <i data-lucide="graduation-cap" class="w-4 h-4 text-brand-blue"></i>
+                        <span>Escuela</span>
+                    </a>
                     <a href="/blog" class="text-brand-blue font-bold flex items-center gap-1.5">
                         <span>Blog</span>
                         <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span>
-                    </a>
-                    <a href="/#comunidad" class="hover:text-brand-blue transition flex items-center gap-1 text-slate-500">
-                        <i data-lucide="graduation-cap" class="w-4 h-4 text-brand-blue"></i>
-                        <span>Academia</span>
                     </a>
                     <span class="text-slate-300">|</span>
                     <a href="tel:+50765461527" class="flex items-center gap-1.5 text-slate-600 hover:text-brand-blue transition">
@@ -82,8 +114,9 @@
                     </a>
                 </nav>
 
+                <!-- Botón CTA WhatsApp Oficial Canónico -->
                 <div class="hidden sm:flex items-center gap-3">
-                    <a href="https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20para%20el%20equipo%20editorial%20de%20Aizprua"
+                    <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20sobre%20sus%20servicios"
                         target="_blank" rel="noopener"
                         class="flex items-center gap-2 bg-[#25D366] text-white px-5 py-2.5 rounded-full font-bold text-sm hover:bg-[#20bd5a] transition shadow-md whitespace-nowrap">
                         <i data-lucide="message-circle" class="w-4 h-4 flex-shrink-0"></i>
@@ -91,6 +124,7 @@
                     </a>
                 </div>
 
+                <!-- Botón Menú Móvil -->
                 <div class="flex items-center lg:hidden">
                     <button onclick="toggleMobileMenu()" aria-label="Abrir menú" class="text-slate-700 p-2">
                         <i data-lucide="menu" class="w-6 h-6"></i>
@@ -99,31 +133,108 @@
             </div>
         </div>
 
-        <!-- Menú Móvil -->
+        <!-- Menú Móvil Desplegable -->
         <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-200 px-4 py-4 space-y-3">
             <a href="/#servicios" class="block py-2 text-slate-700 font-bold">Servicios (Asesoría & Trámites)</a>
             <a href="/tienda" class="block py-2 text-slate-700 font-bold">Tienda Online (Kits & Soluciones)</a>
             <a href="/blog" class="block py-2 text-brand-blue font-bold">Blog de Inteligencia</a>
             <a href="/test-interactivo" class="block py-2 text-brand-orange font-bold">Test de Auditoría Gratis</a>
+            <a href="https://wa.me/50765461527" target="_blank" class="block py-2 text-emerald-600 font-bold">Contactar por WhatsApp</a>
         </div>
     </header>
 
-    <!-- Hero / Portada del Blog -->
-    <div class="bg-slate-900 text-white py-12 sm:py-16 border-b border-slate-800 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="max-w-3xl">
-                <span class="text-xs font-black uppercase tracking-wider text-brand-orange bg-brand-orange/10 px-3.5 py-1 rounded-full border border-brand-orange/20">
-                    Centro de Inteligencia & Guías 2026
-                </span>
-                <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight mt-3 mb-3">
-                    Blog Legal y Empresarial
-                </h1>
-                <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-                    Estrategias claras, consejos prácticos de mentalidad y guías paso a paso para que estructures, formalices y protejas tu negocio en Panamá.
-                </p>
+    <!-- Hero / Portada del Blog (Estilo Editorial Limpio con Tarjeta Flotante de Suscripción) -->
+    <section class="py-10 sm:py-14 border-b border-slate-200/80 relative bg-gradient-to-b from-slate-50/50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+                
+                <!-- Columna Izquierda: Identidad Editorial Limpia -->
+                <div class="lg:col-span-7 space-y-4 text-left">
+                    <div class="inline-flex items-center gap-2">
+                        <span class="text-xs font-black uppercase tracking-wider text-brand-orange bg-brand-orange/10 px-3.5 py-1 rounded-full border border-brand-orange/20 inline-block">
+                            Centro de Inteligencia & Guías 2026
+                        </span>
+                        <span class="text-[11px] font-bold text-slate-500 hidden sm:inline-flex items-center gap-1.5 bg-slate-100/80 px-2.5 py-0.5 rounded-full border border-slate-200">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                            Actualizado semanalmente
+                        </span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                        Eleva tu criterio empresarial y asegura el futuro de tu negocio
+                    </h1>
+
+                    <p class="text-base sm:text-lg font-semibold text-slate-800 leading-snug">
+                        Con el blog más completo de Panamá sobre mentalidad, inteligencia jurídica y blindaje operativo.
+                    </p>
+
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-xl">
+                        Las lecciones aprendidas y los métodos probados que hemos perfeccionado asesorando negocios, condensados en lecturas estratégicas para evitar riesgos costosos, captar capital y liderar con total tranquilidad.
+                    </p>
+                </div>
+
+                <!-- Columna Derecha: Tarjeta Flotante Compacta del Boletín -->
+                <div class="lg:col-span-5 w-full">
+                    <div class="relative group">
+                        <!-- Resplandor ambiental de fondo sutil -->
+                        <div class="absolute -inset-1.5 bg-gradient-to-tr from-brand-blue/15 to-brand-orange/20 rounded-3xl blur-lg opacity-70 group-hover:opacity-100 transition duration-500 pointer-events-none"></div>
+
+                        <!-- Tarjeta Flotante Principal Compacta -->
+                        <div class="relative bg-white/95 backdrop-blur border border-slate-200/90 rounded-3xl p-6 sm:p-7 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+                            
+                            <!-- Encabezado de la Tarjeta -->
+                            <div class="flex items-start gap-3.5 mb-3">
+                                <div class="w-11 h-11 rounded-2xl bg-brand-orange/10 text-brand-orange flex items-center justify-center flex-shrink-0 shadow-sm">
+                                    <i data-lucide="mail" class="w-5 h-5"></i>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <span class="inline-block text-[10px] font-black uppercase tracking-wider text-brand-orange bg-brand-orange/10 px-2.5 py-0.5 rounded-full mb-1">
+                                        Boletín VIP Exclusivo
+                                    </span>
+                                    <h3 class="text-base sm:text-lg font-bold text-slate-900 leading-snug">
+                                        Alertas Legales & Negocios
+                                    </h3>
+                                </div>
+                            </div>
+
+                            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                                Recibe en tu correo cambios en leyes panameñas, alertas de la DGI y estrategias de crédito bancario antes que tu competencia.
+                            </p>
+
+                            <!-- Formulario de Suscripción -->
+                            <form id="hero-newsletter-form" onsubmit="handleHeroNewsletter(event)" class="space-y-2.5">
+                                <div class="relative">
+                                    <input type="email" id="hero-newsletter-email" required placeholder="Ingresa tu correo empresarial..."
+                                        class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-brand-blue focus:bg-white focus:ring-2 focus:ring-brand-blue/20 transition-all">
+                                </div>
+                                <button type="submit" id="hero-newsletter-btn"
+                                    class="w-full py-3 px-4 bg-brand-orange hover:bg-brand-orange-dark text-white text-xs sm:text-sm font-bold rounded-xl shadow-lg shadow-brand-orange/20 hover:shadow-brand-orange/35 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 flex items-center justify-center gap-2">
+                                    <span>Suscribirme Gratis al Boletín</span>
+                                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                                </button>
+                            </form>
+
+                            <!-- Feedback de Éxito Oculto Inicialmente -->
+                            <div id="hero-newsletter-success" class="hidden text-center py-3 px-4 bg-emerald-50 border border-emerald-200 rounded-xl mt-3 text-xs font-bold text-emerald-800 flex items-center justify-center gap-2">
+                                <i data-lucide="mail-check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                                <span>¡Listo! Revisa tu bandeja de entrada para confirmar tu suscripción.</span>
+                            </div>
+
+                            <!-- Footer de Confianza justo bajo el botón sin espacio vacío -->
+                            <div class="mt-4 pt-3.5 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
+                                <span class="flex items-center gap-1.5 font-medium">
+                                    <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
+                                    0% Spam · 100% Legal
+                                </span>
+                                <span class="text-slate-400">Cancela en 1 clic</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Contenedor Principal: Layout Editorial WordPress (2 Columnas) -->
     <main class="flex-grow py-10 sm:py-14 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
@@ -137,10 +248,10 @@
 
                 <!-- 1. ARTÍCULO DESTACADO (FEATURED POST) -->
                 <article class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition duration-300 group">
-                    <div class="relative aspect-[16/9] bg-slate-800 overflow-hidden">
-                        <img src="assets/plan-360-og.jpg" alt="Cómo empezar a emprender" class="w-full h-full object-cover group-hover:scale-105 transition duration-500 opacity-90">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
-                        <span class="absolute top-4 left-4 bg-brand-orange text-white text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full shadow">
+                    <div class="relative aspect-[654/315] bg-slate-900 overflow-hidden">
+                        <img src="assets/portada-articulo-emprender.png" onerror="this.onerror=null; this.src='/assets/portada-articulo-emprender.png';" alt="Cómo empezar a emprender en Panamá" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none"></div>
+                        <span class="absolute top-4 left-4 z-20 bg-brand-orange text-white text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full shadow">
                             Artículo Destacado
                         </span>
                     </div>
@@ -175,15 +286,19 @@
                 </article>
 
                 <!-- 2. CUADRÍCULA DE ARTÍCULOS ADICIONALES -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8 scroll-mt-24">
 
                     <!-- POST 2: 5 CONSEJOS DE MENTALIDAD -->
-                    <article class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-lg transition flex flex-col justify-between group">
+                    <article class="blog-post-card bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-lg transition flex flex-col justify-between group">
+                        <div class="relative aspect-[654/315] bg-slate-900 overflow-hidden">
+                            <img src="assets/portada-articulo-mentalidad.png" onerror="this.onerror=null; this.src='/assets/portada-articulo-mentalidad.png';" alt="5 consejos que te cambiarán la forma de pensar" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+
                         <div class="p-6 sm:p-7 space-y-3">
                             <div class="flex items-center gap-2 text-[11px] text-slate-500 font-bold">
                                 <span class="text-brand-orange uppercase">MENTALIDAD EMPRESARIAL</span>
                                 <span>•</span>
-                                <span>4 min lectura</span>
+                                <span>7 min lectura</span>
                             </div>
 
                             <h3 class="text-lg font-black text-slate-900 group-hover:text-brand-blue transition leading-snug">
@@ -206,18 +321,22 @@
                         </div>
                     </article>
 
-                    <!-- POST 3: GUÍA ANTI-MULTAS (EDUCATIVO) -->
-                    <article class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-lg transition flex flex-col justify-between group">
+                    <!-- POST 3: GUÍA ANTI-MULTAS (ARTÍCULO COMPLETO) -->
+                    <article class="blog-post-card bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-lg transition flex flex-col justify-between group">
+                        <div class="relative aspect-[654/315] bg-slate-900 overflow-hidden">
+                            <img src="assets/portada-articulo-multas.png" onerror="this.onerror=null; this.src='/assets/portada-articulo-multas.png';" alt="Las 7 multas ocultas más frecuentes de la DGI y CSS en Panamá" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+
                         <div class="p-6 sm:p-7 space-y-3">
                             <div class="flex items-center gap-2 text-[11px] text-slate-500 font-bold">
                                 <span class="text-emerald-600 uppercase">BLINDAJE & CUMPLIMIENTO</span>
                                 <span>•</span>
-                                <span>6 min lectura</span>
+                                <span>8 min lectura</span>
                             </div>
 
                             <h3 class="text-lg font-black text-slate-900 group-hover:text-brand-blue transition leading-snug">
-                                <a href="/recursos-gratuitos">
-                                    Las 7 multas ocultas más frecuentes de la DGI y CSS en Panamá (y cómo prevenirlas)
+                                <a href="/articulo-multas-panama">
+                                    Las 7 multas ocultas de la DGI y CSS en Panamá que están quebrando a pymes (y cómo evitarlas)
                                 </a>
                             </h3>
 
@@ -227,14 +346,109 @@
                         </div>
 
                         <div class="p-6 pt-0 border-t border-slate-100 mt-auto flex items-center justify-between">
-                            <a href="/recursos-gratuitos" class="text-xs font-bold text-emerald-600 hover:underline inline-flex items-center gap-1.5 pt-4">
-                                <span>Ver guía completa</span>
+                            <a href="/articulo-multas-panama" class="text-xs font-bold text-brand-blue hover:underline inline-flex items-center gap-1.5 pt-4">
+                                <span>Leer artículo</span>
                                 <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
                             </a>
-                            <span class="text-[11px] text-slate-400 pt-4">Recurso Gratuito</span>
+                            <span class="text-[11px] text-slate-400 pt-4">Por Arubel Aizprua</span>
                         </div>
                     </article>
 
+                    <!-- POST 4: 5 REQUISITOS PARA CRÉDITO COMERCIAL -->
+                    <article class="blog-post-card bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-lg transition flex flex-col justify-between group">
+                        <div class="relative aspect-[654/315] bg-slate-900 overflow-hidden">
+                            <img src="assets/portada-articulo-credito.png" onerror="this.onerror=null; this.src='/assets/portada-articulo-credito.png';" alt="5 requisitos reales para crédito comercial en Panamá" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+
+                        <div class="p-6 sm:p-7 space-y-3">
+                            <div class="flex items-center gap-2 text-[11px] text-slate-500 font-bold">
+                                <span class="text-brand-blue uppercase">FINANZAS & BANCARIZACIÓN</span>
+                                <span>•</span>
+                                <span>9 min lectura</span>
+                            </div>
+
+                            <h3 class="text-lg font-black text-slate-900 group-hover:text-brand-blue transition leading-snug">
+                                <a href="/articulo-credito-bancario">
+                                    Los 5 requisitos reales que exigen los bancos en Panamá para aprobar un crédito comercial
+                                </a>
+                            </h3>
+
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Criterios no publicados de comités de crédito, ratio de cobertura DSCR mínimo de 1.3x y el impacto crítico del historial APC personal de los directores firmantes.
+                            </p>
+                        </div>
+
+                        <div class="p-6 pt-0 border-t border-slate-100 mt-auto flex items-center justify-between">
+                            <a href="/articulo-credito-bancario" class="text-xs font-bold text-brand-blue hover:underline inline-flex items-center gap-1.5 pt-4">
+                                <span>Leer artículo</span>
+                                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                            </a>
+                            <span class="text-[11px] text-slate-400 pt-4">Por Arubel Aizprua</span>
+                        </div>
+                    </article>
+
+                    <!-- POST 5: 4 ERRORES FATALES EN CONTRATOS COMERCIALES -->
+                    <article class="blog-post-card bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-lg transition flex flex-col justify-between group">
+                        <div class="relative aspect-[654/315] bg-slate-900 overflow-hidden">
+                            <img src="assets/portada-articulo-contratos.png" onerror="this.onerror=null; this.src='/assets/portada-articulo-contratos.png';" alt="4 errores fatales al firmar contratos comerciales" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+
+                        <div class="p-6 sm:p-7 space-y-3">
+                            <div class="flex items-center gap-2 text-[11px] text-slate-500 font-bold">
+                                <span class="text-brand-orange uppercase">BLINDAJE LEGAL & CONTRATOS</span>
+                                <span>•</span>
+                                <span>8 min lectura</span>
+                            </div>
+
+                            <h3 class="text-lg font-black text-slate-900 group-hover:text-brand-blue transition leading-snug">
+                                <a href="/articulo-contratos-comerciales">
+                                    4 errores fatales al firmar contratos comerciales que pueden quebrar tu negocio en Panamá
+                                </a>
+                            </h3>
+
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Los peligros de usar plantillas de Google, la trampa de la responsabilidad ilimitada y cómo pactar cláusulas de arbitraje y salida temprana para proteger tu patrimonio.
+                            </p>
+                        </div>
+
+                        <div class="p-6 pt-0 border-t border-slate-100 mt-auto flex items-center justify-between">
+                            <a href="/articulo-contratos-comerciales" class="text-xs font-bold text-brand-blue hover:underline inline-flex items-center gap-1.5 pt-4">
+                                <span>Leer artículo</span>
+                                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                            </a>
+                            <span class="text-[11px] text-slate-400 pt-4">Por Arubel Aizprua</span>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- 3. COMPONENTE DE PAGINACIÓN CANÓNICA -->
+                <div id="blog-pagination" class="pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <p id="pagination-info" class="text-xs text-slate-500 font-medium">
+                        Mostrando <span id="pag-start" class="font-bold text-slate-900">1</span>–<span id="pag-end" class="font-bold text-slate-900">4</span> de <span id="pag-total" class="font-bold text-slate-900">4</span> artículos
+                    </p>
+                    <div class="flex items-center gap-2">
+                        <button id="prev-page-btn" onclick="goToBlogPage(currentBlogPage - 1)" class="px-3.5 py-2 rounded-xl text-xs font-bold text-slate-600 bg-white hover:bg-slate-50 border border-slate-200 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-1 shadow-xs">
+                            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                            <span>Anterior</span>
+                        </button>
+                        <div id="pagination-numbers" class="flex items-center gap-1.5">
+                            <!-- Los números de página se renderizan dinámicamente -->
+                        </div>
+                        <button id="next-page-btn" onclick="goToBlogPage(currentBlogPage + 1)" class="px-3.5 py-2 rounded-xl text-xs font-bold text-slate-600 bg-white hover:bg-slate-50 border border-slate-200 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-1 shadow-xs">
+                            <span>Siguiente</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mensaje de no resultados para el buscador -->
+                <div id="blog-no-results" class="hidden p-8 text-center bg-white rounded-3xl border border-slate-200 shadow-sm">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center mx-auto mb-3">
+                        <i data-lucide="search-x" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-slate-900 mb-1">No se encontraron artículos</h3>
+                    <p class="text-xs text-slate-500">Prueba con otra palabra clave como <em>multas</em>, <em>contratos</em>, <em>crédito</em> o <em>mentalidad</em>.</p>
                 </div>
 
             </div>
@@ -249,7 +463,7 @@
                     <h4 class="text-xs font-black uppercase tracking-wider text-slate-500 mb-3">Buscar en el Blog</h4>
                     <div class="relative">
                         <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
-                        <input type="text" placeholder="Buscar por tema..."
+                        <input type="text" id="blog-search-input" placeholder="Buscar por tema..."
                             class="w-full pl-10 pr-4 py-2.5 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-brand-blue">
                     </div>
                 </div>
@@ -288,38 +502,42 @@
 
                 <!-- 4. Widget Banner de Producto: Plan 360 -->
                 <div class="bg-slate-900 text-white p-6 rounded-3xl border border-slate-800 text-center space-y-3">
-                    <span class="text-[10px] font-black uppercase text-brand-orange tracking-wider">Solución Lista</span>
-                    <h4 class="text-base font-black">Plan 360 Empresarial</h4>
+                    <span class="text-[10px] font-black uppercase text-brand-orange tracking-wider">Solución lista</span>
+                    <h4 class="text-base font-black">Plan 360 empresarial</h4>
                     <p class="text-xs text-slate-300">
-                        Plantillas en Word y Excel para blindar contratos y ordenar el flujo de caja de tu empresa.
+                        Cuaderno maestro en PDF interactivo rellenable de 35 páginas a color para tablet, iPad, laptop y PC.
                     </p>
                     <div class="text-xl font-black text-white">$19.99 <span class="text-xs font-normal text-slate-400">USD</span></div>
                     <a href="/tienda" class="w-full inline-flex items-center justify-center gap-2 py-2.5 bg-white text-slate-900 rounded-xl text-xs font-bold hover:bg-slate-100 transition">
-                        <span>Ver en la Tienda</span>
+                        <span>Ver en la tienda</span>
                         <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
                     </a>
                 </div>
 
-                <!-- 5. Categorías -->
-                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
-                    <h4 class="text-xs font-black uppercase tracking-wider text-slate-500 mb-3">Temas Principales</h4>
-                    <div class="space-y-2 text-xs font-bold text-slate-700">
-                        <a href="/blog" class="flex justify-between items-center py-1 hover:text-brand-blue">
-                            <span>Emprendimiento & Formalización</span>
-                            <span class="text-slate-400">(2)</span>
-                        </a>
-                        <a href="/blog" class="flex justify-between items-center py-1 hover:text-brand-blue">
-                            <span>Blindaje Legal & Laboral</span>
-                            <span class="text-slate-400">(3)</span>
-                        </a>
-                        <a href="/blog" class="flex justify-between items-center py-1 hover:text-brand-blue">
-                            <span>Finanzas & Flujo de Caja</span>
-                            <span class="text-slate-400">(2)</span>
-                        </a>
-                        <a href="/blog" class="flex justify-between items-center py-1 hover:text-brand-blue">
-                            <span>Prevención de Multas (DGI / CSS)</span>
-                            <span class="text-slate-400">(1)</span>
-                        </a>
+                <!-- 5. Temas Principales Inteligentes (Top 4 Fijo que nunca desborda el diseño) -->
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm" id="widget-smart-topics">
+                    <div class="flex items-center justify-between mb-3.5">
+                        <h4 class="text-xs font-black uppercase tracking-wider text-slate-700">Temas Principales</h4>
+                        <span class="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200/60">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                            Dinámico
+                        </span>
+                    </div>
+
+                    <!-- Lista Top 4 Dinámica Fija -->
+                    <div id="smart-topics-list" class="space-y-1 text-xs font-bold text-slate-700">
+                        <!-- Renderizado en vivo por JS según visitas e interés -->
+                    </div>
+
+                    <!-- Desplegable para ver más temas sin estirar la barra lateral -->
+                    <div id="more-topics-container" class="mt-3 pt-3 border-t border-slate-100 hidden">
+                        <button type="button" onclick="toggleMoreTopics()" class="w-full text-left text-xs font-semibold text-slate-500 hover:text-brand-blue flex items-center justify-between transition py-0.5 group">
+                            <span id="more-topics-btn-text">Ver otros temas</span>
+                            <i data-lucide="chevron-down" id="more-topics-chevron" class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-y-0.5"></i>
+                        </button>
+                        <div id="more-topics-drawer" class="hidden mt-2 pt-1 space-y-1.5 border-l-2 border-slate-200 pl-2.5">
+                            <!-- Temas adicionales fuera del Top 4 -->
+                        </div>
                     </div>
                 </div>
 
@@ -329,56 +547,336 @@
 
     </main>
 
-    <!-- Footer Canónico Oficial -->
+    <!-- ==================================================== -->
+    <!-- 9. FOOTER CANÓNICO OFICIAL                           -->
+    <!-- ==================================================== -->
     <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                 
+                <!-- Columna 1: Marca y Redes -->
                 <div class="flex flex-col items-start">
                     <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-21-nobg.svg"
                         onerror="this.onerror=null; this.src='/assets/LOGOS PARA DIGITAL INDIVIDUALES-21-nobg.svg';"
-                        alt="Aizprua S.E." class="h-20 w-auto -mt-7 -mb-4 -ml-3">
+                        alt="Aizprua S.E. - Firma Legal y Empresarial" class="h-20 w-auto -mt-7 -mb-4 -ml-3">
                     <p class="text-sm text-slate-400 mb-3">Tu aliado legal y empresarial en Panamá.</p>
+                    <div class="flex gap-3">
+                        <a target="_blank" rel="noopener" href="https://instagram.com/aizpruase"
+                            class="w-10 h-10 bg-slate-800 hover:bg-pink-600 rounded-full flex items-center justify-center text-white transition"
+                            aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                            </svg>
+                        </a>
+                        <a target="_blank" rel="noopener" href="https://facebook.com/aizpruase"
+                            class="w-10 h-10 bg-slate-800 hover:bg-brand-blue rounded-full flex items-center justify-center text-white transition"
+                            aria-label="Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a href="https://wa.me/50765461527" target="_blank"
+                            class="w-10 h-10 bg-slate-800 hover:bg-green-500 rounded-full flex items-center justify-center text-white transition"
+                            aria-label="WhatsApp">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                            </svg>
+                        </a>
+                    </div>
                 </div>
 
+                <!-- Columna 2: Soluciones -->
                 <div>
                     <h4 class="font-bold text-white mb-4">Soluciones</h4>
                     <ul class="space-y-2 text-sm text-slate-400">
-                        <li><a href="/escudo-preventivo" class="hover:text-white transition">Asesoría Escudo Preventivo</a></li>
-                        <li><a href="/tienda" class="hover:text-white transition">Tienda Online</a></li>
-                        <li><a href="/test-interactivo" class="hover:text-white transition">Test de Auditoría</a></li>
+                        <li><a href="https://escudo.aizprua.com/" class="hover:text-white transition">Asesoría Escudo Preventivo</a></li>
+                        <li><a href="/tienda" class="hover:text-white transition font-semibold text-brand-orange-light">Tienda Online</a></li>
+                        <li><a href="/plan-360-digital" class="hover:text-white transition">Plan 360 Digital ($19.99)</a></li>
+                        <li><a href="/test-interactivo" class="hover:text-white transition">Test de Auditoría Gratis</a></li>
                     </ul>
                 </div>
 
+                <!-- Columna 3: Contacto -->
                 <div>
                     <h4 class="font-bold text-white mb-4">Contacto</h4>
                     <ul class="space-y-2 text-sm text-slate-400">
                         <li><a href="https://wa.me/50765461527" target="_blank" class="hover:text-white transition">WhatsApp: +507 6546-1527</a></li>
                         <li><a href="mailto:info@aizprua.com" class="hover:text-white transition">info@aizprua.com</a></li>
+                        <li>Panamá Oeste, La Chorrera</li>
                     </ul>
                 </div>
 
+                <!-- Columna 4: Legal -->
                 <div>
-                    <h4 class="font-bold text-white mb-4">Legal</h4>
+                    <h4 class="font-bold text-white mb-4">Cumplimiento Legal</h4>
                     <ul class="space-y-2 text-sm text-slate-400">
-                        <li><a href="/privacidad" class="hover:text-white transition">Política de Privacidad</a></li>
+                        <li><a href="/privacidad" class="hover:text-white transition">Política de Privacidad (Ley 81)</a></li>
                         <li><a href="/terminos" class="hover:text-white transition">Términos y Condiciones</a></li>
+                        <li><a href="https://whatsapp.com/channel/0029Va64qHbJJhzeH6DHa61a" target="_blank" rel="noopener" class="text-emerald-400 hover:text-emerald-300 font-semibold transition">Comunidad Oficial WhatsApp</a></li>
                     </ul>
                 </div>
 
             </div>
 
+            <!-- Copyright inferior -->
             <div class="border-t border-slate-800 pt-8 text-center text-xs text-slate-400">
                 &copy; 2026 Aizprua S.E. Firma Legal y Empresarial en Panamá. Todos los derechos reservados.
             </div>
         </div>
     </footer>
 
+    <!-- Contenedor Flotante de Acciones (Alineación Centrada Perfecta) -->
+    <div class="fixed bottom-6 right-6 z-40 flex flex-col items-center gap-3 pointer-events-none">
+        <!-- Botón Flotante "Volver Arriba" (Scroll to Top) -->
+        <button id="scroll-top-btn" onclick="scrollToTop()" aria-label="Volver arriba"
+            class="w-11 h-11 bg-white/95 backdrop-blur border border-slate-300 hover:border-brand-blue text-slate-700 hover:text-brand-blue rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:-translate-y-1 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="chevron-up" class="w-5 h-5"></i>
+        </button>
+
+        <!-- Botón Flotante de WhatsApp Fijo -->
+        <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20tengo%20una%20consulta%20empresarial"
+            target="_blank" rel="noopener" aria-label="Abrir WhatsApp"
+            class="pointer-events-auto w-14 h-14 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center group relative flex-shrink-0">
+            <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            <span class="absolute right-full mr-3 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
+                ¿Dudas? Chatea con nosotros
+            </span>
+        </a>
+    </div>
+
     <script>
         function toggleMobileMenu() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
+            const menu = document.getElementById('mobile-menu');
+            if (menu) menu.classList.toggle('hidden');
         }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.addEventListener('scroll', () => {
+            const bar = document.getElementById('progress-bar');
+            if (bar) {
+                const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                bar.style.width = scrolled + '%';
+            }
+
+            const btn = document.getElementById('scroll-top-btn');
+            if (btn) {
+                if (window.scrollY > 400) {
+                    btn.classList.remove('opacity-0', 'pointer-events-none');
+                    btn.classList.add('opacity-100', 'pointer-events-auto');
+                } else {
+                    btn.classList.add('opacity-0', 'pointer-events-none');
+                    btn.classList.remove('opacity-100', 'pointer-events-auto');
+                }
+            }
+        });
+
+        function handleHeroNewsletter(e) {
+            e.preventDefault();
+            const input = document.getElementById('hero-newsletter-email');
+            const form = document.getElementById('hero-newsletter-form');
+            const success = document.getElementById('hero-newsletter-success');
+            if (input && input.value) {
+                form.classList.add('hidden');
+                success.classList.remove('hidden');
+            }
+        }
+
+        // ========================================================
+        // MOTOR INTELIGENTE DE TEMAS PRINCIPALES (TOP 4 FIJO)
+        // ========================================================
+        const SMART_TOPICS = [
+            { id: 'finanzas', name: 'Finanzas & Crédito Bancario', url: '/articulo-credito-bancario', baseCount: 2, baseScore: 195 },
+            { id: 'contratos', name: 'Blindaje Legal & Contratos', url: '/articulo-contratos-comerciales', baseCount: 2, baseScore: 178 },
+            { id: 'emprendimiento', name: 'Emprendimiento & Formalización', url: '/articulo-emprender', baseCount: 2, baseScore: 162 },
+            { id: 'mentalidad', name: 'Mentalidad Empresarial', url: '/articulo-mentalidad', baseCount: 1, baseScore: 140 },
+            { id: 'multas', name: 'Prevención de Multas (DGI / CSS)', url: '/articulo-multas-panama', baseCount: 1, baseScore: 115 }
+        ];
+
+        function getTopicScores() {
+            try {
+                const stored = localStorage.getItem('aizprua_topic_clicks');
+                return stored ? JSON.parse(stored) : {};
+            } catch (e) {
+                return {};
+            }
+        }
+
+        function trackTopicClick(topicId) {
+            try {
+                const scores = getTopicScores();
+                scores[topicId] = (scores[topicId] || 0) + 15;
+                localStorage.setItem('aizprua_topic_clicks', JSON.stringify(scores));
+            } catch (e) {}
+        }
+
+        function renderSmartTopics() {
+            const listEl = document.getElementById('smart-topics-list');
+            const drawerEl = document.getElementById('more-topics-drawer');
+            const moreContainer = document.getElementById('more-topics-container');
+            const moreLabel = document.getElementById('more-topics-btn-text');
+            if (!listEl) return;
+
+            const userScores = getTopicScores();
+
+            // Ordenar dinámicamente por popularidad (Puntuación base + Interés del usuario)
+            const sorted = [...SMART_TOPICS].sort((a, b) => {
+                const scoreA = a.baseScore + (userScores[a.id] || 0);
+                const scoreB = b.baseScore + (userScores[b.id] || 0);
+                return scoreB - scoreA;
+            });
+
+            const top4 = sorted.slice(0, 4);
+            const rest = sorted.slice(4);
+
+            listEl.innerHTML = top4.map((t, idx) => `
+                <a href="${t.url}" onclick="trackTopicClick('${t.id}')" class="group flex items-center justify-between py-1.5 px-2 -mx-2 rounded-xl hover:bg-slate-50 transition">
+                    <span class="flex items-center gap-1.5 truncate group-hover:text-brand-blue transition">
+                        ${idx === 0 ? '<span class="text-[9px] bg-amber-500/10 text-amber-600 border border-amber-500/20 px-1.5 py-0.5 rounded font-black flex-shrink-0 inline-flex items-center gap-1"><svg class="w-2.5 h-2.5 fill-amber-500" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>TOP</span>' : ''}
+                        <span class="truncate">${t.name}</span>
+                    </span>
+                    <span class="text-slate-400 group-hover:text-brand-blue text-[11px] font-semibold flex-shrink-0 ml-2">(${t.baseCount})</span>
+                </a>
+            `).join('');
+
+            if (rest.length > 0 && drawerEl && moreContainer) {
+                moreContainer.classList.remove('hidden');
+                if (moreLabel) moreLabel.textContent = `Ver otros temas (${rest.length})`;
+                drawerEl.innerHTML = rest.map(t => `
+                    <a href="${t.url}" onclick="trackTopicClick('${t.id}')" class="flex items-center justify-between py-1 text-slate-600 hover:text-brand-blue transition text-[11px] font-semibold">
+                        <span class="truncate">${t.name}</span>
+                        <span class="text-slate-400">(${t.baseCount})</span>
+                    </a>
+                `).join('');
+            }
+
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+        }
+
+        function toggleMoreTopics() {
+            const drawer = document.getElementById('more-topics-drawer');
+            const chevron = document.getElementById('more-topics-chevron');
+            if (!drawer) return;
+            const isHidden = drawer.classList.contains('hidden');
+            if (isHidden) {
+                drawer.classList.remove('hidden');
+                if (chevron) chevron.classList.add('rotate-180');
+            } else {
+                drawer.classList.add('hidden');
+                if (chevron) chevron.classList.remove('rotate-180');
+            }
+        }
+
+        // ==============================================
+        // LÓGICA DE PAGINACIÓN & BÚSQUEDA INTERACTIVA
+        // ==============================================
+        const POSTS_PER_PAGE = 4;
+        let currentBlogPage = 1;
+
+        function getFilteredBlogCards() {
+            const query = (document.getElementById('blog-search-input')?.value || '').toLowerCase().trim();
+            const cards = Array.from(document.querySelectorAll('.blog-post-card'));
+            return cards.filter(card => {
+                if (!query) return true;
+                return card.textContent.toLowerCase().includes(query);
+            });
+        }
+
+        function updateBlogPagination() {
+            const allCards = Array.from(document.querySelectorAll('.blog-post-card'));
+            const matchingCards = getFilteredBlogCards();
+            const total = matchingCards.length;
+            const totalPages = Math.max(1, Math.ceil(total / POSTS_PER_PAGE));
+            const noResults = document.getElementById('blog-no-results');
+            const paginationEl = document.getElementById('blog-pagination');
+
+            if (currentBlogPage > totalPages) currentBlogPage = totalPages;
+            if (currentBlogPage < 1) currentBlogPage = 1;
+
+            // Ocultar todas las tarjetas
+            allCards.forEach(c => c.classList.add('hidden'));
+
+            if (total === 0) {
+                if (noResults) noResults.classList.remove('hidden');
+                if (paginationEl) paginationEl.classList.add('hidden');
+                return;
+            }
+
+            if (noResults) noResults.classList.add('hidden');
+            if (paginationEl) paginationEl.classList.remove('hidden');
+
+            // Mostrar solo las tarjetas correspondientes a la página
+            const start = (currentBlogPage - 1) * POSTS_PER_PAGE;
+            const end = Math.min(start + POSTS_PER_PAGE, total);
+            matchingCards.slice(start, end).forEach(c => c.classList.remove('hidden'));
+
+            // Actualizar textos informativos
+            const pStart = document.getElementById('pag-start');
+            const pEnd = document.getElementById('pag-end');
+            const pTotal = document.getElementById('pag-total');
+            if (pStart) pStart.textContent = start + 1;
+            if (pEnd) pEnd.textContent = end;
+            if (pTotal) pTotal.textContent = total;
+
+            // Actualizar botones prev / next
+            const prevBtn = document.getElementById('prev-page-btn');
+            const nextBtn = document.getElementById('next-page-btn');
+            if (prevBtn) prevBtn.disabled = (currentBlogPage === 1);
+            if (nextBtn) nextBtn.disabled = (currentBlogPage === totalPages);
+
+            // Renderizar números de página
+            const numbersContainer = document.getElementById('pagination-numbers');
+            if (numbersContainer) {
+                let html = '';
+                for (let i = 1; i <= totalPages; i++) {
+                    const isActive = i === currentBlogPage;
+                    html += `
+                        <button onclick="goToBlogPage(${i})" aria-label="Ir a página ${i}"
+                            class="w-9 h-9 rounded-xl text-xs font-bold transition flex items-center justify-center ${
+                                isActive 
+                                ? 'bg-brand-blue text-white shadow-md' 
+                                : 'bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 shadow-xs'
+                            }">
+                            ${i}
+                        </button>
+                    `;
+                }
+                numbersContainer.innerHTML = html;
+            }
+
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+        }
+
+        function goToBlogPage(page) {
+            currentBlogPage = page;
+            updateBlogPagination();
+            const grid = document.getElementById('blog-grid');
+            if (grid) {
+                grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function initBlogPagination() {
+            const searchInput = document.getElementById('blog-search-input');
+            if (searchInput) {
+                searchInput.addEventListener('input', () => {
+                    currentBlogPage = 1;
+                    updateBlogPagination();
+                });
+            }
+            updateBlogPagination();
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
+            renderSmartTopics();
+            initBlogPagination();
             if (typeof lucide !== 'undefined') lucide.createIcons();
         });
     </script>
