@@ -322,7 +322,7 @@ app.use((req, res, next) => {
 
 // 1. Inicio: Enrutamiento Inteligente por Dominio para la Raíz (/)
 // Si el subdominio es explícitamente escudo. (escudo.aizprua.com), muestra index.html (Escudo Preventivo)
-// Para el dominio principal (aizprua.com, www.aizprua.com), muestra construccion.html
+// Para el dominio principal (aizprua.com, www.aizprua.com, localhost), muestra principal.html (Portal Oficial)
 app.get('/', (req, res) => {
   const forwardedHost = (req.headers['x-forwarded-host'] || '').split(',')[0].trim().toLowerCase().replace(/:\d+$/, '');
   const reqHost = (req.headers.host || req.hostname || '').toLowerCase().replace(/:\d+$/, '');
