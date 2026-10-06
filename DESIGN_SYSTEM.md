@@ -622,4 +622,61 @@ Todo artículo nuevo en `/public` debe construirse respetando estrictamente esta
 </button>
 ```
 
+---
+
+## 🏷️ 4.7. Componente Canónico: Bloque Responsivo de Precios y Pagos (Anti-Colisión en Móvil)
+
+### Problema Resuelto:
+En pantallas móviles (`< 640px`), colocar precio tachado, precio grande, badge de descuento y aviso de pago/garantía en una única fila horizontal (`flex items-baseline justify-between`) causa que los badges se quiebren en dos líneas (ej. `50%` / `DCTO`) y choquen contra el texto de pago.
+
+### Especificaciones de Arquitectura Canónica:
+1. **Contenedor:** `flex items-center justify-between min-h-[2.5rem] gap-2`
+2. **Columna Izquierda (Precios):** `flex items-baseline gap-1.5 shrink-0`
+   - Precio tachado: `text-xs text-slate-400 line-through mr-1`
+   - Precio destacado: `text-2xl font-black text-slate-900`
+   - Moneda: `text-[10px] font-bold text-slate-500`
+   - Badge Desktop: `hidden sm:inline-block text-[10px] font-black px-2 py-0.5 rounded-md ml-1 whitespace-nowrap`
+3. **Columna Derecha (Beneficios & Pagos en 2 Niveles):** `flex flex-col sm:flex-row items-end sm:items-baseline gap-0.5 sm:gap-2 text-right shrink-0`
+   - Badge Móvil: `inline-block sm:hidden text-[10px] font-black px-2 py-0.5 rounded-md whitespace-nowrap`
+   - Aviso de Pago / Garantía: `text-xs font-bold whitespace-nowrap` (`text-emerald-600` para garantía, `text-slate-500` para métodos de pago).
+
+### Snippet Canónico de Fila de Precios:
+```html
+<div class="flex items-center justify-between min-h-[2.5rem] gap-2">
+    <!-- Columna Izquierda: Precios -->
+    <div class="flex items-baseline gap-1.5 shrink-0">
+        <span class="text-xs text-slate-400 line-through mr-1">$79.99</span>
+        <span class="text-2xl font-black text-slate-900">$39.99</span>
+        <span class="text-[10px] font-bold text-slate-500">USD</span>
+        <span class="hidden sm:inline-block text-[11px] font-extrabold text-orange-700 bg-orange-100 px-2 py-0.5 rounded-md ml-1 whitespace-nowrap">50% DCTO</span>
+    </div>
+    <!-- Columna Derecha: Badge en Móvil (Nivel 1) + Pago/Garantía (Nivel 2) -->
+    <div class="flex flex-col sm:flex-row items-end sm:items-baseline gap-0.5 sm:gap-2 text-right shrink-0">
+        <span class="inline-block sm:hidden text-[11px] font-extrabold text-orange-700 bg-orange-100 px-2 py-0.5 rounded-md whitespace-nowrap">50% DCTO</span>
+        <span class="text-xs font-bold text-slate-500 whitespace-nowrap">Yappy / Tarjeta</span>
+    </div>
+</div>
+```
+
+---
+
+## 📐 4.8. Componente Canónico: Listas y Bullets con Alineación Superior Infalible (`items-start`)
+
+### Mandato Obligatorio para Todo Elemento con Icono + Texto Multilínea:
+1. **Contenedor:** Debe usar OBLIGATORIAMENTE `flex items-start gap-2` (o `gap-2.5`).
+2. **Icono:** Debe incluir `shrink-0 mt-0.5` con dimensiones fijas (`w-3.5 h-3.5` o `w-4 h-4`).
+3. **Texto:** Debe llevar `leading-snug`.
+4. **Prohibición Estricta:** Queda terminantemente prohibido usar `flex items-center` en cualquier lista, bullet o microgarantía que pueda saltar a 2 o más líneas en móviles, para evitar que el icono flote en el medio vertical del bloque de texto.
+
+### Snippet Canónico de Bullets de Entregables:
+```html
+<div class="space-y-2">
+    <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+        <span class="leading-snug"><strong>Entregable Principal:</strong> Descripción detallada del entregable.</span>
+    </div>
+</div>
+```
+
+
 

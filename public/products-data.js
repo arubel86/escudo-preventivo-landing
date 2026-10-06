@@ -819,32 +819,39 @@ function renderShopProducts(containerId = "products-grid") {
         let priceAreaHTML = "";
         if (product.price === 0) {
             priceAreaHTML = `
-                <div class="flex items-baseline justify-between min-h-[2rem]">
-                    <div>
+                <div class="flex items-center justify-between min-h-[2.5rem]">
+                    <div class="flex items-baseline gap-1.5">
                         <span class="text-2xl font-black ${product.id === 'test-auditoria' ? 'text-emerald-600' : 'text-brand-orange'}">GRATIS</span>
-                        <span class="text-[10px] font-bold text-slate-500 ml-1">USD</span>
+                        <span class="text-[10px] font-bold text-slate-500">USD</span>
                     </div>
-                    <span class="text-xs font-bold text-slate-500">${product.paymentNotice || 'Acceso inmediato'}</span>
+                    <span class="text-xs font-bold text-slate-500 whitespace-nowrap">${product.paymentNotice || 'Acceso inmediato'}</span>
                 </div>
             `;
         } else {
             const oldPriceHTML = product.priceOld ? `<span class="text-xs text-slate-400 line-through mr-1">${product.priceOld}</span>` : "";
-            const discountBadgeHTML = product.discountBadge
-                ? `<span class="text-[10px] font-black text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md ml-1">${product.discountBadge}</span>`
+            const badgeClass = product.discountBadgeClass || "text-emerald-700 bg-emerald-100";
+            const discountBadgeDesktop = product.discountBadge
+                ? `<span class="hidden sm:inline-block text-[10px] font-black ${badgeClass} px-2 py-0.5 rounded-md ml-1 whitespace-nowrap">${product.discountBadge}</span>`
+                : "";
+            const discountBadgeMobile = product.discountBadge
+                ? `<span class="inline-block sm:hidden text-[10px] font-black ${badgeClass} px-2 py-0.5 rounded-md whitespace-nowrap">${product.discountBadge}</span>`
                 : "";
             const guaranteeHTML = product.guarantee
-                ? `<span class="text-xs font-bold text-emerald-600">${product.guarantee}</span>`
-                : `<span class="text-xs font-bold text-slate-500">${product.paymentNotice || 'Yappy / Tarjeta'}</span>`;
+                ? `<span class="text-xs font-bold text-emerald-600 whitespace-nowrap">${product.guarantee}</span>`
+                : `<span class="text-xs font-bold text-slate-500 whitespace-nowrap">${product.paymentNotice || 'Yappy / Tarjeta'}</span>`;
 
             priceAreaHTML = `
-                <div class="flex items-baseline justify-between min-h-[2rem]">
-                    <div class="flex items-baseline gap-1.5">
+                <div class="flex items-center justify-between min-h-[2.5rem] gap-2">
+                    <div class="flex items-baseline gap-1.5 shrink-0">
                         ${oldPriceHTML}
                         <span class="text-2xl font-black text-slate-900">${product.priceDisplay}</span>
                         <span class="text-[10px] font-bold text-slate-500">USD</span>
-                        ${discountBadgeHTML}
+                        ${discountBadgeDesktop}
                     </div>
-                    ${guaranteeHTML}
+                    <div class="flex flex-col sm:flex-row items-end sm:items-baseline gap-0.5 sm:gap-2 text-right shrink-0">
+                        ${discountBadgeMobile}
+                        ${guaranteeHTML}
+                    </div>
                 </div>
             `;
         }

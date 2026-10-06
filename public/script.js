@@ -224,11 +224,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const opcionesActivas = (step.opcionesPor && step.opcionesPor[quizAnswers.entidad]) || step.opciones;
 
             quizOptions.innerHTML = opcionesActivas.map((o, idx) => `
-                <button class="quiz-opt w-full py-4 px-5 bg-white border-2 border-slate-200 rounded-2xl text-left font-medium flex items-center gap-3.5 hover:border-brand-blue hover:bg-blue-50/60 shadow-sm transition-all transform hover:-translate-y-0.5 cursor-pointer animate-fadeIn" style="animation-delay: ${idx * 60}ms" data-valor="${o.valor}" data-descarte="${o.descarte || ''}">
-                    <div class="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0 text-brand-blue">
+                <button class="quiz-opt w-full py-4 px-5 bg-white border-2 border-slate-200 rounded-2xl text-left font-medium flex items-start gap-3.5 hover:border-brand-blue hover:bg-blue-50/60 shadow-sm transition-all transform hover:-translate-y-0.5 cursor-pointer animate-fadeIn" style="animation-delay: ${idx * 60}ms" data-valor="${o.valor}" data-descarte="${o.descarte || ''}">
+                    <div class="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center shrink-0 mt-0.5 text-brand-blue">
                         <i data-lucide="${o.icono}" class="w-5 h-5"></i>
                     </div>
-                    <span class="text-sm sm:text-base text-slate-800 font-semibold">${o.texto}</span>
+                    <span class="text-sm sm:text-base text-slate-800 font-semibold leading-snug">${o.texto}</span>
                 </button>
             `).join('');
 
