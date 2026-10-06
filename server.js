@@ -630,6 +630,16 @@ app.get(['/construccion.html', '/proximamente', '/proximamente.html'], (req, res
   res.redirect(301, '/construccion' + query);
 });
 
+// 10.3. Formulario de Diagnóstico Empresarial Previo (Canónica: /formulario-diagnostico)
+app.get('/formulario-diagnostico', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'formulario-diagnostico.html'));
+});
+
+app.get(['/formulario-diagnostico.html', '/expediente', '/expediente.html', '/ficha-diagnostico'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/formulario-diagnostico' + query);
+});
+
 
 // ARCHIVOS ESTÁTICOS (Masterclass, Verificador & Landing Page)
 app.use('/masterclass', express.static(masterclassDir));

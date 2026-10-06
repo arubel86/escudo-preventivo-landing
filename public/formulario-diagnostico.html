@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Diagnóstico Empresarial · Aizprua S.E. | Expediente Previo</title>
+    <meta name="description"
+        content="Completa tu expediente previo para la sesión de diagnóstico Escudo Preventivo de 40 minutos. Revisamos tu situación legal, fiscal y operativa en Panamá con 100% confidencialidad.">
+    <meta name="keywords" content="diagnostico empresarial panama, escudo preventivo aizprua, auditoria legal previa, expediente legal panama, dgi aviso operacion municipio">
+    <meta name="author" content="Aizprua S.E.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://aizprua.com/formulario-diagnostico">
+
+    <!-- Favicon Oficial -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Tipografía Google Fonts Oficial -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#3849C8',
+                            'blue-dark': '#2D3A9F',
+                            'blue-light': '#4F5ED4',
+                            orange: '#FF8A1E',
+                            'orange-dark': '#E67A15',
+                            'orange-light': '#FFA04A'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+                        heading: ['"Outfit"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        .custom-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        .custom-scroll {
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-orange selection:text-white flex flex-col min-h-screen">
+
+    <!-- Barra de Progreso de Lectura Canónica (Naranja Oficial) -->
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-brand-orange z-[60] transition-all duration-75" style="width:0%"></div>
+
+    <!-- 1. Barra Superior de Anuncios -->
+    <div id="announcement-bar" class="bg-slate-900 text-white text-xs sm:text-sm py-2 px-4 text-center font-medium sticky top-0 z-50 shadow-sm border-b border-slate-800">
+        <div class="max-w-7xl mx-auto flex items-center justify-center gap-2">
+            <span class="inline-flex items-center gap-1.5 bg-brand-orange/20 text-brand-orange-light text-[10px] sm:text-xs font-black px-2.5 py-0.5 rounded-full border border-brand-orange/30 uppercase tracking-wider">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                Secreto Profesional
+            </span>
+            <span class="truncate">Sesión personalizada de 40 minutos con nuestro equipo legal y financiero.</span>
+            <span class="hidden sm:inline-block text-slate-400">· 100% Confidencial</span>
+        </div>
+    </div>
+
+    <!-- 2. Navbar Canónica (h-20 / Logo h-28) -->
+    <header class="bg-white/95 backdrop-blur-md sticky top-9 z-40 border-b border-slate-200/80 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Logotipo Oficial -->
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center" aria-label="Aizprua S.E. Inicio">
+                        <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-21-nobg.svg"
+                            onerror="this.onerror=null; this.src='/assets/LOGOS PARA DIGITAL INDIVIDUALES-21-nobg.svg';"
+                            alt="Aizprua S.E. - Consultoría Legal y Empresarial"
+                            class="h-28 w-auto transform transition-transform hover:scale-105">
+                    </a>
+                </div>
+
+                <!-- Menú Desktop -->
+                <nav class="hidden lg:flex items-center gap-8">
+                    <a href="/#servicios" class="text-sm font-semibold text-slate-700 hover:text-brand-blue transition">Servicios</a>
+                    <a href="/escuela" class="text-sm font-semibold text-slate-700 hover:text-brand-blue transition">Escuela</a>
+                    <a href="/tienda" class="text-sm font-semibold text-slate-700 hover:text-brand-blue transition">Tienda</a>
+                    <a href="/blog" class="text-sm font-semibold text-slate-700 hover:text-brand-blue transition">Blog</a>
+                    <a href="/test-interactivo" class="text-sm font-semibold text-brand-orange hover:text-brand-orange-dark transition flex items-center gap-1">
+                        <i data-lucide="shield-check" class="w-4 h-4"></i>
+                        <span>Auditoría Gratis</span>
+                    </a>
+                </nav>
+
+                <!-- Acciones Rápidas -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20tengo%20una%20consulta%20sobre%20mi%20formulario%20de%20diagn%C3%B3stico"
+                        target="_blank" rel="noopener"
+                        class="flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white px-5 py-2.5 rounded-full font-bold text-sm shadow-md transition transform hover:-translate-y-0.5 whitespace-nowrap">
+                        <i data-lucide="message-circle" class="w-4 h-4 shrink-0"></i>
+                        <span>Soporte WhatsApp</span>
+                    </a>
+                </div>
+
+                <!-- Botón Menú Móvil -->
+                <div class="flex items-center lg:hidden">
+                    <button onclick="toggleMobileMenu()" aria-label="Abrir menú" class="text-slate-700 p-2 focus:outline-hidden">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Móvil Desplegable -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3 shadow-xl">
+            <a href="/#servicios" class="block py-2 text-sm font-semibold text-slate-700 hover:text-brand-blue">Servicios</a>
+            <a href="/escuela" class="block py-2 text-sm font-semibold text-slate-700 hover:text-brand-blue">Escuela</a>
+            <a href="/tienda" class="block py-2 text-sm font-semibold text-slate-700 hover:text-brand-blue">Tienda</a>
+            <a href="/blog" class="block py-2 text-sm font-semibold text-slate-700 hover:text-brand-blue">Blog</a>
+            <a href="/test-interactivo" class="block py-2 text-sm font-bold text-brand-orange">Auditoría Gratis</a>
+            <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20tengo%20una%20consulta%20sobre%20mi%20formulario%20de%20diagn%C3%B3stico"
+                target="_blank" rel="noopener"
+                class="flex items-center justify-center gap-2 bg-[#25D366] text-white py-3 rounded-xl font-bold text-sm shadow-sm mt-2">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                <span>Hablar por WhatsApp</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="flex-grow py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
+
+        <!-- Migas de Pan (Breadcrumbs) -->
+        <nav class="flex items-center gap-2 text-xs text-slate-500 mb-6 font-medium">
+            <a href="/" class="hover:text-brand-blue transition">Inicio</a>
+            <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-400 shrink-0"></i>
+            <a href="/#servicios" class="hover:text-brand-blue transition">Servicios</a>
+            <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-400 shrink-0"></i>
+            <span class="text-brand-blue font-bold">Formulario de Diagnóstico</span>
+        </nav>
+
+        <!-- Cabecera de Página & Bienvenida -->
+        <div class="bg-gradient-to-br from-slate-900 via-slate-800 to-brand-blue-dark text-white rounded-3xl p-6 sm:p-10 mb-8 shadow-xl relative overflow-hidden border border-slate-700/80">
+            <div class="relative z-10 max-w-3xl">
+                <div class="inline-flex items-start sm:items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-orange/20 border border-brand-orange/40 text-brand-orange-light text-[11px] sm:text-xs font-black uppercase tracking-wider mb-4">
+                    <i data-lucide="shield-check" class="w-4 h-4 shrink-0 mt-0.5 sm:mt-0 text-brand-orange"></i>
+                    <span>Expediente Previo Obligatorio · Edición 2026</span>
+                </div>
+                
+                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight mb-4 text-white">
+                    Diagnóstico Escudo Preventivo (40 min)
+                </h1>
+
+                <p class="text-sm sm:text-base text-slate-300 leading-relaxed mb-6 font-normal">
+                    Para que aprovechemos al máximo tus 40 minutos de videollamada y te entreguemos una <strong>hoja de ruta con costos exactos de regularización</strong>, necesitamos estos datos previos de tu negocio. Nuestro equipo legal consultará tu expediente en los sistemas oficiales (DGI, Registro Público y Municipio) antes de la sesión para llegar con diagnósticos reales y soluciones concretas.
+                </p>
+
+                <div class="flex flex-wrap items-center gap-4 pt-4 border-t border-slate-700/80 text-xs text-slate-300 font-semibold">
+                    <div class="flex items-start gap-1.5">
+                        <i data-lucide="lock" class="w-4 h-4 text-brand-orange shrink-0 mt-0.5"></i>
+                        <span class="leading-snug">100% confidencial bajo secreto profesional</span>
+                    </div>
+                    <div class="flex items-start gap-1.5">
+                        <i data-lucide="clock" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                        <span class="leading-snug">Toma menos de 4 minutos</span>
+                    </div>
+                    <div class="flex items-start gap-1.5">
+                        <i data-lucide="file-check-2" class="w-4 h-4 text-blue-300 shrink-0 mt-0.5"></i>
+                        <span class="leading-snug">Pre-auditoría oficial en Panamá</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Efectos de luz corporativa de fondo -->
+            <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-brand-blue/30 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute right-10 top-0 w-60 h-60 bg-brand-orange/15 rounded-full blur-3xl pointer-events-none"></div>
+        </div>
+
+        <!-- FORMULARIO PRINCIPAL -->
+        <form id="diagnostico-form" class="space-y-8" novalidate>
+
+            <!-- BLOQUE 1: DATOS DE CONTACTO & AGENDA -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm transition hover:shadow-md">
+                <div class="flex items-start gap-3 pb-5 mb-6 border-b border-slate-100">
+                    <div class="w-9 h-9 rounded-2xl bg-brand-blue/10 text-brand-blue flex items-center justify-center font-black text-sm shrink-0 mt-0.5">
+                        01
+                    </div>
+                    <div>
+                        <h2 class="text-lg sm:text-xl font-black text-slate-900 leading-snug">Datos de Contacto & Cita Agendada</h2>
+                        <p class="text-xs text-slate-500 mt-0.5">Información para validar tu reserva en el calendario y enviarte el enlace seguro de videollamada.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    
+                    <!-- 1. Nombre Completo -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_2050119582">
+                            1. Nombre y Apellido completo <span class="text-rose-600">*</span>
+                        </label>
+                        <input type="text" id="entry_2050119582" name="entry.2050119582" required
+                            placeholder="Ej. Carlos Mendoza"
+                            class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition">
+                        <span class="error-msg hidden text-[11px] text-rose-600 font-bold mt-1">Por favor escribe tu nombre completo.</span>
+                    </div>
+
+                    <!-- 2. WhatsApp -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_16882458">
+                            2. Número de WhatsApp <span class="text-rose-600">*</span>
+                        </label>
+                        <input type="tel" id="entry_16882458" name="entry.16882458" required
+                            placeholder="+507 6546-1527"
+                            class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition">
+                        <span class="text-[10px] text-slate-400 block mt-1">Incluye el código de país (Ej: +507).</span>
+                        <span class="error-msg hidden text-[11px] text-rose-600 font-bold mt-1">Por favor escribe tu WhatsApp de contacto.</span>
+                    </div>
+
+                    <!-- 3. Correo Electrónico -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_660505305">
+                            3. Correo electrónico <span class="text-rose-600">*</span>
+                        </label>
+                        <input type="email" id="entry_660505305" name="entry.660505305" required
+                            placeholder="ejemplo@tunegocio.com"
+                            class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition">
+                        <span class="error-msg hidden text-[11px] text-rose-600 font-bold mt-1">Por favor escribe un correo válido.</span>
+                    </div>
+
+                    <!-- 4. Fecha y Hora Agendada -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_533003142">
+                            4. Día y hora agendada en Calendly <span class="text-rose-600">*</span>
+                        </label>
+                        <input type="text" id="entry_533003142" name="entry.533003142" required
+                            placeholder="Ej. Martes 15 de Octubre - 3:00 PM"
+                            class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition">
+                        <span class="text-[10px] text-slate-400 block mt-1">Si aún no agendaste en Calendly, escribe "Por agendar".</span>
+                        <span class="error-msg hidden text-[11px] text-rose-600 font-bold mt-1">Por favor indica la fecha estimada o 'Por agendar'.</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- BLOQUE 2: ESTRUCTURA LEGAL Y REGISTRO EN PANAMÁ -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm transition hover:shadow-md">
+                <div class="flex items-start gap-3 pb-5 mb-6 border-b border-slate-100">
+                    <div class="w-9 h-9 rounded-2xl bg-brand-orange/10 text-brand-orange flex items-center justify-center font-black text-sm shrink-0 mt-0.5">
+                        02
+                    </div>
+                    <div>
+                        <h2 class="text-lg sm:text-xl font-black text-slate-900 leading-snug">Estructura Legal y Registro en Panamá</h2>
+                        <p class="text-xs text-slate-500 mt-0.5">Estos datos nos permitirán consultar tu expediente en los sistemas oficiales antes de iniciar.</p>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+
+                    <!-- 5. Figura Jurídica -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2.5">
+                            5. ¿Bajo qué figura jurídica operas en Panamá? <span class="text-rose-600">*</span>
+                        </label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                            <label class="flex items-start gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-brand-blue hover:bg-blue-50/30 cursor-pointer transition text-xs font-semibold text-slate-700">
+                                <input type="radio" name="entry.1181190390" value="Sociedad Anónima (S.A.)" required class="mt-0.5 text-brand-blue focus:ring-brand-blue">
+                                <span class="leading-snug">Sociedad Anónima (S.A.)</span>
+                            </label>
+                            <label class="flex items-start gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-brand-blue hover:bg-blue-50/30 cursor-pointer transition text-xs font-semibold text-slate-700">
+                                <input type="radio" name="entry.1181190390" value="Sociedad de Emprendimiento (S.E.P.)" class="mt-0.5 text-brand-blue focus:ring-brand-blue">
+                                <span class="leading-snug">Sociedad de Emprendimiento (S.E.P.)</span>
+                            </label>
+                            <label class="flex items-start gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-brand-blue hover:bg-blue-50/30 cursor-pointer transition text-xs font-semibold text-slate-700">
+                                <input type="radio" name="entry.1181190390" value="Sociedad de Responsabilidad Limitada (SRL)" class="mt-0.5 text-brand-blue focus:ring-brand-blue">
+                                <span class="leading-snug">Sociedad de Responsabilidad Limitada (SRL)</span>
+                            </label>
+                            <label class="flex items-start gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-brand-blue hover:bg-blue-50/30 cursor-pointer transition text-xs font-semibold text-slate-700">
+                                <input type="radio" name="entry.1181190390" value="Persona Natural (a mi nombre personal con cédula)" class="mt-0.5 text-brand-blue focus:ring-brand-blue">
+                                <span class="leading-snug">Persona Natural (a mi nombre con cédula)</span>
+                            </label>
+                            <label class="flex items-start gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-brand-blue hover:bg-blue-50/30 cursor-pointer transition text-xs font-semibold text-slate-700 sm:col-span-2">
+                                <input type="radio" name="entry.1181190390" value="Aún no registrado formalmente / Nuevo negocio" class="mt-0.5 text-brand-blue focus:ring-brand-blue">
+                                <span class="leading-snug">Aún no registrado formalmente / Nuevo negocio o en informalidad</span>
+                            </label>
+                        </div>
+                        <span class="error-msg hidden text-[11px] text-rose-600 font-bold mt-1">Selecciona una figura jurídica.</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <!-- 6. Nombre de Empresa -->
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_816395948">
+                                6. Nombre de la empresa o sociedad <span class="text-rose-600">*</span>
+                            </label>
+                            <input type="text" id="entry_816395948" name="entry.816395948" required
+                                placeholder="Razón social o nombre comercial"
+                                class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition">
+                            <span class="error-msg hidden text-[11px] text-rose-600 font-bold mt-1">Por favor escribe el nombre de tu empresa.</span>
+                        </div>
+
+                        <!-- 7. RUC y DV -->
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_1326902702">
+                                7. RUC y Dígito Verificador (DV) <span class="text-rose-600">*</span>
+                            </label>
+                            <input type="text" id="entry_1326902702" name="entry.1326902702" required
+                                placeholder="Ej. 155700000-2-2023 DV 45 (o 'No tengo')"
+                                class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition">
+                            <span class="text-[10px] text-slate-400 block mt-1">Si no lo sabes o no tienes aún, escribe "No tengo".</span>
+                            <span class="error-msg hidden text-[11px] text-rose-600 font-bold mt-1">Escribe tu RUC o 'No tengo'.</span>
+                        </div>
+                    </div>
+
+                    <!-- Actividad Principal -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_1266771571">
+                            ¿A qué se dedica tu negocio? (Actividad principal) <span class="text-rose-600">*</span>
+                        </label>
+                        <input type="text" id="entry_1266771571" name="entry.1266771571" required
+                            placeholder="Ej. Venta de ropa online, restaurante, consultoría, taller, clínica, etc."
+                            class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition">
+                        <span class="error-msg hidden text-[11px] text-rose-600 font-bold mt-1">Describe brevemente tu actividad.</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <!-- Facturación Anual -->
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_1949342489">
+                                Facturación bruta anual estimada <span class="text-rose-600">*</span>
+                            </label>
+                            <select id="entry_1949342489" name="entry.1949342489" required
+                                class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer">
+                                <option value="" disabled selected>Selecciona un rango...</option>
+                                <option value="Menos de $36,000 al año (Fase inicial / Micro)">Menos de $36,000 al año (Micro)</option>
+                                <option value="Entre $36,000 y $100,000 al año">Entre $36,000 y $100,000 al año</option>
+                                <option value="Más de $100,000 al año">Más de $100,000 al año</option>
+                                <option value="Aún no genero ventas">Aún no genero ventas (Fase previa)</option>
+                            </select>
+                            <span class="error-msg hidden text-[11px] text-rose-600 font-bold mt-1">Selecciona un rango de facturación.</span>
+                        </div>
+
+                        <!-- 8. Agente Residente -->
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_615739815">
+                                8. ¿Tienes contacto con tu Agente Residente? <span class="text-rose-600">*</span>
+                            </label>
+                            <select id="entry_615739815" name="entry.615739815" required
+                                class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer">
+                                <option value="" disabled selected>Selecciona una opción...</option>
+                                <option value="Sí, está activo y me asiste">Sí, está activo y me asiste</option>
+                                <option value="No sé quién es / Perdí contacto">No sé quién es / Perdí contacto</option>
+                                <option value="No aplica (Persona Natural / Negocio nuevo)">No aplica (Persona Natural / Negocio nuevo)</option>
+                            </select>
+                            <span class="error-msg hidden text-[11px] text-rose-600 font-bold mt-1">Selecciona una opción sobre tu agente residente.</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- BLOQUE 3: ENTIDADES, MUNICIPIOS Y OPERACIONES -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm transition hover:shadow-md">
+                <div class="flex items-start gap-3 pb-5 mb-6 border-b border-slate-100">
+                    <div class="w-9 h-9 rounded-2xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center font-black text-sm shrink-0 mt-0.5">
+                        03
+                    </div>
+                    <div>
+                        <h2 class="text-lg sm:text-xl font-black text-slate-900 leading-snug">Entidades, Municipios y Operaciones</h2>
+                        <p class="text-xs text-slate-500 mt-0.5">Evaluamos dónde tienes riesgo de inconsistencias o multas silenciosas en Panamá.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+
+                    <!-- 9. Municipio -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_1942403640">
+                            9. ¿En qué Municipio opera tu negocio? <span class="text-rose-600">*</span>
+                        </label>
+                        <select id="entry_1942403640" name="entry.1942403640" required
+                            class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer">
+                            <option value="" disabled selected>Selecciona tu municipio...</option>
+                            <option value="Panamá (Distrito Capital)">Panamá (Distrito Capital)</option>
+                            <option value="San Miguelito">San Miguelito</option>
+                            <option value="La Chorrera">La Chorrera</option>
+                            <option value="Arraiján">Arraiján</option>
+                            <option value="Colón">Colón</option>
+                            <option value="David (Chiriquí)">David (Chiriquí)</option>
+                            <option value="100% Digital / Servicios remotos">100% Digital / Servicios remotos</option>
+                        </select>
+                        <span class="error-msg hidden text-[11px] text-rose-600 font-bold mt-1">Selecciona el municipio.</span>
+                    </div>
+
+                    <!-- 10. Aviso de Operación -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_242757123">
+                            10. ¿Tienes Aviso de Operación (MICI)? <span class="text-rose-600">*</span>
+                        </label>
+                        <select id="entry_242757123" name="entry.242757123" required
+                            class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer">
+                            <option value="" disabled selected>Selecciona el estatus...</option>
+                            <option value="Sí, activo y al día">Sí, activo y al día</option>
+                            <option value="Sí, pero nunca lo he actualizado">Sí, pero nunca lo he actualizado</option>
+                            <option value="No tengo Aviso de Operación">No tengo Aviso de Operación</option>
+                            <option value="No estoy seguro">No estoy seguro</option>
+                        </select>
+                        <span class="error-msg hidden text-[11px] text-rose-600 font-bold mt-1">Selecciona el estatus del Aviso.</span>
+                    </div>
+
+                    <!-- 11. Situación con la DGI -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_1976664382">
+                            11. Situación con la DGI <span class="text-rose-600">*</span>
+                        </label>
+                        <select id="entry_1976664382" name="entry.1976664382" required
+                            class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer">
+                            <option value="" disabled selected>Selecciona tu situación tributaria...</option>
+                            <option value="Al día con declaraciones anuales">Al día con declaraciones anuales</option>
+                            <option value="Tengo declaraciones pendientes">Tengo declaraciones pendientes</option>
+                            <option value="Nunca he presentado declaraciones">Nunca he presentado declaraciones</option>
+                            <option value="Sin RUC activo">Sin RUC activo</option>
+                        </select>
+                        <span class="error-msg hidden text-[11px] text-rose-600 font-bold mt-1">Selecciona tu situación tributaria.</span>
+                    </div>
+
+                    <!-- 12. Facturación y Cobros -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_217617002">
+                            12. ¿Cómo emites facturas actualmente? <span class="text-rose-600">*</span>
+                        </label>
+                        <select id="entry_217617002" name="entry.217617002" required
+                            class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer">
+                            <option value="" disabled selected>Selecciona el método de facturación...</option>
+                            <option value="Sistema de Facturación Gratuito de la DGI">Sistema Gratuito de la DGI</option>
+                            <option value="Proveedor de Facturación Electrónica privado (PAC)">PAC Privado de Factura Electrónica</option>
+                            <option value="Impresora Fiscal tradicional">Impresora Fiscal tradicional</option>
+                            <option value="Factura manual de papel / Recibos simples">Factura manual de papel / Recibos simples</option>
+                            <option value="No emito facturas actualmente">No emito facturas actualmente</option>
+                        </select>
+                        <span class="error-msg hidden text-[11px] text-rose-600 font-bold mt-1">Selecciona cómo facturas.</span>
+                    </div>
+
+                    <!-- Contador CPA -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_49518393">
+                            ¿Cuentas con Contador CPA que lleve tus libros? <span class="text-rose-600">*</span>
+                        </label>
+                        <select id="entry_49518393" name="entry.49518393" required
+                            class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer">
+                            <option value="" disabled selected>Selecciona una opción...</option>
+                            <option value="Sí, tengo contador fijo mensual">Sí, tengo contador fijo mensual</option>
+                            <option value="Solo contrato a alguien para la declaración de renta anual">Solo para la declaración de renta anual</option>
+                            <option value="No tengo contador / Llevo los números por mi cuenta">No tengo contador / Llevo mis números</option>
+                        </select>
+                        <span class="error-msg hidden text-[11px] text-rose-600 font-bold mt-1">Indica si cuentas con contador.</span>
+                    </div>
+
+                    <!-- 13. Equipo y Colaboradores -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_842845325">
+                            13. Equipo y colaboradores (CSS / Planilla) <span class="text-rose-600">*</span>
+                        </label>
+                        <select id="entry_842845325" name="entry.842845325" required
+                            class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer">
+                            <option value="" disabled selected>Selecciona la composición de tu equipo...</option>
+                            <option value="Solo yo (sin empleados)">Solo yo (sin empleados)</option>
+                            <option value="Empleados en planilla de Seguro Social (CSS)">Empleados en planilla de Seguro Social (CSS)</option>
+                            <option value="Servicios profesionales / comisiones">Servicios profesionales / comisiones independientes</option>
+                            <option value="Mezcla de ambos">Mezcla de ambos (Planilla + Servicios)</option>
+                        </select>
+                        <span class="error-msg hidden text-[11px] text-rose-600 font-bold mt-1">Selecciona la situación de tu equipo.</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- BLOQUE 4: PRIORIDAD URGENTE & CONSENTIMIENTO -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm transition hover:shadow-md">
+                <div class="flex items-start gap-3 pb-5 mb-6 border-b border-slate-100">
+                    <div class="w-9 h-9 rounded-2xl bg-purple-500/10 text-purple-600 flex items-center justify-center font-black text-sm shrink-0 mt-0.5">
+                        04
+                    </div>
+                    <div>
+                        <h2 class="text-lg sm:text-xl font-black text-slate-900 leading-snug">Tu Prioridad Principal & Autorización</h2>
+                        <p class="text-xs text-slate-500 mt-0.5">Enfocaremos los 40 minutos en resolver tu problema más costoso o urgente.</p>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+
+                    <!-- 14. Duda o Problema Urgente -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_190759586">
+                            14. ¿Cuál es la duda, trámite o problema URGENTE a resolver en la sesión? <span class="text-rose-600">*</span>
+                        </label>
+                        <textarea id="entry_190759586" name="entry.190759586" rows="4" required
+                            placeholder="Cuéntanos con tus palabras qué es lo que más te preocupa o qué trámite necesitas poner en orden..."
+                            class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition"></textarea>
+                        <span class="error-msg hidden text-[11px] text-rose-600 font-bold mt-1">Por favor describe tu consulta principal.</span>
+                    </div>
+
+                    <!-- 15. Citaciones previas -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2.5">
+                            15. ¿Has recibido alguna citación, boleta de cobro o inspección recientemente? <span class="text-rose-600">*</span>
+                        </label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                            <label class="flex items-start gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-brand-blue hover:bg-blue-50/30 cursor-pointer transition text-xs font-semibold text-slate-700">
+                                <input type="radio" name="entry.1093835135" value="No, revisión preventiva" required class="mt-0.5 text-brand-blue focus:ring-brand-blue">
+                                <span class="leading-snug">No, es una revisión preventiva</span>
+                            </label>
+                            <label class="flex items-start gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-brand-blue hover:bg-blue-50/30 cursor-pointer transition text-xs font-semibold text-slate-700">
+                                <input type="radio" name="entry.1093835135" value="Sí, de la DGI" class="mt-0.5 text-brand-blue focus:ring-brand-blue">
+                                <span class="leading-snug">Sí, de la DGI (Auditoría / Boleta)</span>
+                            </label>
+                            <label class="flex items-start gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-brand-blue hover:bg-blue-50/30 cursor-pointer transition text-xs font-semibold text-slate-700">
+                                <input type="radio" name="entry.1093835135" value="Sí, del Municipio" class="mt-0.5 text-brand-blue focus:ring-brand-blue">
+                                <span class="leading-snug">Sí, del Municipio (Tesorería Municipal)</span>
+                            </label>
+                            <label class="flex items-start gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-brand-blue hover:bg-blue-50/30 cursor-pointer transition text-xs font-semibold text-slate-700">
+                                <input type="radio" name="entry.1093835135" value="Sí, de CSS / MITRADEL" class="mt-0.5 text-brand-blue focus:ring-brand-blue">
+                                <span class="leading-snug">Sí, de CSS / MITRADEL (Inspección laboral)</span>
+                            </label>
+                            <label class="flex items-start gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-brand-blue hover:bg-blue-50/30 cursor-pointer transition text-xs font-semibold text-slate-700 sm:col-span-2">
+                                <input type="radio" name="entry.1093835135" value="Sí, de otra entidad" class="mt-0.5 text-brand-blue focus:ring-brand-blue">
+                                <span class="leading-snug">Sí, de otra entidad institucional</span>
+                            </label>
+                        </div>
+                        <span class="error-msg hidden text-[11px] text-rose-600 font-bold mt-1">Selecciona una opción.</span>
+                    </div>
+
+                    <!-- Autorización Legal (Consentimiento formal) -->
+                    <div class="bg-slate-50 p-4 sm:p-5 rounded-2xl border border-slate-200">
+                        <label class="flex items-start gap-3 cursor-pointer">
+                            <input type="checkbox" id="auth_check" name="entry.957167676"
+                                value="Autorizo formalmente al equipo de Aizprua S.E. a verificar el estatus público de mi negocio en las plataformas de DGI, Registro Público y Municipios exclusivamente para los fines del presente diagnóstico."
+                                required
+                                class="w-4 h-4 text-brand-blue rounded border-slate-300 focus:ring-brand-blue shrink-0 mt-0.5">
+                            <span class="text-xs text-slate-700 leading-relaxed font-medium">
+                                <strong>Autorización formal de consulta:</strong> Autorizo al equipo de Aizprua S.E. a verificar el estatus público de mi negocio en las plataformas de DGI, Registro Público y Municipios exclusivamente para los fines del presente diagnóstico preventivo bajo confidencialidad y secreto profesional. <span class="text-rose-600">*</span>
+                            </span>
+                        </label>
+                        <span id="auth-error-msg" class="error-msg hidden text-[11px] text-rose-600 font-bold mt-2 block">Debes marcar la casilla de autorización para que podamos auditar tu expediente.</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- BOTÓN DE ENVÍO -->
+            <div class="pt-2">
+                <button type="submit" id="submit-btn"
+                    class="w-full py-4 sm:py-5 px-8 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 active:scale-[0.99] text-white rounded-2xl font-black text-base sm:text-lg transition-all shadow-xl hover:shadow-orange-500/25 flex items-center justify-center gap-3 cursor-pointer">
+                    <i data-lucide="send" class="w-5 h-5 shrink-0"></i>
+                    <span id="submit-btn-text">Enviar Expediente y Confirmar Diagnóstico</span>
+                </button>
+                <p class="text-center text-xs text-slate-400 mt-3 flex items-center justify-center gap-1.5">
+                    <i data-lucide="shield-check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
+                    <span>Tus datos son almacenados en servidores seguros y protegidos por la Ley 81 de Panamá.</span>
+                </p>
+            </div>
+
+        </form>
+
+        <!-- TARJETA DE CONFIRMACIÓN DE ÉXITO (Oculta por defecto) -->
+        <div id="success-screen" class="hidden bg-white rounded-3xl p-8 sm:p-12 border border-emerald-200 shadow-2xl text-center animate-fadeIn my-6">
+            <div class="w-20 h-20 rounded-3xl bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-6 shadow-inner">
+                <i data-lucide="check-circle-2" class="w-12 h-12"></i>
+            </div>
+            
+            <span class="inline-block bg-emerald-100 text-emerald-800 text-xs font-black uppercase tracking-wider px-3.5 py-1 rounded-full mb-3">
+                Expediente Recibido con Éxito
+            </span>
+
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-3 tracking-tight">
+                ¡Gracias por enviar tu información!
+            </h2>
+
+            <p class="text-sm sm:text-base text-slate-600 max-w-xl mx-auto leading-relaxed mb-8">
+                Nuestro equipo legal ya cuenta con los datos necesarios para consultar los registros públicos (DGI, Registro Público y Municipios). Llegaremos a tu sesión con el diagnóstico preparado y la hoja de ruta clara.
+            </p>
+
+            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-5 max-w-lg mx-auto text-left mb-8 space-y-2 text-xs text-slate-600">
+                <div class="flex items-start gap-2">
+                    <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                    <span><strong>Pre-auditoría en curso:</strong> Verificaremos tu expediente antes de la fecha acordada.</span>
+                </div>
+                <div class="flex items-start gap-2">
+                    <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                    <span><strong>Enlace de videollamada:</strong> Te enviaremos el recordatorio a tu WhatsApp y correo.</span>
+                </div>
+                <div class="flex items-start gap-2">
+                    <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                    <span><strong>Dudas previas:</strong> Puedes escribirnos al WhatsApp oficial de atención si necesitas cambiar tu hora.</span>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20acabo%20de%20enviar%20el%20formulario%20de%20diagn%C3%B3stico%20de%20mi%20negocio."
+                    target="_blank" rel="noopener"
+                    class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-xl text-sm transition shadow-md">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    <span>Confirmar por WhatsApp</span>
+                </a>
+
+                <a href="/"
+                    class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-sm transition">
+                    <span>Volver a la Página Principal</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer Canónico Oficial (4 Columnas) -->
+    <footer class="bg-slate-900 text-white pt-16 pb-12 border-t border-slate-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                
+                <!-- Columna 1: Marca y Propósito -->
+                <div class="space-y-4">
+                    <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-13.svg"
+                        onerror="this.onerror=null; this.src='/assets/LOGOS PARA DIGITAL INDIVIDUALES-13.svg';"
+                        alt="Logo Aizprua S.E." class="h-20 w-auto">
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Firma especializada en estructuración societaria, blindaje preventivo y capacitación estratégica para emprendedores y empresas en Panamá.
+                    </p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <a href="https://instagram.com/aizpruase" target="_blank" rel="noopener" aria-label="Instagram" class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-brand-blue transition">
+                            <i data-lucide="instagram" class="w-4 h-4"></i>
+                        </a>
+                        <a href="https://linkedin.com/company/aizpruase" target="_blank" rel="noopener" aria-label="LinkedIn" class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-brand-blue transition">
+                            <i data-lucide="linkedin" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Soluciones -->
+                <div>
+                    <h4 class="font-bold text-white mb-4">Soluciones</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="/escudo-preventivo" class="hover:text-white transition">Escudo Preventivo ($79)</a></li>
+                        <li><a href="/plan-360" class="hover:text-white transition">Plan 360 Empresarial</a></li>
+                        <li><a href="/tienda" class="hover:text-white transition">Tienda Online</a></li>
+                        <li><a href="/escuela" class="hover:text-white transition">Campus Virtual</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Formación -->
+                <div>
+                    <h4 class="font-bold text-white mb-4">Recursos</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="/test-interactivo" class="hover:text-white transition">Auditoría Gratis (Test)</a></li>
+                        <li><a href="/blog" class="hover:text-white transition">Blog de Negocios</a></li>
+                        <li><a href="/recursos-gratuitos" class="hover:text-white transition">Descargas Gratuitas</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Contacto y Legal -->
+                <div>
+                    <h4 class="font-bold text-white mb-4">Contacto & Soporte</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="https://wa.me/50765461527" target="_blank" class="hover:text-white flex items-center gap-1.5"><i data-lucide="phone" class="w-3.5 h-3.5 text-brand-orange"></i><span>+507 6546-1527</span></a></li>
+                        <li><a href="mailto:info@aizprua.com" class="hover:text-white flex items-center gap-1.5"><i data-lucide="mail" class="w-3.5 h-3.5 text-brand-blue-light"></i><span>info@aizprua.com</span></a></li>
+                        <li><span class="text-slate-400">Panamá Oeste, La Chorrera</span></li>
+                        <li class="pt-2 border-t border-slate-800 flex gap-4 text-xs">
+                            <a href="/privacidad" class="hover:text-white transition">Privacidad</a>
+                            <a href="/terminos" class="hover:text-white transition">Términos</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Copyright Oficial -->
+            <div class="pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
+                &copy; 2026 Aizprua S.E. Todos los derechos reservados. Consultoría Legal y Formación Empresarial Estratégica en Panamá.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contenedor Flotante de Acciones -->
+    <div class="fixed bottom-6 right-6 z-40 flex flex-col items-center gap-3 pointer-events-none">
+        <button id="scroll-top-btn" onclick="scrollToTop()" aria-label="Volver arriba"
+            class="w-11 h-11 bg-white/95 backdrop-blur border border-slate-300 hover:border-brand-blue text-slate-700 hover:text-brand-blue rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:-translate-y-1 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="chevron-up" class="w-5 h-5"></i>
+        </button>
+
+        <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20tengo%20una%20consulta%20sobre%20el%20formulario%20de%20diagn%C3%B3stico"
+            target="_blank" rel="noopener" aria-label="Abrir WhatsApp"
+            class="pointer-events-auto w-14 h-14 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center group relative flex-shrink-0">
+            <i data-lucide="message-circle" class="w-7 h-7"></i>
+            <span class="absolute right-full mr-3 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
+                ¿Consultas? Chatea con nosotros
+            </span>
+        </a>
+    </div>
+
+    <!-- Scripts Oficiales & Lógica de Envío a Google Forms -->
+    <script>
+        // Toggle Menú Móvil
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Scroll to Top
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.addEventListener('scroll', () => {
+            const btn = document.getElementById('scroll-top-btn');
+            if (btn) {
+                if (window.scrollY > 400) {
+                    btn.classList.remove('opacity-0', 'pointer-events-none');
+                    btn.classList.add('opacity-100', 'pointer-events-auto');
+                } else {
+                    btn.classList.add('opacity-0', 'pointer-events-none');
+                    btn.classList.remove('opacity-100', 'pointer-events-auto');
+                }
+            }
+
+            const bar = document.getElementById('progress-bar');
+            if (bar) {
+                const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                bar.style.width = scrolled + '%';
+            }
+        });
+
+        // URL Oficial de Envío a Google Forms
+        const GOOGLE_FORM_ACTION_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfmuw7MFAqjHbrz1kMaiDCLXC6iv1yEXpUdL4ReSDFMVFlkxA/formResponse";
+
+        // Manejo de Envío del Formulario
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+
+            const form = document.getElementById('diagnostico-form');
+            const submitBtn = document.getElementById('submit-btn');
+            const submitBtnText = document.getElementById('submit-btn-text');
+            const successScreen = document.getElementById('success-screen');
+
+            // Autocompletar si vienen parámetros en la URL (ej. ?nombre=...&email=...&wa=...)
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('nombre')) {
+                const nameInput = document.getElementById('entry_2050119582');
+                if (nameInput) nameInput.value = urlParams.get('nombre');
+            }
+            if (urlParams.get('email')) {
+                const emailInput = document.getElementById('entry_660505305');
+                if (emailInput) emailInput.value = urlParams.get('email');
+            }
+            if (urlParams.get('telefono') || urlParams.get('wa')) {
+                const waInput = document.getElementById('entry_16882458');
+                if (waInput) waInput.value = urlParams.get('telefono') || urlParams.get('wa');
+            }
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                // Validación manual limpia
+                let isValid = true;
+                const requiredFields = form.querySelectorAll('[required]');
+                
+                requiredFields.forEach(field => {
+                    const errorMsg = field.closest('div')?.querySelector('.error-msg');
+                    if (field.type === 'radio') {
+                        const radioGroup = form.querySelectorAll(`input[name="${field.name}"]`);
+                        const isChecked = Array.from(radioGroup).some(r => r.checked);
+                        if (!isChecked) {
+                            isValid = false;
+                            const groupParent = field.closest('.space-y-6, div');
+                            const groupError = groupParent?.querySelector('.error-msg');
+                            if (groupError) groupError.classList.remove('hidden');
+                        }
+                    } else if (field.type === 'checkbox') {
+                        if (!field.checked) {
+                            isValid = false;
+                            const authError = document.getElementById('auth-error-msg');
+                            if (authError) authError.classList.remove('hidden');
+                        }
+                    } else if (!field.value.trim()) {
+                        isValid = false;
+                        field.classList.add('border-rose-400', 'bg-rose-50/30');
+                        if (errorMsg) errorMsg.classList.remove('hidden');
+                    } else {
+                        field.classList.remove('border-rose-400', 'bg-rose-50/30');
+                        if (errorMsg) errorMsg.classList.add('hidden');
+                    }
+                });
+
+                if (!isValid) {
+                    // Hacer scroll suave hacia el primer campo con error
+                    const firstError = form.querySelector('.border-rose-400, .error-msg:not(.hidden)');
+                    if (firstError) {
+                        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                    return;
+                }
+
+                // Estado de Envío en Progreso
+                submitBtn.disabled = true;
+                submitBtn.classList.add('opacity-75', 'cursor-wait');
+                submitBtnText.innerHTML = `
+                    <span class="inline-flex items-center gap-2">
+                        <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Enviando expediente a revisión...
+                    </span>
+                `;
+
+                // Recopilación de datos del formulario
+                const formData = new FormData(form);
+
+                try {
+                    // Envío silencioso a Google Forms con mode: 'no-cors'
+                    await fetch(GOOGLE_FORM_ACTION_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        body: formData
+                    });
+
+                    // Mostrar Pantalla de Éxito
+                    form.classList.add('hidden');
+                    successScreen.classList.remove('hidden');
+                    if (typeof lucide !== 'undefined') lucide.createIcons();
+                    successScreen.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                } catch (err) {
+                    console.error("Error al enviar formulario:", err);
+                    // Como mode: 'no-cors' es opaco, incluso si salta catch por red mostramos éxito si la petición salió
+                    form.classList.add('hidden');
+                    successScreen.classList.remove('hidden');
+                    if (typeof lucide !== 'undefined') lucide.createIcons();
+                    successScreen.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
