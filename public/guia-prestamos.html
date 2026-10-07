@@ -185,73 +185,108 @@
     <!-- Barra de Progreso de lectura horizontal -->
     <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-brand-orange z-[60] transition-all duration-75" style="width:0%"></div>
 
-    <!-- Announcement Bar -->
-    <div id="announcement-bar" class="relative bg-brand-blue text-white py-2 px-4 text-center text-sm z-50">
-        <span>
-            <svg class="w-4 h-4 inline-block -mt-0.5 mr-1.5 text-brand-orange-light flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-            </svg>
-            <strong>Guía Práctica de Financiamiento 2026</strong> — Datos oficiales verificados con SBP, MICI y AMPYME Panamá
-        </span>
-        <a href="#checklist" class="ml-2 underline font-bold hover:text-brand-orange-light">Ver qué hacer</a>
-        <button id="close-announcement" aria-label="Cerrar anuncio" class="absolute right-4 top-1/2 -translate-y-1/2 hover:text-brand-orange-light">
+    <!-- ==================================================== -->
+    <!-- 1. BARRA SUPERIOR DE ANUNCIOS (ANNOUNCEMENT BAR)     -->
+    <!-- ==================================================== -->
+    <div id="announcement-bar" class="relative bg-brand-blue text-white py-2.5 px-4 text-center text-xs sm:text-sm font-semibold z-50">
+        <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 flex-wrap">
+            <span class="hidden sm:inline-flex items-center gap-1.5 bg-white/10 px-2 py-0.5 rounded-full text-brand-orange-light text-[11px] font-black uppercase tracking-wider">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                Autodiagnóstico 2026
+            </span>
+            <span>¿Tu empresa califica para financiamiento bancario sin trabas ni rechazos?</span>
+            <a href="/test-interactivo" class="inline-flex items-center gap-1 text-white underline font-bold hover:text-brand-orange-light transition">
+                <span>Hacer Test en 3 minutos</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+        </div>
+        <button onclick="document.getElementById('announcement-bar').style.display='none'"
+            aria-label="Cerrar aviso" class="absolute right-3 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition p-1">
             <i data-lucide="x" class="w-4 h-4"></i>
         </button>
     </div>
 
-    <!-- Navbar Corporativo -->
-    <nav id="navbar" class="bg-white/90 backdrop-blur-md sticky top-0 z-40 border-b border-slate-200 transition-shadow">
+    <!-- ==================================================== -->
+    <!-- 2. HEADER CANÓNICO OFICIAL (NAVBAR LIMPIO)            -->
+    <!-- ==================================================== -->
+    <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40 transition-all">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                
-                <!-- Logo Oficial Aizprua S.E. -->
-                <div class="flex items-center gap-3">
-                    <button id="mobile-menu-btn" aria-label="Abrir menú" class="lg:hidden text-slate-600 p-1.5 rounded-lg hover:bg-slate-100">
-                        <i data-lucide="menu" class="h-6 w-6"></i>
-                    </button>
-                    <a href="/" class="flex items-center" title="Aizprua S.E. - Inicio">
-                        <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg"
-                            alt="Logo Aizprua S.E. - Trámites Legales Panamá" class="h-28 w-auto object-contain" width="112"
-                            height="112">
-                    </a>
-                </div>
+            <div class="flex justify-between items-center h-20">
 
-                <!-- 2. Menú de Enlaces (Centro) -->
-                <div class="hidden lg:flex items-center space-x-6">
-                    <a href="/" class="text-slate-600 hover:text-brand-blue font-medium transition text-sm">Inicio</a>
-                    <a href="/guia-blindaje" class="text-slate-600 hover:text-brand-blue font-medium transition text-sm">Guía Anti-Multas</a>
-                    <a href="/#diagnostico" class="text-slate-600 hover:text-brand-blue font-medium transition text-sm">Diagnóstico</a>
+                <!-- Logotipo Canónico Oficial -->
+                <a href="/" class="flex items-center flex-shrink-0" aria-label="Aizprua S.E. Inicio">
+                    <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg"
+                        onerror="this.onerror=null; this.src='/assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg';"
+                        alt="Logo Aizprua S.E. - Firma Legal y Empresarial en Panamá"
+                        class="h-28 w-auto object-contain" width="112" height="112">
+                </a>
+
+                <!-- Navegación de Escritorio Limpia -->
+                <nav class="hidden lg:flex items-center space-x-8 text-sm font-semibold text-slate-700">
+                    <a href="/#servicios" class="hover:text-brand-blue transition">Servicios</a>
+                    <a href="/tienda" class="hover:text-brand-blue transition flex items-center gap-1.5">
+                        <span>Tienda Online</span>
+                        <span class="bg-brand-orange/10 text-brand-orange text-[10px] font-black px-2 py-0.5 rounded-full border border-brand-orange/20">Kits</span>
+                    </a>
+                    <a href="/escuela" class="hover:text-brand-blue transition flex items-center gap-1.5 text-slate-700">
+                        <i data-lucide="graduation-cap" class="w-4 h-4 text-brand-blue"></i>
+                        <span>Escuela</span>
+                        <span class="bg-brand-blue/10 text-brand-blue text-[10px] font-black px-2 py-0.5 rounded-full border border-brand-blue/20">Campus</span>
+                    </a>
+                    <a href="/blog" class="hover:text-brand-blue transition">Blog</a>
                     <span class="text-slate-300">|</span>
-                    <a href="tel:+50765461527" class="text-slate-600 flex items-center gap-1.5 text-sm font-medium hover:text-brand-blue transition">
-                        <i data-lucide="phone" class="w-4 h-4 text-brand-orange"></i>6546-1527
+                    <a href="tel:+50765461527" class="flex items-center gap-1.5 text-slate-600 hover:text-brand-blue transition">
+                        <i data-lucide="phone" class="w-4 h-4 text-brand-orange"></i>
+                        <span>6546-1527</span>
+                    </a>
+                </nav>
+
+                <!-- Botón CTA WhatsApp Oficial Canónico -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20le%C3%AD%20la%20Gu%C3%ADa%20de%20Pr%C3%A9stamos%20y%20quisiera%20asesor%C3%ADa"
+                        target="_blank" rel="noopener"
+                        class="flex items-center gap-2 bg-[#25D366] text-white px-5 py-2.5 rounded-full font-bold text-sm hover:bg-[#20bd5a] transition shadow-md hover:shadow-lg whitespace-nowrap transform hover:-translate-y-0.5">
+                        <i data-lucide="message-circle" class="w-4 h-4 flex-shrink-0"></i>
+                        <span>WhatsApp Oficial</span>
                     </a>
                 </div>
 
-                <!-- 3. Botón de WhatsApp (Derecha) -->
-                <div class="flex items-center">
-                    <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.%2C%20le%C3%AD%20la%20Gu%C3%ADa%20de%20Pr%C3%A9stamos%20y%20quisiera%20asesor%C3%ADa" target="_blank"
-                        class="flex items-center gap-2 bg-[#25D366] text-white px-5 py-2 rounded-full font-semibold hover:bg-[#20bd5a] transition shadow-lg text-xs sm:text-sm">
-                        <i data-lucide="message-circle" class="w-4 h-4"></i>
-                        <span>WhatsApp</span>
-                    </a>
+                <!-- Botón Móvil Hamburguesa -->
+                <div class="flex items-center lg:hidden">
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Abrir menú"
+                        class="text-slate-700 hover:text-brand-blue p-2 rounded-lg focus:outline-none">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
                 </div>
 
             </div>
         </div>
 
         <!-- Menú Móvil Desplegable -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-white p-4 space-y-3 border-t border-slate-200 shadow-xl">
-            <div class="relative w-full mb-2">
-                <input type="text" id="mobileGuideSearchInput" placeholder="Buscar en la guía de préstamos..."
-                    class="w-full px-3.5 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 placeholder-slate-400">
-            </div>
-            <a href="/" class="block py-2 text-slate-600 font-medium text-sm mobile-nav-link">Inicio</a>
-            <a href="/guia-blindaje" class="block py-2 text-slate-600 font-medium text-sm mobile-nav-link">Guía Anti-Multas 2026</a>
-            <a href="/#diagnostico" class="block py-2 text-slate-600 font-medium text-sm mobile-nav-link">Diagnóstico de Empresa</a>
-            <a href="tel:+50765461527" class="block py-2 text-slate-600 font-medium text-sm">Llamar: 6546-1527</a>
-            <a href="https://wa.me/50765461527" target="_blank" class="block py-2 text-green-600 font-bold text-sm">WhatsApp directo</a>
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-200 px-4 pt-3 pb-6 space-y-3">
+            <a href="/#servicios" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-bold hover:text-brand-blue border-b border-slate-100">
+                Servicios (Asesoría & Trámites)
+            </a>
+            <a href="/tienda" class="block py-2 text-slate-700 font-bold hover:text-brand-blue border-b border-slate-100">
+                Tienda Online (Plan 360 & Kits)
+            </a>
+            <a href="/escuela" class="block py-2 text-slate-700 font-bold hover:text-brand-blue border-b border-slate-100 flex items-center justify-between">
+                <span>Escuela (Campus Virtual)</span>
+                <span class="bg-brand-blue/10 text-brand-blue text-[10px] font-black px-2 py-0.5 rounded-full">Nuevo</span>
+            </a>
+            <a href="/blog" class="block py-2 text-slate-700 font-bold hover:text-brand-blue border-b border-slate-100">
+                Blog de Inteligencia Empresarial
+            </a>
+            <a href="/test-interactivo" class="block py-2 text-brand-orange font-bold border-b border-slate-100">
+                Test de Auditoría en Vivo (3 min)
+            </a>
+            <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20le%C3%AD%20la%20Gu%C3%ADa%20de%20Pr%C3%A9stamos%20y%20quisiera%20asesor%C3%ADa" target="_blank"
+                class="flex items-center justify-center gap-2 bg-[#25D366] text-white px-4 py-3 rounded-xl font-bold text-sm shadow mt-2">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                <span>Chatear por WhatsApp (+507 6546-1527)</span>
+            </a>
         </div>
-    </nav>
+    </header>
 
     <!-- HERO DE LA GUÍA -->
     <header class="pt-8 pb-10 overflow-hidden relative border-b border-slate-200/80 bg-white">
@@ -1229,125 +1264,129 @@
 
     </div>
 
-    <!-- FOOTER CORPORATIVO -->
-    <footer class="bg-slate-900 text-slate-400 py-12 mt-16 border-t border-slate-800">
+    <!-- ==================================================== -->
+    <!-- ==================================================== -->
+    <!-- FOOTER CANÓNICO OFICIAL (4 COLUMNAS DESIGN_SYSTEM)   -->
+    <!-- ==================================================== -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row md:justify-between gap-10 mb-8">
-                <!-- Logo & Redes -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+
+                <!-- Columna 1: Marca y Redes -->
                 <div class="flex flex-col items-start">
-                    <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-21-nobg.svg" alt="Aizprua S.E. - Firma Legal"
-                        class="h-20 w-auto -mt-7 -mb-4 -ml-3">
-                    <p class="text-sm text-slate-400 mb-3">Tu aliado legal y financiero en Panamá.</p>
+                    <a href="/" aria-label="Aizprua S.E. - Inicio" class="inline-block">
+                        <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-21-nobg.svg"
+                            onerror="this.onerror=null; this.src='/assets/LOGOS PARA DIGITAL INDIVIDUALES-21-nobg.svg';"
+                            alt="Aizprua S.E. - Firma Legal y Empresarial" class="h-20 w-auto -mt-7 -mb-4 -ml-3">
+                    </a>
+                    <p class="text-sm text-slate-400 mb-3">Tu aliado legal y empresarial en Panamá.</p>
                     <div class="flex gap-3">
                         <a target="_blank" rel="noopener" href="https://instagram.com/aizpruase"
                             class="w-10 h-10 bg-slate-800 hover:bg-pink-600 rounded-full flex items-center justify-center text-white transition"
                             aria-label="Instagram">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
                             </svg>
                         </a>
                         <a target="_blank" rel="noopener" href="https://facebook.com/aizpruase"
                             class="w-10 h-10 bg-slate-800 hover:bg-brand-blue rounded-full flex items-center justify-center text-white transition"
                             aria-label="Facebook">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a target="_blank" rel="noopener" href="https://www.youtube.com/@AizpruaSE"
+                            class="w-10 h-10 bg-slate-800 hover:bg-red-600 rounded-full flex items-center justify-center text-white transition"
+                            aria-label="YouTube">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                             </svg>
                         </a>
                         <a href="https://wa.me/50765461527" target="_blank"
                             class="w-10 h-10 bg-slate-800 hover:bg-green-500 rounded-full flex items-center justify-center text-white transition"
                             aria-label="WhatsApp">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                             </svg>
                         </a>
                     </div>
                 </div>
-                <!-- Diagnóstico & Guías -->
+
+                <!-- Columna 2: Soluciones -->
                 <div>
-                    <h4 class="font-bold text-white mb-4">Manuales & Recursos</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="/guia-prestamos" class="text-brand-orange hover:text-white transition font-medium">Guía Práctica Préstamos 2026</a></li>
-                        <li><a href="/guia-blindaje" class="hover:text-white transition">Playbook Anti-Multas</a></li>
-                        <li><a href="/#diagnostico" class="hover:text-white transition">Diagnóstico Escudo Preventivo</a></li>
-                        <li><a href="/recursos-gratuitos" class="hover:text-white transition">Recursos Gratuitos</a></li>
+                    <h4 class="font-bold text-white mb-4">Soluciones</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="https://escudo.aizprua.com/" class="hover:text-white transition">Asesoría Escudo Preventivo</a></li>
+                        <li><a href="/tienda" class="hover:text-white transition font-semibold text-brand-orange-light">Tienda Online</a></li>
+                        <li><a href="https://escuela.aizprua.com" target="_blank" rel="noopener" class="hover:text-white transition font-semibold text-brand-blue-light flex items-center gap-1.5">Campus Virtual (Escuela) <i data-lucide="external-link" class="w-3 h-3 text-brand-orange"></i></a></li>
+                        <li><a href="/plan-360-digital" class="hover:text-white transition">Plan 360 Digital ($24.99)</a></li>
+                        <li><a href="/test-interactivo" class="hover:text-white transition">Test de Auditoría Gratis</a></li>
                     </ul>
                 </div>
-                <!-- Contacto -->
+
+                <!-- Columna 3: Contacto -->
                 <div>
                     <h4 class="font-bold text-white mb-4">Contacto</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="https://wa.me/50765461527" target="_blank" class="hover:text-white">WhatsApp: +507 6546-1527</a></li>
-                        <li><a href="mailto:info@aizprua.com" class="hover:text-white">info@aizprua.com</a></li>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="https://wa.me/50765461527" target="_blank" class="hover:text-white transition">WhatsApp: +507 6546-1527</a></li>
+                        <li><a href="mailto:info@aizprua.com" class="hover:text-white transition">info@aizprua.com</a></li>
+                        <li>Panamá Oeste, La Chorrera</li>
                     </ul>
                 </div>
-                <!-- Legal -->
+
+                <!-- Columna 4: Cumplimiento Legal -->
                 <div>
-                    <h4 class="font-bold text-white mb-4">Legal</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="/terminos" class="hover:text-white">Términos y Condiciones</a></li>
-                        <li><a href="/privacidad" class="hover:text-white">Política de Privacidad</a></li>
+                    <h4 class="font-bold text-white mb-4">Cumplimiento Legal</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="/privacidad" class="hover:text-white transition">Política de Privacidad (Ley 81)</a></li>
+                        <li><a href="/terminos" class="hover:text-white transition">Términos y Condiciones</a></li>
+                        <li><a href="https://whatsapp.com/channel/0029Va64qHbJJhzeH6DHa61a" target="_blank" rel="noopener" class="text-emerald-400 hover:text-emerald-300 font-semibold transition">Comunidad Oficial WhatsApp</a></li>
                     </ul>
                 </div>
+
             </div>
-            <div class="border-t border-slate-800 pt-8 text-center text-sm text-slate-300">
-                &copy; 2026 Aizprua S.E. Todos los derechos reservados.
+
+            <!-- Copyright inferior -->
+            <div class="border-t border-slate-800 pt-8 text-center text-xs text-slate-400">
+                &copy; 2026 Aizprua S.E. Firma Legal y Empresarial en Panamá. Todos los derechos reservados.
             </div>
         </div>
     </footer>
 
-    <!-- WhatsApp Flotante Btn -->
-    <button id="whatsapp-toggle" aria-label="Abrir chat de WhatsApp"
-        class="whatsapp-btn fixed bottom-16 right-6 z-[90] bg-[#25D366] hover:bg-[#20bd5a] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 cursor-pointer">
-        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-        </svg>
-    </button>
+    <!-- Contenedor Flotante de Acciones -->
+    <div class="fixed bottom-6 right-6 z-40 flex flex-col items-center gap-3 pointer-events-none">
+        <!-- Botón Flotante "Volver Arriba" (Scroll to Top) -->
+        <button id="scroll-top-btn" onclick="scrollToTop()" aria-label="Volver arriba"
+            class="w-11 h-11 bg-white/95 backdrop-blur border border-slate-300 hover:border-brand-blue text-slate-700 hover:text-brand-blue rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:-translate-y-1 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="chevron-up" class="w-5 h-5"></i>
+        </button>
 
-    <!-- WhatsApp Widget Desplegable -->
-    <div id="whatsapp-widget"
-        class="fixed bottom-24 right-6 z-[90] w-80 bg-brand-blue rounded-2xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.4)] overflow-hidden transform scale-0 origin-bottom-right transition-transform duration-300">
-        <div class="bg-brand-blue p-6 relative">
-            <button id="close-whatsapp" class="absolute top-4 right-4 text-white/80 hover:text-white transition cursor-pointer">
-                <i data-lucide="x" class="w-6 h-6"></i>
-            </button>
-            <h3 class="text-white text-lg font-bold pr-6">¿Dudas sobre préstamos o financiamiento?</h3>
-            <p class="text-blue-100 text-sm mt-1">Te orientamos legal y contablemente en minutos.</p>
-        </div>
-        <div class="p-6 bg-slate-50 rounded-b-2xl">
-            <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100 mb-4 flex gap-4 items-start">
-                <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg class="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                    </svg>
-                </div>
-                <div>
-                    <p class="text-sm text-slate-500 mb-1">Equipo Aizprua S.E.</p>
-                    <p class="text-slate-800 font-medium text-sm flex items-center gap-1.5">
-                        <span>Hola</span>
-                        <svg class="w-4 h-4 text-amber-500 inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"/>
-                            <path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2"/>
-                            <path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"/>
-                            <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/>
-                        </svg>
-                        <span>¿En qué crédito o banco podemos asesorarte?</span>
-                    </p>
-                </div>
-            </div>
-            <a href="https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20c%C3%B3mo%20conseguir%20un%20pr%C3%A9stamo%20para%20mi%20empresa"
-                target="_blank"
-                class="block w-full py-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-lg text-center transition shadow-lg hover:shadow-green-500/20 flex items-center justify-center gap-2">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                </svg>
-                Iniciar Chat
-            </a>
-            <p class="text-center text-xs text-slate-400 mt-3 select-none">Se abre en WhatsApp</p>
-        </div>
+        <!-- Botón Flotante de WhatsApp Fijo -->
+        <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20tengo%20una%20consulta%20empresarial"
+            target="_blank" rel="noopener" aria-label="Abrir WhatsApp"
+            class="pointer-events-auto w-14 h-14 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center group relative flex-shrink-0">
+            <i data-lucide="message-circle" class="w-7 h-7"></i>
+            <span class="absolute right-full mr-3 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
+                ¿Dudas? Chatea con nosotros
+            </span>
+        </a>
     </div>
 
     <!-- SCRIPTS DE INTERACCIÓN -->
     <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu) menu.classList.toggle('hidden');
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
         function initIcons() {
             if (window.lucide && typeof window.lucide.createIcons === 'function') {
                 window.lucide.createIcons();
@@ -1359,13 +1398,24 @@
 
             const topBar = document.getElementById('topLoadingBar');
             const progressBar = document.getElementById('progress-bar');
+            const scrollTopBtn = document.getElementById('scroll-top-btn');
 
-            // Barra de progreso de scroll horizontal
+            // Barra de progreso de scroll horizontal y botón volver arriba
             window.addEventListener('scroll', () => {
                 const winScroll = document.documentElement.scrollTop;
                 const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
                 const scrolled = (winScroll / height) * 100;
                 if (progressBar) progressBar.style.width = scrolled + '%';
+
+                if (scrollTopBtn) {
+                    if (window.scrollY > 400) {
+                        scrollTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                        scrollTopBtn.classList.add('opacity-100', 'pointer-events-auto');
+                    } else {
+                        scrollTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                        scrollTopBtn.classList.remove('opacity-100', 'pointer-events-auto');
+                    }
+                }
             });
 
             // Cerrar anuncio
@@ -1391,20 +1441,6 @@
                 });
             }
 
-            // WhatsApp Widget Toggle
-            const waToggle = document.getElementById('whatsapp-toggle');
-            const waWidget = document.getElementById('whatsapp-widget');
-            const closeWa = document.getElementById('close-whatsapp');
-            if (waToggle && waWidget) {
-                waToggle.addEventListener('click', () => {
-                    waWidget.classList.toggle('scale-0');
-                });
-            }
-            if (closeWa && waWidget) {
-                closeWa.addEventListener('click', () => {
-                    waWidget.classList.add('scale-0');
-                });
-            }
 
             // Copiar Cláusula / Preguntas al Portapapeles
             document.querySelectorAll('.btn-copy-clause').forEach(btn => {
