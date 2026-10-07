@@ -659,43 +659,47 @@
         </div>
     </footer>
 
-    <!-- Interactive QR Modal con la estética limpia de index.html -->
+    <!-- Interactive QR Modal con la estética limpia y amplia para desktop y móvil -->
     <div id="qr-modal"
-        class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden items-center justify-center p-4">
+        class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-md hidden items-center justify-center p-4 sm:p-6 transition-all duration-300">
         <div
-            class="bg-white border border-slate-200 p-6 rounded-2xl max-w-xs w-full text-center flex flex-col items-center relative shadow-2xl">
+            class="bg-white border border-slate-200/90 p-6 sm:p-8 rounded-3xl max-w-[360px] sm:max-w-[440px] w-full text-center flex flex-col items-center relative shadow-2xl transition-all animate-in fade-in zoom-in-95 duration-200">
+            <!-- Botón Cerrar (X) Superior -->
             <button id="close-qr-btn" aria-label="Cerrar modal"
-                class="absolute top-3 right-3 p-1 rounded-full text-slate-400 hover:text-slate-700 transition-colors">
-                <i data-lucide="x" class="w-5 h-5"></i>
+                class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition-all active:scale-95">
+                <i data-lucide="x" class="w-4 h-4"></i>
             </button>
 
+            <!-- Icono Superior -->
             <div
-                class="w-12 h-12 rounded-xl bg-orange-50 text-brand-orange border border-orange-200 flex items-center justify-center mb-3">
-                <i data-lucide="qr-code" class="w-6 h-6"></i>
+                class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-brand-orange/15 to-orange-100/60 border border-brand-orange/30 text-brand-orange flex items-center justify-center mb-3 shadow-xs">
+                <i data-lucide="qr-code" class="w-7 h-7"></i>
             </div>
 
-            <h3 class="text-base font-extrabold text-slate-900 mb-1">Escanear Perfil</h3>
-            <p class="text-xs text-slate-600 mb-4">Apunta tu cámara para abrir y compartir este hub de enlaces al
-                instante.</p>
+            <h3 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight mb-1.5">Escanear Perfil Oficial</h3>
+            <p class="text-xs sm:text-sm text-slate-600 max-w-xs mx-auto mb-5 leading-relaxed">
+                Apunta con la cámara de tu teléfono móvil para abrir y compartir este hub de enlaces al instante.
+            </p>
 
-            <!-- Código QR 100% Real y Escaneable -->
-            <div class="p-3 bg-white border border-slate-200 rounded-2xl shadow-inner mb-4 flex flex-col items-center">
+            <!-- Tarjeta Contenedora del Código QR (Espaciosa y Proporcional) -->
+            <div class="w-full p-4 sm:p-5 bg-gradient-to-b from-slate-50 to-slate-100/60 border border-slate-200/90 rounded-2xl shadow-inner mb-5 flex flex-col items-center gap-3">
                 <div
-                    class="w-48 h-48 bg-white border border-slate-100 rounded-xl flex items-center justify-center p-2 relative shadow-sm overflow-hidden">
+                    class="w-52 h-52 sm:w-60 sm:h-60 bg-white border border-slate-200/80 rounded-2xl flex items-center justify-center p-3 relative shadow-md overflow-hidden">
                     <img id="real-qr-img"
-                        src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Faizprua.com%2Flinks&color=0f172a&bgcolor=ffffff&margin=1"
+                        src="https://api.qrserver.com/v1/create-qr-code/?size=320x320&data=https%3A%2F%2Faizprua.com%2Flinks&color=0f172a&bgcolor=ffffff&margin=1"
                         alt="Código QR Oficial - Arubel Aizprua A." class="w-full h-full object-contain" />
                 </div>
                 <div
-                    class="flex items-center gap-1.5 mt-2.5 text-[11px] font-mono font-bold text-brand-blue bg-blue-50 px-3 py-1 rounded-full border border-blue-200/80">
-                    <i data-lucide="shield-check" class="w-3.5 h-3.5 text-brand-blue"></i>
+                    class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border border-blue-200/80 shadow-xs text-xs font-mono font-bold text-brand-blue">
+                    <i data-lucide="shield-check" class="w-4 h-4 text-brand-blue"></i>
                     <span id="qr-url-label">aizprua.com/links</span>
                 </div>
             </div>
 
+            <!-- Botón Cerrar Inferior Principal -->
             <button id="dismiss-qr-btn"
-                class="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs font-bold text-slate-800 transition-colors">
-                Cerrar
+                class="w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-bold transition-all shadow-md hover:shadow-lg active:scale-98">
+                Cerrar Ventana
             </button>
         </div>
     </div>
