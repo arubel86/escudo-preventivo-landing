@@ -1,571 +1,343 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buscador y Validador de RUC / DV en Panamá | Aizprua S.E.</title>
-    <meta name="description" content="Consulta y valida gratis el RUC y Dígito Verificador (DV) de empresas y personas en Panamá en tiempo real ante la DGI. Servicio oficial de Aizprua S.E.">
-    <meta name="keywords" content="RUC Panamá, Dígito Verificador DV, DGI Panamá, e-Tax 2.0, Razón Social Panamá, Paz y Salvo DGI, Facturación Electrónica Panamá">
-    <meta name="author" content="Aizprua S.E.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buscador y Validador de RUC / DV en Panamá | Aizprua S.E.</title>
+  <meta name="description" content="Consulta y valida RUCs personales y jurídicos con cálculo oficial de Dígito Verificador (DV) en Panamá en tiempo real.">
+  
+  <!-- Canonical & Favicon -->
+  <link rel="canonical" href="https://aizprua.com/ruc">
+  <link rel="icon" type="image/svg+xml" href="assets/LOGOS PARA DIGITAL INDIVIDUALES-13.svg">
 
-    <!-- Canonical & Favicon -->
-    <link rel="canonical" href="https://aizprua.com/ruc">
-    <link rel="icon" type="image/svg+xml" href="assets/LOGOS PARA DIGITAL INDIVIDUALES-13.svg">
-    <link rel="apple-touch-icon" href="assets/LOGOS PARA DIGITAL INDIVIDUALES-13.svg">
+  <!-- Open Graph / WhatsApp / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aizprua.com/ruc">
+  <meta property="og:title" content="Buscador y Validador de RUC / DV en Panamá | Aizprua S.E.">
+  <meta property="og:description" content="Consulta y valida RUCs personales y jurídicos con cálculo oficial de Dígito Verificador (DV) en Panamá en tiempo real.">
+  <meta property="og:image" content="https://aizprua.com/assets/aizprua-shield-og.jpg">
+  <meta property="og:image:secure_url" content="https://aizprua.com/assets/aizprua-shield-og.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1080">
+  <meta property="og:image:height" content="1080">
+  <meta property="og:locale" content="es_PA">
+  <meta property="og:site_name" content="Aizprua S.E.">
 
-    <!-- Open Graph / WhatsApp / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://aizprua.com/ruc">
-    <meta property="og:title" content="Buscador y Validador de RUC / DV en Panamá | Aizprua S.E.">
-    <meta property="og:description" content="Consulta y valida gratis el RUC y Dígito Verificador (DV) de empresas y personas en Panamá en tiempo real ante la DGI.">
-    <meta property="og:image" content="https://aizprua.com/assets/aizprua-shield-og.jpg">
-    <meta property="og:image:secure_url" content="https://aizprua.com/assets/aizprua-shield-og.jpg">
-    <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:width" content="1080">
-    <meta property="og:image:height" content="1080">
-    <meta property="og:locale" content="es_PA">
-    <meta property="og:site_name" content="Aizprua S.E.">
-
-    <!-- Twitter / X Cards -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Buscador y Validador de RUC / DV en Panamá | Aizprua S.E.">
-    <meta name="twitter:description" content="Consulta y valida gratis el RUC y Dígito Verificador (DV) de empresas y personas en Panamá en tiempo real ante la DGI.">
-    <meta name="twitter:image" content="https://aizprua.com/assets/aizprua-shield-og.jpg">
-
-    <!-- Preconnect & Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <!-- Tailwind CSS (Estandarizado en el ecosistema Aizprua) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'brand-blue': '#3849C8',
-                        'brand-blue-dark': '#2D3A9F',
-                        'brand-blue-light': '#4F5ED4',
-                        'brand-orange': '#FF8A1E',
-                        'brand-orange-dark': '#E67A15',
-                        'brand-orange-light': '#FFA04A',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-
-    <!-- Lucide Icons & Estilos RUC -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="ruc.css">
+  <!-- Twitter / X Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Buscador y Validador de RUC / DV en Panamá | Aizprua S.E.">
+  <meta name="twitter:description" content="Consulta y valida RUCs personales y jurídicos con cálculo oficial de Dígito Verificador (DV) en Panamá en tiempo real.">
+  <meta name="twitter:image" content="https://aizprua.com/assets/aizprua-shield-og.jpg">
+  <meta name="description" content="Consulta y valida gratis el RUC y Dígito Verificador (DV) de empresas y personas en Panamá ante la DGI. Servicio rápido de Aizprua S.E.">
+  
+  <!-- Preconnect & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons & CSS -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="ruc.css?v=4.3">
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased flex flex-col min-h-screen selection:bg-brand-orange selection:text-white relative">
+<body>
+  <!-- BARRA DE CARGA ESPECTRAL SUPERIOR -->
+  <div id="topLoadingBar" class="top-loading-bar" role="progressbar" aria-label="Consulta fiscal en curso"></div>
 
-    <!-- BARRA DE CARGA ESPECTRAL SUPERIOR PARA CONSULTAS FISCALES -->
-    <div id="topLoadingBar" class="top-loading-bar" role="progressbar" aria-label="Consulta fiscal en curso"></div>
+  <!-- ── NAVBAR INSTITUCIONAL ORIGINAL ─────────────────────── -->
+  <header class="navbar">
+    <div class="navbar-container">
+      <a href="/" class="brand-logo" aria-label="Aizprua S.E. Inicio">
+        <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg" alt="Logo Aizprua S.E. - Firma Legal y Empresarial en Panamá" onerror="this.src='assets/LOGOS PARA DIGITAL INDIVIDUALES-21-nobg.svg'" width="112" height="112">
+      </a>
 
-    <!-- Barra de Progreso de Lectura Canónica -->
-    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-brand-orange z-[60] transition-all duration-75" style="width:0%"></div>
+      <ul class="nav-links">
+        <li><a href="#buscador" class="nav-link">Buscador</a></li>
+        <li><a href="#servicios" class="nav-link">Escudo Preventivo</a></li>
+        <li><a href="#conector" class="nav-link">Conector Sage 50</a></li>
+      </ul>
 
-    <!-- ==================================================== -->
-    <!-- 1. BARRA SUPERIOR DE ANUNCIOS (ANNOUNCEMENT BAR)     -->
-    <!-- ==================================================== -->
-    <div id="announcement-bar" class="relative bg-brand-blue text-white py-2.5 px-4 text-center text-xs sm:text-sm font-semibold z-50">
-        <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 flex-wrap">
-            <span class="hidden sm:inline-flex items-center gap-1.5 bg-white/10 px-2 py-0.5 rounded-full text-brand-orange-light text-[11px] font-black uppercase tracking-wider">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                Autodiagnóstico 2026
-            </span>
-            <span>¿Tu empresa tiene fugas de dinero o riesgos de multas sin darte cuenta?</span>
-            <a href="/test-interactivo" class="inline-flex items-center gap-1 text-white underline font-bold hover:text-brand-orange-light transition">
-                <span>Hacer Test en 3 minutos</span>
-                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-            </a>
-        </div>
-        <button onclick="document.getElementById('announcement-bar').style.display='none'"
-            aria-label="Cerrar aviso" class="absolute right-3 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition p-1">
-            <i data-lucide="x" class="w-4 h-4"></i>
-        </button>
+      <a href="https://wa.me/50765461527?text=Hola,%20quisiera%20consultar%20sobre%20sus%20servicios%20de%20asesor%C3%ADa%20y%20facturaci%C3%B3n" target="_blank" class="btn-contact" title="Consultar Especialista en WhatsApp">
+        <i data-lucide="message-square"></i>
+        <span class="btn-contact-text">Consultar Especialista</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ── HERO SECTION & BUSCADOR INTELIGENTE ────────────────── -->
+  <section class="hero-section" id="buscador">
+    <div class="hero-badge">
+      <i data-lucide="shield-check" style="width: 16px; height: 16px;"></i>
+      <span>Servicio Oficial de Verificación Fiscal</span>
     </div>
 
-    <!-- ==================================================== -->
-    <!-- 2. HEADER CANÓNICO OFICIAL (NAVBAR LIMPIO)            -->
-    <!-- ==================================================== -->
-    <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40 transition-all">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
+    <h1 class="hero-title">
+      Consulte su <span class="gradient-text">RUC & Dígito Verificador (DV)</span> al Instante en Panamá
+    </h1>
+    <p class="hero-description">
+      Obtén la Razón Social y el DV oficial ante la DGI para facturación electrónica, transferencias ACH y creación de proveedores sin demora.
+    </p>
 
-                <!-- Logotipo Canónico Oficial -->
-                <a href="/" class="flex items-center flex-shrink-0" aria-label="Aizprua S.E. Inicio">
-                    <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg"
-                        onerror="this.onerror=null; this.src='/assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg';"
-                        alt="Logo Aizprua S.E. - Firma Legal y Empresarial en Panamá"
-                        class="h-28 w-auto object-contain" width="112" height="112">
-                </a>
+    <!-- Formulario Desglosado Oficial DGI Panamá -->
+    <div class="dgi-form-card" id="dgiFormCard">
+      <div class="dgi-form-header">
+        <i data-lucide="file-search" style="width: 20px; height: 20px; color: var(--brand-blue);"></i>
+        <span>Formulario de Consulta Oficial DGI e-Tax 2.0</span>
+      </div>
 
-                <!-- Navegación de Escritorio Limpia -->
-                <nav class="hidden lg:flex items-center space-x-8 text-sm font-semibold text-slate-700">
-                    <a href="/#servicios" class="hover:text-brand-blue transition">Servicios</a>
-                    <a href="/tienda" class="hover:text-brand-blue transition flex items-center gap-1.5">
-                        <span>Tienda Online</span>
-                        <span class="bg-brand-orange/10 text-brand-orange text-[10px] font-black px-2 py-0.5 rounded-full border border-brand-orange/20">Kits</span>
-                    </a>
-                    <a href="/escuela" class="hover:text-brand-blue transition flex items-center gap-1.5 text-slate-700">
-                        <i data-lucide="graduation-cap" class="w-4 h-4 text-brand-blue"></i>
-                        <span>Escuela</span>
-                        <span class="bg-brand-blue/10 text-brand-blue text-[10px] font-black px-2 py-0.5 rounded-full border border-brand-blue/20">Campus</span>
-                    </a>
-                    <a href="/blog" class="hover:text-brand-blue transition">Blog</a>
-                    <span class="text-slate-300">|</span>
-                    <a href="tel:+50765461527" class="flex items-center gap-1.5 text-slate-600 hover:text-brand-blue transition">
-                        <i data-lucide="phone" class="w-4 h-4 text-brand-orange"></i>
-                        <span>6546-1527</span>
-                    </a>
-                </nav>
-
-                <!-- Botón CTA WhatsApp Oficial Canónico -->
-                <div class="hidden sm:flex items-center gap-3">
-                    <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20sobre%20sus%20servicios"
-                        target="_blank" rel="noopener"
-                        class="flex items-center gap-2 bg-[#25D366] text-white px-5 py-2.5 rounded-full font-bold text-sm hover:bg-[#20bd5a] transition shadow-md hover:shadow-lg whitespace-nowrap transform hover:-translate-y-0.5">
-                        <i data-lucide="message-circle" class="w-4 h-4 flex-shrink-0"></i>
-                        <span>WhatsApp Oficial</span>
-                    </a>
+      <div class="dgi-form-grid">
+        <!-- Campo: Tipo de Contribuyente -->
+        <div class="form-group-full">
+          <label class="form-label">Tipo de Contribuyente <span class="required-star">*</span></label>
+          <div class="custom-select-wrapper" id="customTipoWrapper">
+            <button type="button" class="custom-select-trigger" id="customTipoTrigger" onclick="toggleCustomSelect(event)" aria-haspopup="listbox" aria-expanded="false">
+              <span class="trigger-content">
+                <i data-lucide="building-2" class="trigger-icon" id="customTipoIcon"></i>
+                <span id="customTipoLabel">JURÍDICA (Persona Jurídica / Empresa)</span>
+              </span>
+              <i data-lucide="chevron-down" class="trigger-arrow" id="customTipoArrow"></i>
+            </button>
+            <div class="custom-select-options" id="customTipoOptions" role="listbox">
+              <div class="custom-option selected" data-value="JURIDICA" onclick="selectCustomOption('JURIDICA')">
+                <div class="opt-left">
+                  <div class="opt-icon-box blue"><i data-lucide="building-2"></i></div>
+                  <div class="opt-info">
+                    <span class="opt-title">JURÍDICA (Persona Jurídica / Empresa)</span>
+                    <span class="opt-desc">Sociedades anónimas, fundaciones y empresas</span>
+                  </div>
                 </div>
-
-                <!-- Botón Móvil Hamburguesa -->
-                <div class="flex items-center lg:hidden">
-                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Abrir menú"
-                        class="text-slate-700 hover:text-brand-blue p-2 rounded-lg focus:outline-none">
-                        <i data-lucide="menu" class="w-6 h-6"></i>
-                    </button>
+                <i data-lucide="check" class="opt-check"></i>
+              </div>
+              <div class="custom-option" data-value="NATURAL" onclick="selectCustomOption('NATURAL')">
+                <div class="opt-left">
+                  <div class="opt-icon-box orange"><i data-lucide="user"></i></div>
+                  <div class="opt-info">
+                    <span class="opt-title">NATURAL (Persona Natural / CÉDULA)</span>
+                    <span class="opt-desc">Panameños y residentes con cédula</span>
+                  </div>
                 </div>
-
+                <i data-lucide="check" class="opt-check"></i>
+              </div>
+              <div class="custom-option" data-value="NATURAL_NT" onclick="selectCustomOption('NATURAL_NT')">
+                <div class="opt-left">
+                  <div class="opt-icon-box purple"><i data-lucide="globe"></i></div>
+                  <div class="opt-info">
+                    <span class="opt-title">NATURAL NT (Persona Natural Extranjero NT)</span>
+                    <span class="opt-desc">Extranjeros con número tributario NT</span>
+                  </div>
+                </div>
+                <i data-lucide="check" class="opt-check"></i>
+              </div>
             </div>
+            <!-- Select nativo sincronizado -->
+            <select id="dgiTipoSelect" style="display:none;" onchange="onDgiTipoChange()">
+              <option value="JURIDICA" selected>JURÍDICA (Persona Jurídica / Empresa)</option>
+              <option value="NATURAL">NATURAL (Persona Natural / CÉDULA)</option>
+              <option value="NATURAL_NT">NATURAL NT (Persona Natural Extranjero NT)</option>
+            </select>
+          </div>
         </div>
 
-        <!-- Menú Móvil Desplegable -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-200 px-4 pt-3 pb-6 space-y-3">
-            <a href="/#servicios" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-bold hover:text-brand-blue border-b border-slate-100">
-                Servicios (Asesoría & Trámites)
-            </a>
-            <a href="/tienda" class="block py-2 text-slate-700 font-bold hover:text-brand-blue border-b border-slate-100">
-                Tienda Online (Plan 360 & Kits)
-            </a>
-            <a href="/escuela" class="block py-2 text-slate-700 font-bold hover:text-brand-blue border-b border-slate-100 flex items-center justify-between">
-                <span>Escuela (Campus Virtual)</span>
-                <span class="bg-brand-blue/10 text-brand-blue text-[10px] font-black px-2 py-0.5 rounded-full">Nuevo</span>
-            </a>
-            <a href="/blog" class="block py-2 text-slate-700 font-bold hover:text-brand-blue border-b border-slate-100">
-                Blog de Inteligencia Empresarial
-            </a>
-            <a href="/test-interactivo" class="block py-2 text-brand-orange font-bold border-b border-slate-100">
-                Test de Auditoría en Vivo (3 min)
-            </a>
-            <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20sobre%20sus%20servicios"
-                target="_blank" rel="noopener"
-                class="flex items-center justify-center gap-2 bg-[#25D366] text-white py-3 rounded-xl font-bold text-sm w-full mt-2 shadow-md">
-                <i data-lucide="message-circle" class="w-4 h-4"></i>
-                <span>Chatear por WhatsApp</span>
-            </a>
+        <!-- Campos para JURIDICA (Rollo/Tomo, Folio/Imagen, Asiento/Ficha) -->
+        <div id="groupJuridica" class="form-fields-row">
+          <div class="form-group flex-1">
+            <label class="form-label">Rollo / Tomo <span class="required-star">*</span></label>
+            <input type="text" id="juridicaTomo" class="form-control" placeholder="Ej: 1556843" value="1556843" oninput="actualizarRucConstruido()">
+          </div>
+          <div class="form-group flex-1">
+            <label class="form-label">Folio / Imagen <span class="required-star">*</span></label>
+            <input type="text" id="juridicaFolio" class="form-control" placeholder="Ej: 2" value="2" oninput="actualizarRucConstruido()">
+          </div>
+          <div class="form-group flex-1">
+            <label class="form-label">Asiento / Ficha <span class="required-star">*</span></label>
+            <input type="text" id="juridicaAsiento" class="form-control" placeholder="Ej: 543210" value="543210" oninput="actualizarRucConstruido()">
+          </div>
         </div>
-    </header>
 
-    <!-- ==================================================== -->
-    <!-- 3. CUERPO PRINCIPAL: BUSCADOR & VALIDADOR RUC / DV   -->
-    <!-- ==================================================== -->
-    <main class="flex-grow">
-        <!-- ── HERO SECTION & BUSCADOR INTELIGENTE ────────────────── -->
-        <section class="hero-section" id="buscador">
-            <div class="hero-badge">
-                <i data-lucide="shield-check" style="width: 16px; height: 16px;"></i>
-                <span>Servicio Oficial de Verificación Fiscal</span>
-            </div>
-
-            <h1 class="hero-title">
-                Consulte su <span class="gradient-text">RUC & Dígito Verificador (DV)</span> al Instante en Panamá
-            </h1>
-            <p class="hero-description">
-                Obtén la Razón Social y el DV oficial ante la DGI para facturación electrónica, transferencias ACH y creación de proveedores sin demoras.
-            </p>
-
-            <!-- Formulario Desglosado Oficial DGI Panamá -->
-            <div class="dgi-form-card" id="dgiFormCard">
-                <div class="dgi-form-header">
-                    <i data-lucide="file-search" style="width: 20px; height: 20px; color: var(--brand-blue);"></i>
-                    <span>Formulario de Consulta Oficial DGI e-Tax 2.0</span>
-                </div>
-
-                <div class="dgi-form-grid">
-                    <!-- Campo: Tipo de Contribuyente -->
-                    <div class="form-group-full">
-                        <label class="form-label">Tipo de Contribuyente <span class="required-star">*</span></label>
-                        <div class="custom-select-wrapper" id="customTipoWrapper">
-                            <button type="button" class="custom-select-trigger" id="customTipoTrigger" onclick="toggleCustomSelect(event)" aria-haspopup="listbox" aria-expanded="false">
-                                <span class="trigger-content">
-                                    <i data-lucide="building-2" class="trigger-icon" id="customTipoIcon"></i>
-                                    <span id="customTipoLabel">JURÍDICA (Persona Jurídica / Empresa)</span>
-                                </span>
-                                <i data-lucide="chevron-down" class="trigger-arrow" id="customTipoArrow"></i>
-                            </button>
-                            <div class="custom-select-options" id="customTipoOptions" role="listbox">
-                                <div class="custom-option selected" data-value="JURIDICA" onclick="selectCustomOption('JURIDICA')">
-                                    <div class="opt-left">
-                                        <div class="opt-icon-box blue"><i data-lucide="building-2"></i></div>
-                                        <div class="opt-info">
-                                            <span class="opt-title">JURÍDICA (Persona Jurídica / Empresa)</span>
-                                            <span class="opt-desc">Sociedades anónimas, fundaciones y empresas</span>
-                                        </div>
-                                    </div>
-                                    <i data-lucide="check" class="opt-check"></i>
-                                </div>
-                                <div class="custom-option" data-value="NATURAL" onclick="selectCustomOption('NATURAL')">
-                                    <div class="opt-left">
-                                        <div class="opt-icon-box orange"><i data-lucide="user"></i></div>
-                                        <div class="opt-info">
-                                            <span class="opt-title">NATURAL (Persona Natural / CÉDULA)</span>
-                                            <span class="opt-desc">Panameños y residentes con cédula</span>
-                                        </div>
-                                    </div>
-                                    <i data-lucide="check" class="opt-check"></i>
-                                </div>
-                                <div class="custom-option" data-value="NATURAL_NT" onclick="selectCustomOption('NATURAL_NT')">
-                                    <div class="opt-left">
-                                        <div class="opt-icon-box purple"><i data-lucide="globe"></i></div>
-                                        <div class="opt-info">
-                                            <span class="opt-title">NATURAL NT (Persona Natural Extranjero NT)</span>
-                                            <span class="opt-desc">Extranjeros con número tributario NT</span>
-                                        </div>
-                                    </div>
-                                    <i data-lucide="check" class="opt-check"></i>
-                                </div>
-                            </div>
-                            <!-- Select nativo sincronizado -->
-                            <select id="dgiTipoSelect" style="display:none;" onchange="onDgiTipoChange()">
-                                <option value="JURIDICA" selected>JURÍDICA (Persona Jurídica / Empresa)</option>
-                                <option value="NATURAL">NATURAL (Persona Natural / CÉDULA)</option>
-                                <option value="NATURAL_NT">NATURAL NT (Persona Natural Extranjero NT)</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- Campos para JURIDICA (Rollo/Tomo, Folio/Imagen, Asiento/Ficha) -->
-                    <div id="groupJuridica" class="form-fields-row">
-                        <div class="form-group flex-1">
-                            <label class="form-label">Rollo / Tomo <span class="required-star">*</span></label>
-                            <input type="text" id="juridicaTomo" class="form-control" placeholder="Ej: 1556843" value="1556843" oninput="actualizarRucConstruido()">
-                        </div>
-                        <div class="form-group flex-1">
-                            <label class="form-label">Folio / Imagen <span class="required-star">*</span></label>
-                            <input type="text" id="juridicaFolio" class="form-control" placeholder="Ej: 2" value="2" oninput="actualizarRucConstruido()">
-                        </div>
-                        <div class="form-group flex-1">
-                            <label class="form-label">Asiento / Ficha <span class="required-star">*</span></label>
-                            <input type="text" id="juridicaAsiento" class="form-control" placeholder="Ej: 543210" value="543210" oninput="actualizarRucConstruido()">
-                        </div>
-                    </div>
-
-                    <!-- Campos para NATURAL (Provincia, Folio/Imagen, Asiento/Ficha) -->
-                    <div id="groupNatural" class="form-fields-row d-none" style="display:none !important;">
-                        <div class="form-group form-group-provincia">
-                            <label class="form-label">Provincia <span class="required-star">*</span></label>
-                            <select id="naturalProvincia" class="form-select" onchange="actualizarRucConstruido()">
-                                <option value="1">1 (Bocas)</option>
-                                <option value="2">2 (Coclé)</option>
-                                <option value="3">3 (Colón)</option>
-                                <option value="4">4 (Chiriquí)</option>
-                                <option value="5">5 (Darién)</option>
-                                <option value="6">6 (Herrera)</option>
-                                <option value="7">7 (Los Santos)</option>
-                                <option value="8" selected>8 (Panamá)</option>
-                                <option value="9">9 (Veraguas)</option>
-                                <option value="10">10 (Guna Yala)</option>
-                                <option value="11">11 (Emberá)</option>
-                                <option value="12">12 (Ngäbe)</option>
-                                <option value="13">13 (Panamá O.)</option>
-                                <option value="E">E (Extranjero)</option>
-                                <option value="N">N (Nacionalizado)</option>
-                            </select>
-                        </div>
-                        <div class="form-group flex-1">
-                            <label class="form-label">Folio / Tomo <span class="required-star">*</span></label>
-                            <input type="text" id="naturalFolio" class="form-control" placeholder="Ej: 825" oninput="actualizarRucConstruido()">
-                        </div>
-                        <div class="form-group flex-1">
-                            <label class="form-label">Asiento / Ficha <span class="required-star">*</span></label>
-                            <input type="text" id="naturalAsiento" class="form-control" placeholder="Ej: 886" oninput="actualizarRucConstruido()">
-                        </div>
-                    </div>
-
-                    <!-- Campos para NATURAL NT -->
-                    <div id="groupNaturalNt" class="form-fields-row d-none" style="display:none !important;">
-                        <div class="form-group flex-1">
-                            <label class="form-label">Número de RUC / NT <span class="required-star">*</span></label>
-                            <input type="text" id="naturalNtRuc" class="form-control" placeholder="Ej: 8-NT-2-123456" oninput="actualizarRucConstruido()">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Barra de Acción e Indicador RUC Compuesto DGI -->
-                <div class="dgi-action-bar">
-                    <div class="constructed-ruc-preview">
-                        <span class="preview-label">CÉDULA / RUC / NT:</span>
-                        <strong id="constructedRucValue" class="preview-val">1556843-2-543210</strong>
-                    </div>
-                    <button class="btn-search-dgi" onclick="ejecutarBusquedaDesglosadaDgi()">
-                        <i data-lucide="search" style="width: 18px; height: 18px;"></i>
-                        <span>Consultar en DGI</span>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- ── TARJETA DE RESULTADO DE BÚSQUEDA (DINÁMICA) ────────── -->
-        <div class="result-container" id="resultContainer"></div>
-
-        <!-- ── HISTORIAL DE CONSULTAS RECIENTES ───────────────────── -->
-        <section class="recent-section">
-            <div class="recent-header-row">
-                <div class="recent-title">
-                    <i data-lucide="history" style="width: 18px; height: 18px; color: var(--brand-blue);"></i> Consultas Recientes
-                </div>
-                <button id="btnClearAllRecent" class="btn-clear-history" onclick="limpiarHistorialCompleto()" style="display:none;" title="Borrar todo el historial">
-                    <i data-lucide="trash-2" style="width: 14px; height: 14px;"></i> Borrar todo
-                </button>
-            </div>
-            <div class="recent-list" id="recentList"></div>
-        </section>
-
-        <!-- ── LEAD MAGNET BANNERS & SERVICIOS AIZPRUA S.E. ───────── -->
-        <section class="lead-section" id="servicios">
-            <h2 class="section-title">Soluciones para tu Empresa en Panamá</h2>
-            
-            <div class="banners-grid">
-                <!-- Banner Escudo Preventivo -->
-                <div class="banner-card banner-escudo">
-                    <div>
-                        <span class="banner-tag"><i data-lucide="shield" style="width:14px; height:14px;"></i> Aizprua S.E. Legal</span>
-                        <h3 class="banner-heading">Diagnóstico Escudo Preventivo Anti-Multas</h3>
-                        <p class="banner-text">
-                            ¿Sabías que la DGI aplica multas silenciosas por inconsistencias en reportes? En 40 minutos revisamos el estado fiscal y legal de tu empresa en Panamá.
-                        </p>
-                    </div>
-                    <a href="https://wa.me/50765461527?text=Hola,%20deseo%20solicitar%20un%20Diagn%C3%B3stico%20Escudo%20Preventivo" target="_blank" class="banner-btn">
-                        <span>Solicitar Diagnóstico (40 min)</span>
-                        <i data-lucide="arrow-right" style="width:18px; height:18px;"></i>
-                    </a>
-                </div>
-
-                <!-- Banner Conector Sage 50 -->
-                <div class="banner-card banner-sage" id="conector">
-                    <div>
-                        <span class="banner-tag"><i data-lucide="cpu" style="width:14px; height:14px;"></i> Conexión F&P</span>
-                        <h3 class="banner-heading">Conector Autónomo HKA → Sage 50 2018</h3>
-                        <p class="banner-text">
-                            Sincroniza automáticamente tus facturas electrónicas emitidas y recibidas en tiempo real con tu contabilidad en Sage 50 Premium sin digitar a mano.
-                        </p>
-                    </div>
-                    <a href="https://wa.me/50765461527?text=Hola,%20me%20interesa%20el%20Conector%20de%20Sage%2050%20con%20The%20Factory%20HKA" target="_blank" class="banner-btn">
-                        <span>Ver Demostración Sage 50</span>
-                        <i data-lucide="arrow-right" style="width:18px; height:18px;"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- ==================================================== -->
-    <!-- 4. FOOTER CANÓNICO OFICIAL (4 COLUMNAS DESIGN_SYSTEM) -->
-    <!-- ==================================================== -->
-    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800 mt-auto">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-
-                <!-- Columna 1: Marca y Redes -->
-                <div class="flex flex-col items-start">
-                    <a href="/" aria-label="Aizprua S.E. - Inicio" class="inline-block">
-                        <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-21-nobg.svg"
-                            onerror="this.onerror=null; this.src='/assets/LOGOS PARA DIGITAL INDIVIDUALES-21-nobg.svg';"
-                            alt="Aizprua S.E. - Firma Legal y Empresarial" class="h-20 w-auto -mt-7 -mb-4 -ml-3">
-                    </a>
-                    <p class="text-sm text-slate-400 mb-3">Tu aliado legal y empresarial en Panamá.</p>
-                    <div class="flex gap-3">
-                        <a target="_blank" rel="noopener" href="https://instagram.com/aizpruase"
-                            class="w-10 h-10 bg-slate-800 hover:bg-pink-600 rounded-full flex items-center justify-center text-white transition"
-                            aria-label="Instagram">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
-                            </svg>
-                        </a>
-                        <a target="_blank" rel="noopener" href="https://facebook.com/aizpruase"
-                            class="w-10 h-10 bg-slate-800 hover:bg-brand-blue rounded-full flex items-center justify-center text-white transition"
-                            aria-label="Facebook">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                            </svg>
-                        </a>
-                        <a target="_blank" rel="noopener" href="https://www.youtube.com/@AizpruaSE"
-                            class="w-10 h-10 bg-slate-800 hover:bg-red-600 rounded-full flex items-center justify-center text-white transition"
-                            aria-label="YouTube">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                            </svg>
-                        </a>
-                        <a href="https://wa.me/50765461527" target="_blank"
-                            class="w-10 h-10 bg-slate-800 hover:bg-green-500 rounded-full flex items-center justify-center text-white transition"
-                            aria-label="WhatsApp">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Columna 2: Soluciones -->
-                <div>
-                    <h4 class="font-bold text-white mb-4">Soluciones</h4>
-                    <ul class="space-y-2 text-sm text-slate-400">
-                        <li><a href="https://escudo.aizprua.com/" class="hover:text-white transition">Asesoría Escudo Preventivo</a></li>
-                        <li><a href="/tienda" class="hover:text-white transition font-semibold text-brand-orange-light">Tienda Online</a></li>
-                        <li><a href="https://escuela.aizprua.com" target="_blank" rel="noopener" class="hover:text-white transition font-semibold text-brand-blue-light flex items-center gap-1.5">Campus Virtual (Escuela) <i data-lucide="external-link" class="w-3 h-3 text-brand-orange"></i></a></li>
-                        <li><a href="/plan-360-digital" class="hover:text-white transition">Plan 360 Digital ($24.99)</a></li>
-                        <li><a href="/ruc" class="hover:text-white transition text-white font-semibold">Validador de RUC & DV</a></li>
-                        <li><a href="/test-interactivo" class="hover:text-white transition">Test de Auditoría Gratis</a></li>
-                    </ul>
-                </div>
-
-                <!-- Columna 3: Contacto -->
-                <div>
-                    <h4 class="font-bold text-white mb-4">Contacto</h4>
-                    <ul class="space-y-2 text-sm text-slate-400">
-                        <li><a href="https://wa.me/50765461527" target="_blank" class="hover:text-white transition">WhatsApp: +507 6546-1527</a></li>
-                        <li><a href="mailto:info@aizprua.com" class="hover:text-white transition">info@aizprua.com</a></li>
-                        <li>Panamá Oeste, La Chorrera</li>
-                    </ul>
-                </div>
-
-                <!-- Columna 4: Cumplimiento Legal -->
-                <div>
-                    <h4 class="font-bold text-white mb-4">Cumplimiento Legal</h4>
-                    <ul class="space-y-2 text-sm text-slate-400">
-                        <li><a href="/privacidad" class="hover:text-white transition">Política de Privacidad (Ley 81)</a></li>
-                        <li><a href="/terminos" class="hover:text-white transition">Términos y Condiciones</a></li>
-                        <li><a href="https://whatsapp.com/channel/0029Va64qHbJJhzeH6DHa61a" target="_blank" rel="noopener" class="text-emerald-400 hover:text-emerald-300 font-semibold transition">Comunidad Oficial WhatsApp</a></li>
-                    </ul>
-                </div>
-
-            </div>
-
-            <!-- Copyright inferior -->
-            <div class="border-t border-slate-800 pt-8 text-center text-xs text-slate-400">
-                &copy; 2026 Aizprua S.E. Firma Legal y Empresarial en Panamá. Todos los derechos reservados.
-            </div>
+        <!-- Campos para NATURAL (Provincia, Folio/Imagen, Asiento/Ficha) -->
+        <div id="groupNatural" class="form-fields-row d-none" style="display:none !important;">
+          <div class="form-group form-group-provincia">
+            <label class="form-label">Provincia <span class="required-star">*</span></label>
+            <select id="naturalProvincia" class="form-select" onchange="actualizarRucConstruido()">
+              <option value="1">1 (Bocas)</option>
+              <option value="2">2 (Coclé)</option>
+              <option value="3">3 (Colón)</option>
+              <option value="4">4 (Chiriquí)</option>
+              <option value="5">5 (Darién)</option>
+              <option value="6">6 (Herrera)</option>
+              <option value="7">7 (Los Santos)</option>
+              <option value="8" selected>8 (Panamá)</option>
+              <option value="9">9 (Veraguas)</option>
+              <option value="10">10 (Guna Yala)</option>
+              <option value="11">11 (Emberá)</option>
+              <option value="12">12 (Ngäbe)</option>
+              <option value="13">13 (Panamá O.)</option>
+              <option value="E">E (Extranjero)</option>
+              <option value="N">N (Nacionalizado)</option>
+            </select>
+          </div>
+          <div class="form-group flex-1">
+            <label class="form-label">Folio / Tomo <span class="required-star">*</span></label>
+            <input type="text" id="naturalFolio" class="form-control" placeholder="Ej: 825" oninput="actualizarRucConstruido()">
+          </div>
+          <div class="form-group flex-1">
+            <label class="form-label">Asiento / Ficha <span class="required-star">*</span></label>
+            <input type="text" id="naturalAsiento" class="form-control" placeholder="Ej: 886" oninput="actualizarRucConstruido()">
+          </div>
         </div>
-    </footer>
 
-    <!-- ── MODAL DE VERIFICACIÓN DE PAZ Y SALVO ───────────────── -->
-    <div class="modal-overlay" id="pazYSalvoModal" onclick="if(event.target === this) cerrarModalPazYSalvo()">
-        <div class="modal-card">
-            <button class="modal-close" onclick="cerrarModalPazYSalvo()">&times;</button>
-            
-            <div class="modal-header">
-                <div class="modal-badge"><i data-lucide="shield-check" style="width:14px; height:14px;"></i> DGI Panamá</div>
-                <h3 class="modal-title">Verificación de Certificación de Paz y Salvo</h3>
-                <p class="modal-desc">Ingresa los 4 datos del certificado impreso para validar su autenticidad y fecha de vigencia.</p>
-            </div>
-
-            <form id="pazYSalvoForm" onsubmit="validarCertificadoPazYSalvo(event)">
-                <div class="form-group">
-                    <label class="form-label">RUC del Contribuyente</label>
-                    <input type="text" id="modalRuc" class="form-input" placeholder="Ej: 1556843-2-543210" required>
-                </div>
-
-                <div class="form-grid-2">
-                    <div class="form-group">
-                        <label class="form-label">Número de Documento</label>
-                        <input type="text" id="modalNumDoc" class="form-input" placeholder="Ej: PS-2026-98412" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">Fecha de Validez</label>
-                        <input type="date" id="modalFecha" class="form-input" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label">Número de Control</label>
-                    <input type="text" id="modalNumControl" class="form-input" placeholder="Ej: CTRL-881920" required>
-                </div>
-
-                <button type="submit" class="btn-verify-submit" id="btnSubmitCert">
-                    <i data-lucide="check-circle" style="width:18px; height:18px;"></i> Verificar Certificado
-                </button>
-            </form>
-
-            <!-- Resultado de la verificación -->
-            <div id="pazYSalvoResult" class="cert-result-card" style="display:none;"></div>
+        <!-- Campos para NATURAL NT -->
+        <div id="groupNaturalNt" class="form-fields-row d-none" style="display:none !important;">
+          <div class="form-group flex-1">
+            <label class="form-label">Número de RUC / NT <span class="required-star">*</span></label>
+            <input type="text" id="naturalNtRuc" class="form-control" placeholder="Ej: 8-NT-2-123456" oninput="actualizarRucConstruido()">
+          </div>
         </div>
-    </div>
+      </div>
 
-    <!-- Contenedor Flotante de Acciones -->
-    <div class="fixed bottom-6 right-6 z-40 flex flex-col items-center gap-3 pointer-events-none">
-        <!-- Botón Flotante "Volver Arriba" (Scroll to Top) -->
-        <button id="scroll-top-btn" onclick="scrollToTop()" aria-label="Volver arriba"
-            class="w-11 h-11 bg-white/95 backdrop-blur border border-slate-300 hover:border-brand-blue text-slate-700 hover:text-brand-blue rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:-translate-y-1 flex items-center justify-center flex-shrink-0">
-            <i data-lucide="chevron-up" class="w-5 h-5"></i>
+      <!-- Barra de Acción e Indicador RUC Compuesto DGI -->
+      <div class="dgi-action-bar">
+        <div class="constructed-ruc-preview">
+          <span class="preview-label">CÉDULA / RUC / NT:</span>
+          <strong id="constructedRucValue" class="preview-val">1556843-2-543210</strong>
+        </div>
+        <button class="btn-search-dgi" onclick="ejecutarBusquedaDesglosadaDgi()">
+          <i data-lucide="search" style="width: 18px; height: 18px;"></i>
+          <span>Consultar en DGI</span>
         </button>
+      </div>
+    </div>
+  </section>
 
-        <!-- Botón Flotante de WhatsApp Fijo -->
-        <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20tengo%20una%20consulta%20empresarial"
-            target="_blank" rel="noopener" aria-label="Abrir WhatsApp"
-            class="pointer-events-auto w-14 h-14 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center group relative flex-shrink-0">
-            <i data-lucide="message-circle" class="w-7 h-7"></i>
-            <span class="absolute right-full mr-3 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
-                ¿Dudas? Chatea con nosotros
-            </span>
+  <!-- ── TARJETA DE RESULTADO DE BÚSQUEDA (DINÁMICA) ────────── -->
+  <div class="result-container" id="resultContainer"></div>
+
+  <!-- ── HISTORIAL DE CONSULTAS RECIENTES ───────────────────── -->
+  <section class="recent-section">
+    <div class="recent-header-row">
+      <div class="recent-title">
+        <i data-lucide="history" style="width: 18px; height: 18px; color: var(--brand-blue);"></i> Consultas Recientes
+      </div>
+      <button id="btnClearAllRecent" class="btn-clear-history" onclick="limpiarHistorialCompleto()" style="display:none;" title="Borrar todo el historial">
+        <i data-lucide="trash-2" style="width: 14px; height: 14px;"></i> Borrar todo
+      </button>
+    </div>
+    <div class="recent-list" id="recentList"></div>
+  </section>
+
+  <!-- ── LEAD MAGNET BANNERS & SERVICIOS AIZPRUA S.E. ───────── -->
+  <section class="lead-section" id="servicios">
+    <h2 class="section-title">Soluciones para tu Empresa en Panamá</h2>
+    
+    <div class="banners-grid">
+      <!-- Banner Escudo Preventivo -->
+      <div class="banner-card banner-escudo">
+        <div>
+          <span class="banner-tag"><i data-lucide="shield" style="width:14px; height:14px;"></i> Aizprua S.E. Legal</span>
+          <h3 class="banner-heading">Diagnóstico Escudo Preventivo Anti-Multas</h3>
+          <p class="banner-text">
+            ¿Sabías que la DGI aplica multas silenciosas por inconsistencias en reportes? En 40 minutos revisamos el estado fiscal y legal de tu empresa en Panamá.
+          </p>
+        </div>
+        <a href="https://wa.me/50765461527?text=Hola,%20deseo%20solicitar%20un%20Diagn%C3%B3stico%20Escudo%20Preventivo" target="_blank" class="banner-btn">
+          <span>Solicitar Diagnóstico (40 min)</span>
+          <i data-lucide="arrow-right" style="width:18px; height:18px;"></i>
         </a>
+      </div>
+
+      <!-- Banner Conector Sage 50 -->
+      <div class="banner-card banner-sage" id="conector">
+        <div>
+          <span class="banner-tag"><i data-lucide="cpu" style="width:14px; height:14px;"></i> Conexión F&P</span>
+          <h3 class="banner-heading">Conector Autónomo HKA → Sage 50 2018</h3>
+          <p class="banner-text">
+            Sincroniza automáticamente tus facturas electrónicas emitidas y recibidas en tiempo real con tu contabilidad en Sage 50 Premium sin digitar a mano.
+          </p>
+        </div>
+        <a href="https://wa.me/50765461527?text=Hola,%20me%20interesa%20el%20Conector%20de%20Sage%2050%20con%20The%20Factory%20HKA" target="_blank" class="banner-btn">
+          <span>Ver Demostración Sage 50</span>
+          <i data-lucide="arrow-right" style="width:18px; height:18px;"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER INSTITUCIONAL ORIGINAL AIZPRUA S.E. ─────────── -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h4>Aizprua S.E.</h4>
+        <p>Servicios Especializados de Asesoría Legal, Fiscal y Soluciones Tecnológicas en Panamá.</p>
+        <p style="margin-top: 12px; font-weight: 600; color: white;">📍 Panamá Oeste | 📱 +507 6546-1527</p>
+      </div>
+
+      <div class="footer-links">
+        <h5>Servicios</h5>
+        <ul>
+          <li><a href="#servicios">Diagnóstico Escudo Preventivo</a></li>
+          <li><a href="#conector">Conector Sage 50 2018</a></li>
+          <li><a href="#buscador">Validador de RUC & DV</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h5>Contacto & Soporte</h5>
+        <ul>
+          <li><a href="mailto:info@aizprua.com">info@aizprua.com</a></li>
+          <li><a href="https://wa.me/50765461527" target="_blank">WhatsApp Directo: +507 6546-1527</a></li>
+        </ul>
+      </div>
     </div>
 
-    <!-- Scripts de Funcionalidad -->
-    <script>
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            if (menu) menu.classList.toggle('hidden');
-        }
+    <div class="footer-bottom">
+      <p>© 2026 Aizprua S.E. Todos los derechos reservados. Las marcas mencionadas pertenecen a sus respectivos propietarios.</p>
+    </div>
+  </footer>
 
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+  <!-- ── MODAL DE VERIFICACIÓN DE PAZ Y SALVO ───────────────── -->
+  <div class="modal-overlay" id="pazYSalvoModal" onclick="if(event.target === this) cerrarModalPazYSalvo()">
+    <div class="modal-card">
+      <button class="modal-close" onclick="cerrarModalPazYSalvo()">&times;</button>
+      
+      <div class="modal-header">
+        <div class="modal-badge"><i data-lucide="shield-check" style="width:14px; height:14px;"></i> DGI Panamá</div>
+        <h3 class="modal-title">Verificación de Certificación de Paz y Salvo</h3>
+        <p class="modal-desc">Ingresa los 4 datos del certificado impreso para validar su autenticidad y fecha de vigencia.</p>
+      </div>
 
-        window.addEventListener('scroll', () => {
-            const bar = document.getElementById('progress-bar');
-            if (bar) {
-                const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrolled = (winScroll / height) * 100;
-                bar.style.width = scrolled + '%';
-            }
+      <form id="pazYSalvoForm" onsubmit="validarCertificadoPazYSalvo(event)">
+        <div class="form-group">
+          <label class="form-label">RUC del Contribuyente</label>
+          <input type="text" id="modalRuc" class="form-input" placeholder="Ej: 1556843-2-543210" required>
+        </div>
 
-            const btn = document.getElementById('scroll-top-btn');
-            if (btn) {
-                if (window.scrollY > 300) {
-                    btn.classList.remove('opacity-0', 'pointer-events-none');
-                    btn.classList.add('opacity-100', 'pointer-events-auto');
-                } else {
-                    btn.classList.add('opacity-0', 'pointer-events-none');
-                    btn.classList.remove('opacity-100', 'pointer-events-auto');
-                }
-            }
-        });
-    </script>
-    <script src="ruc.js"></script>
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label">Número de Documento</label>
+            <input type="text" id="modalNumDoc" class="form-input" placeholder="Ej: PS-2026-98412" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Fecha de Validez</label>
+            <input type="date" id="modalFecha" class="form-input" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Número de Control</label>
+          <input type="text" id="modalNumControl" class="form-input" placeholder="Ej: CTRL-881920" required>
+        </div>
+
+        <button type="submit" class="btn-verify-submit" id="btnSubmitCert">
+          <i data-lucide="check-circle" style="width:18px; height:18px;"></i> Verificar Certificado
+        </button>
+      </form>
+
+      <!-- Resultado de la verificación -->
+      <div id="pazYSalvoResult" class="cert-result-card" style="display:none;"></div>
+    </div>
+  </div>
+
+  <!-- Script JS -->
+  <script src="ruc.js?v=4.3"></script>
 </body>
 </html>
