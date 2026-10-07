@@ -640,6 +640,17 @@ app.get(['/formulario-diagnostico.html', '/expediente', '/expediente.html', '/fi
   res.redirect(301, '/formulario-diagnostico' + query);
 });
 
+// 10.4. Informe Técnico de Diagnóstico (Canónica: /informe-diagnostico)
+app.get('/informe-diagnostico', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'informe-diagnostico.html'));
+});
+
+app.get(['/informe-diagnostico.html', '/informe', '/informe.html'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/informe-diagnostico' + query);
+});
+
+
 
 // ARCHIVOS ESTÁTICOS (Masterclass, Verificador & Landing Page)
 app.use('/masterclass', express.static(masterclassDir));
