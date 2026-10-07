@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Informe de Diagnóstico Empresarial | Escudo Preventivo · Aizprua S.E.</title>
+    <meta name="description" content="Panel interno de revisión del informe de diagnóstico Escudo Preventivo. Uso exclusivo del equipo Aizprua S.E.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+    <!-- Google Fonts: Plus Jakarta Sans + Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#3849C8',
+                            'blue-dark': '#2D3A9F',
+                            'blue-light': '#4F5ED4',
+                            orange: '#FF8A1E',
+                            'orange-dark': '#E67A15',
+                            'orange-light': '#FFA04A'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+                        heading: ['"Outfit"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Barra de scroll invisible */
+        .custom-scroll::-webkit-scrollbar { display: none; }
+        .custom-scroll { scrollbar-width: none; }
+
+        /* Animación de gauge */
+        .gauge-fill {
+            transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+
+
+        /* Fade in para secciones */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: all .5s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Print styles */
+        @media print {
+            .no-print { display: none !important; }
+            body { background-color: #ffffff !important; padding: 0 !important; }
+            .page-break { page-break-before: always; }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 antialiased font-sans flex flex-col min-h-screen">
+
+    <!-- Barra de Progreso de Lectura (Naranja Oficial) -->
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-brand-orange z-[60] transition-all duration-75" style="width:0%"></div>
+
+    <!-- =============================================
+         BARRA DE ACCIONES DEL PANEL (Herramienta interna)
+    ============================================= -->
+    <div class="max-w-5xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-6 pb-2 no-print">
+        <div class="flex flex-wrap items-center justify-between gap-4 bg-white border border-slate-200 p-4 sm:p-5 rounded-2xl shadow-sm">
+            <div class="flex items-start gap-3">
+                <div class="w-10 h-10 rounded-xl bg-brand-blue/10 border border-brand-blue/20 text-brand-blue flex items-center justify-center shrink-0">
+                    <i data-lucide="shield-check" class="w-5 h-5"></i>
+                </div>
+                <div>
+                    <h1 class="text-sm font-black text-slate-900 uppercase tracking-wider font-heading">Panel de Diagnóstico Jurídico &amp; Fiscal</h1>
+                    <p class="text-xs text-slate-500 mt-0.5">Carga un JSON generado por el Gem de Gemini para renderizar el informe oficial.</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2 flex-wrap">
+                <!-- Input Oculto JSON -->
+                <input type="file" id="jsonFileInput" accept=".json" class="hidden">
+                <button onclick="document.getElementById('jsonFileInput').click()"
+                    class="flex items-center gap-2 px-4 py-2 bg-brand-blue hover:bg-brand-blue-dark text-white text-xs font-bold rounded-xl shadow-sm transition">
+                    <i data-lucide="upload" class="w-4 h-4 shrink-0"></i>
+                    <span>Subir JSON</span>
+                </button>
+                <button onclick="abrirModalPegar()"
+                    class="flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-xl border border-slate-200 transition">
+                    <i data-lucide="code-2" class="w-4 h-4 shrink-0"></i>
+                    <span>Pegar JSON</span>
+                </button>
+                <button onclick="window.print()"
+                    class="flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-xl border border-slate-200 transition">
+                    <i data-lucide="file-down" class="w-4 h-4 shrink-0"></i>
+                    <span>Descargar PDF</span>
+                </button>
+                <button onclick="limpiarInforme()"
+                    title="Reiniciar a estado inicial"
+                    class="flex items-center gap-1.5 px-3 py-2 bg-slate-100 hover:bg-rose-50 hover:text-rose-700 text-slate-600 text-xs font-bold rounded-xl border border-slate-200 hover:border-rose-200 transition">
+                    <i data-lucide="rotate-ccw" class="w-4 h-4 shrink-0"></i>
+                    <span>Nuevo</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- =============================================
+         CONTENEDOR PRINCIPAL DEL INFORME
+    ============================================= -->
+    <main class="flex-grow max-w-5xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-12">
+
+        <div id="informe-container" class="bg-white border border-slate-200 rounded-3xl shadow-lg overflow-hidden">
+
+            <!-- CABECERA DEL INFORME -->
+            <header class="bg-gradient-to-r from-slate-900 via-slate-800 to-brand-blue-dark border-b border-slate-700 p-6 sm:p-8">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+                    <div>
+                        <div class="flex items-center gap-2 flex-wrap mb-3">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-brand-orange/20 text-brand-orange-light border border-brand-orange/30">
+                                <i data-lucide="circle-check" class="w-3.5 h-3.5 shrink-0"></i>
+                                Auditoría Oficial Completada
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono font-bold bg-white/10 text-slate-200 border border-white/15">
+                                Folio: <span id="view-folio" class="text-brand-orange-light font-black">AUD-2026-084</span>
+                            </span>
+                        </div>
+                        <h2 id="view-empresa" class="font-heading text-2xl sm:text-3xl font-black text-white tracking-tight">Cargando negocio...</h2>
+                        <p class="text-sm text-slate-400 mt-1.5">
+                            Titular: <span id="view-cliente" class="text-slate-200 font-semibold">---</span>
+                            &nbsp;|&nbsp;
+                            RUC: <span id="view-ruc" class="text-slate-200 font-mono font-semibold">---</span>
+                        </p>
+                    </div>
+                    <div class="sm:text-right shrink-0">
+                        <p class="text-xs uppercase tracking-wider text-slate-400 font-bold">Fecha de Emisión</p>
+                        <p id="view-fecha" class="text-sm font-bold text-slate-200 mt-0.5">--/--/----</p>
+                        <p class="text-[11px] text-emerald-400 mt-1 font-semibold flex items-center sm:justify-end gap-1">
+                            <i data-lucide="clock" class="w-3.5 h-3.5 shrink-0"></i>
+                            <span>Vigencia: 30 días calendario</span>
+                        </p>
+                        <p class="text-xs text-slate-400 mt-1">Consultor: <span class="text-slate-300 font-semibold">Arubel Aizprua</span></p>
+                    </div>
+                </div>
+            </header>
+
+            <div class="p-6 sm:p-8 space-y-8">
+
+                <!-- KPI TARJETAS -->
+                <section class="grid grid-cols-1 sm:grid-cols-3 gap-4 fade-in">
+
+                    <!-- Nivel de Riesgo -->
+                    <div class="bg-slate-50 border border-slate-200 p-5 rounded-2xl flex items-center justify-between">
+                        <div>
+                            <p class="text-[10px] text-slate-500 font-black uppercase tracking-wider">Nivel de Riesgo</p>
+                            <h3 id="view-riesgo-badge" class="text-xl font-black mt-1 text-rose-600">---</h3>
+                        </div>
+                        <div id="view-riesgo-icon" class="w-12 h-12 rounded-2xl bg-rose-100 border border-rose-200 text-rose-500 flex items-center justify-center shrink-0">
+                            <i data-lucide="triangle-alert" class="w-6 h-6"></i>
+                        </div>
+                    </div>
+
+                    <!-- Multas Potenciales -->
+                    <div class="bg-slate-50 border border-slate-200 p-5 rounded-2xl flex items-center justify-between">
+                        <div>
+                            <p class="text-[10px] text-slate-500 font-black uppercase tracking-wider">Multas Potenciales</p>
+                            <h3 id="view-multas" class="text-2xl font-black mt-1 text-brand-orange font-mono">$0.00</h3>
+                        </div>
+                        <div class="w-12 h-12 rounded-2xl bg-brand-orange/10 border border-brand-orange/20 text-brand-orange flex items-center justify-center shrink-0">
+                            <i data-lucide="scale" class="w-6 h-6"></i>
+                        </div>
+                    </div>
+
+                    <!-- Solución Prescrita -->
+                    <div class="bg-slate-50 border border-slate-200 p-5 rounded-2xl flex items-center justify-between">
+                        <div class="min-w-0 flex-1">
+                            <p class="text-[10px] text-slate-500 font-black uppercase tracking-wider">Solución Prescrita</p>
+                            <h3 id="view-plan-kpi" class="text-sm font-black mt-1 text-brand-blue leading-snug">---</h3>
+                        </div>
+                        <div class="w-12 h-12 rounded-2xl bg-brand-blue/10 border border-brand-blue/20 text-brand-blue flex items-center justify-center shrink-0 ml-3">
+                            <i data-lucide="badge-check" class="w-6 h-6"></i>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- BARRA DE EXPOSICIÓN SANCIONATORIA -->
+                <section class="bg-slate-50 border border-slate-200 p-4 sm:p-5 rounded-2xl fade-in">
+                    <div class="flex justify-between items-center text-xs font-bold mb-2.5">
+                        <span class="text-slate-500 uppercase tracking-wider">Nivel de Exposición Sancionatoria</span>
+                        <span id="view-porcentaje-riesgo" class="text-rose-600 font-mono text-sm">0%</span>
+                    </div>
+                    <div class="w-full bg-slate-200 rounded-full h-3 overflow-hidden">
+                        <div id="view-gauge-bar" class="bg-rose-500 h-3 rounded-full gauge-fill" style="width: 0%"></div>
+                    </div>
+                </section>
+
+                <!-- TABLA 1: RADIOGRAFÍA OPERATIVA -->
+                <section class="fade-in">
+                    <h4 class="font-heading text-base font-black text-slate-900 mb-4 flex items-start gap-2.5">
+                        <span class="shrink-0 w-8 h-8 rounded-full bg-brand-blue text-white flex items-center justify-center text-xs font-black mt-0.5">1</span>
+                        <span class="leading-8">Radiografía Operativa y Legal</span>
+                    </h4>
+                    <div class="overflow-x-auto rounded-2xl border border-slate-200">
+                        <table class="w-full text-left text-xs sm:text-sm">
+                            <thead class="bg-slate-50 text-slate-500 font-black uppercase tracking-wider border-b border-slate-200">
+                                <tr>
+                                    <th class="px-4 py-3.5">Entidad / Área</th>
+                                    <th class="px-4 py-3.5">Estatus Detectado</th>
+                                    <th class="px-4 py-3.5 hidden sm:table-cell">Detalle Técnico &amp; Hallazgo</th>
+                                </tr>
+                            </thead>
+                            <tbody id="view-tabla-diagnostico" class="divide-y divide-slate-100 bg-white">
+                                <!-- Se genera dinámicamente con JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- HOJA DE RUTA EN 3 PASOS -->
+                <section class="fade-in">
+                    <h4 class="font-heading text-base font-black text-slate-900 mb-4 flex items-start gap-2.5">
+                        <span class="shrink-0 w-8 h-8 rounded-full bg-brand-orange text-white flex items-center justify-center text-xs font-black mt-0.5">2</span>
+                        <span class="leading-8">Hoja de Ruta de Regularización</span>
+                    </h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+                            <span class="text-[10px] font-black text-brand-blue font-mono uppercase tracking-wider">FASE 01</span>
+                            <h5 class="text-sm font-black text-slate-900 mt-1.5 mb-1">Blindaje Constitutivo</h5>
+                            <p class="text-xs text-slate-500 leading-relaxed">Inscripción en Registro Público, personería jurídica y RUC en DGI.</p>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+                            <span class="text-[10px] font-black text-brand-blue font-mono uppercase tracking-wider">FASE 02</span>
+                            <h5 class="text-sm font-black text-slate-900 mt-1.5 mb-1">Habilitación Tributaria</h5>
+                            <p class="text-xs text-slate-500 leading-relaxed">Aviso de Operación, Facturación Electrónica e inscripción municipal.</p>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+                            <span class="text-[10px] font-black text-brand-blue font-mono uppercase tracking-wider">FASE 03</span>
+                            <h5 class="text-sm font-black text-slate-900 mt-1.5 mb-1">Operatividad &amp; Control</h5>
+                            <p class="text-xs text-slate-500 leading-relaxed">Inscripción patronal en CSS / Mitradel y control contable preventivo.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CAJA DE SOLUCIÓN Y CIERRE COMERCIAL -->
+                <section class="bg-gradient-to-br from-slate-900 via-slate-800 to-brand-blue-dark border border-slate-700/80 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden fade-in">
+                    <!-- Efectos de luz de fondo -->
+                    <div class="absolute -right-16 -bottom-16 w-64 h-64 bg-brand-blue/30 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="absolute right-10 top-0 w-48 h-48 bg-brand-orange/15 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div class="relative z-10 flex flex-col lg:flex-row lg:items-start justify-between gap-6">
+                        <div class="space-y-4 flex-1">
+                            <span class="inline-block px-3 py-1 rounded-full text-xs font-black bg-brand-orange/20 text-brand-orange-light border border-brand-orange/30 uppercase tracking-wider">
+                                Plan Llave en Mano Recomendado
+                            </span>
+                            <h3 id="view-plan-nombre" class="font-heading text-xl sm:text-2xl font-black text-white leading-snug">---</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">Nuestro equipo asume el 100% de la tramitología, notarías y gestiones para entregarte tu negocio operativo y blindado.</p>
+
+                            <!-- Bonos Incluidos -->
+                            <div class="pt-2">
+                                <p class="text-[10px] font-black uppercase tracking-wider text-slate-400 mb-2">Bonos Exclusivos Incluidos:</p>
+                                <ul id="view-bonos-list" class="space-y-2 text-xs text-slate-300">
+                                    <!-- Se llena con JS -->
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Liquidación Financiera -->
+                        <div class="bg-white/5 border border-white/10 backdrop-blur-sm p-5 rounded-2xl w-full lg:w-80 shrink-0 text-right space-y-2.5">
+                            <div class="flex justify-between text-xs text-slate-400">
+                                <span>Inversión del Paquete:</span>
+                                <span id="view-precio-regular" class="font-mono text-slate-300 font-bold">$0.00</span>
+                            </div>
+                            <div class="flex justify-between text-xs text-emerald-400 font-bold">
+                                <span>Crédito Diagnóstico de Hoy:</span>
+                                <span id="view-credito" class="font-mono">-$79.00</span>
+                            </div>
+                            <div class="border-t border-white/10 pt-2.5 flex justify-between items-baseline">
+                                <span class="text-xs font-black text-white uppercase tracking-wider">Total a Liquidar:</span>
+                                <span id="view-precio-final" class="text-2xl font-black text-brand-orange font-mono">$0.00</span>
+                            </div>
+                            <p class="text-[10px] text-slate-400 pt-1 text-center leading-relaxed">Garantía de crédito de $79 activa durante las próximas 48 horas.</p>
+
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- SELLO Y FIRMA OFICIAL DEL CONSULTOR -->
+            <div class="px-6 sm:px-8 pb-8 pt-2">
+                <div class="border-t border-dashed border-slate-200 pt-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+                    <!-- Firma del Consultor -->
+                    <div class="flex items-center gap-4 text-left">
+                        <img src="assets/avatar-arubel.jpg"
+                            onerror="this.onerror=null; this.src='/assets/avatar-arubel.jpg';"
+                            alt="Lic. Arubel Aizprua"
+                            class="w-14 h-14 rounded-2xl object-cover border-2 border-brand-blue/30 shadow-xs shrink-0">
+                        <div>
+                            <p class="font-heading font-black text-slate-900 text-sm tracking-tight">Lic. Arubel Aizprua</p>
+                            <p class="text-xs text-brand-blue font-bold">Consultor Legal &amp; Corporativo</p>
+                            <p class="text-[11px] text-slate-500 mt-0.5">Firma Autorizada · Aizprua S.E. Panamá</p>
+                        </div>
+                    </div>
+
+                    <!-- Sello de Certificación Visual -->
+                    <div class="flex items-center gap-3 bg-slate-50 border border-slate-200/90 rounded-2xl px-4 py-3 shrink-0">
+                        <div class="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 flex items-center justify-center shrink-0">
+                            <i data-lucide="shield-check" class="w-5 h-5"></i>
+                        </div>
+                        <div class="text-left">
+                            <span class="block text-[10px] uppercase font-black tracking-wider text-emerald-700">Dictamen Verificado</span>
+                            <span class="block text-xs font-mono font-bold text-slate-700">Blindaje Preventivo 2026</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PIE DEL INFORME -->
+            <footer class="bg-slate-50 border-t border-slate-200 px-6 sm:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-400">
+                <span>Aizprua S.E. · Consultoría Corporativa y Legal en Panamá</span>
+                <span class="text-slate-300 font-semibold">Documento Confidencial · Secreto Profesional</span>
+            </footer>
+        </div>
+    </main>
+
+    <!-- Botón Volver Arriba -->
+    <button id="scroll-top-btn" onclick="scrollToTop()" aria-label="Volver arriba"
+        class="fixed bottom-6 right-6 z-40 w-11 h-11 bg-white/95 backdrop-blur border border-slate-300 hover:border-brand-blue text-slate-700 hover:text-brand-blue rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:-translate-y-1 flex items-center justify-center flex-shrink-0 no-print">
+        <i data-lucide="chevron-up" class="w-5 h-5"></i>
+    </button>
+
+    <!-- =============================================
+         MODAL PARA PEGAR JSON
+    ============================================= -->
+    <div id="modalPegar" class="no-print fixed inset-0 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4 z-[100]">
+        <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 w-full max-w-xl shadow-2xl space-y-5">
+            <div class="flex justify-between items-center">
+                <div class="flex items-start gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-brand-blue/10 text-brand-blue flex items-center justify-center shrink-0">
+                        <i data-lucide="code-2" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-black text-slate-900 uppercase tracking-wider">Pegar JSON del Informe</h3>
+                        <p class="text-xs text-slate-500 mt-0.5">Generado por el Gem de Gemini · Aizprua S.E.</p>
+                    </div>
+                </div>
+                <button onclick="cerrarModalPegar()" class="text-slate-400 hover:text-slate-700 p-1 rounded-lg hover:bg-slate-100 transition">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <textarea id="jsonTextoInput" rows="10"
+                placeholder="Pega aquí el JSON generado por tu Gem de Gemini..."
+                class="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 text-xs font-mono text-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition resize-none"></textarea>
+
+            <div class="flex justify-end gap-3">
+                <button onclick="cerrarModalPegar()"
+                    class="px-5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-bold rounded-xl transition">
+                    Cancelar
+                </button>
+                <button onclick="procesarTextoJSON()"
+                    class="px-5 py-2.5 bg-brand-blue hover:bg-brand-blue-dark text-white text-sm font-bold rounded-xl shadow-sm transition">
+                    Cargar y Renderizar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- =============================================
+         JAVASCRIPT: CARGA, RENDERIZADO Y UI
+    ============================================= -->
+    <script>
+        // JSON de ejemplo por defecto al abrir la página
+        const jsonEjemplo = {
+            "cliente": "Carlos Mendoza",
+            "empresa": "Distribuidora del Pacífico",
+            "ruc": "8-745-1234 DV 50",
+            "fecha": "06/10/2026",
+            "nivelRiesgo": "Crítico",
+            "totalMultasEstimadas": 3500,
+            "porcentajeRiesgo": 85,
+            "diagnostico": [
+                { "entidad": "DGI (Tributario)", "estado": "Omiso", "detalle": "Sin declaraciones de renta 2024-2025. Riesgo de multa y bloqueo de RUC." },
+                { "entidad": "MICI (Panamá Emprende)", "estado": "Inexistente", "detalle": "Operando sin Aviso de Operación comercial activo." },
+                { "entidad": "Facturación Electrónica", "estado": "Manual", "detalle": "Uso de talonarios en papel no autorizados sin PAC." },
+                { "entidad": "Municipio (La Chorrera)", "estado": "No Registrado", "detalle": "Omisión de inscripción municipal con local comercial abierto." },
+                { "entidad": "CSS / Mitradel", "estado": "Informal", "detalle": "2 colaboradores con pago de comisiones sin afiliación patronal." }
+            ],
+            "solucion": {
+                "planRecomendado": "Plan Premium (Sociedad de Emprendimiento S.E.)",
+                "precioOficial": 850,
+                "creditoDiagnostico": 79,
+                "totalPagar": 771,
+                "bonos": [
+                    "Tutorial completo de uso de Facturación PAC",
+                    "Calendario Fiscal y de Obligaciones Anual en PDF",
+                    "Checklist Maestro para Armado de Expediente Bancario",
+                    "Guía de los 2 años de Exoneración de ISR (Ley 186)"
+                ]
+            }
+        };
+
+        // ─── Renderizar datos en pantalla ────────────────────────────────
+        function renderizarInforme(data) {
+            document.getElementById('view-empresa').textContent = data.empresa || 'Empresa Sin Nombre';
+            document.getElementById('view-cliente').textContent = data.cliente || '---';
+            document.getElementById('view-ruc').textContent = data.ruc || 'Sin registro';
+            document.getElementById('view-fecha').textContent = data.fecha || new Date().toLocaleDateString('es-PA');
+            const folioEl = document.getElementById('view-folio');
+            if (folioEl) folioEl.textContent = data.folio || ('AUD-2026-' + String(Math.floor(100 + Math.random() * 900)));
+
+            // Nivel de Riesgo y Semáforo de colores brand
+            const badge = document.getElementById('view-riesgo-badge');
+            const icon = document.getElementById('view-riesgo-icon');
+            const gauge = document.getElementById('view-gauge-bar');
+            const gaugeText = document.getElementById('view-porcentaje-riesgo');
+
+            const nivel = (data.nivelRiesgo || 'Medio').toLowerCase();
+            badge.textContent = data.nivelRiesgo || 'Medio';
+
+            let badgeColor = 'text-amber-600';
+            let barColor = 'bg-amber-500';
+            let iconBg = 'bg-amber-100 border-amber-200 text-amber-600';
+            let iconHtml = '<i data-lucide="triangle-alert" class="w-6 h-6"></i>';
+
+            if (nivel === 'crítico' || nivel === 'critico' || nivel === 'alto') {
+                badgeColor = 'text-rose-600';
+                barColor = 'bg-rose-500';
+                iconBg = 'bg-rose-100 border-rose-200 text-rose-500';
+                iconHtml = '<i data-lucide="triangle-alert" class="w-6 h-6"></i>';
+            } else if (nivel === 'favorable' || nivel === 'bajo') {
+                badgeColor = 'text-emerald-600';
+                barColor = 'bg-emerald-500';
+                iconBg = 'bg-emerald-100 border-emerald-200 text-emerald-600';
+                iconHtml = '<i data-lucide="shield-check" class="w-6 h-6"></i>';
+            }
+
+            badge.className = `text-xl font-black mt-1 ${badgeColor}`;
+            icon.className = `w-12 h-12 rounded-2xl border flex items-center justify-center shrink-0 ${iconBg}`;
+            icon.innerHTML = iconHtml;
+            gaugeText.className = `font-mono text-sm font-black ${badgeColor}`;
+
+            // Barra de exposición
+            const porcentaje = data.porcentajeRiesgo || (nivel.includes('crit') ? 90 : 50);
+            gaugeText.textContent = porcentaje + '%';
+            gauge.className = `${barColor} h-3 rounded-full gauge-fill`;
+            setTimeout(() => { gauge.style.width = porcentaje + '%'; }, 100);
+
+            // Contador animado de multas
+            animarNumero(document.getElementById('view-multas'), data.totalMultasEstimadas || 0);
+
+            // Tabla de Diagnóstico
+            const tabla = document.getElementById('view-tabla-diagnostico');
+            tabla.innerHTML = '';
+            if (data.diagnostico && Array.isArray(data.diagnostico)) {
+                data.diagnostico.forEach(item => {
+                    const est = (item.estado || '').toLowerCase();
+                    let badgeClasses = 'bg-slate-100 text-slate-600';
+                    if (est.includes('omiso') || est.includes('inexistente') || est.includes('informal') || est.includes('no ') || est.includes('manual')) {
+                        badgeClasses = 'bg-rose-100 text-rose-700 border border-rose-200';
+                    } else if (est.includes('día') || est.includes('activo') || est.includes('regul')) {
+                        badgeClasses = 'bg-emerald-100 text-emerald-700 border border-emerald-200';
+                    } else {
+                        badgeClasses = 'bg-brand-orange/10 text-brand-orange-dark border border-brand-orange/20';
+                    }
+
+                    const tr = document.createElement('tr');
+                    tr.className = 'hover:bg-slate-50 transition';
+                    tr.innerHTML = `
+                        <td class="px-4 py-3.5 font-bold text-slate-800 text-xs sm:text-sm">${item.entidad}</td>
+                        <td class="px-4 py-3.5">
+                            <span class="inline-block px-2.5 py-1 rounded-lg text-xs font-bold whitespace-nowrap ${badgeClasses}">${item.estado}</span>
+                        </td>
+                        <td class="px-4 py-3.5 text-slate-600 text-xs hidden sm:table-cell">${item.detalle}</td>
+                    `;
+                    tabla.appendChild(tr);
+                });
+            }
+            lucide.createIcons();
+
+            // Solución Asignada
+            const sol = data.solucion || {};
+            document.getElementById('view-plan-kpi').textContent = sol.planRecomendado || '---';
+            document.getElementById('view-plan-nombre').textContent = sol.planRecomendado || '---';
+            document.getElementById('view-precio-regular').textContent = `$${(sol.precioOficial || 0).toFixed(2)}`;
+            document.getElementById('view-credito').textContent = `-$${(sol.creditoDiagnostico || 79).toFixed(2)}`;
+            document.getElementById('view-precio-final').textContent = `$${(sol.totalPagar || ((sol.precioOficial || 0) - 79)).toFixed(2)}`;
+
+            // Bonos
+            const bonosList = document.getElementById('view-bonos-list');
+            bonosList.innerHTML = '';
+            if (sol.bonos && Array.isArray(sol.bonos)) {
+                sol.bonos.forEach(bono => {
+                    const li = document.createElement('li');
+                    li.className = 'flex items-start gap-2';
+                    li.innerHTML = `
+                        <i data-lucide="gift" class="w-3.5 h-3.5 text-brand-orange shrink-0 mt-0.5"></i>
+                        <span class="leading-snug">${bono}</span>
+                    `;
+                    bonosList.appendChild(li);
+                });
+            }
+            lucide.createIcons();
+        }
+
+        // ─── Contador animado ────────────────────────────────────────────
+        function animarNumero(elemento, valorFinal) {
+            let inicio = 0;
+            const pasos = 30;
+            const incremento = valorFinal / pasos;
+            const intervalo = 1000 / pasos;
+            const timer = setInterval(() => {
+                inicio += incremento;
+                if (inicio >= valorFinal) {
+                    clearInterval(timer);
+                    elemento.textContent = `$${valorFinal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+                } else {
+                    elemento.textContent = `$${Math.floor(inicio).toLocaleString('en-US')}.00`;
+                }
+            }, intervalo);
+        }
+
+        // ─── Lector de Archivo JSON ──────────────────────────────────────
+        document.getElementById('jsonFileInput').addEventListener('change', function (e) {
+            const archivo = e.target.files[0];
+            if (!archivo) return;
+            const lector = new FileReader();
+            lector.onload = function (ev) {
+                try {
+                    renderizarInforme(JSON.parse(ev.target.result));
+                } catch {
+                    alert('Error: El archivo no contiene un JSON válido.');
+                }
+            };
+            lector.readAsText(archivo);
+        });
+
+        // ─── Modal Pegar JSON ────────────────────────────────────────────
+        function abrirModalPegar() {
+            const m = document.getElementById('modalPegar');
+            m.classList.remove('hidden');
+            m.classList.add('flex');
+        }
+        function cerrarModalPegar() {
+            const m = document.getElementById('modalPegar');
+            m.classList.add('hidden');
+            m.classList.remove('flex');
+        }
+        function procesarTextoJSON() {
+            const texto = document.getElementById('jsonTextoInput').value.trim();
+            if (!texto) return;
+            try {
+                renderizarInforme(JSON.parse(texto));
+                cerrarModalPegar();
+                document.getElementById('jsonTextoInput').value = '';
+            } catch {
+                alert('Error: El texto pegado no es un JSON válido. Revisa la sintaxis.');
+            }
+        }
+
+
+
+        function limpiarInforme() {
+            renderizarInforme({
+                cliente: '---',
+                empresa: 'Nombre del Negocio',
+                ruc: '---',
+                fecha: new Date().toLocaleDateString('es-PA'),
+                folio: 'AUD-2026-000',
+                nivelRiesgo: 'Bajo',
+                porcentajeRiesgo: 0,
+                totalMultasEstimadas: 0,
+                diagnostico: [],
+                solucion: {
+                    planRecomendado: 'Por Asignar',
+                    precioOficial: 0,
+                    creditoDiagnostico: 79,
+                    totalPagar: 0,
+                    bonos: []
+                }
+            });
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ─── Barra de Progreso de Lectura ────────────────────────────────
+        window.addEventListener('scroll', () => {
+            const total = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = total > 0 ? (window.scrollY / total) * 100 : 0;
+            const pBar = document.getElementById('progress-bar');
+            if (pBar) pBar.style.width = progress + '%';
+
+            const btn = document.getElementById('scroll-top-btn');
+            if (btn) {
+                if (window.scrollY > 300) {
+                    btn.classList.remove('opacity-0', 'pointer-events-none');
+                    btn.classList.add('opacity-100', 'pointer-events-auto');
+                } else {
+                    btn.classList.add('opacity-0', 'pointer-events-none');
+                    btn.classList.remove('opacity-100', 'pointer-events-auto');
+                }
+            }
+        });
+
+        // ─── Fade-in en scroll ───────────────────────────────────────────
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // ─── Inicialización ──────────────────────────────────────────────
+        window.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            renderizarInforme(jsonEjemplo);
+        });
+    </script>
+
+</body>
+</html>

@@ -68,13 +68,12 @@
 
     <!-- 1. Barra Superior de Anuncios -->
     <div id="announcement-bar" class="bg-slate-900 text-white text-xs sm:text-sm py-2 px-4 text-center font-medium sticky top-0 z-50 shadow-sm border-b border-slate-800">
-        <div class="max-w-7xl mx-auto flex items-center justify-center gap-2">
-            <span class="inline-flex items-center gap-1.5 bg-brand-orange/20 text-brand-orange-light text-[10px] sm:text-xs font-black px-2.5 py-0.5 rounded-full border border-brand-orange/30 uppercase tracking-wider">
+        <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 flex-wrap">
+            <span class="inline-flex items-center gap-1.5 bg-brand-orange/20 text-brand-orange-light text-[10.5px] sm:text-xs font-black px-2.5 py-0.5 rounded-full border border-brand-orange/30 uppercase tracking-wider whitespace-nowrap shrink-0">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                 Secreto Profesional
             </span>
-            <span class="truncate">Sesión personalizada de 40 minutos con nuestro equipo legal y financiero.</span>
-            <span class="hidden sm:inline-block text-slate-400">· 100% Confidencial</span>
+            <span class="text-xs sm:text-sm text-slate-200">Expediente previo confidencial para tu sesión de 40 min.</span>
         </div>
     </div>
 
@@ -83,74 +82,34 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 
-                <!-- Logotipo Oficial -->
-                <div class="flex items-center">
-                    <a href="/" class="flex items-center" aria-label="Aizprua S.E. Inicio">
-                        <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-21-nobg.svg"
-                            onerror="this.onerror=null; this.src='/assets/LOGOS PARA DIGITAL INDIVIDUALES-21-nobg.svg';"
-                            alt="Aizprua S.E. - Consultoría Legal y Empresarial"
-                            class="h-28 w-auto transform transition-transform hover:scale-105">
-                    </a>
-                </div>
-
-                <!-- Menú Desktop -->
-                <nav class="hidden lg:flex items-center gap-8">
-                    <a href="/#servicios" class="text-sm font-semibold text-slate-700 hover:text-brand-blue transition">Servicios</a>
-                    <a href="/escuela" class="text-sm font-semibold text-slate-700 hover:text-brand-blue transition">Escuela</a>
-                    <a href="/tienda" class="text-sm font-semibold text-slate-700 hover:text-brand-blue transition">Tienda</a>
-                    <a href="/blog" class="text-sm font-semibold text-slate-700 hover:text-brand-blue transition">Blog</a>
-                    <a href="/test-interactivo" class="text-sm font-semibold text-brand-orange hover:text-brand-orange-dark transition flex items-center gap-1">
-                        <i data-lucide="shield-check" class="w-4 h-4"></i>
-                        <span>Auditoría Gratis</span>
-                    </a>
-                </nav>
+                <!-- Logotipo Canónico Oficial -->
+                <a href="/" class="flex items-center flex-shrink-0" aria-label="Aizprua S.E. Inicio">
+                    <img src="/assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg"
+                        onerror="this.onerror=null; this.src='assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg';"
+                        alt="Logo Aizprua S.E. - Firma Legal y Empresarial en Panamá"
+                        class="h-28 w-auto object-contain transform transition-transform hover:scale-105" width="112" height="112">
+                </a>
 
                 <!-- Acciones Rápidas -->
-                <div class="hidden sm:flex items-center gap-3">
+                <div class="flex items-center gap-3">
                     <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20tengo%20una%20consulta%20sobre%20mi%20formulario%20de%20diagn%C3%B3stico"
                         target="_blank" rel="noopener"
-                        class="flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white px-5 py-2.5 rounded-full font-bold text-sm shadow-md transition transform hover:-translate-y-0.5 whitespace-nowrap">
+                        class="flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white px-4 sm:px-5 py-2.5 rounded-full font-bold text-xs sm:text-sm shadow-md transition transform hover:-translate-y-0.5 whitespace-nowrap">
                         <i data-lucide="message-circle" class="w-4 h-4 shrink-0"></i>
                         <span>Soporte WhatsApp</span>
                     </a>
                 </div>
-
-                <!-- Botón Menú Móvil -->
-                <div class="flex items-center lg:hidden">
-                    <button onclick="toggleMobileMenu()" aria-label="Abrir menú" class="text-slate-700 p-2 focus:outline-hidden">
-                        <i data-lucide="menu" class="w-6 h-6"></i>
-                    </button>
-                </div>
             </div>
-        </div>
-
-        <!-- Menú Móvil Desplegable -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3 shadow-xl">
-            <a href="/#servicios" class="block py-2 text-sm font-semibold text-slate-700 hover:text-brand-blue">Servicios</a>
-            <a href="/escuela" class="block py-2 text-sm font-semibold text-slate-700 hover:text-brand-blue">Escuela</a>
-            <a href="/tienda" class="block py-2 text-sm font-semibold text-slate-700 hover:text-brand-blue">Tienda</a>
-            <a href="/blog" class="block py-2 text-sm font-semibold text-slate-700 hover:text-brand-blue">Blog</a>
-            <a href="/test-interactivo" class="block py-2 text-sm font-bold text-brand-orange">Auditoría Gratis</a>
-            <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20tengo%20una%20consulta%20sobre%20mi%20formulario%20de%20diagn%C3%B3stico"
-                target="_blank" rel="noopener"
-                class="flex items-center justify-center gap-2 bg-[#25D366] text-white py-3 rounded-xl font-bold text-sm shadow-sm mt-2">
-                <i data-lucide="message-circle" class="w-4 h-4"></i>
-                <span>Hablar por WhatsApp</span>
-            </a>
         </div>
     </header>
 
     <!-- Contenido Principal -->
     <main class="flex-grow py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
 
-        <!-- Migas de Pan (Breadcrumbs) -->
-        <nav class="flex items-center gap-2 text-xs text-slate-500 mb-6 font-medium">
-            <a href="/" class="hover:text-brand-blue transition">Inicio</a>
-            <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-400 shrink-0"></i>
-            <a href="/#servicios" class="hover:text-brand-blue transition">Servicios</a>
-            <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-400 shrink-0"></i>
-            <span class="text-brand-blue font-bold">Formulario de Diagnóstico</span>
-        </nav>
+        <!-- Indicador de Página -->
+        <div class="flex items-center text-xs text-brand-blue font-bold mb-6">
+            <span>Formulario de Diagnóstico</span>
+        </div>
 
         <!-- Cabecera de Página & Bienvenida -->
         <div class="bg-gradient-to-br from-slate-900 via-slate-800 to-brand-blue-dark text-white rounded-3xl p-6 sm:p-10 mb-8 shadow-xl relative overflow-hidden border border-slate-700/80">
@@ -169,15 +128,15 @@
                 </p>
 
                 <div class="flex flex-wrap items-center gap-4 pt-4 border-t border-slate-700/80 text-xs text-slate-300 font-semibold">
-                    <div class="flex items-start gap-1.5">
+                    <div class="flex items-center gap-1.5">
                         <i data-lucide="lock" class="w-4 h-4 text-brand-orange shrink-0 mt-0.5"></i>
                         <span class="leading-snug">100% confidencial bajo secreto profesional</span>
                     </div>
-                    <div class="flex items-start gap-1.5">
+                    <div class="flex items-center gap-1.5">
                         <i data-lucide="clock" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
                         <span class="leading-snug">Toma menos de 4 minutos</span>
                     </div>
-                    <div class="flex items-start gap-1.5">
+                    <div class="flex items-center gap-1.5">
                         <i data-lucide="file-check-2" class="w-4 h-4 text-blue-300 shrink-0 mt-0.5"></i>
                         <span class="leading-snug">Pre-auditoría oficial en Panamá</span>
                     </div>
@@ -209,7 +168,7 @@
                     <!-- 1. Nombre Completo -->
                     <div>
                         <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_2050119582">
-                            1. Nombre y Apellido completo <span class="text-rose-600">*</span>
+                            1. Nombre y Apellido completo&nbsp;<span class="text-rose-600">*</span>
                         </label>
                         <input type="text" id="entry_2050119582" name="entry.2050119582" required
                             placeholder="Ej. Carlos Mendoza"
@@ -220,7 +179,7 @@
                     <!-- 2. WhatsApp -->
                     <div>
                         <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_16882458">
-                            2. Número de WhatsApp <span class="text-rose-600">*</span>
+                            2. Número de WhatsApp&nbsp;<span class="text-rose-600">*</span>
                         </label>
                         <input type="tel" id="entry_16882458" name="entry.16882458" required
                             placeholder="+507 6546-1527"
@@ -232,7 +191,7 @@
                     <!-- 3. Correo Electrónico -->
                     <div>
                         <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_660505305">
-                            3. Correo electrónico <span class="text-rose-600">*</span>
+                            3. Correo electrónico&nbsp;<span class="text-rose-600">*</span>
                         </label>
                         <input type="email" id="entry_660505305" name="entry.660505305" required
                             placeholder="ejemplo@tunegocio.com"
@@ -243,7 +202,7 @@
                     <!-- 4. Fecha y Hora Agendada -->
                     <div>
                         <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_533003142">
-                            4. Día y hora agendada en Calendly <span class="text-rose-600">*</span>
+                            4. Día y hora agendada en Calendly&nbsp;<span class="text-rose-600">*</span>
                         </label>
                         <input type="text" id="entry_533003142" name="entry.533003142" required
                             placeholder="Ej. Martes 15 de Octubre - 3:00 PM"
@@ -272,7 +231,7 @@
                     <!-- 5. Figura Jurídica -->
                     <div>
                         <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2.5">
-                            5. ¿Bajo qué figura jurídica operas en Panamá? <span class="text-rose-600">*</span>
+                            5. ¿Bajo qué figura jurídica operas en Panamá?&nbsp;<span class="text-rose-600">*</span>
                         </label>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                             <label class="flex items-start gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-brand-blue hover:bg-blue-50/30 cursor-pointer transition text-xs font-semibold text-slate-700">
@@ -303,7 +262,7 @@
                         <!-- 6. Nombre de Empresa -->
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_816395948">
-                                6. Nombre de la empresa o sociedad <span class="text-rose-600">*</span>
+                                6. Nombre de la empresa o sociedad&nbsp;<span class="text-rose-600">*</span>
                             </label>
                             <input type="text" id="entry_816395948" name="entry.816395948" required
                                 placeholder="Razón social o nombre comercial"
@@ -314,7 +273,7 @@
                         <!-- 7. RUC y DV -->
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_1326902702">
-                                7. RUC y Dígito Verificador (DV) <span class="text-rose-600">*</span>
+                                7. RUC y Dígito Verificador (DV)&nbsp;<span class="text-rose-600">*</span>
                             </label>
                             <input type="text" id="entry_1326902702" name="entry.1326902702" required
                                 placeholder="Ej. 155700000-2-2023 DV 45 (o 'No tengo')"
@@ -327,7 +286,7 @@
                     <!-- Actividad Principal -->
                     <div>
                         <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_1266771571">
-                            ¿A qué se dedica tu negocio? (Actividad principal) <span class="text-rose-600">*</span>
+                            ¿A qué se dedica tu negocio? (Actividad principal)&nbsp;<span class="text-rose-600">*</span>
                         </label>
                         <input type="text" id="entry_1266771571" name="entry.1266771571" required
                             placeholder="Ej. Venta de ropa online, restaurante, consultoría, taller, clínica, etc."
@@ -339,7 +298,7 @@
                         <!-- Facturación Anual -->
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_1949342489">
-                                Facturación bruta anual estimada <span class="text-rose-600">*</span>
+                                Facturación bruta anual estimada&nbsp;<span class="text-rose-600">*</span>
                             </label>
                             <select id="entry_1949342489" name="entry.1949342489" required
                                 class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer">
@@ -355,7 +314,7 @@
                         <!-- 8. Agente Residente -->
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_615739815">
-                                8. ¿Tienes contacto con tu Agente Residente? <span class="text-rose-600">*</span>
+                                8. ¿Tienes contacto con tu Agente Residente?&nbsp;<span class="text-rose-600">*</span>
                             </label>
                             <select id="entry_615739815" name="entry.615739815" required
                                 class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer">
@@ -388,7 +347,7 @@
                     <!-- 9. Municipio -->
                     <div>
                         <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_1942403640">
-                            9. ¿En qué Municipio opera tu negocio? <span class="text-rose-600">*</span>
+                            9. ¿En qué Municipio opera tu negocio?&nbsp;<span class="text-rose-600">*</span>
                         </label>
                         <select id="entry_1942403640" name="entry.1942403640" required
                             class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer">
@@ -407,7 +366,7 @@
                     <!-- 10. Aviso de Operación -->
                     <div>
                         <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_242757123">
-                            10. ¿Tienes Aviso de Operación (MICI)? <span class="text-rose-600">*</span>
+                            10. ¿Tienes Aviso de Operación (MICI)?&nbsp;<span class="text-rose-600">*</span>
                         </label>
                         <select id="entry_242757123" name="entry.242757123" required
                             class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer">
@@ -423,7 +382,7 @@
                     <!-- 11. Situación con la DGI -->
                     <div>
                         <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_1976664382">
-                            11. Situación con la DGI <span class="text-rose-600">*</span>
+                            11. Situación con la DGI&nbsp;<span class="text-rose-600">*</span>
                         </label>
                         <select id="entry_1976664382" name="entry.1976664382" required
                             class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer">
@@ -439,7 +398,7 @@
                     <!-- 12. Facturación y Cobros -->
                     <div>
                         <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_217617002">
-                            12. ¿Cómo emites facturas actualmente? <span class="text-rose-600">*</span>
+                            12. ¿Cómo emites facturas actualmente?&nbsp;<span class="text-rose-600">*</span>
                         </label>
                         <select id="entry_217617002" name="entry.217617002" required
                             class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer">
@@ -456,7 +415,7 @@
                     <!-- Contador CPA -->
                     <div>
                         <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_49518393">
-                            ¿Cuentas con Contador CPA que lleve tus libros? <span class="text-rose-600">*</span>
+                            ¿Cuentas con Contador CPA que lleve tus libros?&nbsp;<span class="text-rose-600">*</span>
                         </label>
                         <select id="entry_49518393" name="entry.49518393" required
                             class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer">
@@ -471,7 +430,7 @@
                     <!-- 13. Equipo y Colaboradores -->
                     <div>
                         <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_842845325">
-                            13. Equipo y colaboradores (CSS / Planilla) <span class="text-rose-600">*</span>
+                            13. Equipo y colaboradores (CSS / Planilla)&nbsp;<span class="text-rose-600">*</span>
                         </label>
                         <select id="entry_842845325" name="entry.842845325" required
                             class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer">
@@ -504,7 +463,7 @@
                     <!-- 14. Duda o Problema Urgente -->
                     <div>
                         <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_190759586">
-                            14. ¿Cuál es la duda, trámite o problema URGENTE a resolver en la sesión? <span class="text-rose-600">*</span>
+                            14. ¿Cuál es la duda, trámite o problema URGENTE a resolver en la sesión?&nbsp;<span class="text-rose-600">*</span>
                         </label>
                         <textarea id="entry_190759586" name="entry.190759586" rows="4" required
                             placeholder="Cuéntanos con tus palabras qué es lo que más te preocupa o qué trámite necesitas poner en orden..."
@@ -515,7 +474,7 @@
                     <!-- 15. Citaciones previas -->
                     <div>
                         <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2.5">
-                            15. ¿Has recibido alguna citación, boleta de cobro o inspección recientemente? <span class="text-rose-600">*</span>
+                            15. ¿Has recibido alguna citación, boleta de cobro o inspección recientemente?&nbsp;<span class="text-rose-600">*</span>
                         </label>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                             <label class="flex items-start gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-brand-blue hover:bg-blue-50/30 cursor-pointer transition text-xs font-semibold text-slate-700">
@@ -550,7 +509,7 @@
                                 required
                                 class="w-4 h-4 text-brand-blue rounded border-slate-300 focus:ring-brand-blue shrink-0 mt-0.5">
                             <span class="text-xs text-slate-700 leading-relaxed font-medium">
-                                <strong>Autorización formal de consulta:</strong> Autorizo al equipo de Aizprua S.E. a verificar el estatus público de mi negocio en las plataformas de DGI, Registro Público y Municipios exclusivamente para los fines del presente diagnóstico preventivo bajo confidencialidad y secreto profesional. <span class="text-rose-600">*</span>
+                                <strong>Autorización formal de consulta:</strong> Autorizo al equipo de Aizprua S.E. a verificar el estatus público de mi negocio en las plataformas de DGI, Registro Público y Municipios exclusivamente para los fines del presente diagnóstico preventivo bajo confidencialidad y secreto profesional.&nbsp;<span class="text-rose-600">*</span>
                             </span>
                         </label>
                         <span id="auth-error-msg" class="error-msg hidden text-[11px] text-rose-600 font-bold mt-2 block">Debes marcar la casilla de autorización para que podamos auditar tu expediente.</span>
@@ -560,9 +519,9 @@
             </div>
 
             <!-- BOTÓN DE ENVÍO -->
-            <div class="pt-2">
+            <div class="pt-2 flex flex-col items-center">
                 <button type="submit" id="submit-btn"
-                    class="w-full py-4 sm:py-5 px-8 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 active:scale-[0.99] text-white rounded-2xl font-black text-base sm:text-lg transition-all shadow-xl hover:shadow-orange-500/25 flex items-center justify-center gap-3 cursor-pointer">
+                    class="w-full sm:w-auto max-w-md py-3.5 sm:py-4 px-8 sm:px-10 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 active:scale-[0.99] text-white rounded-2xl font-black text-sm sm:text-base transition-all shadow-xl hover:shadow-orange-500/25 flex items-center justify-center gap-2.5 cursor-pointer mx-auto">
                     <i data-lucide="send" class="w-5 h-5 shrink-0"></i>
                     <span id="submit-btn-text">Enviar Expediente y Confirmar Diagnóstico</span>
                 </button>
@@ -625,70 +584,10 @@
 
     </main>
 
-    <!-- Footer Canónico Oficial (4 Columnas) -->
-    <footer class="bg-slate-900 text-white pt-16 pb-12 border-t border-slate-800 mt-auto">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-                
-                <!-- Columna 1: Marca y Propósito -->
-                <div class="space-y-4">
-                    <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-13.svg"
-                        onerror="this.onerror=null; this.src='/assets/LOGOS PARA DIGITAL INDIVIDUALES-13.svg';"
-                        alt="Logo Aizprua S.E." class="h-20 w-auto">
-                    <p class="text-xs text-slate-400 leading-relaxed">
-                        Firma especializada en estructuración societaria, blindaje preventivo y capacitación estratégica para emprendedores y empresas en Panamá.
-                    </p>
-                    <div class="flex items-center gap-3 pt-2">
-                        <a href="https://instagram.com/aizpruase" target="_blank" rel="noopener" aria-label="Instagram" class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-brand-blue transition">
-                            <i data-lucide="instagram" class="w-4 h-4"></i>
-                        </a>
-                        <a href="https://linkedin.com/company/aizpruase" target="_blank" rel="noopener" aria-label="LinkedIn" class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-brand-blue transition">
-                            <i data-lucide="linkedin" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Columna 2: Soluciones -->
-                <div>
-                    <h4 class="font-bold text-white mb-4">Soluciones</h4>
-                    <ul class="space-y-2 text-sm text-slate-400">
-                        <li><a href="/escudo-preventivo" class="hover:text-white transition">Escudo Preventivo ($79)</a></li>
-                        <li><a href="/plan-360" class="hover:text-white transition">Plan 360 Empresarial</a></li>
-                        <li><a href="/tienda" class="hover:text-white transition">Tienda Online</a></li>
-                        <li><a href="/escuela" class="hover:text-white transition">Campus Virtual</a></li>
-                    </ul>
-                </div>
-
-                <!-- Columna 3: Formación -->
-                <div>
-                    <h4 class="font-bold text-white mb-4">Recursos</h4>
-                    <ul class="space-y-2 text-sm text-slate-400">
-                        <li><a href="/test-interactivo" class="hover:text-white transition">Auditoría Gratis (Test)</a></li>
-                        <li><a href="/blog" class="hover:text-white transition">Blog de Negocios</a></li>
-                        <li><a href="/recursos-gratuitos" class="hover:text-white transition">Descargas Gratuitas</a></li>
-                    </ul>
-                </div>
-
-                <!-- Columna 4: Contacto y Legal -->
-                <div>
-                    <h4 class="font-bold text-white mb-4">Contacto & Soporte</h4>
-                    <ul class="space-y-2 text-sm text-slate-400">
-                        <li><a href="https://wa.me/50765461527" target="_blank" class="hover:text-white flex items-center gap-1.5"><i data-lucide="phone" class="w-3.5 h-3.5 text-brand-orange"></i><span>+507 6546-1527</span></a></li>
-                        <li><a href="mailto:info@aizprua.com" class="hover:text-white flex items-center gap-1.5"><i data-lucide="mail" class="w-3.5 h-3.5 text-brand-blue-light"></i><span>info@aizprua.com</span></a></li>
-                        <li><span class="text-slate-400">Panamá Oeste, La Chorrera</span></li>
-                        <li class="pt-2 border-t border-slate-800 flex gap-4 text-xs">
-                            <a href="/privacidad" class="hover:text-white transition">Privacidad</a>
-                            <a href="/terminos" class="hover:text-white transition">Términos</a>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-
-            <!-- Copyright Oficial -->
-            <div class="pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
-                &copy; 2026 Aizprua S.E. Todos los derechos reservados. Consultoría Legal y Formación Empresarial Estratégica en Panamá.
-            </div>
+    <!-- Footer Simplificado -->
+    <footer class="bg-slate-900 text-slate-400 py-6 border-t border-slate-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs text-slate-400">
+            &copy; 2026 Aizprua S.E. Firma Legal y Empresarial en Panamá. Todos los derechos reservados.
         </div>
     </footer>
 
@@ -711,12 +610,6 @@
 
     <!-- Scripts Oficiales & Lógica de Envío a Google Forms -->
     <script>
-        // Toggle Menú Móvil
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        }
-
         // Scroll to Top
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
