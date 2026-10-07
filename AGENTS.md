@@ -19,7 +19,7 @@
 * **PALETA DE COLOR OFICIAL ESTRICTA:**
   - Azul Corporativo: `brand-blue: #3849C8`, `brand-blue-dark: #2D3A9F`, `brand-blue-light: #4F5ED4`
   - Naranja de Conversión / Acento: `brand-orange: #FF8A1E`, `brand-orange-dark: #E67A15`, `brand-orange-light: #FFA04A`
-* **PROHIBICIÓN ESTRICTA:** Queda terminantemente prohibido usar gradientes o luces ambientales con tintes violetas, púrpuras, amarillos chillones o verdes que desentonen de la identidad corporativa. La barra de navegación debe tener altura estandarizada de **`h-20` (80px)** y el logotipo **`h-28`** centrado (`h-20` en footer) para evitar barras sobredimensionadas.
+* **PROHIBICIÓN ESTRICTA:** Queda terminantemente prohibido usar gradientes o luces ambientales con tintes violetas, púrpuras, amarillos chillones o verdes que desentonen de la identidad corporativa. La barra de navegación debe tener altura estandarizada de **`h-20` (80px)** y el logotipo **`h-28`** centrado para evitar barras sobredimensionadas. En el pie de página (footer), la identidad de marca se expresa de forma canónica en texto institucional: `<a href="/" class="text-xl font-bold text-white tracking-tight mb-3 hover:text-brand-orange transition inline-block">Aizprua S.E.</a>`.
 * **BARRA DE PROGRESO DE LECTURA CANÓNICA:** Toda página del sitio debe incluir obligatoriamente la barra de lectura interactiva `#progress-bar` configurada estrictamente con el naranja corporativo:  
   `class="fixed top-0 left-0 h-1 bg-brand-orange z-[60] transition-all duration-75" style="width:0%"`  
   Queda prohibido usar degradados cruzados de azul a naranja (`from-brand-blue to-brand-orange`) en la barra para evitar zonas intermedias violetas o púrpuras.

@@ -172,8 +172,8 @@ tailwind.config = {
 
 ### 4.2. Desglose de las 4 Columnas
 1. **Columna 1: Marca & Redes Sociales**
-   * Logo invertido/blanco sin fondo: `assets/LOGOS PARA DIGITAL INDIVIDUALES-21-nobg.svg`
-   * Tamaño: `h-20 w-auto -mt-7 -mb-4 -ml-3` (altura de `80px`).
+   * Identidad Canónica (Texto): `<a href="/" class="text-xl font-bold text-white tracking-tight mb-3 hover:text-brand-orange transition inline-block">Aizprua S.E.</a>`
+   * Tipografía: `text-xl font-bold text-white tracking-tight` con hover a `text-brand-orange`.
    * Eslogan: `<p class="text-sm text-slate-400 mb-3">Tu aliado legal en Panamá.</p>`
    * Botones de Redes Sociales:
      * Contenedor: `flex gap-3` (separación `12px`).
@@ -201,9 +201,9 @@ tailwind.config = {
 <footer class="bg-slate-900 text-slate-400 py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row md:justify-between gap-10 mb-8">
-            <!-- Logo & Redes -->
+            <!-- Marca & Redes -->
             <div class="flex flex-col items-start">
-                <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-21-nobg.svg" alt="Aizprua S.E. - Firma Legal" class="h-20 w-auto -mt-7 -mb-4 -ml-3">
+                <a href="/" class="text-xl font-bold text-white tracking-tight mb-3 hover:text-brand-orange transition inline-block">Aizprua S.E.</a>
                 <p class="text-sm text-slate-400 mb-3">Tu aliado legal en Panamá.</p>
                 <div class="flex gap-3">
                     <a target="_blank" rel="noopener" href="https://instagram.com/aizpruase" class="w-10 h-10 bg-slate-800 hover:bg-pink-600 rounded-full flex items-center justify-center text-white transition" aria-label="Instagram">
