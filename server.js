@@ -772,7 +772,7 @@ app.listen(PORT, () => {
   console.log(`   Ambiente:    ${CS_CONFIG.host.includes('test') ? '🟡 SANDBOX' : '🟢 PRODUCCIÓN'}`);
   console.log(`   Merchant ID: ${CS_CONFIG.merchantId}`);
   console.log(`   Credenciales: ${CS_CONFIG.keyId ? '✅ Configuradas' : '❌ FALTANTES (configurar .env)'}`);
-  const rucUser = process.env.HKA_TOKEN_USUARIO || process.env.HKA_TOKEN_EMPRESA || process.env.TOKEN_EMPRESA || process.env.TOKEN_USUARIO;
+  const rucUser = process.env.HKA_TOKEN_USUARIO || process.env.HKA_TOKEN_USUAR || process.env.HKA_TOKEN_EMPRESA || process.env.TOKEN_EMPRESA || process.env.TOKEN_USUARIO;
   const rucPass = process.env.HKA_TOKEN_PASSWORD || process.env.HKA_PASSWORD || process.env.TOKEN_PASSWORD || process.env.HKA_PASS;
   console.log(`   RUC & DV DGI: ${rucUser && rucPass ? '✅ Credenciales activas' : '❌ FALTANTES en Coolify (.env)'}`);
   console.log(`   Origins:     ${TARGET_ORIGINS.join(', ')}`);

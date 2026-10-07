@@ -892,10 +892,12 @@ body {
 }
 
 .info-val {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--gray-900);
-  word-break: break-all;
+  line-height: 1.35;
+  word-break: normal;
+  overflow-wrap: break-word;
 }
 
 /* Actions Bar */
