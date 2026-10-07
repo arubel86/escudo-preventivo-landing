@@ -18,6 +18,7 @@ const path = require('path');
 const crypto = require('crypto');
 const { cybersourceRequest } = require('./lib/cybersource-auth');
 const { runAudit } = require('./lib/scanner-engine');
+const { consultarHkaDgiInteligente, validarPazYSalvo } = require('./lib/ruc-service');
 
 // Secret para firmar tokens de sesión de pago (1 hora)
 const PAYMENT_SESSION_SECRET = process.env.CS_SHARED_SECRET_B64 || 'aizprua_secure_session_key_2026';
@@ -303,6 +304,75 @@ app.post(['/api/scan', '/verificador/api/scan'], async (req, res) => {
     return res.status(500).json({
       error: `Error al analizar el sitio: ${scanErr.message || 'Fallo inesperado'}`
     });
+  }
+});
+
+// ============================================================
+// API: CONSULTA RUC & PAZ Y SALVO (THE FACTORY HKA / DGI)
+// ============================================================
+const rucRateLimitCounts = new Map();
+const RUC_RATE_LIMIT_WINDOW_MS = 60 * 1000; // 1 minuto
+const MAX_RUC_REQUESTS_PER_WINDOW = 40; // 40 consultas por minuto por IP
+
+function rucRateLimiter(req, res, next) {
+  const ip = req.ip || req.headers['x-forwarded-for'] || req.connection.remoteAddress || 'localhost';
+  const now = Date.now();
+  const clientData = rucRateLimitCounts.get(ip) || { count: 0, resetTime: now + RUC_RATE_LIMIT_WINDOW_MS };
+
+  if (now > clientData.resetTime) {
+    clientData.count = 0;
+    clientData.resetTime = now + RUC_RATE_LIMIT_WINDOW_MS;
+  }
+
+  clientData.count++;
+  rucRateLimitCounts.set(ip, clientData);
+
+  if (clientData.count > MAX_RUC_REQUESTS_PER_WINDOW) {
+    return res.status(429).json({
+      success: false,
+      found: false,
+      message: '⚠️ Has superado el límite de consultas por minuto. Por favor espera unos segundos.'
+    });
+  }
+
+  next();
+}
+
+app.post('/api/consulta-ruc', rucRateLimiter, async (req, res) => {
+  try {
+    const { query, tipoContribuyente } = req.body;
+    if (!query) {
+      return res.status(400).json({
+        success: false,
+        found: false,
+        message: 'Parámetro RUC o Nombre requerido'
+      });
+    }
+
+    const resultado = await consultarHkaDgiInteligente(String(query).trim(), tipoContribuyente);
+    return res.json(resultado);
+  } catch (error) {
+    console.error('[RUC Server] Error procesando consulta fiscal:', error.message);
+    return res.status(500).json({
+      success: false,
+      found: false,
+      message: 'Error interno en el servidor al consultar la DGI',
+      error: error.message
+    });
+  }
+});
+
+app.post('/api/validar-pazysalvo', async (req, res) => {
+  try {
+    const { ruc, numDoc, fechaValidez, numControl } = req.body;
+    const resultado = validarPazYSalvo({ ruc, numDoc, fechaValidez, numControl });
+    if (!resultado.valid && resultado.message.includes('Faltan datos')) {
+      return res.status(400).json(resultado);
+    }
+    return res.json(resultado);
+  } catch (error) {
+    console.error('[RUC Server] Error en validación Paz y Salvo:', error.message);
+    return res.status(500).json({ valid: false, message: 'Error interno al validar certificación' });
   }
 });
 
@@ -648,6 +718,16 @@ app.get('/informe-diagnostico', (req, res) => {
 app.get(['/informe-diagnostico.html', '/informe', '/informe.html'], (req, res) => {
   const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
   res.redirect(301, '/informe-diagnostico' + query);
+});
+
+// 10.5. Buscador y Validador de RUC / DV en Panamá (Canónica: /ruc)
+app.get('/ruc', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'ruc.html'));
+});
+
+app.get(['/ruc.html', '/buscador-ruc', '/buscador-ruc.html', '/validador-ruc', '/validador-ruc.html'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/ruc' + query);
 });
 
 

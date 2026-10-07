@@ -9,6 +9,7 @@ node_modules/
 # Excluded folders (documentación y pruebas locales)
 documentos/
 pruebas/
+Buscador_RUC_Web/
 
 # Sensitive assets & secret keys
 public/assets/*.pem

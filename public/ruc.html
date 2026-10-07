@@ -1,85 +1,72 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, follow">
-    <title>404: Página no encontrada | Escudo Preventivo - Aizprua S.E.</title>
-    <meta name="description"
-        content="La página que buscas no existe o ha sido movida. Regresa al inicio para conocer el Diagnóstico Escudo Preventivo de Aizprua S.E.">
+    <title>Buscador y Validador de RUC / DV en Panamá | Aizprua S.E.</title>
+    <meta name="description" content="Consulta y valida gratis el RUC y Dígito Verificador (DV) de empresas y personas en Panamá en tiempo real ante la DGI. Servicio oficial de Aizprua S.E.">
+    <meta name="keywords" content="RUC Panamá, Dígito Verificador DV, DGI Panamá, e-Tax 2.0, Razón Social Panamá, Paz y Salvo DGI, Facturación Electrónica Panamá">
+    <meta name="author" content="Aizprua S.E.">
 
-    <!-- Canonical & Favicon (Sincronizado con YouTube) -->
-    <link rel="canonical" href="https://aizprua.com/404">
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="apple-touch-icon" href="/favicon.png">
+    <!-- Canonical & Favicon -->
+    <link rel="canonical" href="https://aizprua.com/ruc">
+    <link rel="icon" type="image/svg+xml" href="assets/LOGOS PARA DIGITAL INDIVIDUALES-13.svg">
+    <link rel="apple-touch-icon" href="assets/LOGOS PARA DIGITAL INDIVIDUALES-13.svg">
 
-    <!-- Open Graph -->
+    <!-- Open Graph / WhatsApp / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://escudo.aizprua.com/404">
-    <meta property="og:title" content="404: Página no encontrada | Aizprua S.E.">
-    <meta property="og:description"
-        content="La página solicitada no está disponible. Explora nuestras soluciones de blindaje y diagnóstico anti-multas en Panamá.">
-    <meta property="og:image" content="https://escudo.aizprua.com/assets/aizprua-shield-og.jpg">
+    <meta property="og:url" content="https://aizprua.com/ruc">
+    <meta property="og:title" content="Buscador y Validador de RUC / DV en Panamá | Aizprua S.E.">
+    <meta property="og:description" content="Consulta y valida gratis el RUC y Dígito Verificador (DV) de empresas y personas en Panamá en tiempo real ante la DGI.">
+    <meta property="og:image" content="https://aizprua.com/assets/aizprua-shield-og.jpg">
+    <meta property="og:image:secure_url" content="https://aizprua.com/assets/aizprua-shield-og.jpg">
+    <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1080">
     <meta property="og:image:height" content="1080">
     <meta property="og:locale" content="es_PA">
     <meta property="og:site_name" content="Aizprua S.E.">
 
-    <!-- Fonts & Tailwind -->
+    <!-- Twitter / X Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Buscador y Validador de RUC / DV en Panamá | Aizprua S.E.">
+    <meta name="twitter:description" content="Consulta y valida gratis el RUC y Dígito Verificador (DV) de empresas y personas en Panamá en tiempo real ante la DGI.">
+    <meta name="twitter:image" content="https://aizprua.com/assets/aizprua-shield-og.jpg">
+
+    <!-- Preconnect & Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS (Estandarizado en el ecosistema Aizprua) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        brand: {
-                            blue: '#3849C8',
-                            'blue-dark': '#2d3a9f',
-                            'blue-light': '#4f5ed4',
-                            orange: '#FF8A1E',
-                            'orange-dark': '#e67a15',
-                            'orange-light': '#ffa04a'
-                        }
+                        'brand-blue': '#3849C8',
+                        'brand-blue-dark': '#2D3A9F',
+                        'brand-blue-light': '#4F5ED4',
+                        'brand-orange': '#FF8A1E',
+                        'brand-orange-dark': '#E67A15',
+                        'brand-orange-light': '#FFA04A',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
-    <script src="https://unpkg.com/lucide@latest" defer></script>
 
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, #3849C8 0%, #FF8A1E 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        @keyframes float-gentle {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-8px);
-            }
-        }
-
-        .animate-float {
-            animation: float-gentle 4s ease-in-out infinite;
-        }
-    </style>
+    <!-- Lucide Icons & Estilos RUC -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="ruc.css">
 </head>
-
 <body class="bg-slate-50 text-slate-800 antialiased flex flex-col min-h-screen selection:bg-brand-orange selection:text-white relative">
+
+    <!-- BARRA DE CARGA ESPECTRAL SUPERIOR PARA CONSULTAS FISCALES -->
+    <div id="topLoadingBar" class="top-loading-bar" role="progressbar" aria-label="Consulta fiscal en curso"></div>
 
     <!-- Barra de Progreso de Lectura Canónica -->
     <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-brand-orange z-[60] transition-all duration-75" style="width:0%"></div>
@@ -179,131 +166,220 @@
             <a href="/test-interactivo" class="block py-2 text-brand-orange font-bold border-b border-slate-100">
                 Test de Auditoría en Vivo (3 min)
             </a>
-            <a href="https://wa.me/50765461527" target="_blank"
-                class="flex items-center justify-center gap-2 bg-[#25D366] text-white px-4 py-3 rounded-xl font-bold text-sm shadow mt-2">
+            <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20sobre%20sus%20servicios"
+                target="_blank" rel="noopener"
+                class="flex items-center justify-center gap-2 bg-[#25D366] text-white py-3 rounded-xl font-bold text-sm w-full mt-2 shadow-md">
                 <i data-lucide="message-circle" class="w-4 h-4"></i>
-                <span>Chatear por WhatsApp (+507 6546-1527)</span>
+                <span>Chatear por WhatsApp</span>
             </a>
         </div>
     </header>
 
-
-    <!-- Main Content -->
-    <main class="flex-grow flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        <!-- Ambient Glows -->
-        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand-blue/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute bottom-10 right-10 w-72 h-72 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none"></div>
-
-        <div class="max-w-2xl w-full text-center relative z-10">
-            <!-- Floating Badge -->
-            <div class="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-slate-200/70 text-slate-700 text-xs sm:text-sm font-semibold mb-6 border border-slate-300">
-                <i data-lucide="shield-alert" class="w-4 h-4 text-brand-orange"></i>
-                <span>Ruta no encontrada (Error 404)</span>
+    <!-- ==================================================== -->
+    <!-- 3. CUERPO PRINCIPAL: BUSCADOR & VALIDADOR RUC / DV   -->
+    <!-- ==================================================== -->
+    <main class="flex-grow">
+        <!-- ── HERO SECTION & BUSCADOR INTELIGENTE ────────────────── -->
+        <section class="hero-section" id="buscador">
+            <div class="hero-badge">
+                <i data-lucide="shield-check" style="width: 16px; height: 16px;"></i>
+                <span>Servicio Oficial de Verificación Fiscal</span>
             </div>
 
-            <!-- 404 Hero Visual -->
-            <div class="relative inline-block mb-4">
-                <span class="text-7xl sm:text-9xl font-black tracking-tight text-slate-200 select-none">404</span>
-                <div class="absolute inset-0 flex items-center justify-center">
-                    <span class="text-6xl sm:text-8xl font-black tracking-tight gradient-text animate-float">404</span>
-                </div>
-            </div>
-
-            <h1 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">
-                Esta página está fuera del perímetro de blindaje
+            <h1 class="hero-title">
+                Consulte su <span class="gradient-text">RUC & Dígito Verificador (DV)</span> al Instante en Panamá
             </h1>
-            <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-8 max-w-lg mx-auto">
-                El enlace al que intentas acceder no existe, ha cambiado de dirección o fue retirado. Pero la protección de tu empresa en Panamá sigue a nuestro alcance.
+            <p class="hero-description">
+                Obtén la Razón Social y el DV oficial ante la DGI para facturación electrónica, transferencias ACH y creación de proveedores sin demoras.
             </p>
 
-            <!-- Main CTAs -->
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-10">
-                <a href="/test-interactivo"
-                    class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 active:scale-[0.99] text-white font-bold py-3.5 px-7 rounded-xl shadow-lg shadow-orange-500/20 transition text-sm sm:text-base">
-                    <i data-lucide="shield-check" class="w-5 h-5 shrink-0"></i>
-                    <span>Ir al Diagnóstico Anti-Multas</span>
-                </a>
-                <a href="/"
-                    class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-slate-700 font-semibold py-3.5 px-6 rounded-xl border border-slate-300 shadow-sm transition text-sm sm:text-base">
-                    <i data-lucide="home" class="w-4 h-4 text-slate-500 shrink-0"></i>
-                    <span>Volver a la Página Principal</span>
-                </a>
+            <!-- Formulario Desglosado Oficial DGI Panamá -->
+            <div class="dgi-form-card" id="dgiFormCard">
+                <div class="dgi-form-header">
+                    <i data-lucide="file-search" style="width: 20px; height: 20px; color: var(--brand-blue);"></i>
+                    <span>Formulario de Consulta Oficial DGI e-Tax 2.0</span>
+                </div>
+
+                <div class="dgi-form-grid">
+                    <!-- Campo: Tipo de Contribuyente -->
+                    <div class="form-group-full">
+                        <label class="form-label">Tipo de Contribuyente <span class="required-star">*</span></label>
+                        <div class="custom-select-wrapper" id="customTipoWrapper">
+                            <button type="button" class="custom-select-trigger" id="customTipoTrigger" onclick="toggleCustomSelect(event)" aria-haspopup="listbox" aria-expanded="false">
+                                <span class="trigger-content">
+                                    <i data-lucide="building-2" class="trigger-icon" id="customTipoIcon"></i>
+                                    <span id="customTipoLabel">JURÍDICA (Persona Jurídica / Empresa)</span>
+                                </span>
+                                <i data-lucide="chevron-down" class="trigger-arrow" id="customTipoArrow"></i>
+                            </button>
+                            <div class="custom-select-options" id="customTipoOptions" role="listbox">
+                                <div class="custom-option selected" data-value="JURIDICA" onclick="selectCustomOption('JURIDICA')">
+                                    <div class="opt-left">
+                                        <div class="opt-icon-box blue"><i data-lucide="building-2"></i></div>
+                                        <div class="opt-info">
+                                            <span class="opt-title">JURÍDICA (Persona Jurídica / Empresa)</span>
+                                            <span class="opt-desc">Sociedades anónimas, fundaciones y empresas</span>
+                                        </div>
+                                    </div>
+                                    <i data-lucide="check" class="opt-check"></i>
+                                </div>
+                                <div class="custom-option" data-value="NATURAL" onclick="selectCustomOption('NATURAL')">
+                                    <div class="opt-left">
+                                        <div class="opt-icon-box orange"><i data-lucide="user"></i></div>
+                                        <div class="opt-info">
+                                            <span class="opt-title">NATURAL (Persona Natural / CÉDULA)</span>
+                                            <span class="opt-desc">Panameños y residentes con cédula</span>
+                                        </div>
+                                    </div>
+                                    <i data-lucide="check" class="opt-check"></i>
+                                </div>
+                                <div class="custom-option" data-value="NATURAL_NT" onclick="selectCustomOption('NATURAL_NT')">
+                                    <div class="opt-left">
+                                        <div class="opt-icon-box purple"><i data-lucide="globe"></i></div>
+                                        <div class="opt-info">
+                                            <span class="opt-title">NATURAL NT (Persona Natural Extranjero NT)</span>
+                                            <span class="opt-desc">Extranjeros con número tributario NT</span>
+                                        </div>
+                                    </div>
+                                    <i data-lucide="check" class="opt-check"></i>
+                                </div>
+                            </div>
+                            <!-- Select nativo sincronizado -->
+                            <select id="dgiTipoSelect" style="display:none;" onchange="onDgiTipoChange()">
+                                <option value="JURIDICA" selected>JURÍDICA (Persona Jurídica / Empresa)</option>
+                                <option value="NATURAL">NATURAL (Persona Natural / CÉDULA)</option>
+                                <option value="NATURAL_NT">NATURAL NT (Persona Natural Extranjero NT)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Campos para JURIDICA (Rollo/Tomo, Folio/Imagen, Asiento/Ficha) -->
+                    <div id="groupJuridica" class="form-fields-row">
+                        <div class="form-group flex-1">
+                            <label class="form-label">Rollo / Tomo <span class="required-star">*</span></label>
+                            <input type="text" id="juridicaTomo" class="form-control" placeholder="Ej: 1556843" value="1556843" oninput="actualizarRucConstruido()">
+                        </div>
+                        <div class="form-group flex-1">
+                            <label class="form-label">Folio / Imagen <span class="required-star">*</span></label>
+                            <input type="text" id="juridicaFolio" class="form-control" placeholder="Ej: 2" value="2" oninput="actualizarRucConstruido()">
+                        </div>
+                        <div class="form-group flex-1">
+                            <label class="form-label">Asiento / Ficha <span class="required-star">*</span></label>
+                            <input type="text" id="juridicaAsiento" class="form-control" placeholder="Ej: 543210" value="543210" oninput="actualizarRucConstruido()">
+                        </div>
+                    </div>
+
+                    <!-- Campos para NATURAL (Provincia, Folio/Imagen, Asiento/Ficha) -->
+                    <div id="groupNatural" class="form-fields-row d-none" style="display:none !important;">
+                        <div class="form-group form-group-provincia">
+                            <label class="form-label">Provincia <span class="required-star">*</span></label>
+                            <select id="naturalProvincia" class="form-select" onchange="actualizarRucConstruido()">
+                                <option value="1">1 (Bocas)</option>
+                                <option value="2">2 (Coclé)</option>
+                                <option value="3">3 (Colón)</option>
+                                <option value="4">4 (Chiriquí)</option>
+                                <option value="5">5 (Darién)</option>
+                                <option value="6">6 (Herrera)</option>
+                                <option value="7">7 (Los Santos)</option>
+                                <option value="8" selected>8 (Panamá)</option>
+                                <option value="9">9 (Veraguas)</option>
+                                <option value="10">10 (Guna Yala)</option>
+                                <option value="11">11 (Emberá)</option>
+                                <option value="12">12 (Ngäbe)</option>
+                                <option value="13">13 (Panamá O.)</option>
+                                <option value="E">E (Extranjero)</option>
+                                <option value="N">N (Nacionalizado)</option>
+                            </select>
+                        </div>
+                        <div class="form-group flex-1">
+                            <label class="form-label">Folio / Tomo <span class="required-star">*</span></label>
+                            <input type="text" id="naturalFolio" class="form-control" placeholder="Ej: 825" oninput="actualizarRucConstruido()">
+                        </div>
+                        <div class="form-group flex-1">
+                            <label class="form-label">Asiento / Ficha <span class="required-star">*</span></label>
+                            <input type="text" id="naturalAsiento" class="form-control" placeholder="Ej: 886" oninput="actualizarRucConstruido()">
+                        </div>
+                    </div>
+
+                    <!-- Campos para NATURAL NT -->
+                    <div id="groupNaturalNt" class="form-fields-row d-none" style="display:none !important;">
+                        <div class="form-group flex-1">
+                            <label class="form-label">Número de RUC / NT <span class="required-star">*</span></label>
+                            <input type="text" id="naturalNtRuc" class="form-control" placeholder="Ej: 8-NT-2-123456" oninput="actualizarRucConstruido()">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Barra de Acción e Indicador RUC Compuesto DGI -->
+                <div class="dgi-action-bar">
+                    <div class="constructed-ruc-preview">
+                        <span class="preview-label">CÉDULA / RUC / NT:</span>
+                        <strong id="constructedRucValue" class="preview-val">1556843-2-543210</strong>
+                    </div>
+                    <button class="btn-search-dgi" onclick="ejecutarBusquedaDesglosadaDgi()">
+                        <i data-lucide="search" style="width: 18px; height: 18px;"></i>
+                        <span>Consultar en DGI</span>
+                    </button>
+                </div>
             </div>
+        </section>
 
-            <!-- Quick Links Box -->
-            <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm text-left">
-                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 text-center sm:text-left">
-                    ¿Buscabas alguno de estos recursos oficiales?
-                </p>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
-                    <a href="/ruc" class="flex items-center gap-3 p-3 rounded-xl hover:bg-emerald-50/70 border border-transparent hover:border-emerald-100 transition group">
-                        <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition">
-                            <i data-lucide="search" class="w-4 h-4"></i>
-                        </div>
-                        <div>
-                            <span class="font-bold text-slate-800 block group-hover:text-emerald-600 transition">Validador de RUC & DV</span>
-                            <span class="text-slate-500 text-xs">Consulta en vivo DGI y e-Tax 2.0</span>
-                        </div>
+        <!-- ── TARJETA DE RESULTADO DE BÚSQUEDA (DINÁMICA) ────────── -->
+        <div class="result-container" id="resultContainer"></div>
+
+        <!-- ── HISTORIAL DE CONSULTAS RECIENTES ───────────────────── -->
+        <section class="recent-section">
+            <div class="recent-header-row">
+                <div class="recent-title">
+                    <i data-lucide="history" style="width: 18px; height: 18px; color: var(--brand-blue);"></i> Consultas Recientes
+                </div>
+                <button id="btnClearAllRecent" class="btn-clear-history" onclick="limpiarHistorialCompleto()" style="display:none;" title="Borrar todo el historial">
+                    <i data-lucide="trash-2" style="width: 14px; height: 14px;"></i> Borrar todo
+                </button>
+            </div>
+            <div class="recent-list" id="recentList"></div>
+        </section>
+
+        <!-- ── LEAD MAGNET BANNERS & SERVICIOS AIZPRUA S.E. ───────── -->
+        <section class="lead-section" id="servicios">
+            <h2 class="section-title">Soluciones para tu Empresa en Panamá</h2>
+            
+            <div class="banners-grid">
+                <!-- Banner Escudo Preventivo -->
+                <div class="banner-card banner-escudo">
+                    <div>
+                        <span class="banner-tag"><i data-lucide="shield" style="width:14px; height:14px;"></i> Aizprua S.E. Legal</span>
+                        <h3 class="banner-heading">Diagnóstico Escudo Preventivo Anti-Multas</h3>
+                        <p class="banner-text">
+                            ¿Sabías que la DGI aplica multas silenciosas por inconsistencias en reportes? En 40 minutos revisamos el estado fiscal y legal de tu empresa en Panamá.
+                        </p>
+                    </div>
+                    <a href="https://wa.me/50765461527?text=Hola,%20deseo%20solicitar%20un%20Diagn%C3%B3stico%20Escudo%20Preventivo" target="_blank" class="banner-btn">
+                        <span>Solicitar Diagnóstico (40 min)</span>
+                        <i data-lucide="arrow-right" style="width:18px; height:18px;"></i>
                     </a>
+                </div>
 
-                    <a href="/guia-blindaje" class="flex items-center gap-3 p-3 rounded-xl hover:bg-blue-50/70 border border-transparent hover:border-blue-100 transition group">
-                        <div class="w-8 h-8 rounded-lg bg-blue-100 text-brand-blue flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition">
-                            <i data-lucide="book-open" class="w-4 h-4"></i>
-                        </div>
-                        <div>
-                            <span class="font-bold text-slate-800 block group-hover:text-brand-blue transition">Blindaje Legal 2026</span>
-                            <span class="text-slate-500 text-xs">Guía integral contra multas en Panamá</span>
-                        </div>
-                    </a>
-
-                    <a href="/guia-prestamos" class="flex items-center gap-3 p-3 rounded-xl hover:bg-blue-50/70 border border-transparent hover:border-blue-100 transition group">
-                        <div class="w-8 h-8 rounded-lg bg-blue-100 text-brand-blue flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition">
-                            <i data-lucide="landmark" class="w-4 h-4"></i>
-                        </div>
-                        <div>
-                            <span class="font-bold text-slate-800 block group-hover:text-brand-blue transition">Guía de Préstamos 2026</span>
-                            <span class="text-slate-500 text-xs">Requisitos y tasas en Panamá</span>
-                        </div>
-                    </a>
-
-                    <a href="/verificador" class="flex items-center gap-3 p-3 rounded-xl hover:bg-blue-50/70 border border-transparent hover:border-blue-100 transition group">
-                        <div class="w-8 h-8 rounded-lg bg-blue-100 text-brand-blue flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition">
-                            <i data-lucide="check-square" class="w-4 h-4"></i>
-                        </div>
-                        <div>
-                            <span class="font-bold text-slate-800 block group-hover:text-brand-blue transition">Verificador Web Legal</span>
-                            <span class="text-slate-500 text-xs">Auditoría web y Ley 81</span>
-                        </div>
-                    </a>
-
-                    <a href="/recursos-gratuitos" class="flex items-center gap-3 p-3 rounded-xl hover:bg-orange-50/70 border border-transparent hover:border-orange-100 transition group">
-                        <div class="w-8 h-8 rounded-lg bg-orange-100 text-brand-orange flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition">
-                            <i data-lucide="gift" class="w-4 h-4"></i>
-                        </div>
-                        <div>
-                            <span class="font-bold text-slate-800 block group-hover:text-brand-orange transition">Guía Preventiva Gratis</span>
-                            <span class="text-slate-500 text-xs">Descarga directa en PDF</span>
-                        </div>
-                    </a>
-
-                    <a href="/tienda" class="flex items-center gap-3 p-3 rounded-xl hover:bg-orange-50/70 border border-transparent hover:border-orange-100 transition group">
-                        <div class="w-8 h-8 rounded-lg bg-orange-100 text-brand-orange flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition">
-                            <i data-lucide="shopping-bag" class="w-4 h-4"></i>
-                        </div>
-                        <div>
-                            <span class="font-bold text-slate-800 block group-hover:text-brand-orange transition">Tienda Online & Kits</span>
-                            <span class="text-slate-500 text-xs">Soluciones y contratos listos</span>
-                        </div>
+                <!-- Banner Conector Sage 50 -->
+                <div class="banner-card banner-sage" id="conector">
+                    <div>
+                        <span class="banner-tag"><i data-lucide="cpu" style="width:14px; height:14px;"></i> Conexión F&P</span>
+                        <h3 class="banner-heading">Conector Autónomo HKA → Sage 50 2018</h3>
+                        <p class="banner-text">
+                            Sincroniza automáticamente tus facturas electrónicas emitidas y recibidas en tiempo real con tu contabilidad en Sage 50 Premium sin digitar a mano.
+                        </p>
+                    </div>
+                    <a href="https://wa.me/50765461527?text=Hola,%20me%20interesa%20el%20Conector%20de%20Sage%2050%20con%20The%20Factory%20HKA" target="_blank" class="banner-btn">
+                        <span>Ver Demostración Sage 50</span>
+                        <i data-lucide="arrow-right" style="width:18px; height:18px;"></i>
                     </a>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
 
     <!-- ==================================================== -->
-    <!-- 11. FOOTER CANÓNICO OFICIAL (4 COLUMNAS)             -->
-    <!-- ==================================================== -->
-    <!-- FOOTER CANÓNICO OFICIAL (4 COLUMNAS DESIGN_SYSTEM)   -->
+    <!-- 4. FOOTER CANÓNICO OFICIAL (4 COLUMNAS DESIGN_SYSTEM) -->
     <!-- ==================================================== -->
     <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -361,6 +437,7 @@
                         <li><a href="/tienda" class="hover:text-white transition font-semibold text-brand-orange-light">Tienda Online</a></li>
                         <li><a href="https://escuela.aizprua.com" target="_blank" rel="noopener" class="hover:text-white transition font-semibold text-brand-blue-light flex items-center gap-1.5">Campus Virtual (Escuela) <i data-lucide="external-link" class="w-3 h-3 text-brand-orange"></i></a></li>
                         <li><a href="/plan-360-digital" class="hover:text-white transition">Plan 360 Digital ($24.99)</a></li>
+                        <li><a href="/ruc" class="hover:text-white transition text-white font-semibold">Validador de RUC & DV</a></li>
                         <li><a href="/test-interactivo" class="hover:text-white transition">Test de Auditoría Gratis</a></li>
                     </ul>
                 </div>
@@ -394,6 +471,50 @@
         </div>
     </footer>
 
+    <!-- ── MODAL DE VERIFICACIÓN DE PAZ Y SALVO ───────────────── -->
+    <div class="modal-overlay" id="pazYSalvoModal" onclick="if(event.target === this) cerrarModalPazYSalvo()">
+        <div class="modal-card">
+            <button class="modal-close" onclick="cerrarModalPazYSalvo()">&times;</button>
+            
+            <div class="modal-header">
+                <div class="modal-badge"><i data-lucide="shield-check" style="width:14px; height:14px;"></i> DGI Panamá</div>
+                <h3 class="modal-title">Verificación de Certificación de Paz y Salvo</h3>
+                <p class="modal-desc">Ingresa los 4 datos del certificado impreso para validar su autenticidad y fecha de vigencia.</p>
+            </div>
+
+            <form id="pazYSalvoForm" onsubmit="validarCertificadoPazYSalvo(event)">
+                <div class="form-group">
+                    <label class="form-label">RUC del Contribuyente</label>
+                    <input type="text" id="modalRuc" class="form-input" placeholder="Ej: 1556843-2-543210" required>
+                </div>
+
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label class="form-label">Número de Documento</label>
+                        <input type="text" id="modalNumDoc" class="form-input" placeholder="Ej: PS-2026-98412" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Fecha de Validez</label>
+                        <input type="date" id="modalFecha" class="form-input" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Número de Control</label>
+                    <input type="text" id="modalNumControl" class="form-input" placeholder="Ej: CTRL-881920" required>
+                </div>
+
+                <button type="submit" class="btn-verify-submit" id="btnSubmitCert">
+                    <i data-lucide="check-circle" style="width:18px; height:18px;"></i> Verificar Certificado
+                </button>
+            </form>
+
+            <!-- Resultado de la verificación -->
+            <div id="pazYSalvoResult" class="cert-result-card" style="display:none;"></div>
+        </div>
+    </div>
+
     <!-- Contenedor Flotante de Acciones -->
     <div class="fixed bottom-6 right-6 z-40 flex flex-col items-center gap-3 pointer-events-none">
         <!-- Botón Flotante "Volver Arriba" (Scroll to Top) -->
@@ -413,6 +534,7 @@
         </a>
     </div>
 
+    <!-- Scripts de Funcionalidad -->
     <script>
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
@@ -443,19 +565,7 @@
                 }
             }
         });
-
-        function initIcons() {
-            if (window.lucide) {
-                window.lucide.createIcons();
-            } else {
-                setTimeout(initIcons, 50);
-            }
-        }
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initIcons);
-        } else {
-            initIcons();
-        }
     </script>
+    <script src="ruc.js"></script>
 </body>
 </html>
