@@ -252,9 +252,13 @@
                             class="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 transition shadow-2xs">
                             Gratis ($0)
                         </button>
-                        <button type="button" onclick="setPriceFilter('under25')" 
+                        <button type="button" onclick="setPriceFilter('under50')" 
                             class="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 transition shadow-2xs">
-                            Hasta $25
+                            Hasta $50
+                        </button>
+                        <button type="button" onclick="setPriceFilter('under100')" 
+                            class="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 transition shadow-2xs">
+                            Hasta $100
                         </button>
                         <button type="button" onclick="setPriceFilter('all')" 
                             class="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-brand-blue/10 hover:bg-brand-blue/20 text-brand-blue transition shadow-2xs">
@@ -793,9 +797,88 @@
                         </div>
                     </div>
 
-                    <!-- PRODUCTO 4: PACK LABORAL (CONTRATO + DESPIDO + MUTUO ACUERDO) -->
+                    <!-- PRODUCTO: PACK CONTRATACIÓN POR SERVICIOS PROFESIONALES ($97.00) -->
                     <div class="product-card bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition group h-full"
-                        data-delivery="digital" data-category="blindaje" data-price="39.99" data-keywords="pack laboral contratacion desvinculacion contrato individual de trabajo carta despido mutuo acuerdo articulo 213 articulo 210 mitradel panama word docx">
+                        data-delivery="digital" data-category="blindaje" data-price="97.00" data-keywords="pack servicios profesionales contrato servicios profesionales honorarios carta despido justificado amonestacion disciplinaria renuncia voluntaria mutuo acuerdo finiquito laboral panama word docx">
+                        <div class="flex-1 flex flex-col">
+                            <!-- Portada Showcase con Badge -->
+                            <div class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-brand-blue-dark rounded-2xl overflow-hidden mb-4 aspect-[4/3] flex items-center justify-center p-4 border border-slate-700/60 shadow-inner">
+                                <div class="text-center p-3">
+                                    <div class="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-brand-orange mx-auto flex items-center justify-center mb-2 shadow-lg">
+                                        <i data-lucide="briefcase" class="w-8 h-8"></i>
+                                    </div>
+                                    <span class="text-xs font-bold text-white block leading-tight">Servicios Profesionales</span>
+                                    <span class="text-[10px] text-brand-orange-light font-bold block mt-0.5">Contratación & Salidas</span>
+                                </div>
+                                <span class="absolute top-3 left-3 bg-brand-blue text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+                                    Pack 6 en 1
+                                </span>
+                                <span class="absolute top-3 right-3 bg-emerald-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+                                    Descarga Inmediata
+                                </span>
+                            </div>
+
+                            <span class="text-[10px] font-black uppercase tracking-wider text-brand-blue block min-h-[1.25rem]">Contratistas & Servicios Profesionales</span>
+                            <h3 class="text-base sm:text-lg font-black text-slate-900 mt-1 mb-2 min-h-[3.25rem] flex items-center leading-snug">
+                                Pack contratación por servicios profesionales
+                            </h3>
+                            <p class="text-xs text-slate-600 mb-4 leading-relaxed min-h-[3.75rem] flex items-start">
+                                Suite jurídica en Word con contrato de servicios profesionales y las 5 cartas de gestión y desvinculación para blindar la relación con contratistas y colaboradores.
+                            </p>
+
+                            <!-- Entregables Principales (3 Bullets Estandarizados) -->
+                            <div class="space-y-2 mb-4 bg-slate-50 p-3.5 rounded-2xl border border-slate-100 min-h-[8.5rem] flex flex-col justify-center">
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Contrato de servicios profesionales:</strong> Modelo blindado en Word (.docx) con cláusulas de autonomía e independencia.</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Suite disciplinaria y de salida:</strong> Carta de despido justificado, amonestación disciplinaria y renuncia voluntaria.</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Cierre sin pasivos:</strong> Acuerdo de mutuo acuerdo y finiquito laboral para máxima certeza legal.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bloque Inferior / Acciones (Altura Estandarizada) -->
+                        <div class="pt-4 border-t border-slate-100 space-y-2.5 mt-auto">
+                            <div class="flex items-center justify-between min-h-[2.5rem] gap-2">
+                                <div class="flex items-baseline gap-1.5 shrink-0">
+                                    <span class="text-xs text-slate-400 line-through mr-1">$197.00</span>
+                                    <span class="text-2xl font-black text-slate-900">$97.00</span>
+                                    <span class="text-[10px] font-bold text-slate-500">USD</span>
+                                    <span class="hidden sm:inline-block text-[11px] font-extrabold text-orange-700 bg-orange-100 px-2 py-0.5 rounded-md ml-1 whitespace-nowrap">50% DCTO</span>
+                                </div>
+                                <div class="flex flex-col sm:flex-row items-end sm:items-baseline gap-0.5 sm:gap-2 text-right shrink-0">
+                                    <span class="inline-block sm:hidden text-[11px] font-extrabold text-orange-700 bg-orange-100 px-2 py-0.5 rounded-md whitespace-nowrap">50% DCTO</span>
+                                    <span class="text-xs font-bold text-emerald-600 whitespace-nowrap">Garantía Aizprua</span>
+                                </div>
+                            </div>
+
+                            <div class="min-h-[5.5rem] flex flex-col justify-end space-y-2">
+                                <a href="https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20el%20Pack%20de%20Servicios%20Profesionales%20($97.00%20USD)%20en%20Aizprua%20S.E."
+                                    target="_blank" rel="noopener"
+                                    class="w-full inline-flex items-center justify-center gap-2 py-3 bg-brand-blue hover:bg-brand-blue-dark text-white rounded-xl text-xs sm:text-sm font-bold transition shadow hover:shadow-md">
+                                    <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                                    <span>Comprar Pack por $97.00 USD</span>
+                                </a>
+
+                                <a href="https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20el%20Pack%20de%20Servicios%20Profesionales%20($97.00%20USD)"
+                                    target="_blank" rel="noopener"
+                                    class="w-full inline-flex items-center justify-center gap-1.5 py-1 text-xs font-bold text-slate-500 hover:text-brand-blue transition">
+                                    <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-500"></i>
+                                    <span>Consultar por WhatsApp</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PRODUCTO: PACK LABORAL DE TIEMPO INDEFINIDO ($97.00) -->
+                    <div class="product-card bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition group h-full"
+                        data-delivery="digital" data-category="blindaje" data-price="97.00" data-keywords="pack laboral tiempo indefinido contrato trabajo permanente mitradel carta despido amonestacion renuncia mutuo acuerdo finiquito panama word docx">
                         <div class="flex-1 flex flex-col">
                             <!-- Portada Showcase con Badge -->
                             <div class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-brand-blue-dark rounded-2xl overflow-hidden mb-4 aspect-[4/3] flex items-center justify-center p-4 border border-slate-700/60 shadow-inner">
@@ -803,63 +886,66 @@
                                     <div class="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-brand-orange mx-auto flex items-center justify-center mb-2 shadow-lg">
                                         <i data-lucide="users" class="w-8 h-8"></i>
                                     </div>
-                                    <span class="text-xs font-bold text-white block leading-tight">Pack Laboral Completo</span>
-                                    <span class="text-[10px] text-brand-orange-light font-bold block mt-0.5">Contratación & Desvinculación</span>
+                                    <span class="text-xs font-bold text-white block leading-tight">Tiempo Indefinido</span>
+                                    <span class="text-[10px] text-brand-orange-light font-bold block mt-0.5">Personal Permanente</span>
                                 </div>
-                                <span class="absolute top-3 left-3 bg-brand-orange text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
-                                    Pack 3 en 1
+                                <span class="absolute top-3 left-3 bg-brand-blue text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+                                    Pack 6 en 1
                                 </span>
                                 <span class="absolute top-3 right-3 bg-emerald-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
                                     Descarga Inmediata
                                 </span>
                             </div>
 
-                            <span class="text-[10px] font-black uppercase tracking-wider text-brand-orange block min-h-[1.25rem]">Blindaje Laboral & Contratos</span>
+                            <span class="text-[10px] font-black uppercase tracking-wider text-brand-blue block min-h-[1.25rem]">Personal Fijo · Código de Trabajo</span>
                             <h3 class="text-base sm:text-lg font-black text-slate-900 mt-1 mb-2 min-h-[3.25rem] flex items-center leading-snug">
-                                Pack laboral de contratación & desvinculación
+                                Pack laboral de tiempo indefinido
                             </h3>
                             <p class="text-xs text-slate-600 mb-4 leading-relaxed min-h-[3.75rem] flex items-start">
-                                Las 3 plantillas jurídicas clave en Word para contratar personal en regla con el MITRADEL y formalizar salidas sin riesgos de demandas ni salarios caídos.
+                                Contrato individual de trabajo por tiempo indefinido más la suite completa de amonestación, despido formal, renuncia, mutuo acuerdo y finiquito en Panamá.
                             </p>
 
                             <!-- Entregables Principales (3 Bullets Estandarizados) -->
                             <div class="space-y-2 mb-4 bg-slate-50 p-3.5 rounded-2xl border border-slate-100 min-h-[8.5rem] flex flex-col justify-center">
                                 <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
                                     <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
-                                    <span class="leading-snug"><strong>Contrato individual de trabajo (Word):</strong> Modelo oficial con período probatorio de 3 meses según MITRADEL.</span>
+                                    <span class="leading-snug"><strong>Contrato tiempo indefinido (Word):</strong> Modelo oficial según Mitradel con período probatorio de 3 meses.</span>
                                 </div>
                                 <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
                                     <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
-                                    <span class="leading-snug"><strong>Modelo de carta de despido (Word):</strong> Notificación formal con causales legales bajo el Art. 213 del Código.</span>
+                                    <span class="leading-snug"><strong>Control de faltas y avisos:</strong> Carta de amonestación disciplinaria y carta de despido formal bajo Art. 213.</span>
                                 </div>
                                 <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
                                     <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
-                                    <span class="leading-snug"><strong>Mutuo acuerdo de terminación (Word):</strong> Rescisión pacífica bajo el Art. 210 para evitar juzgados y conflictos.</span>
+                                    <span class="leading-snug"><strong>Desvinculaciones pacíficas:</strong> Carta de renuncia voluntaria, acuerdo de mutuo acuerdo y finiquito laboral.</span>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Bloque Inferior / Acciones (Altura Estandarizada) -->
                         <div class="pt-4 border-t border-slate-100 space-y-2.5 mt-auto">
-                            <div class="flex items-baseline justify-between min-h-[2rem]">
-                                <div class="flex items-baseline gap-1.5">
-                                    <span class="text-xs text-slate-400 line-through mr-1">$79.99</span>
-                                    <span class="text-2xl font-black text-slate-900">$39.99</span>
+                            <div class="flex items-center justify-between min-h-[2.5rem] gap-2">
+                                <div class="flex items-baseline gap-1.5 shrink-0">
+                                    <span class="text-xs text-slate-400 line-through mr-1">$197.00</span>
+                                    <span class="text-2xl font-black text-slate-900">$97.00</span>
                                     <span class="text-[10px] font-bold text-slate-500">USD</span>
-                                    <span class="text-[10px] font-black text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md ml-1">50% DCTO</span>
+                                    <span class="hidden sm:inline-block text-[11px] font-extrabold text-orange-700 bg-orange-100 px-2 py-0.5 rounded-md ml-1 whitespace-nowrap">50% DCTO</span>
                                 </div>
-                                <span class="text-xs font-bold text-emerald-600">Garantía Aizprua</span>
+                                <div class="flex flex-col sm:flex-row items-end sm:items-baseline gap-0.5 sm:gap-2 text-right shrink-0">
+                                    <span class="inline-block sm:hidden text-[11px] font-extrabold text-orange-700 bg-orange-100 px-2 py-0.5 rounded-md whitespace-nowrap">50% DCTO</span>
+                                    <span class="text-xs font-bold text-emerald-600 whitespace-nowrap">Garantía Aizprua</span>
+                                </div>
                             </div>
 
                             <div class="min-h-[5.5rem] flex flex-col justify-end space-y-2">
-                                <a href="https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20el%20Pack%20Laboral%20(Contrato%20Individual%20+%20Despido%20+%20Mutuo%20Acuerdo)%20por%20$39.99%20USD"
+                                <a href="https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20el%20Pack%20Laboral%20de%20Tiempo%20Indefinido%20($97.00%20USD)%20en%20Aizprua%20S.E."
                                     target="_blank" rel="noopener"
                                     class="w-full inline-flex items-center justify-center gap-2 py-3 bg-brand-blue hover:bg-brand-blue-dark text-white rounded-xl text-xs sm:text-sm font-bold transition shadow hover:shadow-md">
                                     <i data-lucide="shopping-bag" class="w-4 h-4"></i>
-                                    <span>Comprar Pack por $39.99 USD</span>
+                                    <span>Comprar Pack por $97.00 USD</span>
                                 </a>
 
-                                <a href="https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20el%20Pack%20Laboral%20($39.99%20USD)"
+                                <a href="https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20el%20Pack%20de%20Tiempo%20Indefinido%20($97.00%20USD)"
                                     target="_blank" rel="noopener"
                                     class="w-full inline-flex items-center justify-center gap-1.5 py-1 text-xs font-bold text-slate-500 hover:text-brand-blue transition">
                                     <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-500"></i>
@@ -869,73 +955,76 @@
                         </div>
                     </div>
 
-                    <!-- PRODUCTO 5: ACUERDO DE CONFIDENCIALIDAD (NDA) -->
+                    <!-- PRODUCTO: PACK LABORAL DE TIEMPO DEFINIDO ($97.00) -->
                     <div class="product-card bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition group h-full"
-                        data-delivery="digital" data-category="blindaje" data-price="19.99" data-keywords="acuerdo de confidencialidad no divulgacion nda secretos comerciales proteccion clientes base de datos panama word docx">
+                        data-delivery="digital" data-category="blindaje" data-price="97.00" data-keywords="pack tiempo definido contrato termino fijo plazo determinado temporal mitradel carta despido amonestacion renuncia mutuo acuerdo finiquito panama word docx">
                         <div class="flex-1 flex flex-col">
                             <!-- Portada Showcase con Badge -->
                             <div class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-brand-blue-dark rounded-2xl overflow-hidden mb-4 aspect-[4/3] flex items-center justify-center p-4 border border-slate-700/60 shadow-inner">
                                 <div class="text-center p-3">
                                     <div class="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-brand-orange mx-auto flex items-center justify-center mb-2 shadow-lg">
-                                        <i data-lucide="shield-check" class="w-8 h-8"></i>
+                                        <i data-lucide="calendar-clock" class="w-8 h-8"></i>
                                     </div>
-                                    <span class="text-xs font-bold text-white block leading-tight">Acuerdo de Confidencialidad</span>
-                                    <span class="text-[10px] text-brand-orange-light font-bold block mt-0.5">Contrato NDA Blindado</span>
+                                    <span class="text-xs font-bold text-white block leading-tight">Tiempo Definido</span>
+                                    <span class="text-[10px] text-brand-orange-light font-bold block mt-0.5">Contratos a Plazo Fijo</span>
                                 </div>
                                 <span class="absolute top-3 left-3 bg-brand-blue text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
-                                    Documento Blindado
+                                    Pack 6 en 1
                                 </span>
                                 <span class="absolute top-3 right-3 bg-emerald-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
                                     Descarga Inmediata
                                 </span>
                             </div>
 
-                            <span class="text-[10px] font-black uppercase tracking-wider text-brand-blue block min-h-[1.25rem]">Blindaje Legal & Confidencialidad</span>
+                            <span class="text-[10px] font-black uppercase tracking-wider text-brand-blue block min-h-[1.25rem]">Personal Temporal · Término Fijo</span>
                             <h3 class="text-base sm:text-lg font-black text-slate-900 mt-1 mb-2 min-h-[3.25rem] flex items-center leading-snug">
-                                Acuerdo de confidencialidad y no divulgación (NDA)
+                                Pack laboral de tiempo definido (término fijo)
                             </h3>
                             <p class="text-xs text-slate-600 mb-4 leading-relaxed min-h-[3.75rem] flex items-start">
-                                Plantilla jurídica en Word lista para firmar con colaboradores, contratistas, socios o proveedores y proteger la información confidencial y clientes de tu empresa.
+                                Contrato de trabajo por tiempo definido bajo el Art. 74 del Código de Trabajo con las 5 cartas indispensables de régimen disciplinario y salida laboral.
                             </p>
 
                             <!-- Entregables Principales (3 Bullets Estandarizados) -->
                             <div class="space-y-2 mb-4 bg-slate-50 p-3.5 rounded-2xl border border-slate-100 min-h-[8.5rem] flex flex-col justify-center">
                                 <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
                                     <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
-                                    <span class="leading-snug"><strong>Contrato NDA en Word (.docx):</strong> Formato profesional aplicable a empleados, socios, proveedores y clientes.</span>
+                                    <span class="leading-snug"><strong>Contrato a término fijo (Word):</strong> Cláusulas justificativas válidas ante Mitradel para evitar conversión a indefinido.</span>
                                 </div>
                                 <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
                                     <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
-                                    <span class="leading-snug"><strong>Protección de secretos y clientes:</strong> Cláusulas expresas contra el desvío de clientela y fuga de información.</span>
+                                    <span class="leading-snug"><strong>Gestión y desvinculaciones:</strong> Amonestación disciplinaria, notificación de despido justificado y renuncia voluntaria.</span>
                                 </div>
                                 <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
                                     <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
-                                    <span class="leading-snug"><strong>Cláusula penal e indemnización:</strong> Sanciones y vías legales ejecutables ante tribunales en Panamá.</span>
+                                    <span class="leading-snug"><strong>Cierre de contrato blindado:</strong> Mutuo acuerdo y finiquito de liquidación para protección absoluta de la empresa.</span>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Bloque Inferior / Acciones (Altura Estandarizada) -->
                         <div class="pt-4 border-t border-slate-100 space-y-2.5 mt-auto">
-                            <div class="flex items-baseline justify-between min-h-[2rem]">
-                                <div class="flex items-baseline gap-1.5">
-                                    <span class="text-xs text-slate-400 line-through mr-1">$39.99</span>
-                                    <span class="text-2xl font-black text-slate-900">$19.99</span>
+                            <div class="flex items-center justify-between min-h-[2.5rem] gap-2">
+                                <div class="flex items-baseline gap-1.5 shrink-0">
+                                    <span class="text-xs text-slate-400 line-through mr-1">$197.00</span>
+                                    <span class="text-2xl font-black text-slate-900">$97.00</span>
                                     <span class="text-[10px] font-bold text-slate-500">USD</span>
-                                    <span class="text-[10px] font-black text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md ml-1">50% DCTO</span>
+                                    <span class="hidden sm:inline-block text-[11px] font-extrabold text-orange-700 bg-orange-100 px-2 py-0.5 rounded-md ml-1 whitespace-nowrap">50% DCTO</span>
                                 </div>
-                                <span class="text-xs font-bold text-emerald-600">Garantía Aizprua</span>
+                                <div class="flex flex-col sm:flex-row items-end sm:items-baseline gap-0.5 sm:gap-2 text-right shrink-0">
+                                    <span class="inline-block sm:hidden text-[11px] font-extrabold text-orange-700 bg-orange-100 px-2 py-0.5 rounded-md whitespace-nowrap">50% DCTO</span>
+                                    <span class="text-xs font-bold text-emerald-600 whitespace-nowrap">Garantía Aizprua</span>
+                                </div>
                             </div>
 
                             <div class="min-h-[5.5rem] flex flex-col justify-end space-y-2">
-                                <a href="https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20el%20Acuerdo%20de%20Confidencialidad%20(NDA)%20por%20$19.99%20USD"
+                                <a href="https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20el%20Pack%20de%20Tiempo%20Definido%20($97.00%20USD)%20en%20Aizprua%20S.E."
                                     target="_blank" rel="noopener"
                                     class="w-full inline-flex items-center justify-center gap-2 py-3 bg-brand-blue hover:bg-brand-blue-dark text-white rounded-xl text-xs sm:text-sm font-bold transition shadow hover:shadow-md">
                                     <i data-lucide="shopping-bag" class="w-4 h-4"></i>
-                                    <span>Comprar NDA por $19.99 USD</span>
+                                    <span>Comprar Pack por $97.00 USD</span>
                                 </a>
 
-                                <a href="https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20el%20Acuerdo%20de%20Confidencialidad%20(NDA)%20($19.99%20USD)"
+                                <a href="https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20el%20Pack%20de%20Tiempo%20Definido%20($97.00%20USD)"
                                     target="_blank" rel="noopener"
                                     class="w-full inline-flex items-center justify-center gap-1.5 py-1 text-xs font-bold text-slate-500 hover:text-brand-blue transition">
                                     <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-500"></i>
@@ -945,6 +1034,163 @@
                         </div>
                     </div>
 
+                    <!-- PRODUCTO: PACK LABORAL POR OBRA DETERMINADA ($97.00) -->
+                    <div class="product-card bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition group h-full"
+                        data-delivery="digital" data-category="blindaje" data-price="97.00" data-keywords="pack obra determinada contrato cierta obra construccion tecnicos proyectos mitradel despido amonestacion renuncia mutuo acuerdo finiquito panama word docx">
+                        <div class="flex-1 flex flex-col">
+                            <!-- Portada Showcase con Badge -->
+                            <div class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-brand-blue-dark rounded-2xl overflow-hidden mb-4 aspect-[4/3] flex items-center justify-center p-4 border border-slate-700/60 shadow-inner">
+                                <div class="text-center p-3">
+                                    <div class="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-brand-orange mx-auto flex items-center justify-center mb-2 shadow-lg">
+                                        <i data-lucide="hammer" class="w-8 h-8"></i>
+                                    </div>
+                                    <span class="text-xs font-bold text-white block leading-tight">Obra Determinada</span>
+                                    <span class="text-[10px] text-brand-orange-light font-bold block mt-0.5">Proyectos & Obras</span>
+                                </div>
+                                <span class="absolute top-3 left-3 bg-brand-blue text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+                                    Pack 6 en 1
+                                </span>
+                                <span class="absolute top-3 right-3 bg-emerald-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+                                    Descarga Inmediata
+                                </span>
+                            </div>
+
+                            <span class="text-[10px] font-black uppercase tracking-wider text-brand-blue block min-h-[1.25rem]">Proyectos & Construcción</span>
+                            <h3 class="text-base sm:text-lg font-black text-slate-900 mt-1 mb-2 min-h-[3.25rem] flex items-center leading-snug">
+                                Pack laboral por obra determinada
+                            </h3>
+                            <p class="text-xs text-slate-600 mb-4 leading-relaxed min-h-[3.75rem] flex items-start">
+                                Contrato de trabajo por cierta obra conforme al Art. 75 del Código de Trabajo con las 5 cartas de régimen disciplinario y culminación de proyecto.
+                            </p>
+
+                            <!-- Entregables Principales (3 Bullets Estandarizados) -->
+                            <div class="space-y-2 mb-4 bg-slate-50 p-3.5 rounded-2xl border border-slate-100 min-h-[8.5rem] flex flex-col justify-center">
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Contrato por cierta obra (Word):</strong> Estipulación precisa de la obra para evitar demandas por terminación anticipada.</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Control de proyecto:</strong> Carta de amonestación disciplinaria, despido justificado y carta de renuncia voluntaria.</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Finiquito de obra:</strong> Mutuo acuerdo y finiquito laboral con liquidación formal de derechos adquiridos.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bloque Inferior / Acciones (Altura Estandarizada) -->
+                        <div class="pt-4 border-t border-slate-100 space-y-2.5 mt-auto">
+                            <div class="flex items-center justify-between min-h-[2.5rem] gap-2">
+                                <div class="flex items-baseline gap-1.5 shrink-0">
+                                    <span class="text-xs text-slate-400 line-through mr-1">$197.00</span>
+                                    <span class="text-2xl font-black text-slate-900">$97.00</span>
+                                    <span class="text-[10px] font-bold text-slate-500">USD</span>
+                                    <span class="hidden sm:inline-block text-[11px] font-extrabold text-orange-700 bg-orange-100 px-2 py-0.5 rounded-md ml-1 whitespace-nowrap">50% DCTO</span>
+                                </div>
+                                <div class="flex flex-col sm:flex-row items-end sm:items-baseline gap-0.5 sm:gap-2 text-right shrink-0">
+                                    <span class="inline-block sm:hidden text-[11px] font-extrabold text-orange-700 bg-orange-100 px-2 py-0.5 rounded-md whitespace-nowrap">50% DCTO</span>
+                                    <span class="text-xs font-bold text-emerald-600 whitespace-nowrap">Garantía Aizprua</span>
+                                </div>
+                            </div>
+
+                            <div class="min-h-[5.5rem] flex flex-col justify-end space-y-2">
+                                <a href="https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20el%20Pack%20por%20Obra%20Determinada%20($97.00%20USD)%20en%20Aizprua%20S.E."
+                                    target="_blank" rel="noopener"
+                                    class="w-full inline-flex items-center justify-center gap-2 py-3 bg-brand-blue hover:bg-brand-blue-dark text-white rounded-xl text-xs sm:text-sm font-bold transition shadow hover:shadow-md">
+                                    <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                                    <span>Comprar Pack por $97.00 USD</span>
+                                </a>
+
+                                <a href="https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20el%20Pack%20por%20Obra%20Determinada%20($97.00%20USD)"
+                                    target="_blank" rel="noopener"
+                                    class="w-full inline-flex items-center justify-center gap-1.5 py-1 text-xs font-bold text-slate-500 hover:text-brand-blue transition">
+                                    <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-500"></i>
+                                    <span>Consultar por WhatsApp</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PRODUCTO: SUPER PACK LABORAL & CONTRATACIÓN 360 ($147.00 - DESTACADO) -->
+                    <div class="product-card bg-white rounded-3xl p-6 border-2 border-brand-orange/60 shadow-md flex flex-col justify-between hover:shadow-xl hover:border-brand-orange transition group h-full relative"
+                        data-delivery="digital" data-category="blindaje" data-price="147.00" data-keywords="super pack laboral suite contratacion 360 contratos servicios profesionales indefinido definido obra determinada despido justificado amonestacion renuncia mutuo acuerdo finiquito mitradel panama word docx">
+                        <div class="flex-1 flex flex-col">
+                            <!-- Portada Showcase con Badge Destacado -->
+                            <div class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-brand-blue-dark rounded-2xl overflow-hidden mb-4 aspect-[4/3] flex items-center justify-center p-4 border border-slate-700/60 shadow-inner">
+                                <div class="text-center p-3">
+                                    <div class="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-brand-orange mx-auto flex items-center justify-center mb-2 shadow-lg">
+                                        <i data-lucide="shield-check" class="w-8 h-8"></i>
+                                    </div>
+                                    <span class="text-xs font-bold text-white block leading-tight">Super Pack Laboral 360</span>
+                                    <span class="text-[10px] text-brand-orange-light font-bold block mt-0.5">Las 4 Modalidades + Salidas</span>
+                                </div>
+                                <span class="absolute top-3 left-3 bg-gradient-to-r from-brand-orange to-brand-orange-dark text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-md">
+                                    Suite Maestra 9 en 1
+                                </span>
+                                <span class="absolute top-3 right-3 bg-emerald-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-md">
+                                    Descarga Inmediata
+                                </span>
+                            </div>
+
+                            <span class="text-[10px] font-black uppercase tracking-wider text-brand-orange block min-h-[1.25rem]">Suite Integral · Ahorra $241 USD</span>
+                            <h3 class="text-base sm:text-lg font-black text-slate-900 mt-1 mb-2 min-h-[3.25rem] flex items-center leading-snug">
+                                Super pack laboral & contratación 360
+                            </h3>
+                            <p class="text-xs text-slate-600 mb-4 leading-relaxed min-h-[3.75rem] flex items-start">
+                                La suite definitiva con los 4 contratos oficiales de contratación en Panamá más las 5 cartas maestras disciplinarias y de salida para blindar toda tu empresa.
+                            </p>
+
+                            <!-- Entregables Principales (3 Bullets Estandarizados) -->
+                            <div class="space-y-2 mb-4 bg-orange-50/50 p-3.5 rounded-2xl border border-orange-100 min-h-[8.5rem] flex flex-col justify-center">
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Los 4 contratos en Word:</strong> Servicios profesionales, tiempo indefinido, tiempo definido y obra determinada.</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Régimen disciplinario y salidas:</strong> Carta de despido justificado (Art. 213), amonestación disciplinaria y renuncia voluntaria.</span>
+                                </div>
+                                <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                                    <span class="leading-snug"><strong>Resolución pacífica de conflictos:</strong> Mutuo acuerdo formal (Art. 210) y finiquito laboral con descargo de responsabilidades.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bloque Inferior / Acciones (Altura Estandarizada) -->
+                        <div class="pt-4 border-t border-slate-100 space-y-2.5 mt-auto">
+                            <div class="flex items-center justify-between min-h-[2.5rem] gap-2">
+                                <div class="flex items-baseline gap-1.5 shrink-0">
+                                    <span class="text-xs text-slate-400 line-through mr-1">$388.00</span>
+                                    <span class="text-2xl font-black text-slate-900">$147.00</span>
+                                    <span class="text-[10px] font-bold text-slate-500">USD</span>
+                                    <span class="hidden sm:inline-block text-[11px] font-extrabold text-orange-700 bg-orange-100 px-2 py-0.5 rounded-md ml-1 whitespace-nowrap">AHORRA $241</span>
+                                </div>
+                                <div class="flex flex-col sm:flex-row items-end sm:items-baseline gap-0.5 sm:gap-2 text-right shrink-0">
+                                    <span class="inline-block sm:hidden text-[11px] font-extrabold text-orange-700 bg-orange-100 px-2 py-0.5 rounded-md whitespace-nowrap">AHORRA $241</span>
+                                    <span class="text-xs font-bold text-emerald-600 whitespace-nowrap">Garantía Aizprua</span>
+                                </div>
+                            </div>
+
+                            <div class="min-h-[5.5rem] flex flex-col justify-end space-y-2">
+                                <a href="https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20el%20SUPER%20PACK%20Laboral%20360%20($147.00%20USD)%20en%20Aizprua%20S.E."
+                                    target="_blank" rel="noopener"
+                                    class="w-full inline-flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-xl text-xs sm:text-sm font-bold transition shadow-md hover:shadow-lg active:scale-98">
+                                    <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                                    <span>Comprar Super Pack por $147.00 USD</span>
+                                </a>
+
+                                <a href="https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20el%20SUPER%20PACK%20Laboral%20360%20($147.00%20USD)"
+                                    target="_blank" rel="noopener"
+                                    class="w-full inline-flex items-center justify-center gap-1.5 py-1 text-xs font-bold text-brand-orange-dark hover:text-brand-orange hover:underline transition">
+                                    <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-500"></i>
+                                    <span>Consultar por WhatsApp</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                     <!-- PRODUCTO 6: PACK DÚO FINANZAS 360 (FINPULSE + FINCORE) -->
                     <div class="product-card bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-lg transition group h-full"
                         data-delivery="digital" data-category="finanzas" data-price="49.99" data-keywords="pack duo finanzas 360 finpulse fincore plantilla excel finanzas personales finanzas del negocio flujo de caja proyeccion dashboard panama">
@@ -1496,6 +1742,14 @@
                 onPriceSliderChange(0);
             } else if (type === 'under25') {
                 const target = Math.min(25, maxCatalogPrice);
+                slider.value = target;
+                onPriceSliderChange(target);
+            } else if (type === 'under50') {
+                const target = Math.min(50, maxCatalogPrice);
+                slider.value = target;
+                onPriceSliderChange(target);
+            } else if (type === 'under100') {
+                const target = Math.min(100, maxCatalogPrice);
                 slider.value = target;
                 onPriceSliderChange(target);
             } else {
