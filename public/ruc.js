@@ -486,7 +486,11 @@ function mostrarErrorNoEncontrado(query, mensajeOriginal) {
   if (!resultContainer) return;
 
   const safeQuery = escapeHtml(query);
-  const safeMsg = mensajeOriginal ? escapeHtml(mensajeOriginal) : `No existe un registro fiscal activo o verificado en la DGI para la consulta: <strong>"${safeQuery}"</strong>.`;
+  let rawMsg = mensajeOriginal ? String(mensajeOriginal) : "";
+  if (/The Factory HKA|Factory HKA|credenciales/i.test(rawMsg)) {
+    rawMsg = "El servicio de validación fiscal ante la DGI se encuentra temporalmente no disponible. Por favor, intenta de nuevo más tarde.";
+  }
+  const safeMsg = rawMsg ? escapeHtml(rawMsg) : `No existe un registro fiscal activo o verificado en la DGI para la consulta: <strong>"${safeQuery}"</strong>.`;
 
   resultContainer.innerHTML = `
     <div style="background: #FFF5F5; border: 1.5px solid #FEB2B2; padding: 24px; border-radius: 16px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
