@@ -1,4 +1,4 @@
-# Aizprua S.E. — Escudo Preventivo y Blindaje Empresarial en Panamá
+﻿# Aizprua S.E. — Escudo Preventivo y Blindaje Empresarial en Panamá
 
 > Aizprua S.E. es una firma de asesoría legal, tributaria y operativa en la República de Panamá especializada en blindaje empresarial, diagnóstico de contingencias y regularización ante la Dirección General de Ingresos (DGI), Caja de Seguro Social (CSS), Ministerio de Trabajo (MITRADEL) y Municipios.
 
@@ -8,7 +8,7 @@
 - [Plan 360 Empresarial - Edición Digital Global](https://aizprua.com/plan-360-digital): Suite interactiva digital descargable a nivel internacional vía Hotmart ($24.99 USD). Incluye el PDF interactivo rellenable de 35 páginas para iPad/tablet/PC, licencia de uso continuo y 5 bonos de regalo con acceso inmediato.
 - [Escudo Preventivo - Diagnóstico Empresarial](https://escudo.aizprua.com/): Diagnóstico integral de 40 minutos enfocado en detectar inconsistencias operativas, pasivos ocultos y riesgos de multas en DGI, CSS y MITRADEL antes de recibir notificaciones oficiales. Incluye hoja de ruta con costos claros y transparentes.
 - [Guía Oficial de Blindaje Legal](https://aizprua.com/guia-blindaje): Guía interactiva y descargable para la estructuración y protección integral de empresas en Panamá: contratos laborales y comerciales, cumplimiento fiscal, gobierno corporativo y registro de marcas.
-- [Guía Anti-Multas 2026](https://escudo.aizprua.com/recursos-gratuitos): Recurso descargable gratuito que desglosa las 7 multas ocultas más frecuentes que enfrentan las empresas en Panamá y el paso a paso preventivo para evitarlas.
+- [Guía Anti-Multas 2026](https://escudo.aizprua.com/guia-preventiva): Recurso descargable gratuito que desglosa las 7 multas ocultas más frecuentes que enfrentan las empresas en Panamá y el paso a paso preventivo para evitarlas.
 - [Cómo Conseguir un Préstamo en Panamá 2026](https://aizprua.com/guia-prestamos): Manual estratégico y requisitos indispensables para calificar con éxito a préstamos personales y comerciales ante la banca panameña.
 - [Test de Auditoría Rápida (15 Puntos)](https://aizprua.com/test-empresarial): Autodiagnóstico express de 3 minutos para evaluar la salud de tu negocio en Finanzas, Legal/Laboral y Operaciones.
 - [Test Interactivo en Línea](https://aizprua.com/test-interactivo): Web App interactiva de autodiagnóstico con cálculo dinámico de semáforo de riesgo y recomendaciones inmediatas.

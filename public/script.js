@@ -1,8 +1,8 @@
-// ============================================================
+﻿// ============================================================
 // Aizprua S.E. — Embudo "Escudo Preventivo" v3.0 (3 páginas)
 // Página A (index.html)            → Cuestionario dinámico
 // Página B (escudo-preventivo.html)→ Video (gate 80%) + Oferta $79
-// Página C (recursos-gratuitos.html)→ Lead Magnet (Guía Preventiva 2026)
+// Página C (guia-preventiva.html)→ Lead Magnet (Guía Preventiva 2026)
 // gracias.html                     → Hub post-pago (Calendly mar/jue)
 // ============================================================
 // BLOQUE CONFIG — editar aquí todo lo que cambia con el tiempo
@@ -21,7 +21,7 @@ const CONFIG = {
         webhook: 'https://script.google.com/macros/s/AKfycbymJiNqZ2uXepyPrr0S-Pn1NH_1f75VuCHA6bi5TYshWxDS7DQgat8Qv3TAx20_yPJ5/exec', // Webhook de Google Apps Script (Sheets + MailerLite)
         whatsapp: 'https://wa.me/50765461527',
         paginaVideo: '/escudo-preventivo',       // Página B limpia sin .html
-        paginaRecursos: '/recursos-gratuitos',   // Página C limpia sin .html
+        paginaRecursos: '/guia-preventiva',   // Página C limpia sin .html
         gracias: '/gracias'                      // Hub post-pago limpio sin .html
     },
 

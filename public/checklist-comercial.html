@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+
+    <!-- SEO & Metatags -->
+    <title>Checklist maestro de cumplimiento comercial en Panamá (edición 2026) | Aizprua S.E.</title>
+    <meta name="description"
+        content="Auditoría interactiva e imprimible de 27 puntos clave para locales comerciales en Panamá. Evita multas de DGI, Bomberos, ACODECO, MINSA, CSS y Mitradel.">
+    <link rel="canonical" href="https://aizprua.com/checklist-comercial">
+
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="apple-touch-icon" href="/favicon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aizprua.com/checklist-comercial">
+    <meta property="og:title" content="Checklist Maestro de Cumplimiento Comercial en Panamá 2026 | Aizprua S.E.">
+    <meta property="og:description"
+        content="Autodiagnóstico oficial de 8 módulos legales, tributarios, laborales y de seguridad para comercios en Panamá.">
+    <meta property="og:image" content="https://aizprua.com/assets/plan-360-og.jpg">
+
+    <!-- Google Fonts & Tailwind CSS CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#3849C8',
+                            'blue-dark': '#2d3a9f',
+                            'blue-light': '#4f5ed4',
+                            orange: '#FF8A1E',
+                            'orange-dark': '#e67a15',
+                            'orange-light': '#ffa04a'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+
+    <style>
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+                font-size: 11pt;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .print-only {
+                display: block !important;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+            .checklist-table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+            .checklist-table th, .checklist-table td {
+                border: 1px solid #cbd5e1 !important;
+                padding: 6px 8px !important;
+            }
+            .shadow-xs, .shadow-sm, .shadow-md, .shadow-lg, .shadow-xl {
+                box-shadow: none !important;
+            }
+        }
+        .print-only {
+            display: none;
+        }
+        input:focus {
+            outline: none !important;
+            border-color: #3849C8 !important;
+            box-shadow: 0 0 0 3px rgba(56, 73, 200, 0.15) !important;
+        }
+
+        /* Estilos de botones de selección del Checklist */
+        .check-btn {
+            background-color: #ffffff;
+            color: #334155;
+            border-color: #e2e8f0;
+            user-select: none;
+            transition: all 0.15s ease-in-out;
+        }
+        .check-btn:not(.btn-active-si):not(.btn-active-no):not(.btn-active-na):hover {
+            background-color: #f1f5f9 !important;
+            color: #0f172a !important;
+            border-color: #cbd5e1 !important;
+        }
+
+        /* Sí seleccionado */
+        .check-btn.btn-active-si {
+            background-color: #059669 !important;
+            color: #ffffff !important;
+            border-color: #047857 !important;
+            box-shadow: 0 1px 3px rgba(5, 150, 105, 0.3) !important;
+        }
+        .check-btn.btn-active-si:hover {
+            background-color: #047857 !important;
+            color: #ffffff !important;
+        }
+        .check-btn.btn-active-si svg,
+        .check-btn.btn-active-si i {
+            color: #ffffff !important;
+            stroke: #ffffff !important;
+        }
+
+        /* No seleccionado */
+        .check-btn.btn-active-no {
+            background-color: #e11d48 !important;
+            color: #ffffff !important;
+            border-color: #be123c !important;
+            box-shadow: 0 1px 3px rgba(225, 29, 72, 0.3) !important;
+        }
+        .check-btn.btn-active-no:hover {
+            background-color: #be123c !important;
+            color: #ffffff !important;
+        }
+        .check-btn.btn-active-no svg,
+        .check-btn.btn-active-no i {
+            color: #ffffff !important;
+            stroke: #ffffff !important;
+        }
+
+        /* N/A seleccionado */
+        .check-btn.btn-active-na {
+            background-color: #475569 !important;
+            color: #ffffff !important;
+            border-color: #334155 !important;
+            box-shadow: 0 1px 3px rgba(71, 85, 105, 0.3) !important;
+        }
+        .check-btn.btn-active-na:hover {
+            background-color: #334155 !important;
+            color: #ffffff !important;
+            border-color: #1e293b !important;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 antialiased flex flex-col min-h-screen selection:bg-brand-orange selection:text-white">
+
+    <!-- Barra de Progreso de Lectura Canónica -->
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-brand-orange z-[60] transition-all duration-75 no-print" style="width:0%"></div>
+
+    <!-- Barra Superior de Anuncios -->
+    <div id="announcement-bar" class="relative bg-brand-blue text-white py-2 px-4 text-center text-xs sm:text-sm no-print">
+        <span class="inline-flex items-center gap-1.5 font-medium">
+            <i data-lucide="shield-alert" class="w-4 h-4 text-brand-orange inline-block"></i>
+            <span>Inspecciones Comerciales 2026: Solo <strong class="text-brand-orange">4 diagnósticos in situ</strong> disponibles por semana en Panamá.</span>
+        </span>
+        <button onclick="document.getElementById('announcement-bar').style.display='none'" aria-label="Cerrar anuncio" class="absolute right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white">
+            <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+    </div>
+
+    <!-- Header Canónico Oficial -->
+    <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="/" class="flex items-center flex-shrink-0" aria-label="Aizprua S.E. Inicio">
+                    <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg"
+                        onerror="this.onerror=null; this.src='/assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg';"
+                        alt="Logo Aizprua S.E. - Firma Legal y Empresarial en Panamá"
+                        class="h-28 w-auto object-contain" width="112" height="112">
+                </a>
+
+                <nav class="hidden lg:flex items-center space-x-8 text-sm font-semibold text-slate-700">
+                    <a href="/#servicios" class="hover:text-brand-blue transition">Servicios</a>
+                    <a href="/tienda" class="hover:text-brand-blue transition">Tienda Online</a>
+                    <a href="/escuela" class="hover:text-brand-blue transition">Escuela</a>
+                    <a href="/blog" class="hover:text-brand-blue transition">Blog</a>
+                    <a href="/test-interactivo" class="text-sm font-semibold text-brand-orange hover:text-brand-orange-dark transition flex items-center gap-1.5">
+                        <i data-lucide="shield-check" class="w-4 h-4"></i>
+                        <span>Auditoría Gratis</span>
+                    </a>
+                </nav>
+
+                <div class="hidden sm:flex items-center gap-3">
+                    <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20tengo%20una%20consulta%20sobre%20el%20Checklist%20de%20Cumplimiento%20Comercial"
+                        target="_blank" rel="noopener"
+                        class="flex items-center gap-2 bg-[#25D366] text-white px-5 py-2.5 rounded-full font-bold text-sm hover:bg-[#20bd5a] transition shadow-md whitespace-nowrap">
+                        <i data-lucide="message-circle" class="w-4 h-4 flex-shrink-0"></i>
+                        <span>Atención WhatsApp</span>
+                    </a>
+                </div>
+
+                <div class="flex items-center lg:hidden">
+                    <button onclick="toggleMobileMenu()" aria-label="Abrir menú" class="text-slate-700 p-2">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Móvil -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-200 px-4 py-4 space-y-3">
+            <a href="/#servicios" class="block py-2 text-slate-700 font-bold">Servicios (Asesoría & Trámites)</a>
+            <a href="/tienda" class="block py-2 text-slate-700 font-bold">Tienda Online</a>
+            <a href="/escuela" class="block py-2 text-slate-700 font-bold">Escuela (Campus Virtual)</a>
+            <a href="/blog" class="block py-2 text-slate-700 font-bold">Blog de Inteligencia</a>
+            <a href="/test-interactivo" class="block py-2 text-brand-orange font-bold">Test de auditoría gratis</a>
+        </div>
+    </header>
+
+    <!-- Membrete Oficial para Impresión PDF -->
+    <div class="print-only max-w-5xl mx-auto px-6 pt-6 pb-4 border-b-2 border-slate-900 mb-6">
+        <div class="flex justify-between items-center">
+            <div>
+                <h1 class="text-2xl font-black text-slate-900">AIZPRUA S.E.</h1>
+                <p class="text-xs text-slate-600 font-bold">Firma Legal, Contable y Empresarial en Panamá</p>
+                <p class="text-[10px] text-slate-500">info@aizprua.com · WhatsApp: +507 6546-1527 · RUC 8-800-1234 DV 55</p>
+            </div>
+            <div class="text-right">
+                <span class="inline-block bg-slate-900 text-white text-xs font-black uppercase px-3 py-1 rounded">
+                    Informe Oficial
+                </span>
+                <p class="text-xs font-bold text-slate-800 mt-1">Checklist Maestro Universal (2026)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero / Encabezado de la Herramienta -->
+    <section class="bg-gradient-to-b from-slate-900 via-slate-900 to-slate-800 text-white py-10 sm:py-14 relative overflow-hidden no-print">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center sm:text-left">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div class="max-w-2xl">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black tracking-wide uppercase bg-brand-orange/20 text-brand-orange border border-brand-orange/30 mb-3">
+                        <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+                        Matriz Oficial de Blindaje Comercial
+                    </span>
+                    <h1 class="text-2xl sm:text-4xl font-black text-white tracking-tight leading-tight">
+                        Checklist maestro universal de cumplimiento comercial (Panamá)
+                    </h1>
+                    <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+                        Evalúa los <strong>27 requisitos indispensables</strong> exigidos por MICI, Municipio, DGI, ACODECO, MINSA, Bomberos, CSS y Mitradel. Completa el diagnóstico en línea o imprímelo para tu auditoría in situ.
+                    </p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto shrink-0">
+                    <button onclick="window.print()" class="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-slate-900 font-bold px-5 py-3 rounded-xl text-xs sm:text-sm shadow-md transition">
+                        <i data-lucide="printer" class="w-4 h-4 text-brand-blue"></i>
+                        <span>Imprimir / Guardar PDF</span>
+                    </button>
+                    <button onclick="marcarTodosCumple()" class="inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orange-dark text-white font-bold px-5 py-3 rounded-xl text-xs sm:text-sm shadow-md transition">
+                        <i data-lucide="check-check" class="w-4 h-4"></i>
+                        <span>Marcar Todo Cumple</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenido Principal -->
+    <main class="flex-grow max-w-5xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- FICHA DE DATOS DEL ESTABLECIMIENTO (Interactivo y Imprimible) -->
+        <section class="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 shadow-sm mb-8">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-5">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-9 h-9 rounded-xl bg-brand-blue/10 text-brand-blue flex items-center justify-center font-bold">
+                        <i data-lucide="building-2" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-base sm:text-lg font-black text-slate-900">Datos del establecimiento auditado</h2>
+                        <p class="text-xs text-slate-500">Información de respaldo legal para la constancia de inspección</p>
+                    </div>
+                </div>
+                <span class="text-xs font-bold text-slate-400 no-print">Edición Oficial 2026</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">Razón Social / Comercial</label>
+                    <input type="text" id="empresa-nombre" placeholder="Ej: Inversiones del Istmo S.A."
+                        class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:outline-none transition font-medium text-slate-900">
+                </div>
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">RUC / Dígito Verificador (DV)</label>
+                    <input type="text" id="empresa-ruc" placeholder="Ej: 155728392-2-2024 DV 89"
+                        class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:outline-none transition font-medium text-slate-900">
+                </div>
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">Fecha de Auditoría</label>
+                    <input type="date" id="empresa-fecha"
+                        class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:outline-none transition font-medium text-slate-900">
+                </div>
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">Auditor / Responsable</label>
+                    <input type="text" id="empresa-auditor" placeholder="Ej: Lic. Arubel Aizprua"
+                        class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:outline-none transition font-medium text-slate-900">
+                </div>
+                <div class="sm:col-span-2 lg:col-span-4">
+                    <label class="block font-bold text-slate-700 mb-1">Dirección Física del Local / Sucursal</label>
+                    <input type="text" id="empresa-direccion" placeholder="Ej: Vía España, Plaza Concordia, Local PB-04, Ciudad de Panamá"
+                        class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:outline-none transition font-medium text-slate-900">
+                </div>
+            </div>
+        </section>
+
+        <!-- BARRA FLOTANTE / DASHBOARD DE CONTROL EN TIEMPO REAL -->
+        <div id="sticky-score-bar" class="sticky top-24 z-30 bg-white/95 backdrop-blur-md rounded-2xl border border-slate-200 p-4 shadow-lg mb-8 no-print transition-all">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                
+                <!-- Métricas Principales -->
+                <div class="flex items-center gap-4 sm:gap-6 flex-wrap justify-center sm:justify-start">
+                    <div class="text-center sm:text-left">
+                        <span class="text-[10px] uppercase font-bold text-slate-400 block">Evaluados</span>
+                        <span id="score-total" class="text-lg font-black text-slate-900">0 / 27</span>
+                    </div>
+
+                    <div class="h-8 w-px bg-slate-200 hidden sm:block"></div>
+
+                    <div class="flex items-center gap-1.5 text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-xl border border-emerald-200">
+                        <i data-lucide="check-circle" class="w-4 h-4 shrink-0"></i>
+                        <span class="text-xs font-black"><span id="score-cumple">0</span> Cumplen</span>
+                    </div>
+
+                    <div class="flex items-center gap-1.5 text-rose-700 bg-rose-50 px-3 py-1.5 rounded-xl border border-rose-200">
+                        <i data-lucide="alert-triangle" class="w-4 h-4 shrink-0"></i>
+                        <span class="text-xs font-black"><span id="score-falta">0</span> En Riesgo</span>
+                    </div>
+
+                    <div class="flex items-center gap-1.5 text-slate-600 bg-slate-100 px-3 py-1.5 rounded-xl border border-slate-200">
+                        <span class="text-xs font-black"><span id="score-na">0</span> N/A</span>
+                    </div>
+                </div>
+
+                <!-- Semáforo de Estado -->
+                <div class="flex items-center gap-3">
+                    <div id="badge-semaforo" class="px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-wide bg-slate-100 text-slate-600 border border-slate-200 flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-slate-400"></span>
+                        <span>Sin evaluar</span>
+                    </div>
+
+                    <button onclick="reiniciarChecklist()" class="text-slate-400 hover:text-rose-600 p-2 rounded-lg hover:bg-slate-100 transition" title="Reiniciar auditoría">
+                        <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Barra de Progreso Visual -->
+            <div class="w-full bg-slate-100 rounded-full h-2 mt-3 overflow-hidden flex">
+                <div id="bar-cumple" class="bg-emerald-500 h-2 transition-all duration-300" style="width: 0%"></div>
+                <div id="bar-falta" class="bg-rose-500 h-2 transition-all duration-300" style="width: 0%"></div>
+                <div id="bar-na" class="bg-slate-300 h-2 transition-all duration-300" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <!-- FORMULARIO MAESTRO DE LOS 8 MÓDULOS -->
+        <form id="checklist-form" class="space-y-8">
+
+            <!-- MÓDULO 1: MARCO LEGAL, MUNICIPAL Y OPERATIVO -->
+            <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-xs">
+                <div class="bg-slate-900 text-white px-6 py-4 flex items-start justify-between">
+                    <div class="flex items-start gap-3">
+                        <span class="shrink-0 mt-0.5 w-7 h-7 rounded-lg bg-brand-orange text-white flex items-center justify-center font-black text-xs">1</span>
+                        <div>
+                            <h3 class="font-bold text-sm sm:text-base leading-snug">Marco legal, municipal y operativo</h3>
+                            <p class="text-[11px] text-slate-400">Inspecciones de MICI (PanamaEmprende) y Alcaldía / Tesorería Municipal</p>
+                        </div>
+                    </div>
+                    <span class="text-xs font-bold text-slate-400 hidden sm:inline">4 requisitos</span>
+                </div>
+
+                <div class="divide-y divide-slate-100">
+                    <!-- Ítem 1 -->
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-slate-50/50 transition">
+                        <div class="flex-1 pr-0 sm:pr-4">
+                            <span class="text-xs font-black text-slate-900 block mb-0.5">Aviso de Operación (PanamaEmprende)</span>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Visible al público; la actividad comercial y la dirección física coinciden exactamente con el establecimiento inspeccionado.
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-1" value="si" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sí
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-1" value="no" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-600"></i> No
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-1" value="na" class="hidden" onchange="actualizarScore()">
+                                N/A
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Ítem 2 -->
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-slate-50/50 transition">
+                        <div class="flex-1 pr-0 sm:pr-4">
+                            <span class="text-xs font-black text-slate-900 block mb-0.5">Tarjeta de Negocio Municipal</span>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Cartón o registro municipal con número de contribuyente emitido por el municipio del distrito (Panamá, San Miguelito, La Chorrera, etc.).
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-2" value="si" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sí
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-2" value="no" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-600"></i> No
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-2" value="na" class="hidden" onchange="actualizarScore()">
+                                N/A
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Ítem 3 -->
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-slate-50/50 transition">
+                        <div class="flex-1 pr-0 sm:pr-4">
+                            <span class="text-xs font-black text-slate-900 block mb-0.5">Paz y Salvo Municipal</span>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Documento vigente emitido por la Tesorería Municipal al día con el pago de impuestos de actividades comerciales.
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-3" value="si" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sí
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-3" value="no" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-600"></i> No
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-3" value="na" class="hidden" onchange="actualizarScore()">
+                                N/A
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Ítem 4 -->
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-slate-50/50 transition">
+                        <div class="flex-1 pr-0 sm:pr-4">
+                            <span class="text-xs font-black text-slate-900 block mb-0.5">Permiso de Rótulo / Publicidad Exterior</span>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Impuesto y autorización municipal al día si tiene letrero comercial, tolda o banner en fachada (Marcar N/A si no tiene rótulo externo).
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-4" value="si" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sí
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-4" value="no" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-600"></i> No
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-4" value="na" class="hidden" onchange="actualizarScore()">
+                                N/A
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MÓDULO 2: RÉGIMEN TRIBUTARIO Y FACTURACIÓN -->
+            <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-xs">
+                <div class="bg-slate-900 text-white px-6 py-4 flex items-start justify-between">
+                    <div class="flex items-start gap-3">
+                        <span class="shrink-0 mt-0.5 w-7 h-7 rounded-lg bg-brand-orange text-white flex items-center justify-center font-black text-xs">2</span>
+                        <div>
+                            <h3 class="font-bold text-sm sm:text-base leading-snug">Régimen tributario y facturación</h3>
+                            <p class="text-[11px] text-slate-400">Inspecciones de la Dirección General de Ingresos (DGI)</p>
+                        </div>
+                    </div>
+                    <span class="text-xs font-bold text-slate-400 hidden sm:inline">3 requisitos</span>
+                </div>
+
+                <div class="divide-y divide-slate-100">
+                    <!-- Ítem 5 -->
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-slate-50/50 transition">
+                        <div class="flex-1 pr-0 sm:pr-4">
+                            <span class="text-xs font-black text-slate-900 block mb-0.5">Certificado de Método de Facturación</span>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Constancia oficial visible de Factura Electrónica (PAC / Sistema Gratuito DGI) o Equipo Fiscal homologado con libro de control.
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-5" value="si" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sí
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-5" value="no" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-600"></i> No
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-5" value="na" class="hidden" onchange="actualizarScore()">
+                                N/A
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Ítem 6 -->
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-slate-50/50 transition">
+                        <div class="flex-1 pr-0 sm:pr-4">
+                            <span class="text-xs font-black text-slate-900 block mb-0.5">Letrero Obligatorio de Exigencia de Factura</span>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Cartel oficial reglamentario fijado en el punto de cobro/caja («Pida su factura fiscal... Ley 72 de 2011»). Multa inmediata de $1,000 por omisión.
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-6" value="si" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sí
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-6" value="no" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-600"></i> No
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-6" value="na" class="hidden" onchange="actualizarScore()">
+                                N/A
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Ítem 7 -->
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-slate-50/50 transition">
+                        <div class="flex-1 pr-0 sm:pr-4">
+                            <span class="text-xs font-black text-slate-900 block mb-0.5">Identificación Fiscal Visible</span>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                RUC y Dígito Verificador (DV) visibles al cliente en el mostrador, cartas de precios y comprobantes fiscales.
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-7" value="si" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sí
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-7" value="no" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-600"></i> No
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-7" value="na" class="hidden" onchange="actualizarScore()">
+                                N/A
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MÓDULO 3: PROTECCIÓN AL CONSUMIDOR -->
+            <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-xs">
+                <div class="bg-slate-900 text-white px-6 py-4 flex items-start justify-between">
+                    <div class="flex items-start gap-3">
+                        <span class="shrink-0 mt-0.5 w-7 h-7 rounded-lg bg-brand-orange text-white flex items-center justify-center font-black text-xs">3</span>
+                        <div>
+                            <h3 class="font-bold text-sm sm:text-base leading-snug">Protección al consumidor</h3>
+                            <p class="text-[11px] text-slate-400">Inspecciones de ACODECO (Ley 45 de 2007)</p>
+                        </div>
+                    </div>
+                    <span class="text-xs font-bold text-slate-400 hidden sm:inline">4 requisitos</span>
+                </div>
+
+                <div class="divide-y divide-slate-100">
+                    <!-- Ítem 8 -->
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-slate-50/50 transition">
+                        <div class="flex-1 pr-0 sm:pr-4">
+                            <span class="text-xs font-black text-slate-900 block mb-0.5">Precios Visibles con ITBMS Incluido</span>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Precios marcados claramente en anaqueles, vitrinas, menús o listas con el total exacto (o desglose directo sin inducir a error o cobro sorpresa).
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-8" value="si" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sí
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-8" value="no" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-600"></i> No
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-8" value="na" class="hidden" onchange="actualizarScore()">
+                                N/A
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Ítem 9 -->
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-slate-50/50 transition">
+                        <div class="flex-1 pr-0 sm:pr-4">
+                            <span class="text-xs font-black text-slate-900 block mb-0.5">Letrero de Descuentos para Jubilados</span>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Afiche oficial de la Ley 6 de 1987 colocado en un lugar visible al cliente con los porcentajes y beneficios vigentes.
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-9" value="si" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sí
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-9" value="no" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-600"></i> No
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-9" value="na" class="hidden" onchange="actualizarScore()">
+                                N/A
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Ítem 10 -->
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-slate-50/50 transition">
+                        <div class="flex-1 pr-0 sm:pr-4">
+                            <span class="text-xs font-black text-slate-900 block mb-0.5">Políticas de Cambio, Devolución y Garantías</span>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Letrero o información visible que señale plazos, condiciones y cobertura legal. Prohibido carteles ilegales como «No se acepta devolución».
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-10" value="si" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sí
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-10" value="no" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-600"></i> No
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-10" value="na" class="hidden" onchange="actualizarScore()">
+                                N/A
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Ítem 11 -->
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-slate-50/50 transition">
+                        <div class="flex-1 pr-0 sm:pr-4">
+                            <span class="text-xs font-black text-slate-900 block mb-0.5">Libro de Quejas o Formulario de Reclamos</span>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Disponible físicamente en caja o mostrador para entrega inmediata si un cliente o inspector de ACODECO lo solicita.
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-11" value="si" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sí
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-11" value="no" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-600"></i> No
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-11" value="na" class="hidden" onchange="actualizarScore()">
+                                N/A
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MÓDULO 4: SALUD PÚBLICA Y SANIDAD -->
+            <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-xs">
+                <div class="bg-slate-900 text-white px-6 py-4 flex items-start justify-between">
+                    <div class="flex items-start gap-3">
+                        <span class="shrink-0 mt-0.5 w-7 h-7 rounded-lg bg-brand-orange text-white flex items-center justify-center font-black text-xs">4</span>
+                        <div>
+                            <h3 class="font-bold text-sm sm:text-base leading-snug">Salud pública y sanidad</h3>
+                            <p class="text-[11px] text-slate-400">Inspecciones del Ministerio de Salud (MINSA)</p>
+                        </div>
+                    </div>
+                    <span class="text-xs font-bold text-slate-400 hidden sm:inline">7 requisitos</span>
+                </div>
+
+                <div class="divide-y divide-slate-100">
+                    <!-- Ítem 12 -->
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-slate-50/50 transition">
+                        <div class="flex-1 pr-0 sm:pr-4">
+                            <span class="text-xs font-black text-slate-900 block mb-0.5">Permiso Sanitario de Operación</span>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Resolución o licencia sanitaria emitida por la Región de Salud correspondiente (Marcar N/A si el rubro no lo requiere).
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-12" value="si" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sí
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-12" value="no" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-600"></i> No
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-12" value="na" class="hidden" onchange="actualizarScore()">
+                                N/A
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Ítem 13 -->
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-slate-50/50 transition">
+                        <div class="flex-1 pr-0 sm:pr-4">
+                            <span class="text-xs font-black text-slate-900 block mb-0.5">Certificado de Control de Plagas / Fumigación</span>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Emitido por una empresa idónea y autorizada por el MINSA; fecha de aplicación vigente (máximo 30 a 90 días según actividad).
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-13" value="si" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sí
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-13" value="no" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-600"></i> No
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-13" value="na" class="hidden" onchange="actualizarScore()">
+                                N/A
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Ítem 14 -->
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-slate-50/50 transition">
+                        <div class="flex-1 pr-0 sm:pr-4">
+                            <span class="text-xs font-black text-slate-900 block mb-0.5">Carné Blanco de Salud</span>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Carné vigente de buena salud física y exámenes de laboratorio de todos los colaboradores en turno.
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-14" value="si" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sí
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-14" value="no" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-600"></i> No
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-14" value="na" class="hidden" onchange="actualizarScore()">
+                                N/A
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Ítem 15 -->
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-slate-50/50 transition">
+                        <div class="flex-1 pr-0 sm:pr-4">
+                            <span class="text-xs font-black text-slate-900 block mb-0.5">Carné Verde de Manipulador de Alimentos</span>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Vigente para quienes preparan, empacan o despachan alimentos o bebidas (Marcar N/A si el negocio no manipula comestibles).
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-15" value="si" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sí
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-15" value="no" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-600"></i> No
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-15" value="na" class="hidden" onchange="actualizarScore()">
+                                N/A
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Ítem 16 -->
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-slate-50/50 transition">
+                        <div class="flex-1 pr-0 sm:pr-4">
+                            <span class="text-xs font-black text-slate-900 block mb-0.5">Letreros «Prohibido Fumar y Vapear»</span>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Señalética oficial exigida por la Ley 13 de 2008 en puertas de entrada, áreas de atención al público y baños.
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-16" value="si" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sí
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-16" value="no" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-600"></i> No
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-16" value="na" class="hidden" onchange="actualizarScore()">
+                                N/A
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Ítem 17 -->
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-slate-50/50 transition">
+                        <div class="flex-1 pr-0 sm:pr-4">
+                            <span class="text-xs font-black text-slate-900 block mb-0.5">Bitácora de Limpieza de Sanitarios</span>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Hoja o registro de aseo diario firmada por el personal y fijada detrás de la puerta del baño.
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-17" value="si" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sí
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-17" value="no" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-600"></i> No
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-17" value="na" class="hidden" onchange="actualizarScore()">
+                                N/A
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Ítem 18 -->
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-slate-50/50 transition">
+                        <div class="flex-1 pr-0 sm:pr-4">
+                            <span class="text-xs font-black text-slate-900 block mb-0.5">Señalización de Sanitarios</span>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Identificación clara de género (Damas, Caballeros, Mixto) y símbolo de accesibilidad si aplica.
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-18" value="si" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sí
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-18" value="no" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-600"></i> No
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-18" value="na" class="hidden" onchange="actualizarScore()">
+                                N/A
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MÓDULO 5: SEGURIDAD HUMANA E INCENDIOS -->
+            <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-xs">
+                <div class="bg-slate-900 text-white px-6 py-4 flex items-start justify-between">
+                    <div class="flex items-start gap-3">
+                        <span class="shrink-0 mt-0.5 w-7 h-7 rounded-lg bg-brand-orange text-white flex items-center justify-center font-black text-xs">5</span>
+                        <div>
+                            <h3 class="font-bold text-sm sm:text-base leading-snug">Seguridad humana e incendios</h3>
+                            <p class="text-[11px] text-slate-400">Inspecciones de DINASEPI (Cuerpo de Bomberos) y SINAPROC</p>
+                        </div>
+                    </div>
+                    <span class="text-xs font-bold text-slate-400 hidden sm:inline">8 requisitos</span>
+                </div>
+
+                <div class="divide-y divide-slate-100">
+                    <!-- Ítem 19 -->
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-slate-50/50 transition">
+                        <div class="flex-1 pr-0 sm:pr-4">
+                            <span class="text-xs font-black text-slate-900 block mb-0.5">Permiso de Ocupación</span>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Documento original o copia autenticada de ocupación emitido por Bomberos y Municipio para el local.
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-19" value="si" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sí
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-19" value="no" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-600"></i> No
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-19" value="na" class="hidden" onchange="actualizarScore()">
+                                N/A
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Ítem 20 -->
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-slate-50/50 transition">
+                        <div class="flex-1 pr-0 sm:pr-4">
+                            <span class="text-xs font-black text-slate-900 block mb-0.5">Certificado Anual de Inspección de Bomberos</span>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Boleta o certificación de inspección de seguridad contra incendios debidamente renovada para el año en curso.
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-20" value="si" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sí
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-20" value="no" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-600"></i> No
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-20" value="na" class="hidden" onchange="actualizarScore()">
+                                N/A
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Ítem 21 -->
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-slate-50/50 transition">
+                        <div class="flex-1 pr-0 sm:pr-4">
+                            <span class="text-xs font-black text-slate-900 block mb-0.5">Extintores Vigentes y Operativos</span>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Tipo adecuado (ABC, CO2 o K según actividad), manómetro en verde, tarjeta de recarga anual vigente y señalética a 1.50 metros de altura.
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-21" value="si" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sí
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-21" value="no" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-600"></i> No
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-21" value="na" class="hidden" onchange="actualizarScore()">
+                                N/A
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Ítem 22 -->
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-slate-50/50 transition">
+                        <div class="flex-1 pr-0 sm:pr-4">
+                            <span class="text-xs font-black text-slate-900 block mb-0.5">Luces de Emergencia Autónomas</span>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Lámparas de batería operativas en rutas de tránsito y sobre puertas de salida (probadas con el botón de test).
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-22" value="si" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sí
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-22" value="no" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-600"></i> No
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-22" value="na" class="hidden" onchange="actualizarScore()">
+                                N/A
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Ítem 23 -->
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-slate-50/50 transition">
+                        <div class="flex-1 pr-0 sm:pr-4">
+                            <span class="text-xs font-black text-slate-900 block mb-0.5">Señalización de Salidas y Rutas de Evacuación</span>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Rótulos fotoluminiscentes o iluminados visibles que señalan con flechas la dirección de escape hacia el exterior.
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-23" value="si" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sí
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-23" value="no" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-600"></i> No
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-23" value="na" class="hidden" onchange="actualizarScore()">
+                                N/A
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Ítem 24 -->
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-slate-50/50 transition">
+                        <div class="flex-1 pr-0 sm:pr-4">
+                            <span class="text-xs font-black text-slate-900 block mb-0.5">Sentido de Puertas («Hale / Empuje»)</span>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Señalética en ambas caras de las puertas de acceso; puertas de salida de emergencia abriendo hacia afuera en el sentido de la evacuación.
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-24" value="si" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sí
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-24" value="no" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-600"></i> No
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-24" value="na" class="hidden" onchange="actualizarScore()">
+                                N/A
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Ítem 25 -->
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-slate-50/50 transition">
+                        <div class="flex-1 pr-0 sm:pr-4">
+                            <span class="text-xs font-black text-slate-900 block mb-0.5">Rutas y Salidas Despejadas</span>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Pasillos, escaleras y puertas de salida libres de candados, trancas, cajas o mercadería que obstruya el escape expedito.
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-25" value="si" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sí
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-25" value="no" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-600"></i> No
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-25" value="na" class="hidden" onchange="actualizarScore()">
+                                N/A
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Ítem 26 -->
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-slate-50/50 transition">
+                        <div class="flex-1 pr-0 sm:pr-4">
+                            <span class="text-xs font-black text-slate-900 block mb-0.5">Mapa de Evacuación y Plan de Emergencia</span>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Croquis fijado en pared con el punto «Usted está aquí», extintores, rutas de salida y números de emergencia (103 Bomberos / 911).
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-26" value="si" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sí
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-26" value="no" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-600"></i> No
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-26" value="na" class="hidden" onchange="actualizarScore()">
+                                N/A
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MÓDULO 6: SEGURIDAD OCUPACIONAL Y ÁREAS TÉCNICAS -->
+            <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-xs">
+                <div class="bg-slate-900 text-white px-6 py-4 flex items-start justify-between">
+                    <div class="flex items-start gap-3">
+                        <span class="shrink-0 mt-0.5 w-7 h-7 rounded-lg bg-brand-orange text-white flex items-center justify-center font-black text-xs">6</span>
+                        <div>
+                            <h3 class="font-bold text-sm sm:text-base leading-snug">Seguridad ocupacional y áreas técnicas</h3>
+                            <p class="text-[11px] text-slate-400">Inspecciones de la Caja de Seguro Social (CSS) y MITRADEL</p>
+                        </div>
+                    </div>
+                    <span class="text-xs font-bold text-slate-400 hidden sm:inline">4 requisitos</span>
+                </div>
+
+                <div class="divide-y divide-slate-100">
+                    <!-- Ítem 27 -->
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-slate-50/50 transition">
+                        <div class="flex-1 pr-0 sm:pr-4">
+                            <span class="text-xs font-black text-slate-900 block mb-0.5">Botiquín de Primeros Auxilios</span>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Caja señalizada con insumos médicos básicos limpios, alcohol, gasas, vendas, curitas y sin medicamentos vencidos.
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-27" value="si" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sí
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-27" value="no" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-600"></i> No
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-27" value="na" class="hidden" onchange="actualizarScore()">
+                                N/A
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Ítem 28 -->
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-slate-50/50 transition">
+                        <div class="flex-1 pr-0 sm:pr-4">
+                            <span class="text-xs font-black text-slate-900 block mb-0.5">Señalización «Solo Personal Autorizado»</span>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Colocada en cuartos eléctricos, cuartos de máquinas, cocinas internas o bodegas de almacenamiento de químicos.
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-28" value="si" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sí
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-28" value="no" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-600"></i> No
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-28" value="na" class="hidden" onchange="actualizarScore()">
+                                N/A
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Ítem 29 -->
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-slate-50/50 transition">
+                        <div class="flex-1 pr-0 sm:pr-4">
+                            <span class="text-xs font-black text-slate-900 block mb-0.5">Registro Patronal y Paz y Salvo de la CSS</span>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Constancia del número de patrono y pago de planilla SIPE del mes en curso (Marcar N/A si es negocio unipersonal sin empleados).
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-29" value="si" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sí
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-29" value="no" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-600"></i> No
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-29" value="na" class="hidden" onchange="actualizarScore()">
+                                N/A
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Ítem 30 -->
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-slate-50/50 transition">
+                        <div class="flex-1 pr-0 sm:pr-4">
+                            <span class="text-xs font-black text-slate-900 block mb-0.5">Contratos Laborales y Cuadro Horario</span>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Contratos sellados y registrados en MITRADEL y cuadro de turnos/horarios fijado en un área accesible del establecimiento (Marcar N/A sin empleados).
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-30" value="si" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sí
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-30" value="no" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-600"></i> No
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-30" value="na" class="hidden" onchange="actualizarScore()">
+                                N/A
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MÓDULO 7: ACCESIBILIDAD UNIVERSAL -->
+            <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-xs">
+                <div class="bg-slate-900 text-white px-6 py-4 flex items-start justify-between">
+                    <div class="flex items-start gap-3">
+                        <span class="shrink-0 mt-0.5 w-7 h-7 rounded-lg bg-brand-orange text-white flex items-center justify-center font-black text-xs">7</span>
+                        <div>
+                            <h3 class="font-bold text-sm sm:text-base leading-snug">Accesibilidad universal</h3>
+                            <p class="text-[11px] text-slate-400">Normativa SENADIS / MOP / Tránsito</p>
+                        </div>
+                    </div>
+                    <span class="text-xs font-bold text-slate-400 hidden sm:inline">1 requisito</span>
+                </div>
+
+                <div class="divide-y divide-slate-100">
+                    <!-- Ítem 31 -->
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-slate-50/50 transition">
+                        <div class="flex-1 pr-0 sm:pr-4">
+                            <span class="text-xs font-black text-slate-900 block mb-0.5">Estacionamiento para Personas con Discapacidad y Embarazadas</span>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Pintura horizontal azul con símbolo blanco y letrero vertical reglamentario (Marcar N/A si el local no administra estacionamientos propios).
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-31" value="si" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sí
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-31" value="no" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-600"></i> No
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-31" value="na" class="hidden" onchange="actualizarScore()">
+                                N/A
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MÓDULO 8: DERECHOS DE AUTOR Y CONEXOS -->
+            <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-xs">
+                <div class="bg-slate-900 text-white px-6 py-4 flex items-start justify-between">
+                    <div class="flex items-start gap-3">
+                        <span class="shrink-0 mt-0.5 w-7 h-7 rounded-lg bg-brand-orange text-white flex items-center justify-center font-black text-xs">8</span>
+                        <div>
+                            <h3 class="font-bold text-sm sm:text-base leading-snug">Derechos de autor y conexos</h3>
+                            <p class="text-[11px] text-slate-400">Propiedad Intelectual (Sociedades de Gestión Colectiva)</p>
+                        </div>
+                    </div>
+                    <span class="text-xs font-bold text-slate-400 hidden sm:inline">2 requisitos</span>
+                </div>
+
+                <div class="divide-y divide-slate-100">
+                    <!-- Ítem 32 -->
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-slate-50/50 transition">
+                        <div class="flex-1 pr-0 sm:pr-4">
+                            <span class="text-xs font-black text-slate-900 block mb-0.5">Licencia de SPAC (Autores y Compositores)</span>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Permiso de comunicación pública de música ambiental si suena radio, TV o streaming comercial en el local (Marcar N/A si el local opera en absoluto silencio comercial).
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-32" value="si" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sí
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-32" value="no" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-600"></i> No
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-32" value="na" class="hidden" onchange="actualizarScore()">
+                                N/A
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Ítem 33 -->
+                    <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 hover:bg-slate-50/50 transition">
+                        <div class="flex-1 pr-0 sm:pr-4">
+                            <span class="text-xs font-black text-slate-900 block mb-0.5">Licencia de PANAIE / PRODUCE (Productores e Intérpretes)</span>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Canon de derechos conexos para artistas intérpretes si se reproducen fonogramas grabados con fines de ambientación (Marcar N/A si no usa música grabada).
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-33" value="si" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i> Sí
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-33" value="no" class="hidden" onchange="actualizarScore()">
+                                <i data-lucide="x" class="w-3.5 h-3.5 text-rose-600"></i> No
+                            </label>
+                            <label class="check-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold cursor-pointer transition hover:bg-slate-100">
+                                <input type="radio" name="item-33" value="na" class="hidden" onchange="actualizarScore()">
+                                N/A
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+        <!-- SECCIÓN DE RESUMEN FINAL, DICTAMEN Y FIRMAS -->
+        <section class="mt-12 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+            <div class="border-b border-slate-100 pb-5 mb-6">
+                <span class="text-xs font-black uppercase text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full border border-brand-orange/20">
+                    Dictamen de Auditoría Oficial
+                </span>
+                <h3 class="text-xl sm:text-2xl font-black text-slate-900 mt-3 mb-1">
+                    Resumen ejecutivo de exposición legal y operativa
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-600">
+                    Balance consolidado de los 27 puntos evaluados conforme a la normativa vigente en la República de Panamá.
+                </p>
+            </div>
+
+            <!-- Cuadrícula de Totales -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 text-center">
+                    <span class="text-xs text-slate-500 font-bold block mb-1">Puntos Evaluados</span>
+                    <span id="final-total" class="text-2xl font-black text-slate-900">0 / 27</span>
+                </div>
+                <div class="bg-emerald-50 p-4 rounded-2xl border border-emerald-200 text-center">
+                    <span class="text-xs text-emerald-700 font-bold block mb-1">Total Cumplidos</span>
+                    <span id="final-cumple" class="text-2xl font-black text-emerald-700">0</span>
+                </div>
+                <div class="bg-rose-50 p-4 rounded-2xl border border-rose-200 text-center">
+                    <span class="text-xs text-rose-700 font-bold block mb-1">Riesgo de Multa</span>
+                    <span id="final-falta" class="text-2xl font-black text-rose-700">0</span>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 text-center">
+                    <span class="text-xs text-slate-500 font-bold block mb-1">No Aplica (N/A)</span>
+                    <span id="final-na" class="text-2xl font-black text-slate-600">0</span>
+                </div>
+            </div>
+
+            <!-- Diagnóstico Explicativo Dinámico -->
+            <div id="diagnostico-caja" class="p-6 rounded-2xl bg-slate-100 border border-slate-200 mb-8">
+                <div class="flex items-start gap-3">
+                    <i data-lucide="info" class="w-5 h-5 text-slate-600 shrink-0 mt-0.5"></i>
+                    <div>
+                        <h4 id="diagnostico-titulo" class="font-black text-slate-900 text-sm sm:text-base">Auditoría pendiente de completar</h4>
+                        <p id="diagnostico-desc" class="text-xs text-slate-600 mt-1 leading-relaxed">
+                            Por favor responde cada uno de los 27 puntos para emitir el dictamen oficial de blindaje preventivo y riesgo de sanción.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-8 border-t border-slate-200">
+                <div class="pt-8 border-t border-slate-300 flex flex-col items-center justify-center text-center w-full">
+                    <div class="w-full max-w-xs h-10 border-b border-dashed border-slate-300 mb-3 flex items-end justify-center pb-1">
+                        <span class="text-[10px] text-slate-400 italic text-center w-full">Espacio para rúbrica física o digital</span>
+                    </div>
+                    <p id="firma-auditor-nombre" class="font-bold text-sm text-slate-900 transition-all text-center w-full">Lic. Arubel Aizprua</p>
+                    <p class="text-xs font-semibold text-brand-blue text-center w-full">Auditor / Consultor Principal</p>
+                    <p class="text-[10px] text-slate-500 text-center w-full">Aizprua S.E. · Consultoría Empresarial Panamá</p>
+                </div>
+                <div class="pt-8 border-t border-slate-300 flex flex-col items-center justify-center text-center w-full">
+                    <div class="w-full max-w-xs h-10 border-b border-dashed border-slate-300 mb-3 flex items-end justify-center pb-1">
+                        <span class="text-[10px] text-slate-400 italic text-center w-full">Espacio para rúbrica física o digital</span>
+                    </div>
+                    <p id="firma-empresa-nombre" class="font-bold text-sm text-slate-900 transition-all text-center w-full">Nombre de la Empresa / Establecimiento</p>
+                    <p id="firma-empresa-cargo" class="text-xs font-semibold text-slate-700 text-center w-full">Representante Legal / Gerente</p>
+                    <p class="text-[10px] text-slate-500 text-center w-full">Recibido conforme para subsanación</p>
+                </div>
+            </div>
+
+            <!-- Botones de Acción y Conversión Final -->
+            <div class="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-slate-100 no-print">
+                <button onclick="window.print()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold px-6 py-3.5 rounded-xl text-xs sm:text-sm text-center shadow transition">
+                    <i data-lucide="printer" class="w-4 h-4 shrink-0"></i>
+                    <span class="text-center leading-snug">Descargar / Imprimir Informe en PDF</span>
+                </button>
+
+                <a id="btn-enviar-whatsapp" href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20acabo%20de%20completar%20el%20Checklist%20de%20Cumplimiento%20Comercial%20y%20deseo%20asesor%C3%ADa%20para%20blindar%20mi%20local"
+                    target="_blank" rel="noopener"
+                    class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold px-6 py-3.5 rounded-xl text-xs sm:text-sm text-center shadow-md transition transform hover:-translate-y-0.5">
+                    <i data-lucide="shield-check" class="w-4 h-4 shrink-0"></i>
+                    <span class="text-center leading-snug">Solicitar Asesoría de Blindaje por WhatsApp</span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Canónico Oficial (4 Columnas) -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800 mt-auto no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                
+                <!-- Columna 1: Marca y Redes -->
+                <div class="flex flex-col items-start">
+                    <a href="/" class="text-xl font-bold text-white tracking-tight mb-3 hover:text-brand-orange transition inline-block">Aizprua S.E.</a>
+                    <p class="text-sm text-slate-400 mb-3">Tu aliado legal y empresarial en Panamá.</p>
+                    <div class="flex gap-3">
+                        <a target="_blank" rel="noopener" href="https://instagram.com/aizpruase"
+                            class="w-10 h-10 bg-slate-800 hover:bg-pink-600 rounded-full flex items-center justify-center text-white transition"
+                            aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a target="_blank" rel="noopener" href="https://facebook.com/aizpruase"
+                            class="w-10 h-10 bg-slate-800 hover:bg-brand-blue rounded-full flex items-center justify-center text-white transition"
+                            aria-label="Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a target="_blank" rel="noopener" href="https://www.youtube.com/@AizpruaSE"
+                            class="w-10 h-10 bg-slate-800 hover:bg-red-600 rounded-full flex items-center justify-center text-white transition"
+                            aria-label="YouTube">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                        <a href="https://wa.me/50765461527" target="_blank"
+                            class="w-10 h-10 bg-slate-800 hover:bg-green-500 rounded-full flex items-center justify-center text-white transition"
+                            aria-label="WhatsApp">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Soluciones -->
+                <div>
+                    <h4 class="font-bold text-white mb-4">Soluciones</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="/checklist-comercial" class="hover:text-white transition font-semibold text-brand-orange">Checklist Comercial 2026</a></li>
+                        <li><a href="/tienda" class="hover:text-white transition font-semibold text-brand-orange-light">Tienda Online de Kits</a></li>
+                        <li><a href="https://escuela.aizprua.com" target="_blank" rel="noopener" class="hover:text-white transition font-semibold text-brand-blue-light flex items-center gap-1.5">Campus Virtual (Escuela) <i data-lucide="external-link" class="w-3 h-3 text-brand-orange"></i></a></li>
+                        <li><a href="/test-interactivo" class="hover:text-white transition">Test de Auditoría Gratis</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Contacto -->
+                <div>
+                    <h4 class="font-bold text-white mb-4">Contacto</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="https://wa.me/50765461527" target="_blank" class="hover:text-white transition">WhatsApp: +507 6546-1527</a></li>
+                        <li><a href="mailto:info@aizprua.com" class="hover:text-white transition">info@aizprua.com</a></li>
+                        <li>Panamá Oeste, La Chorrera</li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Legal -->
+                <div>
+                    <h4 class="font-bold text-white mb-4">Cumplimiento legal</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="/privacidad" class="hover:text-white transition">Política de Privacidad (Ley 81)</a></li>
+                        <li><a href="/terminos" class="hover:text-white transition">Términos y Condiciones</a></li>
+                        <li><a href="https://whatsapp.com/channel/0029Va64qHbJJhzeH6DHa61a" target="_blank" rel="noopener" class="text-emerald-400 hover:text-emerald-300 font-semibold transition">Canal Oficial WhatsApp</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 text-center text-xs text-slate-400">
+                &copy; 2026 Aizprua S.E. Firma Legal y Empresarial en Panamá. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- LÓGICA JAVASCRIPT DE DIAGNÓSTICO EN TIEMPO REAL -->
+    <script>
+        const TOTAL_ITEMS = 33;
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu) menu.classList.toggle('hidden');
+        }
+
+        function marcarTodosCumple() {
+            for (let i = 1; i <= TOTAL_ITEMS; i++) {
+                const radio = document.querySelector(`input[name="item-${i}"][value="si"]`);
+                if (radio) radio.checked = true;
+            }
+            actualizarScore();
+        }
+
+        function reiniciarChecklist() {
+            document.getElementById('checklist-form').reset();
+            const fechaInput = document.getElementById('empresa-fecha');
+            if (fechaInput) {
+                fechaInput.value = new Date().toISOString().split('T')[0];
+            }
+            sincronizarDatosFirmas();
+            actualizarScore();
+        }
+
+        function sincronizarDatosFirmas() {
+            const empresaNombre = document.getElementById('empresa-nombre')?.value.trim();
+            const empresaRuc = document.getElementById('empresa-ruc')?.value.trim();
+            const auditorNombre = document.getElementById('empresa-auditor')?.value.trim();
+
+            const firmaAuditor = document.getElementById('firma-auditor-nombre');
+            const firmaEmpresa = document.getElementById('firma-empresa-nombre');
+            const firmaCargo = document.getElementById('firma-empresa-cargo');
+
+            if (firmaAuditor) {
+                firmaAuditor.textContent = auditorNombre ? auditorNombre : 'Lic. Arubel Aizprua';
+            }
+            if (firmaEmpresa) {
+                firmaEmpresa.textContent = empresaNombre ? empresaNombre : 'Nombre de la Empresa / Establecimiento';
+            }
+            if (firmaCargo) {
+                firmaCargo.textContent = empresaRuc ? `Representante Legal · RUC: ${empresaRuc}` : 'Representante Legal / Gerente';
+            }
+        }
+
+        function actualizarScore() {
+            let cumple = 0;
+            let falta = 0;
+            let na = 0;
+            let totalRespondidos = 0;
+
+            for (let i = 1; i <= TOTAL_ITEMS; i++) {
+                const radios = document.querySelectorAll(`input[name="item-${i}"]`);
+                radios.forEach(r => {
+                    const label = r.closest('.check-btn');
+                    if (label) {
+                        label.classList.remove('btn-active-si', 'btn-active-no', 'btn-active-na', 'bg-emerald-500', 'text-white', 'border-emerald-600', 'bg-rose-500', 'border-rose-600', 'bg-slate-700', 'border-slate-800');
+                        if (r.checked) {
+                            if (r.value === 'si') {
+                                label.classList.add('btn-active-si');
+                                cumple++;
+                            } else if (r.value === 'no') {
+                                label.classList.add('btn-active-no');
+                                falta++;
+                            } else if (r.value === 'na') {
+                                label.classList.add('btn-active-na');
+                                na++;
+                            }
+                            totalRespondidos++;
+                        }
+                    }
+                });
+            }
+
+            // Actualizar contadores
+            document.getElementById('score-total').innerText = `${totalRespondidos} / ${TOTAL_ITEMS}`;
+            document.getElementById('score-cumple').innerText = cumple;
+            document.getElementById('score-falta').innerText = falta;
+            document.getElementById('score-na').innerText = na;
+
+            document.getElementById('final-total').innerText = `${totalRespondidos} / ${TOTAL_ITEMS}`;
+            document.getElementById('final-cumple').innerText = cumple;
+            document.getElementById('final-falta').innerText = falta;
+            document.getElementById('final-na').innerText = na;
+
+            // Barras visuales
+            const pCumple = (cumple / TOTAL_ITEMS) * 100;
+            const pFalta = (falta / TOTAL_ITEMS) * 100;
+            const pNa = (na / TOTAL_ITEMS) * 100;
+
+            document.getElementById('bar-cumple').style.width = pCumple + '%';
+            document.getElementById('bar-falta').style.width = pFalta + '%';
+            document.getElementById('bar-na').style.width = pNa + '%';
+
+            // Semáforo y Dictamen
+            const badge = document.getElementById('badge-semaforo');
+            const diagCaja = document.getElementById('diagnostico-caja');
+            const diagTitulo = document.getElementById('diagnostico-titulo');
+            const diagDesc = document.getElementById('diagnostico-desc');
+
+            if (totalRespondidos === 0) {
+                badge.className = "px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-wide bg-slate-100 text-slate-600 border border-slate-200 flex items-center gap-1.5";
+                badge.innerHTML = '<span class="w-2 h-2 rounded-full bg-slate-400"></span><span>Sin evaluar</span>';
+                diagCaja.className = "p-6 rounded-2xl bg-slate-100 border border-slate-200 mb-8";
+                diagTitulo.innerText = "Auditoría Pendiente de Completar";
+                diagDesc.innerText = "Por favor responde cada uno de los 27 puntos para emitir el dictamen oficial de blindaje preventivo y riesgo de sanción.";
+            } else if (falta >= 6) {
+                // RIESGO CRÍTICO
+                badge.className = "px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-wide bg-rose-100 text-rose-700 border border-rose-300 flex items-center gap-1.5 animate-pulse";
+                badge.innerHTML = '<span class="w-2 h-2 rounded-full bg-rose-600"></span><span>Riesgo Crítico de Cierre</span>';
+                diagCaja.className = "p-6 rounded-2xl bg-rose-50 border border-rose-200 mb-8";
+                diagTitulo.innerText = `🔴 Dictamen: Nivel de Riesgo Crítico (${falta} faltas detectadas)`;
+                diagDesc.innerText = "Tu establecimiento presenta múltiples infracciones graves (DGI, Bomberos o ACODECO) con riesgo inminente de cierre temporal o multas que superan los $2,500 USD. Se recomienda subsanar de inmediato.";
+            } else if (falta >= 2) {
+                // RIESGO MODERADO
+                badge.className = "px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-wide bg-amber-100 text-amber-800 border border-amber-300 flex items-center gap-1.5";
+                badge.innerHTML = '<span class="w-2 h-2 rounded-full bg-amber-500"></span><span>Riesgo Moderado</span>';
+                diagCaja.className = "p-6 rounded-2xl bg-amber-50 border border-amber-200 mb-8";
+                diagTitulo.innerText = `🟡 Dictamen: Riesgo Moderado de Sanción (${falta} puntos por subsanar)`;
+                diagDesc.innerText = "Tienes una base operativa, pero existen omisiones visibles (señalética, letreros o permisos vencidos) que un inspector sancionará en la primera visita. Corrige antes del próximo operativo.";
+            } else {
+                // BLINDADO
+                badge.className = "px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-wide bg-emerald-100 text-emerald-800 border border-emerald-300 flex items-center gap-1.5";
+                badge.innerHTML = '<span class="w-2 h-2 rounded-full bg-emerald-600"></span><span>Establecimiento Blindado</span>';
+                diagCaja.className = "p-6 rounded-2xl bg-emerald-50 border border-emerald-200 mb-8";
+                diagTitulo.innerText = `🟢 Dictamen: Establecimiento Blindado (${cumple} de ${TOTAL_ITEMS} cumplidos)`;
+                diagDesc.innerText = "¡Excelente! Tu local comercial cumple con los estándares prioritarios exigidos en Panamá. Mantén los documentos a la vista y las bitácoras al día.";
+            }
+
+            // Actualizar Enlace WhatsApp Dinámico
+            const empresa = document.getElementById('empresa-nombre').value.trim() || 'mi local';
+            const ruc = document.getElementById('empresa-ruc').value.trim() || '';
+            const msg = encodeURIComponent(`Hola Aizprua S.E., completé el Checklist de Cumplimiento Comercial para ${empresa} ${ruc ? '(RUC: ' + ruc + ')' : ''}. Mi resultado fue: ${cumple} cumplidos y ${falta} en riesgo de multa. Quisiera solicitar asesoría para blindar mi establecimiento.`);
+            const btnWa = document.getElementById('btn-enviar-whatsapp');
+            if (btnWa) {
+                btnWa.href = `https://wa.me/50765461527?text=${msg}`;
+            }
+        }
+
+        // Barra de Scroll
+        window.addEventListener('scroll', () => {
+            const docEl = document.documentElement;
+            const scrollTotal = docEl.scrollHeight - docEl.clientHeight;
+            const scrolled = (window.scrollY / (scrollTotal || 1)) * 100;
+            const bar = document.getElementById('progress-bar');
+            if (bar) bar.style.width = Math.min(100, Math.max(0, scrolled)) + '%';
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Fecha de hoy por defecto
+            const fechaInput = document.getElementById('empresa-fecha');
+            if (fechaInput) {
+                const hoy = new Date().toISOString().split('T')[0];
+                fechaInput.value = hoy;
+            }
+
+            // Escuchar cambios en campos de datos para actualizar firmas y WhatsApp en tiempo real
+            ['empresa-nombre', 'empresa-ruc', 'empresa-auditor'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.addEventListener('input', () => {
+                        sincronizarDatosFirmas();
+                        actualizarScore();
+                    });
+                }
+            });
+
+            // Sincronización inicial
+            sincronizarDatosFirmas();
+
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+        });
+    </script>
+</body>
+
+</html>
+
+

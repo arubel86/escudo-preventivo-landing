@@ -1,4 +1,4 @@
-/**
+﻿/**
  * ============================================================================
  * CATÁLOGO MAESTRO DE PRODUCTOS & SOLUCIONES (AIZPRUA S.E.)
  * ============================================================================
@@ -704,7 +704,7 @@ const AIZPRUA_PRODUCTS = [
         ],
         buyButton: {
             text: "Descargar Guía en PDF",
-            link: "/recursos-gratuitos",
+            link: "/guia-preventiva",
             icon: "download",
             class: "bg-slate-900 hover:bg-brand-blue text-white",
             isHotmart: false
