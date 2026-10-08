@@ -135,11 +135,13 @@ tailwind.config = {
                 <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg" alt="Logo Aizprua S.E. - Trámites Legales Panamá" class="h-28 w-auto object-contain" width="112" height="112">
             </div>
             <div class="hidden md:flex items-center space-x-6">
-                <a href="#inicio" class="text-slate-600 hover:text-brand-blue font-medium transition">Inicio</a>
-                <a href="#diagnostico" class="text-slate-600 hover:text-brand-blue font-medium transition">Diagnóstico</a>
-                <span class="text-slate-400">|</span>
-                <a href="tel:+50765461527" class="text-slate-600 flex items-center gap-1.5 font-medium hover:text-brand-blue transition">
-                    <i data-lucide="phone" class="w-4 h-4 text-brand-orange"></i>6546-1527
+                <a href="/#servicios" class="text-slate-600 hover:text-brand-blue font-medium transition">Servicios</a>
+                <a href="/tienda" class="text-slate-600 hover:text-brand-blue font-medium transition">Tienda Online</a>
+                <a href="/escuela" class="text-slate-600 hover:text-brand-blue font-medium transition">Escuela</a>
+                <a href="/blog" class="text-slate-600 hover:text-brand-blue font-medium transition">Blog</a>
+                <a href="/test-interactivo" class="text-sm font-semibold text-brand-orange hover:text-brand-orange-dark transition flex items-center gap-1.5">
+                    <i data-lucide="shield-check" class="w-4 h-4"></i>
+                    <span>Auditoría Gratis</span>
                 </a>
             </div>
             <button id="mobile-menu-btn" aria-label="Abrir menú" class="md:hidden text-slate-600">

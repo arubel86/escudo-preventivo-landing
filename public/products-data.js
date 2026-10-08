@@ -496,7 +496,7 @@ const AIZPRUA_PRODUCTS = [
             class: "text-slate-500 hover:text-brand-blue"
         },
         keywords: "super pack laboral suite contratacion 360 contratos servicios profesionales indefinido definido obra determinada despido justificado amonestacion renuncia mutuo acuerdo finiquito mitradel panama word docx",
-        featuredInHome: true
+        featuredInHome: false
     },
     {
         id: "pack-duo-finanzas",
@@ -509,7 +509,7 @@ const AIZPRUA_PRODUCTS = [
         priceDisplay: "$49.99",
         currency: "USD",
         discountBadge: "50% DCTO",
-        guarantee: "Ahorra $10 USD",
+        guarantee: "Ahorra $50 USD",
         badgeLeft: { text: "Pack 2 en 1", class: "bg-brand-orange text-white" },
         badgeRight: { text: "Mejor Valor", class: "bg-emerald-600 text-white" },
         image: null,
