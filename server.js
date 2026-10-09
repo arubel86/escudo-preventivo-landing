@@ -406,6 +406,10 @@ app.get(['/Embudo-Escudo-Preventivo/gracias', '/Embudo-Escudo-Preventivo/gracias
   const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
   res.redirect(301, '/gracias' + query);
 });
+app.get(['/Embudo-Escudo-Preventivo/guia-preventiva', '/Embudo-Escudo-Preventivo/guia-preventiva.html'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/guia-preventiva' + query);
+});
 
 // 1. Inicio: Enrutamiento Inteligente por Dominio para la Raíz (/)
 // Si el subdominio es explícitamente escudo. (escudo.aizprua.com), muestra index.html (Escudo Preventivo)
@@ -438,22 +442,32 @@ app.get('/escudo-preventivo.html', (req, res) => {
   res.redirect(301, '/escudo-preventivo' + query);
 });
 
+// 2.1. Guía Preventiva Anti-Multas 2026 (Embudo Escudo Preventivo)
+app.get('/guia-preventiva', (req, res) => {
+  res.sendFile(path.join(escudoPreventivoDir, 'guia-preventiva.html'));
+});
+
+app.get('/guia-preventiva.html', (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/guia-preventiva' + query);
+});
+
 // 3. Página C: Recursos Gratuitos (Lead Magnet)
-app.get('/recursos-gratuitos', (req, res) => {
+app.get(['/recursos-gratuitos', '/recursos'], (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'recursos-gratuitos.html'));
 });
 
-app.get('/recursos-gratuitos.html', (req, res) => {
+app.get(['/recursos-gratuitos.html', '/recursos.html'], (req, res) => {
   const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
   res.redirect(301, '/recursos-gratuitos' + query);
 });
 
 // 4. Hub Post-Descarga Guía Gratuita
 app.get('/gracias-guia', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'gracias-guia.html'));
+  res.sendFile(path.join(escudoPreventivoDir, 'gracias-guia.html'));
 });
 
-app.get('/gracias-guia.html', (req, res) => {
+app.get(['/gracias-guia.html', '/Embudo-Escudo-Preventivo/gracias-guia', '/Embudo-Escudo-Preventivo/gracias-guia.html'], (req, res) => {
   const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
   res.redirect(301, '/gracias-guia' + query);
 });
@@ -612,6 +626,16 @@ app.get('/articulo-multas-panama', (req, res) => {
 app.get(['/articulo-multas-panama.html', '/multas-dgi-css', '/multas-dgi-panama', '/multas-ocultas-panama'], (req, res) => {
   const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
   res.redirect(301, '/articulo-multas-panama' + query);
+});
+
+// 4.12. Checklist Maestro de Cumplimiento Comercial en Panamá (Canónica: /checklist-comercial)
+app.get('/checklist-comercial', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'checklist-comercial.html'));
+});
+
+app.get(['/checklist-comercial.html', '/checklist', '/checklist.html', '/cumplimiento-comercial'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/checklist-comercial' + query);
 });
 
 // 5. Hub Post-Pago (Protegido por Sesión Criptográfica)
