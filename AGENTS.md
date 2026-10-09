@@ -173,3 +173,10 @@
      - Esta portada pertenece ÚNICA Y EXCLUSIVAMENTE a las páginas oficiales de venta de ese producto (`plan-360.html` y `plan-360-digital.html`).
 * **PROHIBICIÓN ESTRICTA:** Queda terminantemente prohibido usar `plan-360-og.jpg` o `portada-plan-360.png` como imagen por defecto (placeholder) al crear o duplicar páginas nuevas (como `checklist-comercial.html`, `escuela.html`, `tienda.html` o artículos de blog), para evitar que al compartir los enlaces en WhatsApp o redes sociales aparezca la portada de un libro en lugar de la identidad corporativa de la página.
 
+## 🧭 Regla de Consulta Previa para Nuevos Recursos (404, Links y Recursos Gratuitos)
+* **MANDATO OBLIGATORIO:** Cada vez que se cree o integre un nuevo recurso, herramienta, guía, diagnóstico, descargable o solución dentro del ecosistema Aizprua S.E., el asistente **debe preguntar obligatoriamente al usuario antes de agregarlo** a las páginas de directorio y accesos rápidos:
+  1. **Página de Error (`404.html`):** ¿Deseas incluirlo en la cuadrícula de recursos recomendados?
+  2. **Página de Enlaces Bio (`links.html`):** ¿Deseas incluirlo como botón de acceso rápido?
+  3. **Página de Descargas (`recursos-gratuitos.html`):** ¿Deseas incluirlo en el catálogo de herramientas y guías gratuitas?
+* **PROHIBICIÓN ESTRICTA:** Queda terminantemente prohibido agregar enlaces o tarjetas de un nuevo recurso en `404.html`, `links.html` o `recursos-gratuitos.html` de forma automática o autónoma sin haber obtenido la confirmación y elección expresa del usuario.
+
