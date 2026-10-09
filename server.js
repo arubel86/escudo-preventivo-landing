@@ -773,8 +773,9 @@ app.get(['/ruc.html', '/buscador-ruc', '/buscador-ruc.html', '/validador-ruc', '
 
 
 
-// ARCHIVOS ESTÁTICOS (Masterclass, Verificador & Landing Page)
+// ARCHIVOS ESTÁTICOS (Masterclass, Embudo Escudo, Verificador & Landing Page)
 app.use('/masterclass', express.static(masterclassDir));
+app.use('/Embudo-Escudo-Preventivo', express.static(escudoPreventivoDir, { index: false }));
 app.use(express.static(path.join(__dirname, 'public'), { index: false }));
 // Favicon universal fallback (Sincronizado con YouTube)
 app.get(['/favicon.ico', '/favicon.svg'], (req, res) => {
