@@ -152,3 +152,24 @@
      - En toda tarjeta de opción táctil multilínea (título + descripción) y en encabezados de pregunta: el contenedor debe utilizar obligatoriamente `flex items-start justify-between` y el bloque izquierdo `flex items-start gap-3`. El selector circular (radio), icono o badge debe llevar obligatoriamente `shrink-0 mt-0.5`.
      - **PROHIBICIÓN ESTRICTA:** Queda terminantemente prohibido usar `flex items-center` en botones de opción o encabezados con texto multilínea para evitar que los selectores o iconos queden flotando en el medio vertical entre el título y la descripción.
 
+## 🖼️ Regla Estricta de Metadatos de Redes Sociales y Open Graph (Anti-Discrepancia de Marca)
+* **MANDATO OBLIGATORIO:** En TODA página web nueva o editada del ecosistema Aizprua S.E. (`<head>`), es **estrictamente obligatorio** configurar correctamente las etiquetas Open Graph y Twitter Cards (`og:image`, `og:image:secure_url`, `twitter:image`) respetando el destino temático de cada URL:
+  1. **Imagen Canónica Institucional / General (Escudo Oficial):**
+     - Toda página institucional, informativa, herramientas de diagnóstico, catálogo o servicios generales (incluyendo `principal.html`, `tienda.html`, `blog.html`, `escuela.html`, `checklist-comercial.html`, `test-interactivo.html`, `test-empresarial.html`, `links.html`, `ruc.html`, `verificador.html`, `privacidad.html`, `terminos.html`, `404.html` y páginas del embudo) debe utilizar OBLIGATORIAMENTE la URL del escudo oficial:
+       `https://aizprua.com/assets/aizprua-shield-og.jpg`
+     - Especificaciones de metadatos recomendadas:
+       ```html
+       <meta property="og:image" content="https://aizprua.com/assets/aizprua-shield-og.jpg">
+       <meta property="og:image:secure_url" content="https://aizprua.com/assets/aizprua-shield-og.jpg">
+       <meta property="og:image:type" content="image/jpeg">
+       <meta property="og:image:width" content="1080">
+       <meta property="og:image:height" content="1080">
+       <meta name="twitter:card" content="summary_large_image">
+       <meta name="twitter:image" content="https://aizprua.com/assets/aizprua-shield-og.jpg">
+       ```
+  2. **Artículos de Blog:** Deben utilizar obligatoriamente su portada oficial individual de alta resolución (`portada-articulo-[slug].png`), nunca imágenes de libros o productos ajenos.
+  3. **Páginas de Lead Magnet Específicas:** Páginas de entrega de recursos gratuitos (ej. `recursos.html`, `guia-preventiva.html`) deben usar la portada del recurso correspondiente (`guia-preventiva-cover.jpg`).
+  4. **Exclusividad Estricta de `plan-360-og.jpg` y `portada-plan-360.png`:**
+     - Esta portada pertenece ÚNICA Y EXCLUSIVAMENTE a las páginas oficiales de venta de ese producto (`plan-360.html` y `plan-360-digital.html`).
+* **PROHIBICIÓN ESTRICTA:** Queda terminantemente prohibido usar `plan-360-og.jpg` o `portada-plan-360.png` como imagen por defecto (placeholder) al crear o duplicar páginas nuevas (como `checklist-comercial.html`, `escuela.html`, `tienda.html` o artículos de blog), para evitar que al compartir los enlaces en WhatsApp o redes sociales aparezca la portada de un libro en lugar de la identidad corporativa de la página.
+
