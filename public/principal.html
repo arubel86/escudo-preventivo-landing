@@ -785,40 +785,45 @@
                     </div>
                 </div>
 
-                <!-- PRODUCTO 3: TEST AUDITORÍA GRATIS -->
-                <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:border-emerald-500 hover:shadow-lg transition group reveal-on-scroll stagger-3">
+                <!-- PRODUCTO 3: KIT DE RESOLUCIÓN DE PROBLEMAS -->
+                <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between hover:border-amber-500 hover:shadow-lg transition group reveal-on-scroll stagger-3">
                     <div>
-                        <div class="relative bg-gradient-to-br from-emerald-50 via-slate-50 to-teal-50/70 rounded-2xl overflow-hidden mb-5 aspect-[4/3] flex items-center justify-center p-4 border border-emerald-100 text-center">
-                            <div class="space-y-1">
-                                <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 mx-auto flex items-center justify-center shadow-xs">
-                                    <i data-lucide="clipboard-check" class="w-7 h-7"></i>
-                                </div>
-                                <span class="text-xs font-bold text-slate-800 block">Autodiagnóstico 15 puntos</span>
-                                <span class="text-[10px] text-emerald-600 font-bold block">100% gratuito</span>
-                            </div>
-                            <span class="absolute top-3 left-3 bg-emerald-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
-                                Recurso gratuito
+                        <!-- Portada Showcase sin recortes (Full-Bleed Cover) -->
+                        <div class="relative bg-slate-100 rounded-2xl overflow-hidden mb-5 aspect-[4/3] border border-slate-200/80">
+                            <img src="assets/portada-kit-problemas-digital.jpg" alt="Kit de Resolución de Problemas Empresariales"
+                                data-title="Kit de Resolución" data-icon="laptop" data-badge="Multi-Dispositivo"
+                                onerror="handleProductImageError(this)"
+                                class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <span class="absolute top-3 left-3 bg-amber-500 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-md">
+                                Protocolos de crisis
                             </span>
-                            <span class="absolute top-3 right-3 bg-slate-900 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
-                                En línea
+                            <span class="absolute top-3 right-3 bg-slate-900 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-md">
+                                Descarga digital
                             </span>
                         </div>
-                        <h4 class="text-lg font-black text-slate-900 mb-1">Test de auditoría empresarial (PDF)</h4>
+                        <h4 class="text-lg font-black text-slate-900 mb-1">Kit de resolución de problemas</h4>
                         <p class="text-xs text-slate-600 mb-4 leading-relaxed">
-                            Semáforo de riesgo para evaluar tus áreas contable, legal y operativa en 3 minutos. Obtén tu diagnóstico y recomendaciones inmediatas.
+                            Botiquín de primeros auxilios empresariales: +50 soluciones inmediatas ante contingencias críticas más plantilla interactiva guiada.
                         </p>
                     </div>
                     <div>
-                        <div class="flex items-baseline justify-between pt-4 border-t border-slate-200 mb-4">
-                            <div>
-                                <span class="text-2xl font-black text-emerald-600">GRATIS</span>
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-200 mb-4 min-h-[2.5rem] gap-2">
+                            <div class="flex items-baseline gap-1.5 shrink-0">
+                                <span class="text-xs text-slate-400 line-through mr-1">$47.00</span>
+                                <span class="text-2xl font-black text-slate-900">$16.99</span>
+                                <span class="text-[10px] font-bold text-slate-500">USD</span>
+                                <span class="hidden sm:inline-block text-[10px] font-black text-amber-700 bg-amber-100 px-2 py-0.5 rounded-md ml-1 whitespace-nowrap">65% DCTO</span>
                             </div>
-                            <span class="text-xs font-bold text-slate-500">Descarga directa</span>
+                            <div class="flex flex-col sm:flex-row items-end sm:items-baseline gap-0.5 sm:gap-2 text-right shrink-0">
+                                <span class="inline-block sm:hidden text-[10px] font-black text-amber-700 bg-amber-100 px-2 py-0.5 rounded-md whitespace-nowrap">65% DCTO</span>
+                                <span class="text-xs font-bold text-emerald-600 whitespace-nowrap">Garantía 7 días</span>
+                            </div>
                         </div>
-                        <a href="/test-interactivo"
-                            class="w-full inline-flex items-center justify-center gap-2 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs sm:text-sm font-bold transition shadow">
-                            <i data-lucide="play" class="w-4 h-4"></i>
-                            <span>Hacer test en línea</span>
+                        <a href="https://pay.hotmart.com/Q88322358Q?checkoutMode=2"
+                            target="_blank" rel="noopener"
+                            class="hotmart-fb w-full inline-flex items-center justify-center gap-2 py-3 bg-brand-blue hover:bg-brand-blue-dark text-white rounded-xl text-xs sm:text-sm font-bold transition shadow">
+                            <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                            <span>Descargar por $16.99 USD</span>
                         </a>
                     </div>
                 </div>
@@ -1555,39 +1560,46 @@
     <!-- ==================================================== -->
     <!-- 12. MODAL ELEGANTE EXIT-INTENT (ESCUDO PREVENTIVO)   -->
     <!-- ==================================================== -->
-    <div id="exit-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
-        <div class="relative w-full max-w-lg bg-slate-900 text-white rounded-3xl p-8 sm:p-10 border border-slate-700 shadow-2xl transform scale-95 transition-transform duration-300 text-center">
+    <div id="exit-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+        <div id="exit-modal-card" class="relative w-full max-w-lg bg-white text-slate-900 rounded-3xl p-8 sm:p-10 border border-slate-200/90 shadow-2xl transform scale-95 transition-transform duration-300 text-center overflow-hidden">
             
+            <!-- Barra Superior de Marca (Azul a Naranja) -->
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-blue via-brand-blue-light to-brand-orange"></div>
+
+            <!-- Resplandor Ambiental Sutil de Marca -->
+            <div class="absolute -top-20 -right-20 w-44 h-44 bg-brand-orange/10 rounded-full blur-2xl pointer-events-none"></div>
+            <div class="absolute -bottom-20 -left-20 w-44 h-44 bg-brand-blue/10 rounded-full blur-2xl pointer-events-none"></div>
+
             <!-- Botón Cerrar (X) -->
             <button onclick="closeExitModal()" aria-label="Cerrar modal"
-                class="absolute right-5 top-5 text-slate-400 hover:text-white transition p-1">
-                <i data-lucide="x" class="w-5 h-5"></i>
+                class="absolute right-5 top-5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 transition flex items-center justify-center p-1.5 z-10">
+                <i data-lucide="x" class="w-4 h-4"></i>
             </button>
 
             <!-- Pill de Categoría -->
-            <div class="inline-flex items-start sm:items-center gap-2 px-3 py-1.5 rounded-full bg-brand-blue/20 border border-brand-blue/40 text-brand-blue-light text-[11px] sm:text-xs font-black uppercase tracking-wider mb-4 text-left shadow-xs">
-                <i data-lucide="shield" class="w-3.5 h-3.5 text-brand-orange shrink-0 mt-0.5 sm:mt-0"></i>
-                <span class="leading-snug sm:leading-normal">Blindaje Empresarial · Aizprua S.E.</span>
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-[11px] sm:text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
+                <i data-lucide="shield" class="w-3.5 h-3.5 text-brand-orange shrink-0"></i>
+                <span>Blindaje Empresarial · Aizprua S.E.</span>
             </div>
 
             <!-- Titular de Alto Impacto -->
-            <h3 class="text-2xl sm:text-3xl font-black text-white leading-tight mb-3">
+            <h3 class="text-2xl sm:text-3xl font-black text-slate-900 leading-tight mb-3">
                 No te faltan ventas.<br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue-light to-brand-orange">Te falta blindaje.</span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-orange">Te falta blindaje.</span>
             </h3>
 
-            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-md mx-auto mb-6">
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-md mx-auto mb-6">
                 Un solo contrato laboral mal redactado o una multa imprevista de la DGI puede costarte más de lo que facturaste en el mes. Protege tu empresa con el Escudo Preventivo.
             </p>
 
             <!-- Botón CTA Naranja -->
             <a href="https://escudo.aizprua.com/"
-                class="w-full inline-flex items-center justify-center gap-2 py-4 px-6 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-2xl font-black text-sm sm:text-base shadow-xl transition transform hover:-translate-y-0.5">
-                <span>Blindar Mi Negocio Ahora</span>
+                class="w-full inline-flex items-center justify-center gap-2 py-4 px-6 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-105 text-white rounded-2xl font-black text-sm sm:text-base shadow-lg shadow-orange-500/25 transition transform hover:-translate-y-0.5">
+                <span>Blindar mi negocio ahora</span>
                 <i data-lucide="arrow-right" class="w-5 h-5"></i>
             </a>
 
-            <button onclick="closeExitModal()" class="block text-xs text-slate-400 hover:text-white underline mt-4 mx-auto">
+            <button onclick="closeExitModal()" class="block text-xs text-slate-600 hover:text-slate-700 underline mt-4 mx-auto transition cursor-pointer">
                 No gracias, prefiero asumir el riesgo por mi cuenta
             </button>
         </div>
@@ -1645,16 +1657,26 @@
             sessionStorage.setItem('aizprua_exit_modal_seen', 'true');
             
             const modal = document.getElementById('exit-modal');
-            modal.classList.remove('opacity-0', 'pointer-events-none');
-            modal.querySelector('div').classList.remove('scale-95');
-            modal.querySelector('div').classList.add('scale-100');
+            const card = document.getElementById('exit-modal-card') || modal?.querySelector('div');
+            if (modal) {
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+            }
+            if (card) {
+                card.classList.remove('scale-95');
+                card.classList.add('scale-100');
+            }
         }
 
         function closeExitModal() {
             const modal = document.getElementById('exit-modal');
-            modal.classList.add('opacity-0', 'pointer-events-none');
-            modal.querySelector('div').classList.remove('scale-100');
-            modal.querySelector('div').classList.add('scale-95');
+            const card = document.getElementById('exit-modal-card') || modal?.querySelector('div');
+            if (modal) {
+                modal.classList.add('opacity-0', 'pointer-events-none');
+            }
+            if (card) {
+                card.classList.remove('scale-100');
+                card.classList.add('scale-95');
+            }
         }
 
         // Cierre accesible con tecla Escape y clic fuera del modal

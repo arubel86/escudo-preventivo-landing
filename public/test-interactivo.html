@@ -272,7 +272,7 @@
                             <span class="text-brand-orange-dark text-xs font-bold bg-brand-orange/10 px-2.5 py-1 rounded-full hidden sm:inline-block shrink-0 ml-2">Freelancers</span>
                         </button>
 
-                        <!-- Opción 3: Solopreneur -->
+                        <!-- Opción 3: Operación 100% individual (Sin Equipo) -->
                         <button type="button" onclick="selectProfile('SOLO')"
                             class="w-full p-4 rounded-2xl border-2 border-slate-200 hover:border-emerald-500 hover:bg-emerald-50/50 text-left transition flex items-start justify-between group active:scale-[0.99] cursor-pointer">
                             <div class="flex items-start gap-3">
@@ -284,7 +284,7 @@
                                     <span class="text-xs text-slate-500 mt-1 block">Aún no delego en nadie; realizo personalmente todas las funciones del negocio.</span>
                                 </div>
                             </div>
-                            <span class="text-emerald-700 text-xs font-bold bg-emerald-100 px-2.5 py-1 rounded-full hidden sm:inline-block shrink-0 ml-2">Solopreneur</span>
+                            <span class="text-emerald-700 text-xs font-bold bg-emerald-100 px-2.5 py-1 rounded-full hidden sm:inline-block shrink-0 ml-2">Sin Equipo</span>
                         </button>
                     </div>
 
@@ -448,58 +448,64 @@
                 <!-- ==================================================== -->
                 <!-- OFERTA A: ESCUDO PREVENTIVO (Para Crítico o Vulnerable) -->
                 <!-- ==================================================== -->
-                <div id="offer-escudo" class="bg-gradient-to-br from-slate-900 via-slate-800 to-brand-blue-dark text-white p-6 sm:p-9 rounded-3xl shadow-2xl border border-slate-700 relative overflow-hidden">
-                    <div class="absolute -top-24 -right-24 w-80 h-80 bg-rose-500/20 rounded-full blur-3xl pointer-events-none"></div>
+                <div id="offer-escudo" class="bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-white p-6 sm:p-9 rounded-3xl shadow-2xl border border-slate-700/80 relative overflow-hidden">
+                    <!-- Barra Superior de Marca (Azul a Naranja) -->
+                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-blue via-brand-blue-light to-brand-orange"></div>
+
+                    <!-- Resplandores Sutiles de Marca (Sin tintes rosados ni violetas) -->
+                    <div class="absolute -top-20 -right-20 w-64 h-64 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-brand-blue/15 rounded-full blur-3xl pointer-events-none"></div>
 
                     <div class="relative z-10 text-center max-w-xl mx-auto">
-                        <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-rose-500/20 border border-rose-400/40 text-rose-300 text-xs font-black uppercase tracking-wider mb-3">
-                            <i data-lucide="shield-alert" class="w-3.5 h-3.5 text-rose-400"></i>
-                            <span>INTERVENCIÓN PRIORITARIA RECOMENDADA</span>
+                        <!-- Pill de Alerta Institucional -->
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-orange/15 border border-brand-orange/30 text-brand-orange text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
+                            <i data-lucide="shield-alert" class="w-4 h-4 text-brand-orange shrink-0"></i>
+                            <span>Intervención Prioritaria Recomendada</span>
                         </div>
 
+                        <!-- Titular de Alto Impacto -->
                         <h3 class="text-xl sm:text-3xl font-black text-white tracking-tight leading-tight mb-3">
                             No arriesgues tu patrimonio con plantillas:<br>
-                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange-light to-amber-300">Activa tu Escudo Preventivo</span>
+                            <span class="text-brand-orange">Activa tu Escudo Preventivo</span>
                         </h3>
 
                         <p class="text-xs sm:text-sm text-slate-300 mb-6 leading-relaxed">
                             Tus respuestas indican alertas de alta exposición ante la DGI, Mitradel y contratos desactualizados. Una sola sanción puede costarte miles de dólares. Deja tu empresa en manos de especialistas legales y tributarios.
                         </p>
 
-                        <!-- Caja de Beneficios Clave del Escudo -->
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-left mb-6">
-                            <div class="bg-white/5 border border-white/10 p-3 rounded-2xl">
-                                <i data-lucide="file-check-2" class="w-4 h-4 text-brand-orange mb-1"></i>
+                        <!-- Caja de Beneficios Clave del Escudo (Uniformes con Acento de Marca) -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-left mb-6">
+                            <div class="bg-white/5 border border-white/10 hover:border-brand-orange/30 p-3.5 rounded-2xl transition">
+                                <i data-lucide="file-check-2" class="w-5 h-5 text-brand-orange mb-1.5"></i>
                                 <span class="text-xs font-bold text-white block">Revisión de Contratos</span>
                                 <span class="text-[11px] text-slate-400">Blindaje contra demandas laborales.</span>
                             </div>
-                            <div class="bg-white/5 border border-white/10 p-3 rounded-2xl">
-                                <i data-lucide="scale" class="w-4 h-4 text-emerald-400 mb-1"></i>
+                            <div class="bg-white/5 border border-white/10 hover:border-brand-orange/30 p-3.5 rounded-2xl transition">
+                                <i data-lucide="scale" class="w-5 h-5 text-brand-orange mb-1.5"></i>
                                 <span class="text-xs font-bold text-white block">Filtro Fiscal DGI</span>
                                 <span class="text-[11px] text-slate-400">Prevención de multas tributarias.</span>
                             </div>
-                            <div class="bg-white/5 border border-white/10 p-3 rounded-2xl">
-                                <i data-lucide="map" class="w-4 h-4 text-blue-400 mb-1"></i>
+                            <div class="bg-white/5 border border-white/10 hover:border-brand-orange/30 p-3.5 rounded-2xl transition">
+                                <i data-lucide="map" class="w-5 h-5 text-brand-orange mb-1.5"></i>
                                 <span class="text-xs font-bold text-white block">Hoja de Ruta 2026</span>
                                 <span class="text-[11px] text-slate-400">Plan paso a paso personalizado.</span>
                             </div>
                         </div>
 
                         <!-- CTA Principal Escudo Preventivo -->
-                        <div class="bg-slate-900/90 border border-brand-orange/40 p-5 rounded-2xl max-w-sm mx-auto shadow-2xl mb-4">
-                            <span class="text-[11px] text-brand-orange-light font-black uppercase tracking-wider block mb-1">Diagnóstico Estratégico Personalizado</span>
-                            <p class="text-xs text-slate-300 mb-3">Revisión legal y fiscal directa con el equipo de Aizprua S.E.</p>
+                        <div class="bg-slate-950/70 border border-slate-700/80 p-5 rounded-2xl max-w-sm mx-auto shadow-xl mb-4">
+                            <span class="text-[11px] text-brand-orange font-black uppercase tracking-wider block mb-1">Diagnóstico Estratégico Personalizado</span>
+                            <p class="text-xs text-slate-300 mb-3.5">Revisión legal y fiscal directa con el equipo de Aizprua S.E.</p>
                             
-                            <a href="https://escudo.aizprua.com/"
-                                target="_blank" rel="noopener"
-                                class="w-full inline-flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white font-black text-sm sm:text-base rounded-xl shadow-xl hover:shadow-orange-500/30 transition duration-200 transform hover:-translate-y-0.5 whitespace-nowrap">
+                            <a href="/escudo-preventivo"
+                                class="w-full inline-flex items-center justify-center gap-2 px-6 py-4 bg-brand-orange hover:bg-brand-orange-dark text-white font-black text-sm sm:text-base rounded-xl shadow-lg shadow-orange-500/20 hover:shadow-orange-500/35 transition duration-200 transform hover:-translate-y-0.5 whitespace-nowrap">
                                 <i data-lucide="shield-check" class="w-5 h-5 flex-shrink-0"></i>
                                 <span>Solicitar Escudo Preventivo</span>
                             </a>
 
                             <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20acabo%20de%20hacer%20el%20test%20y%20me%20salieron%20alertas%20cr%C3%ADticas.%20Deseo%20activar%20el%20Escudo%20Preventivo."
                                 target="_blank" rel="noopener"
-                                class="mt-3 inline-flex items-center justify-center gap-1.5 text-xs font-bold text-slate-400 hover:text-emerald-400 transition">
+                                class="mt-3.5 inline-flex items-center justify-center gap-1.5 text-xs font-bold text-slate-400 hover:text-white transition">
                                 <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400"></i>
                                 <span>¿Urgencia? Consulta por WhatsApp</span>
                             </a>
@@ -750,7 +756,7 @@
             switch(profile) {
                 case 'PLANILLA': return 'Empresa con Equipo en Planilla';
                 case 'FREELANCE': return 'Colaboradores Externos / Freelancers';
-                case 'SOLO': return 'Operación 100% Individual';
+                case 'SOLO': return 'Operación Individual (Sin Equipo)';
                 default: return 'Empresarial';
             }
         }
@@ -1143,7 +1149,7 @@
                 riskSummaryText = 'Tu negocio opera en zona de peligro alto. Una inspección fiscal, una demanda de un colaborador o un mes bajo de ventas puede quebrar la operación.';
                 recTitle = 'ACTIVAR EL ESCUDO PREVENTIVO';
                 recDesc = 'Debido a la alta exposición en contratos, finanzas o cumplimiento laboral, se recomienda la intervención prioritaria del Escudo Preventivo para blindar tu patrimonio antes de que estallen multas o litigios.';
-                recLink = 'https://escudo.aizprua.com/';
+                recLink = '/escudo-preventivo';
                 recBtnText = 'Activar Escudo Preventivo';
             } else if (redCount > 2 || yellowCount > 3) {
                 riskLevel = 'VULNERABLE';
@@ -1152,7 +1158,7 @@
                 riskSummaryText = 'Existen fugas de dinero no detectadas y debilidades contractuales que podrían derivar en multas o demandas imprevistas.';
                 recTitle = 'ACTIVAR EL ESCUDO PREVENTIVO';
                 recDesc = 'Tu negocio presenta vulnerabilidades críticas en finanzas o contratos. Te sugerimos activar el Escudo Preventivo para corregir cada punto antes de sufrir pérdidas patrimoniales.';
-                recLink = 'https://escudo.aizprua.com/';
+                recLink = '/escudo-preventivo';
                 recBtnText = 'Activar Escudo Preventivo';
             }
 

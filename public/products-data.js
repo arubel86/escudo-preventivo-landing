@@ -1,4 +1,4 @@
-﻿/**
+/**
  * ============================================================================
  * CATÁLOGO MAESTRO DE PRODUCTOS & SOLUCIONES (AIZPRUA S.E.)
  * ============================================================================
@@ -253,8 +253,8 @@ const AIZPRUA_PRODUCTS = [
         currency: "USD",
         discountBadge: "65% DCTO",
         guarantee: "Garantía 7 días",
-        badgeLeft: { text: "Protocolos de Crisis", class: "bg-amber-500 text-white" },
-        badgeRight: { text: "Descarga Digital", class: "bg-slate-900/90 text-white" },
+        badgeLeft: { text: "Protocolos de Crisis", homeText: "Protocolos de crisis", class: "bg-amber-500 text-white" },
+        badgeRight: { text: "Descarga Digital", homeText: "Descarga digital", class: "bg-slate-900 text-white" },
         image: "assets/portada-kit-problemas-digital.jpg",
         alt: "Kit de Resolución de Problemas Empresariales Multi-Dispositivo",
         fallbackTitle: "Kit de Resolución",
@@ -268,6 +268,7 @@ const AIZPRUA_PRODUCTS = [
         ],
         buyButton: {
             text: "Descargar por $16.99 USD",
+            homeText: "Descargar por $16.99 USD",
             link: "https://pay.hotmart.com/Q88322358Q?checkoutMode=2",
             icon: "shopping-bag",
             class: "bg-brand-blue hover:bg-brand-blue-dark text-white",
@@ -281,7 +282,10 @@ const AIZPRUA_PRODUCTS = [
             class: "text-slate-500 hover:text-brand-blue"
         },
         keywords: "kit resolucion problemas contingencia socios morosos multas inspecciones dgi 50 soluciones",
-        featuredInHome: false
+        featuredInHome: true,
+        homeOrder: 3,
+        homeBorderHover: "hover:border-amber-500",
+        homeStagger: "stagger-3"
     },
     {
         id: "pack-servicios-profesionales",
@@ -672,10 +676,7 @@ const AIZPRUA_PRODUCTS = [
             isStaticBadge: true
         },
         keywords: "test auditoria express 15 puntos semaforo autodiagnostico gratis pdf",
-        featuredInHome: true,
-        homeOrder: 3,
-        homeBorderHover: "hover:border-emerald-500",
-        homeStagger: "stagger-3"
+        featuredInHome: false
     },
     {
         id: "guia-anti-multas",
@@ -804,21 +805,29 @@ function renderHomeFeaturedProducts(containerId = "home-featured-products-grid")
             `;
         } else {
             const oldPriceHTML = product.priceOld ? `<span class="text-xs text-slate-400 line-through mr-1">${product.priceOld}</span>` : "";
-            const discountBadgeHTML = product.homeDiscountBadge
-                ? `<span class="text-[10px] font-black text-brand-orange bg-orange-100 px-2 py-0.5 rounded-md ml-1">${product.homeDiscountBadge}</span>`
-                : (product.discountBadge ? `<span class="text-[10px] font-black text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md ml-1">${product.discountBadge}</span>` : "");
+            const badgeText = product.homeDiscountBadge || product.discountBadge || "";
+            const badgeColorClass = product.homeDiscountBadge ? 'text-brand-orange bg-orange-100' : (product.id === 'kit-resolucion-problemas' ? 'text-amber-700 bg-amber-100' : 'text-emerald-700 bg-emerald-100');
+            const discountBadgeDesktopHTML = badgeText
+                ? `<span class="hidden sm:inline-block text-[10px] font-black ${badgeColorClass} px-2 py-0.5 rounded-md ml-1 whitespace-nowrap">${badgeText}</span>`
+                : "";
+            const discountBadgeMobileHTML = badgeText
+                ? `<span class="inline-block sm:hidden text-[10px] font-black ${badgeColorClass} px-2 py-0.5 rounded-md whitespace-nowrap">${badgeText}</span>`
+                : "";
             
             const rightNoticeClass = product.guarantee ? "text-emerald-600" : "text-slate-500";
 
             priceBlockHTML = `
-                <div class="flex items-baseline justify-between pt-4 border-t border-slate-200 mb-4">
-                    <div class="flex items-baseline gap-1">
+                <div class="flex items-center justify-between pt-4 border-t border-slate-200 mb-4 min-h-[2.5rem] gap-2">
+                    <div class="flex items-baseline gap-1.5 shrink-0">
                         ${oldPriceHTML}
                         <span class="text-2xl font-black text-slate-900">${product.priceDisplay}</span>
-                        <span class="text-[11px] font-bold text-slate-500">${product.currency}</span>
-                        ${discountBadgeHTML}
+                        <span class="text-[10px] font-bold text-slate-500">${product.currency}</span>
+                        ${discountBadgeDesktopHTML}
                     </div>
-                    <span class="text-xs font-bold ${rightNoticeClass}">${paymentNotice}</span>
+                    <div class="flex flex-col sm:flex-row items-end sm:items-baseline gap-0.5 sm:gap-2 text-right shrink-0">
+                        ${discountBadgeMobileHTML}
+                        <span class="text-xs font-bold ${rightNoticeClass} whitespace-nowrap">${paymentNotice}</span>
+                    </div>
                 </div>
             `;
         }

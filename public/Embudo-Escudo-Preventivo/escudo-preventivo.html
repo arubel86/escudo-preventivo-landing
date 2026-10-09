@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -126,37 +126,28 @@
                 class="w-4 h-4"></i></button>
     </div>
 
-    <!-- Navbar -->
-    <nav id="navbar" class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200 transition-shadow">
+    <!-- Navbar Blindada de Conversión (Sin fugas de tráfico) -->
+    <nav id="navbar" class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200/80 transition-shadow">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logotipo Oficial Aizprua S.E. -->
                 <div class="flex items-center">
-                    <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg"
-                        alt="Logo Aizprua S.E. - Trámites Legales Panamá" class="h-28 w-auto object-contain" width="112"
-                        height="112">
-                </div>
-                <div class="hidden md:flex items-center space-x-6">
-                    <a href="/" class="text-slate-600 hover:text-brand-blue font-medium transition">Inicio</a>
-                    <a href="/#diagnostico"
-                        class="text-slate-600 hover:text-brand-blue font-medium transition">Diagnóstico</a>
-                    <a href="/test-interactivo" class="text-sm font-semibold text-brand-orange hover:text-brand-orange-dark transition flex items-center gap-1.5">
-                        <i data-lucide="shield-check" class="w-4 h-4"></i>
-                        <span>Auditoría Gratis</span>
+                    <a href="/" class="flex items-center flex-shrink-0" aria-label="Aizprua S.E.">
+                        <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg"
+                            alt="Logo Aizprua S.E. - Trámites Legales Panamá" class="h-28 w-auto object-contain" width="112"
+                            height="112">
                     </a>
                 </div>
-                <button id="mobile-menu-btn" aria-label="Abrir menú" class="md:hidden text-slate-600"><i
-                        data-lucide="menu" class="h-6 w-6"></i></button>
-                <a href="https://wa.me/50765461527" target="_blank"
-                    class="hidden md:flex items-center gap-2 bg-[#25D366] text-white px-5 py-2 rounded-full font-semibold hover:bg-[#20bd5a] transition shadow-lg">
-                    <i data-lucide="message-circle" class="w-4 h-4"></i>WhatsApp
-                </a>
+
+                <!-- Soporte Directo (Sin fugas de tráfico ni spoilers de la oferta) -->
+                <div class="flex items-center">
+                    <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20tengo%20una%20consulta%20sobre%20el%20Diagn%C3%B3stico%20Escudo%20Preventivo" target="_blank" rel="noopener"
+                        class="flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition shadow-md hover:scale-105">
+                        <i data-lucide="message-circle" class="w-4 h-4 shrink-0"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
             </div>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white p-4 space-y-3 border-t">
-            <a href="/" class="block py-2 text-slate-600 font-medium">Inicio</a>
-            <a href="/#diagnostico" class="block py-2 text-slate-600 font-medium">Diagnóstico</a>
-            <a href="https://wa.me/50765461527" target="_blank" class="block py-2 text-green-600 font-bold">WhatsApp
-                directo</a>
         </div>
     </nav>
 

@@ -390,6 +390,23 @@ app.use((req, res, next) => {
   next();
 });
 
+// 0. Directorio Oficial del Embudo Escudo Preventivo
+const escudoPreventivoDir = path.join(__dirname, 'public', 'Embudo-Escudo-Preventivo');
+
+// Redirecciones canónicas para evitar URLs duplicadas con el nombre de la carpeta
+app.get(['/Embudo-Escudo-Preventivo', '/Embudo-Escudo-Preventivo/', '/Embudo-Escudo-Preventivo/index.html'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/' + query);
+});
+app.get(['/Embudo-Escudo-Preventivo/escudo-preventivo', '/Embudo-Escudo-Preventivo/escudo-preventivo.html'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/escudo-preventivo' + query);
+});
+app.get(['/Embudo-Escudo-Preventivo/gracias', '/Embudo-Escudo-Preventivo/gracias.html'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/gracias' + query);
+});
+
 // 1. Inicio: Enrutamiento Inteligente por Dominio para la Raíz (/)
 // Si el subdominio es explícitamente escudo. (escudo.aizprua.com), muestra index.html (Escudo Preventivo)
 // Para el dominio principal (aizprua.com, www.aizprua.com, localhost), muestra principal.html (Portal Oficial)
@@ -399,7 +416,7 @@ app.get('/', (req, res) => {
 
   // Solo si es explícitamente el subdominio escudo.aizprua.com (evita coincidir con el nombre del contenedor escudo-preventivo)
   if (forwardedHost.startsWith('escudo.') || reqHost.startsWith('escudo.')) {
-    return res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    return res.sendFile(path.join(escudoPreventivoDir, 'index.html'));
   }
 
   // Dominio principal (aizprua.com, www.aizprua.com, localhost): nuevo portal principal
@@ -413,7 +430,7 @@ app.get('/index.html', (req, res) => {
 
 // 2. Página B: Video y Oferta
 app.get('/escudo-preventivo', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'escudo-preventivo.html'));
+  res.sendFile(path.join(escudoPreventivoDir, 'escudo-preventivo.html'));
 });
 
 app.get('/escudo-preventivo.html', (req, res) => {
@@ -603,7 +620,7 @@ app.get('/gracias', (req, res) => {
     console.log('🔒 Acceso no autorizado bloqueado a /gracias. Redirigiendo a /escudo-preventivo...');
     return res.redirect('/escudo-preventivo');
   }
-  res.sendFile(path.join(__dirname, 'public', 'gracias.html'));
+  res.sendFile(path.join(escudoPreventivoDir, 'gracias.html'));
 });
 
 app.get('/gracias.html', (req, res) => {
