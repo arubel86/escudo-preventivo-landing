@@ -474,7 +474,7 @@ app.get(['/gracias-guia.html', '/Embudo-Escudo-Preventivo/gracias-guia', '/Embud
 
 // 4.1. Playbook Oficial & Super-Guía de Blindaje 2026 (Canónica: /guia-blindaje)
 app.get('/guia-blindaje', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'guia.html'));
+  res.sendFile(path.join(__dirname, 'public', 'guia-blindaje.html'));
 });
 
 app.get(['/guia-blindaje.html', '/playbook', '/playbook.html', '/guia', '/guia.html', '/guia-interactiva', '/docs', '/docs.html', '/blindaje'], (req, res) => {
