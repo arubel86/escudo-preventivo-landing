@@ -1504,9 +1504,9 @@
                         <div class="flex-1 flex flex-col">
                             <!-- Portada Showcase con Badge -->
                             <div class="relative bg-slate-100 rounded-2xl overflow-hidden mb-4 aspect-[4/3] border border-slate-200/80">
-                                <img src="/assets/portada-guia-preventiva-2.png?v=2026" alt="Las 7 Multas Ocultas en Panamá"
-                                    data-title="Guía Anti-Multas" data-icon="shield-alert" data-badge="Guía Gratuita ($0)"
-                                    onerror="if(!this.dataset.retried){this.dataset.retried='1';this.src='assets/portada-guia-preventiva-2.png?v=2026';}else{handleProductImageError(this);}"
+                                <img src="assets/portada-guia-preventiva-2.png"
+                                    onerror="this.onerror=null; this.src='/assets/portada-guia-preventiva-2.png';"
+                                    alt="Las 7 Multas Ocultas en Panamá"
                                     class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
                                 <span class="absolute top-3 left-3 bg-brand-orange text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
                                     Gratis ($0)
