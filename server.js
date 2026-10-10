@@ -771,6 +771,36 @@ app.get(['/ruc.html', '/buscador-ruc', '/buscador-ruc.html', '/validador-ruc', '
   res.redirect(301, '/ruc' + query);
 });
 
+// 10.6. Calculadora de Precios y Rentabilidad (Método 4E - Canónica: /calculadora-precios)
+app.get('/calculadora-precios', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'calculadora-precios.html'));
+});
+
+app.get(['/calculadora-precios.html', '/calculadora', '/calculadora.html', '/calculadora-costos', '/calculadora-costos.html'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/calculadora-precios' + query);
+});
+
+// 10.7. Guía Oficial de Préstamos Comerciales (Canónica: /guia-prestamos)
+app.get('/guia-prestamos', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'guia-prestamos.html'));
+});
+
+app.get(['/guia-prestamos.html', '/prestamos', '/prestamos.html'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/guia-prestamos' + query);
+});
+
+// 10.8. Simulador de Préstamos Comerciales & Test Bancario SBP (Canónica: /simulador-prestamos)
+app.get('/simulador-prestamos', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'simulador-prestamos.html'));
+});
+
+app.get(['/simulador-prestamos.html', '/simulador-prestamo', '/simulador-prestamo.html', '/calculadora-prestamos', '/calculadora-prestamos.html', '/test-bancario', '/test-bancario.html'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/simulador-prestamos' + query);
+});
+
 
 
 // ARCHIVOS ESTÁTICOS (Masterclass, Embudo Escudo, Verificador & Landing Page)

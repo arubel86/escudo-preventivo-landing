@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Precios y Rentabilidad · Aizprua S.E. | Método 4E Panamá</title>
+    <meta name="description"
+        content="Calcula el precio de venta real de tus productos físicos, servicios y productos digitales. Simula margen neto, punto de equilibrio y presupuesto publicitario según el Método 4E de Aizprua S.E. en Panamá.">
+    <meta name="keywords"
+        content="calculadora precio de venta, fijar precios panama, margen de ganancia negocio, calcular precio producto digital, metodo 4e aizprua, rentabilidad empresarial panama, cac publicidad">
+    <meta name="author" content="Aizprua S.E.">
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://aizprua.com/calculadora-precios">
+
+    <!-- Open Graph / Redes Sociales Oficial -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Calculadora de Precios y Rentabilidad · Aizprua S.E. | Método 4E">
+    <meta property="og:description"
+        content="Simula el precio de venta real de tus productos físicos o digitales. Evita pérdidas y calcula tu margen contable exacto en Panamá.">
+    <meta property="og:url" content="https://aizprua.com/calculadora-precios">
+    <meta property="og:image" content="https://aizprua.com/assets/aizprua-shield-og.jpg">
+    <meta property="og:image:secure_url" content="https://aizprua.com/assets/aizprua-shield-og.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="1080">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Calculadora de Precios y Rentabilidad · Aizprua S.E. | Método 4E">
+    <meta name="twitter:description"
+        content="Calcula el precio de venta contable de tus productos físicos o digitales en segundos. Herramienta oficial gratuita.">
+    <meta name="twitter:image" content="https://aizprua.com/assets/aizprua-shield-og.jpg">
+
+    <!-- Favicon Oficial -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Tipografía Google Fonts Oficial -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#3849C8',
+                            'blue-dark': '#2D3A9F',
+                            'blue-light': '#4F5ED4',
+                            orange: '#FF8A1E',
+                            'orange-dark': '#E67A15',
+                            'orange-light': '#FFA04A'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+                        heading: ['"Outfit"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Deslizador personalizado elegante */
+        input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #FF8A1E;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(255, 138, 30, 0.4);
+            border: 2px solid #ffffff;
+            transition: transform 0.15s ease;
+        }
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #FF8A1E;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(255, 138, 30, 0.4);
+            border: 2px solid #ffffff;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-orange selection:text-white flex flex-col min-h-screen">
+
+    <!-- Barra de Lectura Canónica Naranja Oficial -->
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-brand-orange z-[60] transition-all duration-75" style="width: 0%;"></div>
+
+    <!-- Barra Superior de Cupos Institucional -->
+    <div id="announcement-bar" class="bg-slate-900 text-white text-xs py-2 px-4 text-center font-medium relative z-50">
+        <div class="max-w-7xl mx-auto flex items-center justify-center gap-2">
+            <span class="inline-flex items-center gap-1.5 bg-brand-orange/20 text-brand-orange font-bold px-2 py-0.5 rounded-full text-[11px]">
+                <i data-lucide="calculator" class="w-3 h-3"></i>
+                Herramienta Oficial Gratuita
+            </span>
+            <span class="text-slate-300">Método 4E · Etapa 2: Fijación Estratégica de Precios y Control de Caja</span>
+        </div>
+    </div>
+
+    <!-- Header Canónico Oficial (h-20 / 80px) -->
+    <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+
+                <!-- Logotipo Canónico Centrado Verticalmente -->
+                <a href="/" class="flex items-center flex-shrink-0" aria-label="Aizprua S.E. Inicio">
+                    <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg"
+                        onerror="this.onerror=null; this.src='/assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg';"
+                        alt="Logo Aizprua S.E. - Firma Legal y Empresarial en Panamá"
+                        class="h-28 w-auto object-contain" width="112" height="112">
+                </a>
+
+                <!-- Navegación de Escritorio Limpia -->
+                <nav class="hidden lg:flex items-center space-x-8 text-sm font-semibold text-slate-700">
+                    <a href="/#servicios" class="hover:text-brand-blue transition">Servicios</a>
+                    <a href="/tienda" class="hover:text-brand-blue transition">Tienda Online</a>
+                    <a href="/escuela" class="hover:text-brand-blue transition flex items-center gap-1.5">
+                        <i data-lucide="graduation-cap" class="w-4 h-4 text-brand-blue"></i>
+                        <span>Escuela</span>
+                    </a>
+                    <a href="/blog" class="hover:text-brand-blue transition">Blog</a>
+                    <a href="/test-interactivo" class="text-sm font-semibold text-brand-orange hover:text-brand-orange-dark transition flex items-center gap-1.5">
+                        <i data-lucide="shield-check" class="w-4 h-4"></i>
+                        <span>Auditoría Gratis</span>
+                    </a>
+                </nav>
+
+                <!-- Botón WhatsApp Oficial Canónico -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20estoy%20usando%20la%20calculadora%20de%20precios%20y%20me%20gustar%C3%ADa%20asesor%C3%ADa"
+                        target="_blank" rel="noopener"
+                        class="flex items-center gap-2 bg-[#25D366] text-white px-5 py-2.5 rounded-full font-bold text-sm hover:bg-[#20bd5a] transition shadow-md hover:shadow-lg whitespace-nowrap transform hover:-translate-y-0.5">
+                        <i data-lucide="message-circle" class="w-4 h-4 flex-shrink-0"></i>
+                        <span>WhatsApp Oficial</span>
+                    </a>
+                </div>
+
+                <!-- Botón Menú Móvil -->
+                <div class="flex items-center lg:hidden">
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Abrir menú"
+                        class="text-slate-700 hover:text-brand-blue p-2 rounded-lg focus:outline-none">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Móvil Desplegable -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-200 px-4 pt-3 pb-6 space-y-3">
+            <a href="/#servicios" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-bold hover:text-brand-blue border-b border-slate-100">
+                Servicios (Asesoría & Trámites)
+            </a>
+            <a href="/tienda" class="block py-2 text-slate-700 font-bold hover:text-brand-blue border-b border-slate-100">
+                Tienda Online (Plan 360 & Kits)
+            </a>
+            <a href="/escuela" class="block py-2 text-slate-700 font-bold hover:text-brand-blue border-b border-slate-100">
+                Escuela de Negocios (Campus Virtual)
+            </a>
+            <a href="/blog" class="block py-2 text-slate-700 font-bold hover:text-brand-blue border-b border-slate-100">
+                Blog de Inteligencia Empresarial
+            </a>
+            <a href="/test-interactivo" class="block py-2 text-brand-orange font-bold border-b border-slate-100">
+                Test de Auditoría en Vivo (3 min)
+            </a>
+            <a href="https://wa.me/50765461527" target="_blank"
+                class="flex items-center justify-center gap-2 bg-[#25D366] text-white px-4 py-3 rounded-xl font-bold text-sm shadow mt-2">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                <span>Chatear por WhatsApp (+507 6546-1527)</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="flex-grow py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+
+        <!-- Hero de la Calculadora -->
+        <div class="text-center max-w-3xl mx-auto mb-10 space-y-4">
+            <div class="inline-flex items-center gap-2 bg-brand-orange/10 border border-brand-orange/20 text-brand-orange px-4 py-1.5 rounded-full text-xs font-black tracking-wider uppercase">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                Método 4E · Etapa 2: Precios y Rentabilidad
+            </div>
+
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight font-heading">
+                Calculadora de Precio de Venta y Margen de Utilidad
+            </h1>
+
+            <p class="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+                Fija precios científicamente con la fórmula contable estricta. Evita el error más destructivo de los emprendedores: confundir <strong>marcado simple (markup)</strong> con <strong>margen real de ganancia</strong>.
+            </p>
+        </div>
+
+        <!-- Selector de Modo / Pestañas Principales -->
+        <div class="max-w-4xl mx-auto mb-8">
+            <div class="bg-white p-1.5 rounded-2xl border border-slate-200 shadow-sm flex flex-col sm:flex-row gap-2">
+                <button id="tab-fisico" onclick="switchMainTab('fisico')"
+                    class="flex-1 flex items-center justify-center gap-2.5 py-3 px-5 rounded-xl font-bold text-sm transition-all shadow-sm bg-brand-blue text-white">
+                    <i data-lucide="package" class="w-4 h-4"></i>
+                    <span>Productos Físicos & Servicios</span>
+                </button>
+                <button id="tab-digital" onclick="switchMainTab('digital')"
+                    class="flex-1 flex items-center justify-center gap-2.5 py-3 px-5 rounded-xl font-bold text-sm transition-all text-slate-600 hover:text-slate-900 hover:bg-slate-50">
+                    <i data-lucide="laptop" class="w-4 h-4"></i>
+                    <span>Productos Digitales & Cursos</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SECCIÓN 1: PRODUCTOS FÍSICOS Y SERVICIOS                      -->
+        <!-- ============================================================ -->
+        <section id="panel-fisico" class="max-w-5xl mx-auto transition-all duration-300">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+
+                <!-- Columna Izquierda: Parámetros de Entrada (7 Cols) -->
+                <div class="lg:col-span-7 bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-sm flex flex-col justify-between h-full">
+                    <div class="space-y-6">
+                        <div class="border-b border-slate-100 pb-4 flex items-start gap-3">
+                            <span class="w-8 h-8 rounded-full bg-brand-blue text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-sm mt-0.5">
+                                1
+                            </span>
+                            <div>
+                                <h2 class="text-lg font-black text-slate-900 font-heading leading-tight">Datos del Producto o Servicio</h2>
+                                <p class="text-xs text-slate-500 mt-0.5">Ingresa el costo directo y el margen que deseas asegurar.</p>
+                            </div>
+                        </div>
+
+                    <!-- Input: Nombre -->
+                    <div>
+                        <label for="fisico-nombre" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                            Nombre del producto o servicio
+                        </label>
+                        <div class="relative">
+                            <i data-lucide="tag" class="w-4 h-4 absolute left-3.5 top-3.5 text-slate-400"></i>
+                            <input type="text" id="fisico-nombre" value="Camiseta Premium"
+                                class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold text-slate-800 focus:bg-white focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 transition outline-none"
+                                placeholder="Ej. Camiseta, Consulta legal, Pastel...">
+                        </div>
+                    </div>
+
+                    <!-- Input: Costo Directo -->
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <label for="fisico-costo" class="text-xs font-bold text-slate-700 uppercase tracking-wider">
+                                Costo Directo Unitario ($ USD)
+                            </label>
+                            <span class="text-[11px] text-slate-400">Materia prima + manufactura + empaque</span>
+                        </div>
+                        <div class="relative">
+                            <span class="absolute left-4 top-3 text-sm font-black text-slate-400">$</span>
+                            <input type="number" id="fisico-costo" value="63.00" min="0.01" step="0.50"
+                                oninput="calcularFisico()"
+                                class="w-full pl-8 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-base font-bold text-slate-900 focus:bg-white focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 transition outline-none">
+                        </div>
+                    </div>
+
+                    <!-- Slider: Margen Deseado -->
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <label for="fisico-margen-range" class="text-xs font-bold text-slate-700 uppercase tracking-wider">
+                                Margen de Utilidad Deseado
+                            </label>
+                            <span id="fisico-margen-badge" class="bg-brand-orange/10 text-brand-orange text-xs font-black px-2.5 py-0.5 rounded-full border border-brand-orange/20">
+                                40%
+                            </span>
+                        </div>
+                        <input type="range" id="fisico-margen-range" min="1" max="90" value="40"
+                            oninput="syncMargenFisico(this.value)"
+                            class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-brand-orange">
+                        <div class="flex justify-between text-[11px] text-slate-400 font-semibold mt-1.5">
+                            <span>1% (Mínimo)</span>
+                            <span>40% (Estándar)</span>
+                            <span>60% (Alto)</span>
+                            <span>90% (Premium)</span>
+                        </div>
+                    </div>
+
+                    <!-- Cuadro Pedagógico: Markup vs Margen Real -->
+                    <div class="bg-amber-50/70 border border-amber-200/80 rounded-2xl p-4 text-xs space-y-2">
+                        <div class="flex items-start gap-2 text-amber-900 font-bold">
+                            <i data-lucide="alert-triangle" class="w-4 h-4 shrink-0 text-amber-600 mt-0.5"></i>
+                            <span>¿Por qué no multiplicar simplemente: Costo × 1.40?</span>
+                        </div>
+                        <p class="text-slate-600 leading-relaxed">
+                            Si multiplicas <strong class="text-slate-900">$63 × 1.40 = $88.20</strong>, al vender a $88.20 tu ganancia es $25.20, lo que representa solo un <strong>28.5%</strong> de margen real, perdiendo casi un 12% de tu caja. Con la fórmula contable oficial (<code class="bg-white px-1.5 py-0.5 rounded text-brand-blue font-bold">Costo / (1 - Margen)</code>), tu precio real es <strong>$105.00</strong>.
+                        </p>
+                    </div>
+                    </div>
+
+                    <!-- Márgenes de Referencia por Industria en Panamá (Aprovechamiento de Espacio) -->
+                    <div class="mt-6 pt-5 border-t border-slate-100">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-1.5">
+                                <i data-lucide="bar-chart-3" class="w-3.5 h-3.5 text-brand-blue"></i>
+                                Márgenes Típicos en Panamá
+                            </span>
+                            <span class="text-[10px] text-slate-400 font-medium">Toca para aplicar al slider</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                            <button type="button" onclick="setMargenRapido(35)"
+                                class="bg-slate-50 hover:bg-brand-blue/5 hover:border-brand-blue/40 border border-slate-200/90 rounded-2xl p-3 text-left transition-all group flex flex-col justify-between cursor-pointer">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider group-hover:text-brand-blue">Comercio</span>
+                                    <i data-lucide="shopping-bag" class="w-3.5 h-3.5 text-slate-400 group-hover:text-brand-blue transition"></i>
+                                </div>
+                                <span class="text-base font-black text-slate-900 font-heading group-hover:text-brand-blue">30% - 40%</span>
+                                <span class="text-[10px] text-slate-400 mt-0.5 leading-tight">Retail y reventa</span>
+                            </button>
+
+                            <button type="button" onclick="setMargenRapido(55)"
+                                class="bg-slate-50 hover:bg-brand-blue/5 hover:border-brand-blue/40 border border-slate-200/90 rounded-2xl p-3 text-left transition-all group flex flex-col justify-between cursor-pointer">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider group-hover:text-brand-blue">Servicios</span>
+                                    <i data-lucide="briefcase" class="w-3.5 h-3.5 text-slate-400 group-hover:text-brand-blue transition"></i>
+                                </div>
+                                <span class="text-base font-black text-slate-900 font-heading group-hover:text-brand-blue">50% - 65%</span>
+                                <span class="text-[10px] text-slate-400 mt-0.5 leading-tight">Honorarios y asesorías</span>
+                            </button>
+
+                            <button type="button" onclick="setMargenRapido(65)"
+                                class="bg-slate-50 hover:bg-brand-blue/5 hover:border-brand-blue/40 border border-slate-200/90 rounded-2xl p-3 text-left transition-all group flex flex-col justify-between cursor-pointer">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider group-hover:text-brand-blue">Gastronomía</span>
+                                    <i data-lucide="utensils" class="w-3.5 h-3.5 text-slate-400 group-hover:text-brand-blue transition"></i>
+                                </div>
+                                <span class="text-base font-black text-slate-900 font-heading group-hover:text-brand-blue">60% - 70%</span>
+                                <span class="text-[10px] text-slate-400 mt-0.5 leading-tight">Restaurantes y cafés</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Columna Derecha: Tarjeta de Resultados (5 Cols) -->
+                <div class="lg:col-span-5 bg-gradient-to-br from-slate-900 via-slate-900 to-brand-blue-dark text-white rounded-3xl p-6 sm:p-8 shadow-xl relative overflow-hidden flex flex-col justify-between h-full">
+                    <div class="space-y-6">
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Resultado Oficial</span>
+                            <span class="bg-emerald-500/20 text-emerald-300 text-[11px] font-bold px-2.5 py-0.5 rounded-full border border-emerald-500/30">
+                                Método 4E Verificado
+                            </span>
+                        </div>
+
+                        <!-- Precio Recomendado -->
+                        <div>
+                            <span class="text-xs font-medium text-slate-300 block mb-1">Precio de Venta Sugerido:</span>
+                            <div class="flex items-baseline gap-2">
+                                <span class="text-4xl sm:text-5xl font-black text-brand-orange font-heading" id="fisico-precio-venta">$105.00</span>
+                                <span class="text-sm font-bold text-slate-400">USD</span>
+                            </div>
+                            <span class="text-[11px] text-slate-400 block mt-1">Precio de lista para absorber costos y asegurar tu margen.</span>
+                        </div>
+
+                        <!-- Desglose Financiero -->
+                        <div class="bg-white/5 backdrop-blur rounded-2xl p-4 border border-white/10 space-y-3">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-slate-300">Costo directo:</span>
+                                <span class="font-bold text-white" id="fisico-res-costo">$63.00</span>
+                            </div>
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-slate-300">Utilidad bruta por unidad:</span>
+                                <span class="font-bold text-emerald-400 text-sm" id="fisico-res-ganancia">+$42.00</span>
+                            </div>
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-slate-300">Margen real garantizado:</span>
+                                <span class="font-bold text-brand-orange" id="fisico-res-margen">40.0%</span>
+                            </div>
+                        </div>
+
+                        <!-- Barra Gráfica de Reparto -->
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between text-[11px] text-slate-300 font-semibold">
+                                <span>Costo: <strong id="fisico-bar-costo-pct">60%</strong></span>
+                                <span>Ganancia: <strong id="fisico-bar-ganancia-pct">40%</strong></span>
+                            </div>
+                            <div class="w-full h-3 bg-slate-800 rounded-full overflow-hidden flex">
+                                <div id="fisico-bar-costo" class="bg-slate-400 transition-all duration-300" style="width: 60%;"></div>
+                                <div id="fisico-bar-ganancia" class="bg-brand-orange transition-all duration-300" style="width: 40%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Micro-Métricas de Facturación e ITBMS en Panamá (Aprovechamiento de Espacio) -->
+                        <div class="grid grid-cols-2 gap-2.5 pt-1 text-xs">
+                            <div class="bg-white/5 backdrop-blur rounded-2xl p-3 border border-white/10 space-y-1">
+                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Con ITBMS (7%):</span>
+                                <span class="text-base font-black text-white block font-heading" id="fisico-precio-itbms">$112.35</span>
+                                <span class="text-[10px] text-slate-400 block leading-tight">Precio final al consumidor</span>
+                            </div>
+                            <div class="bg-white/5 backdrop-blur rounded-2xl p-3 border border-white/10 space-y-1">
+                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Multiplicador (Markup):</span>
+                                <span class="text-base font-black text-brand-orange block font-heading" id="fisico-multiplicador">1.67x</span>
+                                <span class="text-[10px] text-slate-400 block leading-tight">Sobre tu costo directo</span>
+                            </div>
+                        </div>
+
+                        <!-- Proyección de Ganancia Bruta por Escala (Equilibrio de Altura) -->
+                        <div class="bg-white/5 backdrop-blur rounded-2xl p-3.5 border border-white/10 text-xs">
+                            <div class="flex items-center justify-between mb-2 pb-1.5 border-b border-white/10">
+                                <span class="text-[11px] font-bold text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
+                                    <i data-lucide="trending-up" class="w-3.5 h-3.5 text-emerald-400"></i>
+                                    Proyección de Ganancia Bruta
+                                </span>
+                                <span class="text-[10px] text-slate-400">Según volumen</span>
+                            </div>
+                            <div class="grid grid-cols-3 gap-2 text-center">
+                                <div class="bg-white/5 p-2 rounded-xl">
+                                    <span class="text-[10px] text-slate-400 block">10 uds.</span>
+                                    <span class="text-xs sm:text-sm font-bold text-emerald-400 font-heading" id="fisico-vol-10">+$420</span>
+                                </div>
+                                <div class="bg-white/5 p-2 rounded-xl">
+                                    <span class="text-[10px] text-slate-400 block">50 uds.</span>
+                                    <span class="text-xs sm:text-sm font-bold text-emerald-400 font-heading" id="fisico-vol-50">+$2,100</span>
+                                </div>
+                                <div class="bg-brand-orange/10 p-2 rounded-xl border border-brand-orange/30">
+                                    <span class="text-[10px] text-brand-orange-light font-bold block">100 uds.</span>
+                                    <span class="text-xs sm:text-sm font-black text-brand-orange font-heading" id="fisico-vol-100">+$4,200</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Mensaje Inferior -->
+                    <div class="pt-6 border-t border-slate-800/80 mt-6">
+                        <div class="flex items-start gap-2.5 text-[11px] text-slate-400 leading-relaxed">
+                            <i data-lucide="info" class="w-4 h-4 text-brand-orange shrink-0 mt-0.5"></i>
+                            <span class="leading-snug"><em>Recuerda: Esta es la ganancia bruta antes de pagar costos fijos (alquiler, nómina, contabilidad).</em></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- SECCIÓN 2: PRODUCTOS DIGITALES, CURSOS & MEMBRESÍAS         -->
+        <!-- ============================================================ -->
+        <section id="panel-digital" class="max-w-5xl mx-auto hidden transition-all duration-300">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+
+                <!-- Columna Izquierda: Entradas de Costos Digitales (7 Cols) -->
+                <div class="lg:col-span-7 bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-sm flex flex-col justify-between h-full">
+                    <div class="space-y-6">
+                        <div class="border-b border-slate-100 pb-4 flex items-start gap-3">
+                            <span class="w-8 h-8 rounded-full bg-brand-blue text-white flex items-center justify-center font-bold text-sm shrink-0 shadow-sm mt-0.5">
+                                2
+                            </span>
+                            <div>
+                                <h2 class="text-lg font-black text-slate-900 font-heading leading-tight">Estructura de Infoproducto Digital</h2>
+                                <p class="text-xs text-slate-500 mt-0.5">Calcula absorbiendo horas de creación, software, plataformas y CAC.</p>
+                            </div>
+                        </div>
+
+                    <!-- Sub-Modo: ¿Sin precio o con precio fijo? -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                            Objetivo del cálculo
+                        </label>
+                        <div class="grid grid-cols-2 gap-2 bg-slate-100 p-1 rounded-xl text-xs font-bold">
+                            <button type="button" id="subtab-sin-precio" onclick="setDigitalMode('sin-precio')"
+                                class="py-2.5 rounded-lg bg-white text-brand-blue shadow-xs transition">
+                                Descubrir Precio Óptimo
+                            </button>
+                            <button type="button" id="subtab-con-precio" onclick="setDigitalMode('con-precio')"
+                                class="py-2.5 rounded-lg text-slate-600 hover:text-slate-900 transition">
+                                Fijar Precio y Calcular Ventas
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Bloque A: Meta de Ganancia y Horas de Trabajo -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="digital-meta-ganancia" class="block text-xs font-bold text-slate-700 mb-1">
+                                ¿Cuánto quieres ganar? ($)
+                            </label>
+                            <input type="number" id="digital-meta-ganancia" value="2000" min="100" step="100"
+                                oninput="calcularDigital()"
+                                class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-bold text-slate-900 focus:bg-white focus:border-brand-blue outline-none">
+                        </div>
+
+                        <div id="wrapper-unidades-o-precio">
+                            <label id="label-unidades-o-precio" for="digital-unidades-o-precio" class="block text-xs font-bold text-slate-700 mb-1">
+                                Unidades estimadas a vender
+                            </label>
+                            <input type="number" id="digital-unidades-o-precio" value="100" min="1" step="5"
+                                oninput="calcularDigital()"
+                                class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-bold text-slate-900 focus:bg-white focus:border-brand-blue outline-none">
+                        </div>
+                    </div>
+
+                    <!-- Bloque B: Costos de Creación (Horas + Herramientas) -->
+                    <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/80 space-y-3">
+                        <span class="text-xs font-black uppercase tracking-wider text-slate-700 block">
+                            Costos de Creación y Producción
+                        </span>
+                        
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                            <div>
+                                <label for="digital-horas" class="block text-[11px] font-bold text-slate-600 mb-1">
+                                    Horas dedicadas
+                                </label>
+                                <input type="number" id="digital-horas" value="22" min="0" step="1"
+                                    oninput="calcularDigital()"
+                                    class="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-xs font-bold outline-none">
+                            </div>
+                            <div>
+                                <label for="digital-valor-hora" class="block text-[11px] font-bold text-slate-600 mb-1">
+                                    Valor de tu hora ($)
+                                </label>
+                                <input type="number" id="digital-valor-hora" value="7" min="1" step="1"
+                                    oninput="calcularDigital()"
+                                    class="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-xs font-bold outline-none">
+                            </div>
+                            <div class="col-span-2 sm:col-span-1">
+                                <label for="digital-otros-costos" class="block text-[11px] font-bold text-slate-600 mb-1">
+                                    Software / Licencias ($)
+                                </label>
+                                <input type="number" id="digital-otros-costos" value="159" min="0" step="10"
+                                    oninput="calcularDigital()"
+                                    class="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-xs font-bold outline-none">
+                            </div>
+                        </div>
+
+                        <div class="text-[11px] text-slate-500 flex justify-between pt-1">
+                            <span>Costo de Producción Total:</span>
+                            <span class="font-bold text-slate-900" id="digital-costo-total-preview">$313.00</span>
+                        </div>
+                    </div>
+
+                    <!-- Bloque C: Plataformas & Publicidad (CAC) -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <div class="flex items-center justify-between mb-1">
+                                <label for="digital-comision-plat" class="text-xs font-bold text-slate-700">
+                                    Comisión Pasarela / Plataforma
+                                </label>
+                                <span id="digital-plat-val" class="text-xs font-bold text-brand-blue">15%</span>
+                            </div>
+                            <input type="range" id="digital-comision-plat" min="3" max="30" value="15"
+                                oninput="document.getElementById('digital-plat-val').textContent = this.value + '%'; calcularDigital();"
+                                class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-brand-blue">
+                            <span class="text-[10px] text-slate-400 block mt-1">Stripe, Hotmart, PayPal, Banco General</span>
+                        </div>
+
+                        <div>
+                            <div class="flex items-center justify-between mb-1">
+                                <label for="digital-cac-pct" class="text-xs font-bold text-slate-700">
+                                    Inversión Adquisición (CAC)
+                                </label>
+                                <span id="digital-cac-val" class="text-xs font-bold text-brand-orange">25%</span>
+                            </div>
+                            <input type="range" id="digital-cac-pct" min="0" max="50" value="25"
+                                oninput="document.getElementById('digital-cac-val').textContent = this.value + '%'; calcularDigital();"
+                                class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-brand-orange">
+                            <span class="text-[10px] text-slate-400 block mt-1">% de cada venta destinado a pauta en Meta/Google</span>
+                        </div>
+                    </div>
+                    </div>
+
+                    <!-- Modelos Típicos de Infoproducto (Equilibrio de Altura) -->
+                    <div class="mt-6 pt-5 border-t border-slate-100">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-1.5">
+                                <i data-lucide="layers" class="w-3.5 h-3.5 text-brand-blue"></i>
+                                Modelos Típicos de Infoproducto
+                            </span>
+                            <span class="text-[10px] text-slate-400 font-medium">Toca para cargar plantilla</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                            <button type="button" onclick="setModeloDigital('low')"
+                                class="bg-slate-50 hover:bg-brand-blue/5 hover:border-brand-blue/40 border border-slate-200/90 rounded-2xl p-3 text-left transition-all group flex flex-col justify-between cursor-pointer">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider group-hover:text-brand-blue">Low Ticket</span>
+                                    <i data-lucide="download" class="w-3.5 h-3.5 text-slate-400 group-hover:text-brand-blue transition"></i>
+                                </div>
+                                <span class="text-base font-black text-slate-900 font-heading group-hover:text-brand-blue">$27 USD</span>
+                                <span class="text-[10px] text-slate-400 mt-0.5 leading-tight">100 ventas · CAC 35%</span>
+                            </button>
+
+                            <button type="button" onclick="setModeloDigital('mid')"
+                                class="bg-slate-50 hover:bg-brand-blue/5 hover:border-brand-blue/40 border border-slate-200/90 rounded-2xl p-3 text-left transition-all group flex flex-col justify-between cursor-pointer">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider group-hover:text-brand-blue">Mid Ticket</span>
+                                    <i data-lucide="video" class="w-3.5 h-3.5 text-slate-400 group-hover:text-brand-blue transition"></i>
+                                </div>
+                                <span class="text-base font-black text-slate-900 font-heading group-hover:text-brand-blue">$97 USD</span>
+                                <span class="text-[10px] text-slate-400 mt-0.5 leading-tight">35 ventas · CAC 25%</span>
+                            </button>
+
+                            <button type="button" onclick="setModeloDigital('high')"
+                                class="bg-slate-50 hover:bg-brand-blue/5 hover:border-brand-blue/40 border border-slate-200/90 rounded-2xl p-3 text-left transition-all group flex flex-col justify-between cursor-pointer">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider group-hover:text-brand-blue">High Ticket</span>
+                                    <i data-lucide="award" class="w-3.5 h-3.5 text-slate-400 group-hover:text-brand-blue transition"></i>
+                                </div>
+                                <span class="text-base font-black text-slate-900 font-heading group-hover:text-brand-blue">$497 USD</span>
+                                <span class="text-[10px] text-slate-400 mt-0.5 leading-tight">10 ventas · CAC 15%</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Tarjeta de Métricas Digitales (5 Cols) -->
+                <div class="lg:col-span-5 bg-gradient-to-br from-slate-900 via-slate-900 to-brand-blue-dark text-white rounded-3xl p-6 sm:p-8 shadow-xl relative overflow-hidden flex flex-col justify-between h-full">
+                    <div class="space-y-6">
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Plan de Rentabilidad Digital</span>
+                            <span class="bg-brand-orange/20 text-brand-orange text-[11px] font-bold px-2.5 py-0.5 rounded-full border border-brand-orange/30">
+                                4E Digital
+                            </span>
+                        </div>
+
+                        <!-- Métrica Principal Dinámica -->
+                        <div>
+                            <span class="text-xs font-medium text-slate-300 block mb-1" id="digital-main-metric-label">
+                                Precio Óptimo Sugerido:
+                            </span>
+                            <div class="flex items-baseline gap-2">
+                                <span class="text-4xl sm:text-5xl font-black text-brand-orange font-heading" id="digital-main-metric-value">$26.13</span>
+                                <span class="text-sm font-bold text-slate-400" id="digital-main-metric-unit">USD</span>
+                            </div>
+                            <span class="text-[11px] text-slate-400 block mt-1" id="digital-main-metric-sub">
+                                Precio mínimo de venta para asegurar tu meta de beneficio neto.
+                            </span>
+                        </div>
+
+                        <!-- Tarjeta de Indicadores Unitarios -->
+                        <div class="bg-white/5 backdrop-blur rounded-2xl p-4 border border-white/10 space-y-3 text-xs">
+                            <div class="flex items-center justify-between">
+                                <span class="text-slate-300">Costo real por unidad:</span>
+                                <span class="font-bold text-white" id="digital-res-costo-unit">$6.13</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-slate-300">CAC Máximo Recomendado:</span>
+                                <span class="font-bold text-amber-400" id="digital-res-cac-unit">$5.00 / cliente</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-slate-300">Presupuesto Ads Total:</span>
+                                <span class="font-bold text-brand-orange" id="digital-res-ads-total">$500.00</span>
+                            </div>
+                            <div class="flex items-center justify-between pt-2 border-t border-white/10">
+                                <span class="text-slate-300">Ganancia Neta (con Ads):</span>
+                                <span class="font-bold text-emerald-400 text-sm" id="digital-res-ganancia-neta">$1,500.00</span>
+                            </div>
+                        </div>
+
+                        <!-- Barra de Reparto de la Facturación -->
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between text-[11px] text-slate-300 font-semibold">
+                                <span>Costos + Plat</span>
+                                <span>Ads (CAC)</span>
+                                <span>Ganancia Neta</span>
+                            </div>
+                            <div class="w-full h-3 bg-slate-800 rounded-full overflow-hidden flex">
+                                <div id="digital-bar-costos" class="bg-slate-400 transition-all duration-300" style="width: 25%;"></div>
+                                <div id="digital-bar-ads" class="bg-amber-500 transition-all duration-300" style="width: 20%;"></div>
+                                <div id="digital-bar-neta" class="bg-emerald-500 transition-all duration-300" style="width: 55%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Micro-Métricas de Facturación Digital & ROAS (Aprovechamiento de Espacio) -->
+                        <div class="grid grid-cols-2 gap-2.5 pt-1 text-xs">
+                            <div class="bg-white/5 backdrop-blur rounded-2xl p-3 border border-white/10 space-y-1">
+                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">ROAS Mínimo en Ads:</span>
+                                <span class="text-base font-black text-amber-400 block font-heading" id="digital-roas-minimo">4.0x</span>
+                                <span class="text-[10px] text-slate-400 block leading-tight">Retorno mínimo para no perder</span>
+                            </div>
+                            <div class="bg-white/5 backdrop-blur rounded-2xl p-3 border border-white/10 space-y-1">
+                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Facturación Proyectada:</span>
+                                <span class="text-base font-black text-white block font-heading" id="digital-facturacion-total">$2,613.00</span>
+                                <span class="text-[10px] text-slate-400 block leading-tight">Volumen total de ventas estimado</span>
+                            </div>
+                        </div>
+
+                        <!-- Balance Total del Lanzamiento (Equilibrio de Altura) -->
+                        <div class="bg-white/5 backdrop-blur rounded-2xl p-3.5 border border-white/10 text-xs">
+                            <div class="flex items-center justify-between mb-2 pb-1.5 border-b border-white/10">
+                                <span class="text-[11px] font-bold text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
+                                    <i data-lucide="pie-chart" class="w-3.5 h-3.5 text-brand-orange"></i>
+                                    Balance Financiero del Proyecto
+                                </span>
+                                <span class="text-[10px] text-slate-400">Proyección total</span>
+                            </div>
+                            <div class="grid grid-cols-3 gap-2 text-center">
+                                <div class="bg-white/5 p-2 rounded-xl">
+                                    <span class="text-[10px] text-slate-400 block">Producción</span>
+                                    <span class="text-xs sm:text-sm font-bold text-slate-200 font-heading" id="digital-balance-prod">$313</span>
+                                </div>
+                                <div class="bg-white/5 p-2 rounded-xl">
+                                    <span class="text-[10px] text-slate-400 block">Pauta Ads</span>
+                                    <span class="text-xs sm:text-sm font-bold text-amber-400 font-heading" id="digital-balance-ads">$964</span>
+                                </div>
+                                <div class="bg-emerald-500/10 p-2 rounded-xl border border-emerald-500/30">
+                                    <span class="text-[10px] text-emerald-300 font-bold block">Meta Neta</span>
+                                    <span class="text-xs sm:text-sm font-black text-emerald-400 font-heading" id="digital-balance-meta">$2,000</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Mensaje Inferior -->
+                    <div class="pt-6 border-t border-slate-800/80 mt-6">
+                        <div class="flex items-start gap-2.5 text-[11px] text-slate-400 leading-relaxed">
+                            <i data-lucide="info" class="w-4 h-4 text-brand-orange shrink-0 mt-0.5"></i>
+                            <span class="leading-snug"><em>Si tu CAC en Meta Ads supera los <strong class="text-white" id="digital-cac-advice">$5.00</strong>, estarás comiéndote la ganancia proyectada.</em></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================================ -->
+        <!-- BANNER DE CONVERSIÓN: BLINDAJE & ESCUDO PREVENTIVO          -->
+        <!-- ============================================================ -->
+        <section class="max-w-5xl mx-auto mt-16">
+            <div class="bg-slate-900 rounded-3xl p-8 sm:p-10 text-white relative overflow-hidden shadow-2xl border border-slate-800">
+                <!-- Efecto de Luz Ambiental -->
+                <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-brand-blue/30 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -left-20 -top-20 w-80 h-80 bg-brand-orange/20 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-8 space-y-4">
+                        <span class="inline-flex items-center gap-1.5 text-xs font-bold text-brand-orange uppercase tracking-wider bg-brand-orange/10 px-3 py-1 rounded-full border border-brand-orange/20">
+                            <i data-lucide="shield-alert" class="w-3.5 h-3.5"></i>
+                            El Siguiente Paso Crítico en Panamá
+                        </span>
+
+                        <h2 class="text-2xl sm:text-3xl font-black text-white font-heading tracking-tight leading-tight">
+                            Tener precios rentables en papel no sirve de nada si una multa se come tu caja
+                        </h2>
+
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                            En Panamá, una sola sanción de la DGI por timbres, un aviso de operación mal clasificado o una demanda de Mitradel puede costarte entre $1,000 y $15,000 USD. Asegura el margen que acabas de calcular con nuestro diagnóstico de riesgo empresarial.
+                        </p>
+                    </div>
+
+                    <div class="lg:col-span-4 flex flex-col gap-3">
+                        <a href="/test-interactivo"
+                            class="inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orange-dark text-white font-bold px-6 py-3.5 rounded-xl shadow-lg transition transform hover:-translate-y-0.5 text-sm text-center">
+                            <i data-lucide="shield-check" class="w-4 h-4 shrink-0"></i>
+                            <span>Hacer Diagnóstico Anti-Multas</span>
+                        </a>
+
+                        <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20acabo%20de%20usar%20la%20calculadora%20de%20precios%20y%20quiero%20blindar%20mi%20negocio"
+                            target="_blank" rel="noopener"
+                            class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-xl border border-white/10 transition text-xs text-center">
+                            <i data-lucide="message-circle" class="w-3.5 h-3.5 shrink-0 text-[#25D366]"></i>
+                            <span>Consultar Asesor Legal</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================================ -->
+    <!-- FOOTER CANÓNICO OFICIAL (4 COLUMNAS)                        -->
+    <!-- ============================================================ -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+
+                <!-- Columna 1: Marca y Redes -->
+                <div class="flex flex-col items-start">
+                    <a href="/" class="text-xl font-bold text-white tracking-tight mb-3 hover:text-brand-orange transition inline-block">Aizprua S.E.</a>
+                    <p class="text-sm text-slate-400 mb-3">Tu aliado legal y empresarial en Panamá.</p>
+                    <div class="flex gap-3">
+                        <a target="_blank" rel="noopener" href="https://instagram.com/aizpruase"
+                            class="w-10 h-10 bg-slate-800 hover:bg-pink-600 rounded-full flex items-center justify-center text-white transition"
+                            aria-label="Instagram">
+                            <i data-lucide="instagram" class="w-4 h-4"></i>
+                        </a>
+                        <a target="_blank" rel="noopener" href="https://facebook.com/aizpruase"
+                            class="w-10 h-10 bg-slate-800 hover:bg-blue-600 rounded-full flex items-center justify-center text-white transition"
+                            aria-label="Facebook">
+                            <i data-lucide="facebook" class="w-4 h-4"></i>
+                        </a>
+                        <a target="_blank" rel="noopener" href="https://youtube.com/@aizpruase"
+                            class="w-10 h-10 bg-slate-800 hover:bg-red-600 rounded-full flex items-center justify-center text-white transition"
+                            aria-label="YouTube">
+                            <i data-lucide="youtube" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Soluciones -->
+                <div>
+                    <h4 class="text-white font-bold mb-3 text-sm uppercase tracking-wider">Soluciones</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/#servicios" class="hover:text-white transition">Servicios Legales</a></li>
+                        <li><a href="/tienda" class="hover:text-white transition">Tienda Online</a></li>
+                        <li><a href="/escuela" class="hover:text-white transition">Escuela de Negocios</a></li>
+                        <li><a href="/blog" class="hover:text-white transition">Blog de Inteligencia</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Contacto -->
+                <div>
+                    <h4 class="text-white font-bold mb-3 text-sm uppercase tracking-wider">Contacto</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-brand-orange shrink-0 mt-0.5"></i>
+                            <span class="leading-snug">Ciudad de Panamá, Panamá</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="phone" class="w-4 h-4 text-brand-orange shrink-0 mt-0.5"></i>
+                            <a href="https://wa.me/50765461527" class="hover:text-white transition leading-snug">+507 6546-1527</a>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="mail" class="w-4 h-4 text-brand-orange shrink-0 mt-0.5"></i>
+                            <a href="mailto:arubelaizprua@gmail.com" class="hover:text-white transition leading-snug">arubelaizprua@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Legal & Herramientas -->
+                <div>
+                    <h4 class="text-white font-bold mb-3 text-sm uppercase tracking-wider">Herramientas</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/calculadora-precios" class="hover:text-brand-orange font-bold text-white transition">Calculadora de Precios</a></li>
+                        <li><a href="/test-interactivo" class="hover:text-white transition">Test de Auditoría</a></li>
+                        <li><a href="/ruc" class="hover:text-white transition">Validador de RUC</a></li>
+                        <li><a href="/privacidad" class="hover:text-white transition">Política de Privacidad</a></li>
+                        <li><a href="/terminos" class="hover:text-white transition">Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 text-center text-xs text-slate-500">
+                <p>© 2026 Aizprua S.E. Todos los derechos reservados. Blindaje Legal y Estructuración Empresarial en Panamá.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón Volver Arriba Flotante -->
+    <button id="scroll-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+        class="fixed bottom-6 right-6 w-11 h-11 bg-slate-900/90 text-white rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:bg-brand-blue z-50"
+        aria-label="Volver arriba">
+        <i data-lucide="arrow-up" class="w-5 h-5"></i>
+    </button>
+
+    <!-- ============================================================ -->
+    <!-- LOGICA JAVASCRIPT FINANCIERA & INTERACTIVA                   -->
+    <!-- ============================================================ -->
+    <script>
+        // Inicializar Iconos Lucide
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+            calcularFisico();
+            calcularDigital();
+        });
+
+        // Menú Móvil
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu) menu.classList.toggle('hidden');
+        }
+
+        // Barra de Lectura y Botón Top
+        window.addEventListener('scroll', () => {
+            const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+            const bar = document.getElementById('progress-bar');
+            if (bar) bar.style.width = scrolled + '%';
+
+            const topBtn = document.getElementById('scroll-top-btn');
+            if (topBtn) {
+                if (winScroll > 300) {
+                    topBtn.classList.remove('opacity-0', 'pointer-events-none');
+                } else {
+                    topBtn.classList.add('opacity-0', 'pointer-events-none');
+                }
+            }
+        });
+
+        // Pestañas Principales (Físico vs Digital)
+        function switchMainTab(tab) {
+            const btnFisico = document.getElementById('tab-fisico');
+            const btnDigital = document.getElementById('tab-digital');
+            const panelFisico = document.getElementById('panel-fisico');
+            const panelDigital = document.getElementById('panel-digital');
+
+            if (tab === 'fisico') {
+                btnFisico.className = 'flex-1 flex items-center justify-center gap-2.5 py-3 px-5 rounded-xl font-bold text-sm transition-all shadow-sm bg-brand-blue text-white';
+                btnDigital.className = 'flex-1 flex items-center justify-center gap-2.5 py-3 px-5 rounded-xl font-bold text-sm transition-all text-slate-600 hover:text-slate-900 hover:bg-slate-50';
+                panelFisico.classList.remove('hidden');
+                panelDigital.classList.add('hidden');
+            } else {
+                btnDigital.className = 'flex-1 flex items-center justify-center gap-2.5 py-3 px-5 rounded-xl font-bold text-sm transition-all shadow-sm bg-brand-blue text-white';
+                btnFisico.className = 'flex-1 flex items-center justify-center gap-2.5 py-3 px-5 rounded-xl font-bold text-sm transition-all text-slate-600 hover:text-slate-900 hover:bg-slate-50';
+                panelDigital.classList.remove('hidden');
+                panelFisico.classList.add('hidden');
+            }
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+        }
+
+        // ==========================================
+        // 1. CÁLCULO DE PRODUCTO FÍSICO / SERVICIO
+        // ==========================================
+        function setMargenRapido(val) {
+            const range = document.getElementById('fisico-margen-range');
+            if (range) {
+                range.value = val;
+                syncMargenFisico(val);
+            }
+        }
+
+        function syncMargenFisico(val) {
+            document.getElementById('fisico-margen-badge').textContent = val + '%';
+            calcularFisico();
+        }
+
+        function calcularFisico() {
+            const costo = parseFloat(document.getElementById('fisico-costo').value) || 0;
+            const margenPct = parseFloat(document.getElementById('fisico-margen-range').value) || 40;
+            const margenDecimal = margenPct / 100;
+
+            // Fórmula contable estricta: Precio = Costo / (1 - Margen)
+            const precioVenta = margenDecimal < 1 ? costo / (1 - margenDecimal) : costo * 2;
+            const gananciaBruta = precioVenta - costo;
+
+            document.getElementById('fisico-precio-venta').textContent = '$' + precioVenta.toFixed(2);
+            document.getElementById('fisico-res-costo').textContent = '$' + costo.toFixed(2);
+            document.getElementById('fisico-res-ganancia').textContent = '+$' + gananciaBruta.toFixed(2);
+            document.getElementById('fisico-res-margen').textContent = margenPct.toFixed(1) + '%';
+
+            // Porcentajes de barra
+            const costoBarPct = Math.round((1 - margenDecimal) * 100);
+            const gananciaBarPct = Math.round(margenDecimal * 100);
+
+            document.getElementById('fisico-bar-costo-pct').textContent = costoBarPct + '%';
+            document.getElementById('fisico-bar-ganancia-pct').textContent = gananciaBarPct + '%';
+
+            document.getElementById('fisico-bar-costo').style.width = costoBarPct + '%';
+            document.getElementById('fisico-bar-ganancia').style.width = gananciaBarPct + '%';
+
+            // Micro-métricas de ITBMS y Multiplicador
+            const itbms = precioVenta * 1.07;
+            const mult = costo > 0 ? (precioVenta / costo) : 0;
+            const elItbms = document.getElementById('fisico-precio-itbms');
+            if (elItbms) elItbms.textContent = '$' + itbms.toFixed(2);
+            const elMult = document.getElementById('fisico-multiplicador');
+            if (elMult) elMult.textContent = mult.toFixed(2) + 'x';
+
+            // Proyección de volumen (10, 50, 100 unidades)
+            const vol10 = gananciaBruta * 10;
+            const vol50 = gananciaBruta * 50;
+            const vol100 = gananciaBruta * 100;
+            const elVol10 = document.getElementById('fisico-vol-10');
+            if (elVol10) elVol10.textContent = '+$' + Math.round(vol10).toLocaleString();
+            const elVol50 = document.getElementById('fisico-vol-50');
+            if (elVol50) elVol50.textContent = '+$' + Math.round(vol50).toLocaleString();
+            const elVol100 = document.getElementById('fisico-vol-100');
+            if (elVol100) elVol100.textContent = '+$' + Math.round(vol100).toLocaleString();
+        }
+
+        // ==========================================
+        // 2. CÁLCULO DE PRODUCTO DIGITAL
+        // ==========================================
+        let digitalMode = 'sin-precio'; // 'sin-precio' o 'con-precio'
+
+        function setDigitalMode(mode) {
+            digitalMode = mode;
+            const btnSin = document.getElementById('subtab-sin-precio');
+            const btnCon = document.getElementById('subtab-con-precio');
+            const labelInput = document.getElementById('label-unidades-o-precio');
+            const inputVal = document.getElementById('digital-unidades-o-precio');
+
+            if (mode === 'sin-precio') {
+                btnSin.className = 'py-2.5 rounded-lg bg-white text-brand-blue shadow-xs transition';
+                btnCon.className = 'py-2.5 rounded-lg text-slate-600 hover:text-slate-900 transition';
+                labelInput.textContent = 'Unidades estimadas a vender';
+                inputVal.value = '100';
+            } else {
+                btnCon.className = 'py-2.5 rounded-lg bg-white text-brand-blue shadow-xs transition';
+                btnSin.className = 'py-2.5 rounded-lg text-slate-600 hover:text-slate-900 transition';
+                labelInput.textContent = '¿En cuánto lo quieres vender? ($ USD)';
+                inputVal.value = '27';
+            }
+            calcularDigital();
+        }
+
+        function setModeloDigital(tipo) {
+            const metaInput = document.getElementById('digital-meta-ganancia');
+            const horasInput = document.getElementById('digital-horas');
+            const valorHoraInput = document.getElementById('digital-valor-hora');
+            const softwareInput = document.getElementById('digital-otros-costos');
+            const comisionRange = document.getElementById('digital-comision-plat');
+            const cacRange = document.getElementById('digital-cac-pct');
+            const unidadesOrPrecio = document.getElementById('digital-unidades-o-precio');
+
+            if (tipo === 'low') {
+                if (metaInput) metaInput.value = '2000';
+                if (horasInput) horasInput.value = '15';
+                if (valorHoraInput) valorHoraInput.value = '7';
+                if (softwareInput) softwareInput.value = '99';
+                if (comisionRange) { comisionRange.value = '10'; document.getElementById('digital-plat-val').textContent = '10%'; }
+                if (cacRange) { cacRange.value = '35'; document.getElementById('digital-cac-val').textContent = '35%'; }
+                if (unidadesOrPrecio) unidadesOrPrecio.value = digitalMode === 'sin-precio' ? '100' : '27';
+            } else if (tipo === 'mid') {
+                if (metaInput) metaInput.value = '3000';
+                if (horasInput) horasInput.value = '30';
+                if (valorHoraInput) valorHoraInput.value = '10';
+                if (softwareInput) softwareInput.value = '159';
+                if (comisionRange) { comisionRange.value = '12'; document.getElementById('digital-plat-val').textContent = '12%'; }
+                if (cacRange) { cacRange.value = '25'; document.getElementById('digital-cac-val').textContent = '25%'; }
+                if (unidadesOrPrecio) unidadesOrPrecio.value = digitalMode === 'sin-precio' ? '35' : '97';
+            } else if (tipo === 'high') {
+                if (metaInput) metaInput.value = '5000';
+                if (horasInput) horasInput.value = '40';
+                if (valorHoraInput) valorHoraInput.value = '15';
+                if (softwareInput) softwareInput.value = '249';
+                if (comisionRange) { comisionRange.value = '5'; document.getElementById('digital-plat-val').textContent = '5%'; }
+                if (cacRange) { cacRange.value = '15'; document.getElementById('digital-cac-val').textContent = '15%'; }
+                if (unidadesOrPrecio) unidadesOrPrecio.value = digitalMode === 'sin-precio' ? '12' : '497';
+            }
+            calcularDigital();
+        }
+
+        function calcularDigital() {
+            const metaGanancia = parseFloat(document.getElementById('digital-meta-ganancia').value) || 2000;
+            const inputDinamico = parseFloat(document.getElementById('digital-unidades-o-precio').value) || 100;
+            
+            const horas = parseFloat(document.getElementById('digital-horas').value) || 0;
+            const valorHora = parseFloat(document.getElementById('digital-valor-hora').value) || 0;
+            const otrosCostos = parseFloat(document.getElementById('digital-otros-costos').value) || 0;
+
+            const costoTotalProduccion = (horas * valorHora) + otrosCostos;
+            document.getElementById('digital-costo-total-preview').textContent = '$' + costoTotalProduccion.toFixed(2);
+
+            const comisionPlatPct = (parseFloat(document.getElementById('digital-comision-plat').value) || 15) / 100;
+            const cacPct = (parseFloat(document.getElementById('digital-cac-pct').value) || 25) / 100;
+
+            if (digitalMode === 'sin-precio') {
+                // Modo A: Queremos descubrir el precio óptimo a partir de las unidades
+                const unidades = Math.max(1, inputDinamico);
+                const costoUnitarioFijo = costoTotalProduccion / unidades;
+
+                // Margen neto requerido por unidad para llegar a la meta
+                const gananciaRequeridaUnit = metaGanancia / unidades;
+
+                // Precio = (CostoUnitario + GananciaRequerida) / (1 - comisionPlat - cacPct)
+                const divisor = Math.max(0.05, 1 - comisionPlatPct - cacPct);
+                const precioOptimo = (costoUnitarioFijo + gananciaRequeridaUnit) / divisor;
+
+                const cacUnitario = precioOptimo * cacPct;
+                const adsTotal = cacUnitario * unidades;
+                const gananciaNetaConAds = metaGanancia;
+
+                // Actualizar interfaz
+                document.getElementById('digital-main-metric-label').textContent = 'Precio Óptimo Sugerido:';
+                document.getElementById('digital-main-metric-value').textContent = '$' + precioOptimo.toFixed(2);
+                document.getElementById('digital-main-metric-unit').textContent = 'USD';
+                document.getElementById('digital-main-metric-sub').textContent = 'Para alcanzar $' + metaGanancia.toLocaleString() + ' netos vendiendo ' + unidades + ' unidades.';
+
+                document.getElementById('digital-res-costo-unit').textContent = '$' + costoUnitarioFijo.toFixed(2);
+                document.getElementById('digital-res-cac-unit').textContent = '$' + cacUnitario.toFixed(2) + ' / cliente';
+                document.getElementById('digital-res-ads-total').textContent = '$' + adsTotal.toFixed(2);
+                document.getElementById('digital-res-ganancia-neta').textContent = '$' + gananciaNetaConAds.toFixed(2);
+                document.getElementById('digital-cac-advice').textContent = '$' + cacUnitario.toFixed(2);
+
+                // Micro-métricas de ROAS y Facturación
+                const facturacionTotalA = precioOptimo * unidades;
+                const roasMinimoA = cacPct > 0 ? (1 / cacPct) : 0;
+                const elRoasA = document.getElementById('digital-roas-minimo');
+                if (elRoasA) elRoasA.textContent = roasMinimoA.toFixed(1) + 'x';
+                const elFactA = document.getElementById('digital-facturacion-total');
+                if (elFactA) elFactA.textContent = '$' + facturacionTotalA.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+                // Barra
+                const pCosto = Math.min(60, Math.round((costoUnitarioFijo / precioOptimo) * 100));
+                const pAds = Math.round(cacPct * 100);
+                const pNeta = Math.max(10, 100 - pCosto - pAds);
+
+                document.getElementById('digital-bar-costos').style.width = pCosto + '%';
+                document.getElementById('digital-bar-ads').style.width = pAds + '%';
+                document.getElementById('digital-bar-neta').style.width = pNeta + '%';
+
+                // Balance financiero del proyecto
+                const elBalProdA = document.getElementById('digital-balance-prod');
+                if (elBalProdA) elBalProdA.textContent = '$' + Math.round(costoTotalProduccion).toLocaleString();
+                const elBalAdsA = document.getElementById('digital-balance-ads');
+                if (elBalAdsA) elBalAdsA.textContent = '$' + Math.round(adsTotal).toLocaleString();
+                const elBalMetaA = document.getElementById('digital-balance-meta');
+                if (elBalMetaA) elBalMetaA.textContent = '$' + Math.round(metaGanancia).toLocaleString();
+
+            } else {
+                // Modo B: Tenemos el precio fijo y queremos saber cuántas unidades vender
+                const precioFijo = Math.max(1, inputDinamico);
+                const comisionPlatUnit = precioFijo * comisionPlatPct;
+                const cacUnit = precioFijo * cacPct;
+                const margenUnitarioAntesDeFijos = precioFijo - comisionPlatUnit - cacUnit;
+
+                // Unidades necesarias = (CostoTotalProduccion + MetaGanancia) / margenUnitarioAntesDeFijos
+                const unidadesNecesarias = margenUnitarioAntesDeFijos > 0 
+                    ? Math.ceil((costoTotalProduccion + metaGanancia) / margenUnitarioAntesDeFijos) 
+                    : 9999;
+
+                const adsTotal = cacUnit * unidadesNecesarias;
+                const costoUnit = costoTotalProduccion / unidadesNecesarias;
+
+                // Actualizar interfaz
+                document.getElementById('digital-main-metric-label').textContent = 'Ventas Mínimas Necesarias:';
+                document.getElementById('digital-main-metric-value').textContent = unidadesNecesarias.toLocaleString();
+                document.getElementById('digital-main-metric-unit').textContent = 'unidades';
+                document.getElementById('digital-main-metric-sub').textContent = 'A $' + precioFijo.toFixed(2) + ' USD para cubrir producción y embolsarte tu meta.';
+
+                document.getElementById('digital-res-costo-unit').textContent = '$' + costoUnit.toFixed(2);
+                document.getElementById('digital-res-cac-unit').textContent = '$' + cacUnit.toFixed(2) + ' / cliente';
+                document.getElementById('digital-res-ads-total').textContent = '$' + adsTotal.toFixed(2);
+                document.getElementById('digital-res-ganancia-neta').textContent = '$' + metaGanancia.toFixed(2);
+                document.getElementById('digital-cac-advice').textContent = '$' + cacUnit.toFixed(2);
+
+                // Micro-métricas de ROAS y Facturación
+                const facturacionTotalB = precioFijo * unidadesNecesarias;
+                const roasMinimoB = cacPct > 0 ? (1 / cacPct) : 0;
+                const elRoasB = document.getElementById('digital-roas-minimo');
+                if (elRoasB) elRoasB.textContent = roasMinimoB.toFixed(1) + 'x';
+                const elFactB = document.getElementById('digital-facturacion-total');
+                if (elFactB) elFactB.textContent = '$' + facturacionTotalB.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+                // Barra
+                const pPlat = Math.round(comisionPlatPct * 100);
+                const pAds = Math.round(cacPct * 100);
+                const pNeta = Math.max(10, 100 - pPlat - pAds);
+
+                document.getElementById('digital-bar-costos').style.width = pPlat + '%';
+                document.getElementById('digital-bar-ads').style.width = pAds + '%';
+                document.getElementById('digital-bar-neta').style.width = pNeta + '%';
+
+                // Balance financiero del proyecto
+                const elBalProdB = document.getElementById('digital-balance-prod');
+                if (elBalProdB) elBalProdB.textContent = '$' + Math.round(costoTotalProduccion).toLocaleString();
+                const elBalAdsB = document.getElementById('digital-balance-ads');
+                if (elBalAdsB) elBalAdsB.textContent = '$' + Math.round(adsTotal).toLocaleString();
+                const elBalMetaB = document.getElementById('digital-balance-meta');
+                if (elBalMetaB) elBalMetaB.textContent = '$' + Math.round(metaGanancia).toLocaleString();
+            }
+        }
+    </script>
+</body>
+
+</html>

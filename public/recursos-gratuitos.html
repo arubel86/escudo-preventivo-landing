@@ -152,10 +152,6 @@
                         <span>Escuela</span>
                     </a>
                     <a href="/blog" class="hover:text-brand-blue transition">Blog</a>
-                    <a href="/recursos" class="text-brand-blue font-bold flex items-center gap-1.5">
-                        <span>Recursos</span>
-                        <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span>
-                    </a>
                     <a href="/test-interactivo" class="text-sm font-semibold text-brand-orange hover:text-brand-orange-dark transition flex items-center gap-1.5">
                         <i data-lucide="shield-check" class="w-4 h-4"></i>
                         <span>Auditoría Gratis</span>
@@ -187,7 +183,6 @@
             <a href="/tienda" class="block py-2 text-slate-700 font-bold">Tienda Online (Kits & Soluciones)</a>
             <a href="/escuela" class="block py-2 text-slate-700 font-bold">Escuela de Negocios</a>
             <a href="/blog" class="block py-2 text-slate-700 font-bold">Blog de Inteligencia</a>
-            <a href="/recursos" class="block py-2 text-brand-blue font-bold">Recursos Gratuitos</a>
             <a href="/test-interactivo" class="block py-2 text-brand-orange font-bold">Test de Auditoría Gratis</a>
             <a href="https://wa.me/50765461527" target="_blank" class="block py-2 text-emerald-600 font-bold">Contactar por WhatsApp</a>
         </div>
@@ -278,13 +273,13 @@
                         class="tab-filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 whitespace-nowrap bg-white text-slate-900 shadow-sm border border-slate-200/60"
                         data-filter="todos">
                         <span>Todos los recursos</span>
-                        <span class="ml-1.5 text-xs bg-brand-blue/10 text-brand-blue font-black px-2 py-0.5 rounded-lg" id="count-todos">7</span>
+                        <span class="ml-1.5 text-xs bg-brand-blue/10 text-brand-blue font-black px-2 py-0.5 rounded-lg" id="count-todos">8</span>
                     </button>
                     <button type="button" onclick="setResourceFilter('herramientas')"
                         class="tab-filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 whitespace-nowrap text-slate-600 hover:text-slate-900 hover:bg-white/60"
                         data-filter="herramientas">
                         <span>Herramientas web</span>
-                        <span class="ml-1.5 text-xs bg-slate-200/60 text-slate-600 font-bold px-2 py-0.5 rounded-lg" id="count-herramientas">3</span>
+                        <span class="ml-1.5 text-xs bg-slate-200/60 text-slate-600 font-bold px-2 py-0.5 rounded-lg" id="count-herramientas">5</span>
                     </button>
                     <button type="button" onclick="setResourceFilter('guias')"
                         class="tab-filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 whitespace-nowrap text-slate-600 hover:text-slate-900 hover:bg-white/60"
@@ -296,7 +291,7 @@
                         class="tab-filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 whitespace-nowrap text-slate-600 hover:text-slate-900 hover:bg-white/60"
                         data-filter="plantillas">
                         <span>Checklists y plantillas</span>
-                        <span class="ml-1.5 text-xs bg-slate-200/60 text-slate-600 font-bold px-2 py-0.5 rounded-lg" id="count-plantillas">2</span>
+                        <span class="ml-1.5 text-xs bg-slate-200/60 text-slate-600 font-bold px-2 py-0.5 rounded-lg" id="count-plantillas">1</span>
                     </button>
                 </div>
 
@@ -685,63 +680,125 @@
                 </div>
             </div>
 
-            <!-- TARJETA 7: Hoja de Ruta de Regularización Empresarial -->
+            <!-- TARJETA 7: Calculadora de Precio y Margen de Utilidad -->
             <div class="resource-card h-full flex flex-col justify-between bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 p-6 overflow-hidden group"
-                data-category="plantillas"
-                data-keywords="hoja de ruta regularizacion formalizacion tramite dgi municipio css costo tiempos">
+                data-category="herramientas"
+                data-keywords="calculadora precio venta margen utilidad costo directo markup itbms ganancias producto fisico digital">
                 
                 <div class="flex-1 flex flex-col">
                     <!-- Showcase Visual Canónico / Fallback Relieve -->
                     <div class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-brand-blue-dark rounded-2xl overflow-hidden mb-4 aspect-[4/3] flex items-center justify-center p-4 border border-slate-700/60 shadow-inner">
                         <div class="text-center z-10">
                             <div class="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-brand-orange mx-auto flex items-center justify-center mb-2 shadow-lg group-hover:scale-110 transition duration-300">
-                                <i data-lucide="map-pin" class="w-8 h-8"></i>
+                                <i data-lucide="calculator" class="w-8 h-8"></i>
                             </div>
-                            <span class="text-xs font-bold text-white block">Plan Secuencial</span>
-                            <span class="text-[10px] text-brand-orange-light font-bold block">Paso a paso ordenado</span>
+                            <span class="text-xs font-bold text-white block">Fórmula Contable 4E</span>
+                            <span class="text-[10px] text-brand-orange-light font-bold block">Físico e Infoproductos</span>
                         </div>
-                        <span class="absolute top-3 right-3 text-[10px] font-black uppercase px-2.5 py-1 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30">
-                            Hoja de Ruta
+                        <span class="absolute top-3 right-3 text-[10px] font-black uppercase px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                            Calculadora
                         </span>
                     </div>
 
                     <!-- Píldora de Categoría -->
                     <div class="min-h-[1.25rem] mb-1">
-                        <span class="text-[10px] font-black uppercase tracking-wider text-brand-orange">Checklists y plantillas / Trámites</span>
+                        <span class="text-[10px] font-black uppercase tracking-wider text-brand-orange">Herramienta web / Finanzas</span>
                     </div>
 
                     <!-- Título en Sentence Case -->
                     <h3 class="min-h-[3.25rem] flex items-center leading-snug font-bold text-slate-900 text-lg group-hover:text-brand-blue transition">
-                        Hoja de ruta de regularización empresarial
+                        Calculadora de precio de venta y margen de utilidad
                     </h3>
 
                     <!-- Párrafo Descriptivo -->
                     <p class="min-h-[3.75rem] flex items-start text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
-                        Cronograma exacto con costos y requisitos para formalizar o regularizar operaciones en Panamá sin pagar de más.
+                        Fija precios científicamente con la fórmula contable oficial, desglosa el ITBMS (7%) y modela la rentabilidad con publicidad digital.
                     </p>
 
                     <!-- Caja de Entregables (Exactamente 3 Bullets con items-start) -->
                     <div class="space-y-2 mb-4 bg-slate-50 p-3.5 rounded-2xl border border-slate-100 min-h-[8.5rem] flex flex-col justify-center">
                         <div class="flex items-start gap-2 text-xs font-medium text-slate-700">
                             <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5"></i>
-                            <span class="leading-snug">Orden de trámites: Registro Público, DGI, Municipio y CSS.</span>
+                            <span class="leading-snug">Diferencia automática entre margen real y marcado simple (markup).</span>
                         </div>
                         <div class="flex items-start gap-2 text-xs font-medium text-slate-700">
                             <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5"></i>
-                            <span class="leading-snug">Estimación clara de costos notariales y tasas gubernamentales.</span>
+                            <span class="leading-snug">Cálculo del 7% de ITBMS y proyecciones de ganancia según volumen.</span>
                         </div>
                         <div class="flex items-start gap-2 text-xs font-medium text-slate-700">
                             <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5"></i>
-                            <span class="leading-snug">Evita sanciones por operar sin aviso o registro extemporáneo.</span>
+                            <span class="leading-snug">Módulo especializado para infoproductos con comisiones y CAC en Ads.</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Bloque Inferior / CTA -->
                 <div class="mt-auto pt-4 border-t border-slate-100 flex flex-col justify-end space-y-2 min-h-[4.5rem]">
-                    <a href="/hoja-de-ruta"
+                    <a href="/calculadora-precios"
                         class="w-full py-3 px-4 rounded-xl font-bold text-xs sm:text-sm bg-brand-blue hover:bg-brand-blue-dark text-white flex items-center justify-center gap-2 transition duration-200 shadow-md">
-                        <span>Explorar hoja de ruta</span>
+                        <span>Calcular precio de venta</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 shrink-0"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- TARJETA 8: Simulador de Préstamos Comerciales -->
+            <div class="resource-card h-full flex flex-col justify-between bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 p-6 overflow-hidden group"
+                data-category="herramientas"
+                data-keywords="simulador prestamo comercial credito bancario capacidad endeudamiento dti cuota tasa sbp panama">
+                
+                <div class="flex-1 flex flex-col">
+                    <!-- Showcase Visual Canónico / Fallback Relieve -->
+                    <div class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-brand-blue-dark rounded-2xl overflow-hidden mb-4 aspect-[4/3] flex items-center justify-center p-4 border border-slate-700/60 shadow-inner">
+                        <div class="text-center z-10">
+                            <div class="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-brand-orange mx-auto flex items-center justify-center mb-2 shadow-lg group-hover:scale-110 transition duration-300">
+                                <i data-lucide="badge-dollar-sign" class="w-8 h-8"></i>
+                            </div>
+                            <span class="text-xs font-bold text-white block">Regla DTI 35% SBP</span>
+                            <span class="text-[10px] text-brand-orange-light font-bold block">Simulación Comercial</span>
+                        </div>
+                        <span class="absolute top-3 right-3 text-[10px] font-black uppercase px-2.5 py-1 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30">
+                            Simulador
+                        </span>
+                    </div>
+
+                    <!-- Píldora de Categoría -->
+                    <div class="min-h-[1.25rem] mb-1">
+                        <span class="text-[10px] font-black uppercase tracking-wider text-brand-orange">Herramienta web / Financiera</span>
+                    </div>
+
+                    <!-- Título en Sentence Case -->
+                    <h3 class="min-h-[3.25rem] flex items-center leading-snug font-bold text-slate-900 text-lg group-hover:text-brand-blue transition">
+                        Simulador de préstamos y capacidad de crédito bancario
+                    </h3>
+
+                    <!-- Párrafo Descriptivo -->
+                    <p class="min-h-[3.75rem] flex items-start text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+                        Conoce tu cuota mensual estimada, tasa de interés y si tu empresa califica ante los comités de crédito bancario de Panamá.
+                    </p>
+
+                    <!-- Caja de Entregables (Exactamente 3 Bullets con items-start) -->
+                    <div class="space-y-2 mb-4 bg-slate-50 p-3.5 rounded-2xl border border-slate-100 min-h-[8.5rem] flex flex-col justify-center">
+                        <div class="flex items-start gap-2 text-xs font-medium text-slate-700">
+                            <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5"></i>
+                            <span class="leading-snug">Cálculo de cuota mensual y verificación de la regla DTI del 35%.</span>
+                        </div>
+                        <div class="flex items-start gap-2 text-xs font-medium text-slate-700">
+                            <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5"></i>
+                            <span class="leading-snug">Estimación de ahorro con la exoneración del 1% FECI para pymes AMPYME.</span>
+                        </div>
+                        <div class="flex items-start gap-2 text-xs font-medium text-slate-700">
+                            <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5"></i>
+                            <span class="leading-snug">Requisitos indispensables para calificar a préstamos comerciales.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bloque Inferior / CTA -->
+                <div class="mt-auto pt-4 border-t border-slate-100 flex flex-col justify-end space-y-2 min-h-[4.5rem]">
+                    <a href="/simulador-prestamos"
+                        class="w-full py-3 px-4 rounded-xl font-bold text-xs sm:text-sm bg-brand-blue hover:bg-brand-blue-dark text-white flex items-center justify-center gap-2 transition duration-200 shadow-md">
+                        <span>Simular crédito comercial</span>
                         <i data-lucide="arrow-right" class="w-4 h-4 shrink-0"></i>
                     </a>
                 </div>
@@ -878,24 +935,25 @@
     </footer>
 
     <!-- ==================================================== -->
-    <!-- 6. BOTONES FLOTANTES                                 -->
+    <!-- 6. BOTONES FLOTANTES (ALINEACIÓN CENTRADA PERFECTA) -->
     <!-- ==================================================== -->
-    <!-- Botón Volver Arriba -->
-    <button id="scroll-top-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})"
-        aria-label="Volver arriba"
-        class="fixed bottom-24 right-6 z-40 bg-white/90 hover:bg-white text-slate-700 p-3 rounded-full shadow-lg border border-slate-200 transition-all opacity-0 pointer-events-none hover:scale-105">
-        <i data-lucide="chevron-up" class="w-5 h-5"></i>
-    </button>
+    <div class="fixed bottom-6 right-6 z-40 flex flex-col items-center gap-3 pointer-events-none">
+        <!-- Botón Volver Arriba -->
+        <button id="scroll-top-btn" onclick="scrollToTop()" aria-label="Volver arriba"
+            class="w-11 h-11 bg-white/95 backdrop-blur border border-slate-300 hover:border-brand-blue text-slate-700 hover:text-brand-blue rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:-translate-y-1 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="chevron-up" class="w-5 h-5"></i>
+        </button>
 
-    <!-- Botón Flotante de WhatsApp -->
-    <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20tengo%20una%20consulta%20sobre%20sus%20recursos%20gratuitos"
-        target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"
-        class="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20bd5a] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center">
-        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path
-                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-        </svg>
-    </a>
+        <!-- Botón Flotante de WhatsApp Fijo -->
+        <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20tengo%20una%20consulta%20sobre%20sus%20recursos%20gratuitos"
+            target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"
+            class="pointer-events-auto w-14 h-14 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center group relative flex-shrink-0">
+            <i data-lucide="message-circle" class="w-7 h-7"></i>
+            <span class="absolute right-full mr-3 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
+                ¿Dudas? Chatea con nosotros
+            </span>
+        </a>
+    </div>
 
     <!-- ==================================================== -->
     <!-- 7. SCRIPTS DE INTERACCIÓN Y FILTROS                  -->
@@ -1002,6 +1060,10 @@
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             if (menu) menu.classList.toggle('hidden');
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         // Barra de progreso y botón volver arriba
