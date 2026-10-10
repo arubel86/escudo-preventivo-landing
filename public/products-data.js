@@ -692,7 +692,7 @@ const AIZPRUA_PRODUCTS = [
         paymentNotice: "PDF Descargable",
         badgeLeft: { text: "Gratis ($0)", class: "bg-brand-orange text-white" },
         badgeRight: { text: "PDF 2026", class: "bg-slate-900 text-white" },
-        image: "assets/guia-preventiva-cover.png",
+        image: "assets/portada-guia-preventiva-2.png",
         alt: "Las 7 Multas Ocultas en Panamá",
         fallbackTitle: "Guía Anti-Multas",
         fallbackIcon: "shield-alert",
