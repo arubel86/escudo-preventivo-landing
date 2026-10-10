@@ -497,24 +497,26 @@
                         </p>
                     </div>
 
-                    <!-- Indicadores de Confianza en 2 Columnas -->
-                    <div class="grid grid-cols-2 gap-2 text-left">
-                        <div class="bg-slate-50 rounded-2xl p-2.5 border border-slate-100 flex items-center gap-2">
-                            <div class="w-7 h-7 rounded-lg bg-brand-blue/10 text-brand-blue flex items-center justify-center shrink-0">
+                    <!-- Barra Unificada de Confianza (Estilo Stripe / Apple) -->
+                    <div class="bg-slate-50 border border-slate-200/80 rounded-2xl py-2.5 px-2.5 flex items-center justify-between divide-x divide-slate-200 shadow-2xs">
+                        <!-- Indicador 1 -->
+                        <div class="flex items-center gap-2 sm:gap-2.5 pr-2.5 flex-1 justify-center min-w-0">
+                            <div class="w-7 h-7 rounded-xl bg-brand-blue/10 text-brand-blue flex items-center justify-center shrink-0">
                                 <i data-lucide="clock" class="w-3.5 h-3.5"></i>
                             </div>
-                            <div>
-                                <span class="text-[11px] font-bold text-slate-900 block leading-none">3 Minutos</span>
-                                <span class="text-[9px] text-slate-500 block mt-0.5 font-medium">15 Preguntas</span>
+                            <div class="text-left min-w-0">
+                                <span class="text-[11px] font-bold text-slate-900 block leading-tight truncate">3 Minutos</span>
+                                <span class="text-[9px] text-slate-500 font-medium block leading-tight truncate mt-0.5">15 Preguntas</span>
                             </div>
                         </div>
-                        <div class="bg-slate-50 rounded-2xl p-2.5 border border-slate-100 flex items-center gap-2">
-                            <div class="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                        <!-- Indicador 2 -->
+                        <div class="flex items-center gap-2 sm:gap-2.5 pl-2.5 flex-1 justify-center min-w-0">
+                            <div class="w-7 h-7 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
                                 <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
                             </div>
-                            <div>
-                                <span class="text-[11px] font-bold text-slate-900 block leading-none">100% Gratis</span>
-                                <span class="text-[9px] text-slate-500 block mt-0.5 font-medium">Semáforo en vivo</span>
+                            <div class="text-left min-w-0">
+                                <span class="text-[11px] font-bold text-slate-900 block leading-tight truncate">100% Gratis</span>
+                                <span class="text-[9px] text-slate-500 font-medium block leading-tight truncate mt-0.5">Al Instante</span>
                             </div>
                         </div>
                     </div>
