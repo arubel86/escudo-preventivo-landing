@@ -107,19 +107,28 @@
                     </a>
                 </nav>
 
-                <div class="hidden sm:flex items-center gap-3">
-                    <a href="https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20los%20productos%20de%20la%20Tienda%20Aizprua"
-                        target="_blank" rel="noopener"
-                        class="flex items-center gap-2 bg-[#25D366] text-white px-5 py-2.5 rounded-full font-bold text-sm hover:bg-[#20bd5a] transition shadow-md whitespace-nowrap">
-                        <i data-lucide="message-circle" class="w-4 h-4 flex-shrink-0"></i>
-                        <span>Atención WhatsApp</span>
-                    </a>
-                </div>
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <div class="hidden sm:flex items-center gap-3">
+                        <a href="https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20los%20productos%20de%20la%20Tienda%20Aizprua"
+                            target="_blank" rel="noopener"
+                            class="flex items-center gap-2 bg-[#25D366] text-white px-5 py-2.5 rounded-full font-bold text-sm hover:bg-[#20bd5a] transition shadow-md whitespace-nowrap">
+                            <i data-lucide="message-circle" class="w-4 h-4 flex-shrink-0"></i>
+                            <span>Atención WhatsApp</span>
+                        </a>
+                    </div>
 
-                <div class="flex items-center lg:hidden">
-                    <button onclick="toggleMobileMenu()" aria-label="Abrir menú" class="text-slate-700 p-2">
-                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    <!-- Botón Disparador del Carrito (Ubicación Estándar a la Derecha) -->
+                    <button type="button" onclick="openCartDrawer()" aria-label="Ver carrito de compras"
+                        class="relative p-2.5 rounded-full text-slate-700 hover:text-brand-blue hover:bg-slate-100 transition flex items-center justify-center cursor-pointer">
+                        <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                        <span id="cart-count-badge" class="absolute -top-1 -right-1 bg-brand-orange text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center shadow-xs hidden">0</span>
                     </button>
+
+                    <div class="flex items-center lg:hidden">
+                        <button onclick="toggleMobileMenu()" aria-label="Abrir menú" class="text-slate-700 p-2 cursor-pointer">
+                            <i data-lucide="menu" class="w-6 h-6"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1658,6 +1667,7 @@
 
     <!-- Lógica de Filtros Dinámicos Estilo Shopify -->
     <script src="products-data.js"></script>
+    <script src="cart.js"></script>
     <script>
         function toggleMobileMenu() {
             document.getElementById('mobile-menu').classList.toggle('hidden');
@@ -1935,6 +1945,9 @@
         }
 
         function selectProductColor(productId, color, btn) {
+            window.selectedProductColors = window.selectedProductColors || {};
+            window.selectedProductColors[productId] = color;
+
             const isHoodie = (productId === 'sueter-metodo-4e');
             const imgId = isHoodie ? 'hoodie-cover-img' : `${productId}-cover-img`;
             const labelId = isHoodie ? 'hoodie-color-label' : `${productId}-color-label`;
@@ -2031,6 +2044,106 @@
             if (typeof lucide !== 'undefined') lucide.createIcons();
         });
     </script>
+    <!-- ==================================================== -->
+    <!-- PANEL LATERAL DE CARRITO (SLIDE-OVER DRAWER)        -->
+    <!-- ==================================================== -->
+    <!-- Backdrop oscuro con desenfoque de cristal -->
+    <div id="cart-drawer-backdrop" onclick="closeCartDrawer()" 
+        class="fixed inset-0 bg-slate-950/60 backdrop-blur-xs z-[100] transition-opacity duration-300 opacity-0 pointer-events-none" 
+        aria-hidden="true"></div>
+
+    <!-- Panel Lateral Deslizante (Desktop: 400px derecho / Móvil: pantalla completa táctil) -->
+    <aside id="cart-drawer-panel" 
+        class="fixed top-0 right-0 h-full w-full sm:w-[410px] bg-white z-[101] shadow-2xl flex flex-col justify-between transition-transform duration-300 transform translate-x-full" 
+        role="dialog" aria-modal="true" aria-label="Carrito de compras">
+        
+        <!-- Header del Carrito -->
+        <div class="p-4 sm:p-5 border-b border-slate-200 flex items-center justify-between bg-white shrink-0">
+            <div class="flex items-center gap-2.5">
+                <div class="w-9 h-9 rounded-xl bg-brand-blue/10 text-brand-blue flex items-center justify-center">
+                    <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                </div>
+                <div>
+                    <h2 class="text-base sm:text-lg font-black text-slate-900 leading-none">Tu Carrito</h2>
+                    <span id="cart-items-count" class="text-xs font-bold text-slate-500 mt-1 block">0 artículos</span>
+                </div>
+            </div>
+            <button type="button" onclick="closeCartDrawer()" aria-label="Cerrar carrito"
+                class="w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition cursor-pointer">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <!-- Barra Superior Dinámica de Aumento de Ticket (Solo Texto & Upsell 1-Clic) -->
+        <div id="cart-dynamic-banner" class="shrink-0">
+            <!-- Inyectado dinámicamente por cart.js según el contenido del carrito -->
+        </div>
+
+        <!-- Cuerpo del Carrito (Lista Scrolleable o Estado Vacío) -->
+        <div class="flex-1 overflow-y-auto custom-scroll p-4 sm:p-5">
+            <!-- Estado Vacío -->
+            <div id="cart-empty-state" class="py-12 px-4 text-center hidden flex flex-col items-center justify-center h-full">
+                <div class="w-16 h-16 rounded-2xl bg-slate-100 text-slate-400 flex items-center justify-center mb-4 mx-auto shadow-inner">
+                    <i data-lucide="shopping-bag" class="w-8 h-8"></i>
+                </div>
+                <h3 class="text-base font-black text-slate-900 mb-1.5">Tu carrito está vacío</h3>
+                <p class="text-xs text-slate-500 max-w-xs mx-auto leading-relaxed mb-6">
+                    Aún no tienes nada en el carrito. Danos la oportunidad, te van a encantar.
+                </p>
+                <button type="button" onclick="closeCartDrawer()"
+                    class="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-brand-blue hover:bg-brand-blue-dark text-white rounded-xl text-xs font-bold transition shadow-md cursor-pointer">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                    <span>Continuar comprando</span>
+                </button>
+            </div>
+
+            <!-- Contenedor de Items del Carrito -->
+            <div id="cart-items-container" class="space-y-3">
+                <!-- Items renderizados por cart.js con miniatura compacta 56x56 px -->
+            </div>
+        </div>
+
+        <!-- Footer del Carrito (Subtotal, Botón WhatsApp y Sellos de Confianza) -->
+        <div id="cart-footer-area" class="p-4 sm:p-5 border-t border-slate-200 bg-slate-50/80 shrink-0 space-y-3">
+            <!-- Aviso dinámico de entrega (Físico vs Digital) -->
+            <div id="cart-delivery-notice"></div>
+
+            <!-- Total a Pagar -->
+            <div class="flex items-baseline justify-between pt-1">
+                <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Total a pagar:</span>
+                <div class="flex items-baseline gap-1">
+                    <span id="cart-subtotal-val" class="text-2xl font-black text-slate-900">$0.00</span>
+                    <span class="text-xs font-bold text-slate-500">USD</span>
+                </div>
+            </div>
+
+            <!-- Botón Principal WhatsApp -->
+            <a id="cart-whatsapp-checkout-btn" href="#" target="_blank" rel="noopener"
+                class="w-full inline-flex items-center justify-center gap-2 py-3.5 px-4 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl text-xs sm:text-sm font-black transition shadow-lg hover:shadow-xl active:scale-98">
+                <i data-lucide="message-circle" class="w-5 h-5 shrink-0"></i>
+                <span class="cart-checkout-btn-text">Pedir por WhatsApp ($0.00 USD)</span>
+            </a>
+
+            <!-- Sellos de Confianza Oficiales -->
+            <div class="pt-2 border-t border-slate-200/80 flex items-center justify-between text-[10px] text-slate-500 font-bold">
+                <span class="inline-flex items-center gap-1">
+                    <i data-lucide="shield-check" class="w-3.5 h-3.5 text-brand-blue"></i>
+                    Firma Aizprua S.E.
+                </span>
+                <span class="inline-flex items-center gap-1">
+                    <i data-lucide="lock" class="w-3.5 h-3.5 text-emerald-600"></i>
+                    Yappy / Banco General / Tarjeta
+                </span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Botón Flotante Móvil del Carrito (Esquina inferior derecha) -->
+    <button id="mobile-floating-cart-btn" onclick="openCartDrawer()" aria-label="Ver carrito de compras"
+        class="fixed bottom-6 right-5 z-[90] bg-brand-blue hover:bg-brand-blue-dark text-white p-3.5 rounded-full shadow-2xl flex items-center justify-center border-2 border-white sm:hidden transition-transform active:scale-95 hidden cursor-pointer">
+        <i data-lucide="shopping-bag" class="w-6 h-6"></i>
+        <span id="mobile-cart-count-badge" class="absolute -top-1 -right-1 bg-brand-orange text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center border-2 border-white shadow-xs hidden">0</span>
+    </button>
 </body>
 
 </html>

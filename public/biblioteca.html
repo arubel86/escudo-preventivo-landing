@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca de Recursos & Herramientas Empresariales | Aizprua S.E.</title>
+    <meta name="description"
+        content="Accede a la suite completa de herramientas interactivas, calculadoras financieras y guías de blindaje legal para empresarios en Panamá.">
+    <link rel="canonical" href="https://aizprua.com/biblioteca">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+
+    <!-- Open Graph Oficial Canónico -->
+    <meta property="og:site_name" content="Aizprua S.E.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Biblioteca de Recursos & Herramientas Empresariales | Aizprua S.E.">
+    <meta property="og:description"
+        content="Herramientas interactivas, calculadoras financieras y guías de blindaje legal y tributario para empresas en Panamá.">
+    <meta property="og:url" content="https://aizprua.com/biblioteca">
+    <meta property="og:image" content="https://aizprua.com/assets/aizprua-shield-og.jpg">
+    <meta property="og:image:secure_url" content="https://aizprua.com/assets/aizprua-shield-og.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="1080">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://aizprua.com/assets/aizprua-shield-og.jpg">
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS (CDN Oficial) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#3849C8',
+                            'blue-dark': '#2D3A9F',
+                            'blue-light': '#4F5ED4',
+                            orange: '#FF8A1E',
+                            'orange-dark': '#E67A15',
+                            'orange-light': '#FFA04A',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 5px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 9999px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- ==================================================== -->
+    <!-- 1. BARRA DE PROGRESO DE LECTURA CANÓNICA             -->
+    <!-- ==================================================== -->
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-brand-orange z-[60] transition-all duration-75"
+        style="width: 0%"></div>
+
+    <!-- ==================================================== -->
+    <!-- 2. HEADER DE ENFOQUE (LOGO + BOTÓN BLINDAJE)         -->
+    <!-- ==================================================== -->
+    <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logotipo Canónico Oficial -->
+                <a href="/" class="flex items-center flex-shrink-0" aria-label="Aizprua S.E. Inicio">
+                    <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg"
+                        onerror="this.onerror=null; this.src='/assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg';"
+                        alt="Logo Aizprua S.E. - Firma Legal y Empresarial en Panamá"
+                        class="h-28 w-auto object-contain" width="112" height="112">
+                </a>
+
+                <!-- Acciones Cabecera: Volver a Recursos y Botón Blindar Negocio -->
+                <div class="flex items-center gap-3 sm:gap-4">
+                    <a href="/recursos"
+                        class="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 hover:text-brand-blue transition px-3.5 py-2 rounded-xl hover:bg-slate-100">
+                        <i data-lucide="layout-grid" class="w-4 h-4"></i>
+                        <span>Catálogo</span>
+                    </a>
+
+                    <a href="/agendar"
+                        class="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-slate-900 hover:bg-black text-white font-bold text-xs sm:text-sm shadow-md transition-all active:scale-95 group">
+                        <span>Quiero blindar mi negocio</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 shrink-0 group-hover:translate-x-0.5 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================================================== -->
+    <!-- 3. CONTENIDO PRINCIPAL: 2 COLUMNAS (SIDEBAR + VISOR)-->
+    <!-- ==================================================== -->
+    <main class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+
+        <!-- Cuadrícula 2 Columnas -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+            <!-- ================================================ -->
+            <!-- COLUMNA IZQUIERDA: SIDEBAR DE RECURSOS (4 COL)   -->
+            <!-- ================================================ -->
+            <aside class="lg:col-span-5 xl:col-span-4 bg-white rounded-3xl border border-slate-200/90 shadow-sm p-5 sm:p-6 lg:sticky lg:top-28">
+                
+                <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-100">
+                    <div>
+                        <span class="text-[10px] font-black uppercase tracking-wider text-brand-orange block">Suite Empresarial</span>
+                        <h2 class="text-lg font-black text-slate-900">Biblioteca de Recursos</h2>
+                    </div>
+                    <span id="access-badge"
+                        class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 border border-slate-200 flex items-center gap-1">
+                        <i data-lucide="lock" class="w-3 h-3 text-brand-orange"></i>
+                        <span id="access-badge-text">Protegido</span>
+                    </span>
+                </div>
+
+                <p class="text-xs text-slate-600 mb-4 leading-relaxed">
+                    Selecciona una herramienta para acceder a su documentación y activar su ejecución directa:
+                </p>
+
+                <!-- Lista de los 8 Recursos -->
+                <div id="resource-list" class="space-y-2 max-h-[60vh] overflow-y-auto pr-1 custom-scrollbar">
+                    <!-- Los elementos se renderizan dinámicamente con JS -->
+                </div>
+
+                <!-- Banner / Estado de Acceso al pie del Sidebar -->
+                <div id="sidebar-unlock-box" class="mt-5 pt-4 border-t border-slate-100">
+                    <div class="bg-gradient-to-br from-slate-900 to-brand-blue-dark rounded-2xl p-4 text-white text-xs">
+                        <div class="flex items-start gap-2.5 mb-2">
+                            <div class="w-6 h-6 rounded-lg bg-white/10 text-brand-orange flex items-center justify-center shrink-0 mt-0.5">
+                                <i data-lucide="key" class="w-3.5 h-3.5"></i>
+                            </div>
+                            <div>
+                                <span class="font-bold text-white block">Acceso Total Gratuito</span>
+                                <span class="text-[11px] text-slate-300">Desbloquea los 8 recursos en un solo paso.</span>
+                            </div>
+                        </div>
+                        <button type="button" onclick="openLeadModal()"
+                            class="w-full mt-2 py-2 px-3 bg-brand-orange hover:bg-brand-orange-dark text-white font-bold rounded-xl text-xs transition duration-200 shadow-sm flex items-center justify-center gap-1.5">
+                            <i data-lucide="unlock" class="w-3.5 h-3.5"></i>
+                            <span>Desbloquear toda la biblioteca</span>
+                        </button>
+                    </div>
+                </div>
+
+            </aside>
+
+            <!-- ================================================ -->
+            <!-- COLUMNA DERECHA: VISOR PRINCIPAL (7-8 COL)       -->
+            <!-- ================================================ -->
+            <section class="lg:col-span-7 xl:col-span-8 space-y-6">
+
+                <!-- Tarjeta Principal del Recurso Activo -->
+                <div class="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-8 relative overflow-hidden">
+                    
+                    <!-- Encabezado del Recurso Activo -->
+                    <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                        <span id="active-category"
+                            class="text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange border border-brand-orange/20">
+                            Auditoría digital
+                        </span>
+                        <span id="active-badge"
+                            class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-blue-50 text-brand-blue border border-brand-blue/20 flex items-center gap-1">
+                            <i data-lucide="sparkles" class="w-3 h-3"></i>
+                            <span id="active-badge-text">Test Interactivo</span>
+                        </span>
+                    </div>
+
+                    <!-- Título H1 en Sentence Case -->
+                    <h1 id="active-title" class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight leading-snug mb-3">
+                        Test interactivo de blindaje empresarial
+                    </h1>
+
+                    <!-- Párrafo Descriptivo -->
+                    <p id="active-description" class="text-sm sm:text-base text-slate-600 leading-relaxed mb-6">
+                        Evalúa en menos de 3 minutos el nivel de riesgo legal, tributario, laboral y municipal de tu negocio en Panamá con un informe ejecutivo en tiempo real.
+                    </p>
+
+                    <!-- Showcase Visual Canónico / Presentación -->
+                    <div id="active-showcase" class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-brand-blue-dark rounded-2xl overflow-hidden mb-6 aspect-[16/8] sm:aspect-[16/7] flex items-center justify-center p-6 border border-slate-700/60 shadow-inner">
+                        <div class="text-center z-10 max-w-md">
+                            <div id="active-icon-box" class="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-brand-orange mx-auto flex items-center justify-center mb-3 shadow-lg">
+                                <i id="active-icon" data-lucide="shield-check" class="w-9 h-9"></i>
+                            </div>
+                            <span id="active-showcase-title" class="text-sm sm:text-base font-bold text-white block">Diagnóstico de Riesgo 360°</span>
+                            <span id="active-showcase-sub" class="text-xs text-brand-orange-light font-bold block">10 Factores de Inspección DGI & MITRADEL</span>
+                        </div>
+                    </div>
+
+                    <!-- Caja de Entregables Canónica (3 bullets con items-start) -->
+                    <div class="mb-6 bg-slate-50 p-5 rounded-2xl border border-slate-100">
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3 flex items-center gap-1.5">
+                            <i data-lucide="check-check" class="w-4 h-4 text-brand-blue"></i>
+                            <span>Lo que incluye este recurso oficial:</span>
+                        </h4>
+                        <div id="active-deliverables" class="space-y-2.5">
+                            <!-- Inyectado dinámicamente -->
+                        </div>
+                    </div>
+
+                    <!-- Botón Principal de Acción -->
+                    <div class="pt-2 flex flex-col sm:flex-row items-center gap-3">
+                        <a id="active-action-btn" href="/test-interactivo"
+                            class="w-full sm:w-auto flex-1 py-4 px-6 rounded-xl font-bold text-sm bg-brand-orange hover:bg-brand-orange-dark text-white flex items-center justify-center gap-2 transition duration-200 shadow-lg hover:shadow-xl transform active:scale-95 text-center">
+                            <i id="active-action-icon" data-lucide="play-circle" class="w-5 h-5 shrink-0"></i>
+                            <span id="active-action-text">Abrir test interactivo gratis</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 shrink-0"></i>
+                        </a>
+
+                        <button type="button" onclick="shareCurrentResource()"
+                            class="w-full sm:w-auto py-4 px-5 rounded-xl font-bold text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center gap-2 transition shrink-0"
+                            title="Copiar enlace de este recurso">
+                            <i data-lucide="share-2" class="w-4 h-4"></i>
+                            <span id="share-btn-text">Compartir</span>
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- Paginación Siguiente / Anterior -->
+                <div class="flex items-center justify-between gap-4 bg-white rounded-2xl border border-slate-200/80 p-4">
+                    <button type="button" id="prev-btn" onclick="navigateResource(-1)"
+                        class="inline-flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-brand-blue px-3 py-2 rounded-xl hover:bg-slate-100 transition disabled:opacity-40 disabled:pointer-events-none">
+                        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                        <span>Anterior</span>
+                    </button>
+                    <span id="pagination-indicator" class="text-xs font-semibold text-slate-500">
+                        1 de 8
+                    </span>
+                    <button type="button" id="next-btn" onclick="navigateResource(1)"
+                        class="inline-flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-brand-blue px-3 py-2 rounded-xl hover:bg-slate-100 transition disabled:opacity-40 disabled:pointer-events-none">
+                        <span>Siguiente</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <!-- ================================================ -->
+                <!-- BANNER DE CONVERSIÓN OSCURO A /agendar           -->
+                <!-- ================================================ -->
+                <div class="bg-gradient-to-br from-slate-900 via-slate-800 to-brand-blue-dark text-white rounded-3xl p-6 sm:p-8 relative overflow-hidden shadow-xl border border-slate-700">
+                    <div class="relative z-10 max-w-2xl space-y-4">
+                        <span class="text-[10px] font-black uppercase tracking-wider text-brand-orange-light bg-white/10 px-3 py-1 rounded-full border border-white/20 inline-block">
+                            Blindaje Corporativo 1 a 1
+                        </span>
+                        <h3 class="text-xl sm:text-2xl font-black text-white tracking-tight">
+                            ¿Tu negocio factura o tiene colaboradores contratados?
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                            No dependas únicamente de recursos gratuitos. Una inspección de MITRADEL o una omisión ante la DGI puede costar miles de dólares en multas. Nuestro equipo analiza tu caso a fondo.
+                        </p>
+                        <div class="pt-2 flex flex-col sm:flex-row items-center gap-3">
+                            <a href="/agendar"
+                                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-brand-orange hover:bg-brand-orange-dark text-white font-bold rounded-xl text-xs sm:text-sm transition duration-200 shadow-lg whitespace-nowrap">
+                                <span>Quiero blindar mi negocio</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4 shrink-0"></i>
+                            </a>
+                            <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20estoy%20viendo%20la%20biblioteca%20de%20recursos%20y%20deseo%20asesor%C3%ADa%20personalizada"
+                                target="_blank" rel="noopener"
+                                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl text-xs transition border border-white/20 whitespace-nowrap">
+                                <i data-lucide="message-circle" class="w-4 h-4 shrink-0 text-emerald-400"></i>
+                                <span>Consultar duda puntual</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- ==================================================== -->
+    <!-- 4. MODAL DE CAPTURA & DESBLOQUEO DE BIBLIOTECA       -->
+    <!-- ==================================================== -->
+    <div id="lead-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-md hidden transition-opacity duration-300 opacity-0">
+        <div class="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl border border-slate-200 p-6 sm:p-8 transform transition-all duration-300 scale-95" id="modal-box">
+            
+            <!-- Botón Cerrar -->
+            <button type="button" onclick="closeLeadModal()"
+                class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 p-2 rounded-full hover:bg-slate-100 transition"
+                aria-label="Cerrar modal">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <!-- Encabezado del Modal -->
+            <div class="text-center mb-6">
+                <div class="w-14 h-14 rounded-2xl bg-orange-100 text-brand-orange mx-auto flex items-center justify-center mb-3 shadow-inner">
+                    <i data-lucide="lock-keyhole" class="w-7 h-7"></i>
+                </div>
+                <span class="text-[10px] font-black uppercase tracking-wider text-brand-orange bg-brand-orange/10 px-3 py-1 rounded-full border border-brand-orange/20 inline-block mb-2">
+                    Acceso Exclusivo Inmediato
+                </span>
+                <h3 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-snug">
+                    Desbloquea los 8 recursos y herramientas empresariales
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                    Ingresa tus datos una sola vez para tener acceso libre y permanente a toda la suite interactiva de Aizprua S.E.
+                </p>
+            </div>
+
+            <!-- Formulario de Registro -->
+            <form id="lead-form" onsubmit="handleLeadSubmit(event)" class="space-y-4">
+                
+                <div>
+                    <label for="lead-name" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                        Nombre completo o Razón Social *
+                    </label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                            <i data-lucide="user" class="w-4 h-4"></i>
+                        </div>
+                        <input type="text" id="lead-name" required
+                            placeholder="Ej. Arubel Aizprua"
+                            class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue focus:bg-white transition">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="lead-email" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                        Correo electrónico corporativo *
+                    </label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                            <i data-lucide="mail" class="w-4 h-4"></i>
+                        </div>
+                        <input type="email" id="lead-email" required
+                            placeholder="tuempresa@dominio.com"
+                            class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue focus:bg-white transition">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="lead-whatsapp" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                        WhatsApp (con código de país) *
+                    </label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                            <i data-lucide="phone" class="w-4 h-4"></i>
+                        </div>
+                        <input type="tel" id="lead-whatsapp" required value="+507 "
+                            placeholder="+507 6000-0000"
+                            class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue focus:bg-white transition">
+                    </div>
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit" id="submit-lead-btn"
+                        class="w-full py-3.5 px-6 rounded-xl font-bold text-sm bg-brand-orange hover:bg-brand-orange-dark text-white flex items-center justify-center gap-2 transition duration-200 shadow-lg hover:shadow-xl transform active:scale-95">
+                        <i data-lucide="unlock" class="w-4 h-4"></i>
+                        <span>Desbloquear toda la biblioteca ahora</span>
+                    </button>
+                </div>
+
+                <p class="text-[11px] text-center text-slate-500 pt-1 flex items-center justify-center gap-1.5">
+                    <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-500 shrink-0"></i>
+                    <span>Tus datos están protegidos bajo la Ley 81 de Panamá. Cero spam.</span>
+                </p>
+
+            </form>
+
+        </div>
+    </div>
+
+    <!-- ==================================================== -->
+    <!-- 5. FOOTER MINIMALISTA DE 1 LÍNEA                     -->
+    <!-- ==================================================== -->
+    <footer class="bg-slate-900 text-slate-400 py-6 border-t border-slate-800 mt-auto text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+            <p>&copy; 2026 Aizprua S.E. Firma Legal y Empresarial en Panamá. Todos los derechos reservados.</p>
+            <div class="flex items-center gap-4 text-slate-400">
+                <a href="/recursos" class="hover:text-white transition">Catálogo</a>
+                <span>·</span>
+                <a href="/privacidad" class="hover:text-white transition">Privacidad</a>
+                <span>·</span>
+                <a href="/terminos" class="hover:text-white transition">Términos</a>
+                <span>·</span>
+                <a href="https://wa.me/50765461527" target="_blank" rel="noopener" class="hover:text-emerald-400 transition">WhatsApp Oficial</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================================================== -->
+    <!-- 6. BOTONES FLOTANTES                                 -->
+    <!-- ==================================================== -->
+    <div class="fixed bottom-6 right-6 z-40 flex flex-col items-center gap-3 pointer-events-none">
+        <button id="scroll-top-btn" onclick="scrollToTop()" aria-label="Volver arriba"
+            class="w-11 h-11 bg-white/95 backdrop-blur border border-slate-300 hover:border-brand-blue text-slate-700 hover:text-brand-blue rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:-translate-y-1 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="chevron-up" class="w-5 h-5"></i>
+        </button>
+
+        <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20tengo%20una%20consulta%20sobre%20la%20biblioteca%20de%20recursos"
+            target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"
+            class="pointer-events-auto w-14 h-14 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center group relative flex-shrink-0">
+            <i data-lucide="message-circle" class="w-7 h-7"></i>
+            <span class="absolute right-full mr-3 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
+                ¿Dudas? Chatea con nosotros
+            </span>
+        </a>
+    </div>
+
+    <!-- ==================================================== -->
+    <!-- 7. SCRIPT OFICIAL DE LA BIBLIOTECA                   -->
+    <!-- ==================================================== -->
+    <script>
+        // Definición Maestra de los 8 Recursos
+        const RESOURCES_DATA = [
+            {
+                id: 'test-blindaje',
+                title: 'Test interactivo de blindaje empresarial',
+                category: 'Auditoría digital',
+                badge: 'Test Interactivo',
+                badgeClass: 'bg-blue-50 text-brand-blue border-brand-blue/20',
+                icon: 'shield-check',
+                description: 'Evalúa en menos de 3 minutos el nivel de riesgo legal, tributario, laboral y municipal de tu empresa en Panamá.',
+                showcaseTitle: 'Diagnóstico de Riesgo 360°',
+                showcaseSub: '10 Factores de Inspección DGI & MITRADEL',
+                deliverables: [
+                    '10 preguntas estratégicas adaptadas a tu estructura de negocio.',
+                    'Diagnóstico porcentual de vulnerabilidad jurídica en tiempo real.',
+                    'Hoja de ruta inmediata con acciones correctivas recomendadas.'
+                ],
+                actionUrl: '/test-interactivo',
+                actionText: 'Abrir test interactivo gratis',
+                actionIcon: 'play-circle',
+                free: true // Primer recurso desbloqueado por defecto
+            },
+            {
+                id: 'validador-ruc',
+                title: 'Validador RUC y Dígito Verificador DGI',
+                category: 'Herramienta tributaria',
+                badge: 'Validador DGI',
+                badgeClass: 'bg-emerald-50 text-emerald-600 border-emerald-500/20',
+                icon: 'file-check',
+                description: 'Algoritmo oficial de comprobación de RUC y DV (Dígito Verificador) para personas naturales, jurídicas y extranjeros en Panamá.',
+                showcaseTitle: 'Módulo 11 Oficial DGI',
+                showcaseSub: 'Prevención de Facturas Electrónicas Rechazadas',
+                deliverables: [
+                    'Algoritmo de Módulo 11 oficial de la Dirección General de Ingresos.',
+                    'Validación en tiempo real para evitar facturas electrónicas rechazadas.',
+                    'Formato canónico de entrada y verificación de cédulas panameñas.'
+                ],
+                actionUrl: '/ruc',
+                actionText: 'Usar validador de RUC y DV',
+                actionIcon: 'check-circle-2',
+                free: false
+            },
+            {
+                id: 'verificador-web',
+                title: 'Verificador de sitios web y auditoría digital',
+                category: 'Diagnóstico digital',
+                badge: 'Auditor Web',
+                badgeClass: 'bg-purple-50 text-purple-600 border-purple-500/20',
+                icon: 'globe',
+                description: 'Escanea el cumplimiento legal de tu sitio web o ecommerce bajo la Ley 81 de Protección de Datos Personales y Ley de Comercio Electrónico.',
+                showcaseTitle: 'Auditoría Legal Digital',
+                showcaseSub: 'Cumplimiento Ley 81 & Comercio Electrónico',
+                deliverables: [
+                    'Chequeo de políticas de privacidad y términos y condiciones.',
+                    'Verificación de protocolo seguro SSL y avisos legales obligatorios.',
+                    'Score digital de cumplimiento normativo para negocios en línea.'
+                ],
+                actionUrl: '/verificador',
+                actionText: 'Auditar mi sitio web ahora',
+                actionIcon: 'search',
+                free: false
+            },
+            {
+                id: 'guia-multas',
+                title: 'Guía preventiva anti-multas Panamá 2026',
+                category: 'Guía en PDF',
+                badge: 'PDF Oficial',
+                badgeClass: 'bg-amber-50 text-amber-600 border-amber-500/20',
+                icon: 'file-text',
+                description: 'Manual ejecutivo que desglosa las 10 sanciones más costosas y frecuentes aplicadas por DGI, MITRADEL y Municipios.',
+                showcaseTitle: 'Protocolo Anti-Multas 2026',
+                showcaseSub: 'Tablas Oficiales & Procedimiento de Defensa',
+                deliverables: [
+                    'Tablas de multas oficiales actualizadas con montos en dólares.',
+                    'Plazos improrrogables de presentación de informes e impuestos.',
+                    'Protocolo de actuación preventiva ante citaciones o inspecciones.'
+                ],
+                actionUrl: '/assets/guia-anti-multas-panama-2026.pdf',
+                actionText: 'Descargar guía oficial en PDF',
+                actionIcon: 'download',
+                free: false
+            },
+            {
+                id: 'guia-prestamos',
+                title: 'Guía de préstamos y crédito bancario',
+                category: 'Guía financiera',
+                badge: 'Expediente Bancario',
+                badgeClass: 'bg-blue-50 text-blue-600 border-blue-500/20',
+                icon: 'landmark',
+                description: 'Aprende a estructurar el expediente financiero y tributario de tu negocio para calificar a financiamiento bancario sin rechazos.',
+                showcaseTitle: 'Expediente Financiero Bancario',
+                showcaseSub: 'Los 6 Ratios Clave & Sanación APC',
+                deliverables: [
+                    'Los 6 ratios de liquidez que revisan los analistas de riesgo.',
+                    'Sustentación correcta de flujo de caja y depósitos bancarios.',
+                    'Estrategias para sanear tu historial de crédito APC corporativo.'
+                ],
+                actionUrl: '/guia-prestamos',
+                actionText: 'Consultar guía de crédito',
+                actionIcon: 'external-link',
+                free: false
+            },
+            {
+                id: 'checklist-blindaje',
+                title: 'Blindaje & prevención de multas corporativas',
+                category: 'Guía técnica',
+                badge: 'Manual Corporativo',
+                badgeClass: 'bg-brand-orange/10 text-brand-orange border-brand-orange/20',
+                icon: 'shield-alert',
+                description: 'Manual paso a paso con los requisitos indispensables de DGI, MITRADEL, CSS y Municipio para operar con protección jurídica en Panamá.',
+                showcaseTitle: 'Manual Corporativo 360°',
+                showcaseSub: 'Contratos, Normativas & Calendario Legal',
+                deliverables: [
+                    'Protocolos de inspección laboral MITRADEL y modelos de contratos.',
+                    'Calendario y obligaciones tributarias de DGI, CSS y Municipio.',
+                    'Cláusulas contractuales listas para copiar y test de autodiagnóstico.'
+                ],
+                actionUrl: '/guia-blindaje',
+                actionText: 'Explorar manual de blindaje',
+                actionIcon: 'book-open',
+                free: false
+            },
+            {
+                id: 'calculadora-margen',
+                title: 'Calculadora de precio de venta y margen de utilidad',
+                category: 'Herramienta de precios',
+                badge: 'Fórmula Contable',
+                badgeClass: 'bg-emerald-50 text-emerald-600 border-emerald-500/20',
+                icon: 'calculator',
+                description: 'Fija precios científicamente con la fórmula contable oficial, desglosa el ITBMS (7%) y modela la rentabilidad con publicidad digital.',
+                showcaseTitle: 'Fórmula Contable Oficial 4E',
+                showcaseSub: 'Desglose de ITBMS (7%) y CAC en Publicidad',
+                deliverables: [
+                    'Diferencia automática entre margen real y marcado simple (markup).',
+                    'Cálculo del 7% de ITBMS y proyecciones de ganancia según volumen.',
+                    'Módulo especializado para infoproductos con comisiones y CAC en Ads.'
+                ],
+                actionUrl: '/calculadora-precios',
+                actionText: 'Abrir calculadora de precios',
+                actionIcon: 'calculator',
+                free: false
+            },
+            {
+                id: 'simulador-prestamos',
+                title: 'Simulador de préstamos y capacidad bancaria',
+                category: 'Simulador comercial',
+                badge: 'Regla DTI 35% SBP',
+                badgeClass: 'bg-blue-50 text-blue-600 border-blue-500/20',
+                icon: 'badge-dollar-sign',
+                description: 'Conoce tu cuota mensual estimada, tasa de interés y si tu empresa califica ante los comités de crédito bancario de Panamá.',
+                showcaseTitle: 'Simulación Comercial DTI',
+                showcaseSub: 'Cálculo de Cuota & Exoneración FECI 1%',
+                deliverables: [
+                    'Cálculo de cuota mensual y verificación de la regla DTI del 35%.',
+                    'Estimación de ahorro con la exoneración del 1% FECI para pymes AMPYME.',
+                    'Requisitos indispensables para calificar a préstamos comerciales.'
+                ],
+                actionUrl: '/simulador-prestamos',
+                actionText: 'Abrir simulador de crédito',
+                actionIcon: 'percent',
+                free: false
+            }
+        ];
+
+        // Estado Global
+        let currentIndex = 0;
+        let isUnlocked = localStorage.getItem('aizprua_library_unlocked') === 'true';
+        let pendingResourceIndex = null;
+
+        // Inicialización al cargar la página
+        document.addEventListener('DOMContentLoaded', () => {
+            // Determinar recurso inicial por parámetro ?id=...
+            const urlParams = new URLSearchParams(window.location.search);
+            const targetId = urlParams.get('id');
+            if (targetId) {
+                const foundIndex = RESOURCES_DATA.findIndex(r => r.id === targetId);
+                if (foundIndex !== -1) {
+                    // Si el recurso requiere desbloqueo y no está desbloqueado:
+                    if (!isUnlocked && !RESOURCES_DATA[foundIndex].free) {
+                        currentIndex = 0; // Mostrar el primero
+                        pendingResourceIndex = foundIndex;
+                        setTimeout(() => openLeadModal(), 600);
+                    } else {
+                        currentIndex = foundIndex;
+                    }
+                }
+            }
+
+            renderSidebar();
+            renderActiveResource();
+            updateAccessStatus();
+            lucide.createIcons();
+        });
+
+        // Actualizar estado de acceso en interfaz
+        function updateAccessStatus() {
+            const accessBadge = document.getElementById('access-badge');
+            const accessText = document.getElementById('access-badge-text');
+            const sidebarUnlockBox = document.getElementById('sidebar-unlock-box');
+
+            if (isUnlocked) {
+                accessBadge.className = 'text-[10px] font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center gap-1';
+                accessBadge.innerHTML = '<i data-lucide="check-circle" class="w-3 h-3 text-emerald-500"></i> Desbloqueado';
+                if (sidebarUnlockBox) sidebarUnlockBox.classList.add('hidden');
+            } else {
+                accessBadge.className = 'text-[10px] font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 border border-slate-200 flex items-center gap-1';
+                accessBadge.innerHTML = '<i data-lucide="lock" class="w-3 h-3 text-brand-orange"></i> Protegido';
+                if (sidebarUnlockBox) sidebarUnlockBox.classList.remove('hidden');
+            }
+            lucide.createIcons();
+        }
+
+        // Renderizar lista en la barra lateral
+        function renderSidebar() {
+            const container = document.getElementById('resource-list');
+            container.innerHTML = '';
+
+            RESOURCES_DATA.forEach((res, idx) => {
+                const isActive = idx === currentIndex;
+                const isItemLocked = !isUnlocked && !res.free;
+
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = `w-full text-left p-3 rounded-2xl border transition duration-200 flex items-start justify-between gap-3 ${
+                    isActive
+                        ? 'bg-blue-50/70 border-brand-blue ring-1 ring-brand-blue/30 text-slate-900 shadow-xs'
+                        : 'bg-white border-slate-200/80 hover:bg-slate-50 text-slate-700 hover:border-slate-300'
+                }`;
+
+                btn.onclick = () => selectResource(idx);
+
+                btn.innerHTML = `
+                    <div class="flex items-start gap-2.5 min-w-0">
+                        <div class="w-8 h-8 rounded-xl ${isActive ? 'bg-brand-blue text-white' : 'bg-slate-100 text-slate-600'} flex items-center justify-center shrink-0 mt-0.5">
+                            <i data-lucide="${res.icon}" class="w-4 h-4"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <span class="text-[10px] font-bold uppercase tracking-wider ${isActive ? 'text-brand-orange' : 'text-slate-400'} block">
+                                ${res.category}
+                            </span>
+                            <span class="text-xs font-bold leading-snug line-clamp-2 ${isActive ? 'text-brand-blue' : 'text-slate-900'}">
+                                ${res.title}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="shrink-0 mt-1">
+                        ${isItemLocked 
+                            ? '<span class="w-6 h-6 rounded-full bg-orange-100 text-brand-orange flex items-center justify-center text-[10px]" title="Requiere desbloqueo"><i data-lucide="lock" class="w-3 h-3"></i></span>'
+                            : (isActive 
+                                ? '<span class="w-6 h-6 rounded-full bg-brand-blue text-white flex items-center justify-center text-[10px]"><i data-lucide="chevron-right" class="w-3.5 h-3.5"></i></span>'
+                                : '<span class="w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-[10px]"><i data-lucide="check" class="w-3 h-3"></i></span>'
+                            )
+                        }
+                    </div>
+                `;
+
+                container.appendChild(btn);
+            });
+
+            lucide.createIcons();
+        }
+
+        // Seleccionar recurso
+        function selectResource(idx) {
+            const res = RESOURCES_DATA[idx];
+            if (!isUnlocked && !res.free) {
+                pendingResourceIndex = idx;
+                openLeadModal();
+                return;
+            }
+
+            currentIndex = idx;
+            renderSidebar();
+            renderActiveResource();
+
+            // Actualizar URL sin recargar
+            const newUrl = window.location.pathname + '?id=' + res.id;
+            window.history.replaceState({ id: res.id }, '', newUrl);
+
+            // Scroll suave al visor si está en móvil
+            if (window.innerWidth < 1024) {
+                window.scrollTo({ top: 120, behavior: 'smooth' });
+            }
+        }
+
+        // Renderizar el visor del recurso activo
+        function renderActiveResource() {
+            const res = RESOURCES_DATA[currentIndex];
+
+            const bc = document.getElementById('breadcrumb-current');
+            if (bc) bc.textContent = res.title;
+            document.getElementById('active-category').textContent = res.category;
+            document.getElementById('active-badge-text').textContent = res.badge;
+            document.getElementById('active-title').textContent = res.title;
+            document.getElementById('active-description').textContent = res.description;
+            document.getElementById('active-showcase-title').textContent = res.showcaseTitle;
+            document.getElementById('active-showcase-sub').textContent = res.showcaseSub;
+
+            // Icono del showcase
+            const iconBox = document.getElementById('active-icon-box');
+            iconBox.innerHTML = `<i data-lucide="${res.icon}" class="w-9 h-9"></i>`;
+
+            // Bullets
+            const deliverablesContainer = document.getElementById('active-deliverables');
+            deliverablesContainer.innerHTML = '';
+            res.deliverables.forEach(item => {
+                const row = document.createElement('div');
+                row.className = 'flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 font-medium';
+                row.innerHTML = `
+                    <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5"></i>
+                    <span class="leading-snug">${item}</span>
+                `;
+                deliverablesContainer.appendChild(row);
+            });
+
+            // Botón de Acción
+            const actionBtn = document.getElementById('active-action-btn');
+            actionBtn.href = res.actionUrl;
+            document.getElementById('active-action-text').textContent = res.actionText;
+            document.getElementById('active-action-icon').setAttribute('data-lucide', res.actionIcon);
+
+            if (res.actionUrl.endsWith('.pdf')) {
+                actionBtn.setAttribute('download', '');
+                actionBtn.target = '_blank';
+            } else {
+                actionBtn.removeAttribute('download');
+                actionBtn.target = '_self';
+            }
+
+            // Paginación
+            document.getElementById('pagination-indicator').textContent = `${currentIndex + 1} de ${RESOURCES_DATA.length}`;
+            document.getElementById('prev-btn').disabled = currentIndex === 0;
+            document.getElementById('next-btn').disabled = currentIndex === RESOURCES_DATA.length - 1;
+
+            lucide.createIcons();
+        }
+
+        // Navegar Anterior / Siguiente
+        function navigateResource(delta) {
+            const nextIdx = currentIndex + delta;
+            if (nextIdx >= 0 && nextIdx < RESOURCES_DATA.length) {
+                selectResource(nextIdx);
+            }
+        }
+
+        // Copiar enlace de compartir
+        function shareCurrentResource() {
+            const url = window.location.href;
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(url).then(() => {
+                    const shareText = document.getElementById('share-btn-text');
+                    const orig = shareText.textContent;
+                    shareText.textContent = '¡Copiado!';
+                    setTimeout(() => { shareText.textContent = orig; }, 2000);
+                });
+            }
+        }
+
+        // Modal de Captura y Desbloqueo
+        function openLeadModal() {
+            const modal = document.getElementById('lead-modal');
+            const box = document.getElementById('modal-box');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                box.classList.remove('scale-95');
+                box.classList.add('scale-100');
+                document.getElementById('lead-name').focus();
+            }, 10);
+        }
+
+        function closeLeadModal() {
+            const modal = document.getElementById('lead-modal');
+            const box = document.getElementById('modal-box');
+            modal.classList.add('opacity-0');
+            box.classList.remove('scale-100');
+            box.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Manejo del formulario de desbloqueo
+        function handleLeadSubmit(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('lead-name').value.trim();
+            const email = document.getElementById('lead-email').value.trim();
+            const whatsapp = document.getElementById('lead-whatsapp').value.trim();
+
+            if (!name || !email || !whatsapp) return;
+
+            // Guardar en LocalStorage
+            localStorage.setItem('aizprua_library_unlocked', 'true');
+            localStorage.setItem('aizprua_lead_name', name);
+            localStorage.setItem('aizprua_lead_email', email);
+            localStorage.setItem('aizprua_lead_whatsapp', whatsapp);
+
+            isUnlocked = true;
+
+            // Cerrar modal y actualizar estado
+            closeLeadModal();
+            updateAccessStatus();
+
+            // Si había un recurso pendiente al que el usuario intentó acceder, cargarlo
+            if (pendingResourceIndex !== null) {
+                currentIndex = pendingResourceIndex;
+                pendingResourceIndex = null;
+            }
+
+            renderSidebar();
+            renderActiveResource();
+
+            // Enviar notificación a WhatsApp de Aizprua S.E.
+            const waMsg = encodeURIComponent(
+                `Hola Aizprua S.E., acabo de desbloquear la biblioteca completa de recursos.\n\n` +
+                `*Nombre:* ${name}\n` +
+                `*Correo:* ${email}\n` +
+                `*WhatsApp:* ${whatsapp}`
+            );
+            const waUrl = `https://wa.me/50765461527?text=${waMsg}`;
+            
+            // Abrir WhatsApp en segundo plano
+            window.open(waUrl, '_blank');
+        }
+
+        // Barra de progreso y botón Volver arriba
+        window.addEventListener('scroll', () => {
+            const winScroll = document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            const progressBar = document.getElementById('progress-bar');
+            if (progressBar) progressBar.style.width = scrolled + '%';
+
+            const scrollTopBtn = document.getElementById('scroll-top-btn');
+            if (scrollTopBtn) {
+                if (winScroll > 300) {
+                    scrollTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                    scrollTopBtn.classList.add('opacity-100', 'pointer-events-auto');
+                } else {
+                    scrollTopBtn.classList.remove('opacity-100', 'pointer-events-auto');
+                    scrollTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                }
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+
+</html>

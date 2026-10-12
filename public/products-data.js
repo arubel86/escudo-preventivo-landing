@@ -1020,9 +1020,7 @@ function renderShopProducts(containerId = "products-grid") {
         }
 
         // Botón Principal
-        const hotmartClass = product.buyButton.isHotmart ? 'hotmart-fb ' : '';
-        const buyExternal = product.buyButton.link.startsWith("http") ? 'target="_blank" rel="noopener"' : '';
-        
+        let mainButtonHTML = "";
         let buyBtnIdAttr = "";
         let buyTextIdAttr = "";
         if (product.colorImages) {
@@ -1030,6 +1028,28 @@ function renderShopProducts(containerId = "products-grid") {
             const textId = (product.id === "sueter-metodo-4e") ? "hoodie-buy-text" : `${product.id}-buy-text`;
             buyBtnIdAttr = `id="${btnId}" `;
             buyTextIdAttr = `id="${textId}"`;
+        }
+
+        if (product.price > 0) {
+            // Producto comercial: Añadir al Carrito con Panel Deslizante
+            mainButtonHTML = `
+                <button type="button" ${buyBtnIdAttr}onclick="addToCart('${product.id}')"
+                    class="w-full inline-flex items-center justify-center gap-2 py-3 bg-brand-blue hover:bg-brand-blue-dark text-white rounded-xl text-xs sm:text-sm font-bold transition shadow hover:shadow-md active:scale-98 cursor-pointer">
+                    <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                    <span ${buyTextIdAttr}>Añadir al Carrito</span>
+                </button>
+            `;
+        } else {
+            // Producto gratuito ($0): Enlace directo a recurso o test
+            const hotmartClass = product.buyButton.isHotmart ? 'hotmart-fb ' : '';
+            const buyExternal = product.buyButton.link.startsWith("http") ? 'target="_blank" rel="noopener"' : '';
+            mainButtonHTML = `
+                <a ${buyBtnIdAttr}href="${product.buyButton.link}" ${buyExternal}
+                    class="${hotmartClass}w-full inline-flex items-center justify-center gap-2 py-3 ${product.buyButton.class} rounded-xl text-xs sm:text-sm font-bold transition shadow hover:shadow-md">
+                    <i data-lucide="${product.buyButton.icon}" class="w-4 h-4"></i>
+                    <span ${buyTextIdAttr}>${product.buyButton.text}</span>
+                </a>
+            `;
         }
 
         return `
@@ -1058,11 +1078,7 @@ function renderShopProducts(containerId = "products-grid") {
                     ${priceAreaHTML}
 
                     <div class="min-h-[5.5rem] flex flex-col justify-end space-y-2">
-                        <a ${buyBtnIdAttr}href="${product.buyButton.link}" ${buyExternal}
-                            class="${hotmartClass}w-full inline-flex items-center justify-center gap-2 py-3 ${product.buyButton.class} rounded-xl text-xs sm:text-sm font-bold transition shadow hover:shadow-md">
-                            <i data-lucide="${product.buyButton.icon}" class="w-4 h-4"></i>
-                            <span ${buyTextIdAttr}>${product.buyButton.text}</span>
-                        </a>
+                        ${mainButtonHTML}
 
                         ${detailAreaHTML}
                     </div>
@@ -1081,6 +1097,9 @@ function renderShopProducts(containerId = "products-grid") {
  * Sincroniza imagen de portada, badge indicador y mensaje de compra por WhatsApp
  */
 function selectProductColor(productId, color, btn) {
+    window.selectedProductColors = window.selectedProductColors || {};
+    window.selectedProductColors[productId] = color;
+
     const isHoodie = (productId === 'sueter-metodo-4e');
     const imgId = isHoodie ? 'hoodie-cover-img' : `${productId}-cover-img`;
     const labelId = isHoodie ? 'hoodie-color-label' : `${productId}-color-label`;

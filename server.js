@@ -452,14 +452,34 @@ app.get('/guia-preventiva.html', (req, res) => {
   res.redirect(301, '/guia-preventiva' + query);
 });
 
-// 3. Página C: Recursos Gratuitos (Lead Magnet)
-app.get(['/recursos-gratuitos', '/recursos'], (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'recursos-gratuitos.html'));
+// 3. Página C: Recursos Gratuitos (Hub de Recursos)
+app.get(['/recursos', '/recursos.html'], (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'recursos.html'));
 });
 
-app.get(['/recursos-gratuitos.html', '/recursos.html'], (req, res) => {
+app.get(['/recursos-gratuitos', '/recursos-gratuitos.html'], (req, res) => {
   const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
-  res.redirect(301, '/recursos-gratuitos' + query);
+  res.redirect(301, '/recursos' + query);
+});
+
+// 3.1. Biblioteca Interactiva de Recursos (Gated Hub)
+app.get('/biblioteca', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'biblioteca.html'));
+});
+
+app.get(['/biblioteca.html', '/hub', '/hub.html'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/biblioteca' + query);
+});
+
+// 3.2. Agendar / Sesión de Calificación de Blindaje Legal
+app.get('/agendar', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'agendar.html'));
+});
+
+app.get(['/agendar.html', '/blindar', '/blindar.html', '/sesion', '/sesion.html', '/aplicar', '/aplicar.html'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/agendar' + query);
 });
 
 // 4. Hub Post-Descarga Guía Gratuita
