@@ -133,12 +133,29 @@
             </div>
         </div>
 
-        <!-- Menú Móvil -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-200 px-4 py-4 space-y-3">
-            <a href="/#servicios" class="block py-2 text-slate-700 font-bold">Servicios (Asesoría & Trámites)</a>
-            <a href="/tienda" class="block py-2 text-brand-blue font-bold">Tienda Online (Kits & Soluciones)</a>
-            <a href="/blog" class="block py-2 text-slate-700 font-bold">Blog de Inteligencia</a>
-            <a href="/test-interactivo" class="block py-2 text-brand-orange font-bold">Test de auditoría gratis</a>
+        <!-- Menú Móvil Desplegable Canónico Oficial -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-200 px-4 pt-3 pb-6 space-y-3">
+            <a href="/#servicios" class="block py-2 text-slate-700 font-bold hover:text-brand-blue border-b border-slate-100">
+                Servicios (Asesoría & Trámites)
+            </a>
+            <a href="/tienda" class="block py-2 text-brand-blue font-bold border-b border-slate-100">
+                Tienda Online (Plan 360 & Kits)
+            </a>
+            <a href="/escuela" class="block py-2 text-slate-700 font-bold hover:text-brand-blue border-b border-slate-100 flex items-center gap-2">
+                <span>Escuela (Campus Virtual)</span>
+                <span class="bg-brand-blue/10 text-brand-blue text-[10px] font-black px-2 py-0.5 rounded-full shrink-0">Nuevo</span>
+            </a>
+            <a href="/blog" class="block py-2 text-slate-700 font-bold hover:text-brand-blue border-b border-slate-100">
+                Blog de Inteligencia Empresarial
+            </a>
+            <a href="/test-interactivo" class="block py-2 text-brand-orange font-bold border-b border-slate-100">
+                Test de Auditoría en Vivo (3 min)
+            </a>
+            <a href="https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20los%20productos%20de%20la%20Tienda%20Aizprua" target="_blank" rel="noopener"
+                class="flex items-center justify-center gap-2 bg-[#25D366] text-white px-4 py-3 rounded-xl font-bold text-sm shadow mt-2">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                <span>Chatear por WhatsApp (+507 6546-1527)</span>
+            </a>
         </div>
     </header>
 
@@ -1670,7 +1687,11 @@
     <script src="cart.js"></script>
     <script>
         function toggleMobileMenu() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
+            const menu = document.getElementById('mobile-menu');
+            if (menu) {
+                menu.classList.toggle('hidden');
+                if (window.lucide) lucide.createIcons();
+            }
         }
 
         function toggleMobileFilters() {
