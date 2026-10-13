@@ -154,7 +154,11 @@
         return `
             <a href="${post.url}" class="group bg-white p-5 rounded-2xl border border-slate-200 shadow-xs hover:shadow-md hover:border-brand-blue transition flex flex-col justify-between">
                 <div class="space-y-2">
-                    <span class="text-[10px] font-bold ${post.categoryColor || 'text-brand-orange'} uppercase">${post.category} • ${post.readTime}</span>
+                    <div class="flex flex-wrap items-center gap-1.5 text-[10px] font-bold ${post.categoryColor || 'text-brand-orange'} uppercase">
+                        <span class="whitespace-nowrap">${post.category}</span>
+                        <span class="text-slate-300">•</span>
+                        <span class="whitespace-nowrap">${post.readTime}</span>
+                    </div>
                     <h4 class="text-sm font-black text-slate-900 group-hover:text-brand-blue transition leading-snug">
                         ${post.title}
                     </h4>

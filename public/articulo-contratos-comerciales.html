@@ -274,15 +274,15 @@
                     
                     <!-- Ficha de Autor & Metadatos -->
                     <div class="flex flex-wrap items-center justify-between gap-4 pt-2 border-b border-slate-200 pb-5">
-                        <div class="flex flex-wrap items-center gap-3 text-xs text-slate-500 font-semibold">
-                            <div class="flex items-center gap-2">
-                                <img src="assets/avatar-arubel.jpg" onerror="this.onerror=null; this.src='/assets/avatar-arubel.jpg';" alt="Arubel Aizprua" class="w-8 h-8 rounded-full object-cover border border-brand-blue/30 shadow-xs">
-                                <span class="text-slate-900 font-bold">Arubel Aizprua</span>
+                        <div class="flex flex-wrap items-center gap-y-1.5 gap-x-2.5 sm:gap-x-3 text-xs text-slate-500 font-semibold">
+                            <div class="flex items-center gap-2 shrink-0">
+                                <img src="assets/avatar-arubel.jpg" onerror="this.onerror=null; this.src='/assets/avatar-arubel.jpg';" alt="Arubel Aizprua" class="w-8 h-8 rounded-full object-cover border border-brand-blue/30 shadow-xs shrink-0">
+                                <span class="text-slate-900 font-bold whitespace-nowrap">Arubel Aizprua</span>
                             </div>
-                            <span>•</span>
-                            <span class="bg-brand-blue/10 text-brand-blue px-2 py-0.5 rounded-full font-bold">8 min de lectura</span>
-                            <span>•</span>
-                            <span>Edición Panamá 2026</span>
+                            <span class="text-slate-300">•</span>
+                            <span class="bg-brand-blue/10 text-brand-blue px-2 py-0.5 rounded-full font-bold whitespace-nowrap shrink-0">8 min de lectura</span>
+                            <span class="text-slate-300 hidden sm:inline">•</span>
+                            <span class="whitespace-nowrap w-full sm:w-auto text-slate-500">Edición Panamá 2026</span>
                         </div>
 
                         <!-- Botones de Compartir (Cabecera) -->
@@ -334,10 +334,10 @@
 
                     <!-- 2. RESUMEN EJECUTIVO / TL;DR (3 TARJETAS EN COLUMNAS) -->
                     <div id="resumen-ejecutivo" class="doc-card scroll-mt-36 p-6 sm:p-7 rounded-3xl bg-gradient-to-br from-brand-blue/[0.04] to-brand-blue/[0.08] border-2 border-brand-blue/20 shadow-sm space-y-4 not-prose my-8">
-                        <div class="flex items-center gap-2">
-                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-brand-blue text-white shadow-xs">
-                                <i data-lucide="zap" class="w-3.5 h-3.5 text-brand-orange"></i>
-                                <span>Resumen Ejecutivo (TL;DR)</span>
+                        <div class="flex flex-wrap items-center gap-2">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-brand-blue text-white shadow-xs whitespace-nowrap shrink-0">
+                                <i data-lucide="zap" class="w-3.5 h-3.5 text-brand-orange shrink-0"></i>
+                                <span>Resumen Ejecutivo</span>
                             </span>
                             <span class="text-xs text-slate-500 font-semibold">• 30 segundos de lectura</span>
                         </div>
@@ -437,8 +437,8 @@
                                 Las grandes corporaciones multinacionales suelen incluir en sus contratos de proveedores una cláusula de <strong>Indemnidad y Daños Consecuenciales</strong>. Esto significa que si un software que instalaste o un servicio que prestaste falla y ocasiona una interrupción temporal de las ventas del cliente, tu empresa podría ser demandada por millones de dólares en "lucro cesante".
                             </p>
                             <div class="not-prose bg-red-50 border border-red-200 rounded-2xl p-4 text-xs sm:text-sm text-red-900 space-y-2">
-                                <div class="font-bold flex items-center gap-1.5 text-red-700">
-                                    <i data-lucide="alert-triangle" class="w-4 h-4"></i> Cláusula Peligrosa Típica:
+                                <div class="font-bold flex items-start gap-1.5 text-red-700">
+                                <i data-lucide="alert-triangle" class="w-4 h-4 shrink-0 mt-0.5"></i> Cláusula Peligrosa Típica:
                                 </div>
                                 <p class="font-mono text-xs bg-white p-2.5 rounded border border-red-200 text-red-800 leading-relaxed">
                                     "El Proveedor indemnizará, defenderá y mantendrá indemne al Cliente de cualquier pérdida, costo, daño consecuencial o lucro cesante que resulte de la prestación de los servicios, sin limitación de monto..."
@@ -467,14 +467,14 @@
                             </p>
                             <div class="not-prose grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div class="bg-white border border-slate-200 p-4 rounded-2xl shadow-xs">
-                                    <div class="font-bold text-brand-blue text-xs sm:text-sm mb-1 flex items-center gap-1.5">
-                                        <i data-lucide="clock" class="w-4 h-4"></i> Aviso Previo Escrito
+                                    <div class="font-bold text-brand-blue text-xs sm:text-sm mb-1 flex items-start gap-1.5">
+                                    <i data-lucide="clock" class="w-4 h-4 shrink-0 mt-0.5"></i> Aviso Previo Escrito
                                     </div>
                                     <p class="text-xs text-slate-600 leading-relaxed">Pactar que cualquiera de las partes podrá rescindir el contrato con un aviso escrito formal de 30 o 60 días sin penalidad.</p>
                                 </div>
                                 <div class="bg-white border border-slate-200 p-4 rounded-2xl shadow-xs">
-                                    <div class="font-bold text-brand-orange text-xs sm:text-sm mb-1 flex items-center gap-1.5">
-                                        <i data-lucide="dollar-sign" class="w-4 h-4"></i> Suspensión por Mora
+                                    <div class="font-bold text-brand-orange text-xs sm:text-sm mb-1 flex items-start gap-1.5">
+                                    <i data-lucide="dollar-sign" class="w-4 h-4 shrink-0 mt-0.5"></i> Suspensión por Mora
                                     </div>
                                     <p class="text-xs text-slate-600 leading-relaxed">Derecho expreso a suspender la entrega del servicio si las facturas superan los 15 días de vencimiento sin liquidación.</p>
                                 </div>
@@ -505,8 +505,8 @@
 
                     <!-- 07. TABLA COMPARATIVA -->
                     <div id="tabla-comparativa" class="doc-card scroll-mt-36 space-y-4 pt-6">
-                        <div class="flex items-center gap-2">
-                            <i data-lucide="scale" class="w-5 h-5 text-brand-blue"></i>
+                        <div class="flex items-start gap-2.5">
+                            <i data-lucide="scale" class="w-5 h-5 text-brand-blue shrink-0 mt-1"></i>
                             <h2 class="text-xl sm:text-2xl font-black text-slate-900 m-0">
                                 Tabla comparativa: contrato informal de internet vs. contrato blindado
                             </h2>
@@ -602,8 +602,8 @@
 
                     <!-- 09. PREGUNTAS FRECUENTES (FAQ) -->
                     <div id="preguntas-frecuentes" class="doc-card scroll-mt-36 space-y-4 pt-6">
-                        <div class="flex items-center gap-2 mb-2">
-                            <i data-lucide="help-circle" class="w-5 h-5 text-brand-blue"></i>
+                        <div class="flex items-start gap-2.5 mb-2">
+                            <i data-lucide="help-circle" class="w-5 h-5 text-brand-blue shrink-0 mt-1"></i>
                             <h2 class="text-xl sm:text-2xl font-black text-slate-900 m-0">Preguntas frecuentes sobre contratos comerciales</h2>
                         </div>
 

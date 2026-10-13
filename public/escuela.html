@@ -93,13 +93,15 @@
     <!-- 1. Barra Superior de Anuncios -->
     <div id="announcement-bar" class="bg-slate-900 text-white text-xs sm:text-sm py-2 px-4 text-center font-medium sticky top-0 z-50 shadow-sm border-b border-slate-800">
         <div class="max-w-7xl mx-auto flex items-center justify-center gap-2">
-            <span class="inline-flex items-center gap-1.5 bg-brand-orange/20 text-brand-orange-light text-[10px] sm:text-xs font-black px-2.5 py-0.5 rounded-full border border-brand-orange/30 uppercase tracking-wider">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="inline-flex items-center gap-1.5 bg-brand-orange/20 text-brand-orange-light text-[10px] sm:text-xs font-black px-2.5 py-0.5 rounded-full border border-brand-orange/30 uppercase tracking-wider whitespace-nowrap shrink-0">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
                 Campus Activo
             </span>
-            <span class="truncate">Plataforma de formación empresarial 100% privada y disponible 24/7.</span>
-            <a href="https://escuela.aizprua.com" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center gap-1 text-brand-orange-light hover:text-white font-bold ml-1 transition underline">
-                <span>Ir al Campus</span>
+            <span class="hidden sm:inline">Plataforma de formación empresarial 100% privada y disponible 24/7.</span>
+            <span class="sm:hidden text-xs truncate">Plataforma empresarial 24/7</span>
+            <a href="https://escuela.aizprua.com" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-brand-orange-light hover:text-white font-bold ml-1 transition underline whitespace-nowrap shrink-0">
+                <span class="hidden sm:inline">Ir al Campus</span>
+                <span class="sm:hidden text-xs">Entrar</span>
                 <i data-lucide="arrow-right" class="w-3.5 h-3.5 inline"></i>
             </a>
         </div>
@@ -150,18 +152,34 @@
             </div>
         </div>
 
-        <!-- Menú Móvil Desplegable -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-200 px-4 py-4 space-y-3">
-            <a href="/#servicios" class="block py-2 text-slate-700 font-bold">Servicios (Asesoría & Trámites)</a>
-            <a href="/tienda" class="block py-2 text-slate-700 font-bold">Tienda Online (Kits & Soluciones)</a>
-            <a href="/escuela" class="block py-2 text-brand-blue font-bold">Escuela (Campus & Cursos)</a>
-            <a href="/blog" class="block py-2 text-slate-700 font-bold">Blog de Inteligencia</a>
-            <a href="/test-interactivo" class="block py-2 text-brand-orange font-bold">Test de auditoría gratis</a>
-            <div class="pt-2 border-t border-slate-100">
+        <!-- Menú Móvil Desplegable Canónico Oficial -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-200 px-4 pt-3 pb-6 space-y-3">
+            <a href="/#servicios" class="block py-2 text-slate-700 font-bold hover:text-brand-blue border-b border-slate-100">
+                Servicios (Asesoría & Trámites)
+            </a>
+            <a href="/tienda" class="block py-2 text-slate-700 font-bold hover:text-brand-blue border-b border-slate-100">
+                Tienda Online (Plan 360 & Kits)
+            </a>
+            <a href="/escuela" class="block py-2 text-brand-blue font-bold border-b border-slate-100 flex items-center gap-2">
+                <span>Escuela (Campus Virtual)</span>
+                <span class="bg-brand-blue/10 text-brand-blue text-[10px] font-black px-2 py-0.5 rounded-full shrink-0">Activo</span>
+            </a>
+            <a href="/blog" class="block py-2 text-slate-700 font-bold hover:text-brand-blue border-b border-slate-100">
+                Blog de Inteligencia Empresarial
+            </a>
+            <a href="/test-interactivo" class="block py-2 text-brand-orange font-bold border-b border-slate-100">
+                Test de Auditoría en Vivo (3 min)
+            </a>
+            <div class="pt-2 border-t border-slate-100 space-y-2">
                 <a href="https://escuela.aizprua.com" target="_blank" rel="noopener"
-                    class="w-full flex items-center justify-center gap-2 bg-brand-blue text-white py-3 rounded-xl font-bold text-sm">
+                    class="w-full flex items-center justify-center gap-2 bg-brand-blue text-white py-3 rounded-xl font-bold text-sm shadow">
                     <i data-lucide="log-in" class="w-4 h-4"></i>
                     <span>Ingresar al Campus Virtual</span>
+                </a>
+                <a href="https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20la%20Escuela%20Aizprua" target="_blank" rel="noopener"
+                    class="flex items-center justify-center gap-2 bg-[#25D366] text-white px-4 py-3 rounded-xl font-bold text-sm shadow">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    <span>Chatear por WhatsApp (+507 6546-1527)</span>
                 </a>
             </div>
         </div>
@@ -178,9 +196,10 @@
                 
                 <!-- Columna Izquierda: Mensaje y Conversión -->
                 <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-xs font-black uppercase tracking-wider">
-                        <span class="w-2 h-2 rounded-full bg-brand-orange animate-pulse"></span>
-                        Escuela de Negocios Aizprua S.E. · Edición 2026
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-[11px] sm:text-xs font-black uppercase tracking-wider">
+                        <span class="w-2 h-2 rounded-full bg-brand-orange animate-pulse shrink-0"></span>
+                        <span class="hidden sm:inline">Escuela de Negocios Aizprua S.E. · Edición 2026</span>
+                        <span class="sm:hidden whitespace-nowrap">Escuela de Negocios · Edición 2026</span>
                     </div>
 
                     <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-tight">
@@ -462,7 +481,7 @@
             </div>
 
             <!-- Banner CTA de Diagnóstico Gratuito -->
-            <div class="bg-gradient-to-r from-brand-blue-dark via-brand-blue to-slate-900 rounded-3xl p-8 sm:p-10 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="bg-gradient-to-r from-brand-blue-dark via-brand-blue to-slate-900 rounded-3xl p-6 sm:p-10 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
                 <div class="space-y-2 text-center md:text-left">
                     <span class="text-xs font-bold uppercase tracking-wider text-brand-orange-light">¿En qué etapa está tu empresa?</span>
                     <h3 class="text-2xl sm:text-3xl font-black">Solicita una sesión de diagnóstico del Método 4E</h3>
@@ -472,8 +491,8 @@
                 </div>
                 <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20deseo%20solicitar%20un%20diagn%C3%B3stico%20del%20M%C3%A9todo%204E%20para%20mi%20negocio"
                     target="_blank" rel="noopener"
-                    class="shrink-0 px-7 py-3.5 bg-brand-orange hover:bg-brand-orange-dark text-white rounded-xl font-bold text-sm shadow-md transition transform hover:-translate-y-0.5 flex items-center gap-2">
-                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    class="w-full sm:w-auto shrink-0 px-6 sm:px-7 py-3.5 bg-brand-orange hover:bg-brand-orange-dark text-white rounded-xl font-bold text-sm shadow-md transition transform hover:-translate-y-0.5 inline-flex items-center justify-center gap-2 whitespace-nowrap">
+                    <i data-lucide="message-circle" class="w-4 h-4 shrink-0"></i>
                     <span>Agendar Diagnóstico por WhatsApp</span>
                 </a>
             </div>
