@@ -174,7 +174,7 @@ const AIZPRUA_PRODUCTS = [
         description: "Suéter con capucha (hoodie) premium en algodón perchado con bolsillo canguro y el logo oficial del Método 4E. Disponible en Azul Corporativo (principal) y Negro Carbón.",
         bullets: [
             "<strong>Algodón perchado premium:</strong> Tejido térmico transpirable y suave al tacto con bolsillo canguro y cordón reforzado.",
-            "<strong>2 Colores exclusivos:</strong> Elige entre Azul Corporativo (principal) o Negro Carbón con emblema oficial de alta durabilidad.",
+            "<strong>2 colores exclusivos:</strong> Elige entre Azul Corporativo (principal) o Negro Carbón con emblema oficial de alta durabilidad.",
             "<strong>Tallas S a XL con envío:</strong> Confección unisex con entregas seguras en Ciudad de Panamá e interior vía encomienda."
         ],
         buyButton: {
@@ -221,7 +221,7 @@ const AIZPRUA_PRODUCTS = [
         description: "Taza de cerámica premium de 11 oz con diseño oficial del Método 4E. Apta para microondas y lavavajillas. Disponible en Azul Corporativo y Negro Carbón.",
         bullets: [
             "<strong>Cerámica resistente 11 oz:</strong> Acabado brillante de alta durabilidad, apta para microondas y lavavajillas con agarre ergonómico.",
-            "<strong>2 Colores de colección:</strong> Elige entre Azul Corporativo (principal) o Negro Carbón con escudo oficial 4E en relieve.",
+            "<strong>2 colores de colección:</strong> Elige entre Azul Corporativo (principal) o Negro Carbón con escudo oficial 4E en relieve.",
             "<strong>Empaque seguro para envíos:</strong> Caja protectora de impacto con entregas en Ciudad de Panamá e interior vía encomienda."
         ],
         buyButton: {
@@ -286,6 +286,49 @@ const AIZPRUA_PRODUCTS = [
         homeOrder: 3,
         homeBorderHover: "hover:border-amber-500",
         homeStagger: "stagger-3"
+    },
+    {
+        id: "kit-blindaje-socios",
+        title: "Kit de blindaje entre socios y accionistas",
+        category: "blindaje",
+        categoryLabel: "Acuerdos Societarios & Pacto de Socios",
+        delivery: "digital",
+        price: 97.00,
+        priceOld: "$247.00",
+        priceDisplay: "$97.00",
+        currency: "USD",
+        discountBadge: "60% DCTO",
+        guarantee: "Garantía Aizprua",
+        badgeLeft: { text: "Kit 3 en 1", class: "bg-brand-blue text-white" },
+        badgeRight: { text: "Descarga Inmediata", class: "bg-emerald-600 text-white" },
+        image: null,
+        isCustomShowcase: true,
+        customIcon: "users-round",
+        customTitle: "Blindaje de Socios",
+        customSubtitle: "Pacto & Salida Accionistas",
+        alt: "Kit de Blindaje entre Socios y Accionistas",
+        description: "Suite societaria integral para blindar la relación entre socios: checklist de diagnóstico, pacto privado de accionistas y protocolo de salida con cesión de acciones.",
+        bullets: [
+            "<strong>Checklist de diagnóstico societario:</strong> Auditoría de alineación de expectativas, aportes y roles ($45 valor).",
+            "<strong>Pacto privado de socios (Word):</strong> Cláusulas antibloqueo, mayorías y protección de patrimonio ($125 valor).",
+            "<strong>Protocolo de salida y finiquito:</strong> Cesión de acciones blindada y retiro pacífico sin litigios ($125 valor)."
+        ],
+        buyButton: {
+            text: "Comprar Kit por $97.00 USD",
+            link: "https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20el%20Kit%20de%20Blindaje%20entre%20Socios%20y%20Accionistas%20($97.00%20USD)%20en%20Aizprua%20S.E.",
+            icon: "shopping-bag",
+            class: "bg-brand-blue hover:bg-brand-blue-dark text-white",
+            isHotmart: false
+        },
+        detailButton: {
+            text: "Consultar por WhatsApp",
+            link: "https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20el%20Kit%20de%20Blindaje%20entre%20Socios%20y%20Accionistas%20($97.00%20USD)",
+            icon: "message-circle",
+            iconClass: "text-emerald-500",
+            class: "text-slate-500 hover:text-brand-blue"
+        },
+        keywords: "kit blindaje socios accionistas pacto privado de socios acuerdo accionistas checklist diagnostico societario cesion acciones salida finiquito panama word docx",
+        featuredInHome: false
     },
     {
         id: "pack-servicios-profesionales",
@@ -699,9 +742,9 @@ const AIZPRUA_PRODUCTS = [
         fallbackBadge: "Guía Gratuita ($0)",
         description: "Documento con las 7 sanciones más frecuentes que la DGI, CSS y MITRADEL aplican a las empresas y cómo blindar tus operaciones a tiempo.",
         bullets: [
-            "<strong>Sanciones Críticas:</strong> Las multas más costosas de DGI, CSS y Mitradel.",
-            "<strong>Casos Reales:</strong> Cómo evitar citaciones, embargos y multas de cierre.",
-            "<strong>Guía Descargable:</strong> Formato PDF listo para lectura inmediata en móvil o PC."
+            "<strong>Sanciones críticas:</strong> Las multas más costosas de DGI, CSS y Mitradel.",
+            "<strong>Casos reales:</strong> Cómo evitar citaciones, embargos y multas de cierre.",
+            "<strong>Guía descargable:</strong> Formato PDF listo para lectura inmediata en móvil o PC."
         ],
         buyButton: {
             text: "Descargar Guía en PDF",

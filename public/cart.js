@@ -76,6 +76,7 @@ function addToCart(productId) {
             price: product.price,
             priceDisplay: product.priceDisplay,
             image: itemImage,
+            customIcon: product.customIcon || null,
             delivery: product.delivery, // 'physical' | 'digital'
             variant: variant,
             quantity: 1
@@ -522,9 +523,10 @@ function renderCart() {
                 : `<span class="inline-flex items-center gap-1 text-[10px] font-black uppercase text-brand-blue bg-blue-50 px-2 py-0.5 rounded-md border border-blue-200/50"><i data-lucide="zap" class="w-3 h-3 shrink-0"></i> Digital</span>`;
 
             // Miniatura panorámica 4:3 nativa de catálogo (72x54 px) para encaje exacto
+            const cartFallbackIcon = item.customIcon || 'package';
             const imageHTML = item.image 
                 ? `<img src="${item.image}" alt="${item.title}" onerror="this.onerror=null; this.src='assets/aizprua-shield-og.jpg';" class="w-full h-full object-cover">`
-                : `<div class="w-full h-full bg-slate-900 flex items-center justify-center text-brand-orange font-bold text-xs"><i data-lucide="package" class="w-5 h-5"></i></div>`;
+                : `<div class="w-full h-full bg-slate-900 flex items-center justify-center text-brand-orange font-bold text-xs"><i data-lucide="${cartFallbackIcon}" class="w-5 h-5"></i></div>`;
 
             return `
                 <div class="flex items-start gap-3 p-3 bg-white rounded-2xl border border-slate-200/90 shadow-xs hover:border-slate-300 transition">
