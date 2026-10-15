@@ -13,6 +13,10 @@
 const AIZPRUA_PRODUCTS = [
     {
         id: "plan-360-digital",
+        sku: "P360-DIG",
+        crmCategory: "Blindaje Legal",
+        cost: 0.00,
+        stock: 999,
         title: "Plan 360 empresarial (edición digital)",
         category: "blindaje",
         categoryLabel: "Estructuración Integral · Edición 2026",
@@ -59,6 +63,10 @@ const AIZPRUA_PRODUCTS = [
     },
     {
         id: "plan-360-fisico",
+        sku: "P360-FIS",
+        crmCategory: "Blindaje Legal",
+        cost: 12.00,
+        stock: 16,
         title: "Plan 360 empresarial (kit físico)",
         category: "blindaje",
         categoryLabel: "Kit Corporativo Físico + Digital",
@@ -107,6 +115,10 @@ const AIZPRUA_PRODUCTS = [
     },
     {
         id: "taza-plan-360",
+        sku: "TAZA-360",
+        crmCategory: "Merchandising",
+        cost: 4.50,
+        stock: 30,
         title: "Taza corporativa Plan 360 empresarial",
         category: "merch",
         categoryLabel: "Identidad Emprendedora · Edición 2026",
@@ -149,6 +161,14 @@ const AIZPRUA_PRODUCTS = [
     },
     {
         id: "sueter-metodo-4e",
+        sku: "HOOD-4E-AZ",
+        crmCategory: "Merchandising",
+        cost: 16.00,
+        stock: 50,
+        crmVariants: [
+            { sku: "HOOD-4E-AZ", name: "Hoodie oficial Método 4E (Azul Corporativo)", cost: 16.00, stock: 25 },
+            { sku: "HOOD-4E-NG", name: "Hoodie oficial Método 4E (Black Edition)", cost: 16.00, stock: 25 }
+        ],
         title: "Hoodie oficial Método 4E (Azul / Black Edition)",
         category: "merch",
         categoryLabel: "Identidad Emprendedora · Edición 2026",
@@ -196,6 +216,14 @@ const AIZPRUA_PRODUCTS = [
     },
     {
         id: "taza-metodo-4e",
+        sku: "TAZA-4E-AZ",
+        crmCategory: "Merchandising",
+        cost: 4.50,
+        stock: 60,
+        crmVariants: [
+            { sku: "TAZA-4E-AZ", name: "Taza oficial Método 4E (Azul Corporativo)", cost: 4.50, stock: 30 },
+            { sku: "TAZA-4E-NG", name: "Taza oficial Método 4E (Black Edition)", cost: 4.50, stock: 30 }
+        ],
         title: "Taza oficial Método 4E (Azul / Black Edition)",
         category: "merch",
         categoryLabel: "Identidad Emprendedora · Edición 2026",
@@ -243,6 +271,10 @@ const AIZPRUA_PRODUCTS = [
     },
     {
         id: "kit-resolucion-problemas",
+        sku: "KIT-PROB",
+        crmCategory: "Blindaje Legal",
+        cost: 0.00,
+        stock: 999,
         title: "Kit de resolución de problemas",
         category: "blindaje",
         categoryLabel: "Protocolos de Acción Rápida",
@@ -289,6 +321,10 @@ const AIZPRUA_PRODUCTS = [
     },
     {
         id: "kit-blindaje-socios",
+        sku: "KIT-SOC",
+        crmCategory: "Blindaje Legal",
+        cost: 0.00,
+        stock: 999,
         title: "Kit de blindaje entre socios y accionistas",
         category: "blindaje",
         categoryLabel: "Acuerdos Societarios & Pacto de Socios",
@@ -332,6 +368,10 @@ const AIZPRUA_PRODUCTS = [
     },
     {
         id: "pack-servicios-profesionales",
+        sku: "PACK-SERV-PROF",
+        crmCategory: "Blindaje Legal",
+        cost: 0.00,
+        stock: 999,
         title: "Pack contratación por servicios profesionales",
         category: "blindaje",
         categoryLabel: "Contratistas & Servicios Profesionales",
@@ -375,6 +415,10 @@ const AIZPRUA_PRODUCTS = [
     },
     {
         id: "pack-tiempo-indefinido",
+        sku: "PACK-LAB-INDEF",
+        crmCategory: "Blindaje Legal",
+        cost: 0.00,
+        stock: 999,
         title: "Pack laboral de tiempo indefinido",
         category: "blindaje",
         categoryLabel: "Personal Fijo · Código de Trabajo",
@@ -418,6 +462,10 @@ const AIZPRUA_PRODUCTS = [
     },
     {
         id: "pack-tiempo-definido",
+        sku: "PACK-LAB-DEF",
+        crmCategory: "Blindaje Legal",
+        cost: 0.00,
+        stock: 999,
         title: "Pack laboral de tiempo definido (término fijo)",
         category: "blindaje",
         categoryLabel: "Personal Temporal · Término Fijo",
@@ -461,6 +509,10 @@ const AIZPRUA_PRODUCTS = [
     },
     {
         id: "pack-obra-determinada",
+        sku: "PACK-LAB-OBRA",
+        crmCategory: "Blindaje Legal",
+        cost: 0.00,
+        stock: 999,
         title: "Pack laboral por obra determinada",
         category: "blindaje",
         categoryLabel: "Proyectos & Construcción",
@@ -504,6 +556,10 @@ const AIZPRUA_PRODUCTS = [
     },
     {
         id: "super-pack-laboral",
+        sku: "SUPER-PACK-LAB",
+        crmCategory: "Blindaje Legal",
+        cost: 0.00,
+        stock: 999,
         title: "Super pack laboral & contratación 360",
         category: "blindaje",
         categoryLabel: "Suite Integral · Ahorra $241 USD",
@@ -547,6 +603,10 @@ const AIZPRUA_PRODUCTS = [
     },
     {
         id: "pack-duo-finanzas",
+        sku: "DUO-FINANZAS",
+        crmCategory: "Finanzas",
+        cost: 0.00,
+        stock: 999,
         title: "Pack dúo finanzas 360 (FinPulse + FinCore)",
         category: "finanzas",
         categoryLabel: "Finanzas & Flujo de Caja · Suite 360",
@@ -590,6 +650,10 @@ const AIZPRUA_PRODUCTS = [
     },
     {
         id: "fincore",
+        sku: "FINCORE",
+        crmCategory: "Finanzas",
+        cost: 0.00,
+        stock: 999,
         title: "FinCore · Sistema de finanzas del negocio",
         category: "finanzas",
         categoryLabel: "Finanzas Empresariales · Flujo de Caja",
@@ -633,6 +697,10 @@ const AIZPRUA_PRODUCTS = [
     },
     {
         id: "finpulse",
+        sku: "FINPULSE",
+        crmCategory: "Finanzas",
+        cost: 0.00,
+        stock: 999,
         title: "FinPulse · Sistema de finanzas personales",
         category: "finanzas",
         categoryLabel: "Finanzas Personales & Patrimonio",
@@ -676,6 +744,10 @@ const AIZPRUA_PRODUCTS = [
     },
     {
         id: "test-auditoria",
+        sku: "TEST-AUDIT",
+        crmCategory: "Diagnóstico Gratis",
+        cost: 0.00,
+        stock: 999,
         title: "Test de auditoría empresarial (PDF)",
         category: "auditoria",
         categoryLabel: "Diagnóstico express",
@@ -723,6 +795,10 @@ const AIZPRUA_PRODUCTS = [
     },
     {
         id: "guia-anti-multas",
+        sku: "GUIA-MULTAS",
+        crmCategory: "Recursos Gratis",
+        cost: 0.00,
+        stock: 999,
         title: "Las 7 multas ocultas en Panamá",
         category: "blindaje",
         categoryLabel: "Guía Anti-Sanciones",
@@ -767,6 +843,9 @@ const AIZPRUA_PRODUCTS = [
 // Helper para compatibilidad con CommonJS / ES Modules / Navegador
 if (typeof window !== "undefined") {
     window.AIZPRUA_PRODUCTS = AIZPRUA_PRODUCTS;
+}
+if (typeof module !== "undefined" && module.exports) {
+    module.exports = { AIZPRUA_PRODUCTS };
 }
 
 /**

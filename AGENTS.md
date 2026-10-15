@@ -180,3 +180,12 @@
   3. **Página de Descargas (`recursos-gratuitos.html`):** ¿Deseas incluirlo en el catálogo de herramientas y guías gratuitas?
 * **PROHIBICIÓN ESTRICTA:** Queda terminantemente prohibido agregar enlaces o tarjetas de un nuevo recurso en `404.html`, `links.html` o `recursos-gratuitos.html` de forma automática o autónoma sin haber obtenido la confirmación y elección expresa del usuario.
 
+## 🔄 Regla de Sincronización Obligatoria Tienda Online ↔ CSV del CRM (`modelo-catalogo.csv`)
+* **MANDATO OBLIGATORIO:** El archivo `public/assets/modelo-catalogo.csv` es la plantilla oficial de importación de productos hacia el CRM de la empresa. En toda ocasión donde se realice una modificación en el catálogo:
+  1. **Nuevo Producto en Tienda:** Cada vez que se añada un producto a `public/products-data.js` o `public/tienda.html`, es **estrictamente obligatorio** agregarlo simultáneamente a `public/assets/modelo-catalogo.csv` con su código SKU (`codigo`), nombre comercial (`nome`), marca (`marca: Aizprua S.E.`), categoría de CRM (`categoria`), precio en USD (`preco`), costo base (`custo`) y cantidad en stock (`estoque`).
+  2. **Eliminación o Desactivación:** Si un producto se retira o se oculta de la tienda online, debe eliminarse de inmediato del archivo `modelo-catalogo.csv`.
+  3. **Modificación de Precios o Stock:** Si el precio de venta o el inventario físico disponible cambia (ej. unidades físicas del Plan 360, tazas o hoodies), ambos archivos (`products-data.js` y `modelo-catalogo.csv`) deben actualizarse en el mismo paso.
+  4. **Fuente Única de Verdad (Single Source of Truth):** Las propiedades `sku`, `cost` y `stock` deben residir dentro del array `AIZPRUA_PRODUCTS` en `products-data.js`. Para garantizar sincronización infalible, se puede ejecutar el script `sync-catalog.js` para regenerar el CSV sin inconsistencias.
+* **PROHIBICIÓN ESTRICTA:** Queda terminantemente prohibido crear productos huérfanos en la tienda sin su correspondiente entrada en el CSV del CRM, o dejar el archivo `modelo-catalogo.csv` desfasado respecto al catálogo público visible.
+
+

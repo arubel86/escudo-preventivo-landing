@@ -1,0 +1,20 @@
+codigo,nome,marca,categoria,preco,custo,estoque
+P360-DIG,Plan 360 empresarial (edición digital),Aizprua S.E.,Blindaje Legal,24.99,0.00,999
+P360-FIS,Plan 360 empresarial (kit físico),Aizprua S.E.,Blindaje Legal,39.99,12.00,16
+TAZA-360,Taza corporativa Plan 360 empresarial,Aizprua S.E.,Merchandising,12.99,4.50,30
+HOOD-4E-AZ,Hoodie oficial Método 4E (Azul Corporativo),Aizprua S.E.,Merchandising,38.00,16.00,25
+HOOD-4E-NG,Hoodie oficial Método 4E (Black Edition),Aizprua S.E.,Merchandising,38.00,16.00,25
+TAZA-4E-AZ,Taza oficial Método 4E (Azul Corporativo),Aizprua S.E.,Merchandising,14.00,4.50,30
+TAZA-4E-NG,Taza oficial Método 4E (Black Edition),Aizprua S.E.,Merchandising,14.00,4.50,30
+KIT-PROB,Kit de resolución de problemas,Aizprua S.E.,Blindaje Legal,16.99,0.00,999
+KIT-SOC,Kit de blindaje entre socios y accionistas,Aizprua S.E.,Blindaje Legal,97.00,0.00,999
+PACK-SERV-PROF,Pack contratación por servicios profesionales,Aizprua S.E.,Blindaje Legal,97.00,0.00,999
+PACK-LAB-INDEF,Pack laboral de tiempo indefinido,Aizprua S.E.,Blindaje Legal,97.00,0.00,999
+PACK-LAB-DEF,Pack laboral de tiempo definido (término fijo),Aizprua S.E.,Blindaje Legal,97.00,0.00,999
+PACK-LAB-OBRA,Pack laboral por obra determinada,Aizprua S.E.,Blindaje Legal,97.00,0.00,999
+SUPER-PACK-LAB,Super pack laboral & contratación 360,Aizprua S.E.,Blindaje Legal,147.00,0.00,999
+DUO-FINANZAS,Pack dúo finanzas 360 (FinPulse + FinCore),Aizprua S.E.,Finanzas,49.99,0.00,999
+FINCORE,FinCore · Sistema de finanzas del negocio,Aizprua S.E.,Finanzas,34.99,0.00,999
+FINPULSE,FinPulse · Sistema de finanzas personales,Aizprua S.E.,Finanzas,24.99,0.00,999
+TEST-AUDIT,Test de auditoría empresarial (PDF),Aizprua S.E.,Diagnóstico Gratis,0.00,0.00,999
+GUIA-MULTAS,Las 7 multas ocultas en Panamá,Aizprua S.E.,Recursos Gratis,0.00,0.00,999
