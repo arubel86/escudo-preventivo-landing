@@ -186,6 +186,8 @@
   2. **Eliminación o Desactivación:** Si un producto se retira o se oculta de la tienda online, debe eliminarse de inmediato del archivo `modelo-catalogo.csv`.
   3. **Modificación de Precios o Stock:** Si el precio de venta o el inventario físico disponible cambia (ej. unidades físicas del Plan 360, tazas o hoodies), ambos archivos (`products-data.js` y `modelo-catalogo.csv`) deben actualizarse en el mismo paso.
   4. **Fuente Única de Verdad (Single Source of Truth):** Las propiedades `sku`, `cost` y `stock` deben residir dentro del array `AIZPRUA_PRODUCTS` en `products-data.js`. Para garantizar sincronización infalible, se puede ejecutar el script `sync-catalog.js` para regenerar el CSV sin inconsistencias.
+  5. **Privacidad y Exclusión de Git (Secreto Comercial):** Por contener costos de producción internos (`custo`) e inventario real (`estoque`), `public/assets/modelo-catalogo.csv` es un archivo de gestión estrictamente local y confidencial. Debe permanecer excluido en `.gitignore` y queda terminantemente prohibido subirlo a repositorios de GitHub.
 * **PROHIBICIÓN ESTRICTA:** Queda terminantemente prohibido crear productos huérfanos en la tienda sin su correspondiente entrada en el CSV del CRM, o dejar el archivo `modelo-catalogo.csv` desfasado respecto al catálogo público visible.
+
 
 

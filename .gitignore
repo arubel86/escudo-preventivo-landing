@@ -15,6 +15,8 @@ Buscador_RUC_Web/
 public/assets/*.pem
 public/assets/*.xlsx
 public/assets/~$*.xlsx
+public/assets/*.csv
+*.csv
 public/assets/IMG_*
 public/assets/*.mp4
 public/assets/*.gif
