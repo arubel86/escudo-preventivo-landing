@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
-    "sync-catalog": "node scripts/sync-catalog.js"
+    "sync-catalog": "node scripts/sync-catalog.js",
+    "sync-blog": "node scripts/export-blog-to-markdown.js"
   },
   "dependencies": {
     "express": "^4.21.0",

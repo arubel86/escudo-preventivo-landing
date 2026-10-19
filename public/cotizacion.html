@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotización Comercial | Aizprua Soluciones Empresariales</title>
+    <meta name="description" content="Generador de Cotización Comercial Ejecutiva para Asesorías y Conferencias - Aizprua S.E.">
+    <link rel="icon" type="image/svg+xml" href="assets/LOGOS PARA DIGITAL INDIVIDUALES-13.svg">
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (CDN oficial) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-blue': '#3849C8',
+                        'brand-blue-dark': '#2D3A9F',
+                        'brand-blue-light': '#4F5ED4',
+                        'brand-orange': '#FF8A1E',
+                        'brand-orange-dark': '#E67A15',
+                        'brand-orange-light': '#FFA04A',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1E293B;
+            background-color: #0F172A;
+        }
+
+        /* Estilos específicos de pantalla */
+        .editable-field {
+            transition: all 0.2s ease;
+            outline: none;
+            min-width: 0;
+            max-width: 100%;
+        }
+        .editable-field:hover, .editable-field:focus {
+            background-color: #F8FAFC;
+            border-color: #3849C8 !important;
+            box-shadow: 0 0 0 2px rgba(56, 73, 200, 0.15);
+        }
+
+        /* Alineación infalible de iconos SVG Lucide con texto */
+        .lucide, i[data-lucide] {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            vertical-align: middle;
+            flex-shrink: 0;
+        }
+
+        /* Hoja de Cotización (Tamaño Carta Exacto) */
+        .sheet-container {
+            width: 100%;
+            max-width: 216mm; /* Ancho estándar Carta */
+            min-height: 279mm; /* Alto estándar Carta */
+            margin: 0 auto;
+            background: #FFFFFF;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+        }
+
+        /* Estilos de Impresión y PDF */
+        @media print {
+            @page {
+                size: letter portrait;
+                margin: 8mm 10mm;
+            }
+            body {
+                background: #FFFFFF !important;
+                color: #000000 !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .sheet-container {
+                box-shadow: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+                min-height: auto !important;
+                border: none !important;
+            }
+            .editable-field {
+                border-bottom: none !important;
+                background-color: transparent !important;
+            }
+            .dropdown-chevron, .dropdown-menu {
+                display: none !important;
+            }
+            input, select, textarea {
+                border: none !important;
+                background: transparent !important;
+                appearance: none !important;
+                -webkit-appearance: none !important;
+                padding: 0 !important;
+            }
+            .print-border-b {
+                border-bottom: 1px solid #CBD5E1 !important;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen py-4 sm:py-8 px-2 sm:px-4 text-slate-800">
+
+    <!-- BARRA SUPERIOR DE HERRAMIENTAS (no-print) -->
+    <header class="no-print max-w-[216mm] mx-auto mb-6 bg-slate-900/95 backdrop-blur-md border border-slate-800 rounded-2xl p-4 text-white shadow-2xl">
+        <!-- Fila Superior: Título & Botones de Salida Principales -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-brand-blue flex items-center justify-center font-black text-white shadow-md shrink-0">
+                    <i data-lucide="file-text" class="w-5 h-5 shrink-0"></i>
+                </div>
+                <div>
+                    <h1 class="text-sm font-bold text-white tracking-tight flex items-center gap-2">
+                        Cotización Ejecutiva <span class="bg-brand-blue/30 text-brand-blue-light border border-brand-blue/40 text-[10px] px-2 py-0.5 rounded-full font-semibold uppercase leading-none">Asesorías & Conferencias</span>
+                    </h1>
+                    <p class="text-xs text-slate-400">Edita directamente en la hoja y exporta a PDF o WhatsApp</p>
+                </div>
+            </div>
+
+            <!-- Botones Primarios de Salida -->
+            <div class="flex items-center gap-2 shrink-0 self-end sm:self-auto">
+                <!-- Botón WhatsApp -->
+                <button type="button" onclick="sendWhatsApp()" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow-lg shadow-emerald-900/30 transition inline-flex items-center gap-1.5 whitespace-nowrap">
+                    <i data-lucide="message-circle" class="w-4 h-4 shrink-0"></i>
+                    <span class="leading-none">WhatsApp</span>
+                </button>
+
+                <!-- Botón Imprimir / PDF -->
+                <button type="button" onclick="window.print()" class="bg-brand-blue hover:bg-brand-blue-dark text-white text-xs font-bold px-4 py-2 rounded-xl shadow-lg shadow-brand-blue/30 transition inline-flex items-center gap-1.5 whitespace-nowrap">
+                    <i data-lucide="download" class="w-4 h-4 shrink-0"></i>
+                    <span class="leading-none">Descargar PDF</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Fila Inferior: Controles de Edición y Opciones -->
+        <div class="flex flex-wrap items-center justify-between gap-2.5 pt-3">
+            <!-- Selector de Plantilla Rápida Personalizado -->
+            <div class="relative custom-dropdown flex-1 min-w-[220px]" data-dropdown-id="presetSelector">
+                <button type="button" onclick="toggleDropdown(this)" class="w-full bg-slate-800 hover:bg-slate-750 border border-slate-700 text-slate-200 text-xs rounded-xl px-3 py-2 font-medium focus:ring-2 focus:ring-brand-blue focus:outline-none cursor-pointer flex items-center justify-between gap-2 shadow-xs transition">
+                    <span class="dropdown-selected truncate text-left">Cargar Servicio Frecuente...</span>
+                    <i data-lucide="chevron-down" class="dropdown-chevron w-4 h-4 shrink-0 text-slate-400 transition-transform duration-200"></i>
+                </button>
+                <div class="dropdown-menu hidden absolute left-0 right-0 top-full mt-2 z-50 bg-slate-900 border border-slate-700 rounded-xl shadow-2xl py-1 text-xs text-slate-200 overflow-hidden divide-y divide-slate-800">
+                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition" data-value="" onclick="selectDropdownOption(this)">
+                        <span>Cargar Servicio Frecuente...</span>
+                    </div>
+                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition" data-value="conferencia-presencial" onclick="selectDropdownOption(this)">
+                        <span>Conferencia Presencial ($450.00)</span>
+                    </div>
+                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition" data-value="conferencia-virtual" onclick="selectDropdownOption(this)">
+                        <span>Conferencia Virtual ($200.00)</span>
+                    </div>
+                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition" data-value="asesoria-blindaje" onclick="selectDropdownOption(this)">
+                        <span>Blindaje Empresarial 1 a 1 ($97.00)</span>
+                    </div>
+                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition" data-value="rescate-financiero" onclick="selectDropdownOption(this)">
+                        <span>Rescate Financiero Intensivo ($350.00)</span>
+                    </div>
+                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition" data-value="taller-incompany" onclick="selectDropdownOption(this)">
+                        <span>Taller Corporativo In-Company ($600.00)</span>
+                    </div>
+                </div>
+                <input type="hidden" id="presetSelector" value="" onchange="applyPreset(this.value)">
+            </div>
+
+            <!-- Controles Secundarios -->
+            <div class="flex items-center gap-2 shrink-0">
+                <!-- Toggle ITBMS -->
+                <button type="button" id="btnToggleITBMS" onclick="toggleITBMS()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-xs font-semibold px-3 py-2 rounded-xl transition inline-flex items-center gap-1.5 whitespace-nowrap">
+                    <i data-lucide="percent" class="w-3.5 h-3.5 text-brand-orange shrink-0"></i>
+                    <span class="leading-none">ITBMS (7%): <strong id="itbmsStatusText" class="text-slate-400">NO</strong></span>
+                </button>
+
+                <!-- Botón Pasar a Factura -->
+                <button type="button" onclick="transferToInvoice()" class="bg-indigo-900/60 hover:bg-indigo-800/80 text-indigo-200 border border-indigo-700/60 text-xs font-semibold px-3 py-2 rounded-xl transition inline-flex items-center gap-1.5 whitespace-nowrap" title="Abrir estos mismos datos en la Factura Proforma">
+                    <i data-lucide="receipt" class="w-3.5 h-3.5 text-indigo-400 shrink-0"></i>
+                    <span class="leading-none">Pasar a Factura</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HOJA CARTA IMPRIMIBLE -->
+    <main class="sheet-container rounded-2xl p-6 sm:p-8 md:p-10 text-slate-800 flex flex-col justify-between">
+        <div>
+            <!-- ENCABEZADO INSTITUCIONAL -->
+            <div class="flex items-start justify-between border-b-2 border-slate-900 pb-5 mb-5 gap-6">
+                <!-- Lado Izquierdo: Identidad de Marca Oficial -->
+                <div class="flex-1 min-w-0">
+                    <img src="assets/logo-aizprua-horizontal.svg" alt="Aizprua S.E." class="h-9 sm:h-10 w-auto object-contain mb-2">
+                    <h2 class="text-xs font-black text-slate-900 uppercase tracking-tight mb-1">Aizprua Soluciones Empresariales</h2>
+                    <div class="text-[11px] text-slate-600 leading-relaxed">
+                        <p><strong>RUC:</strong> 8-826-885 &nbsp;|&nbsp; <strong>DV:</strong> 14 &nbsp;|&nbsp; <strong>Ubicación:</strong> Panamá, Panamá Oeste, La Chorrera</p>
+                        <p><strong>WhatsApp / Tel:</strong> +507 6546-1527 &nbsp;|&nbsp; <strong>Email:</strong> info@aizprua.com &nbsp;|&nbsp; <strong>Web:</strong> aizprua.com</p>
+                    </div>
+                </div>
+
+                <!-- Lado Derecho: Tarjeta Ejecutiva de Cotización -->
+                <div class="w-64 shrink-0 bg-slate-50 border border-slate-200 rounded-xl p-3 shadow-xs">
+                    <div class="bg-slate-900 text-white font-black text-center text-xs uppercase tracking-wider py-1.5 rounded-lg mb-2 shadow-xs">
+                        Cotización Comercial
+                    </div>
+                    <div class="space-y-1.5 text-[11px]">
+                        <div class="flex items-center justify-between">
+                            <span class="text-slate-500 font-semibold">N° Cotización:</span>
+                            <input type="text" id="quoteNumber" value="COT-2026-001" class="editable-field font-mono font-bold text-slate-900 text-right w-28 px-1.5 py-0.5 rounded border border-slate-200 bg-white">
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-slate-500 font-semibold">Fecha:</span>
+                            <input type="date" id="quoteDate" class="editable-field font-semibold text-slate-900 text-right w-28 px-1.5 py-0.5 rounded border border-slate-200 bg-white">
+                        </div>
+                        <div class="flex items-center justify-between pt-1 border-t border-slate-200">
+                            <span class="text-slate-500 font-semibold">Validez:</span>
+                            <span class="font-bold text-brand-orange-dark font-mono">15 días calendario</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FICHA DEL CLIENTE & FICHA TÉCNICA -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+                <!-- Datos del Cliente -->
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5">
+                    <div class="flex items-center gap-1.5 text-xs font-bold text-slate-900 uppercase tracking-wider mb-2 border-b border-slate-200 pb-1">
+                        <i data-lucide="building" class="w-3.5 h-3.5 text-brand-blue"></i>
+                        <span>Datos del Cliente / Empresa</span>
+                    </div>
+                    <div class="space-y-2.5 text-xs">
+                        <div class="flex items-center gap-2 min-w-0">
+                            <span class="w-24 text-slate-500 font-medium shrink-0">Empresa / Razón:</span>
+                            <input type="text" id="clientCompany" placeholder="Ej. Corporación Delta, S.A." class="editable-field flex-1 min-w-0 w-full font-bold text-slate-900 px-2.5 py-1.5 rounded-lg border border-slate-200">
+                        </div>
+                        <div class="flex items-center gap-2 min-w-0">
+                            <span class="w-24 text-slate-500 font-medium shrink-0">RUC & DV:</span>
+                            <input type="text" id="clientRuc" placeholder="Ej. 155698421-2-2021 DV 85" class="editable-field flex-1 min-w-0 w-full font-semibold text-slate-800 px-2.5 py-1.5 rounded-lg border border-slate-200">
+                        </div>
+                        <div class="flex items-center gap-2 min-w-0">
+                            <span class="w-24 text-slate-500 font-medium shrink-0">Atención a:</span>
+                            <input type="text" id="clientContact" placeholder="Ej. Carlos Mendoza" class="editable-field flex-1 min-w-0 w-full font-semibold text-slate-800 px-2.5 py-1.5 rounded-lg border border-slate-200">
+                        </div>
+                        <div class="flex items-center gap-2 min-w-0">
+                            <span class="w-24 text-slate-500 font-medium shrink-0">WhatsApp / Tel:</span>
+                            <input type="text" id="clientPhone" placeholder="Ej. 6500-0000" class="editable-field flex-1 min-w-0 w-full text-slate-800 px-2.5 py-1.5 rounded-lg border border-slate-200">
+                        </div>
+                        <div class="flex items-center gap-2 min-w-0">
+                            <span class="w-24 text-slate-500 font-medium shrink-0">Correo:</span>
+                            <input type="email" id="clientEmail" placeholder="contacto@empresa.com" class="editable-field flex-1 min-w-0 w-full text-slate-800 px-2.5 py-1.5 rounded-lg border border-slate-200">
+                        </div>
+                        <div class="flex items-center gap-2 min-w-0">
+                            <span class="w-24 text-slate-500 font-medium shrink-0">Ubicación / Dir:</span>
+                            <input type="text" id="clientAddress" placeholder="Ej. Costa del Este, Torre Financial, Piso 12" class="editable-field flex-1 min-w-0 w-full text-slate-800 px-2.5 py-1.5 rounded-lg border border-slate-200">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Especificaciones Técnicas del Servicio -->
+                <div class="bg-blue-50/50 border border-blue-100 rounded-xl p-3.5 min-w-0">
+                    <div class="flex items-center gap-2 text-xs font-bold text-brand-blue uppercase tracking-wider mb-2.5 border-b border-blue-200 pb-1.5">
+                        <i data-lucide="sliders" class="w-4 h-4 text-brand-blue shrink-0"></i>
+                        <span class="leading-none">Ficha Técnica del Servicio</span>
+                    </div>
+                    <div class="space-y-2.5 text-xs">
+                        <div class="flex items-center gap-2 min-w-0">
+                            <span class="w-24 text-slate-600 font-medium shrink-0">Tipo Servicio:</span>
+                            <div class="relative custom-dropdown flex-1 min-w-0" data-dropdown-id="serviceType">
+                                <button type="button" onclick="toggleDropdown(this)" class="editable-field w-full flex items-center justify-between gap-1.5 font-bold text-brand-blue-dark px-2.5 py-1.5 rounded-lg border border-blue-200 bg-white cursor-pointer text-xs text-left shadow-2xs transition">
+                                    <span class="dropdown-selected truncate">Conferencia Magistral</span>
+                                    <i data-lucide="chevron-down" class="dropdown-chevron w-3.5 h-3.5 shrink-0 text-brand-blue transition-transform duration-200"></i>
+                                </button>
+                                <div class="dropdown-menu hidden absolute left-0 right-0 top-full mt-2 z-50 bg-white border border-slate-200 rounded-xl shadow-2xl py-1 text-xs text-slate-800 overflow-hidden divide-y divide-slate-100">
+                                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition font-bold" data-value="Conferencia Magistral" onclick="selectDropdownOption(this)">Conferencia Magistral</div>
+                                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition font-bold" data-value="Asesoría Estratégica 1 a 1" onclick="selectDropdownOption(this)">Asesoría Estratégica 1 a 1</div>
+                                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition font-bold" data-value="Taller Corporativo In-Company" onclick="selectDropdownOption(this)">Taller In-Company</div>
+                                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition font-bold" data-value="Consultoría Blindaje Empresarial" onclick="selectDropdownOption(this)">Consultoría Blindaje</div>
+                                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition font-bold" data-value="Sesión de Rescate Financiero" onclick="selectDropdownOption(this)">Rescate Financiero</div>
+                                </div>
+                                <input type="hidden" id="serviceType" value="Conferencia Magistral">
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2 min-w-0">
+                            <span class="w-24 text-slate-600 font-medium shrink-0">Modalidad:</span>
+                            <div class="relative custom-dropdown flex-1 min-w-0" data-dropdown-id="serviceModality">
+                                <button type="button" onclick="toggleDropdown(this)" class="editable-field w-full flex items-center justify-between gap-1.5 font-semibold text-slate-800 px-2.5 py-1.5 rounded-lg border border-blue-200 bg-white cursor-pointer text-xs text-left shadow-2xs transition">
+                                    <span class="dropdown-selected truncate">Presencial (Sede / Auditorio)</span>
+                                    <i data-lucide="chevron-down" class="dropdown-chevron w-3.5 h-3.5 shrink-0 text-slate-400 transition-transform duration-200"></i>
+                                </button>
+                                <div class="dropdown-menu hidden absolute left-0 right-0 top-full mt-2 z-50 bg-white border border-slate-200 rounded-xl shadow-2xl py-1 text-xs text-slate-800 overflow-hidden divide-y divide-slate-100">
+                                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition" data-value="Presencial (Sede / Auditorio)" onclick="selectDropdownOption(this)">Presencial (Sede / Auditorio)</div>
+                                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition" data-value="Virtual en Vivo (Meet / Zoom)" onclick="selectDropdownOption(this)">Virtual en Vivo (Meet / Zoom)</div>
+                                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition" data-value="Híbrida (Presencial + Virtual)" onclick="selectDropdownOption(this)">Híbrida (Presencial + Virtual)</div>
+                                </div>
+                                <input type="hidden" id="serviceModality" value="Presencial (Sede / Auditorio)">
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2 min-w-0">
+                            <span class="w-24 text-slate-600 font-medium shrink-0">Duración:</span>
+                            <input type="text" id="serviceDuration" value="2 Horas Académicas + Preguntas" class="editable-field flex-1 min-w-0 w-full text-slate-800 px-2.5 py-1.5 rounded-lg border border-blue-200 bg-white">
+                        </div>
+                        <div class="flex items-center gap-2 min-w-0">
+                            <span class="w-24 text-slate-600 font-medium shrink-0">Fecha / Horario:</span>
+                            <input type="text" id="serviceSchedule" value="Por coordinar según disponibilidad" class="editable-field flex-1 min-w-0 w-full text-slate-800 px-2.5 py-1.5 rounded-lg border border-blue-200 bg-white">
+                        </div>
+                        <div class="flex items-center gap-2 min-w-0">
+                            <span class="w-24 text-slate-600 font-medium shrink-0">Condición:</span>
+                            <div class="relative custom-dropdown flex-1 min-w-0" data-dropdown-id="paymentTerms">
+                                <button type="button" onclick="toggleDropdown(this)" class="editable-field w-full flex items-center justify-between gap-1.5 font-semibold text-slate-800 px-2.5 py-1.5 rounded-lg border border-blue-200 bg-white cursor-pointer text-xs text-left shadow-2xs transition">
+                                    <span class="dropdown-selected truncate">50% Anticipo / 50% Saldo</span>
+                                    <i data-lucide="chevron-down" class="dropdown-chevron w-3.5 h-3.5 shrink-0 text-slate-400 transition-transform duration-200"></i>
+                                </button>
+                                <div class="dropdown-menu hidden absolute left-0 right-0 top-full mt-2 z-50 bg-white border border-slate-200 rounded-xl shadow-2xl py-1 text-xs text-slate-800 overflow-hidden divide-y divide-slate-100">
+                                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition" data-value="anticipo" onclick="selectDropdownOption(this)">50% Anticipo / 50% Saldo</div>
+                                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition" data-value="contado" onclick="selectDropdownOption(this)">100% Contado (Pago Único)</div>
+                                </div>
+                                <input type="hidden" id="paymentTerms" value="anticipo" onchange="updatePaymentTerms(this.value)">
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2 min-w-0">
+                            <span class="w-24 text-slate-600 font-medium shrink-0">Expositor:</span>
+                            <span class="font-bold text-slate-900 truncate">Arubel Aizprua</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABLA DE HONORARIOS E INVERSIÓN -->
+            <div class="mb-5 overflow-hidden border border-slate-200 rounded-xl">
+                <table class="w-full text-left border-collapse text-xs">
+                    <thead>
+                        <tr class="bg-slate-900 text-white">
+                            <th class="py-2.5 px-3 font-bold w-12 text-center">Ítem</th>
+                            <th class="py-2.5 px-3 font-bold">Descripción del Servicio / Alcance</th>
+                            <th class="py-2.5 px-3 font-bold w-16 text-center">Cant.</th>
+                            <th class="py-2.5 px-3 font-bold w-24 text-right">Precio ($)</th>
+                            <th class="py-2.5 px-3 font-bold w-24 text-right">Total ($)</th>
+                            <th class="py-2.5 px-2 font-bold w-8 text-center no-print"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="itemsTableBody" class="divide-y divide-slate-200">
+                        <!-- Fila 1 por defecto -->
+                        <tr class="hover:bg-slate-50/60 transition">
+                            <td class="py-2.5 px-3 text-center font-bold text-slate-400 row-index">1</td>
+                            <td class="py-2.5 px-3">
+                                <input type="text" class="item-desc w-full font-bold text-slate-900 editable-field px-1 py-0.5 rounded" value="Conferencia Magistral: Blindaje Legal, Fiscal y Financiero de Empresas en Panamá">
+                                <textarea rows="2" class="item-subdesc w-full text-[11px] text-slate-500 editable-field px-1 py-0.5 rounded resize-none mt-0.5">Incluye diagnóstico preliminar de riesgos, presentación ejecutiva en láminas de alto impacto, sesión interactiva de preguntas & respuestas, y entrega de memoria resumen en PDF para los directivos.</textarea>
+                            </td>
+                            <td class="py-2.5 px-3 text-center align-top">
+                                <input type="number" min="1" step="1" value="1" onchange="calculateTotals()" class="item-qty w-12 text-center font-bold text-slate-800 editable-field px-1 py-0.5 rounded border border-slate-200">
+                            </td>
+                            <td class="py-2.5 px-3 text-right align-top">
+                                <input type="number" min="0" step="0.01" value="450.00" onchange="calculateTotals()" class="item-price w-20 text-right font-bold text-slate-800 editable-field px-1 py-0.5 rounded border border-slate-200">
+                            </td>
+                            <td class="py-2.5 px-3 text-right font-bold text-slate-900 align-top item-total">
+                                $450.00
+                            </td>
+                            <td class="py-2.5 px-2 text-center align-top no-print">
+                                <button type="button" onclick="removeRow(this)" class="text-slate-400 hover:text-rose-600 transition inline-flex items-center justify-center p-1 rounded hover:bg-rose-50" title="Eliminar fila">
+                                    <i data-lucide="trash-2" class="w-3.5 h-3.5 shrink-0"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Botón Agregar Fila (no-print) -->
+                <div class="no-print bg-slate-50 p-2 border-t border-slate-200 flex justify-start">
+                    <button type="button" onclick="addRow()" class="inline-flex items-center gap-1.5 text-xs font-bold text-brand-blue hover:text-brand-blue-dark py-1.5 px-3 rounded-lg hover:bg-blue-50 transition border border-dashed border-blue-200">
+                        <i data-lucide="plus-circle" class="w-3.5 h-3.5 shrink-0"></i>
+                        <span class="leading-none">Agregar otro concepto</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- TOTALES Y CONDICIÓN DE PAGO (50/50) -->
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-4 mb-5 items-start">
+                <!-- Bloque Bancario Oficial -->
+                <div class="sm:col-span-7 bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-xs">
+                    <div class="flex items-center gap-2 font-bold text-slate-900 uppercase tracking-wider mb-2 border-b border-slate-200 pb-1">
+                        <i data-lucide="landmark" class="w-3.5 h-3.5 text-brand-blue shrink-0"></i>
+                        <span class="leading-none">Datos Bancarios para Pago y Reserva</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 text-[11px] text-slate-700 leading-snug">
+                        <div>
+                            <span class="text-slate-500 block font-medium">Banco:</span>
+                            <strong class="text-slate-900 font-bold">BANCO GENERAL</strong>
+                        </div>
+                        <div>
+                            <span class="text-slate-500 block font-medium">Tipo de Cuenta:</span>
+                            <strong class="text-slate-900 font-bold">Cuenta Corriente</strong>
+                        </div>
+                        <div>
+                            <span class="text-slate-500 block font-medium">Beneficiario:</span>
+                            <strong class="text-slate-900 font-bold text-[10px] uppercase">AIZPRUA SOLUCIONES EMPRESARIALES</strong>
+                        </div>
+                        <div>
+                            <span class="text-slate-500 block font-medium">Número de Cuenta:</span>
+                            <strong class="text-brand-blue font-bold font-mono text-xs">03-73-01-145876-8</strong>
+                        </div>
+                    </div>
+                    <div class="mt-2.5 pt-2 border-t border-slate-200 flex items-center justify-between text-[11px]">
+                        <span class="text-slate-600 font-medium">Yappy Comercial:</span>
+                        <span class="bg-blue-100/70 text-blue-900 font-mono font-bold px-2 py-0.5 rounded border border-blue-200">6546-1527</span>
+                    </div>
+                </div>
+
+                <!-- Resumen Financiero -->
+                <div class="sm:col-span-5 bg-slate-900 text-white rounded-xl p-3.5 text-xs shadow-md">
+                    <div class="space-y-1.5 text-xs">
+                        <div class="flex justify-between text-slate-300">
+                            <span>Subtotal Honorarios:</span>
+                            <span id="subtotalDisplay" class="font-bold text-white font-mono">$450.00</span>
+                        </div>
+                        <div id="itbmsRow" class="flex justify-between text-slate-300 hidden">
+                            <span>ITBMS (7%):</span>
+                            <span id="itbmsDisplay" class="font-bold text-brand-orange-light font-mono">$31.50</span>
+                        </div>
+                        <div class="flex justify-between text-sm font-black border-t border-slate-700 pt-2 text-white">
+                            <span>TOTAL INVERSIÓN:</span>
+                            <span id="totalDisplay" class="text-brand-orange-light font-mono text-base font-black">$450.00 USD</span>
+                        </div>
+                    </div>
+
+                    <!-- Estructura de Anticipo 50/50 Dinámico -->
+                    <div id="depositBalanceContainer" class="mt-3 pt-2.5 border-t border-slate-800 grid grid-cols-2 gap-2 text-center text-[10px]">
+                        <div class="bg-slate-800/80 p-1.5 rounded-lg border border-slate-700">
+                            <span class="text-slate-400 block font-semibold uppercase">50% Anticipo (Reserva)</span>
+                            <strong id="depositDisplay" class="text-white font-mono text-xs font-bold">$225.00</strong>
+                        </div>
+                        <div class="bg-slate-800/80 p-1.5 rounded-lg border border-slate-700">
+                            <span class="text-slate-400 block font-semibold uppercase">50% Saldo (Entrega)</span>
+                            <strong id="balanceDisplay" class="text-white font-mono text-xs font-bold">$225.00</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TÉRMINOS Y CONDICIONES COMERCIALES -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 text-[10px] text-slate-600 mb-5 leading-normal">
+                <p class="font-bold text-slate-800 uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                    <i data-lucide="shield-check" class="w-3.5 h-3.5 text-brand-blue shrink-0"></i>
+                    <span class="leading-none">Términos de Contratación y Garantía de Reserva</span>
+                </p>
+                <ol class="list-decimal pl-3.5 space-y-0.5">
+                    <li><strong>Bloqueo de Agenda:</strong> La fecha de la conferencia o sesiones de asesoría queda formalmente reservada únicamente tras recibir el comprobante del 50% de anticipo.</li>
+                    <li><strong>Cancelaciones o Reprogramaciones:</strong> Podrán coordinarse sin costo adicional con un mínimo de 72 horas hábiles de anticipación.</li>
+                    <li><strong>Saldo Restante:</strong> El 50% complementario se cancelará a la culminación del evento o contra entrega del informe final.</li>
+                    <li><strong>Factura Electrónica Fiscal:</strong> La Factura Electrónica Oficial DGI con código CUFE será emitida a través de nuestro Proveedor de Autorización Calificada (PAC) tras confirmación de pago.</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- PIE DE FIRMA INSTITUCIONAL -->
+        <div class="pt-4 border-t border-slate-200 mt-2">
+            <div class="grid grid-cols-2 gap-8 items-end">
+                <div>
+                    <div class="border-b-2 border-slate-900 pb-1 w-52 mb-1">
+                        <span class="font-serif italic text-base text-slate-800 block">Arubel Aizprua</span>
+                    </div>
+                    <strong class="text-xs text-slate-900 block font-black">Arubel Aizprua</strong>
+                    <span class="text-[10px] text-slate-600 block leading-tight">Fundador & Consultor Principal<br>Aizprua Soluciones Empresariales</span>
+                </div>
+
+                <div class="text-right">
+                    <div class="border-b border-dashed border-slate-400 pb-1 w-52 ml-auto mb-1">
+                        <span class="text-[10px] text-slate-400">Firma de Aprobación del Cliente</span>
+                    </div>
+                    <span class="text-[10px] text-slate-500 block">Firma autorizada / Sello de la Empresa</span>
+                    <span class="text-[9px] text-slate-400 block">Fecha de Aprobación: _____ / _____ / 2026</span>
+                </div>
+            </div>
+            <div class="mt-4 text-center text-[9px] text-slate-400">
+                Aizprua Soluciones Empresariales &bull; RUC 8-826-885 DV 14 &bull; Panamá, Panamá Oeste, La Chorrera &bull; Documento confidencial para uso exclusivo del cliente receptor.
+            </div>
+        </div>
+    </main>
+
+    <!-- LOGICA JAVASCRIPT REACTIVA -->
+    <script>
+        // Inicializar fecha actual
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('quoteDate').value = today;
+
+            // Revisar si hay datos guardados en localStorage
+            loadDraft();
+            calculateTotals();
+        });
+
+        let hasITBMS = false;
+
+        function toggleITBMS() {
+            hasITBMS = !hasITBMS;
+            const statusText = document.getElementById('itbmsStatusText');
+            const itbmsRow = document.getElementById('itbmsRow');
+            
+            if (hasITBMS) {
+                statusText.textContent = 'SÍ (7%)';
+                statusText.className = 'text-brand-orange font-bold';
+                itbmsRow.classList.remove('hidden');
+            } else {
+                statusText.textContent = 'NO';
+                statusText.className = 'text-slate-400';
+                itbmsRow.classList.add('hidden');
+            }
+            calculateTotals();
+        }
+
+        function calculateTotals() {
+            const rows = document.querySelectorAll('#itemsTableBody tr');
+            let subtotal = 0;
+
+            rows.forEach((row, index) => {
+                const qtyInput = row.querySelector('.item-qty');
+                const priceInput = row.querySelector('.item-price');
+                const totalCell = row.querySelector('.item-total');
+                const indexCell = row.querySelector('.row-index');
+
+                if (indexCell) indexCell.textContent = index + 1;
+
+                const qty = parseFloat(qtyInput ? qtyInput.value : 0) || 0;
+                const price = parseFloat(priceInput ? priceInput.value : 0) || 0;
+                const total = qty * price;
+
+                subtotal += total;
+                if (totalCell) {
+                    totalCell.textContent = `$${total.toFixed(2)}`;
+                }
+            });
+
+            const itbms = hasITBMS ? (subtotal * 0.07) : 0;
+            const grandTotal = subtotal + itbms;
+            const deposit = grandTotal * 0.50;
+            const balance = grandTotal * 0.50;
+
+            document.getElementById('subtotalDisplay').textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById('itbmsDisplay').textContent = `$${itbms.toFixed(2)}`;
+            document.getElementById('totalDisplay').textContent = `$${grandTotal.toFixed(2)} USD`;
+            document.getElementById('depositDisplay').textContent = `$${deposit.toFixed(2)}`;
+            document.getElementById('balanceDisplay').textContent = `$${balance.toFixed(2)}`;
+
+            saveDraft();
+        }
+
+        function addRow(desc = '', subdesc = '', qty = 1, price = 0) {
+            const tbody = document.getElementById('itemsTableBody');
+            const tr = document.createElement('tr');
+            tr.className = 'hover:bg-slate-50/60 transition';
+            tr.innerHTML = `
+                <td class="py-2.5 px-3 text-center font-bold text-slate-400 row-index"></td>
+                <td class="py-2.5 px-3">
+                    <input type="text" class="item-desc w-full font-bold text-slate-900 editable-field px-1 py-0.5 rounded" value="${desc || 'Nuevo Servicio Profesional'}">
+                    <textarea rows="2" class="item-subdesc w-full text-[11px] text-slate-500 editable-field px-1 py-0.5 rounded resize-none mt-0.5">${subdesc || 'Detalle del alcance del servicio, horas y entregables.'}</textarea>
+                </td>
+                <td class="py-2.5 px-3 text-center align-top">
+                    <input type="number" min="1" step="1" value="${qty}" onchange="calculateTotals()" class="item-qty w-12 text-center font-bold text-slate-800 editable-field px-1 py-0.5 rounded border border-slate-200">
+                </td>
+                <td class="py-2.5 px-3 text-right align-top">
+                    <input type="number" min="0" step="0.01" value="${price.toFixed(2)}" onchange="calculateTotals()" class="item-price w-20 text-right font-bold text-slate-800 editable-field px-1 py-0.5 rounded border border-slate-200">
+                </td>
+                <td class="py-2.5 px-3 text-right font-bold text-slate-900 align-top item-total">
+                    $0.00
+                </td>
+                <td class="py-2.5 px-2 text-center align-top no-print">
+                    <button type="button" onclick="removeRow(this)" class="text-slate-400 hover:text-rose-600 transition inline-flex items-center justify-center p-1 rounded hover:bg-rose-50" title="Eliminar fila">
+                        <i data-lucide="trash-2" class="w-3.5 h-3.5 shrink-0"></i>
+                    </button>
+                </td>
+            `;
+            tbody.appendChild(tr);
+            lucide.createIcons();
+            calculateTotals();
+        }
+
+        function removeRow(btn) {
+            const tbody = document.getElementById('itemsTableBody');
+            if (tbody.querySelectorAll('tr').length <= 1) {
+                alert('La cotización debe tener al menos un servicio registrado.');
+                return;
+            }
+            btn.closest('tr').remove();
+            calculateTotals();
+        }
+
+        // Control de Menús Desplegables Flotantes Personalizados (Separación mt-2 / 8px y bordes redondeados)
+        function toggleDropdown(btn) {
+            const dropdown = btn.closest('.custom-dropdown');
+            const menu = dropdown.querySelector('.dropdown-menu');
+            const chevron = dropdown.querySelector('.dropdown-chevron');
+            const isOpen = !menu.classList.contains('hidden');
+
+            closeAllDropdowns();
+
+            if (!isOpen) {
+                menu.classList.remove('hidden');
+                if (chevron) chevron.classList.add('rotate-180');
+            }
+        }
+
+        function closeAllDropdowns() {
+            document.querySelectorAll('.custom-dropdown .dropdown-menu').forEach(menu => {
+                menu.classList.add('hidden');
+            });
+            document.querySelectorAll('.custom-dropdown .dropdown-chevron').forEach(chevron => {
+                chevron.classList.remove('rotate-180');
+            });
+        }
+
+        function selectDropdownOption(optionEl) {
+            const dropdown = optionEl.closest('.custom-dropdown');
+            const hiddenInput = dropdown.querySelector('input[type="hidden"]');
+            const selectedSpan = dropdown.querySelector('.dropdown-selected');
+            const val = optionEl.getAttribute('data-value');
+            const text = optionEl.textContent.trim();
+
+            if (hiddenInput) {
+                hiddenInput.value = val;
+                if (typeof hiddenInput.onchange === 'function') {
+                    hiddenInput.onchange();
+                } else {
+                    hiddenInput.dispatchEvent(new Event('change'));
+                }
+            }
+
+            if (selectedSpan) {
+                selectedSpan.textContent = text;
+            }
+
+            closeAllDropdowns();
+        }
+
+        function setCustomDropdownValue(id, value, customText = null) {
+            const input = document.getElementById(id);
+            if (!input) return;
+            input.value = value;
+            const dropdown = input.closest('.custom-dropdown');
+            if (!dropdown) return;
+            const selectedSpan = dropdown.querySelector('.dropdown-selected');
+            if (!selectedSpan) return;
+
+            if (customText) {
+                selectedSpan.textContent = customText;
+            } else {
+                const matchingOption = dropdown.querySelector(`.dropdown-option[data-value="${value}"]`);
+                if (matchingOption) {
+                    selectedSpan.textContent = matchingOption.textContent.trim();
+                } else if (value) {
+                    selectedSpan.textContent = value;
+                }
+            }
+        }
+
+        // Cerrar dropdowns al hacer clic fuera
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.custom-dropdown')) {
+                closeAllDropdowns();
+            }
+        });
+
+        // Control dinámico de las cajas de anticipo según la condición de pago
+        function updatePaymentTerms(value) {
+            const container = document.getElementById('depositBalanceContainer');
+            if (!container) return;
+            if (value === 'anticipo' || value.toLowerCase().includes('anticipo')) {
+                container.classList.remove('hidden');
+            } else {
+                container.classList.add('hidden');
+            }
+            saveDraft();
+        }
+
+        // Preajustes para cargar con 1 clic
+        function applyPreset(key) {
+            if (!key) return;
+            const tbody = document.getElementById('itemsTableBody');
+            tbody.innerHTML = '';
+
+            if (key === 'conferencia-presencial') {
+                setCustomDropdownValue('serviceType', 'Conferencia Magistral');
+                setCustomDropdownValue('serviceModality', 'Presencial (Sede / Auditorio)');
+                document.getElementById('serviceDuration').value = '2 Horas Académicas + Ronda de Preguntas';
+                addRow(
+                    'Conferencia Magistral Presencial: Blindaje Legal, Fiscal y Financiero',
+                    'Ponencia presencial a cargo de Arubel Aizprua. Incluye diagnóstico previo de la audiencia, láminas ejecutivas, dinámica de casos reales en Panamá y entrega de memoria resumen en PDF.',
+                    1,
+                    450.00
+                );
+            } else if (key === 'conferencia-virtual') {
+                setCustomDropdownValue('serviceType', 'Conferencia Magistral');
+                setCustomDropdownValue('serviceModality', 'Virtual en Vivo (Meet / Zoom)');
+                document.getElementById('serviceDuration').value = '1.5 Horas en Vivo + Preguntas';
+                addRow(
+                    'Conferencia Virtual en Vivo: Protección Patrimonial y Cumplimiento DGI/Mitradel',
+                    'Transmisión en alta definición vía Google Meet o Zoom. Incluye grabación de la sesión, diapositivas en PDF y sesión abierta de preguntas y respuestas para los participantes.',
+                    1,
+                    200.00
+                );
+            } else if (key === 'asesoria-blindaje') {
+                setCustomDropdownValue('serviceType', 'Asesoría Estratégica 1 a 1');
+                setCustomDropdownValue('serviceModality', 'Virtual en Vivo (Meet / Zoom)');
+                document.getElementById('serviceDuration').value = 'Sesión intensiva 1 a 1 de 40 min';
+                addRow(
+                    'Blindaje Empresarial 1 a 1: Diagnóstico Legal, Laboral y Tributario',
+                    'Auditoría y análisis de riesgos en contratos, facturación, pasivos laborales y estructura societaria. Incluye entrega formal de informe técnico con hoja de ruta preventiva.',
+                    1,
+                    97.00
+                );
+            } else if (key === 'rescate-financiero') {
+                setCustomDropdownValue('serviceType', 'Sesión de Rescate Financiero', 'Rescate Financiero');
+                setCustomDropdownValue('serviceModality', 'Virtual en Vivo (Meet / Zoom)');
+                document.getElementById('serviceDuration').value = 'Sesión de 2 Horas + 30 días de seguimiento';
+                addRow(
+                    'Programa Intensivo de Rescate Financiero y Flujo de Caja',
+                    'Reestructuración de deudas, saneamiento de costos fijos, auditoría de precios y diseño de plan de liquidez inmediata. Incluye plantilla FinCore Business y 30 días de seguimiento directo vía WhatsApp.',
+                    1,
+                    350.00
+                );
+            } else if (key === 'taller-incompany') {
+                setCustomDropdownValue('serviceType', 'Taller Corporativo In-Company', 'Taller In-Company');
+                setCustomDropdownValue('serviceModality', 'Presencial (Sede / Auditorio)');
+                document.getElementById('serviceDuration').value = 'Jornada Intensiva de 4 Horas (Medio Día)';
+                addRow(
+                    'Taller Corporativo In-Company: Buenas Prácticas Laborales y Gestión de Riesgos',
+                    'Capacitación práctica para socios, gerentes y departamento de recursos humanos. Incluye manual de procedimientos, kits de contratos de trabajo en formato Word y constancia de participación.',
+                    1,
+                    600.00
+                );
+            }
+
+            // Restaurar texto del selector de plantillas a su estado inicial
+            setCustomDropdownValue('presetSelector', '', 'Cargar Servicio Frecuente...');
+
+            calculateTotals();
+        }
+
+        // Guardar y Cargar Borrador en LocalStorage
+        function saveDraft() {
+            const data = collectData();
+            localStorage.setItem('aizprua_quote_draft', JSON.stringify(data));
+        }
+
+        function loadDraft() {
+            const raw = localStorage.getItem('aizprua_quote_draft');
+            if (!raw) return;
+            try {
+                const data = JSON.parse(raw);
+                if (data.quoteNumber) document.getElementById('quoteNumber').value = data.quoteNumber;
+                if (data.clientCompany) document.getElementById('clientCompany').value = data.clientCompany;
+                if (data.clientRuc) document.getElementById('clientRuc').value = data.clientRuc;
+                if (data.clientContact) document.getElementById('clientContact').value = data.clientContact;
+                if (data.clientPhone) document.getElementById('clientPhone').value = data.clientPhone;
+                if (data.clientEmail) document.getElementById('clientEmail').value = data.clientEmail;
+                if (data.clientAddress && document.getElementById('clientAddress')) document.getElementById('clientAddress').value = data.clientAddress;
+                if (data.serviceType) setCustomDropdownValue('serviceType', data.serviceType);
+                if (data.serviceModality) setCustomDropdownValue('serviceModality', data.serviceModality);
+                if (data.serviceDuration) document.getElementById('serviceDuration').value = data.serviceDuration;
+                if (data.serviceSchedule) document.getElementById('serviceSchedule').value = data.serviceSchedule;
+                if (data.paymentTerms && document.getElementById('paymentTerms')) {
+                    setCustomDropdownValue('paymentTerms', data.paymentTerms);
+                    updatePaymentTerms(data.paymentTerms);
+                }
+                
+                if (data.hasITBMS && !hasITBMS) toggleITBMS();
+            } catch (e) {
+                console.error('Error cargando borrador', e);
+            }
+        }
+
+        function collectData() {
+            const rows = [];
+            document.querySelectorAll('#itemsTableBody tr').forEach(row => {
+                rows.push({
+                    desc: row.querySelector('.item-desc')?.value || '',
+                    subdesc: row.querySelector('.item-subdesc')?.value || '',
+                    qty: parseFloat(row.querySelector('.item-qty')?.value || 1),
+                    price: parseFloat(row.querySelector('.item-price')?.value || 0)
+                });
+            });
+
+            return {
+                quoteNumber: document.getElementById('quoteNumber').value,
+                quoteDate: document.getElementById('quoteDate').value,
+                clientCompany: document.getElementById('clientCompany').value,
+                clientRuc: document.getElementById('clientRuc').value,
+                clientContact: document.getElementById('clientContact').value,
+                clientPhone: document.getElementById('clientPhone').value,
+                clientEmail: document.getElementById('clientEmail').value,
+                clientAddress: document.getElementById('clientAddress') ? document.getElementById('clientAddress').value : '',
+                serviceType: document.getElementById('serviceType').value,
+                serviceModality: document.getElementById('serviceModality').value,
+                serviceDuration: document.getElementById('serviceDuration').value,
+                serviceSchedule: document.getElementById('serviceSchedule').value,
+                paymentTerms: document.getElementById('paymentTerms') ? document.getElementById('paymentTerms').value : 'anticipo',
+                hasITBMS: hasITBMS,
+                rows: rows,
+                subtotal: document.getElementById('subtotalDisplay').textContent,
+                total: document.getElementById('totalDisplay').textContent,
+                deposit: document.getElementById('depositDisplay').textContent
+            };
+        }
+
+        // Pasar a Factura Proforma
+        function transferToInvoice() {
+            const data = collectData();
+            localStorage.setItem('aizprua_transfer_data', JSON.stringify(data));
+            window.location.href = 'factura.html';
+        }
+
+        // Enviar por WhatsApp
+        function sendWhatsApp() {
+            const data = collectData();
+            const clientName = data.clientContact || data.clientCompany || 'Estimado(a) Cliente';
+            const phone = data.clientPhone.replace(/[^0-9]/g, '');
+
+            const termsLine = (data.paymentTerms === 'anticipo' || data.paymentTerms.toLowerCase().includes('anticipo'))
+                ? `• *Anticipo 50% para reserva de fecha:* ${data.deposit}`
+                : `• *Condición de Pago:* 100% Contado (Pago Único)`;
+
+            const message = `Hola ${clientName}, un gusto saludarte.\n\nTe comparto la *Cotización Comercial (${data.quoteNumber})* de *Aizprua Soluciones Empresariales* para:\n• *Servicio:* ${data.serviceType} (${data.serviceModality})\n• *Total Inversión:* ${data.total}\n${termsLine}\n\nTe adjunto el documento formal en PDF para tu revisión. Quedo atento a tus comentarios para coordinar agenda.\n\nSaludos cordiales,\n*Arubel Aizprua*\nAizprua S.E. | WhatsApp: +507 6546-1527`;
+
+            let waUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+            if (phone.length >= 7) {
+                // Si tiene 8 dígitos de Panamá, anteponer 507 si no lo tiene
+                const fullPhone = phone.startsWith('507') ? phone : `507${phone}`;
+                waUrl = `https://wa.me/${fullPhone}?text=${encodeURIComponent(message)}`;
+            }
+
+            window.open(waUrl, '_blank');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factura Proforma | Aizprua Soluciones Empresariales</title>
+    <meta name="description" content="Factura Proforma / Documento Ejecutivo de Cobro para Asesorías y Conferencias - Aizprua S.E.">
+    <link rel="icon" type="image/svg+xml" href="assets/LOGOS PARA DIGITAL INDIVIDUALES-13.svg">
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (CDN oficial) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-blue': '#3849C8',
+                        'brand-blue-dark': '#2D3A9F',
+                        'brand-blue-light': '#4F5ED4',
+                        'brand-orange': '#FF8A1E',
+                        'brand-orange-dark': '#E67A15',
+                        'brand-orange-light': '#FFA04A',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1E293B;
+            background-color: #0F172A;
+        }
+
+        .editable-field {
+            transition: all 0.2s ease;
+            outline: none;
+            min-width: 0;
+            max-width: 100%;
+        }
+        .editable-field:hover, .editable-field:focus {
+            background-color: #F8FAFC;
+            border-color: #3849C8 !important;
+            box-shadow: 0 0 0 2px rgba(56, 73, 200, 0.15);
+        }
+
+        /* Alineación infalible de iconos SVG Lucide con texto */
+        .lucide, i[data-lucide] {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            vertical-align: middle;
+            flex-shrink: 0;
+        }
+
+        /* Hoja de Factura (Tamaño Carta Exacto) */
+        .sheet-container {
+            width: 100%;
+            max-width: 216mm;
+            min-height: 279mm;
+            margin: 0 auto;
+            background: #FFFFFF;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+        }
+
+        /* Estilos de Impresión y PDF */
+        @media print {
+            @page {
+                size: letter portrait;
+                margin: 8mm 10mm;
+            }
+            body {
+                background: #FFFFFF !important;
+                color: #000000 !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .sheet-container {
+                box-shadow: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+                min-height: auto !important;
+                border: none !important;
+            }
+            .editable-field {
+                border-bottom: none !important;
+                background-color: transparent !important;
+            }
+            input, select, textarea {
+                border: none !important;
+                background: transparent !important;
+                appearance: none !important;
+                -webkit-appearance: none !important;
+                padding: 0 !important;
+            }
+            .dropdown-chevron, .dropdown-menu {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen py-4 sm:py-8 px-2 sm:px-4 text-slate-800">
+
+    <!-- BARRA SUPERIOR DE HERRAMIENTAS (no-print) -->
+    <header class="no-print max-w-[216mm] mx-auto mb-6 bg-slate-900/95 backdrop-blur-md border border-slate-800 rounded-2xl p-4 text-white shadow-2xl">
+        <!-- Fila Superior: Título & Botones de Salida Principales -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center font-black text-white shadow-md shrink-0">
+                    <i data-lucide="receipt" class="w-5 h-5 shrink-0"></i>
+                </div>
+                <div>
+                    <h1 class="text-sm font-bold text-white tracking-tight flex items-center gap-2">
+                        Factura Proforma <span class="bg-indigo-500/30 text-indigo-300 border border-indigo-500/40 text-[10px] px-2 py-0.5 rounded-full font-semibold uppercase leading-none">Gestión de Cobro & PAC</span>
+                    </h1>
+                    <p class="text-xs text-slate-400">Documento de cobro formal para tesorería y contabilidad</p>
+                </div>
+            </div>
+
+            <!-- Botones Primarios de Salida -->
+            <div class="flex items-center gap-2 shrink-0 self-end sm:self-auto">
+                <!-- Botón WhatsApp -->
+                <button type="button" onclick="sendInvoiceWhatsApp()" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow-lg shadow-emerald-900/30 transition inline-flex items-center gap-1.5 whitespace-nowrap">
+                    <i data-lucide="message-circle" class="w-4 h-4 shrink-0"></i>
+                    <span class="leading-none">Cobro WhatsApp</span>
+                </button>
+
+                <!-- Botón Imprimir / PDF -->
+                <button type="button" onclick="window.print()" class="bg-brand-blue hover:bg-brand-blue-dark text-white text-xs font-bold px-4 py-2 rounded-xl shadow-lg shadow-brand-blue/30 transition inline-flex items-center gap-1.5 whitespace-nowrap">
+                    <i data-lucide="download" class="w-4 h-4 shrink-0"></i>
+                    <span class="leading-none">Descargar PDF</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Fila Inferior: Controles de Estado y Opciones -->
+        <div class="flex flex-wrap items-center justify-between gap-2.5 pt-3">
+            <!-- Selector de Estado de Pago Personalizado -->
+            <div class="relative custom-dropdown flex-1 min-w-[220px]" data-dropdown-id="paymentStatus">
+                <button type="button" onclick="toggleDropdown(this)" class="w-full bg-slate-800 hover:bg-slate-750 border border-slate-700 text-slate-200 text-xs rounded-xl px-3 py-2 font-medium focus:ring-2 focus:ring-brand-blue focus:outline-none cursor-pointer flex items-center justify-between gap-2 shadow-xs transition">
+                    <span class="dropdown-selected truncate text-left">Pendiente de Pago</span>
+                    <i data-lucide="chevron-down" class="dropdown-chevron w-4 h-4 shrink-0 text-slate-400 transition-transform duration-200"></i>
+                </button>
+                <div class="dropdown-menu hidden absolute left-0 right-0 top-full mt-2 z-50 bg-slate-900 border border-slate-700 rounded-xl shadow-2xl py-1 text-xs text-slate-200 overflow-hidden divide-y divide-slate-800">
+                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="pending" onclick="selectDropdownOption(this)">
+                        <i data-lucide="clock" class="w-3.5 h-3.5 text-amber-400 shrink-0"></i>
+                        <span>Pendiente de Pago</span>
+                    </div>
+                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="partial" onclick="selectDropdownOption(this)">
+                        <i data-lucide="pie-chart" class="w-3.5 h-3.5 text-blue-400 shrink-0"></i>
+                        <span>Anticipo 50% Recibido</span>
+                    </div>
+                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="paid" onclick="selectDropdownOption(this)">
+                        <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400 shrink-0"></i>
+                        <span>Pagado / Cancelado</span>
+                    </div>
+                </div>
+                <input type="hidden" id="paymentStatus" value="pending" onchange="updatePaymentStatusBadge(this.value)">
+            </div>
+
+            <!-- Controles Secundarios -->
+            <div class="flex items-center gap-2 shrink-0">
+                <!-- Enlace volver a Cotización -->
+                <a href="cotizacion.html" class="bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-xs font-semibold px-3 py-2 rounded-xl transition inline-flex items-center gap-1.5 whitespace-nowrap" title="Ir a la Cotización">
+                    <i data-lucide="arrow-left" class="w-3.5 h-3.5 shrink-0"></i>
+                    <span class="leading-none">Ir a Cotización</span>
+                </a>
+
+                <!-- Toggle ITBMS -->
+                <button type="button" id="btnToggleITBMS" onclick="toggleITBMS()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-xs font-semibold px-3 py-2 rounded-xl transition inline-flex items-center gap-1.5 whitespace-nowrap">
+                    <i data-lucide="percent" class="w-3.5 h-3.5 text-brand-orange shrink-0"></i>
+                    <span class="leading-none">ITBMS (7%): <strong id="itbmsStatusText" class="text-slate-400">NO</strong></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HOJA CARTA IMPRIMIBLE -->
+    <main class="sheet-container rounded-2xl p-6 sm:p-8 md:p-10 text-slate-800 flex flex-col justify-between">
+        <div>
+            <!-- ENCABEZADO INSTITUCIONAL -->
+            <div class="flex items-start justify-between border-b-2 border-slate-900 pb-5 mb-5 gap-6">
+                <!-- Lado Izquierdo: Identidad de Marca Oficial -->
+                <div class="flex-1 min-w-0">
+                    <img src="assets/logo-aizprua-horizontal.svg" alt="Aizprua S.E." class="h-9 sm:h-10 w-auto object-contain mb-2">
+                    <h2 class="text-xs font-black text-slate-900 uppercase tracking-tight mb-1">Aizprua Soluciones Empresariales</h2>
+                    <div class="text-[11px] text-slate-600 leading-relaxed">
+                        <p><strong>RUC:</strong> 8-826-885 &nbsp;|&nbsp; <strong>DV:</strong> 14 &nbsp;|&nbsp; <strong>Ubicación:</strong> Panamá, Panamá Oeste, La Chorrera</p>
+                        <p><strong>WhatsApp / Tel:</strong> +507 6546-1527 &nbsp;|&nbsp; <strong>Email:</strong> info@aizprua.com &nbsp;|&nbsp; <strong>Web:</strong> aizprua.com</p>
+                    </div>
+                </div>
+
+                <!-- Lado Derecho: Tarjeta Ejecutiva de Factura Proforma -->
+                <div class="w-64 shrink-0 bg-slate-50 border border-slate-200 rounded-xl p-3 shadow-xs">
+                    <div class="bg-brand-blue text-white font-black text-center text-xs uppercase tracking-wider py-1.5 rounded-lg mb-2 shadow-xs">
+                        Factura Proforma
+                    </div>
+                    <div class="space-y-1.5 text-[11px]">
+                        <div class="flex items-center justify-between">
+                            <span class="text-slate-500 font-semibold">N° Factura:</span>
+                            <input type="text" id="invoiceNumber" value="FAC-2026-001" class="editable-field font-mono font-bold text-slate-900 text-right w-28 px-1.5 py-0.5 rounded border border-slate-200 bg-white">
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-slate-500 font-semibold">Fecha Emisión:</span>
+                            <input type="date" id="invoiceDate" class="editable-field font-semibold text-slate-900 text-right w-28 px-1.5 py-0.5 rounded border border-slate-200 bg-white">
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-slate-500 font-semibold">Vencimiento:</span>
+                            <input type="date" id="dueDate" class="editable-field font-semibold text-slate-900 text-right w-28 px-1.5 py-0.5 rounded border border-slate-200 bg-white">
+                        </div>
+                        <div class="pt-1.5 border-t border-slate-200 flex justify-center">
+                            <span id="badgePaymentDisplay" class="inline-flex items-center gap-1.5 bg-amber-100 text-amber-800 border border-amber-300 text-[10px] font-black uppercase px-2.5 py-1 rounded-full leading-none">
+                                <i data-lucide="clock" class="w-3 h-3 text-amber-700 shrink-0"></i>
+                                <span class="leading-none">Pendiente de Pago</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FICHA DEL CLIENTE Y DETALLES DE FACTURACIÓN -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+                <!-- Facturado a: -->
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5">
+                    <div class="flex items-center gap-2 text-xs font-bold text-slate-900 uppercase tracking-wider mb-2.5 border-b border-slate-200 pb-1.5">
+                        <i data-lucide="building-2" class="w-3.5 h-3.5 text-brand-blue shrink-0"></i>
+                        <span class="leading-none">Facturado a (Cliente / Razón Social)</span>
+                    </div>
+                    <div class="space-y-2.5 text-xs">
+                        <div class="flex items-center gap-2 min-w-0">
+                            <span class="w-24 text-slate-500 font-medium shrink-0">Empresa / Razón:</span>
+                            <input type="text" id="clientCompany" placeholder="Ej. Corporación Delta, S.A." class="editable-field flex-1 min-w-0 w-full font-bold text-slate-900 px-2.5 py-1.5 rounded-lg border border-slate-200">
+                        </div>
+                        <div class="flex items-center gap-2 min-w-0">
+                            <span class="w-24 text-slate-500 font-medium shrink-0">RUC & DV:</span>
+                            <input type="text" id="clientRuc" placeholder="Ej. 155698421-2-2021 DV 85" class="editable-field flex-1 min-w-0 w-full font-semibold text-slate-800 px-2.5 py-1.5 rounded-lg border border-slate-200">
+                        </div>
+                        <div class="flex items-center gap-2 min-w-0">
+                            <span class="w-24 text-slate-500 font-medium shrink-0">Atención a:</span>
+                            <input type="text" id="clientContact" placeholder="Ej. Carlos Mendoza" class="editable-field flex-1 min-w-0 w-full font-semibold text-slate-800 px-2.5 py-1.5 rounded-lg border border-slate-200">
+                        </div>
+                        <div class="flex items-center gap-2 min-w-0">
+                            <span class="w-24 text-slate-500 font-medium shrink-0">WhatsApp / Tel:</span>
+                            <input type="text" id="clientPhone" placeholder="Ej. 6500-0000" class="editable-field flex-1 min-w-0 w-full text-slate-800 px-2.5 py-1.5 rounded-lg border border-slate-200">
+                        </div>
+                        <div class="flex items-center gap-2 min-w-0">
+                            <span class="w-24 text-slate-500 font-medium shrink-0">Correo:</span>
+                            <input type="email" id="clientEmail" placeholder="contabilidad@empresa.com" class="editable-field flex-1 min-w-0 w-full text-slate-800 px-2.5 py-1.5 rounded-lg border border-slate-200">
+                        </div>
+                        <div class="flex items-center gap-2 min-w-0">
+                            <span class="w-24 text-slate-500 font-medium shrink-0">Ubicación / Dir:</span>
+                            <input type="text" id="clientAddress" placeholder="Ej. Costa del Este, Torre Financial, Piso 12" class="editable-field flex-1 min-w-0 w-full text-slate-800 px-2.5 py-1.5 rounded-lg border border-slate-200">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Condiciones del Servicio & Pago -->
+                <div class="bg-indigo-50/50 border border-indigo-100 rounded-xl p-3.5 min-w-0">
+                    <div class="flex items-center gap-2 text-xs font-bold text-indigo-900 uppercase tracking-wider mb-2.5 border-b border-indigo-200 pb-1.5">
+                        <i data-lucide="credit-card" class="w-3.5 h-3.5 text-indigo-600 shrink-0"></i>
+                        <span class="leading-none">Condiciones de Pago & Emisión</span>
+                    </div>
+                    <div class="space-y-2.5 text-xs">
+                        <div class="flex items-center gap-2 min-w-0">
+                            <span class="w-24 text-slate-600 font-medium shrink-0">Forma de Pago:</span>
+                            <div class="relative custom-dropdown flex-1 min-w-0" data-dropdown-id="paymentMethod">
+                                <button type="button" onclick="toggleDropdown(this)" class="editable-field w-full flex items-center justify-between gap-1.5 font-bold text-indigo-900 px-2.5 py-1.5 rounded-lg border border-indigo-200 bg-white cursor-pointer text-xs text-left shadow-2xs transition">
+                                    <span class="dropdown-selected truncate">Transferencia ACH (B. General)</span>
+                                    <i data-lucide="chevron-down" class="dropdown-chevron w-3.5 h-3.5 shrink-0 text-indigo-600 transition-transform duration-200"></i>
+                                </button>
+                                <div class="dropdown-menu hidden absolute left-0 right-0 top-full mt-2 z-50 bg-white border border-slate-200 rounded-xl shadow-2xl py-1 text-xs text-slate-800 overflow-hidden divide-y divide-slate-100">
+                                    <div class="dropdown-option px-3 py-2 hover:bg-indigo-600 hover:text-white cursor-pointer transition font-bold" data-value="Transferencia Bancaria Directa (ACH)" onclick="selectDropdownOption(this)">Transferencia ACH (B. General)</div>
+                                    <div class="dropdown-option px-3 py-2 hover:bg-indigo-600 hover:text-white cursor-pointer transition font-bold" data-value="Yappy Comercial" onclick="selectDropdownOption(this)">Yappy Comercial (6546-1527)</div>
+                                    <div class="dropdown-option px-3 py-2 hover:bg-indigo-600 hover:text-white cursor-pointer transition font-bold" data-value="Tarjeta de Crédito / Débito (Enlace Web)" onclick="selectDropdownOption(this)">Tarjeta de Crédito / Débito</div>
+                                    <div class="dropdown-option px-3 py-2 hover:bg-indigo-600 hover:text-white cursor-pointer transition font-bold" data-value="Cheque Corporativo" onclick="selectDropdownOption(this)">Cheque Corporativo</div>
+                                </div>
+                                <input type="hidden" id="paymentMethod" value="Transferencia Bancaria Directa (ACH)">
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2 min-w-0">
+                            <span class="w-24 text-slate-600 font-medium shrink-0">Condición:</span>
+                            <div class="relative custom-dropdown flex-1 min-w-0" data-dropdown-id="paymentTerms">
+                                <button type="button" onclick="toggleDropdown(this)" class="editable-field w-full flex items-center justify-between gap-1.5 font-semibold text-slate-800 px-2.5 py-1.5 rounded-lg border border-indigo-200 bg-white cursor-pointer text-xs text-left shadow-2xs transition">
+                                    <span class="dropdown-selected truncate">50% Anticipo / 50% Saldo</span>
+                                    <i data-lucide="chevron-down" class="dropdown-chevron w-3.5 h-3.5 shrink-0 text-slate-400 transition-transform duration-200"></i>
+                                </button>
+                                <div class="dropdown-menu hidden absolute left-0 right-0 top-full mt-2 z-50 bg-white border border-slate-200 rounded-xl shadow-2xl py-1 text-xs text-slate-800 overflow-hidden divide-y divide-slate-100">
+                                    <div class="dropdown-option px-3 py-2 hover:bg-indigo-600 hover:text-white cursor-pointer transition" data-value="anticipo" onclick="selectDropdownOption(this)">50% Anticipo / 50% Saldo</div>
+                                    <div class="dropdown-option px-3 py-2 hover:bg-indigo-600 hover:text-white cursor-pointer transition" data-value="contado" onclick="selectDropdownOption(this)">100% Contado (Pago Único)</div>
+                                    <div class="dropdown-option px-3 py-2 hover:bg-indigo-600 hover:text-white cursor-pointer transition" data-value="credito" onclick="selectDropdownOption(this)">Crédito Comercial (15 días)</div>
+                                </div>
+                                <input type="hidden" id="paymentTerms" value="anticipo" onchange="updatePaymentTerms(this.value)">
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2 min-w-0">
+                            <span class="w-24 text-slate-600 font-medium shrink-0">Ref. Cotización:</span>
+                            <input type="text" id="quoteRef" placeholder="Ej. COT-2026-001" class="editable-field flex-1 min-w-0 w-full font-mono font-bold text-slate-800 px-2.5 py-1.5 rounded-lg border border-indigo-200 bg-white">
+                        </div>
+                        <div class="flex items-center gap-2 min-w-0">
+                            <span class="w-24 text-slate-600 font-medium shrink-0">O/C Cliente:</span>
+                            <input type="text" id="clientPO" placeholder="Ej. OC-2026-894 o N/A" class="editable-field flex-1 min-w-0 w-full font-mono text-slate-800 px-2.5 py-1.5 rounded-lg border border-indigo-200 bg-white">
+                        </div>
+                        <div class="flex items-center gap-2 min-w-0">
+                            <span class="w-24 text-slate-600 font-medium shrink-0">Moneda:</span>
+                            <span class="font-bold text-slate-900 truncate">USD ($ Dólares / Balboas)</span>
+                        </div>
+                        <div class="flex items-center gap-2 min-w-0">
+                            <span class="w-24 text-slate-600 font-medium shrink-0">Emisor Fiscal:</span>
+                            <span class="font-bold text-slate-900 truncate">Arubel Aizprua (Aizprua S.E.)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABLA DE CONCEPTOS FACTURADOS -->
+            <div class="mb-5 overflow-hidden border border-slate-200 rounded-xl">
+                <table class="w-full text-left border-collapse text-xs">
+                    <thead>
+                        <tr class="bg-slate-900 text-white">
+                            <th class="py-2.5 px-3 font-bold w-12 text-center">Ítem</th>
+                            <th class="py-2.5 px-3 font-bold">Concepto Facturado / Servicio Profesional</th>
+                            <th class="py-2.5 px-3 font-bold w-16 text-center">Cant.</th>
+                            <th class="py-2.5 px-3 font-bold w-24 text-right">Precio ($)</th>
+                            <th class="py-2.5 px-3 font-bold w-24 text-right">Total ($)</th>
+                            <th class="py-2.5 px-2 font-bold w-8 text-center no-print"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="itemsTableBody" class="divide-y divide-slate-200">
+                        <tr class="hover:bg-slate-50/60 transition">
+                            <td class="py-2.5 px-3 text-center font-bold text-slate-400 row-index">1</td>
+                            <td class="py-2.5 px-3">
+                                <input type="text" class="item-desc w-full font-bold text-slate-900 editable-field px-1 py-0.5 rounded" value="Conferencia Magistral: Blindaje Legal, Fiscal y Financiero de Empresas en Panamá">
+                                <textarea rows="2" class="item-subdesc w-full text-[11px] text-slate-500 editable-field px-1 py-0.5 rounded resize-none mt-0.5">Honorarios profesionales por ponencia ejecutiva a cargo de Arubel Aizprua. Incluye materiales digitales y sesión de preguntas.</textarea>
+                            </td>
+                            <td class="py-2.5 px-3 text-center align-top">
+                                <input type="number" min="1" step="1" value="1" onchange="calculateTotals()" class="item-qty w-12 text-center font-bold text-slate-800 editable-field px-1 py-0.5 rounded border border-slate-200">
+                            </td>
+                            <td class="py-2.5 px-3 text-right align-top">
+                                <input type="number" min="0" step="0.01" value="450.00" onchange="calculateTotals()" class="item-price w-20 text-right font-bold text-slate-800 editable-field px-1 py-0.5 rounded border border-slate-200">
+                            </td>
+                            <td class="py-2.5 px-3 text-right font-bold text-slate-900 align-top item-total">
+                                $450.00
+                            </td>
+                            <td class="py-2.5 px-2 text-center align-top no-print">
+                                <button type="button" onclick="removeRow(this)" class="text-slate-400 hover:text-rose-600 transition inline-flex items-center justify-center p-1 rounded hover:bg-rose-50" title="Eliminar fila">
+                                    <i data-lucide="trash-2" class="w-3.5 h-3.5 shrink-0"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="no-print bg-slate-50 p-2 border-t border-slate-200 flex justify-start">
+                    <button type="button" onclick="addRow()" class="inline-flex items-center gap-1.5 text-xs font-bold text-brand-blue hover:text-brand-blue-dark py-1.5 px-3 rounded-lg hover:bg-blue-50 transition border border-dashed border-blue-200">
+                        <i data-lucide="plus-circle" class="w-3.5 h-3.5 shrink-0"></i>
+                        <span class="leading-none">Agregar otro concepto</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- TOTALES Y DATOS BANCARIOS OFICIALES -->
+            <div class="grid grid-cols-1 sm:grid-cols-12 gap-4 mb-5 items-start">
+                <!-- Cuenta Bancaria Banco General -->
+                <div class="sm:col-span-7 bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-xs">
+                    <div class="flex items-center gap-2 font-bold text-slate-900 uppercase tracking-wider mb-2 border-b border-slate-200 pb-1">
+                        <i data-lucide="landmark" class="w-3.5 h-3.5 text-brand-blue shrink-0"></i>
+                        <span class="leading-none">Datos Oficiales para Transferencia ACH o Yappy</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 text-[11px] text-slate-700 leading-snug">
+                        <div>
+                            <span class="text-slate-500 block font-medium">Banco:</span>
+                            <strong class="text-slate-900 font-bold">BANCO GENERAL</strong>
+                        </div>
+                        <div>
+                            <span class="text-slate-500 block font-medium">Tipo de Cuenta:</span>
+                            <strong class="text-slate-900 font-bold">Cuenta Corriente</strong>
+                        </div>
+                        <div>
+                            <span class="text-slate-500 block font-medium">Beneficiario:</span>
+                            <strong class="text-slate-900 font-bold text-[10px] uppercase">AIZPRUA SOLUCIONES EMPRESARIALES</strong>
+                        </div>
+                        <div>
+                            <span class="text-slate-500 block font-medium">Número de Cuenta:</span>
+                            <strong class="text-brand-blue font-bold font-mono text-xs">03-73-01-145876-8</strong>
+                        </div>
+                    </div>
+                    <div class="mt-2.5 pt-2 border-t border-slate-200 flex items-center justify-between text-[11px]">
+                        <span class="text-slate-600 font-medium">Yappy Comercial:</span>
+                        <span class="bg-blue-100/70 text-blue-900 font-mono font-bold px-2 py-0.5 rounded border border-blue-200">6546-1527</span>
+                    </div>
+                </div>
+
+                <!-- Resumen de Totales -->
+                <div class="sm:col-span-5 bg-slate-900 text-white rounded-xl p-3.5 text-xs shadow-md">
+                    <div class="space-y-1.5 text-xs">
+                        <div class="flex justify-between text-slate-300">
+                            <span>Subtotal:</span>
+                            <span id="subtotalDisplay" class="font-bold text-white font-mono">$450.00</span>
+                        </div>
+                        <div id="itbmsRow" class="flex justify-between text-slate-300 hidden">
+                            <span>ITBMS (7%):</span>
+                            <span id="itbmsDisplay" class="font-bold text-brand-orange-light font-mono">$31.50</span>
+                        </div>
+                        <div class="flex justify-between text-sm font-black border-t border-slate-700 pt-2 text-white">
+                            <span>TOTAL A PAGAR:</span>
+                            <span id="totalDisplay" class="text-brand-orange-light font-mono text-base font-black">$450.00 USD</span>
+                        </div>
+                    </div>
+
+                    <!-- Anticipo y Saldo Dinámico -->
+                    <div id="depositBalanceContainer" class="mt-3 pt-2.5 border-t border-slate-800 grid grid-cols-2 gap-2 text-center text-[10px]">
+                        <div class="bg-slate-800/80 p-1.5 rounded-lg border border-slate-700">
+                            <span class="text-slate-400 block font-semibold uppercase">50% Anticipo</span>
+                            <strong id="depositDisplay" class="text-white font-mono text-xs font-bold">$225.00</strong>
+                        </div>
+                        <div class="bg-slate-800/80 p-1.5 rounded-lg border border-slate-700">
+                            <span class="text-slate-400 block font-semibold uppercase">50% Saldo Restante</span>
+                            <strong id="balanceDisplay" class="text-white font-mono text-xs font-bold">$225.00</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NOTA FISCAL PAC DGI OBLIGATORIA -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 text-[10px] text-slate-600 mb-5 leading-normal">
+                <p class="font-bold text-slate-800 uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                    <i data-lucide="file-check-2" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
+                    <span class="leading-none">Información Tributaria & Facturación Electrónica DGI (PAC)</span>
+                </p>
+                <p class="text-slate-600">
+                    Este documento constituye una <strong>Factura Proforma comercial</strong> válida para trámites internos de tesorería, cuentas por pagar y liberación de anticipos. La <strong>Factura Electrónica Oficial con código CUFE</strong> y validación de la Dirección General de Ingresos (DGI) será emitida a través de nuestro <strong>Proveedor de Autorización Calificada (PAC)</strong> una vez confirmado y acreditado el pago en cuenta bancaria.
+                </p>
+            </div>
+        </div>
+
+        <!-- PIE DE FIRMA & CONTACTO -->
+        <div class="pt-4 border-t border-slate-200 mt-2">
+            <div class="grid grid-cols-2 gap-8 items-end">
+                <div>
+                    <div class="border-b-2 border-slate-900 pb-1 w-52 mb-1">
+                        <span class="font-serif italic text-base text-slate-800 block">Arubel Aizprua</span>
+                    </div>
+                    <strong class="text-xs text-slate-900 block font-black">Arubel Aizprua</strong>
+                    <span class="text-[10px] text-slate-600 block leading-tight">Fundador & Consultor Principal<br>Aizprua Soluciones Empresariales</span>
+                </div>
+
+                <div class="text-right">
+                    <p class="text-[11px] text-slate-700 font-semibold mb-1">Comprobantes de Pago a:</p>
+                    <span class="text-xs font-bold text-brand-blue font-mono block">info@aizprua.com</span>
+                    <span class="text-xs font-bold text-emerald-600 font-mono block">WhatsApp: +507 6546-1527</span>
+                </div>
+            </div>
+            <div class="mt-4 text-center text-[9px] text-slate-400">
+                Aizprua Soluciones Empresariales &bull; RUC 8-826-885 DV 14 &bull; Panamá, Panamá Oeste, La Chorrera &bull; aizprua.com
+            </div>
+        </div>
+    </main>
+
+    <!-- SCRIPT INTERACTIVO Y SINCRONIZACIÓN -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            
+            // Fechas
+            const today = new Date();
+            const todayStr = today.toISOString().split('T')[0];
+            document.getElementById('invoiceDate').value = todayStr;
+
+            // Fecha de vencimiento a 15 días por defecto
+            const due = new Date();
+            due.setDate(today.getDate() + 15);
+            document.getElementById('dueDate').value = due.toISOString().split('T')[0];
+
+            // Revisar si vienen datos transferidos desde cotizacion.html
+            loadTransferredData();
+            calculateTotals();
+        });
+
+        let hasITBMS = false;
+
+        function toggleITBMS() {
+            hasITBMS = !hasITBMS;
+            const statusText = document.getElementById('itbmsStatusText');
+            const itbmsRow = document.getElementById('itbmsRow');
+            
+            if (hasITBMS) {
+                statusText.textContent = 'SÍ (7%)';
+                statusText.className = 'text-brand-orange font-bold';
+                itbmsRow.classList.remove('hidden');
+            } else {
+                statusText.textContent = 'NO';
+                statusText.className = 'text-slate-400';
+                itbmsRow.classList.add('hidden');
+            }
+            calculateTotals();
+        }
+
+        // Control de Menús Desplegables Flotantes Personalizados (Separación mt-2 / 8px y bordes redondeados)
+        function toggleDropdown(btn) {
+            const dropdown = btn.closest('.custom-dropdown');
+            const menu = dropdown.querySelector('.dropdown-menu');
+            const chevron = dropdown.querySelector('.dropdown-chevron');
+            const isOpen = !menu.classList.contains('hidden');
+
+            closeAllDropdowns();
+
+            if (!isOpen) {
+                menu.classList.remove('hidden');
+                if (chevron) chevron.classList.add('rotate-180');
+            }
+        }
+
+        function closeAllDropdowns() {
+            document.querySelectorAll('.custom-dropdown .dropdown-menu').forEach(menu => {
+                menu.classList.add('hidden');
+            });
+            document.querySelectorAll('.custom-dropdown .dropdown-chevron').forEach(chevron => {
+                chevron.classList.remove('rotate-180');
+            });
+        }
+
+        function selectDropdownOption(optionEl) {
+            const dropdown = optionEl.closest('.custom-dropdown');
+            const hiddenInput = dropdown.querySelector('input[type="hidden"]');
+            const selectedSpan = dropdown.querySelector('.dropdown-selected');
+            const val = optionEl.getAttribute('data-value');
+            const text = optionEl.textContent.trim();
+
+            if (hiddenInput) {
+                hiddenInput.value = val;
+                if (typeof hiddenInput.onchange === 'function') {
+                    hiddenInput.onchange();
+                } else {
+                    hiddenInput.dispatchEvent(new Event('change'));
+                }
+            }
+
+            if (selectedSpan) {
+                selectedSpan.textContent = text;
+            }
+
+            closeAllDropdowns();
+        }
+
+        function setCustomDropdownValue(id, value, customText = null) {
+            const input = document.getElementById(id);
+            if (!input) return;
+            input.value = value;
+            const dropdown = input.closest('.custom-dropdown');
+            if (!dropdown) return;
+            const selectedSpan = dropdown.querySelector('.dropdown-selected');
+            if (!selectedSpan) return;
+
+            if (customText) {
+                selectedSpan.textContent = customText;
+            } else {
+                const matchingOption = dropdown.querySelector(`.dropdown-option[data-value="${value}"]`);
+                if (matchingOption) {
+                    selectedSpan.textContent = matchingOption.textContent.trim();
+                } else if (value) {
+                    selectedSpan.textContent = value;
+                }
+            }
+        }
+
+        // Cerrar dropdowns al hacer clic fuera
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.custom-dropdown')) {
+                closeAllDropdowns();
+            }
+        });
+
+        function updatePaymentStatusBadge(status) {
+            const badge = document.getElementById('badgePaymentDisplay');
+            if (status === 'paid') {
+                badge.className = 'inline-flex items-center gap-1.5 bg-emerald-100 text-emerald-800 border border-emerald-300 text-[10px] font-black uppercase px-2.5 py-1 rounded-full leading-none';
+                badge.innerHTML = '<i data-lucide="check-circle-2" class="w-3 h-3 text-emerald-700 shrink-0"></i><span class="leading-none">Pagado / Cancelado</span>';
+            } else if (status === 'partial') {
+                badge.className = 'inline-flex items-center gap-1.5 bg-blue-100 text-blue-800 border border-blue-300 text-[10px] font-black uppercase px-2.5 py-1 rounded-full leading-none';
+                badge.innerHTML = '<i data-lucide="pie-chart" class="w-3 h-3 text-blue-700 shrink-0"></i><span class="leading-none">Anticipo 50% Recibido</span>';
+            } else {
+                badge.className = 'inline-flex items-center gap-1.5 bg-amber-100 text-amber-800 border border-amber-300 text-[10px] font-black uppercase px-2.5 py-1 rounded-full leading-none';
+                badge.innerHTML = '<i data-lucide="clock" class="w-3 h-3 text-amber-700 shrink-0"></i><span class="leading-none">Pendiente de Pago</span>';
+            }
+            lucide.createIcons();
+        }
+
+        // Control dinámico de las cajas de anticipo según la condición de pago
+        function updatePaymentTerms(value) {
+            const container = document.getElementById('depositBalanceContainer');
+            if (!container) return;
+            if (value === 'anticipo' || value.toLowerCase().includes('anticipo')) {
+                container.classList.remove('hidden');
+            } else {
+                container.classList.add('hidden');
+            }
+        }
+
+        function calculateTotals() {
+            const rows = document.querySelectorAll('#itemsTableBody tr');
+            let subtotal = 0;
+
+            rows.forEach((row, index) => {
+                const qtyInput = row.querySelector('.item-qty');
+                const priceInput = row.querySelector('.item-price');
+                const totalCell = row.querySelector('.item-total');
+                const indexCell = row.querySelector('.row-index');
+
+                if (indexCell) indexCell.textContent = index + 1;
+
+                const qty = parseFloat(qtyInput ? qtyInput.value : 0) || 0;
+                const price = parseFloat(priceInput ? priceInput.value : 0) || 0;
+                const total = qty * price;
+
+                subtotal += total;
+                if (totalCell) {
+                    totalCell.textContent = `$${total.toFixed(2)}`;
+                }
+            });
+
+            const itbms = hasITBMS ? (subtotal * 0.07) : 0;
+            const grandTotal = subtotal + itbms;
+            const deposit = grandTotal * 0.50;
+            const balance = grandTotal * 0.50;
+
+            document.getElementById('subtotalDisplay').textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById('itbmsDisplay').textContent = `$${itbms.toFixed(2)}`;
+            document.getElementById('totalDisplay').textContent = `$${grandTotal.toFixed(2)} USD`;
+            document.getElementById('depositDisplay').textContent = `$${deposit.toFixed(2)}`;
+            document.getElementById('balanceDisplay').textContent = `$${balance.toFixed(2)}`;
+        }
+
+        function addRow(desc = '', subdesc = '', qty = 1, price = 0) {
+            const tbody = document.getElementById('itemsTableBody');
+            const tr = document.createElement('tr');
+            tr.className = 'hover:bg-slate-50/60 transition';
+            tr.innerHTML = `
+                <td class="py-2.5 px-3 text-center font-bold text-slate-400 row-index"></td>
+                <td class="py-2.5 px-3">
+                    <input type="text" class="item-desc w-full font-bold text-slate-900 editable-field px-1 py-0.5 rounded" value="${desc || 'Concepto Facturado'}">
+                    <textarea rows="2" class="item-subdesc w-full text-[11px] text-slate-500 editable-field px-1 py-0.5 rounded resize-none mt-0.5">${subdesc || 'Detalle del servicio o entregable.'}</textarea>
+                </td>
+                <td class="py-2.5 px-3 text-center align-top">
+                    <input type="number" min="1" step="1" value="${qty}" onchange="calculateTotals()" class="item-qty w-12 text-center font-bold text-slate-800 editable-field px-1 py-0.5 rounded border border-slate-200">
+                </td>
+                <td class="py-2.5 px-3 text-right align-top">
+                    <input type="number" min="0" step="0.01" value="${price.toFixed(2)}" onchange="calculateTotals()" class="item-price w-20 text-right font-bold text-slate-800 editable-field px-1 py-0.5 rounded border border-slate-200">
+                </td>
+                <td class="py-2.5 px-3 text-right font-bold text-slate-900 align-top item-total">
+                    $0.00
+                </td>
+                <td class="py-2.5 px-2 text-center align-top no-print">
+                    <button type="button" onclick="removeRow(this)" class="text-slate-400 hover:text-rose-600 transition" title="Eliminar fila">
+                        <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                    </button>
+                </td>
+            `;
+            tbody.appendChild(tr);
+            lucide.createIcons();
+            calculateTotals();
+        }
+
+        function removeRow(btn) {
+            const tbody = document.getElementById('itemsTableBody');
+            if (tbody.querySelectorAll('tr').length <= 1) {
+                alert('La factura debe tener al menos un concepto registrado.');
+                return;
+            }
+            btn.closest('tr').remove();
+            calculateTotals();
+        }
+
+        // Carga de datos desde la cotización transferida
+        function loadTransferredData() {
+            const raw = localStorage.getItem('aizprua_transfer_data');
+            if (!raw) return;
+
+            try {
+                const data = JSON.parse(raw);
+                if (data.clientCompany) document.getElementById('clientCompany').value = data.clientCompany;
+                if (data.clientRuc) document.getElementById('clientRuc').value = data.clientRuc;
+                if (data.clientContact) document.getElementById('clientContact').value = data.clientContact;
+                if (data.clientPhone) document.getElementById('clientPhone').value = data.clientPhone;
+                if (data.clientEmail) document.getElementById('clientEmail').value = data.clientEmail;
+                if (data.clientAddress && document.getElementById('clientAddress')) document.getElementById('clientAddress').value = data.clientAddress;
+                if (data.quoteNumber) document.getElementById('quoteRef').value = data.quoteNumber;
+                if (data.paymentTerms && document.getElementById('paymentTerms')) {
+                    setCustomDropdownValue('paymentTerms', data.paymentTerms);
+                    updatePaymentTerms(data.paymentTerms);
+                }
+
+                if (data.hasITBMS && !hasITBMS) {
+                    toggleITBMS();
+                }
+
+                if (data.rows && data.rows.length > 0) {
+                    const tbody = document.getElementById('itemsTableBody');
+                    tbody.innerHTML = '';
+                    data.rows.forEach(r => {
+                        addRow(r.desc, r.subdesc, r.qty, r.price);
+                    });
+                }
+                
+                // Limpiar transfer data temporal para no sobreescribir ediciones futuras accidentales
+                localStorage.removeItem('aizprua_transfer_data');
+            } catch (e) {
+                console.error('Error leyendo transfer data', e);
+            }
+        }
+
+        function sendInvoiceWhatsApp() {
+            const clientName = document.getElementById('clientContact').value || document.getElementById('clientCompany').value || 'Estimado(a) Cliente';
+            const invoiceNum = document.getElementById('invoiceNumber').value;
+            const total = document.getElementById('totalDisplay').textContent;
+            const deposit = document.getElementById('depositDisplay').textContent;
+            const phone = document.getElementById('clientPhone').value.replace(/[^0-9]/g, '');
+
+            const termsValue = document.getElementById('paymentTerms').value;
+            const termsLine = (termsValue === 'anticipo' || termsValue.toLowerCase().includes('anticipo'))
+                ? `• *Condición de Pago:* 50% Anticipo (${deposit}) / 50% Saldo contra Entrega`
+                : (termsValue === 'credito' ? `• *Condición de Pago:* Crédito Comercial a 15 días` : `• *Condición de Pago:* 100% Contado Inmediato`);
+
+            const message = `Hola ${clientName}, un gusto saludarte.\n\nTe comparto la *Factura Proforma (${invoiceNum})* de *Aizprua Soluciones Empresariales* para la gestión de pago correspondiente a nuestros servicios profesionales.\n\n• *Total a Pagar:* ${total}\n${termsLine}\n\n*Datos para Transferencia Bancaria (ACH):*\n• *Banco:* Banco General - Cuenta Corriente\n• *Cuenta:* 03-73-01-145876-8\n• *Beneficiario:* AIZPRUA SOLUCIONES EMPRESARIALES\n• *Yappy Comercial:* 6546-1527\n\nTe adjunto el documento en PDF. Agradecemos remitir el comprobante por este medio para emitir tu Factura Electrónica Oficial PAC (DGI).\n\nSaludos cordiales,\n*Arubel Aizprua*\nAizprua S.E. | +507 6546-1527`;
+
+            let waUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+            if (phone.length >= 7) {
+                const fullPhone = phone.startsWith('507') ? phone : `507${phone}`;
+                waUrl = `https://wa.me/${fullPhone}?text=${encodeURIComponent(message)}`;
+            }
+
+            window.open(waUrl, '_blank');
+        }
+    </script>
+</body>
+</html>

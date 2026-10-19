@@ -24,6 +24,13 @@
   `class="fixed top-0 left-0 h-1 bg-brand-orange z-[60] transition-all duration-75" style="width:0%"`  
   Queda prohibido usar degradados cruzados de azul a naranja (`from-brand-blue to-brand-orange`) en la barra para evitar zonas intermedias violetas o púrpuras.
 
+## ✨ Regla Estricta de Cero Emojis & Uso Obligatorio de Iconos Vectoriales SVG
+* **MANDATO OBLIGATORIO:** En toda interfaz web, documento ejecutivo, factura proforma, cotización comercial, botón, badge, selector o componente UI dentro del ecosistema de **Aizprua S.E.**, queda **estrictamente prohibido el uso de emojis gráficos** (como ⚡, ⏳, ✅, 🔹, 💵, 🏦, 📲).
+* **ESTÁNDAR VECTORIAL OFICIAL:** Todo icono, símbolo, viñeta o indicador visual debe implementarse obligatoriamente mediante:
+  1. **Iconos Vectoriales SVG:** Utilizando **Lucide Icons** (`<i data-lucide="..."></i>`) o SVG inline corporativo.
+  2. **Viñetas Tipográficas en Textos:** En mensajes de WhatsApp o textos planos utilizar únicamente la viñeta formal `•` (bullet) o texto institucional limpio.
+* **OBJETIVO DE MARCA:** Mantener un perfil visual 100% formal, sobrio y corporativo de nivel consultoría/legal, evitando que los documentos o interfaces luzcan informales o sufran discrepancias de color según la versión del sistema operativo del cliente.
+
 ## 📚 Regla de Estructura Editorial & SEO para Artículos de Blog
 * **MANDATO OBLIGATORIO:** Todo artículo nuevo o editado en el blog de Aizprua S.E. debe implementar obligatoriamente la arquitectura canónica de alta retención, diseño premium y conversión basada en la plantilla maestra (`articulo-emprender.html` y `plantilla-articulo.html`):
 
@@ -187,7 +194,46 @@
   3. **Modificación de Precios o Stock:** Si el precio de venta o el inventario físico disponible cambia (ej. unidades físicas del Plan 360, tazas o hoodies), ambos archivos (`products-data.js` y `modelo-catalogo.csv`) deben actualizarse en el mismo paso.
   4. **Fuente Única de Verdad (Single Source of Truth):** Las propiedades `sku`, `cost` y `stock` deben residir dentro del array `AIZPRUA_PRODUCTS` en `products-data.js`. Para garantizar sincronización infalible, se puede ejecutar el script `sync-catalog.js` para regenerar el CSV sin inconsistencias.
   5. **Privacidad y Exclusión de Git (Secreto Comercial):** Por contener costos de producción internos (`custo`) e inventario real (`estoque`), `public/assets/modelo-catalogo.csv` es un archivo de gestión estrictamente local y confidencial. Debe permanecer excluido en `.gitignore` y queda terminantemente prohibido subirlo a repositorios de GitHub.
-* **PROHIBICIÓN ESTRICTA:** Queda terminantemente prohibido crear productos huérfanos en la tienda sin su correspondiente entrada en el CSV del CRM, o dejar el archivo `modelo-catalogo.csv` desfasado respecto al catálogo público visible.
+  6. **Sincronización con el Catálogo Maestro Markdown (Ubicación Fija e Inamovible):** Todo cambio, adición o retiro de productos en la tienda debe mantenerse sincronizado también en el archivo maestro corporativo de la empresa:
+     `C:\Users\Arubel Aizprua\Downloads\Business\Aizprua S.E\5. Tienda\1. Productos y Precios\Catalogo_Maestro_Productos_y_Precios.md`
+     **PROHIBICIÓN DE TRASLADO:** Queda **terminantemente prohibido mover, reubicar o cambiar de carpeta** este archivo. Debe permanecer siempre y de forma exclusiva en su ruta de origen (`5. Tienda\1. Productos y Precios\`).
+* **PROHIBICIÓN ESTRICTA:** Queda terminantemente prohibido crear productos huérfanos en la tienda sin su correspondiente entrada en el CSV del CRM, o dejar el archivo `modelo-catalogo.csv` o el `Catalogo_Maestro_Productos_y_Precios.md` desfasados respecto al catálogo público visible.
+
+## 📚 Regla de Respaldo y Sincronización Editorial Blog ↔ Markdown (`4. Blog y Afiliaciones`)
+* **MANDATO OBLIGATORIO:** Cada artículo publicado en el blog web (`public/articulo-*.html`) debe contar con su correspondiente copia documental en formato **Markdown limpio (`.md`)** en la carpeta corporativa:
+  `C:\Users\Arubel Aizprua\Downloads\Business\Aizprua S.E\4. Blog y Afiliaciones\`
+* **ACCIONES DE SINCRONIZACIÓN:**
+  1. **Nuevo Artículo en Blog:** Al crear un nuevo artículo en la web, es **estrictamente obligatorio** generar su versión en Markdown en la carpeta `4. Blog y Afiliaciones` con el formato limpio de títulos, resumen ejecutivo (TL;DR), secciones de contenido, ejemplos prácticos y FAQs.
+  2. **Modificación de Artículo Existente:** Si se edita el contenido de un artículo en el blog web, debe actualizarse simultáneamente su documento Markdown en `4. Blog y Afiliaciones`.
+  3. **Script de Automatización:** Para sincronizar o regenerar todos los artículos de forma matemática e instantánea, se puede ejecutar:
+     ```bash
+     npm run sync-blog
+     ```
+     o `node scripts/export-blog-to-markdown.js`.
+* **PROHIBICIÓN ESTRICTA:** Queda terminantemente prohibido guardar código HTML crudo (con `<div>`, clases de CSS o scripts) en la carpeta `4. Blog y Afiliaciones`. Dichos archivos deben ser documentos de texto enriquecido puro en Markdown legibles y portables.
+
+## 📐 Regla Canónica de Menús Desplegables Flotantes Personalizados (Separación Física & Anti-Pegado)
+* **MANDATO OBLIGATORIO:** En todo documento ejecutivo, cotización, factura proforma, panel interactivo, formulario comercial o interfaz web del ecosistema **Aizprua S.E.**, los selectores de opciones deben implementarse obligatoriamente mediante **menús desplegables flotantes personalizados** (`.custom-dropdown`) respetando la siguiente arquitectura:
+  1. **Separación Vertical Física Obligatoria (`mt-2` / 8px):** El menú desplegable (`.dropdown-menu`) debe contar estrictamente con `mt-2` (8px de separación vertical física) respecto al botón principal desencadenante. Esto previene que la lista de opciones quede pegada o adherida al borde inferior del campo, otorgando aire y elevación visual.
+  2. **Estética y Elevación Visual:** Contenedor con esquinas redondeadas (`rounded-xl`), borde corporativo sutil (`border border-slate-700` en temas oscuros o `border-slate-200` en temas claros) y sombra de elevación profunda (`shadow-2xl` o `shadow-xl`) con divisor entre opciones (`divide-y`).
+  3. **Flecha Indicadora (Chevron) Vectorial:** Utilizar obligatoriamente el icono vectorial Lucide `<i data-lucide="chevron-down" class="dropdown-chevron ... transition-transform duration-200"></i>` con margen y `shrink-0`. Debe rotar a 180° (`rotate-180`) de manera fluida al abrirse el menú. Queda estrictamente prohibido usar la flecha nativa apretada de los navegadores.
+  4. **Patrón de Sincronización con Input Oculto (`<input type="hidden">`):** Todo selector personalizado debe encapsular un `<input type="hidden" id="..." value="..." onchange="...">` dentro del contenedor `.custom-dropdown` para preservar al 100% la compatibilidad con funciones de cálculo, guardado en `localStorage`, exportación o pasarela sin alterar las llamadas directas por ID en JavaScript.
+  5. **Manejadores de Interacción Estándar:**
+     - Función `toggleDropdown(btn)` para abrir/cerrar.
+     - Cierre automático al hacer clic fuera del menú mediante listener global `document.addEventListener('click', ...)`.
+     - Cierre automático de los demás desplegables al abrir uno nuevo (`closeAllDropdowns()`).
+     - Función `setCustomDropdownValue(id, value, customText)` para sincronizar etiquetas dinámicamente desde código (ej. carga de borradores, plantillas rápidas o traspaso de cotización a factura).
+  6. **Limpieza Absoluta en Impresión (`@media print`):** En hojas imprimibles (PDF / papel), las flechas y menús desplegables deben ocultarse de forma estricta:
+     ```css
+     .dropdown-chevron, .dropdown-menu {
+         display: none !important;
+     }
+     ```
+     El botón desencadenante debe renderizarse como texto limpio continuo sin apariencia de botón ni flechas.
+* **PROHIBICIÓN ESTRICTA:** Queda terminantemente prohibido utilizar elementos nativos `<select>` sin estilar en interfaces comerciales ejecutivas donde la lista emergente nativa aparezca adherida o pegada al botón sin separación vertical, o donde la flecha nativa del sistema operativo quede aprisionada contra el texto.
+
+
+
 
 
 
