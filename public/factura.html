@@ -99,7 +99,8 @@
                 border: none !important;
             }
             .editable-field {
-                border-bottom: none !important;
+                border: none !important;
+                box-shadow: none !important;
                 background-color: transparent !important;
             }
             input, select, textarea {
@@ -309,12 +310,12 @@
                             </div>
                         </div>
                         <div class="flex items-center gap-2 min-w-0">
-                            <span class="w-24 text-slate-600 font-medium shrink-0">Ref. Cotización:</span>
-                            <input type="text" id="quoteRef" placeholder="Ej. COT-2026-001" class="editable-field flex-1 min-w-0 w-full font-mono font-bold text-slate-800 px-2.5 py-1.5 rounded-lg border border-indigo-200 bg-white">
+                            <span class="w-24 text-slate-600 font-medium shrink-0">Ref. / O/C:</span>
+                            <input type="text" id="quoteRef" placeholder="Ej. COT-2026-001 u OC-894" class="editable-field flex-1 min-w-0 w-full font-mono font-bold text-slate-800 px-2.5 py-1.5 rounded-lg border border-indigo-200 bg-white">
                         </div>
                         <div class="flex items-center gap-2 min-w-0">
-                            <span class="w-24 text-slate-600 font-medium shrink-0">O/C Cliente:</span>
-                            <input type="text" id="clientPO" placeholder="Ej. OC-2026-894 o N/A" class="editable-field flex-1 min-w-0 w-full font-mono text-slate-800 px-2.5 py-1.5 rounded-lg border border-indigo-200 bg-white">
+                            <span class="w-24 text-slate-600 font-medium shrink-0">Asunto:</span>
+                            <input type="text" id="invoiceSubject" placeholder="Ej. Asesoría Laboral / Escudo Preventivo" class="editable-field flex-1 min-w-0 w-full font-semibold text-slate-800 px-2.5 py-1.5 rounded-lg border border-indigo-200 bg-white">
                         </div>
                         <div class="flex items-center gap-2 min-w-0">
                             <span class="w-24 text-slate-600 font-medium shrink-0">Moneda:</span>
@@ -400,7 +401,7 @@
                             <strong class="text-brand-blue font-bold font-mono text-xs">03-73-01-145876-8</strong>
                         </div>
                     </div>
-                    <div class="mt-2.5 pt-2 border-t border-slate-200 flex items-center justify-between text-[11px]">
+                    <div class="mt-2.5 pt-2 border-t border-slate-200 flex items-center gap-2.5 text-[11px]">
                         <span class="text-slate-600 font-medium">Yappy Comercial:</span>
                         <span class="bg-blue-100/70 text-blue-900 font-mono font-bold px-2 py-0.5 rounded border border-blue-200">6546-1527</span>
                     </div>
@@ -700,6 +701,9 @@
                 if (data.clientEmail) document.getElementById('clientEmail').value = data.clientEmail;
                 if (data.clientAddress && document.getElementById('clientAddress')) document.getElementById('clientAddress').value = data.clientAddress;
                 if (data.quoteNumber) document.getElementById('quoteRef').value = data.quoteNumber;
+                if (data.serviceType && document.getElementById('invoiceSubject')) {
+                    document.getElementById('invoiceSubject').value = data.serviceType + (data.serviceModality ? ` (${data.serviceModality})` : '');
+                }
                 if (data.paymentTerms && document.getElementById('paymentTerms')) {
                     setCustomDropdownValue('paymentTerms', data.paymentTerms);
                     updatePaymentTerms(data.paymentTerms);
