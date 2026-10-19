@@ -821,7 +821,25 @@ app.get(['/simulador-prestamos.html', '/simulador-prestamo', '/simulador-prestam
   res.redirect(301, '/simulador-prestamos' + query);
 });
 
+// 10.9. Cotización Comercial Ejecutiva (Canónica: /cotizacion)
+app.get('/cotizacion', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'cotizacion.html'));
+});
 
+app.get(['/cotizacion.html', '/cotizar', '/cotizar.html'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/cotizacion' + query);
+});
+
+// 10.10. Factura Proforma Ejecutiva (Canónica: /factura)
+app.get('/factura', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'factura.html'));
+});
+
+app.get(['/factura.html', '/proforma', '/proforma.html'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/factura' + query);
+});
 
 // ARCHIVOS ESTÁTICOS (Masterclass, Embudo Escudo, Verificador & Landing Page)
 app.use('/masterclass', express.static(masterclassDir));
