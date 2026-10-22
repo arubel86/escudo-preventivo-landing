@@ -165,6 +165,9 @@
 
         <!-- FORMULARIO PRINCIPAL -->
         <form id="diagnostico-form" class="space-y-8" novalidate>
+            <!-- Parámetros obligatorios de Google Forms para formularios con múltiples páginas -->
+            <input type="hidden" name="pageHistory" value="0,1,2,3">
+            <input type="hidden" name="fvv" value="1">
 
             <!-- BLOQUE 1: DATOS DE CONTACTO & AGENDA -->
             <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-sm transition hover:shadow-md">
@@ -315,14 +318,19 @@
                             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_1949342489">
                                 Facturación bruta anual estimada&nbsp;<span class="text-rose-600">*</span>
                             </label>
-                            <select id="entry_1949342489" name="entry.1949342489" required
-                                class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer">
-                                <option value="" disabled selected>Selecciona un rango...</option>
-                                <option value="Menos de $36,000 al año (Fase inicial / Micro)">Menos de $36,000 al año (Micro)</option>
-                                <option value="Entre $36,000 y $100,000 al año">Entre $36,000 y $100,000 al año</option>
-                                <option value="Más de $100,000 al año">Más de $100,000 al año</option>
-                                <option value="Aún no genero ventas">Aún no genero ventas (Fase previa)</option>
-                            </select>
+                            <div class="relative custom-dropdown" data-dropdown-id="entry_1949342489">
+                                <button type="button" onclick="toggleDropdown(this)" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm text-slate-700 font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer flex items-center justify-between gap-2 shadow-xs text-left">
+                                    <span class="dropdown-selected text-slate-400 truncate">Selecciona un rango...</span>
+                                    <i data-lucide="chevron-down" class="dropdown-chevron w-4 h-4 shrink-0 text-slate-400 transition-transform duration-200"></i>
+                                </button>
+                                <div class="dropdown-menu hidden absolute left-0 right-0 top-full mt-2 z-50 bg-white border border-slate-200 rounded-xl shadow-2xl py-1 text-xs sm:text-sm text-slate-700 overflow-hidden divide-y divide-slate-100 max-h-60 overflow-y-auto">
+                                    <div class="dropdown-option px-4 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="Menos de $36,000 al año (Fase inicial / Micro)" onclick="selectDropdownOption(this)">Menos de $36,000 al año (Micro)</div>
+                                    <div class="dropdown-option px-4 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="Entre $36,000 y $100,000 al año" onclick="selectDropdownOption(this)">Entre $36,000 y $100,000 al año</div>
+                                    <div class="dropdown-option px-4 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="Más de $100,000 al año" onclick="selectDropdownOption(this)">Más de $100,000 al año</div>
+                                    <div class="dropdown-option px-4 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="Aún no genero ventas" onclick="selectDropdownOption(this)">Aún no genero ventas (Fase previa)</div>
+                                </div>
+                                <input type="hidden" id="entry_1949342489" name="entry.1949342489" value="" required>
+                            </div>
                             <span class="error-msg hidden text-[11px] text-rose-600 font-bold mt-1">Selecciona un rango de facturación.</span>
                         </div>
 
@@ -331,13 +339,18 @@
                             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_615739815">
                                 8. ¿Tienes contacto con tu Agente Residente?&nbsp;<span class="text-rose-600">*</span>
                             </label>
-                            <select id="entry_615739815" name="entry.615739815" required
-                                class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer">
-                                <option value="" disabled selected>Selecciona una opción...</option>
-                                <option value="Sí, está activo y me asiste">Sí, está activo y me asiste</option>
-                                <option value="No sé quién es / Perdí contacto">No sé quién es / Perdí contacto</option>
-                                <option value="No aplica (Persona Natural / Negocio nuevo)">No aplica (Persona Natural / Negocio nuevo)</option>
-                            </select>
+                            <div class="relative custom-dropdown" data-dropdown-id="entry_615739815">
+                                <button type="button" onclick="toggleDropdown(this)" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm text-slate-700 font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer flex items-center justify-between gap-2 shadow-xs text-left">
+                                    <span class="dropdown-selected text-slate-400 truncate">Selecciona una opción...</span>
+                                    <i data-lucide="chevron-down" class="dropdown-chevron w-4 h-4 shrink-0 text-slate-400 transition-transform duration-200"></i>
+                                </button>
+                                <div class="dropdown-menu hidden absolute left-0 right-0 top-full mt-2 z-50 bg-white border border-slate-200 rounded-xl shadow-2xl py-1 text-xs sm:text-sm text-slate-700 overflow-hidden divide-y divide-slate-100 max-h-60 overflow-y-auto">
+                                    <div class="dropdown-option px-4 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="Sí, está activo y me asiste" onclick="selectDropdownOption(this)">Sí, está activo y me asiste</div>
+                                    <div class="dropdown-option px-4 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="No sé quién es / Perdí contacto" onclick="selectDropdownOption(this)">No sé quién es / Perdí contacto</div>
+                                    <div class="dropdown-option px-4 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="No aplica (Persona Natural / Negocio nuevo)" onclick="selectDropdownOption(this)">No aplica (Persona Natural / Negocio nuevo)</div>
+                                </div>
+                                <input type="hidden" id="entry_615739815" name="entry.615739815" value="" required>
+                            </div>
                             <span class="error-msg hidden text-[11px] text-rose-600 font-bold mt-1">Selecciona una opción sobre tu agente residente.</span>
                         </div>
                     </div>
@@ -364,17 +377,22 @@
                         <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_1942403640">
                             9. ¿En qué Municipio opera tu negocio?&nbsp;<span class="text-rose-600">*</span>
                         </label>
-                        <select id="entry_1942403640" name="entry.1942403640" required
-                            class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer">
-                            <option value="" disabled selected>Selecciona tu municipio...</option>
-                            <option value="Panamá (Distrito Capital)">Panamá (Distrito Capital)</option>
-                            <option value="San Miguelito">San Miguelito</option>
-                            <option value="La Chorrera">La Chorrera</option>
-                            <option value="Arraiján">Arraiján</option>
-                            <option value="Colón">Colón</option>
-                            <option value="David (Chiriquí)">David (Chiriquí)</option>
-                            <option value="100% Digital / Servicios remotos">100% Digital / Servicios remotos</option>
-                        </select>
+                        <div class="relative custom-dropdown" data-dropdown-id="entry_1942403640">
+                            <button type="button" onclick="toggleDropdown(this)" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm text-slate-700 font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer flex items-center justify-between gap-2 shadow-xs text-left">
+                                <span class="dropdown-selected text-slate-400 truncate">Selecciona tu municipio...</span>
+                                <i data-lucide="chevron-down" class="dropdown-chevron w-4 h-4 shrink-0 text-slate-400 transition-transform duration-200"></i>
+                            </button>
+                            <div class="dropdown-menu hidden absolute left-0 right-0 top-full mt-2 z-50 bg-white border border-slate-200 rounded-xl shadow-2xl py-1 text-xs sm:text-sm text-slate-700 overflow-hidden divide-y divide-slate-100 max-h-60 overflow-y-auto">
+                                <div class="dropdown-option px-4 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="Panamá (Distrito Capital)" onclick="selectDropdownOption(this)">Panamá (Distrito Capital)</div>
+                                <div class="dropdown-option px-4 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="San Miguelito" onclick="selectDropdownOption(this)">San Miguelito</div>
+                                <div class="dropdown-option px-4 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="La Chorrera" onclick="selectDropdownOption(this)">La Chorrera</div>
+                                <div class="dropdown-option px-4 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="Arraiján" onclick="selectDropdownOption(this)">Arraiján</div>
+                                <div class="dropdown-option px-4 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="Colón" onclick="selectDropdownOption(this)">Colón</div>
+                                <div class="dropdown-option px-4 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="David (Chiriquí)" onclick="selectDropdownOption(this)">David (Chiriquí)</div>
+                                <div class="dropdown-option px-4 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="100% Digital / Servicios remotos" onclick="selectDropdownOption(this)">100% Digital / Servicios remotos</div>
+                            </div>
+                            <input type="hidden" id="entry_1942403640" name="entry.1942403640" value="" required>
+                        </div>
                         <span class="error-msg hidden text-[11px] text-rose-600 font-bold mt-1">Selecciona el municipio.</span>
                     </div>
 
@@ -383,14 +401,19 @@
                         <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_242757123">
                             10. ¿Tienes Aviso de Operación (MICI)?&nbsp;<span class="text-rose-600">*</span>
                         </label>
-                        <select id="entry_242757123" name="entry.242757123" required
-                            class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer">
-                            <option value="" disabled selected>Selecciona el estatus...</option>
-                            <option value="Sí, activo y al día">Sí, activo y al día</option>
-                            <option value="Sí, pero nunca lo he actualizado">Sí, pero nunca lo he actualizado</option>
-                            <option value="No tengo Aviso de Operación">No tengo Aviso de Operación</option>
-                            <option value="No estoy seguro">No estoy seguro</option>
-                        </select>
+                        <div class="relative custom-dropdown" data-dropdown-id="entry_242757123">
+                            <button type="button" onclick="toggleDropdown(this)" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm text-slate-700 font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer flex items-center justify-between gap-2 shadow-xs text-left">
+                                <span class="dropdown-selected text-slate-400 truncate">Selecciona el estatus...</span>
+                                <i data-lucide="chevron-down" class="dropdown-chevron w-4 h-4 shrink-0 text-slate-400 transition-transform duration-200"></i>
+                            </button>
+                            <div class="dropdown-menu hidden absolute left-0 right-0 top-full mt-2 z-50 bg-white border border-slate-200 rounded-xl shadow-2xl py-1 text-xs sm:text-sm text-slate-700 overflow-hidden divide-y divide-slate-100 max-h-60 overflow-y-auto">
+                                <div class="dropdown-option px-4 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="Sí, activo y al día" onclick="selectDropdownOption(this)">Sí, activo y al día</div>
+                                <div class="dropdown-option px-4 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="Sí, pero nunca lo he actualizado" onclick="selectDropdownOption(this)">Sí, pero nunca lo he actualizado</div>
+                                <div class="dropdown-option px-4 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="No tengo Aviso de Operación" onclick="selectDropdownOption(this)">No tengo Aviso de Operación</div>
+                                <div class="dropdown-option px-4 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="No estoy seguro" onclick="selectDropdownOption(this)">No estoy seguro</div>
+                            </div>
+                            <input type="hidden" id="entry_242757123" name="entry.242757123" value="" required>
+                        </div>
                         <span class="error-msg hidden text-[11px] text-rose-600 font-bold mt-1">Selecciona el estatus del Aviso.</span>
                     </div>
 
@@ -399,14 +422,19 @@
                         <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_1976664382">
                             11. Situación con la DGI&nbsp;<span class="text-rose-600">*</span>
                         </label>
-                        <select id="entry_1976664382" name="entry.1976664382" required
-                            class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer">
-                            <option value="" disabled selected>Selecciona tu situación tributaria...</option>
-                            <option value="Al día con declaraciones anuales">Al día con declaraciones anuales</option>
-                            <option value="Tengo declaraciones pendientes">Tengo declaraciones pendientes</option>
-                            <option value="Nunca he presentado declaraciones">Nunca he presentado declaraciones</option>
-                            <option value="Sin RUC activo">Sin RUC activo</option>
-                        </select>
+                        <div class="relative custom-dropdown" data-dropdown-id="entry_1976664382">
+                            <button type="button" onclick="toggleDropdown(this)" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm text-slate-700 font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer flex items-center justify-between gap-2 shadow-xs text-left">
+                                <span class="dropdown-selected text-slate-400 truncate">Selecciona tu situación tributaria...</span>
+                                <i data-lucide="chevron-down" class="dropdown-chevron w-4 h-4 shrink-0 text-slate-400 transition-transform duration-200"></i>
+                            </button>
+                            <div class="dropdown-menu hidden absolute left-0 right-0 top-full mt-2 z-50 bg-white border border-slate-200 rounded-xl shadow-2xl py-1 text-xs sm:text-sm text-slate-700 overflow-hidden divide-y divide-slate-100 max-h-60 overflow-y-auto">
+                                <div class="dropdown-option px-4 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="Al día con declaraciones anuales" onclick="selectDropdownOption(this)">Al día con declaraciones anuales</div>
+                                <div class="dropdown-option px-4 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="Tengo declaraciones pendientes" onclick="selectDropdownOption(this)">Tengo declaraciones pendientes</div>
+                                <div class="dropdown-option px-4 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="Nunca he presentado declaraciones" onclick="selectDropdownOption(this)">Nunca he presentado declaraciones</div>
+                                <div class="dropdown-option px-4 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="Sin RUC activo" onclick="selectDropdownOption(this)">Sin RUC activo</div>
+                            </div>
+                            <input type="hidden" id="entry_1976664382" name="entry.1976664382" value="" required>
+                        </div>
                         <span class="error-msg hidden text-[11px] text-rose-600 font-bold mt-1">Selecciona tu situación tributaria.</span>
                     </div>
 
@@ -415,15 +443,20 @@
                         <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_217617002">
                             12. ¿Cómo emites facturas actualmente?&nbsp;<span class="text-rose-600">*</span>
                         </label>
-                        <select id="entry_217617002" name="entry.217617002" required
-                            class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer">
-                            <option value="" disabled selected>Selecciona el método de facturación...</option>
-                            <option value="Sistema de Facturación Gratuito de la DGI">Sistema Gratuito de la DGI</option>
-                            <option value="Proveedor de Facturación Electrónica privado (PAC)">PAC Privado de Factura Electrónica</option>
-                            <option value="Impresora Fiscal tradicional">Impresora Fiscal tradicional</option>
-                            <option value="Factura manual de papel / Recibos simples">Factura manual de papel / Recibos simples</option>
-                            <option value="No emito facturas actualmente">No emito facturas actualmente</option>
-                        </select>
+                        <div class="relative custom-dropdown" data-dropdown-id="entry_217617002">
+                            <button type="button" onclick="toggleDropdown(this)" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm text-slate-700 font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer flex items-center justify-between gap-2 shadow-xs text-left">
+                                <span class="dropdown-selected text-slate-400 truncate">Selecciona el método de facturación...</span>
+                                <i data-lucide="chevron-down" class="dropdown-chevron w-4 h-4 shrink-0 text-slate-400 transition-transform duration-200"></i>
+                            </button>
+                            <div class="dropdown-menu hidden absolute left-0 right-0 top-full mt-2 z-50 bg-white border border-slate-200 rounded-xl shadow-2xl py-1 text-xs sm:text-sm text-slate-700 overflow-hidden divide-y divide-slate-100 max-h-60 overflow-y-auto">
+                                <div class="dropdown-option px-4 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="Sistema de Facturación Gratuito de la DGI" onclick="selectDropdownOption(this)">Sistema Gratuito de la DGI</div>
+                                <div class="dropdown-option px-4 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="Proveedor de Facturación Electrónica privado (PAC)" onclick="selectDropdownOption(this)">PAC Privado de Factura Electrónica</div>
+                                <div class="dropdown-option px-4 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="Impresora Fiscal tradicional" onclick="selectDropdownOption(this)">Impresora Fiscal tradicional</div>
+                                <div class="dropdown-option px-4 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="Factura manual de papel / Recibos simples" onclick="selectDropdownOption(this)">Factura manual de papel / Recibos simples</div>
+                                <div class="dropdown-option px-4 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="No emito facturas actualmente" onclick="selectDropdownOption(this)">No emito facturas actualmente</div>
+                            </div>
+                            <input type="hidden" id="entry_217617002" name="entry.217617002" value="" required>
+                        </div>
                         <span class="error-msg hidden text-[11px] text-rose-600 font-bold mt-1">Selecciona cómo facturas.</span>
                     </div>
 
@@ -432,13 +465,18 @@
                         <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_49518393">
                             ¿Cuentas con Contador CPA que lleve tus libros?&nbsp;<span class="text-rose-600">*</span>
                         </label>
-                        <select id="entry_49518393" name="entry.49518393" required
-                            class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer">
-                            <option value="" disabled selected>Selecciona una opción...</option>
-                            <option value="Sí, tengo contador fijo mensual">Sí, tengo contador fijo mensual</option>
-                            <option value="Solo contrato a alguien para la declaración de renta anual">Solo para la declaración de renta anual</option>
-                            <option value="No tengo contador / Llevo los números por mi cuenta">No tengo contador / Llevo mis números</option>
-                        </select>
+                        <div class="relative custom-dropdown" data-dropdown-id="entry_49518393">
+                            <button type="button" onclick="toggleDropdown(this)" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm text-slate-700 font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer flex items-center justify-between gap-2 shadow-xs text-left">
+                                <span class="dropdown-selected text-slate-400 truncate">Selecciona una opción...</span>
+                                <i data-lucide="chevron-down" class="dropdown-chevron w-4 h-4 shrink-0 text-slate-400 transition-transform duration-200"></i>
+                            </button>
+                            <div class="dropdown-menu hidden absolute left-0 right-0 top-full mt-2 z-50 bg-white border border-slate-200 rounded-xl shadow-2xl py-1 text-xs sm:text-sm text-slate-700 overflow-hidden divide-y divide-slate-100 max-h-60 overflow-y-auto">
+                                <div class="dropdown-option px-4 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="Sí, tengo contador fijo mensual" onclick="selectDropdownOption(this)">Sí, tengo contador fijo mensual</div>
+                                <div class="dropdown-option px-4 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="Solo contrato a alguien para la declaración de renta anual" onclick="selectDropdownOption(this)">Solo para la declaración de renta anual</div>
+                                <div class="dropdown-option px-4 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="No tengo contador / Llevo los números por mi cuenta" onclick="selectDropdownOption(this)">No tengo contador / Llevo mis números</div>
+                            </div>
+                            <input type="hidden" id="entry_49518393" name="entry.49518393" value="" required>
+                        </div>
                         <span class="error-msg hidden text-[11px] text-rose-600 font-bold mt-1">Indica si cuentas con contador.</span>
                     </div>
 
@@ -447,14 +485,19 @@
                         <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_842845325">
                             13. Equipo y colaboradores (CSS / Planilla)&nbsp;<span class="text-rose-600">*</span>
                         </label>
-                        <select id="entry_842845325" name="entry.842845325" required
-                            class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer">
-                            <option value="" disabled selected>Selecciona la composición de tu equipo...</option>
-                            <option value="Solo yo (sin empleados)">Solo yo (sin empleados)</option>
-                            <option value="Empleados en planilla de Seguro Social (CSS)">Empleados en planilla de Seguro Social (CSS)</option>
-                            <option value="Servicios profesionales / comisiones">Servicios profesionales / comisiones independientes</option>
-                            <option value="Mezcla de ambos">Mezcla de ambos (Planilla + Servicios)</option>
-                        </select>
+                        <div class="relative custom-dropdown" data-dropdown-id="entry_842845325">
+                            <button type="button" onclick="toggleDropdown(this)" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm text-slate-700 font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer flex items-center justify-between gap-2 shadow-xs text-left">
+                                <span class="dropdown-selected text-slate-400 truncate">Selecciona la composición de tu equipo...</span>
+                                <i data-lucide="chevron-down" class="dropdown-chevron w-4 h-4 shrink-0 text-slate-400 transition-transform duration-200"></i>
+                            </button>
+                            <div class="dropdown-menu hidden absolute left-0 right-0 top-full mt-2 z-50 bg-white border border-slate-200 rounded-xl shadow-2xl py-1 text-xs sm:text-sm text-slate-700 overflow-hidden divide-y divide-slate-100 max-h-60 overflow-y-auto">
+                                <div class="dropdown-option px-4 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="Solo yo (sin empleados)" onclick="selectDropdownOption(this)">Solo yo (sin empleados)</div>
+                                <div class="dropdown-option px-4 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="Empleados en planilla de Seguro Social (CSS)" onclick="selectDropdownOption(this)">Empleados en planilla de Seguro Social (CSS)</div>
+                                <div class="dropdown-option px-4 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="Servicios profesionales / comisiones" onclick="selectDropdownOption(this)">Servicios profesionales / comisiones independientes</div>
+                                <div class="dropdown-option px-4 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="Mezcla de ambos" onclick="selectDropdownOption(this)">Mezcla de ambos (Planilla + Servicios)</div>
+                            </div>
+                            <input type="hidden" id="entry_842845325" name="entry.842845325" value="" required>
+                        </div>
                         <span class="error-msg hidden text-[11px] text-rose-600 font-bold mt-1">Selecciona la situación de tu equipo.</span>
                     </div>
 
@@ -625,6 +668,67 @@
 
     <!-- Scripts Oficiales & Lógica de Envío a Google Forms -->
     <script>
+        // Control de Menús Desplegables Flotantes Personalizados (.custom-dropdown)
+        function toggleDropdown(btn) {
+            const dropdown = btn.closest('.custom-dropdown');
+            const menu = dropdown.querySelector('.dropdown-menu');
+            const chevron = dropdown.querySelector('.dropdown-chevron');
+            const isOpen = !menu.classList.contains('hidden');
+
+            closeAllDropdowns();
+
+            if (!isOpen) {
+                menu.classList.remove('hidden');
+                if (chevron) chevron.classList.add('rotate-180');
+            }
+        }
+
+        function closeAllDropdowns() {
+            document.querySelectorAll('.custom-dropdown .dropdown-menu').forEach(menu => {
+                menu.classList.add('hidden');
+            });
+            document.querySelectorAll('.custom-dropdown .dropdown-chevron').forEach(chevron => {
+                chevron.classList.remove('rotate-180');
+            });
+        }
+
+        function selectDropdownOption(optionEl) {
+            const dropdown = optionEl.closest('.custom-dropdown');
+            const hiddenInput = dropdown.querySelector('input[type="hidden"]');
+            const selectedSpan = dropdown.querySelector('.dropdown-selected');
+            const btn = dropdown.querySelector('button');
+            const val = optionEl.getAttribute('data-value');
+            const text = optionEl.textContent.trim();
+
+            if (hiddenInput) {
+                hiddenInput.value = val;
+                hiddenInput.dispatchEvent(new Event('change', { bubbles: true }));
+            }
+
+            if (selectedSpan) {
+                selectedSpan.textContent = text;
+                selectedSpan.classList.remove('text-slate-400');
+                selectedSpan.classList.add('text-slate-700');
+            }
+
+            if (btn) {
+                btn.classList.remove('border-rose-400', 'bg-rose-50/30');
+            }
+
+            const container = dropdown.closest('div');
+            const errorMsg = container?.querySelector('.error-msg');
+            if (errorMsg) errorMsg.classList.add('hidden');
+
+            closeAllDropdowns();
+        }
+
+        // Cerrar desplegables al hacer clic fuera
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.custom-dropdown')) {
+                closeAllDropdowns();
+            }
+        });
+
         // Scroll to Top
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -687,6 +791,9 @@
                 
                 requiredFields.forEach(field => {
                     const errorMsg = field.closest('div')?.querySelector('.error-msg');
+                    const dropdown = field.closest('.custom-dropdown');
+                    const dropdownBtn = dropdown?.querySelector('button');
+
                     if (field.type === 'radio') {
                         const radioGroup = form.querySelectorAll(`input[name="${field.name}"]`);
                         const isChecked = Array.from(radioGroup).some(r => r.checked);
@@ -704,10 +811,18 @@
                         }
                     } else if (!field.value.trim()) {
                         isValid = false;
-                        field.classList.add('border-rose-400', 'bg-rose-50/30');
+                        if (dropdownBtn) {
+                            dropdownBtn.classList.add('border-rose-400', 'bg-rose-50/30');
+                        } else {
+                            field.classList.add('border-rose-400', 'bg-rose-50/30');
+                        }
                         if (errorMsg) errorMsg.classList.remove('hidden');
                     } else {
-                        field.classList.remove('border-rose-400', 'bg-rose-50/30');
+                        if (dropdownBtn) {
+                            dropdownBtn.classList.remove('border-rose-400', 'bg-rose-50/30');
+                        } else {
+                            field.classList.remove('border-rose-400', 'bg-rose-50/30');
+                        }
                         if (errorMsg) errorMsg.classList.add('hidden');
                     }
                 });
@@ -734,15 +849,25 @@
                     </span>
                 `;
 
-                // Recopilación de datos del formulario
+                // Recopilación y codificación URL de datos (requerido por Google Forms)
                 const formData = new FormData(form);
+                const urlEncodedData = new URLSearchParams();
+                for (const [key, value] of formData.entries()) {
+                    urlEncodedData.append(key, value);
+                }
+                // Garantizar presencia de parámetros multi-página
+                urlEncodedData.set('pageHistory', '0,1,2,3');
+                urlEncodedData.set('fvv', '1');
 
                 try {
-                    // Envío silencioso a Google Forms con mode: 'no-cors'
+                    // Envío silencioso a Google Forms con mode: 'no-cors' y urlencoded
                     await fetch(GOOGLE_FORM_ACTION_URL, {
                         method: 'POST',
                         mode: 'no-cors',
-                        body: formData
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: urlEncodedData.toString()
                     });
 
                     // Mostrar Pantalla de Éxito
