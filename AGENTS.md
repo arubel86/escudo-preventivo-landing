@@ -23,6 +23,11 @@
 * **BARRA DE PROGRESO DE LECTURA CANÓNICA:** Toda página del sitio debe incluir obligatoriamente la barra de lectura interactiva `#progress-bar` configurada estrictamente con el naranja corporativo:  
   `class="fixed top-0 left-0 h-1 bg-brand-orange z-[60] transition-all duration-75" style="width:0%"`  
   Queda prohibido usar degradados cruzados de azul a naranja (`from-brand-blue to-brand-orange`) en la barra para evitar zonas intermedias violetas o púrpuras.
+* **ARQUITECTURA DE ENCABEZADO ANTI-RECORTE EN MÓVIL (SCROLL INFALIBLE):**  
+  Para evitar que el logotipo o los botones de la barra de navegación queden mutilados o solapados por la barra superior de anuncios al hacer scroll en dispositivos móviles:
+  1. **Barra de Anuncios (`#announcement-bar`):** Debe configurarse obligatoriamente con `relative` (o sin `sticky`). Se desplaza de forma natural con la página sin invadir la pantalla.
+  2. **Barra de Navegación Principal (`<header>`):** Debe configurarse estrictamente con `sticky top-0 z-40` (o `z-50`).
+  3. **PROHIBICIÓN ESTRICTA:** Queda terminantemente prohibido usar desfases fijos arbitrarios en el header (ej. `sticky top-9` o `top-8`) combinados con barras de anuncio sticky en móvil, ya que el quiebre de texto en pantallas pequeñas altera la altura real de la barra superior y hace que la cabecera quede cortada o desfasada. Tampoco aplicar efectos de hover con `transform` (`hover:scale-105`) al logotipo en móvil que generen desbordamiento o recorte de lienzo.
 
 ## ✨ Regla Estricta de Cero Emojis & Uso Obligatorio de Iconos Vectoriales SVG
 * **MANDATO OBLIGATORIO:** En toda interfaz web, documento ejecutivo, factura proforma, cotización comercial, botón, badge, selector o componente UI dentro del ecosistema de **Aizprua S.E.**, queda **estrictamente prohibido el uso de emojis gráficos** (como ⚡, ⏳, ✅, 🔹, 💵, 🏦, 📲).
