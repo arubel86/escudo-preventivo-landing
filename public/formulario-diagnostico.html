@@ -143,15 +143,15 @@
                 </p>
 
                 <div class="flex flex-wrap items-center gap-4 pt-4 border-t border-slate-700/80 text-xs text-slate-300 font-semibold">
-                    <div class="flex items-center gap-1.5">
+                    <div class="flex items-start gap-1.5">
                         <i data-lucide="lock" class="w-4 h-4 text-brand-orange shrink-0 mt-0.5"></i>
                         <span class="leading-snug">100% confidencial bajo secreto profesional</span>
                     </div>
-                    <div class="flex items-center gap-1.5">
+                    <div class="flex items-start gap-1.5">
                         <i data-lucide="clock" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
                         <span class="leading-snug">Toma menos de 4 minutos</span>
                     </div>
-                    <div class="flex items-center gap-1.5">
+                    <div class="flex items-start gap-1.5">
                         <i data-lucide="file-check-2" class="w-4 h-4 text-blue-300 shrink-0 mt-0.5"></i>
                         <span class="leading-snug">Pre-auditoría oficial en Panamá</span>
                     </div>
@@ -301,10 +301,10 @@
                         </div>
                     </div>
 
-                    <!-- Actividad Principal -->
+                    <!-- 8. Actividad Principal -->
                     <div>
                         <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_1266771571">
-                            ¿A qué se dedica tu negocio? (Actividad principal)&nbsp;<span class="text-rose-600">*</span>
+                            8. ¿A qué se dedica tu negocio? (Actividad principal)&nbsp;<span class="text-rose-600">*</span>
                         </label>
                         <input type="text" id="entry_1266771571" name="entry.1266771571" required
                             placeholder="Ej. Venta de ropa online, restaurante, consultoría, taller, clínica, etc."
@@ -313,12 +313,12 @@
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                        <!-- Facturación Anual -->
-                        <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_1949342489">
-                                Facturación bruta anual estimada&nbsp;<span class="text-rose-600">*</span>
+                        <!-- 9. Facturación Anual -->
+                        <div class="flex flex-col justify-between">
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 sm:min-h-[2.25rem] flex items-start" for="entry_1949342489">
+                                9. Facturación bruta anual estimada&nbsp;<span class="text-rose-600">*</span>
                             </label>
-                            <div class="relative custom-dropdown" data-dropdown-id="entry_1949342489">
+                            <div class="relative custom-dropdown mt-auto" data-dropdown-id="entry_1949342489">
                                 <button type="button" onclick="toggleDropdown(this)" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm text-slate-700 font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer flex items-center justify-between gap-2 shadow-xs text-left">
                                     <span class="dropdown-selected text-slate-400 truncate">Selecciona un rango...</span>
                                     <i data-lucide="chevron-down" class="dropdown-chevron w-4 h-4 shrink-0 text-slate-400 transition-transform duration-200"></i>
@@ -334,12 +334,12 @@
                             <span class="error-msg hidden text-[11px] text-rose-600 font-bold mt-1">Selecciona un rango de facturación.</span>
                         </div>
 
-                        <!-- 8. Agente Residente -->
-                        <div>
-                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_615739815">
-                                8. ¿Tienes contacto con tu Agente Residente?&nbsp;<span class="text-rose-600">*</span>
+                        <!-- 10. Agente Residente -->
+                        <div class="flex flex-col justify-between">
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 sm:min-h-[2.25rem] flex items-start" for="entry_615739815">
+                                10. ¿Tienes contacto con tu Agente Residente?&nbsp;<span class="text-rose-600">*</span>
                             </label>
-                            <div class="relative custom-dropdown" data-dropdown-id="entry_615739815">
+                            <div class="relative custom-dropdown mt-auto" data-dropdown-id="entry_615739815">
                                 <button type="button" onclick="toggleDropdown(this)" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm text-slate-700 font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer flex items-center justify-between gap-2 shadow-xs text-left">
                                     <span class="dropdown-selected text-slate-400 truncate">Selecciona una opción...</span>
                                     <i data-lucide="chevron-down" class="dropdown-chevron w-4 h-4 shrink-0 text-slate-400 transition-transform duration-200"></i>
@@ -372,12 +372,12 @@
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
 
-                    <!-- 9. Municipio -->
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_1942403640">
-                            9. ¿En qué Municipio opera tu negocio?&nbsp;<span class="text-rose-600">*</span>
+                    <!-- 11. Municipio -->
+                    <div class="flex flex-col justify-between">
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 sm:min-h-[2.25rem] flex items-start" for="entry_1942403640">
+                            11. ¿En qué Municipio opera tu negocio?&nbsp;<span class="text-rose-600">*</span>
                         </label>
-                        <div class="relative custom-dropdown" data-dropdown-id="entry_1942403640">
+                        <div class="relative custom-dropdown mt-auto" data-dropdown-id="entry_1942403640">
                             <button type="button" onclick="toggleDropdown(this)" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm text-slate-700 font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer flex items-center justify-between gap-2 shadow-xs text-left">
                                 <span class="dropdown-selected text-slate-400 truncate">Selecciona tu municipio...</span>
                                 <i data-lucide="chevron-down" class="dropdown-chevron w-4 h-4 shrink-0 text-slate-400 transition-transform duration-200"></i>
@@ -396,12 +396,12 @@
                         <span class="error-msg hidden text-[11px] text-rose-600 font-bold mt-1">Selecciona el municipio.</span>
                     </div>
 
-                    <!-- 10. Aviso de Operación -->
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_242757123">
-                            10. ¿Tienes Aviso de Operación (MICI)?&nbsp;<span class="text-rose-600">*</span>
+                    <!-- 12. Aviso de Operación -->
+                    <div class="flex flex-col justify-between">
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 sm:min-h-[2.25rem] flex items-start" for="entry_242757123">
+                            12. ¿Tienes Aviso de Operación (MICI)?&nbsp;<span class="text-rose-600">*</span>
                         </label>
-                        <div class="relative custom-dropdown" data-dropdown-id="entry_242757123">
+                        <div class="relative custom-dropdown mt-auto" data-dropdown-id="entry_242757123">
                             <button type="button" onclick="toggleDropdown(this)" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm text-slate-700 font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer flex items-center justify-between gap-2 shadow-xs text-left">
                                 <span class="dropdown-selected text-slate-400 truncate">Selecciona el estatus...</span>
                                 <i data-lucide="chevron-down" class="dropdown-chevron w-4 h-4 shrink-0 text-slate-400 transition-transform duration-200"></i>
@@ -417,12 +417,12 @@
                         <span class="error-msg hidden text-[11px] text-rose-600 font-bold mt-1">Selecciona el estatus del Aviso.</span>
                     </div>
 
-                    <!-- 11. Situación con la DGI -->
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_1976664382">
-                            11. Situación con la DGI&nbsp;<span class="text-rose-600">*</span>
+                    <!-- 13. Situación con la DGI -->
+                    <div class="flex flex-col justify-between">
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 sm:min-h-[2.25rem] flex items-start" for="entry_1976664382">
+                            13. Situación con la DGI&nbsp;<span class="text-rose-600">*</span>
                         </label>
-                        <div class="relative custom-dropdown" data-dropdown-id="entry_1976664382">
+                        <div class="relative custom-dropdown mt-auto" data-dropdown-id="entry_1976664382">
                             <button type="button" onclick="toggleDropdown(this)" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm text-slate-700 font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer flex items-center justify-between gap-2 shadow-xs text-left">
                                 <span class="dropdown-selected text-slate-400 truncate">Selecciona tu situación tributaria...</span>
                                 <i data-lucide="chevron-down" class="dropdown-chevron w-4 h-4 shrink-0 text-slate-400 transition-transform duration-200"></i>
@@ -438,12 +438,12 @@
                         <span class="error-msg hidden text-[11px] text-rose-600 font-bold mt-1">Selecciona tu situación tributaria.</span>
                     </div>
 
-                    <!-- 12. Facturación y Cobros -->
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_217617002">
-                            12. ¿Cómo emites facturas actualmente?&nbsp;<span class="text-rose-600">*</span>
+                    <!-- 14. Facturación y Cobros -->
+                    <div class="flex flex-col justify-between">
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 sm:min-h-[2.25rem] flex items-start" for="entry_217617002">
+                            14. ¿Cómo emites facturas actualmente?&nbsp;<span class="text-rose-600">*</span>
                         </label>
-                        <div class="relative custom-dropdown" data-dropdown-id="entry_217617002">
+                        <div class="relative custom-dropdown mt-auto" data-dropdown-id="entry_217617002">
                             <button type="button" onclick="toggleDropdown(this)" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm text-slate-700 font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer flex items-center justify-between gap-2 shadow-xs text-left">
                                 <span class="dropdown-selected text-slate-400 truncate">Selecciona el método de facturación...</span>
                                 <i data-lucide="chevron-down" class="dropdown-chevron w-4 h-4 shrink-0 text-slate-400 transition-transform duration-200"></i>
@@ -460,12 +460,12 @@
                         <span class="error-msg hidden text-[11px] text-rose-600 font-bold mt-1">Selecciona cómo facturas.</span>
                     </div>
 
-                    <!-- Contador CPA -->
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_49518393">
-                            ¿Cuentas con Contador CPA que lleve tus libros?&nbsp;<span class="text-rose-600">*</span>
+                    <!-- 15. Contador CPA -->
+                    <div class="flex flex-col justify-between">
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 sm:min-h-[2.25rem] flex items-start" for="entry_49518393">
+                            15. ¿Cuentas con Contador CPA que lleve tus libros?&nbsp;<span class="text-rose-600">*</span>
                         </label>
-                        <div class="relative custom-dropdown" data-dropdown-id="entry_49518393">
+                        <div class="relative custom-dropdown mt-auto" data-dropdown-id="entry_49518393">
                             <button type="button" onclick="toggleDropdown(this)" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm text-slate-700 font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer flex items-center justify-between gap-2 shadow-xs text-left">
                                 <span class="dropdown-selected text-slate-400 truncate">Selecciona una opción...</span>
                                 <i data-lucide="chevron-down" class="dropdown-chevron w-4 h-4 shrink-0 text-slate-400 transition-transform duration-200"></i>
@@ -480,12 +480,12 @@
                         <span class="error-msg hidden text-[11px] text-rose-600 font-bold mt-1">Indica si cuentas con contador.</span>
                     </div>
 
-                    <!-- 13. Equipo y Colaboradores -->
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_842845325">
-                            13. Equipo y colaboradores (CSS / Planilla)&nbsp;<span class="text-rose-600">*</span>
+                    <!-- 16. Equipo y Colaboradores -->
+                    <div class="flex flex-col justify-between">
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 sm:min-h-[2.25rem] flex items-start" for="entry_842845325">
+                            16. Equipo y colaboradores (CSS / Planilla)&nbsp;<span class="text-rose-600">*</span>
                         </label>
-                        <div class="relative custom-dropdown" data-dropdown-id="entry_842845325">
+                        <div class="relative custom-dropdown mt-auto" data-dropdown-id="entry_842845325">
                             <button type="button" onclick="toggleDropdown(this)" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-sm text-slate-700 font-medium focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition cursor-pointer flex items-center justify-between gap-2 shadow-xs text-left">
                                 <span class="dropdown-selected text-slate-400 truncate">Selecciona la composición de tu equipo...</span>
                                 <i data-lucide="chevron-down" class="dropdown-chevron w-4 h-4 shrink-0 text-slate-400 transition-transform duration-200"></i>
@@ -518,10 +518,10 @@
 
                 <div class="space-y-6">
 
-                    <!-- 14. Duda o Problema Urgente -->
+                    <!-- 17. Duda o Problema Urgente -->
                     <div>
                         <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" for="entry_190759586">
-                            14. ¿Cuál es la duda, trámite o problema URGENTE a resolver en la sesión?&nbsp;<span class="text-rose-600">*</span>
+                            17. ¿Cuál es la duda, trámite o problema URGENTE a resolver en la sesión?&nbsp;<span class="text-rose-600">*</span>
                         </label>
                         <textarea id="entry_190759586" name="entry.190759586" rows="4" required
                             placeholder="Cuéntanos con tus palabras qué es lo que más te preocupa o qué trámite necesitas poner en orden..."
@@ -529,10 +529,10 @@
                         <span class="error-msg hidden text-[11px] text-rose-600 font-bold mt-1">Por favor describe tu consulta principal.</span>
                     </div>
 
-                    <!-- 15. Citaciones previas -->
+                    <!-- 18. Citaciones previas -->
                     <div>
                         <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2.5">
-                            15. ¿Has recibido alguna citación, boleta de cobro o inspección recientemente?&nbsp;<span class="text-rose-600">*</span>
+                            18. ¿Has recibido alguna citación, boleta de cobro o inspección recientemente?&nbsp;<span class="text-rose-600">*</span>
                         </label>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                             <label class="flex items-start gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-brand-blue hover:bg-blue-50/30 cursor-pointer transition text-xs font-semibold text-slate-700">
@@ -579,13 +579,13 @@
             <!-- BOTÓN DE ENVÍO -->
             <div class="pt-2 flex flex-col items-center">
                 <button type="submit" id="submit-btn"
-                    class="w-full sm:w-auto max-w-md py-3.5 sm:py-4 px-8 sm:px-10 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 active:scale-[0.99] text-white rounded-2xl font-black text-sm sm:text-base transition-all shadow-xl hover:shadow-orange-500/25 flex items-center justify-center gap-2.5 cursor-pointer mx-auto">
-                    <i data-lucide="send" class="w-5 h-5 shrink-0"></i>
-                    <span id="submit-btn-text">Enviar Expediente y Confirmar Diagnóstico</span>
+                    class="w-full sm:w-auto max-w-md py-3.5 sm:py-4 px-6 sm:px-10 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 active:scale-[0.99] text-white rounded-2xl font-black text-sm sm:text-base transition-all shadow-xl hover:shadow-orange-500/25 flex items-start sm:items-center justify-center gap-2.5 cursor-pointer mx-auto text-left sm:text-center">
+                    <i data-lucide="send" class="w-5 h-5 shrink-0 mt-0.5 sm:mt-0"></i>
+                    <span id="submit-btn-text" class="leading-snug">Enviar Expediente y Confirmar Diagnóstico</span>
                 </button>
-                <p class="text-center text-xs text-slate-400 mt-3 flex items-center justify-center gap-1.5">
-                    <i data-lucide="shield-check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
-                    <span>Tus datos son almacenados en servidores seguros y protegidos por la Ley 81 de Panamá.</span>
+                <p class="text-xs text-slate-500 mt-3 flex items-start justify-center gap-2 max-w-md mx-auto px-4 sm:px-0 text-left">
+                    <i data-lucide="shield-check" class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5"></i>
+                    <span class="leading-snug">Tus datos son almacenados en servidores seguros y protegidos por la Ley 81 de Panamá.</span>
                 </p>
             </div>
 
@@ -628,14 +628,14 @@
                 <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20acabo%20de%20enviar%20el%20formulario%20de%20diagn%C3%B3stico%20de%20mi%20negocio."
                     target="_blank" rel="noopener"
                     class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-xl text-sm transition shadow-md">
-                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    <i data-lucide="message-circle" class="w-4 h-4 shrink-0"></i>
                     <span>Confirmar por WhatsApp</span>
                 </a>
 
                 <a href="/"
                     class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-sm transition">
                     <span>Volver a la Página Principal</span>
-                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    <i data-lucide="arrow-right" class="w-4 h-4 shrink-0"></i>
                 </a>
             </div>
         </div>
@@ -841,7 +841,7 @@
                 submitBtn.classList.add('opacity-75', 'cursor-wait');
                 submitBtnText.innerHTML = `
                     <span class="inline-flex items-center gap-2">
-                        <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <svg class="animate-spin h-5 w-5 text-white shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                         </svg>
