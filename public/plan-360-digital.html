@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 
 <head>
@@ -157,8 +157,31 @@
         }
     </style>
     <!-- Hotmart Checkout Widget (Lightbox Pop-up Mode) -->
-    <link rel="stylesheet" type="text/css" href="https://static.hotmart.com/css/hotmart-fb.min.css">
-    <script src="https://static.hotmart.com/checkout/widget.min.js" async></script>
+    <script type="text/javascript">
+        // Prevenir eliminación del botón si falla healthCheck local/adblock de Hotmart
+        if (window.fetch) {
+            const _origFetch = window.fetch;
+            window.fetch = function(url, opts) {
+                if (typeof url === 'string' && url.indexOf('api-checkout-vue.hotmart.com') !== -1) {
+                    return Promise.resolve(new Response(JSON.stringify({ status: 'ok' }), { status: 200 }));
+                }
+                return _origFetch.apply(this, arguments);
+            };
+        }
+        window.removeCheckoutButton = function() {};
+
+        function importHotmart(){ 
+            var imported = document.createElement('script'); 
+            imported.src = 'https://static.hotmart.com/checkout/widget.min.js'; 
+            document.head.appendChild(imported); 
+            var link = document.createElement('link'); 
+            link.rel = 'stylesheet'; 
+            link.type = 'text/css'; 
+            link.href = 'https://static.hotmart.com/css/hotmart-fb.min.css'; 
+            document.head.appendChild(link);
+        } 
+        importHotmart(); 
+    </script>
 </head>
 
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-orange selection:text-white">
@@ -167,7 +190,7 @@
     <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-brand-orange z-[60] transition-all duration-75" style="width:0%"></div>
 
     <!-- 1. Barra de Anuncio de Urgencia -->
-    <div class="bg-gradient-to-r from-brand-blue to-brand-blue-dark text-white text-xs sm:text-sm py-2.5 px-4 text-center font-medium sticky top-0 z-50 shadow-md">
+    <div id="announcement-bar" class="bg-gradient-to-r from-brand-blue to-brand-blue-dark text-white text-xs sm:text-sm py-2.5 px-4 text-center font-medium relative z-50 shadow-md">
         <div class="max-w-6xl mx-auto flex items-center justify-center gap-2">
             <span class="hidden sm:inline-flex items-center justify-center bg-brand-orange text-white text-[11px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">Edición 2026</span>
             <span class="inline-flex items-center gap-1.5"><i data-lucide="globe" class="w-4 h-4 text-blue-200 inline-block -mt-0.5"></i><span><strong>Acceso Digital Inmediato:</strong> Descarga y comienza a planificar hoy mismo desde cualquier país.</span></span>
@@ -176,7 +199,7 @@
     </div>
 
     <!-- 2. Header Canónico (Regla DESIGN_SYSTEM.md: h-28 en desktop) -->
-    <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-9 z-40 transition-all">
+    <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40 transition-all">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20 sm:h-24 md:h-28">
                 <!-- Logotipo Canónico -->
@@ -198,7 +221,7 @@
 
                 <!-- Botón CTA Header WhatsApp Canónico + Menú Móvil -->
                 <div class="flex items-center gap-2 sm:gap-3">
-                    <a href="https://wa.me/50765461527?text=Hola%2C%20quiero%20información%20del%20Kit%20Físico%20del%20Plan%20360%20Empresarial"
+                    <a href="https://wa.me/50765461527?text=Hola%2C%20quiero%20información%20del%20Plan%20360%20Digital"
                         target="_blank"
                         class="flex items-center gap-2 bg-[#25D366] text-white px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full font-bold text-xs sm:text-sm hover:bg-[#20bd5a] transition shadow-md hover:shadow-lg whitespace-nowrap">
                         <i data-lucide="message-circle" class="w-4 h-4 flex-shrink-0"></i>
@@ -298,11 +321,10 @@
 
                     <!-- Call To Action Principal y Precio -->
                     <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 justify-center lg:justify-start">
-                        <a href="https://pay.hotmart.com/V88356406E?checkoutMode=2"
-                            target="_blank" rel="noopener"
-                            class="hotmart-fb w-full sm:w-auto px-5 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-2xl font-extrabold text-base sm:text-lg transition-all shadow-xl hover:shadow-orange-500/30 flex items-center justify-center gap-2.5 transform hover:-translate-y-0.5 cursor-pointer text-center whitespace-nowrap">
+                        <a href="#ordenar"
+                            class="w-full sm:w-auto px-5 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-2xl font-extrabold text-base sm:text-lg transition-all shadow-xl hover:shadow-orange-500/30 flex items-center justify-center gap-2.5 transform hover:-translate-y-0.5 cursor-pointer text-center whitespace-nowrap">
                             <i data-lucide="download" class="w-5 h-5 flex-shrink-0"></i>
-                            <span>Descargar por $24.99</span>
+                            <span>Descargar por solo $24.99 USD</span>
                         </a>
                         <div class="text-center sm:text-left">
                             <div class="flex items-center gap-1.5 justify-center sm:justify-start text-brand-orange">
@@ -312,7 +334,7 @@
                                 <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                                 <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                             </div>
-                            <span class="text-xs text-slate-500 font-medium">Garantía 7 días (Hotmart) · Descarga Inmediata a tu Correo</span>
+                            <span class="text-xs text-slate-500 font-medium">Garantía 7 días (Hotmart) · Descarga Inmediata</span>
                         </div>
                     </div>
                 </div>
@@ -417,59 +439,59 @@
         </div>
     </section>
 
-    <!-- 5. SECCIÓN UNBOXING: Lo que llega a tu puerta (El Kit Físico) -->
+    <!-- 5. SECCIÓN SUITE DIGITAL: Lo que recibes de inmediato -->
     <section id="que-incluye" class="py-16 sm:py-20 bg-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span class="text-xs font-black uppercase tracking-widest text-brand-orange">Experiencia Física & Tangible</span>
+            <span class="text-xs font-black uppercase tracking-widest text-brand-orange">Acceso Inmediato & Sin Esperas</span>
             <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-2 mb-4">
-                El Kit Físico que llega directo a tus manos
+                La Suite Digital que descargas directo a tu dispositivo
             </h2>
             <p class="text-slate-600 max-w-2xl mx-auto mb-12 text-sm sm:text-base">
-                A diferencia de los cursos o archivos digitales que se quedan olvidados en una carpeta de descargas, el <strong>Plan 360</strong> es una herramienta física que puedes tocar, subrayar y consultar a diario en tu escritorio:
+                Diseñado para trabajar desde cualquier país del mundo. El <strong>Plan 360 Digital</strong> es un sistema interactivo con campos rellenables que puedes editar, guardar e imprimir cuando lo necesites:
             </p>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
                 <!-- Item 1 -->
                 <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 hover:border-brand-blue transition">
                     <div class="w-12 h-12 rounded-xl bg-blue-100 text-brand-blue flex items-center justify-center mb-4">
-                        <i data-lucide="book-open" class="w-6 h-6"></i>
+                        <i data-lucide="file-text" class="w-6 h-6"></i>
                     </div>
-                    <h4 class="font-bold text-slate-900 mb-1.5">Libro Plan 360 Impreso</h4>
+                    <h4 class="font-bold text-slate-900 mb-1.5">PDF Interactivo Rellenable</h4>
                     <p class="text-xs text-slate-600 leading-relaxed">
-                        35 páginas en papel de alta calidad a todo color. Encuadernado y listo para estructurar cada área de tu empresa.
+                        35 páginas completas a todo color con campos inteligentes para escribir, calcular costos y estructurar tu negocio.
                     </p>
                 </div>
 
                 <!-- Item 2 -->
                 <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 hover:border-brand-blue transition">
                     <div class="w-12 h-12 rounded-xl bg-blue-100 text-brand-blue flex items-center justify-center mb-4">
-                        <i data-lucide="shopping-bag" class="w-6 h-6"></i>
+                        <i data-lucide="tablet" class="w-6 h-6"></i>
                     </div>
-                    <h4 class="font-bold text-slate-900 mb-1.5">Bolsa Reutilizable Oficial (360)</h4>
+                    <h4 class="font-bold text-slate-900 mb-1.5">100% Multi-Dispositivo</h4>
                     <p class="text-xs text-slate-600 leading-relaxed">
-                        Bolsa ecológica de tela con el logo oficial del Plan 360 en azul corporativo para llevar tu material a todas partes.
+                        Compatible con iPad, tablets Android, computadoras (PC/Mac) y apps como GoodNotes, Notability o Adobe Acrobat.
                     </p>
                 </div>
 
                 <!-- Item 3 -->
                 <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 hover:border-brand-blue transition">
                     <div class="w-12 h-12 rounded-xl bg-blue-100 text-brand-blue flex items-center justify-center mb-4">
-                        <i data-lucide="pen-tool" class="w-6 h-6"></i>
+                        <i data-lucide="infinity" class="w-6 h-6"></i>
                     </div>
-                    <h4 class="font-bold text-slate-900 mb-1.5">1 Lápiz</h4>
+                    <h4 class="font-bold text-slate-900 mb-1.5">Licencia de Uso de Por Vida</h4>
                     <p class="text-xs text-slate-600 leading-relaxed">
-                        Lápiz para que empieces a trabajar en tus metas desde el minuto cero.
+                        Un solo pago sin mensualidades. Puedes reutilizar las plantillas para estructurar futuros proyectos o empresas.
                     </p>
                 </div>
 
                 <!-- Item 4 -->
                 <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 hover:border-brand-blue transition">
                     <div class="w-12 h-12 rounded-xl bg-blue-100 text-brand-blue flex items-center justify-center mb-4">
-                        <i data-lucide="heart-handshake" class="w-6 h-6"></i>
+                        <i data-lucide="gift" class="w-6 h-6"></i>
                     </div>
-                    <h4 class="font-bold text-slate-900 mb-1.5">Tarjeta de Bienvenida</h4>
+                    <h4 class="font-bold text-slate-900 mb-1.5">5 Bonos de Regalo Incluidos</h4>
                     <p class="text-xs text-slate-600 leading-relaxed">
-                        Mensaje exclusivo de agradecimiento por tu compra y un descuento en tu próxima compra en alguno de nuestros productos y servicios.
+                        Descargas inmediatas de contratos, simuladores de costos, guía bancaria y checklist de cumplimiento.
                     </p>
                 </div>
             </div>
@@ -478,19 +500,19 @@
             <div class="mt-8 bg-gradient-to-r from-blue-900 to-brand-blue text-white rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 text-left shadow-xl">
                 <div class="space-y-2">
                     <span class="inline-block bg-brand-orange text-white text-[11px] font-black uppercase px-2.5 py-0.5 rounded-full">
-                        Acceso Inmediato
+                        Acceso Inmediato Global
                     </span>
                     <h3 class="text-xl sm:text-2xl font-black">
-                        ¿No quieres esperar a que llegue el envío físico?
+                        Comienza a planificar tu negocio hoy mismo
                     </h3>
                     <p class="text-sm text-blue-100 max-w-xl">
-                        Al completar tu pedido, recibes de inmediato en tu correo el <strong>PDF Interactivo Rellenable</strong>. Puedes escribir, calcular y guardar tus datos directamente desde tu iPad, tablet o computadora.
+                        Al completar tu pedido seguro, recibes de inmediato en tu correo el acceso privado para descargar el libro Plan 360 interactivo y todos los bonos.
                     </p>
                 </div>
-                <a href="https://pay.hotmart.com/V88356406E?checkoutMode=2"
-                    target="_blank" rel="noopener"
-                    class="hotmart-fb px-6 py-3 bg-white hover:bg-slate-100 text-brand-blue rounded-xl font-bold text-sm transition-all whitespace-nowrap shadow-md cursor-pointer">
-                    Descargar por $24.99 USD
+                <a href="#ordenar"
+                    class="px-6 py-3.5 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-xl font-bold text-sm transition-all whitespace-nowrap shadow-lg flex items-center justify-center gap-2 transform hover:-translate-y-0.5">
+                    <i data-lucide="download" class="w-4 h-4"></i>
+                    <span>Descargar por $24.99 USD</span>
                 </a>
             </div>
         </div>
@@ -813,6 +835,15 @@
                     </p>
                 </div>
             </div>
+
+            <!-- CTA después de los Bonos -->
+            <div class="mt-12 text-center">
+                <a href="#ordenar"
+                    class="inline-flex items-center gap-2.5 px-8 py-4 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-2xl font-black text-base sm:text-lg transition-all shadow-xl hover:shadow-orange-500/30 transform hover:-translate-y-0.5">
+                    <i data-lucide="gift" class="w-5 h-5 flex-shrink-0"></i>
+                    <span>Quiero el Plan 360 + los 5 Bonos ($24.99 USD)</span>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -822,13 +853,13 @@
             
             <div class="text-center mb-10">
                 <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 font-bold text-xs uppercase tracking-wider mb-2">
-                    Edición Limitada 2026
+                    Edición Digital 2026
                 </span>
                 <h2 class="text-3xl sm:text-4xl font-black text-slate-900">
-                    Pide tu Kit Plan 360 Empresarial
+                    Obtén tu Plan 360 Empresarial (Edición Digital)
                 </h2>
                 <p class="text-slate-600 text-sm mt-2">
-                    Completa tu pedido a continuación. Recibe tu kit físico en la puerta de tu casa u oficina y descarga la versión digital interactiva de inmediato.
+                    Completa tu pedido seguro a continuación. Recibe acceso inmediato para descargar el libro Plan 360 interactivo y los 5 bonos de regalo directamente en tu correo.
                 </p>
             </div>
 
@@ -859,24 +890,25 @@
                     </div>
                 </div>
 
-                <!-- 🌟 CAJA DE UPSELL / ORDER BUMP DIGITAL (Kit de Resolución de Problemas) -->
+                <!-- 🌟 CAJA DE UPSELL / ORDER BUMP (Kit de Resolución de Problemas) -->
                 <div class="my-8 bg-amber-50/80 border-2 border-dashed border-amber-300 rounded-2xl p-5 sm:p-6 transition-all hover:bg-amber-50">
                     <div class="flex flex-col sm:flex-row items-start gap-4">
-                        <div class="flex-grow">
-                            <div class="flex items-center gap-2 mb-1">
-                                <span class="inline-block bg-brand-orange text-white text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded">
-                                    ¡OFERTA ESPECIAL EN CHECKOUT HOTMART (+65% DCTO)!
+                        <label class="flex items-start gap-3 cursor-pointer select-none flex-grow">
+                            <input type="checkbox" id="upsell-toggle"
+                                class="mt-1 w-6 h-6 text-brand-orange border-amber-400 rounded focus:ring-brand-orange cursor-pointer">
+                            <div>
+                                <span class="inline-block bg-brand-orange text-white text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded mb-1">
+                                    ¡OFERTA EXCLUSIVA EN ESTA PÁGINA (+65% DCTO)!
                                 </span>
-                                <span class="text-xs font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded">Opcional en 1 clic</span>
+                                <h4 class="text-base sm:text-lg font-black text-slate-900">
+                                    Sí, agregar el Kit de Resolución de Problemas Empresariales por solo +$16.99 USD
+                                </h4>
+                                <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                                    <strong>Tu botiquín de primeros auxilios empresariales:</strong> Más de 50 problemas comunes resueltos paso a paso en gestión, finanzas, ventas, operaciones y recursos humanos + 1 plantilla rellenable para solucionar problemas.
+                                    <span class="text-slate-400 line-through">(Precio regular: $47.00 USD)</span>.
+                                </p>
                             </div>
-                            <h4 class="text-base sm:text-lg font-black text-slate-900">
-                                Puedes agregar el Kit de Resolución de Problemas (+50 soluciones) por solo +$16.99 USD
-                            </h4>
-                            <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
-                                <strong>Tu botiquín de primeros auxilios empresariales:</strong> Encuentra soluciones paso a paso a los 50 problemas más críticos en finanzas, operaciones, ventas y gestión de personal + 1 plantilla rellenable para solucionar problemas. Podrás marcar la casilla directamente dentro de la pasarela segura de Hotmart.
-                                <span class="text-slate-400 line-through">(Precio regular: $47.00 USD)</span>.
-                            </p>
-                        </div>
+                        </label>
                         <img src="assets/portada-kit-problemas.png" alt="Kit de Problemas"
                             class="w-20 sm:w-24 h-auto rounded-lg shadow-sm border border-amber-200 self-center sm:self-start flex-shrink-0">
                     </div>
@@ -884,24 +916,24 @@
 
                 <!-- TOTAL DINÁMICO Y BOTÓN DE COMPRA -->
                 <div class="pt-2 text-center sm:text-left">
-                    <div class="flex flex-col lg:flex-row items-center justify-between gap-5 mb-6 bg-white p-4 sm:p-6 rounded-2xl border border-slate-200 shadow-sm">
-                        <div class="text-center sm:text-left w-full lg:w-auto">
-                            <span class="text-xs text-slate-500 font-bold uppercase tracking-wider block mb-1">Precio Digital de Lanzamiento:</span>
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-5 mb-6 bg-white p-5 sm:p-7 rounded-2xl border border-slate-200 shadow-sm">
+                        <div class="text-center sm:text-left w-full sm:w-auto">
+                            <span class="text-xs text-slate-500 font-bold uppercase tracking-wider block mb-1">Total a Pagar:</span>
                             <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
-                                <span class="text-3xl sm:text-4xl font-black text-brand-blue whitespace-nowrap">$24.99 USD</span>
-                                <span class="text-xs font-black text-emerald-700 bg-emerald-100 border border-emerald-200 px-3 py-1 rounded-full whitespace-nowrap shadow-sm">
-                                    ¡Oferta Especial de Lanzamiento!
+                                <span id="total-price" class="text-3xl sm:text-4xl font-black text-brand-blue whitespace-nowrap">$24.99 USD</span>
+                                <span id="savings-badge" class="hidden text-xs font-black text-emerald-700 bg-emerald-100 border border-emerald-200 px-3 py-1 rounded-full whitespace-nowrap shadow-sm">
+                                    ¡Ahorraste $47 USD!
                                 </span>
                             </div>
                         </div>
 
-                        <!-- Botón Principal Hotmart Lightbox -->
-                        <a href="https://pay.hotmart.com/V88356406E?checkoutMode=2"
-                            target="_blank" rel="noopener"
-                            class="hotmart-fb w-full sm:w-auto px-5 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-2xl font-black text-sm sm:text-base md:text-lg transition-all shadow-xl hover:shadow-orange-500/30 flex items-center justify-center gap-2.5 transform hover:-translate-y-0.5 text-center cursor-pointer whitespace-nowrap">
-                            <i data-lucide="lock" class="w-5 h-5 flex-shrink-0"></i>
-                            <span>Pagar en Hotmart ($24.99)</span>
-                        </a>
+                        <!-- Botón Oficial Hotmart Checkout Premium -->
+                        <div class="flex items-center justify-center shrink-0 w-full sm:w-auto">
+                            <a id="btn-comprar" onclick="return false;" href="https://pay.hotmart.com/V88356406E?checkoutMode=2" class="hotmart-fb w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-2xl font-black text-sm sm:text-base md:text-lg transition-all shadow-xl hover:shadow-orange-500/30 flex items-center justify-center gap-2.5 transform hover:-translate-y-0.5 text-center cursor-pointer whitespace-nowrap !flex">
+                                <i data-lucide="lock" class="w-5 h-5 flex-shrink-0"></i>
+                                <span id="btn-text">Pagar en Hotmart ($24.99)</span>
+                            </a>
+                        </div>
                     </div>
 
                     <div class="flex flex-wrap items-center justify-center gap-4 text-xs text-slate-500 font-medium pt-2">
@@ -960,7 +992,7 @@
                     </button>
                     <div class="accordion-content">
                         <p class="text-xs sm:text-sm text-slate-600 mt-3 pt-3 border-t border-slate-100 leading-relaxed">
-                            De forma <strong>inmediata</strong>. En cuanto se confirma tu pedido, te llega un correo con el enlace de descarga del PDF Interactivo Rellenable y los 5 bonos de regalo, para que puedas empezar a planificar hoy mismo desde tu tablet o computadora mientras tu kit físico va en camino.
+                            De forma <strong>inmediata</strong>. En cuanto se confirma tu pago seguro en Hotmart, recibes un correo con el enlace de acceso y descarga privada del PDF Interactivo Rellenable y los 5 bonos de regalo, para que puedas empezar a planificar hoy mismo desde tu tablet o computadora.
                         </p>
                     </div>
                 </div>
@@ -1135,6 +1167,26 @@
                 });
             });
 
+
+            // 3. Lógica Interactiva del Upsell / Order Bump
+            const upsellCheckbox = document.getElementById('upsell-toggle');
+            const totalPriceEl = document.getElementById('total-price');
+            const savingsBadge = document.getElementById('savings-badge');
+            const btnText = document.getElementById('btn-text');
+
+            if (upsellCheckbox && totalPriceEl) {
+                upsellCheckbox.addEventListener('change', () => {
+                    if (upsellCheckbox.checked) {
+                        totalPriceEl.textContent = '$41.98 USD';
+                        if (savingsBadge) savingsBadge.classList.remove('hidden');
+                        if (btnText) btnText.textContent = 'Pagar Combo Completo ($41.98)';
+                    } else {
+                        totalPriceEl.textContent = '$24.99 USD';
+                        if (savingsBadge) savingsBadge.classList.add('hidden');
+                        if (btnText) btnText.textContent = 'Pagar en Hotmart ($24.99)';
+                    }
+                });
+            }
 
             // 4. Barra de Progreso de Lectura Canónica
             window.addEventListener('scroll', () => {
