@@ -1168,23 +1168,41 @@
             });
 
 
-            // 3. Lógica Interactiva del Upsell / Order Bump
+            // 3. Lógica Interactiva del Upsell / Order Bump (Infalible)
             const upsellCheckbox = document.getElementById('upsell-toggle');
             const totalPriceEl = document.getElementById('total-price');
             const savingsBadge = document.getElementById('savings-badge');
             const btnText = document.getElementById('btn-text');
+            const btnComprar = document.getElementById('btn-comprar');
 
-            if (upsellCheckbox && totalPriceEl) {
-                upsellCheckbox.addEventListener('change', () => {
-                    if (upsellCheckbox.checked) {
-                        totalPriceEl.textContent = '$41.98 USD';
-                        if (savingsBadge) savingsBadge.classList.remove('hidden');
-                        if (btnText) btnText.textContent = 'Pagar Combo Completo ($41.98)';
-                    } else {
-                        totalPriceEl.textContent = '$24.99 USD';
-                        if (savingsBadge) savingsBadge.classList.add('hidden');
-                        if (btnText) btnText.textContent = 'Pagar en Hotmart ($24.99)';
-                    }
+            const HOTMART_BASE_URL = 'https://pay.hotmart.com/V88356406E?checkoutMode=10';
+            const HOTMART_BUMP_URL = 'https://pay.hotmart.com/V88356406E?checkoutMode=10&bid=1792816240999';
+
+            function updatePricingState() {
+                if (!upsellCheckbox || !totalPriceEl) return;
+                const isChecked = upsellCheckbox.checked;
+                
+                totalPriceEl.textContent = isChecked ? '$41.98 USD' : '$24.99 USD';
+                if (savingsBadge) {
+                    savingsBadge.classList.toggle('hidden', !isChecked);
+                }
+                if (btnText) {
+                    btnText.textContent = isChecked ? 'Pagar Combo Completo ($41.98)' : 'Pagar en Hotmart ($24.99)';
+                }
+                if (btnComprar) {
+                    btnComprar.href = isChecked ? HOTMART_BUMP_URL : HOTMART_BASE_URL;
+                }
+            }
+
+            if (upsellCheckbox) {
+                upsellCheckbox.addEventListener('change', updatePricingState);
+                updatePricingState(); // Ejecución inicial para sincronizar estado
+            }
+
+            if (btnComprar) {
+                btnComprar.addEventListener('click', () => {
+                    // Doble comprobación en el milisegundo exacto del clic
+                    updatePricingState();
                 });
             }
 
