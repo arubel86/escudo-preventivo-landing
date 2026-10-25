@@ -402,14 +402,19 @@
                     <div class="relative mx-auto max-w-md bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-200/90 transition-all hover:shadow-brand-blue/20 animate-subtle-float">
                         
                         <!-- Encabezado de la Tarjeta -->
-                        <div class="flex items-center justify-between pb-5 border-b border-slate-100">
-                            <div>
-                                <span class="text-xs font-bold uppercase tracking-wider text-brand-blue">Monitor de Salud Empresarial</span>
-                                <h3 class="text-lg font-black text-slate-900">Estado de Protección 2026</h3>
+                        <div class="flex items-center justify-between pb-5 border-b border-slate-100 gap-3">
+                            <div class="min-w-0">
+                                <span class="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-brand-blue block">Monitor de Salud Empresarial</span>
+                                <h3 class="text-base sm:text-lg font-black text-slate-900 leading-snug">
+                                    <span class="sm:hidden">Protección</span><span class="hidden sm:inline">Estado de Protección</span> <span class="current-year">2026</span>
+                                </h3>
                             </div>
-                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700">
-                                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-                                Activo
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700 shrink-0">
+                                <span class="relative flex h-2 w-2 shrink-0">
+                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                                </span>
+                                <span>Activo</span>
                             </span>
                         </div>
 
@@ -1521,7 +1526,7 @@
 
             <!-- Copyright inferior -->
             <div class="border-t border-slate-800 pt-8 text-center text-xs text-slate-400">
-                &copy; 2026 Aizprua S.E. Firma Legal y Empresarial en Panamá. Todos los derechos reservados.
+                &copy; <span class="current-year">2026</span> Aizprua S.E. Firma Legal y Empresarial en Panamá. Todos los derechos reservados.
             </div>
         </div>
     </footer>
@@ -1778,6 +1783,12 @@
 
         // Inicialización
         document.addEventListener('DOMContentLoaded', () => {
+            // Sincronizar automáticamente el año en curso
+            const currentYear = new Date().getFullYear();
+            document.querySelectorAll('.current-year').forEach(el => {
+                el.textContent = currentYear;
+            });
+
             if (typeof renderHomeFeaturedProducts === 'function') {
                 renderHomeFeaturedProducts('home-featured-products-grid');
             }
