@@ -202,9 +202,15 @@
                         <i data-lucide="filter" class="w-4 h-4 text-brand-blue"></i>
                         <h3 class="font-black text-sm text-slate-900">Filtros</h3>
                     </div>
-                    <button onclick="resetFilters()" class="text-[11px] font-bold text-slate-400 hover:text-brand-blue transition">
-                        Limpiar
-                    </button>
+                    <div class="flex items-center gap-2.5">
+                        <button onclick="resetFilters()" class="text-[11px] font-bold text-slate-400 hover:text-brand-blue transition">
+                            Limpiar
+                        </button>
+                        <button type="button" onclick="toggleMobileFilters()" aria-label="Cerrar filtros"
+                            class="lg:hidden text-slate-400 hover:text-slate-700 p-1 rounded-lg">
+                            <i data-lucide="x" class="w-4 h-4"></i>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- 1. Tipo de Entrega -->
@@ -337,6 +343,15 @@
                 <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 text-[11px] text-slate-500 leading-relaxed">
                     <p class="font-bold text-slate-800 mb-1">Factura Electrónica DGI</p>
                     Todas las compras emiten comprobante fiscal deducible de impuestos en Panamá.
+                </div>
+
+                <!-- Botón de Cierre / Aplicar en Móvil -->
+                <div class="pt-1 lg:hidden">
+                    <button type="button" onclick="toggleMobileFilters()"
+                        class="w-full py-3 bg-brand-blue hover:bg-brand-blue-dark text-white rounded-xl text-xs font-bold transition shadow flex items-center justify-center gap-2">
+                        <i data-lucide="check" class="w-4 h-4"></i>
+                        <span>Aplicar filtros y ver catálogo</span>
+                    </button>
                 </div>
 
             </aside>
@@ -1580,16 +1595,18 @@
                     <p id="shop-pagination-info" class="text-xs text-slate-500 font-medium">
                         Mostrando <span id="shop-pag-start" class="font-bold text-slate-900">1</span>–<span id="shop-pag-end" class="font-bold text-slate-900">4</span> de <span id="shop-pag-total" class="font-bold text-slate-900">17</span> soluciones
                     </p>
-                    <div class="flex items-center gap-2">
-                        <button id="prev-shop-btn" onclick="goToShopPage(currentShopPage - 1)" class="px-3.5 py-2 rounded-xl text-xs font-bold text-slate-600 bg-white hover:bg-slate-50 border border-slate-200 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-1 shadow-xs">
+                    <div class="flex items-center gap-1.5 sm:gap-2">
+                        <button id="prev-shop-btn" onclick="goToShopPage(currentShopPage - 1)" aria-label="Página anterior"
+                            class="px-2.5 sm:px-3.5 py-2 rounded-xl text-xs font-bold text-slate-600 bg-white hover:bg-slate-50 border border-slate-200 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-1 shadow-xs">
                             <i data-lucide="chevron-left" class="w-4 h-4"></i>
-                            <span>Anterior</span>
+                            <span class="hidden sm:inline">Anterior</span>
                         </button>
-                        <div id="shop-pagination-numbers" class="flex items-center gap-1.5">
+                        <div id="shop-pagination-numbers" class="flex items-center gap-1 sm:gap-1.5">
                             <!-- Los números de página se renderizan dinámicamente -->
                         </div>
-                        <button id="next-shop-btn" onclick="goToShopPage(currentShopPage + 1)" class="px-3.5 py-2 rounded-xl text-xs font-bold text-slate-600 bg-white hover:bg-slate-50 border border-slate-200 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-1 shadow-xs">
-                            <span>Siguiente</span>
+                        <button id="next-shop-btn" onclick="goToShopPage(currentShopPage + 1)" aria-label="Página siguiente"
+                            class="px-2.5 sm:px-3.5 py-2 rounded-xl text-xs font-bold text-slate-600 bg-white hover:bg-slate-50 border border-slate-200 disabled:opacity-40 disabled:cursor-not-allowed transition flex items-center gap-1 shadow-xs">
+                            <span class="hidden sm:inline">Siguiente</span>
                             <i data-lucide="chevron-right" class="w-4 h-4"></i>
                         </button>
                     </div>
@@ -1877,7 +1894,7 @@
                             const isActive = (i === currentShopPage);
                             html += `
                                 <button onclick="goToShopPage(${i})" aria-label="Ir a página ${i}"
-                                    class="w-9 h-9 rounded-xl text-xs font-bold transition flex items-center justify-center ${
+                                    class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl text-xs font-bold transition flex items-center justify-center ${
                                         isActive 
                                         ? 'bg-brand-blue text-white shadow-md' 
                                         : 'bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 shadow-xs'
