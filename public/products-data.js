@@ -18,6 +18,7 @@ const AIZPRUA_PRODUCTS = [
         cost: 0.00,
         stock: 999,
         title: "Plan 360 empresarial (edición digital)",
+        homeTitle: "Plan 360 empresarial (digital)",
         category: "blindaje",
         categoryLabel: "Estructuración Integral · Edición 2026",
         delivery: "digital",
@@ -41,13 +42,13 @@ const AIZPRUA_PRODUCTS = [
             "<strong>Acceso multiplataforma:</strong> Compatible con iPad, tablet, laptop y PC con guardado ilimitado."
         ],
         buyButton: {
-            text: "Descargar por $24.99 USD",
-            homeText: "Descargar por $24.99 USD",
-            link: "https://pay.hotmart.com/V88356406E?checkoutMode=2",
-            homeLink: "https://pay.hotmart.com/V88356406E?checkoutMode=2",
+            text: "Comprar ahora por $24.99 USD",
+            homeText: "Comprar ahora",
+            link: "https://pay.hotmart.com/V88356406E?checkoutMode=10&bid=1792888649272",
+            homeLink: "https://pay.hotmart.com/V88356406E?checkoutMode=10&bid=1792888649272",
             icon: "shopping-bag",
             class: "bg-brand-blue hover:bg-brand-blue-dark text-white",
-            isHotmart: true
+            isHotmart: false
         },
         detailButton: {
             text: "Ver temario completo y detalles",
@@ -94,10 +95,10 @@ const AIZPRUA_PRODUCTS = [
         ],
         buyButton: {
             text: "Pedir Kit Físico por $39.99 USD",
-            homeText: "Ver detalles del kit",
-            link: "https://wa.me/50765461527?text=Hola%2C%20quiero%20ordenar%20el%20Plan%20360%20Empresarial%20(%2439.99%20USD)%20con%20env%C3%ADo%20en%20Panam%C3%A1.",
-            homeLink: "/plan-360",
-            icon: "truck",
+            homeText: "Pedir kit por WhatsApp",
+            link: "https://wa.me/50765461527?text=Hola%2C%20quiero%20ordenar%20el%20Plan%20360%20Empresarial%20Kit%20F%C3%ADsico%20(%2439.99%20USD)%20con%20env%C3%ADo%20en%20Panam%C3%A1.",
+            homeLink: "https://wa.me/50765461527?text=Hola%2C%20quiero%20ordenar%20el%20Plan%20360%20Empresarial%20Kit%20F%C3%ADsico%20(%2439.99%20USD)%20con%20env%C3%ADo%20en%20Panam%C3%A1.",
+            icon: "message-circle",
             class: "bg-brand-orange hover:bg-brand-orange-dark text-white",
             isHotmart: false
         },
@@ -299,12 +300,13 @@ const AIZPRUA_PRODUCTS = [
             "<strong>Protocolos de acción:</strong> Respuestas inmediatas ante contingencias y cobros."
         ],
         buyButton: {
-            text: "Descargar por $16.99 USD",
-            homeText: "Descargar por $16.99 USD",
-            link: "https://pay.hotmart.com/Q88322358Q?checkoutMode=2",
+            text: "Comprar ahora por $16.99 USD",
+            homeText: "Comprar ahora",
+            link: "https://pay.hotmart.com/Q88322358Q?bid=1792888866211",
+            homeLink: "https://pay.hotmart.com/Q88322358Q?bid=1792888866211",
             icon: "shopping-bag",
             class: "bg-brand-blue hover:bg-brand-blue-dark text-white",
-            isHotmart: true
+            isHotmart: false
         },
         detailButton: {
             text: "Consultar por WhatsApp",
@@ -914,41 +916,29 @@ function renderHomeFeaturedProducts(containerId = "home-featured-products-grid")
             `;
         }
 
-        // Bloque de precios
+        // Bloque de precios limpio y premium (Solo para la Home)
         let priceBlockHTML = "";
         if (product.price === 0) {
             priceBlockHTML = `
-                <div class="flex items-baseline justify-between pt-4 border-t border-slate-200 mb-4">
-                    <div>
-                        <span class="text-2xl font-black text-emerald-600">GRATIS</span>
-                    </div>
-                    <span class="text-xs font-bold text-slate-500">${paymentNotice}</span>
+                <div class="flex items-center justify-between pt-4 border-t border-slate-200 mb-4 min-h-[3rem]">
+                    <span class="text-2xl font-black text-emerald-600">GRATIS</span>
+                    <span class="text-xs font-semibold text-slate-500">Acceso inmediato</span>
                 </div>
             `;
         } else {
-            const oldPriceHTML = product.priceOld ? `<span class="text-xs text-slate-400 line-through mr-1">${product.priceOld}</span>` : "";
-            const badgeText = product.homeDiscountBadge || product.discountBadge || "";
-            const badgeColorClass = product.homeDiscountBadge ? 'text-brand-orange bg-orange-100' : (product.id === 'kit-resolucion-problemas' ? 'text-amber-700 bg-amber-100' : 'text-emerald-700 bg-emerald-100');
-            const discountBadgeDesktopHTML = badgeText
-                ? `<span class="hidden sm:inline-block text-[10px] font-black ${badgeColorClass} px-2 py-0.5 rounded-md ml-1 whitespace-nowrap">${badgeText}</span>`
-                : "";
-            const discountBadgeMobileHTML = badgeText
-                ? `<span class="inline-block sm:hidden text-[10px] font-black ${badgeColorClass} px-2 py-0.5 rounded-md whitespace-nowrap">${badgeText}</span>`
-                : "";
+            const oldPriceHTML = product.priceOld ? `<span class="text-[11px] text-slate-400 line-through leading-none">${product.priceOld}</span>` : "";
+            const deliveryNotice = product.delivery === "physical" ? "Envíos en Panamá" : "Descarga inmediata";
+            const deliveryIcon = product.delivery === "physical" ? "truck" : "download";
             
-            const rightNoticeClass = product.guarantee ? "text-emerald-600" : "text-slate-500";
-
             priceBlockHTML = `
-                <div class="flex items-center justify-between pt-4 border-t border-slate-200 mb-4 min-h-[2.5rem] gap-2">
-                    <div class="flex items-baseline gap-1.5 shrink-0">
+                <div class="flex items-end justify-between pt-4 border-t border-slate-200 mb-4 min-h-[3rem]">
+                    <div class="flex flex-col">
                         ${oldPriceHTML}
-                        <span class="text-2xl font-black text-slate-900">${product.priceDisplay}</span>
-                        <span class="text-[10px] font-bold text-slate-500">${product.currency}</span>
-                        ${discountBadgeDesktopHTML}
+                        <span class="text-2xl font-black text-slate-900 tracking-tight leading-tight">${product.priceDisplay}</span>
                     </div>
-                    <div class="flex flex-col sm:flex-row items-end sm:items-baseline gap-0.5 sm:gap-2 text-right shrink-0">
-                        ${discountBadgeMobileHTML}
-                        <span class="text-xs font-bold ${rightNoticeClass} whitespace-nowrap">${paymentNotice}</span>
+                    <div class="flex items-center gap-1.5 text-xs font-semibold text-slate-500 pb-0.5">
+                        <i data-lucide="${deliveryIcon}" class="w-3.5 h-3.5 text-slate-400 shrink-0"></i>
+                        <span>${deliveryNotice}</span>
                     </div>
                 </div>
             `;
@@ -957,24 +947,47 @@ function renderHomeFeaturedProducts(containerId = "home-featured-products-grid")
         // Botón CTA
         const hotmartClass = product.buyButton.isHotmart ? 'hotmart-fb ' : '';
         const homeBuyExternal = buyBtnLink.startsWith("http") ? 'target="_blank" rel="noopener"' : '';
+        const secondaryLinkHTML = product.id === 'plan-360-digital'
+            ? `<div class="text-center mt-2">
+                <a href="/plan-360-digital" class="text-xs font-bold text-brand-blue hover:text-brand-blue-dark hover:underline inline-flex items-center gap-1">
+                    <span>Ver temario y detalles de la edición digital</span>
+                    <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+               </div>`
+            : product.id === 'plan-360-fisico'
+            ? `<div class="text-center mt-2">
+                <a href="/plan-360" class="text-xs font-bold text-brand-orange-dark hover:text-brand-orange hover:underline inline-flex items-center gap-1">
+                    <span>Ver fotos y detalles del kit físico</span>
+                    <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+               </div>`
+            : `<div class="text-center mt-2">
+                <a href="/tienda" class="text-xs font-bold text-slate-500 hover:text-brand-blue hover:underline inline-flex items-center gap-1">
+                    <span>Explorar catálogo en la tienda</span>
+                    <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+               </div>`;
+
+        const displayTitle = product.homeTitle || product.title;
 
         return `
-            <!-- PRODUCTO: ${product.title.toUpperCase()} -->
+            <!-- PRODUCTO: ${displayTitle.toUpperCase()} -->
             <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between ${borderHover} hover:shadow-lg transition group reveal-on-scroll ${staggerClass}">
-                <div>
+                <div class="flex-1 flex flex-col">
                     ${showcaseHTML}
-                    <h4 class="text-lg font-black text-slate-900 mb-1">${product.title}</h4>
-                    <p class="text-xs text-slate-600 mb-4 leading-relaxed">
+                    <h4 class="text-lg font-black text-slate-900 mb-1 min-h-[3.25rem] flex items-center leading-snug">${displayTitle}</h4>
+                    <p class="text-xs text-slate-600 mb-4 leading-relaxed min-h-[3.5rem] flex items-start">
                         ${product.description}
                     </p>
                 </div>
-                <div>
+                <div class="mt-auto">
                     ${priceBlockHTML}
                     <a href="${buyBtnLink}" ${homeBuyExternal}
                         class="${hotmartClass}w-full inline-flex items-center justify-center gap-2 py-3 ${product.buyButton.class} rounded-xl text-xs sm:text-sm font-bold transition shadow">
                         <i data-lucide="${product.buyButton.icon}" class="w-4 h-4"></i>
                         <span>${buyBtnText}</span>
                     </a>
+                    ${secondaryLinkHTML}
                 </div>
             </div>
         `;
@@ -1070,47 +1083,34 @@ function renderShopProducts(containerId = "products-grid") {
         // 3 Bullets de entregables estandarizados
         const bulletsHTML = (product.bullets || []).map(b => `
             <div class="flex items-start gap-2 text-xs text-slate-700 font-medium">
-                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-[1px]"></i>
                 <span class="leading-snug">${b}</span>
             </div>
         `).join("");
 
-        // Bloque de precios y garantía
+        // Bloque de precios limpio y premium (Catálogo de Tienda)
         let priceAreaHTML = "";
         if (product.price === 0) {
             priceAreaHTML = `
-                <div class="flex items-center justify-between min-h-[2.5rem]">
-                    <div class="flex items-baseline gap-1.5">
-                        <span class="text-2xl font-black ${product.id === 'test-auditoria' ? 'text-emerald-600' : 'text-brand-orange'}">GRATIS</span>
-                        <span class="text-[10px] font-bold text-slate-500">USD</span>
-                    </div>
-                    <span class="text-xs font-bold text-slate-500 whitespace-nowrap">${product.paymentNotice || 'Acceso inmediato'}</span>
+                <div class="flex items-center justify-between min-h-[3rem]">
+                    <span class="text-2xl font-black ${product.id === 'test-auditoria' ? 'text-emerald-600' : 'text-brand-orange'}">GRATIS</span>
+                    <span class="text-xs font-semibold text-slate-500">Acceso inmediato</span>
                 </div>
             `;
         } else {
-            const oldPriceHTML = product.priceOld ? `<span class="text-xs text-slate-400 line-through mr-1">${product.priceOld}</span>` : "";
-            const badgeClass = product.discountBadgeClass || "text-emerald-700 bg-emerald-100";
-            const discountBadgeDesktop = product.discountBadge
-                ? `<span class="hidden sm:inline-block text-[10px] font-black ${badgeClass} px-2 py-0.5 rounded-md ml-1 whitespace-nowrap">${product.discountBadge}</span>`
-                : "";
-            const discountBadgeMobile = product.discountBadge
-                ? `<span class="inline-block sm:hidden text-[10px] font-black ${badgeClass} px-2 py-0.5 rounded-md whitespace-nowrap">${product.discountBadge}</span>`
-                : "";
-            const guaranteeHTML = product.guarantee
-                ? `<span class="text-xs font-bold text-emerald-600 whitespace-nowrap">${product.guarantee}</span>`
-                : `<span class="text-xs font-bold text-slate-500 whitespace-nowrap">${product.paymentNotice || 'Yappy / Tarjeta'}</span>`;
+            const oldPriceHTML = product.priceOld ? `<span class="text-[11px] text-slate-400 line-through leading-none">${product.priceOld}</span>` : "";
+            const deliveryNotice = product.delivery === "physical" ? "Envíos en Panamá" : "Descarga inmediata";
+            const deliveryIcon = product.delivery === "physical" ? "truck" : "download";
 
             priceAreaHTML = `
-                <div class="flex items-center justify-between min-h-[2.5rem] gap-2">
-                    <div class="flex items-baseline gap-1.5 shrink-0">
+                <div class="flex items-end justify-between min-h-[3rem]">
+                    <div class="flex flex-col">
                         ${oldPriceHTML}
-                        <span class="text-2xl font-black text-slate-900">${product.priceDisplay}</span>
-                        <span class="text-[10px] font-bold text-slate-500">USD</span>
-                        ${discountBadgeDesktop}
+                        <span class="text-2xl font-black text-slate-900 tracking-tight leading-tight">${product.priceDisplay}</span>
                     </div>
-                    <div class="flex flex-col sm:flex-row items-end sm:items-baseline gap-0.5 sm:gap-2 text-right shrink-0">
-                        ${discountBadgeMobile}
-                        ${guaranteeHTML}
+                    <div class="flex items-center gap-1.5 text-xs font-semibold text-slate-500 pb-0.5">
+                        <i data-lucide="${deliveryIcon}" class="w-3.5 h-3.5 text-slate-400 shrink-0"></i>
+                        <span>${deliveryNotice}</span>
                     </div>
                 </div>
             `;
