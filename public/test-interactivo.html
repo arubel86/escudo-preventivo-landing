@@ -433,18 +433,18 @@
                     </p>
 
                     <!-- Desglose por Áreas -->
-                    <div class="grid grid-cols-3 gap-2.5 sm:gap-4 mb-6 text-left">
-                        <div class="bg-slate-50 p-3 sm:p-4 rounded-xl border border-slate-200">
-                            <span class="text-[11px] font-bold text-slate-500 uppercase block mb-1">Finanzas</span>
-                            <span id="score-finanzas" class="text-sm sm:text-base font-black text-slate-900 block">-</span>
+                    <div class="grid grid-cols-3 gap-2 sm:gap-4 mb-6 text-left">
+                        <div class="bg-slate-50 p-2.5 sm:p-4 rounded-xl border border-slate-200">
+                            <span class="text-[10px] sm:text-[11px] font-bold text-slate-500 uppercase block mb-1">Finanzas</span>
+                            <div id="score-finanzas" class="text-xs sm:text-sm font-black text-slate-900 leading-none">-</div>
                         </div>
-                        <div class="bg-slate-50 p-3 sm:p-4 rounded-xl border border-slate-200">
-                            <span class="text-[11px] font-bold text-slate-500 uppercase block mb-1">Legal</span>
-                            <span id="score-legal" class="text-sm sm:text-base font-black text-slate-900 block">-</span>
+                        <div class="bg-slate-50 p-2.5 sm:p-4 rounded-xl border border-slate-200">
+                            <span class="text-[10px] sm:text-[11px] font-bold text-slate-500 uppercase block mb-1">Legal</span>
+                            <div id="score-legal" class="text-xs sm:text-sm font-black text-slate-900 leading-none">-</div>
                         </div>
-                        <div class="bg-slate-50 p-3 sm:p-4 rounded-xl border border-slate-200">
-                            <span class="text-[11px] font-bold text-slate-500 uppercase block mb-1">Operaciones</span>
-                            <span id="score-operaciones" class="text-sm sm:text-base font-black text-slate-900 block">-</span>
+                        <div class="bg-slate-50 p-2.5 sm:p-4 rounded-xl border border-slate-200">
+                            <span class="text-[10px] sm:text-[11px] font-bold text-slate-500 uppercase block mb-1">Operaciones</span>
+                            <div id="score-operaciones" class="text-xs sm:text-sm font-black text-slate-900 leading-none">-</div>
                         </div>
                     </div>
 
@@ -1022,16 +1022,16 @@
             const opsReds = answers.slice(10, 15).filter(a => a === 'R' || a === 'A').length;
 
             document.getElementById('score-finanzas').innerHTML = finanzasReds === 0 
-                ? '<span class="text-emerald-600 font-bold">✓ Controlado</span>' 
-                : `<span class="text-amber-600 font-bold">${finanzasReds} alerta(s)</span>`;
+                ? '<span class="inline-flex items-center gap-1 text-emerald-600 font-bold whitespace-nowrap text-[11px] sm:text-xs leading-none"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500 shrink-0"></i><span>Controlado</span></span>' 
+                : `<span class="inline-flex items-center gap-1 text-amber-600 font-bold whitespace-nowrap text-[11px] sm:text-xs leading-none"><i data-lucide="alert-triangle" class="w-3.5 h-3.5 text-amber-500 shrink-0"></i><span>${finanzasReds} alerta(s)</span></span>`;
 
             document.getElementById('score-legal').innerHTML = legalReds === 0 
-                ? '<span class="text-emerald-600 font-bold">✓ Blindado</span>' 
-                : `<span class="text-rose-600 font-bold">${legalReds} alerta(s)</span>`;
+                ? '<span class="inline-flex items-center gap-1 text-emerald-600 font-bold whitespace-nowrap text-[11px] sm:text-xs leading-none"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500 shrink-0"></i><span>Blindado</span></span>' 
+                : `<span class="inline-flex items-center gap-1 text-rose-600 font-bold whitespace-nowrap text-[11px] sm:text-xs leading-none"><i data-lucide="alert-octagon" class="w-3.5 h-3.5 text-rose-500 shrink-0"></i><span>${legalReds} alerta(s)</span></span>`;
 
             document.getElementById('score-operaciones').innerHTML = opsReds === 0 
-                ? '<span class="text-emerald-600 font-bold">✓ Estable</span>' 
-                : `<span class="text-amber-600 font-bold">${opsReds} alerta(s)</span>`;
+                ? '<span class="inline-flex items-center gap-1 text-emerald-600 font-bold whitespace-nowrap text-[11px] sm:text-xs leading-none"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500 shrink-0"></i><span>Estable</span></span>' 
+                : `<span class="inline-flex items-center gap-1 text-amber-600 font-bold whitespace-nowrap text-[11px] sm:text-xs leading-none"><i data-lucide="alert-triangle" class="w-3.5 h-3.5 text-amber-500 shrink-0"></i><span>${opsReds} alerta(s)</span></span>`;
 
             const iconContainer = document.getElementById('result-icon-container');
             const badge = document.getElementById('result-badge');
