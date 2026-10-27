@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Firmas de Correo Gmail | Aizprua S.E.</title>
+    <meta name="description" content="Colección de firmas de correo corporativas oficiales para Gmail - Aizprua Soluciones Empresariales">
+    <link rel="icon" href="assets/aizprua-shield-og.jpg" type="image/jpeg">
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS (CDN Oficial) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#3849C8',
+                            'blue-dark': '#2D3A9F',
+                            'blue-light': '#4F5ED4',
+                            orange: '#FF8A1E',
+                            'orange-dark': '#E67A15',
+                            'orange-light': '#FFA04A',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            background-color: #0B0F19;
+            color: #F8FAFC;
+            font-family: 'Inter', sans-serif;
+        }
+        .email-preview-box {
+            background: #FFFFFF;
+            color: #0F172A;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+        .tab-btn.active {
+            background-color: #3849C8;
+            color: #FFFFFF;
+            border-color: #3849C8;
+            box-shadow: 0 10px 20px -5px rgba(56, 73, 200, 0.4);
+        }
+    </style>
+</head>
+<body class="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+
+    <!-- ENCABEZADO DE PÁGINA -->
+    <header class="max-w-5xl mx-auto mb-8 text-center">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-blue/15 border border-brand-blue/30 text-brand-blue-light text-xs font-bold uppercase tracking-wider mb-4">
+            <i data-lucide="mail-check" class="w-4 h-4 text-brand-orange"></i>
+            Identidad Corporativa Oficial
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-black text-white tracking-tight mb-3">
+            Firmas de Correo para Gmail & Outlook
+        </h1>
+        <p class="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto">
+            Firmas ejecutivas optimizadas con la paleta de marca de <strong class="text-white">Aizprua S.E.</strong> Copia con 1 solo clic y pégala directamente en Gmail.
+        </p>
+
+        <!-- SELECTOR DE PERFILES (ARUBEL / ERIKA) -->
+        <div class="mt-8 inline-flex p-1.5 bg-slate-900 border border-slate-800 rounded-2xl shadow-xl">
+            <button type="button" onclick="switchProfile('arubel')" id="tab-arubel-btn" class="tab-btn active px-6 py-3 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2.5 transition cursor-pointer">
+                <img src="assets/avatar-arubel.jpg" alt="Arubel Aizprua" class="w-6 h-6 rounded-full object-cover border border-white/30">
+                <span>Arubel Aizprua</span>
+                <span class="text-[10px] opacity-80 font-normal hidden sm:inline">(Consultor)</span>
+            </button>
+            <button type="button" onclick="switchProfile('erika')" id="tab-erika-btn" class="tab-btn px-6 py-3 rounded-xl text-xs sm:text-sm font-bold text-slate-400 hover:text-white flex items-center gap-2.5 transition cursor-pointer">
+                <img src="assets/erika-aizprua.jpg" alt="Erika de Aizprua" class="w-6 h-6 rounded-full object-cover border border-white/30">
+                <span>Erika de Aizprua</span>
+                <span class="text-[10px] opacity-80 font-normal hidden sm:inline">(Operaciones)</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- GUÍA RÁPIDA DE INSTALACIÓN (3 PASOS) -->
+    <section class="max-w-5xl mx-auto mb-10 bg-slate-900/80 border border-slate-800 rounded-2xl p-5 shadow-xl">
+        <h2 class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-3 flex items-center gap-2">
+            <i data-lucide="help-circle" class="w-4 h-4 text-brand-orange"></i>
+            Cómo instalarla en Gmail en 30 segundos
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-slate-300">
+            <div class="bg-slate-800/60 p-3.5 rounded-xl border border-slate-700/60">
+                <strong class="text-white block mb-0.5">1. Copia la Firma</strong>
+                <p class="text-slate-400 text-[11px]">Pulsa el botón <strong>«Copiar Firma (Visual)»</strong> de tu diseño preferido.</p>
+            </div>
+            <div class="bg-slate-800/60 p-3.5 rounded-xl border border-slate-700/60">
+                <strong class="text-white block mb-0.5">2. Abre Gmail</strong>
+                <p class="text-slate-400 text-[11px]">Ve a <strong>Configuración ⚙️ &gt; Ver todos los ajustes &gt; General &gt; Firma</strong>.</p>
+            </div>
+            <div class="bg-slate-800/60 p-3.5 rounded-xl border border-slate-700/60">
+                <strong class="text-white block mb-0.5">3. Pega y Guarda</strong>
+                <p class="text-slate-400 text-[11px]">Presiona <strong>Ctrl + V</strong> (Pegar) en el recuadro y haz clic en <strong>Guardar cambios</strong>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- PERFIL 1: ARUBEL AIZPRUA (CONSULTOR EMPRESARIAL)          -->
+    <!-- ======================================================== -->
+    <main id="profile-arubel" class="max-w-5xl mx-auto space-y-10">
+
+        <!-- PROPUESTA 1: EJECUTIVA CON FOTO -->
+        <article class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-800">
+                <div>
+                    <span class="bg-brand-blue/20 text-brand-blue-light border border-brand-blue/30 text-[10px] font-black uppercase px-2.5 py-1 rounded-full mb-1 inline-block">
+                        Arubel • Opción 1
+                    </span>
+                    <h3 class="text-xl font-bold text-white">Ejecutiva con Fotografía Personal</h3>
+                    <p class="text-xs text-slate-400">Máxima cercanía y autoridad humana ante clientes y directores de empresa.</p>
+                </div>
+                <div class="flex items-center gap-2.5 shrink-0">
+                    <button type="button" onclick="copyRichSignature('sig-1', 'btn-sig-1')" id="btn-sig-1" class="bg-brand-blue hover:bg-brand-blue-dark text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-brand-blue/30 transition flex items-center gap-2 cursor-pointer">
+                        <i data-lucide="copy" class="w-4 h-4"></i>
+                        <span>Copiar Firma (Visual)</span>
+                    </button>
+                    <button type="button" onclick="toggleHtmlView('code-sig-1')" class="bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold px-3 py-2.5 rounded-xl border border-slate-700 transition">
+                        &lt;/&gt; Código
+                    </button>
+                </div>
+            </div>
+
+            <div class="email-preview-box p-6 sm:p-8 overflow-x-auto">
+                <div id="sig-1" class="sig-container inline-block text-left" style="font-family: Arial, Helvetica, sans-serif;">
+                    <table cellpadding="0" cellspacing="0" border="0" style="vertical-align: middle; font-family: Arial, Helvetica, sans-serif; font-size: 13px; line-height: 1.4; color: #0F172A;">
+                        <tbody>
+                            <tr>
+                                <td style="vertical-align: top; padding-right: 20px;">
+                                    <img src="https://aizprua.com/assets/avatar-arubel.jpg" alt="Arubel Aizprua" width="76" height="76" style="display: block; width: 76px; height: 76px; border-radius: 50%; object-fit: cover; border: 2px solid #3849C8;">
+                                </td>
+                                <td style="width: 2px; background-color: #3849C8; font-size: 1px; line-height: 1px;" width="2">&nbsp;</td>
+                                <td style="vertical-align: top; padding-left: 20px;">
+                                    <table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, Helvetica, sans-serif;">
+                                        <tbody>
+                                            <tr>
+                                                <td style="padding-bottom: 3px;">
+                                                    <span style="font-size: 16px; font-weight: 800; color: #0F172A; letter-spacing: -0.2px;">Arubel Aizprua</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding-bottom: 10px;">
+                                                    <span style="font-size: 12px; font-weight: 700; color: #3849C8; text-transform: uppercase;">Consultor Empresarial</span>
+                                                    <span style="font-size: 12px; color: #64748B;"> &nbsp;|&nbsp; </span>
+                                                    <strong style="font-size: 12px; color: #0F172A;">Aizprua S.E.</strong>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size: 12px; color: #334155; padding-bottom: 3px;">
+                                                    <strong style="color: #64748B;">WhatsApp:</strong>
+                                                    <a href="https://wa.me/50765461527" target="_blank" style="color: #0F172A; text-decoration: none; font-weight: 600;">+507 6546-1527</a>
+                                                    <span style="color: #CBD5E1;"> &nbsp;•&nbsp; </span>
+                                                    <strong style="color: #64748B;">Email:</strong>
+                                                    <a href="mailto:info@aizprua.com" target="_blank" style="color: #3849C8; text-decoration: none; font-weight: 600;">info@aizprua.com</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size: 12px; color: #334155; padding-bottom: 8px;">
+                                                    <strong style="color: #64748B;">Web:</strong>
+                                                    <a href="https://www.aizprua.com" target="_blank" style="color: #3849C8; text-decoration: underline; font-weight: 600;">www.aizprua.com</a>
+                                                    <span style="color: #CBD5E1;"> &nbsp;•&nbsp; </span>
+                                                    <span style="color: #64748B;">Panamá Oeste, La Chorrera</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding-top: 4px;">
+                                                    <table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, Helvetica, sans-serif;">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="https://wa.me/50765461527" target="_blank" style="display: inline-block; background-color: #25D366; color: #FFFFFF; font-size: 11px; font-weight: bold; text-decoration: none; padding: 4px 10px; border-radius: 6px; line-height: 14px;">
+                                                                        Chatear por WhatsApp
+                                                                    </a>
+                                                                </td>
+                                                                <td width="8">&nbsp;</td>
+                                                                <td>
+                                                                    <a href="https://www.instagram.com/aizpruase" target="_blank" style="display: inline-block; background-color: #FF8A1E; color: #FFFFFF; font-size: 11px; font-weight: bold; text-decoration: none; padding: 4px 8px; border-radius: 6px; line-height: 14px;">
+                                                                        Instagram
+                                                                    </a>
+                                                                </td>
+                                                                <td width="6">&nbsp;</td>
+                                                                <td>
+                                                                    <a href="https://www.facebook.com/aizpruase" target="_blank" style="display: inline-block; background-color: #3849C8; color: #FFFFFF; font-size: 11px; font-weight: bold; text-decoration: none; padding: 4px 8px; border-radius: 6px; line-height: 14px;">
+                                                                        Facebook
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="code-sig-1" class="hidden mt-4 pt-4 border-t border-slate-800">
+                <textarea readonly class="w-full h-36 bg-slate-950 text-slate-300 font-mono text-xs p-3 rounded-xl border border-slate-800 focus:outline-none" onclick="this.select()"></textarea>
+            </div>
+        </article>
+
+
+        <!-- PROPUESTA 2: INSTITUCIONAL CON LOGO -->
+        <article class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-800">
+                <div>
+                    <span class="bg-brand-orange/20 text-brand-orange-light border border-brand-orange/30 text-[10px] font-black uppercase px-2.5 py-1 rounded-full mb-1 inline-block">
+                        Arubel • Opción 2
+                    </span>
+                    <h3 class="text-xl font-bold text-white">Institucional con Logotipo Oficial</h3>
+                    <p class="text-xs text-slate-400">Enfoque formal B2B con escudo corporativo, teléfono, info@aizprua.com y botones de acción.</p>
+                </div>
+                <div class="flex items-center gap-2.5 shrink-0">
+                    <button type="button" onclick="copyRichSignature('sig-2', 'btn-sig-2')" id="btn-sig-2" class="bg-brand-orange hover:bg-brand-orange-dark text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-brand-orange/30 transition flex items-center gap-2 cursor-pointer">
+                        <i data-lucide="copy" class="w-4 h-4"></i>
+                        <span>Copiar Firma (Visual)</span>
+                    </button>
+                    <button type="button" onclick="toggleHtmlView('code-sig-2')" class="bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold px-3 py-2.5 rounded-xl border border-slate-700 transition">
+                        &lt;/&gt; Código
+                    </button>
+                </div>
+            </div>
+
+            <div class="email-preview-box p-6 sm:p-8 overflow-x-auto">
+                <div id="sig-2" class="sig-container inline-block text-left" style="font-family: Arial, Helvetica, sans-serif;">
+                    <table cellpadding="0" cellspacing="0" border="0" style="vertical-align: middle; font-family: Arial, Helvetica, sans-serif; font-size: 13px; line-height: 1.4; color: #0F172A;">
+                        <tbody>
+                            <tr>
+                                <td style="vertical-align: middle; padding-right: 22px;">
+                                    <a href="https://www.aizprua.com" target="_blank" style="text-decoration: none; display: block;">
+                                        <img src="https://aizprua.com/assets/aizprua-avatar-yt.png" alt="Aizprua S.E." width="72" height="72" style="display: block; width: 72px; height: 72px; border-radius: 14px; object-fit: contain;">
+                                    </a>
+                                </td>
+                                <td style="width: 2px; background-color: #FF8A1E; font-size: 1px; line-height: 1px;" width="2">&nbsp;</td>
+                                <td style="vertical-align: top; padding-left: 22px;">
+                                    <table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, Helvetica, sans-serif;">
+                                        <tbody>
+                                            <tr>
+                                                <td style="padding-bottom: 2px;">
+                                                    <span style="font-size: 15px; font-weight: 900; color: #3849C8; letter-spacing: -0.2px;">AIZPRUA SOLUCIONES EMPRESARIALES</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding-bottom: 8px;">
+                                                    <span style="font-size: 13px; font-weight: 700; color: #0F172A;">Arubel Aizprua</span>
+                                                    <span style="font-size: 12px; color: #64748B;"> &nbsp;|&nbsp; </span>
+                                                    <span style="font-size: 12px; font-weight: 600; color: #FF8A1E;">Consultor Empresarial</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size: 12px; color: #334155; padding-bottom: 3px;">
+                                                    <strong style="color: #64748B;">Móvil:</strong>
+                                                    <a href="tel:+50765461527" style="color: #0F172A; text-decoration: none; font-weight: 600;">+507 6546-1527</a>
+                                                    <span style="color: #CBD5E1;"> &nbsp;•&nbsp; </span>
+                                                    <strong style="color: #64748B;">Email:</strong>
+                                                    <a href="mailto:info@aizprua.com" target="_blank" style="color: #3849C8; text-decoration: none; font-weight: 600;">info@aizprua.com</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size: 12px; color: #334155; padding-bottom: 8px;">
+                                                    <strong style="color: #64748B;">Portal Web:</strong>
+                                                    <a href="https://www.aizprua.com" target="_blank" style="color: #3849C8; text-decoration: underline; font-weight: bold;">aizprua.com</a>
+                                                    <span style="color: #CBD5E1;"> &nbsp;•&nbsp; </span>
+                                                    <span style="color: #64748B;">Panamá Oeste, La Chorrera</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding-top: 4px;">
+                                                    <table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, Helvetica, sans-serif;">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="https://wa.me/50765461527" target="_blank" style="display: inline-block; background-color: #25D366; color: #FFFFFF; font-size: 11px; font-weight: bold; text-decoration: none; padding: 4px 10px; border-radius: 6px; line-height: 14px;">
+                                                                        Chatear por WhatsApp
+                                                                    </a>
+                                                                </td>
+                                                                <td width="8">&nbsp;</td>
+                                                                <td>
+                                                                    <a href="https://www.instagram.com/aizpruase" target="_blank" style="display: inline-block; background-color: #FF8A1E; color: #FFFFFF; font-size: 11px; font-weight: bold; text-decoration: none; padding: 4px 8px; border-radius: 6px; line-height: 14px;">
+                                                                        Instagram
+                                                                    </a>
+                                                                </td>
+                                                                <td width="6">&nbsp;</td>
+                                                                <td>
+                                                                    <a href="https://www.facebook.com/aizpruase" target="_blank" style="display: inline-block; background-color: #3849C8; color: #FFFFFF; font-size: 11px; font-weight: bold; text-decoration: none; padding: 4px 8px; border-radius: 6px; line-height: 14px;">
+                                                                        Facebook
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="code-sig-2" class="hidden mt-4 pt-4 border-t border-slate-800">
+                <textarea readonly class="w-full h-36 bg-slate-950 text-slate-300 font-mono text-xs p-3 rounded-xl border border-slate-800 focus:outline-none" onclick="this.select()"></textarea>
+            </div>
+        </article>
+
+
+        <!-- PROPUESTA 3: MINIMALISTA -->
+        <article class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-800">
+                <div>
+                    <span class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] font-black uppercase px-2.5 py-1 rounded-full mb-1 inline-block">
+                        Arubel • Opción 3
+                    </span>
+                    <h3 class="text-xl font-bold text-white">Minimalista para Respuestas Diarias</h3>
+                    <p class="text-xs text-slate-400">Ligera y condensada en 3 líneas, sin imágenes para no recargar cadenas de correo largas.</p>
+                </div>
+                <div class="flex items-center gap-2.5 shrink-0">
+                    <button type="button" onclick="copyRichSignature('sig-3', 'btn-sig-3')" id="btn-sig-3" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-emerald-900/30 transition flex items-center gap-2 cursor-pointer">
+                        <i data-lucide="copy" class="w-4 h-4"></i>
+                        <span>Copiar Firma (Visual)</span>
+                    </button>
+                    <button type="button" onclick="toggleHtmlView('code-sig-3')" class="bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold px-3 py-2.5 rounded-xl border border-slate-700 transition">
+                        &lt;/&gt; Código
+                    </button>
+                </div>
+            </div>
+
+            <div class="email-preview-box p-6 sm:p-8 overflow-x-auto">
+                <div id="sig-3" class="sig-container inline-block text-left" style="font-family: Arial, Helvetica, sans-serif;">
+                    <table cellpadding="0" cellspacing="0" border="0" style="vertical-align: middle; font-family: Arial, Helvetica, sans-serif; font-size: 13px; line-height: 1.4; color: #0F172A;">
+                        <tbody>
+                            <tr>
+                                <td style="width: 3px; background-color: #3849C8; font-size: 1px; line-height: 1px;" width="3">&nbsp;</td>
+                                <td style="vertical-align: top; padding-left: 14px;">
+                                    <table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, Helvetica, sans-serif;">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <strong style="font-size: 15px; color: #0F172A;">Arubel Aizprua</strong>
+                                                    <span style="color: #64748B;"> &nbsp;•&nbsp; </span>
+                                                    <span style="font-size: 12px; font-weight: 700; color: #3849C8;">Consultor Empresarial</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size: 12px; color: #475569; padding-top: 1px; padding-bottom: 4px;">
+                                                    <strong>Aizprua Soluciones Empresariales</strong>
+                                                    <span style="color: #CBD5E1;"> &nbsp;|&nbsp; </span>
+                                                    <span style="font-size: 11px; color: #64748B;">Tu Solución Empresarial</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size: 11px; color: #334155;">
+                                                    <a href="https://wa.me/50765461527" target="_blank" style="color: #25D366; text-decoration: none; font-weight: bold;">WhatsApp (+507 6546-1527)</a>
+                                                    <span style="color: #CBD5E1;"> &nbsp;•&nbsp; </span>
+                                                    <a href="mailto:info@aizprua.com" target="_blank" style="color: #3849C8; text-decoration: none; font-weight: 600;">info@aizprua.com</a>
+                                                    <span style="color: #CBD5E1;"> &nbsp;•&nbsp; </span>
+                                                    <a href="https://www.aizprua.com" target="_blank" style="color: #FF8A1E; text-decoration: none; font-weight: bold;">aizprua.com</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="code-sig-3" class="hidden mt-4 pt-4 border-t border-slate-800">
+                <textarea readonly class="w-full h-36 bg-slate-950 text-slate-300 font-mono text-xs p-3 rounded-xl border border-slate-800 focus:outline-none" onclick="this.select()"></textarea>
+            </div>
+        </article>
+
+    </main>
+
+
+    <!-- ======================================================== -->
+    <!-- PERFIL 2: ERIKA DE AIZPRUA (GESTORA ADMINISTRATIVA)       -->
+    <!-- ======================================================== -->
+    <main id="profile-erika" class="max-w-5xl mx-auto space-y-10 hidden">
+
+        <!-- PROPUESTA 1: EJECUTIVA CON FOTO DE ERIKA -->
+        <article class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-800">
+                <div>
+                    <span class="bg-brand-orange/20 text-brand-orange-light border border-brand-orange/30 text-[10px] font-black uppercase px-2.5 py-1 rounded-full mb-1 inline-block">
+                        Erika • Opción 1
+                    </span>
+                    <h3 class="text-xl font-bold text-white">Ejecutiva con Fotografía Personal</h3>
+                    <p class="text-xs text-slate-400">Excelente para atención al cliente, seguimiento de expedientes y trámites administrativos.</p>
+                </div>
+                <div class="flex items-center gap-2.5 shrink-0">
+                    <button type="button" onclick="copyRichSignature('sig-erika-1', 'btn-sig-erika-1')" id="btn-sig-erika-1" class="bg-brand-orange hover:bg-brand-orange-dark text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-brand-orange/30 transition flex items-center gap-2 cursor-pointer">
+                        <i data-lucide="copy" class="w-4 h-4"></i>
+                        <span>Copiar Firma (Visual)</span>
+                    </button>
+                    <button type="button" onclick="toggleHtmlView('code-sig-erika-1')" class="bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold px-3 py-2.5 rounded-xl border border-slate-700 transition">
+                        &lt;/&gt; Código
+                    </button>
+                </div>
+            </div>
+
+            <div class="email-preview-box p-6 sm:p-8 overflow-x-auto">
+                <div id="sig-erika-1" class="sig-container inline-block text-left" style="font-family: Arial, Helvetica, sans-serif;">
+                    <table cellpadding="0" cellspacing="0" border="0" style="vertical-align: middle; font-family: Arial, Helvetica, sans-serif; font-size: 13px; line-height: 1.4; color: #0F172A;">
+                        <tbody>
+                            <tr>
+                                <!-- Fotografía de Erika -->
+                                <td style="vertical-align: top; padding-right: 20px;">
+                                    <img src="https://aizprua.com/assets/erika-aizprua.jpg" alt="Erika de Aizprua" width="76" height="76" style="display: block; width: 76px; height: 76px; border-radius: 50%; object-fit: cover; border: 2px solid #FF8A1E;">
+                                </td>
+                                <!-- Separador Naranja -->
+                                <td style="width: 2px; background-color: #FF8A1E; font-size: 1px; line-height: 1px;" width="2">&nbsp;</td>
+                                <!-- Datos de Erika -->
+                                <td style="vertical-align: top; padding-left: 20px;">
+                                    <table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, Helvetica, sans-serif;">
+                                        <tbody>
+                                            <tr>
+                                                <td style="padding-bottom: 3px;">
+                                                    <span style="font-size: 16px; font-weight: 800; color: #0F172A; letter-spacing: -0.2px;">Erika de Aizprua</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding-bottom: 10px;">
+                                                    <span style="font-size: 12px; font-weight: 700; color: #FF8A1E;">Gestora Administrativa & Operaciones</span>
+                                                    <span style="font-size: 12px; color: #64748B;"> &nbsp;|&nbsp; </span>
+                                                    <strong style="font-size: 12px; color: #0F172A;">Aizprua S.E.</strong>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size: 12px; color: #334155; padding-bottom: 3px;">
+                                                    <strong style="color: #64748B;">WhatsApp:</strong>
+                                                    <a href="https://wa.me/50765461527?text=Hola%20Erika,%20deseo%20consultar%20sobre%20mi%20tr%C3%A1mite" target="_blank" style="color: #0F172A; text-decoration: none; font-weight: 600;">+507 6546-1527</a>
+                                                    <span style="color: #CBD5E1;"> &nbsp;•&nbsp; </span>
+                                                    <strong style="color: #64748B;">Email:</strong>
+                                                    <a href="mailto:erika@aizprua.com" target="_blank" style="color: #3849C8; text-decoration: none; font-weight: 600;">erika@aizprua.com</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size: 12px; color: #334155; padding-bottom: 8px;">
+                                                    <strong style="color: #64748B;">Web:</strong>
+                                                    <a href="https://www.aizprua.com" target="_blank" style="color: #3849C8; text-decoration: underline; font-weight: 600;">www.aizprua.com</a>
+                                                    <span style="color: #CBD5E1;"> &nbsp;•&nbsp; </span>
+                                                    <span style="color: #64748B;">Panamá Oeste, La Chorrera</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding-top: 4px;">
+                                                    <table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, Helvetica, sans-serif;">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="https://wa.me/50765461527?text=Hola%20Erika,%20deseo%20consultar%20sobre%20mi%20tr%C3%A1mite" target="_blank" style="display: inline-block; background-color: #25D366; color: #FFFFFF; font-size: 11px; font-weight: bold; text-decoration: none; padding: 4px 10px; border-radius: 6px; line-height: 14px;">
+                                                                        Chatear por WhatsApp
+                                                                    </a>
+                                                                </td>
+                                                                <td width="8">&nbsp;</td>
+                                                                <td>
+                                                                    <a href="https://www.instagram.com/aizpruase" target="_blank" style="display: inline-block; background-color: #FF8A1E; color: #FFFFFF; font-size: 11px; font-weight: bold; text-decoration: none; padding: 4px 8px; border-radius: 6px; line-height: 14px;">
+                                                                        Instagram
+                                                                    </a>
+                                                                </td>
+                                                                <td width="6">&nbsp;</td>
+                                                                <td>
+                                                                    <a href="https://www.facebook.com/aizpruase" target="_blank" style="display: inline-block; background-color: #3849C8; color: #FFFFFF; font-size: 11px; font-weight: bold; text-decoration: none; padding: 4px 8px; border-radius: 6px; line-height: 14px;">
+                                                                        Facebook
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="code-sig-erika-1" class="hidden mt-4 pt-4 border-t border-slate-800">
+                <textarea readonly class="w-full h-36 bg-slate-950 text-slate-300 font-mono text-xs p-3 rounded-xl border border-slate-800 focus:outline-none" onclick="this.select()"></textarea>
+            </div>
+        </article>
+
+
+        <!-- PROPUESTA 2: INSTITUCIONAL CON LOGO DE ERIKA -->
+        <article class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-800">
+                <div>
+                    <span class="bg-brand-blue/20 text-brand-blue-light border border-brand-blue/30 text-[10px] font-black uppercase px-2.5 py-1 rounded-full mb-1 inline-block">
+                        Erika • Opción 2
+                    </span>
+                    <h3 class="text-xl font-bold text-white">Institucional con Logotipo Oficial</h3>
+                    <p class="text-xs text-slate-400">Formato formal corporativo con el escudo oficial de Aizprua S.E. y el correo directo erika@aizprua.com.</p>
+                </div>
+                <div class="flex items-center gap-2.5 shrink-0">
+                    <button type="button" onclick="copyRichSignature('sig-erika-2', 'btn-sig-erika-2')" id="btn-sig-erika-2" class="bg-brand-blue hover:bg-brand-blue-dark text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-brand-blue/30 transition flex items-center gap-2 cursor-pointer">
+                        <i data-lucide="copy" class="w-4 h-4"></i>
+                        <span>Copiar Firma (Visual)</span>
+                    </button>
+                    <button type="button" onclick="toggleHtmlView('code-sig-erika-2')" class="bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold px-3 py-2.5 rounded-xl border border-slate-700 transition">
+                        &lt;/&gt; Código
+                    </button>
+                </div>
+            </div>
+
+            <div class="email-preview-box p-6 sm:p-8 overflow-x-auto">
+                <div id="sig-erika-2" class="sig-container inline-block text-left" style="font-family: Arial, Helvetica, sans-serif;">
+                    <table cellpadding="0" cellspacing="0" border="0" style="vertical-align: middle; font-family: Arial, Helvetica, sans-serif; font-size: 13px; line-height: 1.4; color: #0F172A;">
+                        <tbody>
+                            <tr>
+                                <td style="vertical-align: middle; padding-right: 22px;">
+                                    <a href="https://www.aizprua.com" target="_blank" style="text-decoration: none; display: block;">
+                                        <img src="https://aizprua.com/assets/aizprua-avatar-yt.png" alt="Aizprua S.E." width="72" height="72" style="display: block; width: 72px; height: 72px; border-radius: 14px; object-fit: contain;">
+                                    </a>
+                                </td>
+                                <td style="width: 2px; background-color: #3849C8; font-size: 1px; line-height: 1px;" width="2">&nbsp;</td>
+                                <td style="vertical-align: top; padding-left: 22px;">
+                                    <table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, Helvetica, sans-serif;">
+                                        <tbody>
+                                            <tr>
+                                                <td style="padding-bottom: 2px;">
+                                                    <span style="font-size: 15px; font-weight: 900; color: #3849C8; letter-spacing: -0.2px;">AIZPRUA SOLUCIONES EMPRESARIALES</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding-bottom: 8px;">
+                                                    <span style="font-size: 13px; font-weight: 700; color: #0F172A;">Erika de Aizprua</span>
+                                                    <span style="font-size: 12px; color: #64748B;"> &nbsp;|&nbsp; </span>
+                                                    <span style="font-size: 12px; font-weight: 600; color: #FF8A1E;">Gestora Administrativa & Operaciones</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size: 12px; color: #334155; padding-bottom: 3px;">
+                                                    <strong style="color: #64748B;">Móvil:</strong>
+                                                    <a href="tel:+50765461527" style="color: #0F172A; text-decoration: none; font-weight: 600;">+507 6546-1527</a>
+                                                    <span style="color: #CBD5E1;"> &nbsp;•&nbsp; </span>
+                                                    <strong style="color: #64748B;">Email:</strong>
+                                                    <a href="mailto:erika@aizprua.com" target="_blank" style="color: #3849C8; text-decoration: none; font-weight: 600;">erika@aizprua.com</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size: 12px; color: #334155; padding-bottom: 8px;">
+                                                    <strong style="color: #64748B;">Portal Web:</strong>
+                                                    <a href="https://www.aizprua.com" target="_blank" style="color: #3849C8; text-decoration: underline; font-weight: bold;">aizprua.com</a>
+                                                    <span style="color: #CBD5E1;"> &nbsp;•&nbsp; </span>
+                                                    <span style="color: #64748B;">Panamá Oeste, La Chorrera</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding-top: 4px;">
+                                                    <table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, Helvetica, sans-serif;">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="https://wa.me/50765461527?text=Hola%20Erika,%20deseo%20consultar%20sobre%20mi%20tr%C3%A1mite" target="_blank" style="display: inline-block; background-color: #25D366; color: #FFFFFF; font-size: 11px; font-weight: bold; text-decoration: none; padding: 4px 10px; border-radius: 6px; line-height: 14px;">
+                                                                        Chatear por WhatsApp
+                                                                    </a>
+                                                                </td>
+                                                                <td width="8">&nbsp;</td>
+                                                                <td>
+                                                                    <a href="https://www.instagram.com/aizpruase" target="_blank" style="display: inline-block; background-color: #FF8A1E; color: #FFFFFF; font-size: 11px; font-weight: bold; text-decoration: none; padding: 4px 8px; border-radius: 6px; line-height: 14px;">
+                                                                        Instagram
+                                                                    </a>
+                                                                </td>
+                                                                <td width="6">&nbsp;</td>
+                                                                <td>
+                                                                    <a href="https://www.facebook.com/aizpruase" target="_blank" style="display: inline-block; background-color: #3849C8; color: #FFFFFF; font-size: 11px; font-weight: bold; text-decoration: none; padding: 4px 8px; border-radius: 6px; line-height: 14px;">
+                                                                        Facebook
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="code-sig-erika-2" class="hidden mt-4 pt-4 border-t border-slate-800">
+                <textarea readonly class="w-full h-36 bg-slate-950 text-slate-300 font-mono text-xs p-3 rounded-xl border border-slate-800 focus:outline-none" onclick="this.select()"></textarea>
+            </div>
+        </article>
+
+
+        <!-- PROPUESTA 3: MINIMALISTA DE ERIKA -->
+        <article class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-800">
+                <div>
+                    <span class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] font-black uppercase px-2.5 py-1 rounded-full mb-1 inline-block">
+                        Erika • Opción 3
+                    </span>
+                    <h3 class="text-xl font-bold text-white">Minimalista para Respuestas Diarias</h3>
+                    <p class="text-xs text-slate-400">Ligera y condensada en 3 líneas, sin imágenes para no recargar cadenas de correo largas.</p>
+                </div>
+                <div class="flex items-center gap-2.5 shrink-0">
+                    <button type="button" onclick="copyRichSignature('sig-erika-3', 'btn-sig-erika-3')" id="btn-sig-erika-3" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-emerald-900/30 transition flex items-center gap-2 cursor-pointer">
+                        <i data-lucide="copy" class="w-4 h-4"></i>
+                        <span>Copiar Firma (Visual)</span>
+                    </button>
+                    <button type="button" onclick="toggleHtmlView('code-sig-erika-3')" class="bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold px-3 py-2.5 rounded-xl border border-slate-700 transition">
+                        &lt;/&gt; Código
+                    </button>
+                </div>
+            </div>
+
+            <div class="email-preview-box p-6 sm:p-8 overflow-x-auto">
+                <div id="sig-erika-3" class="sig-container inline-block text-left" style="font-family: Arial, Helvetica, sans-serif;">
+                    <table cellpadding="0" cellspacing="0" border="0" style="vertical-align: middle; font-family: Arial, Helvetica, sans-serif; font-size: 13px; line-height: 1.4; color: #0F172A;">
+                        <tbody>
+                            <tr>
+                                <td style="width: 3px; background-color: #FF8A1E; font-size: 1px; line-height: 1px;" width="3">&nbsp;</td>
+                                <td style="vertical-align: top; padding-left: 14px;">
+                                    <table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, Helvetica, sans-serif;">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <strong style="font-size: 15px; color: #0F172A;">Erika de Aizprua</strong>
+                                                    <span style="color: #64748B;"> &nbsp;•&nbsp; </span>
+                                                    <span style="font-size: 12px; font-weight: 700; color: #FF8A1E;">Gestora Administrativa & Operaciones</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size: 12px; color: #475569; padding-top: 1px; padding-bottom: 4px;">
+                                                    <strong>Aizprua Soluciones Empresariales</strong>
+                                                    <span style="color: #CBD5E1;"> &nbsp;|&nbsp; </span>
+                                                    <span style="font-size: 11px; color: #64748B;">Gestión y Control de Trámites</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="font-size: 11px; color: #334155;">
+                                                    <a href="https://wa.me/50765461527?text=Hola%20Erika,%20deseo%20consultar%20sobre%20mi%20tr%C3%A1mite" target="_blank" style="color: #25D366; text-decoration: none; font-weight: bold;">WhatsApp (+507 6546-1527)</a>
+                                                    <span style="color: #CBD5E1;"> &nbsp;•&nbsp; </span>
+                                                    <a href="mailto:erika@aizprua.com" target="_blank" style="color: #3849C8; text-decoration: none; font-weight: 600;">erika@aizprua.com</a>
+                                                    <span style="color: #CBD5E1;"> &nbsp;•&nbsp; </span>
+                                                    <a href="https://www.aizprua.com" target="_blank" style="color: #FF8A1E; text-decoration: none; font-weight: bold;">aizprua.com</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="code-sig-erika-3" class="hidden mt-4 pt-4 border-t border-slate-800">
+                <textarea readonly class="w-full h-36 bg-slate-950 text-slate-300 font-mono text-xs p-3 rounded-xl border border-slate-800 focus:outline-none" onclick="this.select()"></textarea>
+            </div>
+        </article>
+
+    </main>
+
+    <!-- NOTIFICACIÓN TOAST (FEEDBACK VISUAL AL COPIAR) -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-slate-900 border border-emerald-500/50 text-white text-xs font-bold px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-3">
+        <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+            <i data-lucide="check" class="w-4 h-4"></i>
+        </div>
+        <div>
+            <p class="font-bold text-white">¡Firma copiada con éxito!</p>
+            <p class="text-[11px] text-slate-400">Ve a Gmail y presiona Ctrl + V para pegarla.</p>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        lucide.createIcons();
+
+        // Alternar entre perfiles (Arubel / Erika)
+        function switchProfile(profile) {
+            const arubelMain = document.getElementById('profile-arubel');
+            const erikaMain = document.getElementById('profile-erika');
+            const arubelBtn = document.getElementById('tab-arubel-btn');
+            const erikaBtn = document.getElementById('tab-erika-btn');
+
+            if (profile === 'arubel') {
+                arubelMain.classList.remove('hidden');
+                erikaMain.classList.add('hidden');
+                arubelBtn.classList.add('active');
+                arubelBtn.classList.remove('text-slate-400');
+                erikaBtn.classList.remove('active');
+                erikaBtn.classList.add('text-slate-400');
+            } else {
+                erikaMain.classList.remove('hidden');
+                arubelMain.classList.add('hidden');
+                erikaBtn.classList.add('active');
+                erikaBtn.classList.remove('text-slate-400');
+                arubelBtn.classList.remove('active');
+                arubelBtn.classList.add('text-slate-400');
+            }
+            lucide.createIcons();
+        }
+
+        // Rellenar los bloques de código HTML automáticamente
+        document.addEventListener('DOMContentLoaded', () => {
+            const sigIds = ['sig-1', 'sig-2', 'sig-3', 'sig-erika-1', 'sig-erika-2', 'sig-erika-3'];
+            sigIds.forEach(id => {
+                const container = document.getElementById(id);
+                const codeBox = document.querySelector(`#code-${id} textarea`);
+                if (container && codeBox) {
+                    codeBox.value = container.innerHTML.trim();
+                }
+            });
+        });
+
+        // Alternar visualización del código HTML
+        function toggleHtmlView(boxId) {
+            const box = document.getElementById(boxId);
+            if (box) box.classList.toggle('hidden');
+        }
+
+        // Función infalible para copiar texto enriquecido (HTML renderizado) al portapapeles de Gmail
+        async function copyRichSignature(containerId, btnId) {
+            const container = document.getElementById(containerId);
+            const btn = document.getElementById(btnId);
+            const originalBtnHtml = btn.innerHTML;
+
+            try {
+                const range = document.createRange();
+                range.selectNode(container);
+                const selection = window.getSelection();
+                selection.removeAllRanges();
+                selection.addRange(range);
+
+                const successful = document.execCommand('copy');
+                selection.removeAllRanges();
+
+                if (!successful) {
+                    const blobHtml = new Blob([container.innerHTML], { type: 'text/html' });
+                    const blobText = new Blob([container.innerText], { type: 'text/plain' });
+                    await navigator.clipboard.write([
+                        new ClipboardItem({
+                            'text/html': blobHtml,
+                            'text/plain': blobText
+                        })
+                    ]);
+                }
+
+                btn.classList.add('bg-emerald-600');
+                btn.innerHTML = `<i data-lucide="check" class="w-4 h-4"></i><span>¡Copiada!</span>`;
+                lucide.createIcons();
+
+                showToast();
+
+                setTimeout(() => {
+                    btn.classList.remove('bg-emerald-600');
+                    btn.innerHTML = originalBtnHtml;
+                    lucide.createIcons();
+                }, 2500);
+
+            } catch (err) {
+                console.error('Error al copiar firma:', err);
+                alert('Por favor selecciona manualmente la firma y presiona Ctrl + C para copiarla.');
+            }
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
