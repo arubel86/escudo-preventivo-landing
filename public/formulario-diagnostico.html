@@ -578,8 +578,8 @@
                                 <span class="leading-snug">Tengo cuenta bancaria comercial exclusiva a nombre de la empresa</span>
                             </label>
                             <label class="flex items-start gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-brand-blue hover:bg-blue-50/30 cursor-pointer transition text-xs font-semibold text-slate-700">
-                                <input type="radio" name="entry.1534480115" value="Utilizo mi cuenta bancaria personal / Yappy personal para cobrar" class="mt-0.5 text-brand-blue focus:ring-brand-blue">
-                                <span class="leading-snug">Utilizo mi cuenta personal / Yappy personal para cobrar del negocio</span>
+                                <input type="radio" name="entry.1534480115" value="Utilizo mi cuenta personal para cobrar en el negocio" class="mt-0.5 text-brand-blue focus:ring-brand-blue">
+                                <span class="leading-snug">Utilizo mi cuenta personal para cobrar en el negocio</span>
                             </label>
                             <label class="flex items-start gap-2.5 p-3 rounded-xl border border-slate-200 hover:border-brand-blue hover:bg-blue-50/30 cursor-pointer transition text-xs font-semibold text-slate-700">
                                 <input type="radio" name="entry.1534480115" value="No tengo cuenta bancaria formal (solo efectivo o terceros)" class="mt-0.5 text-brand-blue focus:ring-brand-blue">
@@ -783,6 +783,17 @@
                             </label>
                         </div>
                         <span class="error-msg hidden text-[11px] text-rose-600 font-bold mt-1">Selecciona una opción.</span>
+
+                        <!-- Campo condicional dinámico para especificar la otra entidad -->
+                        <div id="otra-entidad-box" class="hidden mt-3 p-3.5 bg-blue-50/40 rounded-2xl border border-brand-blue/20 transition-all">
+                            <label class="block text-xs font-bold text-slate-800 uppercase tracking-wider mb-1.5" for="entry_1203998625">
+                                ¿De qué entidad o institución fue la citación / inspección?&nbsp;<span class="text-rose-600">*</span>
+                            </label>
+                            <input type="text" id="entry_1203998625" name="entry.1203998625"
+                                placeholder="Ej. ACODECO, MINSA, Bomberos, MICI, Juzgado de Paz..."
+                                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-xs sm:text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition">
+                            <span class="otra-entidad-error hidden text-[11px] text-rose-600 font-bold mt-1 block">Por favor escribe de qué entidad o institución fue la citación.</span>
+                        </div>
                     </div>
 
                     <!-- Autorización Legal (Consentimiento formal) -->
@@ -1046,6 +1057,28 @@
                 if (waInput) waInput.value = urlParams.get('telefono') || urlParams.get('wa');
             }
 
+            // Control condicional interactivo de la pregunta 25 (Otra entidad)
+            const citacionRadios = document.querySelectorAll('input[name="entry.1093835135"]');
+            const otraEntidadBox = document.getElementById('otra-entidad-box');
+            const otraEntidadInput = document.getElementById('entry_1203998625');
+            const otraEntidadError = document.querySelector('.otra-entidad-error');
+
+            if (citacionRadios.length && otraEntidadBox && otraEntidadInput) {
+                citacionRadios.forEach(radio => {
+                    radio.addEventListener('change', () => {
+                        if (radio.value === 'Sí, de otra entidad') {
+                            otraEntidadBox.classList.remove('hidden');
+                            otraEntidadInput.focus();
+                        } else {
+                            otraEntidadBox.classList.add('hidden');
+                            otraEntidadInput.value = '';
+                            otraEntidadInput.classList.remove('border-rose-400', 'bg-rose-50/30');
+                            if (otraEntidadError) otraEntidadError.classList.add('hidden');
+                        }
+                    });
+                });
+            }
+
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
 
@@ -1090,6 +1123,19 @@
                         if (errorMsg) errorMsg.classList.add('hidden');
                     }
                 });
+
+                // Validación específica para el campo condicional de Otra Entidad
+                const selectedCitacion = form.querySelector('input[name="entry.1093835135"]:checked');
+                if (selectedCitacion && selectedCitacion.value === 'Sí, de otra entidad' && otraEntidadInput) {
+                    if (!otraEntidadInput.value.trim()) {
+                        isValid = false;
+                        otraEntidadInput.classList.add('border-rose-400', 'bg-rose-50/30');
+                        if (otraEntidadError) otraEntidadError.classList.remove('hidden');
+                    } else {
+                        otraEntidadInput.classList.remove('border-rose-400', 'bg-rose-50/30');
+                        if (otraEntidadError) otraEntidadError.classList.add('hidden');
+                    }
+                }
 
                 if (!isValid) {
                     // Hacer scroll suave hacia el primer campo con error
