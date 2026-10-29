@@ -565,7 +565,7 @@
                 </div>
             </div>
 
-            <!-- 4. DIAGNÓSTICO INTEGRAL TRIPARTITO (LO BUENO, LO MALO Y LO QUE HAY QUE MEJORAR) -->
+            <!-- 4. DIAGNÓSTICO INTEGRAL TRIPARTITO (LO BUENO, LO MALO Y LO QUE HAY QUE TOMAR EN CUENTA) -->
             <div class="space-y-3 mb-4">
                 <!-- LO BUENO: Aspectos Favorables & Cumplimiento en Regla -->
                 <div class="bg-emerald-50/60 border border-emerald-200/80 rounded-xl p-3 sm:p-3.5 page-break-avoid">
@@ -578,22 +578,33 @@
                                 1. Aspectos en Regla &amp; Fortalezas Identificadas (&laquo;Lo Bueno&raquo;)
                             </h3>
                         </div>
-                        <span class="px-2 py-0.5 rounded-full text-[9px] font-black uppercase bg-emerald-100 text-emerald-700 border border-emerald-200">
-                            Cumplimiento Verificado
-                        </span>
+                        <div class="flex items-center gap-1.5">
+                            <button type="button" onclick="agregarDiagnosticoItem('bueno')" class="no-print px-1.5 py-0.5 bg-white hover:bg-emerald-100 text-emerald-800 border border-emerald-300 rounded text-[9px] font-bold inline-flex items-center gap-1 transition shadow-xs" title="Añadir nueva fila a Lo Bueno">
+                                <i data-lucide="plus" class="w-2.5 h-2.5"></i> Añadir
+                            </button>
+                            <span class="px-2 py-0.5 rounded-full text-[9px] font-black uppercase bg-emerald-100 text-emerald-700 border border-emerald-200">
+                                Cumplimiento Verificado
+                            </span>
+                        </div>
                     </div>
                     <ul id="doc-bueno-list" class="space-y-1.5 text-xs text-slate-700">
-                        <li class="flex items-start gap-2">
+                        <li class="flex items-start gap-2 group">
                             <div class="w-6 flex items-center justify-center shrink-0 mt-0.5">
                                 <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-600"></i>
                             </div>
                             <span class="editable-field leading-snug flex-1" contenteditable="true"><strong>Estructura operativa base:</strong> El negocio cuenta con actividad comercial en marcha y voluntad activa de formalización societaria preventiva.</span>
+                            <button type="button" onclick="eliminarItemFila(this)" class="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-rose-500 transition p-0.5 shrink-0 no-print" title="Eliminar fila">
+                                <i data-lucide="x" class="w-3 h-3"></i>
+                            </button>
                         </li>
-                        <li class="flex items-start gap-2">
+                        <li class="flex items-start gap-2 group">
                             <div class="w-6 flex items-center justify-center shrink-0 mt-0.5">
                                 <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-600"></i>
                             </div>
                             <span class="editable-field leading-snug flex-1" contenteditable="true"><strong>Sin litigios activos graves:</strong> No se reportan procesos coactivos ejecutados ni secuestros judiciales vigentes en el Registro Público.</span>
+                            <button type="button" onclick="eliminarItemFila(this)" class="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-rose-500 transition p-0.5 shrink-0 no-print" title="Eliminar fila">
+                                <i data-lucide="x" class="w-3 h-3"></i>
+                            </button>
                         </li>
                     </ul>
                 </div>
@@ -609,33 +620,47 @@
                                 2. Riesgos Críticos &amp; Contingencias Latentes (&laquo;Lo Malo&raquo;)
                             </h3>
                         </div>
-                        <span class="px-2 py-0.5 rounded-full text-[9px] font-black uppercase bg-rose-100 text-rose-700 border border-rose-200">
-                            Alertas y Sanciones Latentes
-                        </span>
+                        <div class="flex items-center gap-1.5">
+                            <button type="button" onclick="agregarDiagnosticoItem('malo')" class="no-print px-1.5 py-0.5 bg-white hover:bg-rose-100 text-rose-800 border border-rose-300 rounded text-[9px] font-bold inline-flex items-center gap-1 transition shadow-xs" title="Añadir nueva fila a Lo Malo">
+                                <i data-lucide="plus" class="w-2.5 h-2.5"></i> Añadir
+                            </button>
+                            <span class="px-2 py-0.5 rounded-full text-[9px] font-black uppercase bg-rose-100 text-rose-700 border border-rose-200">
+                                Alertas y Sanciones Latentes
+                            </span>
+                        </div>
                     </div>
                     <ul id="doc-malo-list" class="space-y-1.5 text-xs text-slate-700">
-                        <li class="flex items-start gap-2">
+                        <li class="flex items-start gap-2 group">
                             <div class="w-6 flex items-center justify-center shrink-0 mt-0.5">
                                 <i data-lucide="x-circle" class="w-3.5 h-3.5 text-rose-500"></i>
                             </div>
                             <span class="editable-field leading-snug flex-1" contenteditable="true"><strong>Omisión tributaria en DGI:</strong> Declaraciones pendientes que bloquean el Paz y Salvo e impiden contratos comerciales o créditos bancarios.</span>
+                            <button type="button" onclick="eliminarItemFila(this)" class="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-rose-500 transition p-0.5 shrink-0 no-print" title="Eliminar fila">
+                                <i data-lucide="x" class="w-3 h-3"></i>
+                            </button>
                         </li>
-                        <li class="flex items-start gap-2">
+                        <li class="flex items-start gap-2 group">
                             <div class="w-6 flex items-center justify-center shrink-0 mt-0.5">
                                 <i data-lucide="x-circle" class="w-3.5 h-3.5 text-rose-500"></i>
                             </div>
                             <span class="editable-field leading-snug flex-1" contenteditable="true"><strong>Aviso de Operación inconsistente:</strong> Actividad en PanamáEmprende no ampara la operación real del local comercial en el Municipio.</span>
+                            <button type="button" onclick="eliminarItemFila(this)" class="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-rose-500 transition p-0.5 shrink-0 no-print" title="Eliminar fila">
+                                <i data-lucide="x" class="w-3 h-3"></i>
+                            </button>
                         </li>
-                        <li class="flex items-start gap-2">
+                        <li class="flex items-start gap-2 group">
                             <div class="w-6 flex items-center justify-center shrink-0 mt-0.5">
                                 <i data-lucide="x-circle" class="w-3.5 h-3.5 text-rose-500"></i>
                             </div>
                             <span class="editable-field leading-snug flex-1" contenteditable="true"><strong>Riesgo de suspensión corporativa:</strong> Tasas Únicas atrasadas con riesgo de estatus "No Vigente" ante el Registro Público (multa de $1,000).</span>
+                            <button type="button" onclick="eliminarItemFila(this)" class="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-rose-500 transition p-0.5 shrink-0 no-print" title="Eliminar fila">
+                                <i data-lucide="x" class="w-3 h-3"></i>
+                            </button>
                         </li>
                     </ul>
                 </div>
 
-                <!-- LO QUE HAY QUE MEJORAR: Plan de Acción Prioritario -->
+                <!-- LO QUE HAY QUE TOMAR EN CUENTA: Medidas Preventivas & Puntos Clave -->
                 <div class="bg-blue-50/60 border border-blue-200/80 rounded-xl p-3 sm:p-3.5 page-break-avoid">
                     <div class="flex items-center justify-between mb-2">
                         <div class="flex items-center gap-2">
@@ -643,31 +668,45 @@
                                 <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
                             </div>
                             <h3 class="text-xs font-black uppercase tracking-wider text-blue-950 font-heading">
-                                3. Medidas Correctivas Prioritarias (&laquo;Lo que hay que Mejorar&raquo;)
+                                3. Medidas Preventivas &amp; Puntos Clave (&laquo;Lo que hay que Tomar en Cuenta&raquo;)
                             </h3>
                         </div>
-                        <span class="px-2 py-0.5 rounded-full text-[9px] font-black uppercase bg-blue-100 text-brand-blue border border-blue-200">
-                            Acciones Inmediatas
-                        </span>
+                        <div class="flex items-center gap-1.5">
+                            <button type="button" onclick="agregarDiagnosticoItem('mejora')" class="no-print px-1.5 py-0.5 bg-white hover:bg-blue-100 text-brand-blue border border-blue-300 rounded text-[9px] font-bold inline-flex items-center gap-1 transition shadow-xs" title="Añadir nueva fila a Lo que hay que Tomar en Cuenta">
+                                <i data-lucide="plus" class="w-2.5 h-2.5"></i> Añadir
+                            </button>
+                            <span class="px-2 py-0.5 rounded-full text-[9px] font-black uppercase bg-blue-100 text-brand-blue border border-blue-200">
+                                Atención &amp; Prevención
+                            </span>
+                        </div>
                     </div>
                     <ul id="doc-mejora-list" class="space-y-1.5 text-xs text-slate-700">
-                        <li class="flex items-start gap-2">
+                        <li class="flex items-start gap-2 group">
                             <div class="w-6 flex items-center justify-center shrink-0 mt-0.5">
                                 <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-brand-blue"></i>
                             </div>
                             <span class="editable-field leading-snug flex-1" contenteditable="true"><strong>Saneamiento DGI:</strong> Subsanar inconsistencias en e-Tax 2.0 y tramitar Paz y Salvo tributario oficial.</span>
+                            <button type="button" onclick="eliminarItemFila(this)" class="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-rose-500 transition p-0.5 shrink-0 no-print" title="Eliminar fila">
+                                <i data-lucide="x" class="w-3 h-3"></i>
+                            </button>
                         </li>
-                        <li class="flex items-start gap-2">
+                        <li class="flex items-start gap-2 group">
                             <div class="w-6 flex items-center justify-center shrink-0 mt-0.5">
                                 <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-brand-blue"></i>
                             </div>
                             <span class="editable-field leading-snug flex-1" contenteditable="true"><strong>Regularización Registral:</strong> Pagar Tasas atrasadas, actualizar Agente Residente y registrar RUBF (Ley 129).</span>
+                            <button type="button" onclick="eliminarItemFila(this)" class="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-rose-500 transition p-0.5 shrink-0 no-print" title="Eliminar fila">
+                                <i data-lucide="x" class="w-3 h-3"></i>
+                            </button>
                         </li>
-                        <li class="flex items-start gap-2">
+                        <li class="flex items-start gap-2 group">
                             <div class="w-6 flex items-center justify-center shrink-0 mt-0.5">
                                 <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-brand-blue"></i>
                             </div>
                             <span class="editable-field leading-snug flex-1" contenteditable="true"><strong>Inscripción Municipal:</strong> Actualizar actividad en PanamáEmprende y presentar Declaración Jurada Municipal.</span>
+                            <button type="button" onclick="eliminarItemFila(this)" class="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-rose-500 transition p-0.5 shrink-0 no-print" title="Eliminar fila">
+                                <i data-lucide="x" class="w-3 h-3"></i>
+                            </button>
                         </li>
                     </ul>
                 </div>
@@ -1900,6 +1939,72 @@
             if (li) li.remove();
         }
 
+        // Añadir ítem manualmente al Diagnóstico Tripartito (Hoja 1)
+        function agregarDiagnosticoItem(tipo) {
+            let listId, iconName, iconColor, placeholder;
+            if (tipo === 'bueno') {
+                listId = 'doc-bueno-list';
+                iconName = 'check-circle-2';
+                iconColor = 'text-emerald-600';
+                placeholder = '<strong>Nueva fortaleza:</strong> Detalla aquí el aspecto favorable identificado.';
+            } else if (tipo === 'malo') {
+                listId = 'doc-malo-list';
+                iconName = 'x-circle';
+                iconColor = 'text-rose-500';
+                placeholder = '<strong>Nuevo riesgo crítico:</strong> Detalla aquí la contingencia u omisión detectada.';
+            } else {
+                listId = 'doc-mejora-list';
+                iconName = 'check-circle-2';
+                iconColor = 'text-brand-blue';
+                placeholder = '<strong>Punto a tomar en cuenta:</strong> Detalla aquí la recomendación o medida preventiva clave.';
+            }
+
+            const lista = document.getElementById(listId);
+            if (!lista) return;
+
+            const li = document.createElement('li');
+            li.className = 'flex items-start gap-2 group';
+            li.innerHTML = `
+                <div class="w-6 flex items-center justify-center shrink-0 mt-0.5">
+                    <i data-lucide="${iconName}" class="w-3.5 h-3.5 ${iconColor}"></i>
+                </div>
+                <span class="editable-field leading-snug flex-1 cursor-text" contenteditable="true" title="Haz clic para editar">${placeholder}</span>
+                <button type="button" onclick="eliminarItemFila(this)" class="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-rose-500 transition p-0.5 shrink-0 no-print" title="Eliminar fila">
+                    <i data-lucide="x" class="w-3 h-3"></i>
+                </button>
+            `;
+            lista.appendChild(li);
+            lucide.createIcons();
+
+            const span = li.querySelector('span');
+            if (span) {
+                span.focus();
+                const range = document.createRange();
+                range.selectNodeContents(span);
+                const sel = window.getSelection();
+                sel.removeAllRanges();
+                sel.addRange(range);
+            }
+        }
+
+        // Soporte de formato Markdown (**texto** -> <strong>texto</strong>) en campos editables
+        document.addEventListener('focusout', function(e) {
+            const el = e.target.closest('[contenteditable="true"]');
+            if (!el) return;
+            if (el.innerHTML.includes('**')) {
+                el.innerHTML = el.innerHTML.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+            }
+        });
+        document.addEventListener('keyup', function(e) {
+            if (e.key === ' ' || e.key === 'Enter') {
+                const el = e.target.closest('[contenteditable="true"]');
+                if (!el) return;
+                if (/\*\*([^*]+)\*\*/.test(el.innerText)) {
+                    el.innerHTML = el.innerHTML.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+                }
+            }
+        });
+
         // Editar precio manualmente en el subtotal
         function alEditarPrecioManual() {
             const el = document.getElementById('subtotal-display');
@@ -2285,8 +2390,9 @@
             let cumple = 0;
             let multasTotal = 0;
 
-            const faltasPorPilar = { mici: 0, dgi: 0, registro: 0, css: 0, municipio: 0, finanzas: 0 };
-            const cumplePorPilar = { mici: 0, dgi: 0, registro: 0, css: 0, municipio: 0, finanzas: 0 };
+            const faltasPorPilar = { mici: 0, dgi: 0, registro: 0, css: 0, municipio: 0, finanzas: 0, pac: 0 };
+            const cumplePorPilar = { mici: 0, dgi: 0, registro: 0, css: 0, municipio: 0, finanzas: 0, pac: 0 };
+            const mejorasPorPilar = { mici: 0, dgi: 0, registro: 0, css: 0, municipio: 0, finanzas: 0, pac: 0 };
             const hallazgosGenerados = [];
 
             const itemsBueno = [];
@@ -2297,52 +2403,72 @@
                 const st = auditState[c.id];
                 if (st && st.status) {
                     evaluados++;
+                    const hasNote = Boolean(st.note && st.note.trim());
+                    const notaTexto = hasNote ? st.note.trim() : '';
+
                     if (st.status === 'si') {
                         cumple++;
-                        cumplePorPilar[c.pilar]++;
-                        const notaTexto = st.note && st.note.trim() ? st.note.trim() : 'Cumplimiento normativo y operativo verificado en regla.';
+                        cumplePorPilar[c.pilar] = (cumplePorPilar[c.pilar] || 0) + 1;
                         itemsBueno.push({
                             label: c.label,
-                            texto: notaTexto
+                            texto: hasNote ? notaTexto : 'Cumplimiento normativo y operativo verificado en regla.',
+                            hasNote: hasNote
                         });
                     } else if (st.status === 'no') {
                         faltas++;
-                        faltasPorPilar[c.pilar]++;
+                        faltasPorPilar[c.pilar] = (faltasPorPilar[c.pilar] || 0) + 1;
                         multasTotal += (c.multa || 0);
 
-                        const notaTexto = st.note && st.note.trim() ? st.note.trim() : c.descFalta;
                         itemsMalo.push({
                             label: c.label,
-                            texto: notaTexto,
-                            multa: c.multa || 0
+                            texto: hasNote ? notaTexto : c.descFalta,
+                            multa: c.multa || 0,
+                            hasNote: hasNote
                         });
-                        hallazgosGenerados.push(`<strong>${c.label}:</strong> ${notaTexto}`);
+                        hallazgosGenerados.push(`<strong>${c.label}:</strong> ${hasNote ? notaTexto : c.descFalta}`);
 
                         // Generar acción de mejora contextual
                         if (c.pilar === 'dgi') {
-                            accionesMejora.push(`<strong>Saneamiento DGI:</strong> Regularizar declaraciones en e-Tax 2.0 y tramitar Paz y Salvo oficial para ${c.label.toLowerCase()}.`);
+                            accionesMejora.push({ texto: `<strong>Saneamiento DGI:</strong> Regularizar declaraciones en e-Tax 2.0 y tramitar Paz y Salvo oficial para ${c.label.toLowerCase()}.`, hasNote: false });
                         } else if (c.pilar === 'registro') {
-                            accionesMejora.push(`<strong>Regularización Registral:</strong> Pagar Tasa Única morosa, ratificar Agente Residente y registrar RUBF (Ley 129).`);
+                            accionesMejora.push({ texto: `<strong>Regularización Registral:</strong> Pagar Tasa Única morosa, ratificar Agente Residente y registrar RUBF (Ley 129).`, hasNote: false });
                         } else if (c.pilar === 'municipio') {
-                            accionesMejora.push(`<strong>Regularización Municipal:</strong> Presentar Declaración Jurada Anual de Ingresos y subsanar inconsistencias tributarias.`);
+                            accionesMejora.push({ texto: `<strong>Regularización Municipal:</strong> Presentar Declaración Jurada Anual de Ingresos y subsanar inconsistencias tributarias.`, hasNote: false });
                         } else if (c.pilar === 'mici') {
-                            accionesMejora.push(`<strong>Aviso de Operación:</strong> Homologar actividades económicas y domicilio comercial en la plataforma PanamáEmprende.`);
+                            accionesMejora.push({ texto: `<strong>Aviso de Operación:</strong> Homologar actividades económicas y domicilio comercial en la plataforma PanamáEmprende.`, hasNote: false });
                         } else if (c.pilar === 'css') {
-                            accionesMejora.push(`<strong>Seguridad Social & MITRADEL:</strong> Afiliar colaboradores en SIPE, tramitar número patronal y registrar contratos laborales.`);
+                            accionesMejora.push({ texto: `<strong>Seguridad Social & MITRADEL:</strong> Afiliar colaboradores en SIPE, tramitar número patronal y registrar contratos laborales.`, hasNote: false });
                         } else if (c.pilar === 'finanzas') {
-                            accionesMejora.push(`<strong>Control y Blindaje Financiero:</strong> Separar cuentas personales del negocio y estructurar registros contables formales.`);
+                            accionesMejora.push({ texto: `<strong>Control y Blindaje Financiero:</strong> Separar cuentas personales del negocio y estructurar registros contables formales.`, hasNote: false });
+                        }
+                    } else if (st.status === 'na') {
+                        // N/A con comentario: Se considera observación / tarea que hay que mejorar
+                        if (hasNote) {
+                            mejorasPorPilar[c.pilar] = (mejorasPorPilar[c.pilar] || 0) + 1;
+                            accionesMejora.push({
+                                texto: `<strong>${c.label}:</strong> ${notaTexto}`,
+                                hasNote: true
+                            });
                         }
                     }
                 }
             });
 
+            // Priorizar ítems con comentarios personalizados escritos por el consultor
+            itemsBueno.sort((a, b) => (b.hasNote ? 1 : 0) - (a.hasNote ? 1 : 0));
+            itemsMalo.sort((a, b) => (b.hasNote ? 1 : 0) - (a.hasNote ? 1 : 0));
+            accionesMejora.sort((a, b) => (b.hasNote ? 1 : 0) - (a.hasNote ? 1 : 0));
+
+            const totalMejoras = Object.values(mejorasPorPilar).reduce((acc, curr) => acc + curr, 0);
+
             // Actualizar badges de cabecera de la consola
             const badgeStats = document.getElementById('audit-stats-badge');
             if (badgeStats) {
-                badgeStats.innerText = `${evaluados} / ${CRITERIOS_AUDITORIA.length} evaluados · ${faltas} en falta`;
+                const mejoraBadgeText = totalMejoras > 0 ? ` · ${totalMejoras} a tomar en cuenta` : '';
+                badgeStats.innerText = `${evaluados} / ${CRITERIOS_AUDITORIA.length} evaluados · ${faltas} en falta${mejoraBadgeText}`;
                 if (faltas >= 4) {
                     badgeStats.className = 'px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-100 text-rose-700 border border-rose-200';
-                } else if (faltas >= 1) {
+                } else if (faltas >= 1 || totalMejoras >= 1) {
                     badgeStats.className = 'px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-700 border border-amber-200';
                 } else {
                     badgeStats.className = 'px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-700 border border-emerald-200';
@@ -2359,12 +2485,16 @@
                 const bEl = document.getElementById(`badge-pillar-${pKey}`);
                 if (bEl) {
                     const fCount = faltasPorPilar[pKey];
+                    const mCount = mejorasPorPilar[pKey] || 0;
                     if (fCount >= 2) {
                         bEl.className = 'text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-100 text-rose-700 border border-rose-200';
                         bEl.innerText = `${fCount} alertas críticas`;
                     } else if (fCount === 1) {
                         bEl.className = 'text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 border border-amber-200';
                         bEl.innerText = '1 observación';
+                    } else if (mCount > 0) {
+                        bEl.className = 'text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 border border-amber-200';
+                        bEl.innerText = `${mCount} a tomar en cuenta`;
                     } else if (cumplePorPilar[pKey] > 0) {
                         bEl.className = 'text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 border border-emerald-200';
                         bEl.innerText = 'Al Día';
@@ -2388,8 +2518,8 @@
             let riesgoBadgeClass = 'px-2 py-0.5 rounded text-xs font-black uppercase bg-emerald-100 text-emerald-700 border border-emerald-200';
             let riesgoIconClass = 'w-10 h-10 rounded-xl bg-emerald-100 border border-emerald-200 text-emerald-600 flex items-center justify-center shrink-0';
             let riesgoIconName = 'shield-check';
-            let porcentajeExposicion = 12;
-            let barColorClass = 'bg-emerald-500 h-2 rounded-full transition-all duration-300';
+            let porcentajeExposicion = totalMejoras > 0 ? 25 : 12;
+            let barColorClass = totalMejoras > 0 ? 'bg-amber-500 h-2 rounded-full transition-all duration-300' : 'bg-emerald-500 h-2 rounded-full transition-all duration-300';
 
             if (faltas >= 6) {
                 nivelRiesgoTexto = 'Riesgo Crítico';
@@ -2412,6 +2542,13 @@
                 riesgoIconName = 'alert-triangle';
                 porcentajeExposicion = Math.min(45, 25 + (faltas * 10));
                 barColorClass = 'bg-amber-500 h-2 rounded-full transition-all duration-300';
+            } else if (totalMejoras > 0) {
+                nivelRiesgoTexto = 'Observaciones Pendientes';
+                riesgoBadgeClass = 'px-2 py-0.5 rounded text-xs font-black uppercase bg-amber-100 text-amber-700 border border-amber-200';
+                riesgoIconClass = 'w-10 h-10 rounded-xl bg-amber-100 border border-amber-200 text-amber-600 flex items-center justify-center shrink-0';
+                riesgoIconName = 'alert-triangle';
+                porcentajeExposicion = 25;
+                barColorClass = 'bg-amber-500 h-2 rounded-full transition-all duration-300';
             }
 
             if (kpiRiesgo) {
@@ -2427,7 +2564,7 @@
             }
             if (kpiExposicion) {
                 kpiExposicion.innerText = `${porcentajeExposicion}%`;
-                kpiExposicion.className = faltas >= 3 ? 'text-rose-600 font-mono font-black text-xs' : (faltas >= 1 ? 'text-amber-600 font-mono font-black text-xs' : 'text-emerald-600 font-mono font-black text-xs');
+                kpiExposicion.className = faltas >= 3 ? 'text-rose-600 font-mono font-black text-xs' : ((faltas >= 1 || totalMejoras >= 1) ? 'text-amber-600 font-mono font-black text-xs' : 'text-emerald-600 font-mono font-black text-xs');
             }
             if (kpiGaugeBar) {
                 kpiGaugeBar.style.width = `${porcentajeExposicion}%`;
@@ -2453,20 +2590,26 @@
             if (docBuenoContainer) {
                 if (itemsBueno.length > 0) {
                     docBuenoContainer.innerHTML = itemsBueno.slice(0, 4).map(b => `
-                        <li class="flex items-start gap-2">
+                        <li class="flex items-start gap-2 group">
                             <div class="w-6 flex items-center justify-center shrink-0 mt-0.5">
                                 <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-600"></i>
                             </div>
                             <span class="editable-field leading-snug flex-1" contenteditable="true"><strong>${b.label}:</strong> ${b.texto}</span>
+                            <button type="button" onclick="eliminarItemFila(this)" class="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-rose-500 transition p-0.5 shrink-0 no-print" title="Eliminar fila">
+                                <i data-lucide="x" class="w-3 h-3"></i>
+                            </button>
                         </li>
                     `).join('');
                 } else {
                     docBuenoContainer.innerHTML = `
-                        <li class="flex items-start gap-2">
+                        <li class="flex items-start gap-2 group">
                             <div class="w-6 flex items-center justify-center shrink-0 mt-0.5">
                                 <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-600"></i>
                             </div>
                             <span class="editable-field leading-snug flex-1" contenteditable="true"><strong>Estructura operativa base:</strong> El negocio cuenta con actividad comercial en marcha y voluntad activa de formalización societaria preventiva.</span>
+                            <button type="button" onclick="eliminarItemFila(this)" class="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-rose-500 transition p-0.5 shrink-0 no-print" title="Eliminar fila">
+                                <i data-lucide="x" class="w-3 h-3"></i>
+                            </button>
                         </li>
                     `;
                 }
@@ -2477,45 +2620,63 @@
             if (docMaloContainer) {
                 if (itemsMalo.length > 0) {
                     docMaloContainer.innerHTML = itemsMalo.slice(0, 4).map(m => `
-                        <li class="flex items-start gap-2">
+                        <li class="flex items-start gap-2 group">
                             <div class="w-6 flex items-center justify-center shrink-0 mt-0.5">
                                 <i data-lucide="x-circle" class="w-3.5 h-3.5 text-rose-500"></i>
                             </div>
                             <span class="editable-field leading-snug flex-1" contenteditable="true"><strong>${m.label}:</strong> ${m.texto}${m.multa > 0 ? ` (Multa latente est: $${m.multa.toLocaleString('en-US')})` : ''}</span>
+                            <button type="button" onclick="eliminarItemFila(this)" class="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-rose-500 transition p-0.5 shrink-0 no-print" title="Eliminar fila">
+                                <i data-lucide="x" class="w-3 h-3"></i>
+                            </button>
                         </li>
                     `).join('');
                 } else {
                     docMaloContainer.innerHTML = `
-                        <li class="flex items-start gap-2">
+                        <li class="flex items-start gap-2 group">
                             <div class="w-6 flex items-center justify-center shrink-0 mt-0.5">
                                 <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
                             </div>
                             <span class="editable-field leading-snug flex-1" contenteditable="true">No se detectaron riesgos ni omisiones críticas en los pilares evaluados.</span>
+                            <button type="button" onclick="eliminarItemFila(this)" class="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-rose-500 transition p-0.5 shrink-0 no-print" title="Eliminar fila">
+                                <i data-lucide="x" class="w-3 h-3"></i>
+                            </button>
                         </li>
                     `;
                 }
             }
 
-            // 3. Lo que hay que Mejorar
+            // 3. Lo que hay que Tomar en Cuenta
             const docMejoraContainer = document.getElementById('doc-mejora-list');
             if (docMejoraContainer) {
-                const uniqueAcciones = [...new Set(accionesMejora)];
+                const seenTextos = new Set();
+                const uniqueAcciones = accionesMejora.filter(a => {
+                    if (seenTextos.has(a.texto)) return false;
+                    seenTextos.add(a.texto);
+                    return true;
+                });
+
                 if (uniqueAcciones.length > 0) {
                     docMejoraContainer.innerHTML = uniqueAcciones.slice(0, 4).map(a => `
-                        <li class="flex items-start gap-2">
+                        <li class="flex items-start gap-2 group">
                             <div class="w-6 flex items-center justify-center shrink-0 mt-0.5">
                                 <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-brand-blue"></i>
                             </div>
-                            <span class="editable-field leading-snug flex-1" contenteditable="true">${a}</span>
+                            <span class="editable-field leading-snug flex-1" contenteditable="true">${a.texto}</span>
+                            <button type="button" onclick="eliminarItemFila(this)" class="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-rose-500 transition p-0.5 shrink-0 no-print" title="Eliminar fila">
+                                <i data-lucide="x" class="w-3 h-3"></i>
+                            </button>
                         </li>
                     `).join('');
                 } else {
                     docMejoraContainer.innerHTML = `
-                        <li class="flex items-start gap-2">
+                        <li class="flex items-start gap-2 group">
                             <div class="w-6 flex items-center justify-center shrink-0 mt-0.5">
                                 <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-brand-blue"></i>
                             </div>
                             <span class="editable-field leading-snug flex-1" contenteditable="true">Mantener auditorías preventivas periódicas para preservar la vigencia continua de todos los paz y salvos institucionales.</span>
+                            <button type="button" onclick="eliminarItemFila(this)" class="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-rose-500 transition p-0.5 shrink-0 no-print" title="Eliminar fila">
+                                <i data-lucide="x" class="w-3 h-3"></i>
+                            </button>
                         </li>
                     `;
                 }
@@ -2532,9 +2693,12 @@
                 document.getElementById('desc-dgi').innerText = (rentaNote || f03Note)
                     ? `Inconsistencias detectadas: ${rentaNote || f03Note}. Requiere regularización tributaria inmediata.`
                     : 'Declaraciones pendientes en e-Tax 2.0. Riesgo de bloqueo de RUC y multas acumuladas.';
-            } else if (faltasPorPilar.dgi === 1) {
+            } else if (faltasPorPilar.dgi === 1 || (mejorasPorPilar.dgi || 0) > 0) {
                 setSemaforo('dgi', 'amarillo');
-                document.getElementById('desc-dgi').innerText = 'Obligación tributaria puntual por subsanar ante DGI para obtener Paz y Salvo.';
+                const dgiMejoraNote = auditState['dgi_renta']?.note || auditState['dgi_f03']?.note || auditState['dgi_facturacion']?.note || '';
+                document.getElementById('desc-dgi').innerText = dgiMejoraNote
+                    ? `Observación DGI: ${dgiMejoraNote}. Validación preventiva recomendada.`
+                    : 'Obligación tributaria puntual por subsanar ante DGI para obtener Paz y Salvo.';
             } else if (cumplePorPilar.dgi > 0) {
                 setSemaforo('dgi', 'verde');
                 document.getElementById('desc-dgi').innerText = 'Contribuyente activo con obligaciones tributarias y declaraciones verificadas al día.';
@@ -2547,9 +2711,12 @@
                 document.getElementById('desc-registro').innerText = rpNote
                     ? `Situación corporativa: ${rpNote}. Riesgo inminente de suspensión o recargos registrales.`
                     : 'Tasa Única acumulada en mora. Riesgo de estatus de suspensión y pérdida de vigencia.';
-            } else if (faltasPorPilar.registro === 1) {
+            } else if (faltasPorPilar.registro === 1 || (mejorasPorPilar.registro || 0) > 0) {
                 setSemaforo('registro', 'amarillo');
-                document.getElementById('desc-registro').innerText = 'Validación pendiente de Agente Residente legal o registro de Beneficiarios Finales (RUBF).';
+                const rpMejoraNote = auditState['rp_beneficiarios']?.note || auditState['rp_tasa']?.note || '';
+                document.getElementById('desc-registro').innerText = rpMejoraNote
+                    ? `Observación registral: ${rpMejoraNote}. Trámite pendiente de validación.`
+                    : 'Validación pendiente de Agente Residente legal o registro de Beneficiarios Finales (RUBF).';
             } else if (cumplePorPilar.registro > 0) {
                 setSemaforo('registro', 'verde');
                 document.getElementById('desc-registro').innerText = 'Sociedad vigente ante Registro Público con Agente Residente y Tasa Única al día.';
@@ -2562,9 +2729,12 @@
                 document.getElementById('desc-municipio').innerText = munNote
                     ? `Alerta municipal: ${munNote}. Riesgo de tasación de oficio y multas.`
                     : 'Omisión de Declaración Jurada Anual de Ingresos o mora acumulada en impuestos municipales.';
-            } else if (faltasPorPilar.municipio === 1) {
+            } else if (faltasPorPilar.municipio === 1 || (mejorasPorPilar.municipio || 0) > 0) {
                 setSemaforo('municipio', 'amarillo');
-                document.getElementById('desc-municipio').innerText = 'Trámite de homologación o Paz y Salvo municipal requerido para estar en regla.';
+                const munMejoraNote = auditState['mun_registro']?.note || auditState['mun_dj']?.note || '';
+                document.getElementById('desc-municipio').innerText = munMejoraNote
+                    ? `Observación municipal: ${munMejoraNote}. Revisión de estatus requerida.`
+                    : 'Trámite de homologación o Paz y Salvo municipal requerido para estar en regla.';
             } else if (cumplePorPilar.municipio > 0) {
                 setSemaforo('municipio', 'verde');
                 document.getElementById('desc-municipio').innerText = 'Inscripción municipal al día con Paz y Salvo tributario distrital vigente.';
@@ -2577,9 +2747,12 @@
                 document.getElementById('desc-mici').innerText = peNote
                     ? `Alerta comercial: ${peNote}. Riesgo inminente de clausura por inspectores del MICI.`
                     : 'Operación comercial sin Aviso de Operación emitido. Riesgo de clausura inmediata del establecimiento.';
-            } else if (auditState['pe_datos']?.status === 'no') {
+            } else if (auditState['pe_datos']?.status === 'no' || (mejorasPorPilar.mici || 0) > 0) {
                 setSemaforo('mici', 'amarillo');
-                document.getElementById('desc-mici').innerText = 'Actividades declaradas en PanamáEmprende requieren actualización y ajuste con la operación real.';
+                const peMejoraNote = auditState['pe_datos']?.note || '';
+                document.getElementById('desc-mici').innerText = peMejoraNote
+                    ? `Observación MICI: ${peMejoraNote}. Actualización de datos requerida.`
+                    : 'Actividades declaradas en PanamáEmprende requieren actualización y ajuste con la operación real.';
             } else if (cumplePorPilar.mici > 0) {
                 setSemaforo('mici', 'verde');
                 document.getElementById('desc-mici').innerText = 'Aviso de Operación vigente y homologado con las actividades comerciales desarrolladas.';
@@ -2607,9 +2780,12 @@
                 document.getElementById('desc-css').innerText = cssNote
                     ? `Alerta laboral: ${cssNote}. Exposición directa a boleta patronal de la CSS.`
                     : 'Colaboradores sin cobertura patronal SIPE ni contratos en MITRADEL. Riesgo crítico de boleta.';
-            } else if (faltasPorPilar.css >= 1) {
+            } else if (faltasPorPilar.css >= 1 || (mejorasPorPilar.css || 0) > 0) {
                 setSemaforo('css', 'amarillo');
-                document.getElementById('desc-css').innerText = 'Contratos laborales pendientes de registro formal ante el Ministerio de Trabajo.';
+                const cssMejoraNote = auditState['css_contratos']?.note || auditState['css_empleados']?.note || '';
+                document.getElementById('desc-css').innerText = cssMejoraNote
+                    ? `Observación laboral: ${cssMejoraNote}. Revisión de contratos recomendada.`
+                    : 'Contratos laborales pendientes de registro formal ante el Ministerio de Trabajo.';
             } else {
                 setSemaforo('css', 'verde');
                 document.getElementById('desc-css').innerText = 'Operación unipersonal o personal en planilla patronal SIPE debidamente asegurado.';
