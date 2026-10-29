@@ -311,8 +311,7 @@
 
                         <!-- Comparativa con Tarjeta de Crédito -->
                         <div class="bg-red-500/10 border border-red-500/20 rounded-2xl p-3.5 text-xs space-y-1.5">
-                            <div class="flex items-start gap-2 text-red-300 font-bold">
-                                <i data-lucide="alert-octagon" class="w-3.5 h-3.5 shrink-0 mt-0.5"></i>
+                            <div class="flex items-center gap-2 text-red-300 font-bold"><i data-lucide="alert-octagon" class="w-3.5 h-3.5 shrink-0"></i>
                                 <span class="leading-snug">Si financias con Tarjeta de Crédito (22.24%):</span>
                             </div>
                             <p class="text-slate-300 leading-relaxed text-[11px] pl-5">
@@ -323,8 +322,7 @@
 
                     <!-- Mensaje Inferior -->
                     <div class="pt-5 border-t border-slate-800/80 mt-5">
-                        <div class="flex items-start gap-2 text-[11px] text-slate-400 leading-relaxed">
-                            <i data-lucide="info" class="w-3.5 h-3.5 text-brand-orange shrink-0 mt-0.5"></i>
+                        <div class="flex items-center gap-2 text-[11px] text-slate-400 leading-relaxed"><i data-lucide="info" class="w-3.5 h-3.5 text-brand-orange shrink-0"></i>
                             <span class="leading-snug"><em>Cálculo referencial basado en tasas de la SBP y Ley 4 de 1994. No incluye seguros bancarios.</em></span>
                         </div>
                     </div>
@@ -495,16 +493,16 @@
                                 </div>
                             </div>
 
-                            <div class="text-[10px] text-slate-500 flex items-start gap-1.5 pt-1.5 border-t border-blue-100/80 leading-relaxed">
-                                <i data-lucide="file-text" class="w-3.5 h-3.5 text-slate-400 shrink-0 mt-0.5"></i>
+                            <div class="text-[10px] text-slate-500 flex items-center gap-1.5 pt-1.5 border-t border-blue-100/80 leading-relaxed">
+                                <i data-lucide="file-text" class="w-3.5 h-3.5 text-slate-400 shrink-0"></i>
                                 <span class="leading-snug"><strong>Documentos solicitados por el banco:</strong> Aviso de Operación, últimas 2 declaraciones de renta DGI y 6 meses de estados de cuenta.</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Nota de Privacidad en Base (Alineada con la primera línea de texto) -->
-                    <div class="pt-3.5 border-t border-slate-100 mt-4 text-[11px] text-slate-500 flex items-start gap-2 leading-relaxed">
-                        <i data-lucide="lock" class="w-3.5 h-3.5 text-slate-400 shrink-0 mt-0.5"></i>
+                    <div class="pt-3.5 border-t border-slate-100 mt-4 text-[11px] text-slate-500 flex items-center gap-2 leading-relaxed">
+                        <i data-lucide="lock" class="w-3.5 h-3.5 text-slate-400 shrink-0"></i>
                         <span class="leading-snug">Diagnóstico 100% privado y confidencial. No altera tu historial APC ni envía datos a centrales de riesgo.</span>
                     </div>
                 </div>
@@ -520,7 +518,7 @@
                                 <span class="text-sm font-bold text-slate-400">/ 100 pts</span>
                             </div>
                             <div class="text-xs font-bold text-emerald-400 flex items-start gap-1.5 mt-1 leading-snug" id="test-prob-badge">
-                                <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                                <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
                                 <span>ALTA PROBABILIDAD DE APROBACIÓN (75-100 pts)</span>
                             </div>
                             <!-- Barra de Score -->
@@ -568,7 +566,7 @@
                     <!-- CTA para Formalizar -->
                     <div class="pt-3.5 border-t border-slate-800 space-y-2.5 mt-3.5">
                         <div class="flex items-start gap-2 text-[11px] text-slate-300 leading-snug">
-                            <i data-lucide="lightbulb" class="w-3.5 h-3.5 text-brand-orange shrink-0 mt-0.5"></i>
+                            <i data-lucide="lightbulb" class="w-3.5 h-3.5 text-brand-orange shrink-0"></i>
                             <span><em>¿Necesitas sumar puntos para calificar en el banco? En Aizprua S.E. blindamos tu Aviso, RUC y registro AMPYME llave en mano.</em></span>
                         </div>
                         <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20complet%C3%A9%20el%20test%20de%20cr%C3%A9dito%20y%20quiero%20blindar%20mi%20negocio%20para%20financiamiento"
@@ -928,27 +926,27 @@
 
             if (totalScore >= 75) {
                 probText = 'ALTA PROBABILIDAD DE APROBACIÓN (75-100 pts)';
-                probIcon = '<i data-lucide="shield-check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>';
+                probIcon = '<i data-lucide="shield-check" class="w-4 h-4 text-emerald-400 shrink-0"></i>';
                 probClass = 'text-xs font-bold text-emerald-400 flex items-start gap-1.5 mt-1 leading-snug';
 
                 doorsHtml = `
                     <div class="p-3 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-slate-200">
                         <div class="flex items-start gap-2 text-emerald-300 font-bold mb-1">
-                            <i data-lucide="check-circle" class="w-4 h-4 shrink-0 mt-0.5"></i>
+                            <i data-lucide="check-circle" class="w-4 h-4 shrink-0"></i>
                             <span class="leading-snug">Puerta 1: Banca Tradicional (General, Banistmo, BAC)</span>
                         </div>
                         <p class="text-[11px] text-slate-300 leading-relaxed pl-6">Calificas para tasas preferenciales comerciales (7.5% - 8.5%) con líneas de crédito o término fijo.</p>
                     </div>
                     <div class="p-3 rounded-2xl bg-white/5 border border-white/10 text-slate-200">
                         <div class="flex items-start gap-2 text-brand-orange font-bold mb-1">
-                            <i data-lucide="building" class="w-4 h-4 shrink-0 mt-0.5"></i>
+                            <i data-lucide="building" class="w-4 h-4 shrink-0"></i>
                             <span class="leading-snug">Puerta 2: Bancos Estatales (Caja de Ahorros, Banco Nacional)</span>
                         </div>
                         <p class="text-[11px] text-slate-300 leading-relaxed pl-6">Acceso a programas pyme con plazos de hasta 10 años y tasas subsidiadas.</p>
                     </div>
                     <div class="p-3 rounded-2xl bg-white/5 border border-white/10 text-slate-200">
                         <div class="flex items-start gap-2 text-blue-300 font-bold mb-1">
-                            <i data-lucide="award" class="w-4 h-4 shrink-0 mt-0.5"></i>
+                            <i data-lucide="award" class="w-4 h-4 shrink-0"></i>
                             <span class="leading-snug">Beneficio Extra: Exoneración de FECI</span>
                         </div>
                         <p class="text-[11px] text-slate-300 leading-relaxed pl-6">Tu registro en AMPYME te ahorra el 1% de sobrecosto anual en préstamos bancarios.</p>
@@ -956,27 +954,27 @@
                 `;
             } else if (totalScore >= 50) {
                 probText = 'PROBABILIDAD MEDIA: REQUIERE REFORZAR EXPEDIENTE (50-74 pts)';
-                probIcon = '<i data-lucide="alert-triangle" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>';
+                probIcon = '<i data-lucide="alert-triangle" class="w-4 h-4 text-amber-400 shrink-0"></i>';
                 probClass = 'text-xs font-bold text-amber-400 flex items-start gap-1.5 mt-1 leading-snug';
 
                 doorsHtml = `
                     <div class="p-3 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-slate-200">
                         <div class="flex items-start gap-2 text-amber-300 font-bold mb-1">
-                            <i data-lucide="alert-triangle" class="w-4 h-4 shrink-0 mt-0.5"></i>
+                            <i data-lucide="alert-triangle" class="w-4 h-4 shrink-0"></i>
                             <span class="leading-snug">Puerta 3: Financieras Especializadas (Delta, Microserfin)</span>
                         </div>
                         <p class="text-[11px] text-slate-300 leading-relaxed pl-6">Evalúan flujos diarios/semanales aunque no tengas 2 años de renta. Tasas entre 12% y 18%.</p>
                     </div>
                     <div class="p-3 rounded-2xl bg-white/5 border border-white/10 text-slate-200">
                         <div class="flex items-start gap-2 text-blue-300 font-bold mb-1">
-                            <i data-lucide="users" class="w-4 h-4 shrink-0 mt-0.5"></i>
+                            <i data-lucide="users" class="w-4 h-4 shrink-0"></i>
                             <span class="leading-snug">Puerta 4: Cooperativas de Crédito (EDICOM, Profesionales)</span>
                         </div>
                         <p class="text-[11px] text-slate-300 leading-relaxed pl-6">Excelente opción si te asocias y aportas cuenta de ahorros previa.</p>
                     </div>
                     <div class="p-3 rounded-2xl bg-white/5 border border-white/10 text-slate-200">
                         <div class="flex items-start gap-2 text-brand-orange font-bold mb-1">
-                            <i data-lucide="trending-up" class="w-4 h-4 shrink-0 mt-0.5"></i>
+                            <i data-lucide="trending-up" class="w-4 h-4 shrink-0"></i>
                             <span class="leading-snug">Cómo subir a Banca Tradicional (+25 pts)</span>
                         </div>
                         <p class="text-[11px] text-slate-300 leading-relaxed pl-6">Declara la renta del último ejercicio y tramita tu registro AMPYME para desbloquear Banco General o BAC.</p>
@@ -984,27 +982,27 @@
                 `;
             } else {
                 probText = 'RIESGO SEVERO DE RECHAZO BANCARIO (0-49 pts)';
-                probIcon = '<i data-lucide="alert-octagon" class="w-4 h-4 text-red-400 shrink-0 mt-0.5"></i>';
+                probIcon = '<i data-lucide="alert-octagon" class="w-4 h-4 text-red-400 shrink-0"></i>';
                 probClass = 'text-xs font-bold text-red-400 flex items-start gap-1.5 mt-1 leading-snug';
 
                 doorsHtml = `
                     <div class="p-3 rounded-2xl bg-red-500/10 border border-red-500/20 text-slate-200">
                         <div class="flex items-start gap-2 text-red-300 font-bold mb-1">
-                            <i data-lucide="x-circle" class="w-4 h-4 shrink-0 mt-0.5"></i>
+                            <i data-lucide="x-circle" class="w-4 h-4 shrink-0"></i>
                             <span class="leading-snug">Alerta: Banca Tradicional Bloqueada</span>
                         </div>
                         <p class="text-[11px] text-slate-300 leading-relaxed pl-6">Los filtros automatizados de los bancos comerciales rechazarán la solicitud en menos de 24 horas.</p>
                     </div>
                     <div class="p-3 rounded-2xl bg-white/5 border border-white/10 text-slate-200">
                         <div class="flex items-start gap-2 text-amber-300 font-bold mb-1">
-                            <i data-lucide="help-circle" class="w-4 h-4 shrink-0 mt-0.5"></i>
+                            <i data-lucide="help-circle" class="w-4 h-4 shrink-0"></i>
                             <span class="leading-snug">Puerta Transitoria: Microcréditos o Proveedores</span>
                         </div>
                         <p class="text-[11px] text-slate-300 leading-relaxed pl-6">Créditos comerciales directos con proveedores o líneas para informales con alto costo financiero.</p>
                     </div>
                     <div class="p-3 rounded-2xl bg-white/5 border border-white/10 text-slate-200">
                         <div class="flex items-start gap-2 text-emerald-300 font-bold mb-1">
-                            <i data-lucide="shield" class="w-4 h-4 shrink-0 mt-0.5"></i>
+                            <i data-lucide="shield" class="w-4 h-4 shrink-0"></i>
                             <span class="leading-snug">Plan de Acción Inmediato</span>
                         </div>
                         <p class="text-[11px] text-slate-300 leading-relaxed pl-6">1) Emite tu Aviso de Operación. 2) Abre cuenta bancaria a nombre del negocio. 3) Revisa prescripción en APC.</p>

@@ -132,7 +132,7 @@
   <!-- Announcement Bar Canónica -->
   <div id="announcement-bar" class="relative bg-brand-blue text-white py-2 px-4 text-center text-sm font-medium z-50">
     <span>
-      <i data-lucide="shield-alert" class="w-4 h-4 inline-block -mt-0.5 mr-1.5 text-brand-orange-light flex-shrink-0"></i>
+      <i data-lucide="shield-alert" class="w-4 h-4 text-brand-orange-light shrink-0"></i>
       Próximo Lanzamiento Oficial en <strong class="text-brand-orange-light">aizprua.com</strong> — Blindaje Legal 2026
     </span>
     <a href="#notificar" class="ml-2 underline font-bold hover:text-brand-orange-light transition-colors">Anotarme</a>
@@ -536,8 +536,9 @@
           btnText.textContent = '¡Registrado!';
           submitBtn.classList.replace('from-brand-orange', 'from-green-600');
           submitBtn.classList.replace('to-brand-orange-dark', 'to-green-700');
-          feedback.textContent = '✓ ¡Excelente! Te hemos añadido a la lista prioritaria de aizprua.com.';
+          feedback.innerHTML = '<span class="inline-flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 shrink-0 text-green-600"></i><span>¡Excelente! Te hemos añadido a la lista prioritaria de aizprua.com.</span></span>';
           feedback.className = 'mt-4 p-3 rounded-xl text-sm font-semibold bg-green-50 text-green-700 border border-green-200 block';
+          if (window.lucide) { lucide.createIcons(); }
         } catch (err) {
           console.error('Error al registrar correo:', err);
           btnText.textContent = 'Reintentar';

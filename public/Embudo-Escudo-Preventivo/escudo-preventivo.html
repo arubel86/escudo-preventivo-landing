@@ -133,7 +133,7 @@
 
     <!-- Announcement Bar -->
     <div id="announcement-bar" class="relative bg-brand-blue text-white py-2 px-4 text-center text-sm">
-        <span><svg class="w-4 h-4 inline-block -mt-0.5 mr-1.5 text-brand-orange-light flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/><path d="M14.05 2a9 9 0 0 1 8 7.94"/><path d="M14.05 6A5 5 0 0 1 18 10"/></svg>Solo <span class="spots-count font-bold text-brand-orange-light">4</span> diagnósticos disponibles
+        <span class="inline-flex items-center gap-1.5"><svg class="w-4 h-4 text-brand-orange-light shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/><path d="M14.05 2a9 9 0 0 1 8 7.94"/><path d="M14.05 6A5 5 0 0 1 18 10"/></svg>Solo <span class="spots-count font-bold text-brand-orange-light">4</span> diagnósticos disponibles
             esta semana — Sesiones martes y jueves</span>
         <button id="close-announcement" aria-label="Cerrar anuncio"
             class="absolute right-4 top-1/2 -translate-y-1/2 hover:text-brand-orange-light"><i data-lucide="x"
@@ -177,7 +177,7 @@
             <!-- Alerta de riesgo condicional (Pregunta 2 = "no estoy seguro" / "me falta algo") -->
             <div id="risk-alert"
                 class="hidden max-w-2xl mx-auto mb-8 bg-red-500/15 border border-red-400/40 text-red-200 px-5 py-4 rounded-xl text-center">
-                <svg class="w-4 h-4 inline-block -mt-0.5 mr-1.5 text-red-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg><strong>Detectamos posibles puntos de riesgo en tu perfil</strong> — el video de abajo te explica
+                <svg class="w-4 h-4 text-red-400 shrink-0 inline-block align-middle mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg><strong>Detectamos posibles puntos de riesgo en tu perfil</strong> — el video de abajo te explica
                 qué revisar.
             </div>
             <div class="flex justify-center mb-10">
@@ -188,7 +188,7 @@
             </div>
 
             <!--
-                ▼▼▼ REPRODUCTOR DE VIDEO ▼▼▼
+                REPRODUCTOR DE VIDEO
                 YouTube IFrame API · sin controles (controls:0), sin teclado (disablekb:1),
                 Config en script.js → CONFIG.youtubeId
             -->
@@ -253,14 +253,15 @@
                                 <span class="text-[13px] sm:text-base md:text-lg whitespace-nowrap">Reservar mi Diagnóstico ($79 USD)</span>
                                 <i data-lucide="arrow-right" class="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 group-hover:translate-x-1 transition-transform"></i>
                             </button>
-                            <p class="text-xs text-slate-400 mt-3.5 text-center leading-relaxed font-medium max-w-md mx-auto">
-                                <i data-lucide="shield-check" class="w-4 h-4 text-green-500 inline-block -mt-0.5 mr-1 align-middle"></i>
+                            <p class="text-xs text-slate-400 mt-3.5 flex items-center justify-center gap-1.5 leading-relaxed font-medium max-w-md mx-auto">
+                                <i data-lucide="shield-check" class="w-4 h-4 text-green-500 shrink-0"></i>
                                 <span>Pago 100% seguro por pasarela cifrada · Agendamiento inmediato</span>
                             </p>
                         </div>
 
                         <p class="text-center text-xs sm:text-sm text-slate-500 mt-6 leading-relaxed max-w-lg mx-auto">
-                            <i data-lucide="calendar-clock" class="w-4 h-4 text-brand-orange inline-block -mt-0.5 mr-1 align-middle"></i>
+                            <i data-lucide="calendar-clock" class="w-4 h-4 text-brand-orange flex items-center justify-center gap-1.5 max-w-lg mx-auto">
+<i data-lucide="calendar-clock" class="w-4 h-4 text-brand-orange shrink-0"></i>
                             <span>Sesiones disponibles solo martes y jueves · <span class="whitespace-nowrap">Quedan <strong class="spots-count font-bold text-brand-orange">4</strong> cupos esta semana</span></span>
                         </p>
                     </div>
@@ -391,7 +392,7 @@
                 <h2 class="text-3xl font-bold text-center mb-4 fade-in">Bonos incluidos con tu diagnóstico</h2>
                 <p class="text-slate-600 text-center mb-3 fade-in">Todos gratis con tu sesión</p>
                 <p class="text-xs sm:text-sm text-brand-blue font-semibold text-center mb-10 md:mb-12 fade-in leading-relaxed max-w-md mx-auto">
-                    <i data-lucide="mail" class="w-4 h-4 inline-block -mt-0.5 mr-1 align-middle"></i>
+                    <i data-lucide="mail" class="w-4 h-4 shrink-0"></i>
                     <span>Los recibes por correo electrónico después de tu sesión</span>
                 </p>
 
@@ -485,7 +486,7 @@
                         <i data-lucide="arrow-right" class="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 group-hover:translate-x-1 transition-transform"></i>
                     </button>
                     <p class="text-xs text-slate-500 mt-3 text-center leading-relaxed font-medium max-w-md mx-auto">
-                        <i data-lucide="lock" class="w-3.5 h-3.5 text-brand-blue inline-block -mt-0.5 mr-1 align-middle"></i>
+                        <i data-lucide="lock" class="w-3.5 h-3.5 text-brand-blue shrink-0"></i>
                         <span>Los $79 se acreditan al 100% como descuento en tu plan de gestión posterior</span>
                     </p>
                 </div>
@@ -569,7 +570,7 @@
                         <i data-lucide="arrow-right" class="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 group-hover:translate-x-1 transition-transform"></i>
                     </button>
                     <p class="text-xs text-slate-400 mt-3 font-medium text-center leading-relaxed max-w-md mx-auto">
-                        <svg class="w-3.5 h-3.5 text-amber-500 inline-block -mt-0.5 mr-1 align-middle" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        <svg class="w-3.5 h-3.5 text-amber-500 shrink-0 inline-block align-middle mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
                         <span>Solo 4 cupos disponibles esta semana · Sesiones martes y jueves</span>
                     </p>
                 </div>

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -629,8 +629,9 @@
                         <span id="btn-text">Suscribirme</span>
                     </button>
                 </form>
-                <p id="newsletter-feedback" class="hidden text-xs text-emerald-600 mt-2 font-bold">
-                    ✓ ¡Suscripción confirmada! Te enviaremos información relevante.
+                <p id="newsletter-feedback" class="hidden text-xs text-emerald-600 mt-2 font-bold inline-flex items-center gap-1.5">
+                    <i data-lucide="check-circle-2" class="w-3.5 h-3.5 shrink-0"></i>
+                    <span>¡Suscripción confirmada! Te enviaremos información relevante.</span>
                 </p>
             </div>
         </section>
@@ -866,6 +867,7 @@
                     btnText.textContent = '¡Listo!';
                     newsletterForm.reset();
                     feedbackMsg.classList.remove('hidden');
+                    if (window.lucide) { lucide.createIcons(); }
                     setTimeout(() => {
                         btnText.textContent = 'Suscribirme';
                     }, 3500);

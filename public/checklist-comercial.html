@@ -1329,8 +1329,7 @@
 
             <!-- Diagnóstico Explicativo Dinámico -->
             <div id="diagnostico-caja" class="p-6 rounded-2xl bg-slate-100 border border-slate-200 mb-8">
-                <div class="flex items-start gap-3">
-                    <i data-lucide="info" class="w-5 h-5 text-slate-600 shrink-0 mt-0.5"></i>
+                <div class="flex items-center gap-3"><i data-lucide="info" class="w-5 h-5 text-slate-600 shrink-0"></i>
                     <div>
                         <h4 id="diagnostico-titulo" class="font-black text-slate-900 text-sm sm:text-base">Auditoría pendiente de completar</h4>
                         <p id="diagnostico-desc" class="text-xs text-slate-600 mt-1 leading-relaxed">
@@ -1562,22 +1561,26 @@
                 badge.className = "px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-wide bg-rose-100 text-rose-700 border border-rose-300 flex items-center gap-1.5 animate-pulse";
                 badge.innerHTML = '<span class="w-2 h-2 rounded-full bg-rose-600"></span><span>Riesgo Crítico de Cierre</span>';
                 diagCaja.className = "p-6 rounded-2xl bg-rose-50 border border-rose-200 mb-8";
-                diagTitulo.innerText = `🔴 Dictamen: Nivel de Riesgo Crítico (${falta} faltas detectadas)`;
+                diagTitulo.innerHTML = `<span class="inline-flex items-center gap-2"><i data-lucide="alert-octagon" class="w-5 h-5 text-rose-600 shrink-0"></i><span>Dictamen: Nivel de Riesgo Crítico (${falta} faltas detectadas)</span></span>`;
                 diagDesc.innerText = "Tu establecimiento presenta múltiples infracciones graves (DGI, Bomberos o ACODECO) con riesgo inminente de cierre temporal o multas que superan los $2,500 USD. Se recomienda subsanar de inmediato.";
             } else if (falta >= 2) {
                 // RIESGO MODERADO
                 badge.className = "px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-wide bg-amber-100 text-amber-800 border border-amber-300 flex items-center gap-1.5";
                 badge.innerHTML = '<span class="w-2 h-2 rounded-full bg-amber-500"></span><span>Riesgo Moderado</span>';
                 diagCaja.className = "p-6 rounded-2xl bg-amber-50 border border-amber-200 mb-8";
-                diagTitulo.innerText = `🟡 Dictamen: Riesgo Moderado de Sanción (${falta} puntos por subsanar)`;
+                diagTitulo.innerHTML = `<span class="inline-flex items-center gap-2"><i data-lucide="alert-triangle" class="w-5 h-5 text-amber-600 shrink-0"></i><span>Dictamen: Riesgo Moderado de Sanción (${falta} puntos por subsanar)</span></span>`;
                 diagDesc.innerText = "Tienes una base operativa, pero existen omisiones visibles (señalética, letreros o permisos vencidos) que un inspector sancionará en la primera visita. Corrige antes del próximo operativo.";
             } else {
                 // BLINDADO
                 badge.className = "px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-wide bg-emerald-100 text-emerald-800 border border-emerald-300 flex items-center gap-1.5";
                 badge.innerHTML = '<span class="w-2 h-2 rounded-full bg-emerald-600"></span><span>Establecimiento Blindado</span>';
                 diagCaja.className = "p-6 rounded-2xl bg-emerald-50 border border-emerald-200 mb-8";
-                diagTitulo.innerText = `🟢 Dictamen: Establecimiento Blindado (${cumple} de ${TOTAL_ITEMS} cumplidos)`;
+                diagTitulo.innerHTML = `<span class="inline-flex items-center gap-2"><i data-lucide="shield-check" class="w-5 h-5 text-emerald-600 shrink-0"></i><span>Dictamen: Establecimiento Blindado (${cumple} de ${TOTAL_ITEMS} cumplidos)</span></span>`;
                 diagDesc.innerText = "¡Excelente! Tu local comercial cumple con los estándares prioritarios exigidos en Panamá. Mantén los documentos a la vista y las bitácoras al día.";
+            }
+
+            if (window.lucide) {
+                lucide.createIcons();
             }
 
             // Actualizar Enlace WhatsApp Dinámico

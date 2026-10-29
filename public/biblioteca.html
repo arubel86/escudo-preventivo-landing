@@ -737,9 +737,9 @@
             deliverablesContainer.innerHTML = '';
             res.deliverables.forEach(item => {
                 const row = document.createElement('div');
-                row.className = 'flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 font-medium';
+                row.className = 'flex items-center gap-2.5 text-xs sm:text-sm text-slate-700 font-medium';
                 row.innerHTML = `
-                    <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5"></i>
+                    <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0"></i>
                     <span class="leading-snug">${item}</span>
                 `;
                 deliverablesContainer.appendChild(row);

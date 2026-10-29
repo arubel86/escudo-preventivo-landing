@@ -79,12 +79,17 @@
 8. **Scripts Oficiales:** Lucide icons, barra de lectura scroll, scroll to top, copiar enlace, scrollspy en sidebar TOC y `blog-recommendations.js`.
 
 
-## 📐 Regla de Alineación Infalible de Badges, Números e Iconos en Encabezados y Listas
-* **MANDATO OBLIGATORIO:** En todo componente, tarjeta, sección o lista donde un número, badge circular o icono vectorial (como checkmarks en bullets) acompañe a un encabezado (`<h1>` a `<h6>`) o texto multilínea:
-  1. **Contenedor:** Debe utilizar OBLIGATORIAMENTE `flex items-start gap-2.5` (o `gap-3`).
-  2. **Badge / Icono:** Debe incluir `shrink-0` (o `flex-shrink-0`), dimensiones fijas (ej. `w-4 h-4` con `mt-0.5` para bullets de texto, o `w-8 h-8` centrado internamente para números de encabezado).
-  3. **Texto / Encabezado:** Debe tener alineación y line-height armónico (`leading-snug` o `leading-8`).
-* **PROHIBICIÓN ESTRICTA:** Queda terminantemente prohibido usar `flex items-center` en contenedores de títulos o listas cuyos textos puedan saltar a dos o más líneas en dispositivos móviles o pantallas estrechas. Esto previene que el icono o número quede flotando en medio de las líneas de texto.
+## 📐 Regla Canónica de Alineación y Centrado de Iconos SVG con el Texto (Cero Emojis & Cero Iconos Flotantes)
+* **DISTINCIÓN OBLIGATORIA POR NÚMERO DE LÍNEAS DE TEXTO:**
+  1. **Textos de 1 Sola Línea (Badges, Píldoras, Botones breves, Chips, Selectores, Títulos cortos):**
+     - **Alineación Centrada Estricta:** Debe utilizar OBLIGATORIAMENTE `inline-flex items-center` o `flex items-center`.
+     - **Cero márgenes de desfase:** Sin márgenes superiores (`mt-0.5`, `mt-1`) para que el eje central del icono coincida exactamente con el centro óptico del texto.
+  2. **Textos de 2 o Más Líneas (Entregables, Bullets de Beneficios, Trámites de Hoja de Ruta, Párrafos, Textos que quiebran en móvil):**
+     - **Contenedor:** Debe utilizar OBLIGATORIAMENTE `flex items-start gap-2` (o `gap-2.5`).
+     - **Centrado a la Primera Línea:** El icono SVG debe estar **estrictamente centrado a la primera línea de texto**, incorporando `shrink-0 mt-0.5` (o `mt-[1px]`/`mt-[2px]` según el line-height del texto acompañante: `leading-snug` o `leading-normal`).
+     - **PROHIBICIÓN ESTRICTA:** Queda **terminantemente prohibido usar `items-center` en elementos o listas con dos o más líneas de texto** o cuyos textos puedan saltar a un segundo renglón en móvil o pantallas estrechas. Usar `items-center` en textos multilínea provoca que el icono flote en el espacio intermedio entre la línea 1 y la línea 2, rompiendo la armonía visual.
+  3. **Propiedades Obligatorias del Icono:** Todo SVG / Lucide icon debe incluir `shrink-0` (o `flex-shrink-0`) para evitar aplastamientos por compresión flex.
+* **MANDATO DE CERO EMOJIS:** Todo emoji encontrado en cualquier interfaz web o documento debe convertirse inmediatamente a su icono vectorial SVG oficial (`<i data-lucide="..."></i>` o SVG inline).
 * **BOTONES DE CONVERSIÓN EN LEAD MAGNETS:** Los botones CTA dobles en banners de lead magnet deben llevar obligatoriamente `w-full sm:w-auto whitespace-nowrap shrink-0` para prevenir que el texto se parta en dos líneas y desplace los iconos lateralmente.
 
 ## 🖼️ Regla de Medidas, Proporciones y Portadas de Blog
