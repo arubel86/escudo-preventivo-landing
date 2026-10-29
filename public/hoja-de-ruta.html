@@ -373,6 +373,21 @@
                             class="w-full pl-8 pr-2.5 py-1.5 bg-white border border-slate-200 hover:border-slate-300 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue rounded-xl text-xs font-mono font-semibold text-slate-800 transition outline-none">
                     </div>
                 </div>
+
+                <!-- 6. Observaciones Periciales del Consultor -->
+                <div class="sm:col-span-2 lg:col-span-5">
+                    <label class="block text-[10px] font-extrabold uppercase tracking-wider text-slate-500 mb-1 flex items-center justify-between">
+                        <span class="flex items-center gap-1.5">
+                            <i data-lucide="clipboard-pen-line" class="w-3.5 h-3.5 text-brand-orange"></i>
+                            Observaciones &amp; Criterio Pericial del Consultor (Hoja 1)
+                        </span>
+                        <span class="text-[9px] text-slate-400 font-normal">Sincronizado en vivo con el documento impreso</span>
+                    </label>
+                    <textarea id="input-consola-observaciones" rows="2"
+                        oninput="sincronizarDesdeConsola('observaciones', this.value)"
+                        placeholder="Escribe aquí observaciones estratégicas, acuerdos con el cliente o notas periciales para el expediente..."
+                        class="w-full px-3 py-2 bg-white border border-slate-200 hover:border-slate-300 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue rounded-xl text-xs text-slate-800 transition outline-none resize-y">Se evidencia urgencia de contención fiscal y registral. La sociedad presenta morosidad en Tasa Única con riesgo inminente de suspensión en Registro Público, aunado a inconsistencias en e-Tax 2.0 y reporte pendiente ante el RUBF (Ley 129). Se recomienda ejecutar de inmediato la Fase 1 para frenar recargos y proteger el estatus corporativo.</textarea>
+                </div>
             </div>
         </div>
 
@@ -656,6 +671,26 @@
                         </li>
                     </ul>
                 </div>
+            </div>
+
+            <!-- 4. OBSERVACIONES & CRITERIO PERICIAL DEL CONSULTOR -->
+            <div class="bg-amber-50/50 border border-amber-200/80 rounded-xl p-3 sm:p-3.5 page-break-avoid mb-4">
+                <div class="flex items-center justify-between mb-1.5">
+                    <div class="flex items-center gap-2">
+                        <div class="w-6 h-6 rounded-lg bg-amber-500/20 text-amber-800 border border-amber-500/30 flex items-center justify-center shrink-0">
+                            <i data-lucide="clipboard-pen-line" class="w-3.5 h-3.5"></i>
+                        </div>
+                        <h3 class="text-xs font-black uppercase tracking-wider text-amber-950 font-heading">
+                            4. Observaciones &amp; Criterio Pericial del Consultor
+                        </h3>
+                    </div>
+                    <span class="px-2 py-0.5 rounded-full text-[9px] font-black uppercase bg-amber-100 text-amber-800 border border-amber-200">
+                        Dictamen Personalizado
+                    </span>
+                </div>
+                <p id="doc-observaciones" class="text-xs text-slate-700 leading-relaxed editable-field" contenteditable="true">
+                    Se evidencia urgencia de contención fiscal y registral. La sociedad presenta morosidad en Tasa Única con riesgo inminente de suspensión en Registro Público, aunado a inconsistencias en e-Tax 2.0 y reporte pendiente ante el RUBF (Ley 129). Se recomienda ejecutar de inmediato la Fase 1 para frenar recargos y proteger el estatus corporativo.
+                </p>
             </div>
 
             <!-- 5. CIERRE PERICIAL DE HOJA 1 (PÁGINA 1 DE AUDITORÍA) -->
@@ -1430,6 +1465,7 @@
                 estacion1: 'Frenar multas por suspensión en Registro Público y pagar tasas únicas morosas con arreglo fiscal.',
                 estacion2: 'Designación de nuevo Agente Residente legal e inscripción obligatoria en el sistema RUBF.',
                 estacion3: 'Emisión de Certificado de Registro Público al día y entrega de expediente societario blindado.',
+                observaciones: 'Se evidencia urgencia de contención fiscal y registral. La sociedad presenta morosidad en Tasa Única con riesgo inminente de suspensión en Registro Público, aunado a inconsistencias en e-Tax 2.0 y reporte pendiente ante el RUBF (Ley 129). Se recomienda ejecutar de inmediato la Fase 1 para frenar recargos y proteger el estatus corporativo.',
                 planSugerido: 'planPremium'
             },
             caso2: {
@@ -1449,6 +1485,7 @@
                 estacion1: 'Comparecencia ante el Municipio de Panamá con memorial de descargos para frenar boletas de cierre.',
                 estacion2: 'Rectificación de actividad comercial en PanamáEmprende y registro formal del rótulo comercial.',
                 estacion3: 'Obtención de Paz y Salvo Municipal y homologación de la tasa tributaria definitiva.',
+                observaciones: 'Operación activa como Persona Natural que requiere atención inmediata ante el Municipio de Panamá por inspección y rótulo comercial no registrado. Se recomienda presentar memorial de descargos en las próximas 48 horas y actualizar el Aviso de Operación para evitar multas coercitivas o cierre de local.',
                 planSugerido: 'planEstandar'
             },
             caso3: {
@@ -1468,6 +1505,7 @@
                 estacion1: 'Redacción de Pacto Social y constitución formal de Sociedad Anónima (S.A.) o S.E.P. en Registro Público.',
                 estacion2: 'Inscripción del RUC jurídico en DGI, habilitación de Facturación Electrónica y emisión de Aviso de Operación.',
                 estacion3: 'Apertura de cuenta bancaria corporativa y migración de contratos comerciales a la nueva sociedad.',
+                observaciones: 'Facturación elevada que genera alta ineficiencia fiscal al tributar como Persona Natural (hasta 25%) y expone el 100% del patrimonio personal ante litigios. Es prioritario constituir la Sociedad Anónima (S.A.) en Registro Público, habilitar el RUC corporativo y migrar contratos comerciales para blindaje patrimonial.',
                 planSugerido: 'planElite'
             },
             caso4: {
@@ -1487,6 +1525,7 @@
                 estacion1: 'Diagnóstico individual de colaboradores y cálculo de pasivos laborales contingentes.',
                 estacion2: 'Inscripción de número patronal en CSS, afiliación de personal clave y redacción de contratos MITRADEL.',
                 estacion3: 'Emisión de Paz y Salvo de Caja de Seguro Social y blindaje contractual contra demandas laborales.',
+                observaciones: 'Alto riesgo de contingencia laboral en CSS y MITRADEL debido a colaboradores contratados por "servicios profesionales" que mantienen horario y subordinación. Se recomienda formalizar la afiliación patronal en SIPE y registrar contratos tipo con urgencia para evitar alcances con 10% de recargo mensual.',
                 planSugerido: 'planPremium'
             },
             caso5: {
@@ -1506,6 +1545,7 @@
                 estacion1: 'Verificación de archivo maestro en DGI y constancia de vigencia en Registro Público.',
                 estacion2: 'Actualización preventiva anual en la plataforma de Beneficiarios Finales (RUBF).',
                 estacion3: 'Entrega de Certificado Oficial de Empresa Blindada 2026 y calendario de vencimientos preventivos.',
+                observaciones: 'Excelente estatus de cumplimiento general. Empresa apta para certificación de blindaje corporativo preventivo 2026. Se aconseja únicamente actualizar el reporte anual de Beneficiarios Finales (RUBF) antes de su vencimiento y gestionar el registro de marca ante DIGERPI.',
                 planSugerido: 'planBasico'
             }
         };
@@ -1617,6 +1657,9 @@
                 if (elSlide) elSlide.innerText = val;
                 const elRad = document.getElementById('doc-rad-exp');
                 if (elRad) elRad.innerText = val;
+            } else if (campo === 'observaciones') {
+                const elDoc = document.getElementById('doc-observaciones');
+                if (elDoc) elDoc.innerText = val;
             }
             actualizarWhatsAppLink();
         }
@@ -1628,7 +1671,8 @@
                 { docId: 'doc-empresa', inputId: 'input-consola-empresa', slideId: 'slide-empresa-nombre', radId: 'doc-rad-empresa' },
                 { docId: 'doc-ruc', inputId: 'input-consola-ruc' },
                 { docId: 'doc-municipio', inputId: 'input-consola-municipio' },
-                { docId: 'doc-expediente', inputId: 'input-consola-expediente', slideId: 'slide-exp-display', radId: 'doc-rad-exp' }
+                { docId: 'doc-expediente', inputId: 'input-consola-expediente', slideId: 'slide-exp-display', radId: 'doc-rad-exp' },
+                { docId: 'doc-observaciones', inputId: 'input-consola-observaciones' }
             ];
 
             mapCampos.forEach(c => {
@@ -1678,6 +1722,14 @@
             const radExp = document.getElementById('doc-rad-exp');
             const expVal = document.getElementById('doc-expediente')?.innerText || 'EP-2026-042';
             if (radExp) radExp.innerText = expVal;
+
+            // Sincronizar Observaciones Periciales del Consultor
+            if (data.observaciones) {
+                const docObs = document.getElementById('doc-observaciones');
+                if (docObs) docObs.innerText = data.observaciones;
+                const inpObs = document.getElementById('input-consola-observaciones');
+                if (inpObs) inpObs.value = data.observaciones;
+            }
 
             setSemaforo('dgi', data.dgi.semaforo);
             document.getElementById('desc-dgi').innerText = data.dgi.desc;
@@ -2612,6 +2664,9 @@
                        || document.getElementById('doc-expediente')?.innerText.trim() 
                        || ('AUD-2026-' + Math.floor(100 + Math.random() * 900));
             const fecha = document.getElementById('doc-fecha')?.innerText.trim() || new Date().toLocaleDateString('es-PA');
+            const observaciones = document.getElementById('input-consola-observaciones')?.value.trim() 
+                               || document.getElementById('doc-observaciones')?.innerText.trim() 
+                               || '';
 
             // Calcular faltas y multas
             let faltasCount = 0;
@@ -2729,6 +2784,7 @@
                 nivelRiesgo: nivelRiesgo,
                 porcentajeRiesgo: porcentajeRiesgo,
                 totalMultasEstimadas: multasEstimadas,
+                observaciones: observaciones,
                 diagnostico: diagnosticoFilas,
                 solucion: {
                     planRecomendado: planNombre,

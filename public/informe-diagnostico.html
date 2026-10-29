@@ -344,6 +344,21 @@
 
             </div>
 
+            <!-- OBSERVACIONES & CRITERIO PERICIAL DEL CONSULTOR (DINÁMICO) -->
+            <div id="container-observaciones" class="hidden px-6 sm:px-8 pb-4">
+                <div class="bg-amber-50/60 border border-amber-200/90 rounded-2xl p-4 sm:p-5">
+                    <div class="flex items-center gap-2 mb-2">
+                        <div class="w-6 h-6 rounded-lg bg-amber-500/20 text-amber-800 border border-amber-500/30 flex items-center justify-center shrink-0">
+                            <i data-lucide="clipboard-pen-line" class="w-3.5 h-3.5"></i>
+                        </div>
+                        <h4 class="text-xs font-black uppercase tracking-wider text-amber-950 font-heading">
+                            Observaciones &amp; Criterio Pericial del Consultor
+                        </h4>
+                    </div>
+                    <p id="view-observaciones" class="text-xs text-slate-700 leading-relaxed"></p>
+                </div>
+            </div>
+
             <!-- SELLO Y FIRMA OFICIAL DEL CONSULTOR -->
             <div class="px-6 sm:px-8 pb-8 pt-2">
                 <div class="border-t border-dashed border-slate-200 pt-6 flex flex-col sm:flex-row items-center justify-between gap-6">
@@ -564,6 +579,17 @@
                     bonosList.appendChild(li);
                 });
             }
+
+            // Observaciones & Criterio Pericial del Consultor
+            if (data.observaciones && data.observaciones.trim()) {
+                const obsContainer = document.getElementById('container-observaciones');
+                const obsText = document.getElementById('view-observaciones');
+                if (obsContainer && obsText) {
+                    obsText.textContent = data.observaciones.trim();
+                    obsContainer.classList.remove('hidden');
+                }
+            }
+
             lucide.createIcons();
         }
 
