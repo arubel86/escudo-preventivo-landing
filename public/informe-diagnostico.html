@@ -110,7 +110,7 @@
                 </div>
                 <div>
                     <h1 class="text-sm font-black text-slate-900 uppercase tracking-wider font-heading">Panel de Diagnóstico Jurídico &amp; Fiscal</h1>
-                    <p class="text-xs text-slate-500 mt-0.5">Carga un JSON generado por el Gem de Gemini para renderizar el informe oficial.</p>
+                    <p id="panel-subtitulo" class="text-xs text-slate-500 mt-0.5">Sincronizado automáticamente desde la Hoja de Ruta o carga de JSON.</p>
                 </div>
             </div>
 
@@ -163,10 +163,12 @@
                             </span>
                         </div>
                         <h2 id="view-empresa" class="font-heading text-2xl sm:text-3xl font-black text-white tracking-tight">Cargando negocio...</h2>
-                        <p class="text-sm text-slate-400 mt-1.5">
-                            Titular: <span id="view-cliente" class="text-slate-200 font-semibold">---</span>
-                            &nbsp;|&nbsp;
-                            RUC: <span id="view-ruc" class="text-slate-200 font-mono font-semibold">---</span>
+                        <p class="text-xs sm:text-sm text-slate-300 mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1">
+                            <span>Titular: <strong id="view-cliente" class="text-white font-semibold">---</strong></span>
+                            <span class="text-slate-500">•</span>
+                            <span>RUC: <strong id="view-ruc" class="text-white font-mono font-semibold">---</strong></span>
+                            <span class="text-slate-500">•</span>
+                            <span>Municipio: <strong id="view-municipio" class="text-white font-semibold">---</strong></span>
                         </p>
                     </div>
                     <div class="sm:text-right shrink-0">
@@ -278,45 +280,64 @@
                     </div>
                 </section>
 
-                <!-- CAJA DE SOLUCIÓN Y CIERRE COMERCIAL -->
-                <section class="bg-gradient-to-br from-slate-900 via-slate-800 to-brand-blue-dark border border-slate-700/80 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden fade-in">
+                <!-- PROTOCOLO PERICIAL DE REGULARIZACIÓN (100% INSTITUCIONAL - SIN PRECIOS) -->
+                <section class="bg-gradient-to-br from-slate-900 via-slate-800 to-brand-blue-dark border border-slate-700/80 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden fade-in text-white">
                     <!-- Efectos de luz de fondo -->
                     <div class="absolute -right-16 -bottom-16 w-64 h-64 bg-brand-blue/30 rounded-full blur-3xl pointer-events-none"></div>
                     <div class="absolute right-10 top-0 w-48 h-48 bg-brand-orange/15 rounded-full blur-3xl pointer-events-none"></div>
 
-                    <div class="relative z-10 flex flex-col lg:flex-row lg:items-start justify-between gap-6">
-                        <div class="space-y-4 flex-1">
-                            <span class="inline-block px-3 py-1 rounded-full text-xs font-black bg-brand-orange/20 text-brand-orange-light border border-brand-orange/30 uppercase tracking-wider">
-                                Plan Llave en Mano Recomendado
+                    <div class="relative z-10 space-y-6">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-700/80">
+                            <div>
+                                <span class="inline-block px-3 py-1 rounded-full text-xs font-black bg-brand-orange/20 text-brand-orange-light border border-brand-orange/30 uppercase tracking-wider mb-1">
+                                    Protocolo Pericial de Regularización
+                                </span>
+                                <h3 id="view-plan-nombre" class="font-heading text-xl sm:text-2xl font-black text-white leading-snug">
+                                    Plan Técnico de Saneamiento &amp; Blindaje
+                                </h3>
+                            </div>
+                            <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-white/10 text-emerald-300 border border-emerald-500/30 whitespace-nowrap self-start sm:self-auto">
+                                Prioridad de Intervención: Inmediata
                             </span>
-                            <h3 id="view-plan-nombre" class="font-heading text-xl sm:text-2xl font-black text-white leading-snug">---</h3>
-                            <p class="text-xs text-slate-400 leading-relaxed">Nuestro equipo asume el 100% de la tramitología, notarías y gestiones para entregarte tu negocio operativo y blindado.</p>
+                        </div>
 
-                            <!-- Bonos Incluidos -->
-                            <div class="pt-2">
-                                <p class="text-[10px] font-black uppercase tracking-wider text-slate-400 mb-2">Bonos Exclusivos Incluidos:</p>
-                                <ul id="view-bonos-list" class="space-y-2 text-xs text-slate-300">
-                                    <!-- Se llena con JS -->
-                                </ul>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-3xl">
+                            Con base en los hallazgos normativos identificados en la presente auditoría, la firma dictamina la ejecución de una ruta técnica integral de regularización ante las entidades competentes (DGI, Municipio, Registro Público y CSS / Mitradel), orientada al saneamiento total del negocio y la obtención de Paz y Salvo oficial.
+                        </p>
+
+                        <!-- Fases de Intervención Técnica (Sin precios) -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+                            <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
+                                <div class="w-7 h-7 rounded-lg bg-brand-blue/30 text-brand-orange-light flex items-center justify-center font-bold text-xs mb-2.5">
+                                    01
+                                </div>
+                                <h5 class="text-xs font-black text-white uppercase tracking-wider mb-1">Fase 1: Contención Urgente</h5>
+                                <p class="text-[11px] text-slate-300 leading-relaxed">Presentación de memoriales, actualización del domicilio fiscal y contención de citaciones o bloqueos en cuentas.</p>
+                            </div>
+
+                            <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
+                                <div class="w-7 h-7 rounded-lg bg-brand-orange/30 text-brand-orange-light flex items-center justify-center font-bold text-xs mb-2.5">
+                                    02
+                                </div>
+                                <h5 class="text-xs font-black text-white uppercase tracking-wider mb-1">Fase 2: Subsanación Registral &amp; Fiscal</h5>
+                                <p class="text-[11px] text-slate-300 leading-relaxed">Actualización formal de Avisos (MICI), liquidación de Tasas Únicas, designación de Agente Residente y registro RUAF.</p>
+                            </div>
+
+                            <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
+                                <div class="w-7 h-7 rounded-lg bg-emerald-500/30 text-emerald-300 flex items-center justify-center font-bold text-xs mb-2.5">
+                                    03
+                                </div>
+                                <h5 class="text-xs font-black text-white uppercase tracking-wider mb-1">Fase 3: Blindaje &amp; Paz y Salvo</h5>
+                                <p class="text-[11px] text-slate-300 leading-relaxed">Emisión oficial de Paz y Salvo DGI/Municipal, entrega de expediente digital saneado y calendario preventivo anual.</p>
                             </div>
                         </div>
 
-                        <!-- Liquidación Financiera -->
-                        <div class="bg-white/5 border border-white/10 backdrop-blur-sm p-5 rounded-2xl w-full lg:w-80 shrink-0 text-right space-y-2.5">
-                            <div class="flex justify-between text-xs text-slate-400">
-                                <span>Inversión del Paquete:</span>
-                                <span id="view-precio-regular" class="font-mono text-slate-300 font-bold">$0.00</span>
-                            </div>
-                            <div class="flex justify-between text-xs text-emerald-400 font-bold">
-                                <span>Crédito Diagnóstico de Hoy:</span>
-                                <span id="view-credito" class="font-mono">-$79.00</span>
-                            </div>
-                            <div class="border-t border-white/10 pt-2.5 flex justify-between items-baseline">
-                                <span class="text-xs font-black text-white uppercase tracking-wider">Total a Liquidar:</span>
-                                <span id="view-precio-final" class="text-2xl font-black text-brand-orange font-mono">$0.00</span>
-                            </div>
-                            <p class="text-[10px] text-slate-400 pt-1 text-center leading-relaxed">Garantía de crédito de $79 activa durante las próximas 48 horas.</p>
-
+                        <!-- Entregables Técnicos Oficiales -->
+                        <div class="pt-2">
+                            <p class="text-[10px] font-black uppercase tracking-wider text-slate-400 mb-2">Entregables y Garantías del Proceso Pericial:</p>
+                            <ul id="view-bonos-list" class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-200">
+                                <!-- Se llena dinámicamente con JS -->
+                            </ul>
                         </div>
                     </div>
                 </section>
@@ -424,15 +445,12 @@
                 { "entidad": "CSS / Mitradel", "estado": "Informal", "detalle": "2 colaboradores con pago de comisiones sin afiliación patronal." }
             ],
             "solucion": {
-                "planRecomendado": "Plan Premium (Sociedad de Emprendimiento S.E.)",
-                "precioOficial": 850,
-                "creditoDiagnostico": 79,
-                "totalPagar": 771,
-                "bonos": [
-                    "Tutorial completo de uso de Facturación PAC",
-                    "Calendario Fiscal y de Obligaciones Anual en PDF",
-                    "Checklist Maestro para Armado de Expediente Bancario",
-                    "Guía de los 2 años de Exoneración de ISR (Ley 186)"
+                "planRecomendado": "Plan Técnico de Saneamiento Registral & Fiscal",
+                "entregables": [
+                    "Levantamiento formal y subsanación ante DGI, MICI y Municipio",
+                    "Emisión y entrega de Paz y Salvo oficial DGI / Municipal",
+                    "Expediente pericial digital organizado y blindado",
+                    "Calendario anual preventivo de obligaciones tributarias"
                 ]
             }
         };
@@ -442,6 +460,8 @@
             document.getElementById('view-empresa').textContent = data.empresa || 'Empresa Sin Nombre';
             document.getElementById('view-cliente').textContent = data.cliente || '---';
             document.getElementById('view-ruc').textContent = data.ruc || 'Sin registro';
+            const munEl = document.getElementById('view-municipio');
+            if (munEl) munEl.textContent = data.municipio || 'Panamá';
             document.getElementById('view-fecha').textContent = data.fecha || new Date().toLocaleDateString('es-PA');
             const folioEl = document.getElementById('view-folio');
             if (folioEl) folioEl.textContent = data.folio || ('AUD-2026-' + String(Math.floor(100 + Math.random() * 900)));
@@ -515,24 +535,31 @@
             }
             lucide.createIcons();
 
-            // Solución Asignada
+            // Solución Asignada (100% Institucional - Enfoque Pericial)
             const sol = data.solucion || {};
-            document.getElementById('view-plan-kpi').textContent = sol.planRecomendado || '---';
-            document.getElementById('view-plan-nombre').textContent = sol.planRecomendado || '---';
-            document.getElementById('view-precio-regular').textContent = `$${(sol.precioOficial || 0).toFixed(2)}`;
-            document.getElementById('view-credito').textContent = `-$${(sol.creditoDiagnostico || 79).toFixed(2)}`;
-            document.getElementById('view-precio-final').textContent = `$${(sol.totalPagar || ((sol.precioOficial || 0) - 79)).toFixed(2)}`;
+            const planNomEl = document.getElementById('view-plan-nombre');
+            if (planNomEl) planNomEl.textContent = sol.planRecomendado || 'Plan Técnico de Saneamiento & Blindaje';
 
-            // Bonos
+            // Entregables del Protocolo
             const bonosList = document.getElementById('view-bonos-list');
-            bonosList.innerHTML = '';
-            if (sol.bonos && Array.isArray(sol.bonos)) {
-                sol.bonos.forEach(bono => {
+            if (bonosList) {
+                bonosList.innerHTML = '';
+                const items = (sol.entregables && Array.isArray(sol.entregables) && sol.entregables.length > 0)
+                    ? sol.entregables
+                    : (sol.bonos && Array.isArray(sol.bonos) && sol.bonos.length > 0)
+                        ? sol.bonos
+                        : [
+                            "Levantamiento formal y memorial de subsanación ante entidades",
+                            "Emisión y entrega de Paz y Salvo oficial DGI / Municipal",
+                            "Expediente pericial digital completo y regularizado",
+                            "Calendario anual preventivo de obligaciones tributarias"
+                        ];
+                items.forEach(item => {
                     const li = document.createElement('li');
                     li.className = 'flex items-start gap-2';
                     li.innerHTML = `
-                        <i data-lucide="gift" class="w-3.5 h-3.5 text-brand-orange shrink-0 mt-0.5"></i>
-                        <span class="leading-snug">${bono}</span>
+                        <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5"></i>
+                        <span class="leading-snug">${item}</span>
                     `;
                     bonosList.appendChild(li);
                 });
@@ -598,6 +625,15 @@
 
 
         function limpiarInforme() {
+            try {
+                localStorage.removeItem('informe_diagnostico_data');
+            } catch (e) {}
+
+            const subEl = document.getElementById('panel-subtitulo');
+            if (subEl) {
+                subEl.textContent = 'Panel en blanco. Sube un JSON o transfiere desde la Hoja de Ruta.';
+            }
+
             renderizarInforme({
                 cliente: '---',
                 empresa: 'Nombre del Negocio',
@@ -609,11 +645,8 @@
                 totalMultasEstimadas: 0,
                 diagnostico: [],
                 solucion: {
-                    planRecomendado: 'Por Asignar',
-                    precioOficial: 0,
-                    creditoDiagnostico: 79,
-                    totalPagar: 0,
-                    bonos: []
+                    planRecomendado: 'Pendiente de Asignación Pericial',
+                    entregables: []
                 }
             });
         }
@@ -650,6 +683,26 @@
         // ─── Inicialización ──────────────────────────────────────────────
         window.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
+
+            // Detectar si hay datos transferidos desde la Hoja de Ruta o Checklist
+            try {
+                const stored = localStorage.getItem('informe_diagnostico_data');
+                if (stored) {
+                    const data = JSON.parse(stored);
+                    renderizarInforme(data);
+
+                    const subEl = document.getElementById('panel-subtitulo');
+                    if (subEl) {
+                        subEl.innerHTML = `<span class="text-emerald-600 font-bold flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 shrink-0"></i> Sincronizado en vivo desde ${data.origen === 'hoja-de-ruta' ? 'la Hoja de Ruta' : 'el Checklist Comercial'}: <strong class="text-slate-900">${data.empresa}</strong></span>`;
+                        lucide.createIcons();
+                    }
+                    return;
+                }
+            } catch (e) {
+                console.error('Error al cargar datos transferidos:', e);
+            }
+
+            // Fallback por defecto si no hay datos guardados
             renderizarInforme(jsonEjemplo);
         });
     </script>
