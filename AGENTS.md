@@ -80,15 +80,28 @@
 
 
 ## 📐 Regla Canónica de Alineación y Centrado de Iconos SVG con el Texto (Cero Emojis & Cero Iconos Flotantes)
-* **DISTINCIÓN OBLIGATORIA POR NÚMERO DE LÍNEAS DE TEXTO:**
-  1. **Textos de 1 Sola Línea (Badges, Píldoras, Botones breves, Chips, Selectores, Títulos cortos):**
+* **DISTINCIÓN OBLIGATORIA POR ESTRUCTURA Y NÚMERO DE LÍNEAS:**
+  1. **Textos de 1 Sola Línea (Badges, Píldoras, Botones breves, Chips, Selectores, Títulos simples):**
      - **Alineación Centrada Estricta:** Debe utilizar OBLIGATORIAMENTE `inline-flex items-center` o `flex items-center`.
      - **Cero márgenes de desfase:** Sin márgenes superiores (`mt-0.5`, `mt-1`) para que el eje central del icono coincida exactamente con el centro óptico del texto.
-  2. **Textos de 2 o Más Líneas (Entregables, Bullets de Beneficios, Trámites de Hoja de Ruta, Párrafos, Textos que quiebran en móvil):**
+  2. **Bloques Compuestos (Callouts, Cajas de Alerta, Banners con Título + Párrafo Explicativo):**
+     - **Arquitectura Canónica Obligatoria (Opción 1 Oficial):** El icono y el título deben conformar su **propia fila de encabezado** utilizando estrictamente `flex items-center gap-2 mb-1.5` para garantizar un centrado automático y milimétrico al 100% entre el icono y el texto del título.
+     - **Párrafo Explicativo:** Se ubica inmediatamente debajo con sangría de alineación visual (`pl-6` cuando el icono mide `w-4 h-4` / 16px) y `leading-relaxed` para que el texto fluya de forma impecable sin desalinear el encabezado:
+       ```html
+       <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 mb-6">
+           <div class="flex items-center gap-2 mb-1.5">
+               <i data-lucide="..." class="w-4 h-4 text-brand-blue shrink-0"></i>
+               <h4 class="font-bold text-slate-800 text-xs">[Título de la Alerta o Garantía]</h4>
+           </div>
+           <p class="text-xs text-slate-600 leading-relaxed pl-6">[Texto explicativo]</p>
+       </div>
+       ```
+     - **PROHIBICIÓN ESTRICTA:** Queda terminantemente prohibido colocar el icono al lado de todo el bloque aplicando `items-center` en el contenedor padre general, lo que provoca que el icono flote en el medio y descienda por debajo del título.
+  3. **Listas y Textos Multilínea Continuos (Entregables, Bullets de Beneficios, Trámites de Hoja de Ruta, Párrafos sin título):**
      - **Contenedor:** Debe utilizar OBLIGATORIAMENTE `flex items-start gap-2` (o `gap-2.5`).
-     - **Centrado a la Primera Línea:** El icono SVG debe estar **estrictamente centrado a la primera línea de texto**, incorporando `shrink-0 mt-0.5` (o `mt-[1px]`/`mt-[2px]` según el line-height del texto acompañante: `leading-snug` o `leading-normal`).
-     - **PROHIBICIÓN ESTRICTA:** Queda **terminantemente prohibido usar `items-center` en elementos o listas con dos o más líneas de texto** o cuyos textos puedan saltar a un segundo renglón en móvil o pantallas estrechas. Usar `items-center` en textos multilínea provoca que el icono flote en el espacio intermedio entre la línea 1 y la línea 2, rompiendo la armonía visual.
-  3. **Propiedades Obligatorias del Icono:** Todo SVG / Lucide icon debe incluir `shrink-0` (o `flex-shrink-0`) para evitar aplastamientos por compresión flex.
+     - **Centrado a la Primera Línea:** El icono SVG debe estar **estrictamente centrado a la primera línea de texto**, incorporando `shrink-0 mt-0.5` con texto en `leading-snug`.
+     - **PROHIBICIÓN ESTRICTA:** Prohibido usar `items-center` en listas de 2 o más líneas.
+  4. **Propiedades Obligatorias del Icono:** Todo SVG / Lucide icon debe incluir `shrink-0` (o `flex-shrink-0`) para evitar aplastamientos por compresión flex.
 * **MANDATO DE CERO EMOJIS:** Todo emoji encontrado en cualquier interfaz web o documento debe convertirse inmediatamente a su icono vectorial SVG oficial (`<i data-lucide="..."></i>` o SVG inline).
 * **BOTONES DE CONVERSIÓN EN LEAD MAGNETS:** Los botones CTA dobles en banners de lead magnet deben llevar obligatoriamente `w-full sm:w-auto whitespace-nowrap shrink-0` para prevenir que el texto se parta en dos líneas y desplace los iconos lateralmente.
 
