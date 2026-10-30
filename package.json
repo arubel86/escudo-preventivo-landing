@@ -10,9 +10,10 @@
     "sync-blog": "node scripts/export-blog-to-markdown.js"
   },
   "dependencies": {
-    "express": "^4.21.0",
+    "cheerio": "^1.0.0-rc.12",
+    "compression": "^1.8.2",
     "dotenv": "^16.4.5",
-    "cheerio": "^1.0.0-rc.12"
+    "express": "^4.21.0"
   },
   "engines": {
     "node": ">=18.0.0"

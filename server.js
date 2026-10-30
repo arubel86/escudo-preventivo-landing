@@ -14,6 +14,7 @@
 
 require('dotenv').config();
 const express = require('express');
+const compression = require('compression');
 const path = require('path');
 const crypto = require('crypto');
 const { cybersourceRequest } = require('./lib/cybersource-auth');
@@ -51,6 +52,59 @@ function isValidPaymentSession(cookieHeader) {
 
 const app = express();
 app.set('trust proxy', true);
+
+// ============================================================
+// COMPRESIÓN DE ALTO RENDIMIENTO (GZIP / DEFLATE)
+// ============================================================
+app.use(compression({
+  threshold: 1024, // Comprimir respuestas mayores a 1 KB
+  filter: (req, res) => {
+    if (req.headers['x-no-compression']) {
+      return false;
+    }
+    return compression.filter(req, res);
+  }
+}));
+
+// ============================================================
+// CABECERAS DE CIBERSEGURIDAD WEB (OWASP A+ RATING)
+// ============================================================
+app.use((req, res, next) => {
+  // 1. Strict-Transport-Security (HSTS: 1 año, subdominios y precarga)
+  res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
+
+  // 2. Anti-Clickjacking
+  res.setHeader('X-Frame-Options', 'DENY');
+
+  // 3. Anti-MIME Sniffing
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+
+  // 4. Política de Referencia
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+
+  // 5. Restricción de Sensores y Hardware
+  res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), payment=(self "https://*.cybersource.com")');
+
+  // 6. Content-Security-Policy (CSP Canónica OWASP compatible con CyberSource, CDNs, Clarity y Google Fonts)
+  const cspDirectives = [
+    "default-src 'self'",
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://unpkg.com https://cdn.jsdelivr.net https://*.cybersource.com https://*.cardinalcommerce.com https://challenges.cloudflare.com https://www.clarity.ms https://*.clarity.ms",
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net",
+    "font-src 'self' https://fonts.gstatic.com data:",
+    "img-src 'self' data: https: blob: https://*.clarity.ms https://c.bing.com",
+    "media-src 'self' https: blob:",
+    "connect-src 'self' https: wss: https://*.clarity.ms https://c.bing.com",
+    "frame-src 'self' https://*.cybersource.com https://*.cardinalcommerce.com https://challenges.cloudflare.com",
+    "frame-ancestors 'none'",
+    "base-uri 'self'",
+    "form-action 'self' https:"
+  ].join('; ');
+
+  res.setHeader('Content-Security-Policy', cspDirectives);
+
+  next();
+});
+
 app.use(express.json());
 
 // ============================================================
