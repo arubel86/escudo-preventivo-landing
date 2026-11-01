@@ -9,13 +9,15 @@
         content="Plan paso a paso para regularizar tu empresa en Panamá. Cumple con DGI, CSS, MITRADEL y municipio con costos transparentes. Conoce tu plan aquí.">
     <link rel="canonical" href="https://escudo.aizprua.com/hoja-de-ruta">
 
-        <!-- Favicon & Iconos Oficiales Multiplataforma (iOS, Android, Web) -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+            <!-- Favicon & Iconos Oficiales Multiplataforma (iOS, Android, Web) -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2">
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#3849C8">
+
 
     <!-- Open Graph / Redes Sociales -->
     <meta property="og:type" content="website">
@@ -298,6 +300,86 @@
                     <i data-lucide="printer" class="w-4 h-4 shrink-0"></i>
                     <span>Guardar / Imprimir PDF</span>
                 </button>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- GESTOR DE PERFILES & PLANTILLAS REUTILIZABLES (LOCALSTORAGE)  -->
+        <!-- ============================================================ -->
+        <div class="mt-4 mb-2 bg-gradient-to-r from-slate-900 via-slate-800 to-brand-blue-dark text-white rounded-2xl p-3.5 sm:p-4 shadow-lg border border-slate-700/80">
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+                <!-- Título e Identificador del Gestor (Alineación Canónica AGENTS.md) -->
+                <div>
+                    <div class="flex items-center gap-2 mb-1">
+                        <div class="w-6 h-6 rounded-lg bg-brand-orange/20 border border-brand-orange/30 text-brand-orange flex items-center justify-center shrink-0 shadow-xs">
+                            <i data-lucide="layers" class="w-3.5 h-3.5 shrink-0"></i>
+                        </div>
+                        <span class="text-xs font-black uppercase tracking-wider text-white font-heading leading-none">
+                            Perfiles &amp; Plantillas de Auditoría
+                        </span>
+                        <span id="badge-tipo-perfil" class="text-[9px] font-black uppercase px-2 py-0.5 rounded-full bg-brand-orange/20 text-brand-orange-light border border-brand-orange/30 leading-none">
+                            Maestro
+                        </span>
+                    </div>
+                    <p class="text-[11px] text-slate-300 pl-8 leading-snug">
+                        Carga un arquetipo prediseñado o guarda la configuración actual para reutilizarla con clientes similares.
+                    </p>
+                </div>
+
+                <!-- Selector de Perfiles y Botones de Acción -->
+                <div class="flex flex-wrap items-center gap-2">
+                    <!-- Menú Desplegable Flotante Personalizado de Perfiles (Anti-Nativo / Estética Slate Premium) -->
+                    <div class="relative custom-dropdown inline-block min-w-[260px] sm:min-w-[340px] z-50" id="dropdown-perfil-wrapper">
+                        <!-- Input oculto para compatibilidad de valor y estado -->
+                        <input type="hidden" id="selector-perfiles-guardados" value="empresa_blindada">
+
+                        <!-- Botón Trigger Personalizado -->
+                        <button type="button" onclick="toggleDropdown(this)"
+                            class="dropdown-trigger w-full bg-slate-800/90 hover:bg-slate-750 text-white border border-slate-600/90 hover:border-brand-orange/70 focus:border-brand-orange rounded-xl px-3.5 py-2 text-xs font-bold transition inline-flex items-center justify-between gap-2.5 shadow-inner group">
+                            <div class="inline-flex items-center gap-2 truncate">
+                                <i data-lucide="bookmark" class="w-3.5 h-3.5 text-brand-orange shrink-0"></i>
+                                <span id="selector-perfiles-label" class="truncate font-semibold text-white leading-none">1. Empresa 100% Blindada / Al Día</span>
+                            </div>
+                            <i data-lucide="chevron-down" class="dropdown-chevron w-4 h-4 text-slate-400 group-hover:text-brand-orange shrink-0 transition-transform duration-200"></i>
+                        </button>
+
+                        <!-- Menú Flotante Flotante con estilo Slate corporativo -->
+                        <div id="selector-perfiles-menu"
+                            class="dropdown-menu absolute left-0 top-full mt-2 w-full min-w-[320px] sm:min-w-[380px] bg-slate-900 border border-slate-700/90 rounded-2xl shadow-2xl p-2 z-50 hidden max-h-[360px] overflow-y-auto space-y-1">
+                            <!-- Inyectado dinámicamente por renderizarSelectorPerfiles() -->
+                        </div>
+                    </div>
+
+                    <!-- Botón Guardar Perfil Actual -->
+                    <button type="button" onclick="abrirModalGuardarPerfil()"
+                        class="px-3.5 py-2 bg-brand-orange hover:bg-brand-orange-dark text-white font-bold text-xs rounded-xl shadow transition inline-flex items-center gap-1.5 whitespace-nowrap"
+                        title="Guardar la configuración actual como un nuevo perfil reutilizable">
+                        <i data-lucide="bookmark-plus" class="w-3.5 h-3.5 shrink-0"></i>
+                        <span class="leading-none">Guardar Perfil</span>
+                    </button>
+
+                    <!-- Botón Eliminar Perfil Seleccionado -->
+                    <button type="button" id="btn-eliminar-perfil" onclick="eliminarPerfilSeleccionado()"
+                        class="px-2.5 py-2 bg-slate-700/60 hover:bg-rose-600 text-slate-300 hover:text-white font-bold text-xs rounded-xl border border-slate-600 hover:border-rose-500 transition inline-flex items-center gap-1.5 whitespace-nowrap disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-slate-700/60 disabled:hover:text-slate-300"
+                        title="Eliminar perfil personalizado">
+                        <i data-lucide="trash-2" class="w-3.5 h-3.5 shrink-0"></i>
+                        <span class="hidden sm:inline leading-none">Eliminar</span>
+                    </button>
+
+                    <!-- Menú secundario: Exportar / Importar JSON -->
+                    <div class="flex items-center gap-1 pl-1 border-l border-slate-700">
+                        <button type="button" onclick="exportarPerfilesJSON()"
+                            class="p-2 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white rounded-xl border border-slate-700 transition inline-flex items-center justify-center shrink-0"
+                            title="Exportar respaldo de perfiles en archivo JSON">
+                            <i data-lucide="download" class="w-3.5 h-3.5 shrink-0"></i>
+                        </button>
+                        <label class="p-2 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white rounded-xl border border-slate-700 transition cursor-pointer inline-flex items-center justify-center shrink-0"
+                            title="Importar perfiles desde archivo JSON">
+                            <i data-lucide="upload" class="w-3.5 h-3.5 shrink-0"></i>
+                            <input type="file" id="input-importar-perfiles" accept=".json" onchange="importarPerfilesJSON(event)" class="hidden">
+                        </label>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -3033,11 +3115,826 @@
         document.getElementById('doc-cliente').addEventListener('input', actualizarWhatsAppLink);
         document.getElementById('doc-expediente').addEventListener('input', actualizarWhatsAppLink);
 
-        // Inicializar Consola, Caso 1 y sincronización bidireccional al cargar
+        // ============================================================
+        // MÓDULO CANÓNICO DE GESTIÓN DE PERFILES & PLANTILLAS (LOCALSTORAGE)
+        // ============================================================
+        const STORAGE_KEY_PERFILES = 'aizprua_hoja_ruta_perfiles_v1';
+        const STORAGE_KEY_ULTIMO_PERFIL = 'aizprua_ultimo_perfil_activo';
+
+        // 5 Arquetipos Maestros del Sistema
+        const PERFILES_MAESTROS = {
+            'empresa_blindada': {
+                id: 'empresa_blindada',
+                nombre: '1. Empresa 100% Blindada / Al Día',
+                descripcion: 'Negocio formal con todos los pilares regulatorios en orden (DGI, MICI, Registro, CSS y Municipio).',
+                tipo: 'sistema',
+                planKey: 'planBasico',
+                addons: { css: false, marca: false, renta: false, agente: false },
+                datosCliente: {
+                    cliente: 'Carlos Pérez',
+                    empresa: 'Inversiones Pérez S.A.',
+                    ruc: '155698421-2-2022 DV 45',
+                    municipio: 'Panamá (San Francisco)',
+                    expediente: 'EP-2026-042',
+                    observaciones: 'Empresa al día en todos sus pilares tributarios y corporativos. Se recomienda auditoría semestral preventiva.'
+                },
+                auditState: {
+                    pe_aviso: { status: 'si', note: '' },
+                    pe_datos: { status: 'si', note: '' },
+                    dgi_contribuyente: { status: 'si', note: '' },
+                    dgi_rucnit: { status: 'si', note: '' },
+                    dgi_renta: { status: 'si', note: '' },
+                    dgi_itbms: { status: 'si', note: '' },
+                    dgi_f03: { status: 'si', note: '' },
+                    dgi_pazysalvo: { status: 'si', note: '' },
+                    dgi_facturacion: { status: 'si', note: '' },
+                    rp_sociedad: { status: 'si', note: '' },
+                    rp_agente: { status: 'si', note: '' },
+                    rp_socios: { status: 'si', note: '' },
+                    rp_registros: { status: 'si', note: '' },
+                    rp_contratos: { status: 'si', note: '' },
+                    css_empleados: { status: 'si', note: '' },
+                    css_sipe: { status: 'si', note: '' },
+                    css_patronal: { status: 'si', note: '' },
+                    css_contratos: { status: 'si', note: '' },
+                    css_pazysalvo: { status: 'si', note: '' },
+                    mun_registro: { status: 'si', note: '' },
+                    mun_clave: { status: 'si', note: '' },
+                    mun_dj: { status: 'si', note: '' },
+                    mun_pazysalvo: { status: 'si', note: '' },
+                    fin_cuentas: { status: 'si', note: '' },
+                    fin_comercial: { status: 'si', note: '' },
+                    fin_contabilidad: { status: 'si', note: '' }
+                }
+            },
+            'negocio_informal': {
+                id: 'negocio_informal',
+                nombre: '2. Negocio Informal / Sin Aviso (Comercio Nuevo)',
+                descripcion: 'Emprendimiento en marcha sin Aviso de Operación, sin registro en DGI ni municipio.',
+                tipo: 'sistema',
+                planKey: 'planPremium',
+                addons: { css: false, marca: false, renta: false, agente: false },
+                datosCliente: {
+                    cliente: 'Juan Méndez',
+                    empresa: 'Méndez Servicios Digitales',
+                    ruc: 'Pendiente de asignación',
+                    municipio: 'Panamá',
+                    expediente: 'EP-2026-101',
+                    observaciones: 'Operación comercial en fase informal con cobros por Yappy comercial / personal. Urge creación de SEP, Aviso y Facturación.'
+                },
+                auditState: {
+                    pe_aviso: { status: 'no', note: 'Operando local sin aviso emitido' },
+                    pe_datos: { status: 'no', note: 'Pendiente de trámite inicial' },
+                    dgi_contribuyente: { status: 'no', note: 'Sin registro en e-Tax 2.0' },
+                    dgi_rucnit: { status: 'no', note: 'Sin NIT tributario activo' },
+                    dgi_renta: { status: 'no', note: 'Omisión de rentas anteriores' },
+                    dgi_itbms: { status: 'no', note: 'Sin declaración periódica' },
+                    dgi_f03: { status: 'no', note: 'Sin registro de compras' },
+                    dgi_pazysalvo: { status: 'no', note: 'Bloqueado por falta de inscripción' },
+                    dgi_facturacion: { status: 'no', note: 'Recibos manuales no autorizados' },
+                    rp_sociedad: { status: 'na', note: 'Persona natural informal' },
+                    rp_agente: { status: 'na', note: 'No aplica sociedad previa' },
+                    rp_socios: { status: 'na', note: 'Pendiente constitución societaria' },
+                    rp_registros: { status: 'na', note: 'No aplica aún' },
+                    rp_contratos: { status: 'na', note: 'No aplica aún' },
+                    css_empleados: { status: 'no', note: 'Sin colaboradores por ahora' },
+                    css_sipe: { status: 'na', note: 'Operación individual inicial' },
+                    css_patronal: { status: 'na', note: 'Sin número patronal' },
+                    css_contratos: { status: 'na', note: 'Sin contratos registrados' },
+                    css_pazysalvo: { status: 'na', note: 'Sin inscripción patronal' },
+                    mun_registro: { status: 'no', note: 'Sin registro en municipio' },
+                    mun_clave: { status: 'no', note: 'Sin número de contribuyente' },
+                    mun_dj: { status: 'no', note: 'Sin declaración anual presentada' },
+                    mun_pazysalvo: { status: 'no', note: 'Sin paz y salvo municipal' },
+                    fin_cuentas: { status: 'no', note: 'Mezcla cuentas personales con el negocio' },
+                    fin_comercial: { status: 'no', note: 'Usa cuenta de ahorros personal' },
+                    fin_contabilidad: { status: 'no', note: 'Sin registros contables' }
+                }
+            },
+            'sociedad_en_mora': {
+                id: 'sociedad_en_mora',
+                nombre: '3. Sociedad en Mora / Riesgo Suspensión (RP y DGI)',
+                descripcion: 'Sociedad anónima con años de Tasa Única adeudada, RUBF omitido y cuenta corriente DGI morosa.',
+                tipo: 'sistema',
+                planKey: 'planElite',
+                addons: { css: false, marca: false, renta: true, agente: true },
+                datosCliente: {
+                    cliente: 'Roberto De La Rosa',
+                    empresa: 'Corporación Inmobiliaria del Istmo S.A.',
+                    ruc: '984512-1-532145 DV 89',
+                    municipio: 'Panamá (Bella Vista)',
+                    expediente: 'EP-2026-214',
+                    observaciones: 'Sociedad con 3 periodos de Tasa Única impagos en Registro Público y rentas omitidas en la DGI. En riesgo de suspensión registral.'
+                },
+                auditState: {
+                    pe_aviso: { status: 'si', note: '' },
+                    pe_datos: { status: 'si', note: '' },
+                    dgi_contribuyente: { status: 'si', note: '' },
+                    dgi_rucnit: { status: 'si', note: '' },
+                    dgi_renta: { status: 'no', note: '2 declaraciones juradas omitidas con recargos' },
+                    dgi_itbms: { status: 'si', note: '' },
+                    dgi_f03: { status: 'no', note: 'F-03 omitido en periodos anteriores' },
+                    dgi_pazysalvo: { status: 'no', note: 'Deuda en cuenta corriente tributaria' },
+                    dgi_facturacion: { status: 'si', note: '' },
+                    rp_sociedad: { status: 'no', note: 'Tasa Única con más de 2 años de mora' },
+                    rp_agente: { status: 'no', note: 'Agente residente renunció / no contactado' },
+                    rp_socios: { status: 'no', note: 'Incumplimiento de reporte RUBF (Ley 129)' },
+                    rp_registros: { status: 'no', note: 'Registros contables sin custodiar (Ley 254)' },
+                    rp_contratos: { status: 'si', note: '' },
+                    css_empleados: { status: 'no', note: 'Sociedad patrimonial sin planilla' },
+                    css_sipe: { status: 'na', note: 'Sin colaboradores activos' },
+                    css_patronal: { status: 'na', note: 'No aplica número patronal' },
+                    css_contratos: { status: 'na', note: 'No aplica' },
+                    css_pazysalvo: { status: 'na', note: 'No aplica' },
+                    mun_registro: { status: 'si', note: '' },
+                    mun_clave: { status: 'si', note: '' },
+                    mun_dj: { status: 'no', note: 'Declaración anual municipal desfasada' },
+                    mun_pazysalvo: { status: 'no', note: 'Boleta de mora municipal pendiente' },
+                    fin_cuentas: { status: 'si', note: '' },
+                    fin_comercial: { status: 'si', note: '' },
+                    fin_contabilidad: { status: 'no', note: 'Libros legales desactualizados' }
+                }
+            },
+            'riesgo_laboral': {
+                id: 'riesgo_laboral',
+                nombre: '4. Riesgo Laboral Crítico (CSS y MITRADEL)',
+                descripcion: 'Empresa operativa con personal sin seguro social SIPE ni contratos formalizados en MITRADEL.',
+                tipo: 'sistema',
+                planKey: 'planEstandar',
+                addons: { css: true, marca: false, renta: false, agente: false },
+                datosCliente: {
+                    cliente: 'María Elena Castillo',
+                    empresa: 'Logística & Envíos del Pacífico S.A.',
+                    ruc: '2351478-1-801245 DV 12',
+                    municipio: 'San Miguelito',
+                    expediente: 'EP-2026-305',
+                    observaciones: 'Tiene 4 colaboradores prestando servicios directos sin inscripción patronal en la CSS. Exposición inminente a alcance y multas severas.'
+                },
+                auditState: {
+                    pe_aviso: { status: 'si', note: '' },
+                    pe_datos: { status: 'si', note: '' },
+                    dgi_contribuyente: { status: 'si', note: '' },
+                    dgi_rucnit: { status: 'si', note: '' },
+                    dgi_renta: { status: 'si', note: '' },
+                    dgi_itbms: { status: 'si', note: '' },
+                    dgi_f03: { status: 'si', note: '' },
+                    dgi_pazysalvo: { status: 'si', note: '' },
+                    dgi_facturacion: { status: 'si', note: '' },
+                    rp_sociedad: { status: 'si', note: '' },
+                    rp_agente: { status: 'si', note: '' },
+                    rp_socios: { status: 'si', note: '' },
+                    rp_registros: { status: 'si', note: '' },
+                    rp_contratos: { status: 'si', note: '' },
+                    css_empleados: { status: 'si', note: '4 colaboradores permanentes sin cobertura' },
+                    css_sipe: { status: 'no', note: 'Sin planilla patronal activa en SIPE' },
+                    css_patronal: { status: 'no', note: 'Establecimiento sin inscripción patronal' },
+                    css_contratos: { status: 'no', note: 'Contratos no registrados en MITRADEL' },
+                    css_pazysalvo: { status: 'no', note: 'Bloqueado por falta de inscripción' },
+                    mun_registro: { status: 'si', note: '' },
+                    mun_clave: { status: 'si', note: '' },
+                    mun_dj: { status: 'si', note: '' },
+                    mun_pazysalvo: { status: 'si', note: '' },
+                    fin_cuentas: { status: 'si', note: '' },
+                    fin_comercial: { status: 'si', note: '' },
+                    fin_contabilidad: { status: 'si', note: '' }
+                }
+            },
+            'persona_natural': {
+                id: 'persona_natural',
+                nombre: '5. Persona Natural a Formalizar (Emprendedor)',
+                descripcion: 'Profesional independiente o freelance facturando a nombre personal que necesita dar el salto a SEP / SA.',
+                tipo: 'sistema',
+                planKey: 'planPremium',
+                addons: { css: false, marca: true, renta: false, agente: false },
+                datosCliente: {
+                    cliente: 'David Morales',
+                    empresa: 'David Morales Consultorías',
+                    ruc: '8-745-1205 DV 18',
+                    municipio: 'Panamá',
+                    expediente: 'EP-2026-412',
+                    observaciones: 'Factura como servicios profesionales sin separación patrimonial. Se recomienda constituir Sociedad de Emprendimiento para protección patrimonial.'
+                },
+                auditState: {
+                    pe_aviso: { status: 'si', note: 'Aviso bajo cédula personal' },
+                    pe_datos: { status: 'no', note: 'Actividades no actualizadas en el MICI' },
+                    dgi_contribuyente: { status: 'si', note: '' },
+                    dgi_rucnit: { status: 'si', note: '' },
+                    dgi_renta: { status: 'si', note: '' },
+                    dgi_itbms: { status: 'no', note: 'Omisión de ITBMS por cruce de umbral' },
+                    dgi_f03: { status: 'si', note: '' },
+                    dgi_pazysalvo: { status: 'si', note: '' },
+                    dgi_facturacion: { status: 'no', note: 'Usa facturador gratuito con límites' },
+                    rp_sociedad: { status: 'na', note: 'Sin personería jurídica' },
+                    rp_agente: { status: 'na', note: 'No aplica' },
+                    rp_socios: { status: 'na', note: 'No aplica' },
+                    rp_registros: { status: 'na', note: 'No aplica' },
+                    rp_contratos: { status: 'na', note: 'No aplica' },
+                    css_empleados: { status: 'no', note: 'Operación unipersonal' },
+                    css_sipe: { status: 'na', note: 'No aplica' },
+                    css_patronal: { status: 'na', note: 'No aplica' },
+                    css_contratos: { status: 'na', note: 'No aplica' },
+                    css_pazysalvo: { status: 'na', note: 'No aplica' },
+                    mun_registro: { status: 'si', note: '' },
+                    mun_clave: { status: 'si', note: '' },
+                    mun_dj: { status: 'no', note: 'Declaración jurada pendiente' },
+                    mun_pazysalvo: { status: 'no', note: 'Paz y salvo pendiente por DJ' },
+                    fin_cuentas: { status: 'no', note: 'Mezcla gastos personales y profesionales' },
+                    fin_comercial: { status: 'no', note: 'Sin cuenta comercial corporativa' },
+                    fin_contabilidad: { status: 'no', note: 'Control informal en hoja de cálculo' }
+                }
+            }
+        };
+
+        // Obtener todos los perfiles (maestros + guardados por el usuario)
+        function obtenerPerfilesTotales() {
+            let guardados = {};
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY_PERFILES);
+                if (raw) guardados = JSON.parse(raw);
+            } catch (err) {
+                console.error('Error leyendo perfiles de localStorage:', err);
+            }
+            return { ...PERFILES_MAESTROS, ...guardados };
+        }
+
+        // Guardar lista de perfiles personalizados en localStorage
+        function guardarPerfilesEnStorage(guardadosMap) {
+            try {
+                localStorage.setItem(STORAGE_KEY_PERFILES, JSON.stringify(guardadosMap));
+            } catch (err) {
+                console.error('Error guardando perfiles en localStorage:', err);
+                mostrarToastPerfil('Error al guardar en almacenamiento local', 'error');
+            }
+        }
+
+        // Renderizar el selector de perfiles personalizado flotante
+        function renderizarSelectorPerfiles(perfilActivoId) {
+            const menuEl = document.getElementById('selector-perfiles-menu');
+            const inputEl = document.getElementById('selector-perfiles-guardados');
+            const labelEl = document.getElementById('selector-perfiles-label');
+            if (!menuEl || !inputEl) return;
+
+            const todos = obtenerPerfilesTotales();
+            const maestros = Object.values(todos).filter(p => p.tipo === 'sistema');
+            const personalizados = Object.values(todos).filter(p => p.tipo !== 'sistema');
+
+            // Determinar perfil activo
+            let activoId = perfilActivoId;
+            if (!activoId || !todos[activoId]) {
+                const ultimo = localStorage.getItem(STORAGE_KEY_ULTIMO_PERFIL);
+                activoId = (ultimo && todos[ultimo]) ? ultimo : 'empresa_blindada';
+            }
+            inputEl.value = activoId;
+            if (labelEl && todos[activoId]) {
+                labelEl.textContent = todos[activoId].nombre;
+            }
+
+            let html = '';
+
+            // Grupo 1: Maestros del sistema
+            html += `
+                <div class="px-2.5 py-1.5 text-[10px] font-black uppercase tracking-wider text-brand-orange flex items-center gap-1.5 border-b border-slate-800/80 mb-1">
+                    <i data-lucide="sparkles" class="w-3 h-3 text-brand-orange shrink-0"></i>
+                    <span>Plantillas Maestras del Sistema</span>
+                </div>
+            `;
+            maestros.forEach(p => {
+                const isSelected = p.id === activoId;
+                html += `
+                    <button type="button" onclick="seleccionarPerfilCustom('${p.id}')"
+                        class="w-full text-left px-3 py-2 rounded-xl text-xs transition flex items-center justify-between group ${isSelected ? 'bg-brand-blue text-white font-bold shadow-sm' : 'text-slate-200 hover:bg-slate-800 hover:text-white font-medium'}">
+                        <div class="flex items-center gap-2.5 truncate">
+                            <i data-lucide="layers" class="w-3.5 h-3.5 ${isSelected ? 'text-white' : 'text-slate-400 group-hover:text-brand-orange'} shrink-0"></i>
+                            <span class="truncate">${p.nombre}</span>
+                        </div>
+                        ${isSelected ? '<i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 shrink-0"></i>' : ''}
+                    </button>
+                `;
+            });
+
+            // Grupo 2: Perfiles personalizados guardados
+            html += `
+                <div class="px-2.5 pt-2.5 pb-1 text-[10px] font-black uppercase tracking-wider text-emerald-400 flex items-center gap-1.5 border-t border-slate-800/80 mt-1 mb-1">
+                    <i data-lucide="bookmark" class="w-3 h-3 text-emerald-400 shrink-0"></i>
+                    <span>Mis Perfiles Guardados (${personalizados.length})</span>
+                </div>
+            `;
+
+            if (personalizados.length > 0) {
+                personalizados.forEach(p => {
+                    const isSelected = p.id === activoId;
+                    html += `
+                        <button type="button" onclick="seleccionarPerfilCustom('${p.id}')"
+                            class="w-full text-left px-3 py-2 rounded-xl text-xs transition flex items-center justify-between group ${isSelected ? 'bg-brand-blue text-white font-bold shadow-sm' : 'text-slate-200 hover:bg-slate-800 hover:text-white font-medium'}">
+                            <div class="flex items-center gap-2.5 truncate">
+                                <i data-lucide="bookmark-check" class="w-3.5 h-3.5 ${isSelected ? 'text-white' : 'text-slate-400 group-hover:text-emerald-400'} shrink-0"></i>
+                                <div class="truncate">
+                                    <div class="truncate">${p.nombre}</div>
+                                    ${p.descripcion ? `<div class="text-[10px] text-slate-400 truncate font-normal">${p.descripcion}</div>` : ''}
+                                </div>
+                            </div>
+                            ${isSelected ? '<i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 shrink-0"></i>' : ''}
+                        </button>
+                    `;
+                });
+            } else {
+                html += `
+                    <div class="px-3 py-2 text-[11px] text-slate-400 italic">
+                        No hay perfiles personalizados aún. Pulsa "+ Guardar Perfil" para agregar uno.
+                    </div>
+                `;
+            }
+
+            menuEl.innerHTML = html;
+            actualizarEstadoBotonesPerfil(activoId);
+            lucide.createIcons();
+        }
+
+        // Función de selección en el menú flotante
+        function seleccionarPerfilCustom(perfilId) {
+            closeAllDropdowns();
+            renderizarSelectorPerfiles(perfilId);
+            cargarPerfil(perfilId);
+        }
+
+        // Actualizar botón de eliminar y badge según el tipo de perfil seleccionado
+        function actualizarEstadoBotonesPerfil(perfilId) {
+            const todos = obtenerPerfilesTotales();
+            const perfil = todos[perfilId];
+            const btnEliminar = document.getElementById('btn-eliminar-perfil');
+            const badgeTipo = document.getElementById('badge-tipo-perfil');
+
+            if (!perfil) return;
+
+            if (perfil.tipo === 'sistema') {
+                if (btnEliminar) {
+                    btnEliminar.disabled = true;
+                    btnEliminar.title = 'Las plantillas maestras del sistema están protegidas y no se pueden eliminar.';
+                }
+                if (badgeTipo) {
+                    badgeTipo.innerText = 'Maestro';
+                    badgeTipo.className = 'text-[9px] font-black uppercase px-2 py-0.5 rounded-full bg-brand-orange/20 text-brand-orange-light border border-brand-orange/30';
+                }
+            } else {
+                if (btnEliminar) {
+                    btnEliminar.disabled = false;
+                    btnEliminar.title = 'Eliminar este perfil personalizado de forma permanente.';
+                }
+                if (badgeTipo) {
+                    badgeTipo.innerText = 'Personalizado';
+                    badgeTipo.className = 'text-[9px] font-black uppercase px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30';
+                }
+            }
+        }
+
+        // Manejador del cambio en el selector de perfiles
+        function alCambiarSelectorPerfil(perfilId) {
+            cargarPerfil(perfilId);
+        }
+
+        // Cargar y aplicar un perfil completo a la interfaz
+        function cargarPerfil(perfilId) {
+            const todos = obtenerPerfilesTotales();
+            const perfil = todos[perfilId];
+            if (!perfil) {
+                mostrarToastPerfil('Perfil no encontrado', 'error');
+                return;
+            }
+
+            // 1. Cargar datos del cliente si existen en el perfil
+            if (perfil.datosCliente) {
+                const dc = perfil.datosCliente;
+                if (dc.cliente !== undefined) {
+                    sincronizarDesdeConsola('cliente', dc.cliente);
+                    const inp = document.getElementById('input-consola-cliente');
+                    if (inp) inp.value = dc.cliente;
+                }
+                if (dc.empresa !== undefined) {
+                    sincronizarDesdeConsola('empresa', dc.empresa);
+                    const inp = document.getElementById('input-consola-empresa');
+                    if (inp) inp.value = dc.empresa;
+                }
+                if (dc.ruc !== undefined) {
+                    sincronizarDesdeConsola('ruc', dc.ruc);
+                    const inp = document.getElementById('input-consola-ruc');
+                    if (inp) inp.value = dc.ruc;
+                }
+                if (dc.municipio !== undefined) {
+                    sincronizarDesdeConsola('municipio', dc.municipio);
+                    const inp = document.getElementById('input-consola-municipio');
+                    if (inp) inp.value = dc.municipio;
+                }
+                if (dc.expediente !== undefined) {
+                    sincronizarDesdeConsola('expediente', dc.expediente);
+                    const inp = document.getElementById('input-consola-expediente');
+                    if (inp) inp.value = dc.expediente;
+                }
+                if (dc.observaciones !== undefined) {
+                    sincronizarDesdeConsola('observaciones', dc.observaciones);
+                    const inp = document.getElementById('input-consola-observaciones');
+                    if (inp) inp.value = dc.observaciones;
+                }
+            }
+
+            // 2. Cargar Plan Recomendado
+            if (perfil.planKey && PLANES[perfil.planKey]) {
+                const planSelect = document.getElementById('plan-select');
+                if (planSelect) planSelect.value = perfil.planKey;
+                actualizarPlan(perfil.planKey);
+            }
+
+            // 3. Cargar Add-ons
+            if (perfil.addons) {
+                const addCss = document.getElementById('addon-css');
+                if (addCss) addCss.checked = !!perfil.addons.css;
+                const addMarca = document.getElementById('addon-marca');
+                if (addMarca) addMarca.checked = !!perfil.addons.marca;
+                const addRenta = document.getElementById('addon-renta');
+                if (addRenta) addRenta.checked = !!perfil.addons.renta;
+                const addAgente = document.getElementById('addon-agente');
+                if (addAgente) addAgente.checked = !!perfil.addons.agente;
+                recalcularCostos();
+            }
+
+            // 4. Aplicar los 26 Criterios de Auditoría
+            if (perfil.auditState) {
+                CRITERIOS_AUDITORIA.forEach(c => {
+                    const st = perfil.auditState[c.id];
+                    const valor = st ? st.status : null;
+                    const nota = st && st.note ? st.note : '';
+
+                    auditState[c.id] = { status: valor, note: nota };
+
+                    // Actualizar botones visuales
+                    ['si', 'no', 'na'].forEach(v => {
+                        const btn = document.getElementById(`btn-${c.id}-${v}`);
+                        if (btn) {
+                            btn.classList.remove('btn-active-si', 'btn-active-no', 'btn-active-na');
+                            if (v === valor) {
+                                btn.classList.add(`btn-active-${valor}`);
+                            }
+                        }
+                    });
+
+                    // Actualizar input de nota
+                    const inputNote = document.getElementById(`note-${c.id}`);
+                    if (inputNote) {
+                        inputNote.value = nota;
+                    }
+                });
+
+                actualizarAuditoriaDesdeConsola();
+            }
+
+            // 5. Guardar último perfil activo
+            try {
+                localStorage.setItem(STORAGE_KEY_ULTIMO_PERFIL, perfilId);
+            } catch (e) {}
+
+            actualizarEstadoBotonesPerfil(perfilId);
+            actualizarWhatsAppLink();
+            lucide.createIcons();
+
+            mostrarToastPerfil(`Perfil "${perfil.nombre}" aplicado correctamente`, 'exito');
+        }
+
+        // Modal: Abrir
+        function abrirModalGuardarPerfil() {
+            const modal = document.getElementById('modalGuardarPerfil');
+            if (!modal) return;
+
+            const inputNombre = document.getElementById('input-modal-perfil-nombre');
+            const inputDesc = document.getElementById('input-modal-perfil-desc');
+            const checkCliente = document.getElementById('check-perfil-guardar-cliente');
+
+            // Sugerir nombre basado en empresa o cliente actual
+            const empresaActual = document.getElementById('input-consola-empresa')?.value.trim();
+            inputNombre.value = empresaActual ? `Perfil: ${empresaActual}` : '';
+            if (inputDesc) inputDesc.value = '';
+            if (checkCliente) checkCliente.checked = false;
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            lucide.createIcons();
+            if (inputNombre) inputNombre.focus();
+        }
+
+        // Modal: Cerrar
+        function cerrarModalGuardarPerfil() {
+            const modal = document.getElementById('modalGuardarPerfil');
+            if (modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+        }
+
+        // Confirmar y Guardar Perfil Personalizado
+        function confirmarGuardarPerfil() {
+            const inputNombre = document.getElementById('input-modal-perfil-nombre');
+            const nombre = inputNombre ? inputNombre.value.trim() : '';
+
+            if (!nombre) {
+                mostrarToastPerfil('Por favor ingresa un nombre para el perfil', 'alerta');
+                if (inputNombre) inputNombre.focus();
+                return;
+            }
+
+            const inputDesc = document.getElementById('input-modal-perfil-desc');
+            const descripcion = inputDesc ? inputDesc.value.trim() : '';
+            const checkCliente = document.getElementById('check-perfil-guardar-cliente')?.checked;
+
+            // Generar ID único
+            const nuevoId = 'perfil_custom_' + Date.now();
+
+            // Capturar estado actual de los 26 criterios
+            const auditStateSnapshot = {};
+            CRITERIOS_AUDITORIA.forEach(c => {
+                auditStateSnapshot[c.id] = {
+                    status: auditState[c.id]?.status || null,
+                    note: auditState[c.id]?.note || ''
+                };
+            });
+
+            // Capturar datos del cliente si se solicitó
+            let datosCliente = null;
+            if (checkCliente) {
+                datosCliente = {
+                    cliente: document.getElementById('input-consola-cliente')?.value || '',
+                    empresa: document.getElementById('input-consola-empresa')?.value || '',
+                    ruc: document.getElementById('input-consola-ruc')?.value || '',
+                    municipio: document.getElementById('input-consola-municipio')?.value || '',
+                    expediente: document.getElementById('input-consola-expediente')?.value || '',
+                    observaciones: document.getElementById('input-consola-observaciones')?.value || ''
+                };
+            }
+
+            // Capturar plan y add-ons
+            const planKey = document.getElementById('plan-select')?.value || 'planBasico';
+            const addons = {
+                css: !!document.getElementById('addon-css')?.checked,
+                marca: !!document.getElementById('addon-marca')?.checked,
+                renta: !!document.getElementById('addon-renta')?.checked,
+                agente: !!document.getElementById('addon-agente')?.checked
+            };
+
+            const nuevoPerfil = {
+                id: nuevoId,
+                nombre: nombre,
+                descripcion: descripcion,
+                tipo: 'personalizado',
+                fechaCreacion: new Date().toISOString(),
+                planKey: planKey,
+                addons: addons,
+                datosCliente: datosCliente,
+                auditState: auditStateSnapshot
+            };
+
+            // Leer guardados actuales y añadir el nuevo
+            let guardadosMap = {};
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY_PERFILES);
+                if (raw) guardadosMap = JSON.parse(raw);
+            } catch (e) {}
+
+            guardadosMap[nuevoId] = nuevoPerfil;
+            guardarPerfilesEnStorage(guardadosMap);
+
+            cerrarModalGuardarPerfil();
+            renderizarSelectorPerfiles(nuevoId);
+            actualizarEstadoBotonesPerfil(nuevoId);
+
+            try {
+                localStorage.setItem(STORAGE_KEY_ULTIMO_PERFIL, nuevoId);
+            } catch (e) {}
+
+            mostrarToastPerfil(`Perfil "${nombre}" guardado con éxito`, 'exito');
+        }
+
+        // Eliminar Perfil Personalizado Seleccionado
+        function eliminarPerfilSeleccionado() {
+            const selectEl = document.getElementById('selector-perfiles-guardados');
+            if (!selectEl) return;
+            const perfilId = selectEl.value;
+
+            const todos = obtenerPerfilesTotales();
+            const perfil = todos[perfilId];
+
+            if (!perfil) return;
+            if (perfil.tipo === 'sistema') {
+                mostrarToastPerfil('Los perfiles maestros del sistema no se pueden eliminar', 'alerta');
+                return;
+            }
+
+            if (confirm(`¿Estás seguro de que deseas eliminar permanentemente el perfil "${perfil.nombre}"?`)) {
+                let guardadosMap = {};
+                try {
+                    const raw = localStorage.getItem(STORAGE_KEY_PERFILES);
+                    if (raw) guardadosMap = JSON.parse(raw);
+                } catch (e) {}
+
+                delete guardadosMap[perfilId];
+                guardarPerfilesEnStorage(guardadosMap);
+
+                mostrarToastPerfil(`Perfil "${perfil.nombre}" eliminado`, 'info');
+                renderizarSelectorPerfiles('empresa_blindada');
+                cargarPerfil('empresa_blindada');
+            }
+        }
+
+        // Exportar perfiles personalizados a archivo JSON
+        function exportarPerfilesJSON() {
+            let guardadosMap = {};
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY_PERFILES);
+                if (raw) guardadosMap = JSON.parse(raw);
+            } catch (e) {}
+
+            const keys = Object.keys(guardadosMap);
+            if (keys.length === 0) {
+                mostrarToastPerfil('No tienes perfiles personalizados para exportar todavía. Guarda uno primero.', 'alerta');
+                return;
+            }
+
+            const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(guardadosMap, null, 2));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute('href', dataStr);
+            downloadAnchor.setAttribute('download', `perfiles-auditoria-aizprua-${new Date().toISOString().slice(0, 10)}.json`);
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+
+            mostrarToastPerfil(`Se exportaron ${keys.length} perfil(es) correctamente`, 'exito');
+        }
+
+        // Importar perfiles desde archivo JSON
+        function importarPerfilesJSON(event) {
+            const file = event.target.files && event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    if (typeof data !== 'object' || data === null) {
+                        throw new Error('Formato inválido');
+                    }
+
+                    let guardadosMap = {};
+                    try {
+                        const raw = localStorage.getItem(STORAGE_KEY_PERFILES);
+                        if (raw) guardadosMap = JSON.parse(raw);
+                    } catch (err) {}
+
+                    let contador = 0;
+                    Object.keys(data).forEach(k => {
+                        const p = data[k];
+                        if (p && p.nombre && p.auditState) {
+                            p.tipo = 'personalizado';
+                            guardadosMap[k] = p;
+                            contador++;
+                        }
+                    });
+
+                    if (contador === 0) {
+                        mostrarToastPerfil('El archivo no contenía perfiles válidos', 'alerta');
+                        return;
+                    }
+
+                    guardarPerfilesEnStorage(guardadosMap);
+                    renderizarSelectorPerfiles();
+                    mostrarToastPerfil(`Se importaron ${contador} perfil(es) con éxito`, 'exito');
+                } catch (err) {
+                    console.error('Error importando archivo JSON:', err);
+                    mostrarToastPerfil('El archivo JSON no tiene una estructura compatible', 'error');
+                } finally {
+                    event.target.value = '';
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        // Notificación Toast Canónica (Cero Emojis, Estética Slate Premium)
+        function mostrarToastPerfil(mensaje, tipo = 'exito') {
+            const toastExistente = document.getElementById('toast-perfiles-notification');
+            if (toastExistente) toastExistente.remove();
+
+            let iconName = 'check-circle-2';
+            let iconColor = 'text-emerald-400';
+            let borderColor = 'border-slate-700';
+
+            if (tipo === 'error') {
+                iconName = 'alert-octagon';
+                iconColor = 'text-rose-400';
+                borderColor = 'border-rose-900/50';
+            } else if (tipo === 'alerta') {
+                iconName = 'alert-triangle';
+                iconColor = 'text-amber-400';
+                borderColor = 'border-amber-900/50';
+            } else if (tipo === 'info') {
+                iconName = 'info';
+                iconColor = 'text-brand-blue-light';
+                borderColor = 'border-slate-700';
+            }
+
+            const toast = document.createElement('div');
+            toast.id = 'toast-perfiles-notification';
+            toast.className = `fixed bottom-6 right-6 z-[130] bg-slate-900 text-white px-4 py-3 rounded-2xl shadow-2xl border ${borderColor} flex items-center gap-3 animate-in fade-in slide-in-from-bottom-5 duration-200`;
+            toast.innerHTML = `
+                <div class="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
+                    <i data-lucide="${iconName}" class="w-4 h-4 ${iconColor}"></i>
+                </div>
+                <div class="text-xs font-semibold text-slate-100 pr-2">
+                    ${mensaje}
+                </div>
+            `;
+            document.body.appendChild(toast);
+            lucide.createIcons();
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'transition-opacity', 'duration-300');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Inicializar Gestor de Perfiles al cargar la página
+        function inicializarGestorPerfiles() {
+            renderizarSelectorPerfiles();
+            const selectEl = document.getElementById('selector-perfiles-guardados');
+            const perfilInicial = selectEl ? selectEl.value : 'empresa_blindada';
+            cargarPerfil(perfilInicial);
+        }
+
+        // Inicializar Consola, Gestor de Perfiles y sincronización bidireccional al cargar
         renderizarConsolaAuditoria();
-        aplicarCaso('caso1');
+        inicializarGestorPerfiles();
         inicializarSincronizacionBidireccional();
     </script>
+    <!-- ============================================================ -->
+    <!-- MODAL: GUARDAR PERFIL PERSONALIZADO DE AUDITORÍA            -->
+    <!-- ============================================================ -->
+    <div id="modalGuardarPerfil" class="fixed inset-0 z-[120] bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 relative animate-in fade-in zoom-in-95 duration-200">
+            <!-- Botón cerrar -->
+            <button onclick="cerrarModalGuardarPerfil()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-700 p-1 rounded-xl transition">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <!-- Encabezado Modal -->
+            <div class="flex items-center gap-3 mb-5">
+                <div class="w-10 h-10 rounded-2xl bg-brand-blue/10 text-brand-blue flex items-center justify-center shrink-0">
+                    <i data-lucide="bookmark-plus" class="w-5 h-5"></i>
+                </div>
+                <div>
+                    <h3 class="text-base font-black text-slate-900 font-heading">Guardar Perfil Reutilizable</h3>
+                    <p class="text-xs text-slate-500">Guarda la configuración actual para cargarla rápidamente en clientes futuros.</p>
+                </div>
+            </div>
+
+            <!-- Formulario -->
+            <div class="space-y-4 text-xs">
+                <div>
+                    <label class="block font-bold text-slate-700 uppercase tracking-wider text-[10px] mb-1.5">
+                        Nombre del Perfil *
+                    </label>
+                    <input type="text" id="input-modal-perfil-nombre" placeholder="Ej: Comercio Al Por Menor con 2 Empleados"
+                        class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none text-xs font-semibold text-slate-800 transition">
+                </div>
+
+                <div>
+                    <label class="block font-bold text-slate-700 uppercase tracking-wider text-[10px] mb-1.5">
+                        Descripción o Notas del Perfil (Opcional)
+                    </label>
+                    <textarea id="input-modal-perfil-desc" rows="2" placeholder="Ej: Caso recurrente con multas de renta y contratos sin registrar..."
+                        class="w-full px-3.5 py-2 rounded-xl border border-slate-200 focus:border-brand-blue focus:ring-1 focus:ring-brand-blue outline-none text-xs text-slate-800 resize-none transition"></textarea>
+                </div>
+
+                <!-- Opciones de guardado -->
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-3.5 space-y-2">
+                    <span class="block font-black text-slate-800 text-[11px]">Contenido a incluir en el perfil:</span>
+                    <label class="flex items-center gap-2 cursor-pointer">
+                        <input type="checkbox" id="check-perfil-guardar-cliente" class="rounded text-brand-blue focus:ring-brand-blue">
+                        <span class="text-slate-600 font-medium">Incluir datos del cliente (Titular, Empresa, RUC, Expediente)</span>
+                    </label>
+                    <p class="text-[10px] text-slate-400 pl-5">
+                        Si lo dejas desmarcado, se guardará como plantilla neutral con los 26 criterios de auditoría, plan recomendado y notas periciales.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Botones de Acción -->
+            <div class="mt-6 flex items-center justify-end gap-3 pt-4 border-t border-slate-100">
+                <button type="button" onclick="cerrarModalGuardarPerfil()"
+                    class="px-4 py-2.5 rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50 font-bold text-xs transition">
+                    Cancelar
+                </button>
+                <button type="button" onclick="confirmarGuardarPerfil()"
+                    class="px-5 py-2.5 bg-brand-orange hover:bg-brand-orange-dark text-white font-bold text-xs rounded-xl shadow transition flex items-center gap-1.5">
+                    <i data-lucide="check" class="w-4 h-4"></i>
+                    <span>Confirmar y Guardar</span>
+                </button>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

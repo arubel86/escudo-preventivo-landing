@@ -1,0 +1,21 @@
+{
+  "name": "Aizprua S.E. | Firma Legal y Estructuración Empresarial",
+  "short_name": "Aizprua S.E.",
+  "description": "Blindaje legal, control financiero y trámites empresariales llave en mano en Panamá.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#3849C8",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
