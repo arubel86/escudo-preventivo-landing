@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Pago Confirmado! Completa tu Expediente Previo</title>
+    <style type="text/css">
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Arial, Helvetica, sans-serif; background-color: #F8FAFC; color: #1E293B; margin: 0; padding: 24px 12px; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+        table { border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+        .wrapper { width: 100%; table-layout: fixed; background-color: #F8FAFC; }
+        .main-container { max-width: 600px; margin: 0 auto; background-color: #FFFFFF; border-radius: 16px; overflow: hidden; border: 1px solid #E2E8F0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); }
+        .header { background: linear-gradient(135deg, #3849C8 0%, #2D3A9F 100%); padding: 32px 24px; text-align: center; color: #FFFFFF; }
+        .badge { display: inline-block; background-color: #ECFDF5; color: #047857; font-weight: 700; font-size: 12px; padding: 6px 14px; border-radius: 20px; border: 1px solid #A7F3D0; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
+        .content { padding: 32px 28px; font-size: 15px; line-height: 1.6; color: #334155; }
+        .highlight-box { background-color: #EFF6FF; border-left: 4px solid #3849C8; border-radius: 8px; padding: 18px 20px; margin: 24px 0; }
+        .cta-btn { display: block; background: linear-gradient(135deg, #FF8A1E 0%, #E67A15 100%); color: #FFFFFF !important; font-weight: 800; font-size: 16px; text-decoration: none; text-align: center; padding: 16px 28px; border-radius: 12px; margin: 26px 0; box-shadow: 0 4px 14px rgba(255, 138, 30, 0.35); text-transform: uppercase; letter-spacing: 0.5px; }
+        .cta-btn:hover { background: #E67A15; }
+        .step-card { background-color: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 14px 16px; margin-bottom: 10px; }
+        .bonus-pill { display: inline-block; background: #FFF7ED; border: 1px solid #FED7AA; color: #C2410C; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 6px; margin-right: 6px; }
+        .footer { background-color: #0F172A; padding: 26px 24px; text-align: center; font-size: 12px; color: #94A3B8; }
+        .footer a { color: #FF8A1E; text-decoration: none; font-weight: 600; }
+        @media only screen and (max-width: 600px) {
+            .content { padding: 24px 18px !important; }
+            .header { padding: 26px 18px !important; }
+            .cta-btn { font-size: 15px !important; padding: 15px 20px !important; }
+        }
+    </style>
+</head>
+
+<body>
+    <center class="wrapper">
+        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+                <td align="center">
+                    <div class="main-container">
+                        
+                        <!-- Header Corporativo Aizprua S.E. -->
+                        <div class="header">
+                            <h1 style="margin: 0; font-size: 24px; font-weight: 800; letter-spacing: 0.5px; color: #FFFFFF;">
+                                AIZPRUA <span style="color: #FF8A1E;">S.E.</span>
+                            </h1>
+                            <p style="margin-top: 4px; font-size: 12px; letter-spacing: 1.5px; color: #C7D2FE; text-transform: uppercase; font-weight: 600;">
+                                Firma Legal & Blindaje Corporativo · Panamá
+                            </p>
+                        </div>
+
+                        <!-- Contenido Principal -->
+                        <div class="content" align="left">
+                            
+                            <!-- Badge de Pago Verificado -->
+                            <div align="center">
+                                <span class="badge">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#047857" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px; display: inline-block;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    Pago Confirmado ($79.00 USD)
+                                </span>
+                            </div>
+
+                            <h2 style="font-size: 22px; color: #0F172A; font-weight: 800; margin-bottom: 16px; text-align: center; line-height: 1.3;">
+                                ¡Bienvenido al Diagnóstico Escudo Preventivo!
+                            </h2>
+
+                            <p style="margin-bottom: 14px;">
+                                Estimado(a) <strong>{$name|default:"empresario"}</strong>,
+                            </p>
+
+                            <p style="margin-bottom: 16px;">
+                                Hemos recibido correctamente tu pago de <strong>$79.00 USD</strong>. A partir de este momento, tu empresa está a un paso de identificar inconsistencias ocultas y blindarse contra multas de entidades en Panamá.
+                            </p>
+
+                            <!-- Cuadro de Acción Prioritaria -->
+                            <div class="highlight-box">
+                                <p style="font-size: 14px; font-weight: 700; color: #1E3A8A; margin-bottom: 8px;">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px; display: inline-block;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                                    PASO OBLIGATORIO ANTES DE TU SESIÓN:
+                                </p>
+                                <p style="font-size: 14px; color: #1E293B; line-height: 1.5; margin: 0;">
+                                    Para que los <strong>40 minutos de asesoría</strong> rindan al máximo, nuestro equipo legal necesita revisar tu expediente <strong>antes de la videollamada</strong> en los sistemas de la DGI, Registro Público y Municipio.
+                                </p>
+                            </div>
+
+                            <p style="font-size: 15px; font-weight: 700; color: #0F172A; text-align: center; margin-top: 10px;">
+                                Por favor completa tu expediente previo (toma 4 minutos):
+                            </p>
+
+                            <!-- Botón CTA Principal -->
+                            <div align="center">
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfmuw7MFAqjHbrz1kMaiDCLXC6iv1yEXpUdL4ReSDFMVFlkxA/viewform?usp=sharing&ouid=105231309426819060541" 
+                                   class="cta-btn" target="_blank">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 8px; display: inline-block;"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+                                    COMPLETAR MI EXPEDIENTE PREVIO &rarr;
+                                </a>
+                            </div>
+
+                            <p style="font-size: 12px; color: #64748B; text-align: center; margin-top: -14px; margin-bottom: 24px;">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px; display: inline-block;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                                Información 100% confidencial amparada bajo secreto profesional.
+                            </p>
+
+                            <!-- Lo que revisaremos -->
+                            <h3 style="font-size: 16px; font-weight: 700; color: #0F172A; margin-bottom: 12px;">
+                                ¿Qué auditaremos antes de entrar a la llamada?
+                            </h3>
+
+                            <div class="step-card">
+                                <strong><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3849C8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px; display: inline-block;"><line x1="3" y1="21" x2="21" y2="21"></line><line x1="3" y1="10" x2="21" y2="10"></line><polyline points="5 10 12 3 19 10"></polyline><line x1="4" y1="21" x2="4" y2="10"></line><line x1="9" y1="21" x2="9" y2="10"></line><line x1="15" y1="21" x2="15" y2="10"></line><line x1="20" y1="21" x2="20" y2="10"></line></svg>1. Situación Tributaria (DGI):</strong> Revisión preliminar del RUC, omisión de declaraciones anuales y estado en e-Tax 2.0.
+                            </div>
+                            <div class="step-card">
+                                <strong><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3849C8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px; display: inline-block;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>2. Registro Público & Tasa Única:</strong> Verificación de morosidad en tasas únicas, vigencia de directores y Agente Residente.
+                            </div>
+                            <div class="step-card">
+                                <strong><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3849C8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px; display: inline-block;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>3. Municipio & Aviso de Operación:</strong> Análisis del Aviso de Operación ante el MICI y concordancia con tu Municipio.
+                            </div>
+
+                            <!-- Recordatorio de Bonos -->
+                            <div style="background-color: #F8FAFC; border: 1px dashed #CBD5E1; border-radius: 12px; padding: 18px; margin: 24px 0;">
+                                <p style="font-size: 13px; font-weight: 700; color: #0F172A; margin-bottom: 8px;">
+                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0F172A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px; display: inline-block;"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
+                                    Recordatorio de tus 3 Bonos Incluidos (Valor: $175 USD):
+                                </p>
+                                <p style="font-size: 13px; color: #475569; margin: 0; line-height: 1.5;">
+                                    <span class="bonus-pill">Bono 1</span> Hoja de ruta personalizada en PDF · 
+                                    <span class="bonus-pill">Bono 2</span> Calendario Fiscal 2026 · 
+                                    <span class="bonus-pill">Bono 3</span> Acceso al Círculo VIP.<br>
+                                    <em>Los recibirás en tu correo al concluir tu sesión de 40 minutos.</em>
+                                </p>
+                            </div>
+
+                            <!-- Garantía de 100% Descuento -->
+                            <p style="font-size: 13px; color: #3849C8; font-weight: 700; background-color: #EEF2FF; padding: 12px 14px; border-radius: 8px; text-align: center;">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3849C8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px; display: inline-block;"><line x1="9" y1="18" x2="15" y2="18"></line><line x1="10" y1="22" x2="14" y2="22"></line><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"></path></svg>
+                                Recuerda: Si decides contratar tu plan de regularización con nosotros, los $79 USD pagados hoy se acreditan como descuento al 100%.
+                            </p>
+
+                            <!-- Despedida y Firma -->
+                            <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #E2E8F0;">
+                                <p style="margin-bottom: 6px; font-size: 14px;">Atentamente,</p>
+                                <p style="font-size: 16px; font-weight: 800; color: #0F172A; margin: 0;">Lic. Arubel Aizprua</p>
+                                <p style="font-size: 13px; color: #64748B; margin: 0;">Director &amp; Consultor Legal Corporativo</p>
+                                <p style="font-size: 13px; color: #3849C8; font-weight: 700; margin-top: 4px;">Aizprua S.E. — Panamá</p>
+                            </div>
+
+                            <!-- Botón de WhatsApp de Soporte -->
+                            <div align="center" style="margin-top: 24px;">
+                                <p style="font-size: 13px; color: #64748B; margin-bottom: 8px;">
+                                    ¿Necesitas coordinar tu fecha o tienes alguna duda urgente?
+                                </p>
+                                <a href="https://wa.me/50765461527?text=Hola%20Lic.%20Arubel,%20acabo%20de%20pagar%20el%20Diagnóstico%20Escudo%20Preventivo." 
+                                   style="display: inline-block; background-color: #25D366; color: #FFFFFF; font-weight: 700; font-size: 13px; text-decoration: none; padding: 10px 18px; border-radius: 8px;" target="_blank">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px; display: inline-block;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                                    Escribir al WhatsApp Directo (+507 6546-1527)
+                                </a>
+                            </div>
+
+                        </div>
+
+                        <!-- Footer -->
+                        <div class="footer">
+                            <p style="margin-bottom: 6px; font-weight: 700; color: #FFFFFF;">
+                                Aizprua S.E. — Servicios Legales &amp; Corporativos
+                            </p>
+                            <p style="margin-bottom: 12px; font-size: 11px;">
+                                República de Panamá · Operaciones presenciales y remotas a nivel nacional.
+                            </p>
+                            <p style="font-size: 11px; margin-bottom: 10px;">
+                                &copy; 2026 Aizprua S.E. Todos los derechos reservados. · 
+                                <a href="https://aizprua.com/privacidad" target="_blank">Privacidad</a> · 
+                                <a href="https://aizprua.com/terminos" target="_blank">Términos</a> · 
+                                <a href="https://aizprua.com/reembolsos" target="_blank">Reembolsos</a>
+                            </p>
+                            <p style="font-size: 11px; color: #64748B; margin-top: 8px;">
+                                Si ya no deseas recibir nuestros correos informativos, puedes 
+                                <a href="{$unsubscribe}" style="color: #94A3B8; text-decoration: underline;">cancelar tu suscripción aquí</a>.
+                            </p>
+                        </div>
+
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </center>
+</body>
+</html>

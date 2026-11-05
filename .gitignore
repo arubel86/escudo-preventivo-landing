@@ -7,7 +7,8 @@
 node_modules/
 
 # Excluded folders (documentación y pruebas locales)
-documentos/
+documentos/*
+!documentos/*.html
 pruebas/
 Buscador_RUC_Web/
 
