@@ -745,6 +745,16 @@ app.get('/terminos.html', (req, res) => {
   res.redirect(301, '/terminos' + query);
 });
 
+// 7.1. Política de Reembolso, Cancelación y Entrega
+app.get('/reembolsos', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'reembolsos.html'));
+});
+
+app.get(['/reembolsos.html', '/politica-de-reembolso', '/politica-reembolso', '/politica-de-reembolso.html'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/reembolsos' + query);
+});
+
 // 8. Generador Ejecutivo de Hoja de Ruta
 app.get('/hoja-de-ruta', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'hoja-de-ruta.html'));
@@ -893,6 +903,26 @@ app.get('/factura', (req, res) => {
 app.get(['/factura.html', '/proforma', '/proforma.html'], (req, res) => {
   const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
   res.redirect(301, '/factura' + query);
+});
+
+// 10.11. Presentación Ejecutiva para Eventos (Canónica: /presentacion)
+app.get(['/presentacion', '/evento', '/presentacion-evento'], (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'presentacion-evento.html'));
+});
+
+app.get(['/presentacion.html', '/evento.html', '/presentacion-evento.html'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/presentacion' + query);
+});
+
+// 10.12. Confirmación de Pago de Factura / Proforma (Canónica: /gracias-factura)
+app.get('/gracias-factura', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'gracias-factura.html'));
+});
+
+app.get(['/gracias-factura.html', '/factura-pagada', '/pago-exitoso'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/gracias-factura' + query);
 });
 
 // ARCHIVOS ESTÁTICOS (Masterclass, Embudo Escudo, Verificador & Landing Page)

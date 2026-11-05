@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cotización Comercial | Aizprua Soluciones Empresariales</title>
-    <meta name="description" content="Generador de Cotización Comercial Ejecutiva para Asesorías y Conferencias - Aizprua S.E.">
-    
-        <!-- Microsoft Clarity Oficial (Aizprua S.E.) -->
+    <meta name="description"
+        content="Generador de Cotización Comercial Ejecutiva para Asesorías y Conferencias - Aizprua S.E.">
+
+    <!-- Microsoft Clarity Oficial (Aizprua S.E.) -->
     <script type="text/javascript">
         (function (c, l, a, r, i, t, y) {
             c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
@@ -18,8 +20,9 @@
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
     <!-- Tailwind CSS (CDN oficial) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -67,14 +70,17 @@
             min-width: 0;
             max-width: 100%;
         }
-        .editable-field:hover, .editable-field:focus {
+
+        .editable-field:hover,
+        .editable-field:focus {
             background-color: #F8FAFC;
             border-color: #3849C8 !important;
             box-shadow: 0 0 0 2px rgba(56, 73, 200, 0.15);
         }
 
         /* Alineación infalible de iconos SVG Lucide con texto */
-        .lucide, i[data-lucide] {
+        .lucide,
+        i[data-lucide] {
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -85,8 +91,10 @@
         /* Hoja de Cotización (Tamaño Carta Exacto) */
         .sheet-container {
             width: 100%;
-            max-width: 216mm; /* Ancho estándar Carta */
-            min-height: 279mm; /* Alto estándar Carta */
+            max-width: 216mm;
+            /* Ancho estándar Carta */
+            min-height: 279mm;
+            /* Alto estándar Carta */
             margin: 0 auto;
             background: #FFFFFF;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
@@ -98,15 +106,18 @@
                 size: letter portrait;
                 margin: 8mm 10mm;
             }
+
             body {
                 background: #FFFFFF !important;
                 color: #000000 !important;
                 padding: 0 !important;
                 margin: 0 !important;
             }
+
             .no-print {
                 display: none !important;
             }
+
             .sheet-container {
                 box-shadow: none !important;
                 margin: 0 !important;
@@ -115,27 +126,34 @@
                 min-height: auto !important;
                 border: none !important;
             }
+
             .editable-field {
                 border: none !important;
                 box-shadow: none !important;
                 background-color: transparent !important;
             }
-            .dropdown-chevron, .dropdown-menu {
+
+            .dropdown-chevron,
+            .dropdown-menu {
                 display: none !important;
             }
-            input, select, textarea {
+
+            input,
+            select,
+            textarea {
                 border: none !important;
                 background: transparent !important;
                 appearance: none !important;
                 -webkit-appearance: none !important;
                 padding: 0 !important;
             }
+
             .print-border-b {
                 border-bottom: 1px solid #CBD5E1 !important;
             }
         }
     </style>
-        <!-- Favicon & Iconos Oficiales Multiplataforma (iOS, Android, Web) -->
+    <!-- Favicon & Iconos Oficiales Multiplataforma (iOS, Android, Web) -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
@@ -145,19 +163,24 @@
     <meta name="theme-color" content="#3849C8">
 
 </head>
+
 <body class="min-h-screen py-4 sm:py-8 px-2 sm:px-4 text-slate-800">
 
     <!-- BARRA SUPERIOR DE HERRAMIENTAS (no-print) -->
-    <header class="no-print max-w-[216mm] mx-auto mb-6 bg-slate-900/95 backdrop-blur-md border border-slate-800 rounded-2xl p-4 text-white shadow-2xl relative z-40">
+    <header
+        class="no-print max-w-[216mm] mx-auto mb-6 bg-slate-900/95 backdrop-blur-md border border-slate-800 rounded-2xl p-4 text-white shadow-2xl relative z-40">
         <!-- Fila Superior: Título & Botones de Salida Principales -->
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-800">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-brand-blue flex items-center justify-center font-black text-white shadow-md shrink-0">
+                <div
+                    class="w-10 h-10 rounded-xl bg-brand-blue flex items-center justify-center font-black text-white shadow-md shrink-0">
                     <i data-lucide="file-text" class="w-5 h-5 shrink-0"></i>
                 </div>
                 <div>
                     <h1 class="text-sm font-bold text-white tracking-tight flex items-center gap-2">
-                        Cotización Ejecutiva <span class="bg-brand-blue/30 text-brand-blue-light border border-brand-blue/40 text-[10px] px-2 py-0.5 rounded-full font-semibold uppercase leading-none">Asesorías & Conferencias</span>
+                        Cotización Ejecutiva <span
+                            class="bg-brand-blue/30 text-brand-blue-light border border-brand-blue/40 text-[10px] px-2 py-0.5 rounded-full font-semibold uppercase leading-none">Asesorías
+                            & Conferencias</span>
                     </h1>
                     <p class="text-xs text-slate-400">Edita directamente en la hoja y exporta a PDF o WhatsApp</p>
                 </div>
@@ -166,146 +189,185 @@
             <!-- Botones Primarios de Salida -->
             <div class="flex items-center gap-2 shrink-0 self-end sm:self-auto">
                 <!-- Botón WhatsApp -->
-                <button type="button" onclick="sendWhatsApp()" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow-lg shadow-emerald-900/30 transition inline-flex items-center gap-1.5 whitespace-nowrap">
+                <button type="button" onclick="sendWhatsApp()"
+                    class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow-lg shadow-emerald-900/30 transition inline-flex items-center gap-1.5 whitespace-nowrap">
                     <i data-lucide="message-circle" class="w-4 h-4 shrink-0"></i>
                     <span class="leading-none">WhatsApp</span>
                 </button>
 
                 <!-- Botón Imprimir / PDF -->
-                <button type="button" onclick="handlePrintAndSave()" class="bg-brand-blue hover:bg-brand-blue-dark text-white text-xs font-bold px-4 py-2 rounded-xl shadow-lg shadow-brand-blue/30 transition inline-flex items-center gap-1.5 whitespace-nowrap" title="Descargar en PDF y guardar automáticamente en el historial">
+                <button type="button" onclick="handlePrintAndSave()"
+                    class="bg-brand-blue hover:bg-brand-blue-dark text-white text-xs font-bold px-4 py-2 rounded-xl shadow-lg shadow-brand-blue/30 transition inline-flex items-center gap-1.5 whitespace-nowrap"
+                    title="Descargar en PDF y guardar automáticamente en el historial">
                     <i data-lucide="download" class="w-4 h-4 shrink-0"></i>
                     <span class="leading-none">Descargar PDF</span>
                 </button>
             </div>
         </div>
 
-        <!-- Fila 2: Gestión de Archivo y Opciones de Cobro -->
-        <div class="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-slate-800/60 mt-1">
+        <!-- Fila 2: Gestión de Archivo, Selector de Plantillas y Opciones Fiscales (Fila Unificada) -->
+        <div class="flex items-center gap-2 pt-3 border-t border-slate-800/60 mt-1 flex-nowrap">
             <!-- Bloque Izquierdo: Gestión de la Cotización (Nueva, Cargar, Guardar) -->
-            <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+            <div class="flex items-center gap-1.5 shrink-0">
                 <!-- Iniciar Cotización Nueva -->
-                <button type="button" onclick="resetQuoteForm()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 hover:border-slate-600 text-xs font-semibold px-2.5 py-2 rounded-xl transition inline-flex items-center gap-1.5 whitespace-nowrap shadow-xs" title="Iniciar cotización nueva en blanco">
+                <button type="button" onclick="resetQuoteForm()"
+                    class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 hover:border-slate-600 text-xs font-semibold px-2.5 py-1.5 rounded-lg transition inline-flex items-center gap-1.5 whitespace-nowrap shadow-xs"
+                    title="Iniciar cotización nueva en blanco">
                     <i data-lucide="file-plus" class="w-3.5 h-3.5 text-slate-400 shrink-0"></i>
                     <span class="leading-none">Nueva</span>
                 </button>
 
                 <!-- Botón Cargar Cotización Previa / Historial -->
-                <button type="button" onclick="openLoadModal()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 hover:border-slate-600 text-xs font-semibold px-3 py-2 rounded-xl transition inline-flex items-center gap-1.5 whitespace-nowrap shadow-xs" title="Cargar cotización previa desde historial o archivo PDF">
+                <button type="button" onclick="openLoadModal()"
+                    class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 hover:border-slate-600 text-xs font-semibold px-2.5 py-1.5 rounded-lg transition inline-flex items-center gap-1.5 whitespace-nowrap shadow-xs"
+                    title="Cargar cotización previa desde historial o archivo PDF">
                     <i data-lucide="folder-open" class="w-3.5 h-3.5 text-brand-orange shrink-0"></i>
                     <span class="leading-none">Cargar / Historial</span>
-                    <span id="historyBadge" class="hidden ml-1 px-1.5 py-0.5 bg-brand-blue text-[10px] font-bold rounded-full text-white leading-none">0</span>
+                    <span id="historyBadge"
+                        class="hidden ml-1 px-1.5 py-0.5 bg-brand-blue text-[10px] font-bold rounded-full text-white leading-none">0</span>
                 </button>
 
                 <!-- Guardar en Historial Manualmente -->
-                <button type="button" onclick="saveQuoteToHistory(true)" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 hover:border-slate-600 text-xs font-semibold px-2.5 py-2 rounded-xl transition inline-flex items-center gap-1.5 whitespace-nowrap shadow-xs" title="Guardar cambios actuales en el historial">
+                <button type="button" onclick="saveQuoteToHistory(true)"
+                    class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 hover:border-slate-600 text-xs font-semibold px-2.5 py-1.5 rounded-lg transition inline-flex items-center gap-1.5 whitespace-nowrap shadow-xs"
+                    title="Guardar cambios actuales en el historial">
                     <i data-lucide="bookmark" class="w-3.5 h-3.5 text-blue-400 shrink-0"></i>
                     <span class="leading-none">Guardar</span>
                 </button>
             </div>
 
-            <!-- Bloque Derecho: Opciones Fiscales y Facturación -->
-            <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
-                <!-- Toggle ITBMS -->
-                <button type="button" id="btnToggleITBMS" onclick="toggleITBMS()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-xs font-semibold px-3 py-2 rounded-xl transition inline-flex items-center gap-1.5 whitespace-nowrap">
-                    <i data-lucide="percent" class="w-3.5 h-3.5 text-brand-orange shrink-0"></i>
-                    <span class="leading-none">ITBMS (7%): <strong id="itbmsStatusText" class="text-slate-400">NO</strong></span>
-                </button>
+            <!-- Divisor Vertical Sutil -->
+            <div class="h-5 w-px bg-slate-700/80 mx-0.5 shrink-0"></div>
 
-                <!-- Botón Pasar a Factura -->
-                <button type="button" onclick="transferToInvoice()" class="bg-indigo-900/60 hover:bg-indigo-800/80 text-indigo-200 border border-indigo-700/60 text-xs font-semibold px-3 py-2 rounded-xl transition inline-flex items-center gap-1.5 whitespace-nowrap" title="Abrir estos mismos datos en la Factura Proforma">
-                    <i data-lucide="receipt" class="w-3.5 h-3.5 text-indigo-400 shrink-0"></i>
-                    <span class="leading-none">Pasar a Factura</span>
-                </button>
-            </div>
-        </div>
-
-        <!-- Fila 3: Selector Ejecutivo de Servicios Frecuentes (Ancho Completo y Cero Scroll) -->
-        <div class="pt-2.5 border-t border-slate-800/60 mt-2.5">
-            <div class="relative custom-dropdown w-full" data-dropdown-id="presetSelector">
-                <button type="button" onclick="toggleDropdown(this)" class="w-full bg-slate-800 hover:bg-slate-750 border border-slate-700 hover:border-slate-600 text-slate-200 text-xs rounded-xl px-3 py-2 font-medium focus:ring-2 focus:ring-brand-blue focus:outline-none cursor-pointer flex items-center justify-between gap-2 shadow-xs transition group">
-                    <div class="flex items-center gap-2 truncate">
+            <!-- Bloque Central: Selector Ejecutivo de Servicios Frecuentes (Absorbe el espacio disponible) -->
+            <div class="relative custom-dropdown flex-1 min-w-0" data-dropdown-id="presetSelector">
+                <button type="button" onclick="toggleDropdown(this)"
+                    class="w-full bg-slate-800 hover:bg-slate-750 border border-slate-700 hover:border-slate-600 text-slate-200 text-xs rounded-lg px-2.5 py-1.5 font-medium focus:ring-2 focus:ring-brand-blue focus:outline-none cursor-pointer flex items-center justify-between gap-1.5 shadow-xs transition group">
+                    <div class="flex items-center gap-1.5 truncate">
                         <i data-lucide="layers" class="w-3.5 h-3.5 text-brand-orange shrink-0"></i>
-                        <span class="dropdown-selected text-xs text-slate-300 group-hover:text-white truncate">Cargar Plantilla de Servicio Frecuente (Conferencias, Asesorías, Talleres)...</span>
+                        <span class="dropdown-selected text-xs text-slate-300 group-hover:text-white truncate">Cargar Plantilla Oficial...</span>
                     </div>
-                    <i data-lucide="chevron-down" class="dropdown-chevron w-3.5 h-3.5 shrink-0 text-slate-400 transition-transform duration-200"></i>
+                    <i data-lucide="chevron-down"
+                        class="dropdown-chevron w-3.5 h-3.5 shrink-0 text-slate-400 transition-transform duration-200"></i>
                 </button>
-                <div class="dropdown-menu hidden absolute left-0 right-0 top-full mt-2 z-50 bg-slate-900 border border-slate-700 rounded-xl shadow-2xl py-1 text-xs text-slate-200 overflow-hidden divide-y divide-slate-800">
-                    <div class="dropdown-option px-3.5 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="" onclick="selectDropdownOption(this)">
+                <div
+                    class="dropdown-menu hidden absolute left-0 right-0 top-full mt-2 z-50 bg-slate-900 border border-slate-700 rounded-xl shadow-2xl py-1 text-xs text-slate-200 overflow-hidden divide-y divide-slate-800 min-w-[300px]">
+                    <div class="dropdown-option px-3.5 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2"
+                        data-value="" onclick="selectDropdownOption(this)">
                         <i data-lucide="file-text" class="w-3.5 h-3.5 text-slate-400 shrink-0"></i>
                         <span>Cargar Plantilla de Servicio Frecuente...</span>
                     </div>
-                    <div class="dropdown-option px-3.5 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center justify-between" data-value="conferencia-presencial" onclick="selectDropdownOption(this)">
+                    <div class="dropdown-option px-3.5 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center justify-between"
+                        data-value="conferencia-presencial" onclick="selectDropdownOption(this)">
                         <div class="flex items-center gap-2">
                             <span class="w-2 h-2 rounded-full bg-brand-orange shrink-0"></span>
                             <span class="font-medium">Conferencia Magistral Presencial</span>
                         </div>
                         <span class="font-mono text-brand-orange-light font-bold">$450.00 USD</span>
                     </div>
-                    <div class="dropdown-option px-3.5 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center justify-between" data-value="conferencia-virtual" onclick="selectDropdownOption(this)">
+                    <div class="dropdown-option px-3.5 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center justify-between"
+                        data-value="conferencia-virtual" onclick="selectDropdownOption(this)">
                         <div class="flex items-center gap-2">
                             <span class="w-2 h-2 rounded-full bg-blue-400 shrink-0"></span>
                             <span class="font-medium">Conferencia Virtual en Vivo (Meet / Zoom)</span>
                         </div>
                         <span class="font-mono text-blue-300 font-bold">$200.00 USD</span>
                     </div>
-                    <div class="dropdown-option px-3.5 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center justify-between" data-value="asesoria-blindaje" onclick="selectDropdownOption(this)">
+                    <div class="dropdown-option px-3.5 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center justify-between"
+                        data-value="asesoria-blindaje" onclick="selectDropdownOption(this)">
                         <div class="flex items-center gap-2">
                             <span class="w-2 h-2 rounded-full bg-emerald-400 shrink-0"></span>
-                            <span class="font-medium">Blindaje Empresarial 1 a 1 (Diagnóstico Legal/Fiscal)</span>
+                            <span class="font-medium">Blindaje Empresarial 1 a 1</span>
                         </div>
                         <span class="font-mono text-emerald-300 font-bold">$97.00 USD</span>
                     </div>
-                    <div class="dropdown-option px-3.5 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center justify-between" data-value="rescate-financiero" onclick="selectDropdownOption(this)">
+                    <div class="dropdown-option px-3.5 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center justify-between"
+                        data-value="rescate-financiero" onclick="selectDropdownOption(this)">
                         <div class="flex items-center gap-2">
                             <span class="w-2 h-2 rounded-full bg-amber-400 shrink-0"></span>
-                            <span class="font-medium">Programa Intensivo de Rescate Financiero y Flujo de Caja</span>
+                            <span class="font-medium">Rescate Financiero y Flujo de Caja</span>
                         </div>
                         <span class="font-mono text-amber-300 font-bold">$350.00 USD</span>
                     </div>
-                    <div class="dropdown-option px-3.5 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center justify-between" data-value="taller-incompany" onclick="selectDropdownOption(this)">
+                    <div class="dropdown-option px-3.5 py-2.5 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center justify-between"
+                        data-value="taller-incompany" onclick="selectDropdownOption(this)">
                         <div class="flex items-center gap-2">
                             <span class="w-2 h-2 rounded-full bg-indigo-400 shrink-0"></span>
-                            <span class="font-medium">Taller Corporativo In-Company (Gestión de Riesgos)</span>
+                            <span class="font-medium">Taller Corporativo In-Company</span>
                         </div>
                         <span class="font-mono text-indigo-300 font-bold">$600.00 USD</span>
                     </div>
                 </div>
                 <input type="hidden" id="presetSelector" value="" onchange="applyPreset(this.value)">
             </div>
+
+            <!-- Divisor Vertical Sutil -->
+            <div class="h-5 w-px bg-slate-700/80 mx-0.5 shrink-0"></div>
+
+            <!-- Bloque Derecho: Opciones Fiscales y Facturación -->
+            <div class="flex items-center gap-1.5 shrink-0 flex-nowrap">
+                <!-- Toggle ITBMS -->
+                <button type="button" id="btnToggleITBMS" onclick="toggleITBMS()"
+                    class="bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-xs font-semibold px-2.5 py-1.5 rounded-lg transition inline-flex items-center gap-1.5 whitespace-nowrap">
+                    <i data-lucide="percent" class="w-3.5 h-3.5 text-brand-orange shrink-0"></i>
+                    <span class="leading-none">ITBMS (7%): <strong id="itbmsStatusText"
+                            class="text-slate-400">NO</strong></span>
+                </button>
+
+                <!-- Botón Pasar a Factura -->
+                <button type="button" onclick="transferToInvoice()"
+                    class="bg-indigo-900/60 hover:bg-indigo-800/80 text-indigo-200 border border-indigo-700/60 text-xs font-semibold px-2.5 py-1.5 rounded-lg transition inline-flex items-center gap-1.5 whitespace-nowrap"
+                    title="Abrir estos mismos datos en la Factura Proforma">
+                    <i data-lucide="receipt" class="w-3.5 h-3.5 text-indigo-400 shrink-0"></i>
+                    <span class="leading-none">Pasar a Factura</span>
+                </button>
+            </div>
         </div>
     </header>
 
     <!-- HOJA CARTA IMPRIMIBLE -->
-    <main class="sheet-container rounded-2xl p-6 sm:p-8 md:p-10 text-slate-800 flex flex-col justify-between relative z-10">
+    <main
+        class="sheet-container rounded-2xl p-6 sm:p-8 md:p-10 text-slate-800 flex flex-col justify-between relative z-10">
         <!-- Capa de Datos Embebidos para Impresión (Invisible pero legible en PDF) -->
-        <div id="aizpruaEmbeddedDataPrint" class="text-[1px] text-white opacity-0 select-none overflow-hidden h-0 w-0 pointer-events-none" aria-hidden="true" style="color: #ffffff !important; font-size: 1px !important; line-height: 1px !important; position: absolute; left: -9999px;"></div>
+        <div id="aizpruaEmbeddedDataPrint"
+            class="text-[1px] text-white opacity-0 select-none overflow-hidden h-0 w-0 pointer-events-none"
+            aria-hidden="true"
+            style="color: #ffffff !important; font-size: 1px !important; line-height: 1px !important; position: absolute; left: -9999px;">
+        </div>
 
         <div>
             <!-- ENCABEZADO INSTITUCIONAL -->
             <div class="flex items-start justify-between border-b-2 border-slate-900 pb-5 mb-5 gap-6">
                 <!-- Lado Izquierdo: Identidad de Marca Oficial -->
                 <div class="flex-1 min-w-0">
-                    <img src="assets/logo-aizprua-horizontal.svg" alt="Aizprua S.E." class="h-9 sm:h-10 w-auto object-contain mb-2">
-                    <h2 class="text-xs font-black text-slate-900 uppercase tracking-tight mb-1">Aizprua Soluciones Empresariales</h2>
+                    <img src="assets/logo-aizprua-horizontal.svg" alt="Aizprua S.E."
+                        class="h-9 sm:h-10 w-auto object-contain mb-2">
+                    <h2 class="text-xs font-black text-slate-900 uppercase tracking-tight mb-1">Aizprua Soluciones
+                        Empresariales</h2>
                     <div class="text-[11px] text-slate-600 leading-relaxed">
-                        <p><strong>RUC:</strong> 8-826-885 &nbsp;|&nbsp; <strong>DV:</strong> 14 &nbsp;|&nbsp; <strong>Ubicación:</strong> Panamá, Panamá Oeste, La Chorrera</p>
-                        <p><strong>WhatsApp / Tel:</strong> +507 6546-1527 &nbsp;|&nbsp; <strong>Email:</strong> info@aizprua.com &nbsp;|&nbsp; <strong>Web:</strong> aizprua.com</p>
+                        <p><strong>RUC:</strong> 8-826-885 &nbsp;|&nbsp; <strong>DV:</strong> 14 &nbsp;|&nbsp;
+                            <strong>Ubicación:</strong> Panamá, Panamá Oeste, La Chorrera</p>
+                        <p><strong>WhatsApp / Tel:</strong> +507 6546-1527 &nbsp;|&nbsp; <strong>Email:</strong>
+                            info@aizprua.com &nbsp;|&nbsp; <strong>Web:</strong> aizprua.com</p>
                     </div>
                 </div>
 
                 <!-- Lado Derecho: Tarjeta Ejecutiva de Cotización -->
                 <div class="w-64 shrink-0 bg-slate-50 border border-slate-200 rounded-xl p-3 shadow-xs">
-                    <div class="bg-slate-900 text-white font-black text-center text-xs uppercase tracking-wider py-1.5 rounded-lg mb-2 shadow-xs">
+                    <div
+                        class="bg-slate-900 text-white font-black text-center text-xs uppercase tracking-wider py-1.5 rounded-lg mb-2 shadow-xs">
                         Cotización Comercial
                     </div>
                     <div class="space-y-1.5 text-[11px]">
                         <div class="flex items-center justify-between">
                             <span class="text-slate-500 font-semibold">N° Cotización:</span>
-                            <input type="text" id="quoteNumber" value="COT-2026-001" class="editable-field font-mono font-bold text-slate-900 text-right w-28 px-1.5 py-0.5 rounded border border-slate-200 bg-white">
+                            <input type="text" id="quoteNumber" value="COT-2026-001"
+                                class="editable-field font-mono font-bold text-slate-900 text-right w-28 px-1.5 py-0.5 rounded border border-slate-200 bg-white">
                         </div>
                         <div class="flex items-center justify-between">
                             <span class="text-slate-500 font-semibold">Fecha:</span>
-                            <input type="date" id="quoteDate" class="editable-field font-semibold text-slate-900 text-right w-28 px-1.5 py-0.5 rounded border border-slate-200 bg-white">
+                            <input type="date" id="quoteDate"
+                                class="editable-field font-semibold text-slate-900 text-right w-28 px-1.5 py-0.5 rounded border border-slate-200 bg-white">
                         </div>
                         <div class="flex items-center justify-between pt-1 border-t border-slate-200">
                             <span class="text-slate-500 font-semibold">Validez:</span>
@@ -319,41 +381,50 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
                 <!-- Datos del Cliente -->
                 <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5">
-                    <div class="flex items-center gap-1.5 text-xs font-bold text-slate-900 uppercase tracking-wider mb-2 border-b border-slate-200 pb-1">
+                    <div
+                        class="flex items-center gap-1.5 text-xs font-bold text-slate-900 uppercase tracking-wider mb-2 border-b border-slate-200 pb-1">
                         <i data-lucide="building" class="w-3.5 h-3.5 text-brand-blue"></i>
                         <span>Datos del Cliente / Empresa</span>
                     </div>
                     <div class="space-y-2.5 text-xs">
                         <div class="flex items-center gap-2 min-w-0">
                             <span class="w-24 text-slate-500 font-medium shrink-0">Empresa / Razón:</span>
-                            <input type="text" id="clientCompany" placeholder="Ej. Corporación Delta, S.A." class="editable-field flex-1 min-w-0 w-full font-bold text-slate-900 px-2.5 py-1.5 rounded-lg border border-slate-200">
+                            <input type="text" id="clientCompany" placeholder="Ej. Corporación Delta, S.A."
+                                class="editable-field flex-1 min-w-0 w-full font-bold text-slate-900 px-2.5 py-1.5 rounded-lg border border-slate-200">
                         </div>
                         <div class="flex items-center gap-2 min-w-0">
                             <span class="w-24 text-slate-500 font-medium shrink-0">RUC & DV:</span>
-                            <input type="text" id="clientRuc" placeholder="Ej. 155698421-2-2021 DV 85" class="editable-field flex-1 min-w-0 w-full font-semibold text-slate-800 px-2.5 py-1.5 rounded-lg border border-slate-200">
+                            <input type="text" id="clientRuc" placeholder="Ej. 155698421-2-2021 DV 85"
+                                class="editable-field flex-1 min-w-0 w-full font-semibold text-slate-800 px-2.5 py-1.5 rounded-lg border border-slate-200">
                         </div>
                         <div class="flex items-center gap-2 min-w-0">
                             <span class="w-24 text-slate-500 font-medium shrink-0">Atención a:</span>
-                            <input type="text" id="clientContact" placeholder="Ej. Carlos Mendoza" class="editable-field flex-1 min-w-0 w-full font-semibold text-slate-800 px-2.5 py-1.5 rounded-lg border border-slate-200">
+                            <input type="text" id="clientContact" placeholder="Ej. Carlos Mendoza"
+                                class="editable-field flex-1 min-w-0 w-full font-semibold text-slate-800 px-2.5 py-1.5 rounded-lg border border-slate-200">
                         </div>
                         <div class="flex items-center gap-2 min-w-0">
                             <span class="w-24 text-slate-500 font-medium shrink-0">WhatsApp / Tel:</span>
-                            <input type="text" id="clientPhone" placeholder="Ej. 6500-0000" class="editable-field flex-1 min-w-0 w-full text-slate-800 px-2.5 py-1.5 rounded-lg border border-slate-200">
+                            <input type="text" id="clientPhone" placeholder="Ej. 6500-0000"
+                                class="editable-field flex-1 min-w-0 w-full text-slate-800 px-2.5 py-1.5 rounded-lg border border-slate-200">
                         </div>
                         <div class="flex items-center gap-2 min-w-0">
                             <span class="w-24 text-slate-500 font-medium shrink-0">Correo:</span>
-                            <input type="email" id="clientEmail" placeholder="contacto@empresa.com" class="editable-field flex-1 min-w-0 w-full text-slate-800 px-2.5 py-1.5 rounded-lg border border-slate-200">
+                            <input type="email" id="clientEmail" placeholder="contacto@empresa.com"
+                                class="editable-field flex-1 min-w-0 w-full text-slate-800 px-2.5 py-1.5 rounded-lg border border-slate-200">
                         </div>
                         <div class="flex items-center gap-2 min-w-0">
                             <span class="w-24 text-slate-500 font-medium shrink-0">Ubicación / Dir:</span>
-                            <input type="text" id="clientAddress" placeholder="Ej. Costa del Este, Torre Financial, Piso 12" class="editable-field flex-1 min-w-0 w-full text-slate-800 px-2.5 py-1.5 rounded-lg border border-slate-200">
+                            <input type="text" id="clientAddress"
+                                placeholder="Ej. Costa del Este, Torre Financial, Piso 12"
+                                class="editable-field flex-1 min-w-0 w-full text-slate-800 px-2.5 py-1.5 rounded-lg border border-slate-200">
                         </div>
                     </div>
                 </div>
 
                 <!-- Especificaciones Técnicas del Servicio -->
                 <div class="bg-blue-50/50 border border-blue-100 rounded-xl p-3.5 min-w-0">
-                    <div class="flex items-center gap-2 text-xs font-bold text-brand-blue uppercase tracking-wider mb-2.5 border-b border-blue-200 pb-1.5">
+                    <div
+                        class="flex items-center gap-2 text-xs font-bold text-brand-blue uppercase tracking-wider mb-2.5 border-b border-blue-200 pb-1.5">
                         <i data-lucide="sliders" class="w-4 h-4 text-brand-blue shrink-0"></i>
                         <span class="leading-none">Ficha Técnica del Servicio</span>
                     </div>
@@ -361,16 +432,29 @@
                         <div class="flex items-center gap-2 min-w-0">
                             <span class="w-24 text-slate-600 font-medium shrink-0">Tipo Servicio:</span>
                             <div class="relative custom-dropdown flex-1 min-w-0" data-dropdown-id="serviceType">
-                                <button type="button" onclick="toggleDropdown(this)" class="editable-field w-full flex items-center justify-between gap-1.5 font-bold text-brand-blue-dark px-2.5 py-1.5 rounded-lg border border-blue-200 bg-white cursor-pointer text-xs text-left shadow-2xs transition">
+                                <button type="button" onclick="toggleDropdown(this)"
+                                    class="editable-field w-full flex items-center justify-between gap-1.5 font-bold text-brand-blue-dark px-2.5 py-1.5 rounded-lg border border-blue-200 bg-white cursor-pointer text-xs text-left shadow-2xs transition">
                                     <span class="dropdown-selected truncate">Conferencia Magistral</span>
-                                    <i data-lucide="chevron-down" class="dropdown-chevron w-3.5 h-3.5 shrink-0 text-brand-blue transition-transform duration-200"></i>
+                                    <i data-lucide="chevron-down"
+                                        class="dropdown-chevron w-3.5 h-3.5 shrink-0 text-brand-blue transition-transform duration-200"></i>
                                 </button>
-                                <div class="dropdown-menu hidden absolute left-0 right-0 top-full mt-2 z-50 bg-white border border-slate-200 rounded-xl shadow-2xl py-1 text-xs text-slate-800 overflow-hidden divide-y divide-slate-100">
-                                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition font-bold" data-value="Conferencia Magistral" onclick="selectDropdownOption(this)">Conferencia Magistral</div>
-                                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition font-bold" data-value="Asesoría Estratégica 1 a 1" onclick="selectDropdownOption(this)">Asesoría Estratégica 1 a 1</div>
-                                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition font-bold" data-value="Taller Corporativo In-Company" onclick="selectDropdownOption(this)">Taller In-Company</div>
-                                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition font-bold" data-value="Consultoría Blindaje Empresarial" onclick="selectDropdownOption(this)">Consultoría Blindaje</div>
-                                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition font-bold" data-value="Sesión de Rescate Financiero" onclick="selectDropdownOption(this)">Rescate Financiero</div>
+                                <div
+                                    class="dropdown-menu hidden absolute left-0 right-0 top-full mt-2 z-50 bg-white border border-slate-200 rounded-xl shadow-2xl py-1 text-xs text-slate-800 overflow-hidden divide-y divide-slate-100">
+                                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition font-bold"
+                                        data-value="Conferencia Magistral" onclick="selectDropdownOption(this)">
+                                        Conferencia Magistral</div>
+                                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition font-bold"
+                                        data-value="Asesoría Estratégica 1 a 1" onclick="selectDropdownOption(this)">
+                                        Asesoría Estratégica 1 a 1</div>
+                                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition font-bold"
+                                        data-value="Taller Corporativo In-Company" onclick="selectDropdownOption(this)">
+                                        Taller In-Company</div>
+                                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition font-bold"
+                                        data-value="Consultoría Blindaje Empresarial"
+                                        onclick="selectDropdownOption(this)">Consultoría Blindaje</div>
+                                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition font-bold"
+                                        data-value="Sesión de Rescate Financiero" onclick="selectDropdownOption(this)">
+                                        Rescate Financiero</div>
                                 </div>
                                 <input type="hidden" id="serviceType" value="Conferencia Magistral">
                             </div>
@@ -378,38 +462,57 @@
                         <div class="flex items-center gap-2 min-w-0">
                             <span class="w-24 text-slate-600 font-medium shrink-0">Modalidad:</span>
                             <div class="relative custom-dropdown flex-1 min-w-0" data-dropdown-id="serviceModality">
-                                <button type="button" onclick="toggleDropdown(this)" class="editable-field w-full flex items-center justify-between gap-1.5 font-semibold text-slate-800 px-2.5 py-1.5 rounded-lg border border-blue-200 bg-white cursor-pointer text-xs text-left shadow-2xs transition">
+                                <button type="button" onclick="toggleDropdown(this)"
+                                    class="editable-field w-full flex items-center justify-between gap-1.5 font-semibold text-slate-800 px-2.5 py-1.5 rounded-lg border border-blue-200 bg-white cursor-pointer text-xs text-left shadow-2xs transition">
                                     <span class="dropdown-selected truncate">Presencial (Sede / Auditorio)</span>
-                                    <i data-lucide="chevron-down" class="dropdown-chevron w-3.5 h-3.5 shrink-0 text-slate-400 transition-transform duration-200"></i>
+                                    <i data-lucide="chevron-down"
+                                        class="dropdown-chevron w-3.5 h-3.5 shrink-0 text-slate-400 transition-transform duration-200"></i>
                                 </button>
-                                <div class="dropdown-menu hidden absolute left-0 right-0 top-full mt-2 z-50 bg-white border border-slate-200 rounded-xl shadow-2xl py-1 text-xs text-slate-800 overflow-hidden divide-y divide-slate-100">
-                                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition" data-value="Presencial (Sede / Auditorio)" onclick="selectDropdownOption(this)">Presencial (Sede / Auditorio)</div>
-                                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition" data-value="Virtual en Vivo (Meet / Zoom)" onclick="selectDropdownOption(this)">Virtual en Vivo (Meet / Zoom)</div>
-                                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition" data-value="Híbrida (Presencial + Virtual)" onclick="selectDropdownOption(this)">Híbrida (Presencial + Virtual)</div>
+                                <div
+                                    class="dropdown-menu hidden absolute left-0 right-0 top-full mt-2 z-50 bg-white border border-slate-200 rounded-xl shadow-2xl py-1 text-xs text-slate-800 overflow-hidden divide-y divide-slate-100">
+                                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition"
+                                        data-value="Presencial (Sede / Auditorio)" onclick="selectDropdownOption(this)">
+                                        Presencial (Sede / Auditorio)</div>
+                                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition"
+                                        data-value="Virtual en Vivo (Meet / Zoom)" onclick="selectDropdownOption(this)">
+                                        Virtual en Vivo (Meet / Zoom)</div>
+                                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition"
+                                        data-value="Híbrida (Presencial + Virtual)"
+                                        onclick="selectDropdownOption(this)">Híbrida (Presencial + Virtual)</div>
                                 </div>
                                 <input type="hidden" id="serviceModality" value="Presencial (Sede / Auditorio)">
                             </div>
                         </div>
                         <div class="flex items-center gap-2 min-w-0">
                             <span class="w-24 text-slate-600 font-medium shrink-0">Duración:</span>
-                            <input type="text" id="serviceDuration" value="2 Horas Académicas + Preguntas" class="editable-field flex-1 min-w-0 w-full text-slate-800 px-2.5 py-1.5 rounded-lg border border-blue-200 bg-white">
+                            <input type="text" id="serviceDuration" value="2 Horas Académicas + Preguntas"
+                                class="editable-field flex-1 min-w-0 w-full text-slate-800 px-2.5 py-1.5 rounded-lg border border-blue-200 bg-white">
                         </div>
                         <div class="flex items-center gap-2 min-w-0">
                             <span class="w-24 text-slate-600 font-medium shrink-0">Fecha / Horario:</span>
-                            <input type="text" id="serviceSchedule" value="Por coordinar según disponibilidad" class="editable-field flex-1 min-w-0 w-full text-slate-800 px-2.5 py-1.5 rounded-lg border border-blue-200 bg-white">
+                            <input type="text" id="serviceSchedule" value="Por coordinar según disponibilidad"
+                                class="editable-field flex-1 min-w-0 w-full text-slate-800 px-2.5 py-1.5 rounded-lg border border-blue-200 bg-white">
                         </div>
                         <div class="flex items-center gap-2 min-w-0">
                             <span class="w-24 text-slate-600 font-medium shrink-0">Condición:</span>
                             <div class="relative custom-dropdown flex-1 min-w-0" data-dropdown-id="paymentTerms">
-                                <button type="button" onclick="toggleDropdown(this)" class="editable-field w-full flex items-center justify-between gap-1.5 font-semibold text-slate-800 px-2.5 py-1.5 rounded-lg border border-blue-200 bg-white cursor-pointer text-xs text-left shadow-2xs transition">
+                                <button type="button" onclick="toggleDropdown(this)"
+                                    class="editable-field w-full flex items-center justify-between gap-1.5 font-semibold text-slate-800 px-2.5 py-1.5 rounded-lg border border-blue-200 bg-white cursor-pointer text-xs text-left shadow-2xs transition">
                                     <span class="dropdown-selected truncate">50% Anticipo / 50% Saldo</span>
-                                    <i data-lucide="chevron-down" class="dropdown-chevron w-3.5 h-3.5 shrink-0 text-slate-400 transition-transform duration-200"></i>
+                                    <i data-lucide="chevron-down"
+                                        class="dropdown-chevron w-3.5 h-3.5 shrink-0 text-slate-400 transition-transform duration-200"></i>
                                 </button>
-                                <div class="dropdown-menu hidden absolute left-0 right-0 top-full mt-2 z-50 bg-white border border-slate-200 rounded-xl shadow-2xl py-1 text-xs text-slate-800 overflow-hidden divide-y divide-slate-100">
-                                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition" data-value="anticipo" onclick="selectDropdownOption(this)">50% Anticipo / 50% Saldo</div>
-                                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition" data-value="contado" onclick="selectDropdownOption(this)">100% Contado (Pago Único)</div>
+                                <div
+                                    class="dropdown-menu hidden absolute left-0 right-0 top-full mt-2 z-50 bg-white border border-slate-200 rounded-xl shadow-2xl py-1 text-xs text-slate-800 overflow-hidden divide-y divide-slate-100">
+                                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition"
+                                        data-value="anticipo" onclick="selectDropdownOption(this)">50% Anticipo / 50%
+                                        Saldo</div>
+                                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition"
+                                        data-value="contado" onclick="selectDropdownOption(this)">100% Contado (Pago
+                                        Único)</div>
                                 </div>
-                                <input type="hidden" id="paymentTerms" value="anticipo" onchange="updatePaymentTerms(this.value)">
+                                <input type="hidden" id="paymentTerms" value="anticipo"
+                                    onchange="updatePaymentTerms(this.value)">
                             </div>
                         </div>
                         <div class="flex items-center gap-2 min-w-0">
@@ -438,20 +541,27 @@
                         <tr class="hover:bg-slate-50/60 transition">
                             <td class="py-2.5 px-3 text-center font-bold text-slate-400 row-index">1</td>
                             <td class="py-2.5 px-3">
-                                <input type="text" class="item-desc w-full font-bold text-slate-900 editable-field px-1 py-0.5 rounded" value="Conferencia Magistral: Blindaje Legal, Fiscal y Financiero de Empresas en Panamá">
-                                <textarea rows="2" class="item-subdesc w-full text-[11px] text-slate-500 editable-field px-1 py-0.5 rounded resize-none mt-0.5">Incluye diagnóstico preliminar de riesgos, presentación ejecutiva en láminas de alto impacto, sesión interactiva de preguntas & respuestas, y entrega de memoria resumen en PDF para los directivos.</textarea>
+                                <input type="text"
+                                    class="item-desc w-full font-bold text-slate-900 editable-field px-1 py-0.5 rounded"
+                                    value="Conferencia Magistral: Blindaje Legal, Fiscal y Financiero de Empresas en Panamá">
+                                <textarea rows="2"
+                                    class="item-subdesc w-full text-[11px] text-slate-500 editable-field px-1 py-0.5 rounded resize-none mt-0.5">Incluye diagnóstico preliminar de riesgos, presentación ejecutiva en láminas de alto impacto, sesión interactiva de preguntas & respuestas, y entrega de memoria resumen en PDF para los directivos.</textarea>
                             </td>
                             <td class="py-2.5 px-3 text-center align-top">
-                                <input type="number" min="1" step="1" value="1" onchange="calculateTotals()" class="item-qty w-12 text-center font-bold text-slate-800 editable-field px-1 py-0.5 rounded border border-slate-200">
+                                <input type="number" min="1" step="1" value="1" onchange="calculateTotals()"
+                                    class="item-qty w-12 text-center font-bold text-slate-800 editable-field px-1 py-0.5 rounded border border-slate-200">
                             </td>
                             <td class="py-2.5 px-3 text-right align-top">
-                                <input type="number" min="0" step="0.01" value="450.00" onchange="calculateTotals()" class="item-price w-20 text-right font-bold text-slate-800 editable-field px-1 py-0.5 rounded border border-slate-200">
+                                <input type="number" min="0" step="0.01" value="450.00" onchange="calculateTotals()"
+                                    class="item-price w-20 text-right font-bold text-slate-800 editable-field px-1 py-0.5 rounded border border-slate-200">
                             </td>
                             <td class="py-2.5 px-3 text-right font-bold text-slate-900 align-top item-total">
                                 $450.00
                             </td>
                             <td class="py-2.5 px-2 text-center align-top no-print">
-                                <button type="button" onclick="removeRow(this)" class="text-slate-400 hover:text-rose-600 transition inline-flex items-center justify-center p-1 rounded hover:bg-rose-50" title="Eliminar fila">
+                                <button type="button" onclick="removeRow(this)"
+                                    class="text-slate-400 hover:text-rose-600 transition inline-flex items-center justify-center p-1 rounded hover:bg-rose-50"
+                                    title="Eliminar fila">
                                     <i data-lucide="trash-2" class="w-3.5 h-3.5 shrink-0"></i>
                                 </button>
                             </td>
@@ -461,7 +571,8 @@
 
                 <!-- Botón Agregar Fila (no-print) -->
                 <div class="no-print bg-slate-50 p-2 border-t border-slate-200 flex justify-start">
-                    <button type="button" onclick="addRow()" class="inline-flex items-center gap-1.5 text-xs font-bold text-brand-blue hover:text-brand-blue-dark py-1.5 px-3 rounded-lg hover:bg-blue-50 transition border border-dashed border-blue-200">
+                    <button type="button" onclick="addRow()"
+                        class="inline-flex items-center gap-1.5 text-xs font-bold text-brand-blue hover:text-brand-blue-dark py-1.5 px-3 rounded-lg hover:bg-blue-50 transition border border-dashed border-blue-200">
                         <i data-lucide="plus-circle" class="w-3.5 h-3.5 shrink-0"></i>
                         <span class="leading-none">Agregar otro concepto</span>
                     </button>
@@ -472,7 +583,8 @@
             <div class="grid grid-cols-1 sm:grid-cols-12 gap-4 mb-5 items-start">
                 <!-- Bloque Bancario Oficial -->
                 <div class="sm:col-span-7 bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-xs">
-                    <div class="flex items-center gap-2 font-bold text-slate-900 uppercase tracking-wider mb-2 border-b border-slate-200 pb-1">
+                    <div
+                        class="flex items-center gap-2 font-bold text-slate-900 uppercase tracking-wider mb-2 border-b border-slate-200 pb-1">
                         <i data-lucide="landmark" class="w-3.5 h-3.5 text-brand-blue shrink-0"></i>
                         <span class="leading-none">Datos Bancarios para Pago y Reserva</span>
                     </div>
@@ -487,7 +599,8 @@
                         </div>
                         <div>
                             <span class="text-slate-500 block font-medium">Beneficiario:</span>
-                            <strong class="text-slate-900 font-bold text-[10px] uppercase">AIZPRUA SOLUCIONES EMPRESARIALES</strong>
+                            <strong class="text-slate-900 font-bold text-[10px] uppercase">AIZPRUA SOLUCIONES
+                                EMPRESARIALES</strong>
                         </div>
                         <div>
                             <span class="text-slate-500 block font-medium">Número de Cuenta:</span>
@@ -496,7 +609,8 @@
                     </div>
                     <div class="mt-2.5 pt-2 border-t border-slate-200 flex items-center gap-2.5 text-[11px]">
                         <span class="text-slate-600 font-medium">Yappy Comercial:</span>
-                        <span class="bg-blue-100/70 text-blue-900 font-mono font-bold px-2 py-0.5 rounded border border-blue-200">6546-1527</span>
+                        <span
+                            class="bg-blue-100/70 text-blue-900 font-mono font-bold px-2 py-0.5 rounded border border-blue-200">6546-1527</span>
                     </div>
                 </div>
 
@@ -513,67 +627,95 @@
                         </div>
                         <div class="flex justify-between text-sm font-black border-t border-slate-700 pt-2 text-white">
                             <span>TOTAL INVERSIÓN:</span>
-                            <span id="totalDisplay" class="text-brand-orange-light font-mono text-base font-black">$450.00 USD</span>
+                            <span id="totalDisplay"
+                                class="text-brand-orange-light font-mono text-base font-black">$450.00 USD</span>
                         </div>
                     </div>
 
                     <!-- Estructura de Anticipo 50/50 Dinámico -->
-                    <div id="depositBalanceContainer" class="mt-3 pt-2.5 border-t border-slate-800 grid grid-cols-2 gap-2 text-center text-[10px]">
-                        <div class="bg-slate-800/80 p-1.5 rounded-lg border border-slate-700">
-                            <span class="text-slate-400 block font-semibold uppercase">50% Anticipo (Reserva)</span>
-                            <strong id="depositDisplay" class="text-white font-mono text-xs font-bold">$225.00</strong>
+                    <div id="depositBalanceContainer"
+                        class="mt-3 pt-2.5 border-t border-slate-800 grid grid-cols-2 gap-2 text-center text-[10px]">
+                            <div
+                                class="bg-slate-800/80 p-1.5 rounded-lg border border-slate-700 flex flex-col justify-between">
+                                <div>
+                                    <span class="text-slate-400 block font-semibold uppercase leading-tight">50%
+                                        Anticipo</span>
+                                    <span
+                                        class="text-slate-400 block font-semibold uppercase leading-tight">(Reserva)</span>
+                                </div>
+                                <strong id="depositDisplay"
+                                    class="text-white font-mono text-xs font-bold block mt-1">$225.00</strong>
+                            </div>
+                                <div
+                                    class="bg-slate-800/80 p-1.5 rounded-lg border border-slate-700 flex flex-col justify-between">
+                                    <div>
+                                        <span class="text-slate-400 block font-semibold uppercase leading-tight">50%
+                                            Saldo</span>
+                                        <span
+                                            class="text-slate-400 block font-semibold uppercase leading-tight">(Entrega)</span>
+                                    </div>
+                                    <strong id="balanceDisplay"
+                                        class="text-white font-mono text-xs font-bold block mt-1">$225.00</strong>
+                                </div>
+                            </div>
                         </div>
-                        <div class="bg-slate-800/80 p-1.5 rounded-lg border border-slate-700">
-                            <span class="text-slate-400 block font-semibold uppercase">50% Saldo (Entrega)</span>
-                            <strong id="balanceDisplay" class="text-white font-mono text-xs font-bold">$225.00</strong>
+                    </div>
+
+                    <!-- TÉRMINOS Y CONDICIONES COMERCIALES -->
+                    <div
+                        class="bg-slate-50 border border-slate-200 rounded-xl p-3 text-[10px] text-slate-600 mb-5 leading-normal">
+                        <p class="font-bold text-slate-800 uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                            <i data-lucide="shield-check" class="w-3.5 h-3.5 text-brand-blue shrink-0"></i>
+                            <span class="leading-none">Términos de Contratación y Garantía de Reserva</span>
+                        </p>
+                        <ol class="list-decimal pl-3.5 space-y-0.5">
+                            <li><strong>Bloqueo de Agenda:</strong> La fecha de la conferencia o sesiones de asesoría
+                                queda formalmente reservada únicamente tras recibir el comprobante del 50% de anticipo.
+                            </li>
+                            <li><strong>Cancelaciones o Reprogramaciones:</strong> Podrán coordinarse sin costo
+                                adicional con un mínimo de 72 horas hábiles de anticipación.</li>
+                            <li><strong>Saldo Restante:</strong> El 50% complementario se cancelará a la culminación del
+                                evento o contra entrega del informe final.</li>
+                            <li><strong>Factura Electrónica Fiscal:</strong> La Factura Electrónica Oficial DGI con
+                                código CUFE será emitida a través de nuestro Proveedor de Autorización Calificada (PAC)
+                                tras confirmación de pago.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- PIE DE FIRMA INSTITUCIONAL -->
+                <div class="pt-4 border-t border-slate-200 mt-2">
+                    <div class="grid grid-cols-2 gap-8 items-end">
+                        <div>
+                            <div class="border-b-2 border-slate-900 pb-1 w-52 mb-1">
+                                <span class="font-serif italic text-base text-slate-800 block">Arubel Aizprua</span>
+                            </div>
+                            <strong class="text-xs text-slate-900 block font-black">Arubel Aizprua</strong>
+                            <span class="text-[10px] text-slate-600 block leading-tight">Fundador & Consultor
+                                Principal<br>Aizprua Soluciones Empresariales</span>
+                        </div>
+
+                        <div class="text-right">
+                            <div class="border-b border-dashed border-slate-400 pb-1 w-52 ml-auto mb-1">
+                                <span class="text-[10px] text-slate-400">Firma de Aprobación del Cliente</span>
+                            </div>
+                            <span class="text-[10px] text-slate-500 block">Firma autorizada / Sello de la Empresa</span>
+                            <span class="text-[9px] text-slate-400 block">Fecha de Aprobación: _____ / _____ /
+                                2026</span>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- TÉRMINOS Y CONDICIONES COMERCIALES -->
-            <div class="bg-slate-50 border border-slate-200 rounded-xl p-3 text-[10px] text-slate-600 mb-5 leading-normal">
-                <p class="font-bold text-slate-800 uppercase tracking-wider mb-1 flex items-center gap-1.5">
-                    <i data-lucide="shield-check" class="w-3.5 h-3.5 text-brand-blue shrink-0"></i>
-                    <span class="leading-none">Términos de Contratación y Garantía de Reserva</span>
-                </p>
-                <ol class="list-decimal pl-3.5 space-y-0.5">
-                    <li><strong>Bloqueo de Agenda:</strong> La fecha de la conferencia o sesiones de asesoría queda formalmente reservada únicamente tras recibir el comprobante del 50% de anticipo.</li>
-                    <li><strong>Cancelaciones o Reprogramaciones:</strong> Podrán coordinarse sin costo adicional con un mínimo de 72 horas hábiles de anticipación.</li>
-                    <li><strong>Saldo Restante:</strong> El 50% complementario se cancelará a la culminación del evento o contra entrega del informe final.</li>
-                    <li><strong>Factura Electrónica Fiscal:</strong> La Factura Electrónica Oficial DGI con código CUFE será emitida a través de nuestro Proveedor de Autorización Calificada (PAC) tras confirmación de pago.</li>
-                </ol>
-            </div>
-        </div>
-
-        <!-- PIE DE FIRMA INSTITUCIONAL -->
-        <div class="pt-4 border-t border-slate-200 mt-2">
-            <div class="grid grid-cols-2 gap-8 items-end">
-                <div>
-                    <div class="border-b-2 border-slate-900 pb-1 w-52 mb-1">
-                        <span class="font-serif italic text-base text-slate-800 block">Arubel Aizprua</span>
+                    <div class="mt-4 text-center text-[9px] text-slate-400">
+                        Aizprua Soluciones Empresariales &bull; RUC 8-826-885 DV 14 &bull; Panamá, Panamá Oeste, La
+                        Chorrera &bull; Documento confidencial para uso exclusivo del cliente receptor.
                     </div>
-                    <strong class="text-xs text-slate-900 block font-black">Arubel Aizprua</strong>
-                    <span class="text-[10px] text-slate-600 block leading-tight">Fundador & Consultor Principal<br>Aizprua Soluciones Empresariales</span>
                 </div>
-
-                <div class="text-right">
-                    <div class="border-b border-dashed border-slate-400 pb-1 w-52 ml-auto mb-1">
-                        <span class="text-[10px] text-slate-400">Firma de Aprobación del Cliente</span>
-                    </div>
-                    <span class="text-[10px] text-slate-500 block">Firma autorizada / Sello de la Empresa</span>
-                    <span class="text-[9px] text-slate-400 block">Fecha de Aprobación: _____ / _____ / 2026</span>
-                </div>
-            </div>
-            <div class="mt-4 text-center text-[9px] text-slate-400">
-                Aizprua Soluciones Empresariales &bull; RUC 8-826-885 DV 14 &bull; Panamá, Panamá Oeste, La Chorrera &bull; Documento confidencial para uso exclusivo del cliente receptor.
-            </div>
-        </div>
     </main>
 
     <!-- MODAL DE CARGA Y CORRECCIÓN DE COTIZACIONES -->
-    <div id="loadModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/80 backdrop-blur-sm transition-opacity duration-200">
-        <div class="bg-slate-900 border border-slate-700 rounded-2xl w-full max-w-2xl max-h-[90vh] flex flex-col shadow-2xl text-white overflow-hidden">
+    <div id="loadModal"
+        class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/80 backdrop-blur-sm transition-opacity duration-200">
+        <div
+            class="bg-slate-900 border border-slate-700 rounded-2xl w-full max-w-2xl max-h-[90vh] flex flex-col shadow-2xl text-white overflow-hidden">
             <!-- Modal Header -->
             <div class="flex items-center justify-between p-4 border-b border-slate-800 bg-slate-900/90">
                 <div class="flex items-center gap-2.5">
@@ -584,24 +726,30 @@
                         <h3 class="text-sm font-bold text-white tracking-tight flex items-center gap-2">
                             Cargar o Corregir Cotización
                         </h3>
-                        <p class="text-[11px] text-slate-400">Abre un PDF previo o selecciona una cotización del historial para editarla</p>
+                        <p class="text-[11px] text-slate-400">Abre un PDF previo o selecciona una cotización del
+                            historial para editarla</p>
                     </div>
                 </div>
-                <button type="button" onclick="closeLoadModal()" class="text-slate-400 hover:text-white transition p-1.5 rounded-lg hover:bg-slate-800" title="Cerrar ventana">
+                <button type="button" onclick="closeLoadModal()"
+                    class="text-slate-400 hover:text-white transition p-1.5 rounded-lg hover:bg-slate-800"
+                    title="Cerrar ventana">
                     <i data-lucide="x" class="w-5 h-5 shrink-0"></i>
                 </button>
             </div>
 
             <!-- Modal Tabs -->
             <div class="flex border-b border-slate-800 bg-slate-900/50 text-xs px-4 pt-2 gap-2">
-                <button type="button" id="tabBtnUpload" onclick="switchLoadTab('upload')" class="px-4 py-2 font-bold border-b-2 border-brand-orange text-white flex items-center gap-1.5 transition">
+                <button type="button" id="tabBtnUpload" onclick="switchLoadTab('upload')"
+                    class="px-4 py-2 font-bold border-b-2 border-brand-orange text-white flex items-center gap-1.5 transition">
                     <i data-lucide="upload-cloud" class="w-3.5 h-3.5 text-brand-orange shrink-0"></i>
                     <span>Subir Archivo (PDF / Respaldo)</span>
                 </button>
-                <button type="button" id="tabBtnHistory" onclick="switchLoadTab('history')" class="px-4 py-2 font-medium border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center gap-1.5 transition">
+                <button type="button" id="tabBtnHistory" onclick="switchLoadTab('history')"
+                    class="px-4 py-2 font-medium border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center gap-1.5 transition">
                     <i data-lucide="clock" class="w-3.5 h-3.5 text-blue-400 shrink-0"></i>
                     <span>Historial Guardado</span>
-                    <span id="tabHistoryCount" class="text-[10px] bg-slate-800 px-1.5 py-0.5 rounded-full text-slate-300">0</span>
+                    <span id="tabHistoryCount"
+                        class="text-[10px] bg-slate-800 px-1.5 py-0.5 rounded-full text-slate-300">0</span>
                 </button>
             </div>
 
@@ -609,25 +757,36 @@
             <div class="p-4 sm:p-5 overflow-y-auto flex-1 custom-scroll">
                 <!-- Panel 1: Subir Archivo (PDF o JSON) -->
                 <div id="panelUpload" class="space-y-4">
-                    <div id="modalDropzone" onclick="document.getElementById('fileUploadInput').click()" class="border-2 border-dashed border-slate-700 hover:border-brand-blue rounded-2xl p-6 sm:p-8 text-center cursor-pointer transition bg-slate-800/40 hover:bg-slate-800/70 group">
-                        <div class="w-12 h-12 rounded-2xl bg-brand-blue/20 text-brand-blue-light mx-auto flex items-center justify-center mb-3 group-hover:scale-105 transition">
+                    <div id="modalDropzone" onclick="document.getElementById('fileUploadInput').click()"
+                        class="border-2 border-dashed border-slate-700 hover:border-brand-blue rounded-2xl p-6 sm:p-8 text-center cursor-pointer transition bg-slate-800/40 hover:bg-slate-800/70 group">
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-brand-blue/20 text-brand-blue-light mx-auto flex items-center justify-center mb-3 group-hover:scale-105 transition">
                             <i data-lucide="upload-cloud" class="w-6 h-6 shrink-0"></i>
                         </div>
-                        <h4 class="text-xs sm:text-sm font-bold text-white mb-1">Arrastra aquí tu Cotización en PDF o haz clic para buscar</h4>
-                        <p class="text-[11px] text-slate-400 max-w-md mx-auto mb-3">Soporta archivos <strong>.PDF</strong> generados previamente o archivos de respaldo <strong>.cotiz / .json</strong>.</p>
-                        <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-orange hover:text-brand-orange-light bg-brand-orange/10 border border-brand-orange/30 px-3 py-1.5 rounded-xl">
+                        <h4 class="text-xs sm:text-sm font-bold text-white mb-1">Arrastra aquí tu Cotización en PDF o
+                            haz clic para buscar</h4>
+                        <p class="text-[11px] text-slate-400 max-w-md mx-auto mb-3">Soporta archivos
+                            <strong>.PDF</strong> generados previamente o archivos de respaldo <strong>.cotiz /
+                                .json</strong>.</p>
+                        <span
+                            class="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-orange hover:text-brand-orange-light bg-brand-orange/10 border border-brand-orange/30 px-3 py-1.5 rounded-xl">
                             <i data-lucide="file-up" class="w-3.5 h-3.5 shrink-0"></i>
                             <span>Seleccionar Archivo del Dispositivo</span>
                         </span>
                     </div>
 
-                    <div class="bg-slate-800/60 border border-slate-700/60 rounded-xl p-3 text-[11px] text-slate-300 space-y-1.5">
+                    <div
+                        class="bg-slate-800/60 border border-slate-700/60 rounded-xl p-3 text-[11px] text-slate-300 space-y-1.5">
                         <div class="flex items-center gap-2 font-bold text-slate-200">
                             <i data-lucide="info" class="w-3.5 h-3.5 text-brand-blue shrink-0"></i>
                             <span>¿Cómo funciona la corrección automática?</span>
                         </div>
                         <p class="text-slate-400 pl-5 leading-relaxed">
-                            Al cargar el PDF de tu cotización anterior, el sistema extrae automáticamente el <strong>número de cotización</strong>, <strong>datos del cliente</strong>, <strong>RUC</strong>, <strong>servicios con sus descripciones</strong>, <strong>cantidades</strong> y <strong>precios</strong> para que edites solo lo que necesitas corregir.
+                            Al cargar el PDF de tu cotización anterior, el sistema extrae automáticamente el
+                            <strong>número de cotización</strong>, <strong>datos del cliente</strong>,
+                            <strong>RUC</strong>, <strong>servicios con sus descripciones</strong>,
+                            <strong>cantidades</strong> y <strong>precios</strong> para que edites solo lo que necesitas
+                            corregir.
                         </p>
                     </div>
                 </div>
@@ -646,7 +805,8 @@
                     <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400 shrink-0"></i>
                     <span>Tus datos se procesan de forma privada y local</span>
                 </span>
-                <button type="button" onclick="closeLoadModal()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium transition">
+                <button type="button" onclick="closeLoadModal()"
+                    class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium transition">
                     Cerrar
                 </button>
             </div>
@@ -654,19 +814,23 @@
     </div>
 
     <!-- Input Oculto de Archivos -->
-    <input type="file" id="fileUploadInput" accept=".pdf,.json,.cotiz" onchange="handleFileSelected(this.files)" class="hidden">
+    <input type="file" id="fileUploadInput" accept=".pdf,.json,.cotiz" onchange="handleFileSelected(this.files)"
+        class="hidden">
 
     <!-- Overlay Global para Arrastrar y Soltar sobre la Ventana -->
-    <div id="globalDropOverlay" class="hidden fixed inset-0 z-[60] bg-slate-950/85 backdrop-blur-md flex flex-col items-center justify-center p-6 border-4 border-dashed border-brand-blue pointer-events-none transition duration-200">
+    <div id="globalDropOverlay"
+        class="hidden fixed inset-0 z-[60] bg-slate-950/85 backdrop-blur-md flex flex-col items-center justify-center p-6 border-4 border-dashed border-brand-blue pointer-events-none transition duration-200">
         <div class="w-16 h-16 rounded-3xl bg-brand-blue text-white flex items-center justify-center mb-4 shadow-xl">
             <i data-lucide="file-up" class="w-8 h-8 shrink-0"></i>
         </div>
         <h3 class="text-lg font-black text-white mb-1">Suelta tu Cotización aquí</h3>
-        <p class="text-xs text-slate-300 text-center max-w-sm">Cargaremos inmediatamente los datos del PDF para que realices los cambios necesarios.</p>
+        <p class="text-xs text-slate-300 text-center max-w-sm">Cargaremos inmediatamente los datos del PDF para que
+            realices los cambios necesarios.</p>
     </div>
 
     <!-- Notificación Toast Ejecutiva -->
-    <div id="toastNotification" class="hidden fixed bottom-6 right-6 z-50 bg-slate-900/95 border border-slate-700 text-white text-xs px-4 py-3 rounded-xl shadow-2xl flex items-center gap-2.5 transition duration-300">
+    <div id="toastNotification"
+        class="hidden fixed bottom-6 right-6 z-50 bg-slate-900/95 border border-slate-700 text-white text-xs px-4 py-3 rounded-xl shadow-2xl flex items-center gap-2.5 transition duration-300">
         <div class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
             <i data-lucide="check" class="w-3 h-3 shrink-0"></i>
         </div>
@@ -696,7 +860,7 @@
             hasITBMS = !hasITBMS;
             const statusText = document.getElementById('itbmsStatusText');
             const itbmsRow = document.getElementById('itbmsRow');
-            
+
             if (hasITBMS) {
                 statusText.textContent = 'SÍ (7%)';
                 statusText.className = 'text-brand-orange font-bold';
@@ -931,7 +1095,7 @@
             }
 
             // Restaurar texto del selector de plantillas a su estado inicial
-            setCustomDropdownValue('presetSelector', '', 'Cargar Plantilla de Servicio Frecuente (Conferencias, Asesorías, Talleres)...');
+            setCustomDropdownValue('presetSelector', '', 'Cargar Plantilla Oficial...');
             calculateTotals();
         }
 
@@ -1051,7 +1215,7 @@
                 if (manual) showToast('Ingresa al menos el N° de Cotización o Cliente');
                 return;
             }
-            
+
             let history = getHistory();
             const existingIndex = history.findIndex(h => h.quoteNumber === current.quoteNumber);
             current.updatedAt = new Date().toISOString();
@@ -1184,10 +1348,10 @@
 
         function resetQuoteForm() {
             if (!confirm('¿Deseas iniciar una cotización nueva en blanco? Los cambios no guardados se reemplazarán.')) return;
-            
+
             const today = new Date().toISOString().split('T')[0];
             document.getElementById('quoteDate').value = today;
-            
+
             const history = getHistory();
             let nextNum = 'COT-2026-001';
             if (history.length > 0) {
@@ -1256,7 +1420,7 @@
             showToast('Leyendo archivo: ' + file.name + '...');
 
             const ext = file.name.split('.').pop().toLowerCase();
-            
+
             if (ext === 'json' || ext === 'cotiz') {
                 try {
                     const text = await file.text();
@@ -1458,4 +1622,5 @@
         }
     </script>
 </body>
+
 </html>

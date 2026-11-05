@@ -45,6 +45,14 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
+    <!-- PDF.js para Lectura e Importación Automática de Facturas (jsDelivr) -->
+    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+    <script>
+        if (window['pdfjsLib']) {
+            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js';
+        }
+    </script>
+
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -160,51 +168,83 @@
                 </button>
 
                 <!-- Botón Imprimir / PDF -->
-                <button type="button" onclick="window.print()" class="bg-brand-blue hover:bg-brand-blue-dark text-white text-xs font-bold px-4 py-2 rounded-xl shadow-lg shadow-brand-blue/30 transition inline-flex items-center gap-1.5 whitespace-nowrap">
+                <button type="button" onclick="handlePrintAndSave()" class="bg-brand-blue hover:bg-brand-blue-dark text-white text-xs font-bold px-4 py-2 rounded-xl shadow-lg shadow-brand-blue/30 transition inline-flex items-center gap-1.5 whitespace-nowrap" title="Descargar en PDF y guardar automáticamente en el historial">
                     <i data-lucide="download" class="w-4 h-4 shrink-0"></i>
                     <span class="leading-none">Descargar PDF</span>
                 </button>
             </div>
         </div>
 
-        <!-- Fila Inferior: Controles de Estado y Opciones -->
-        <div class="flex flex-wrap items-center justify-between gap-2.5 pt-3">
-            <!-- Selector de Estado de Pago Personalizado -->
-            <div class="relative custom-dropdown flex-1 min-w-[220px]" data-dropdown-id="paymentStatus">
-                <button type="button" onclick="toggleDropdown(this)" class="w-full bg-slate-800 hover:bg-slate-750 border border-slate-700 text-slate-200 text-xs rounded-xl px-3 py-2 font-medium focus:ring-2 focus:ring-brand-blue focus:outline-none cursor-pointer flex items-center justify-between gap-2 shadow-xs transition">
-                    <span class="dropdown-selected truncate text-left">Pendiente de Pago</span>
-                    <i data-lucide="chevron-down" class="dropdown-chevron w-4 h-4 shrink-0 text-slate-400 transition-transform duration-200"></i>
+        <!-- Fila 2: Gestión de Archivo y Opciones de Cobro (Agrupación Continua con Divisor) -->
+        <div class="flex items-center gap-2 pt-3 border-t border-slate-800/60 mt-1 flex-nowrap">
+            <!-- Bloque Izquierdo: Gestión de la Factura (Nueva, Cargar, Guardar) -->
+            <div class="flex items-center gap-1.5 shrink-0">
+                <!-- Iniciar Factura Nueva -->
+                <button type="button" onclick="resetInvoiceForm()"
+                    class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 hover:border-slate-600 text-xs font-semibold px-2.5 py-1.5 rounded-lg transition inline-flex items-center gap-1.5 whitespace-nowrap shadow-xs"
+                    title="Iniciar factura nueva en blanco">
+                    <i data-lucide="file-plus" class="w-3.5 h-3.5 text-slate-400 shrink-0"></i>
+                    <span class="leading-none">Nueva</span>
                 </button>
-                <div class="dropdown-menu hidden absolute left-0 right-0 top-full mt-2 z-50 bg-slate-900 border border-slate-700 rounded-xl shadow-2xl py-1 text-xs text-slate-200 overflow-hidden divide-y divide-slate-800">
-                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="pending" onclick="selectDropdownOption(this)">
-                        <i data-lucide="clock" class="w-3.5 h-3.5 text-amber-400 shrink-0"></i>
-                        <span>Pendiente de Pago</span>
-                    </div>
-                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="partial" onclick="selectDropdownOption(this)">
-                        <i data-lucide="pie-chart" class="w-3.5 h-3.5 text-blue-400 shrink-0"></i>
-                        <span>Anticipo 50% Recibido</span>
-                    </div>
-                    <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="paid" onclick="selectDropdownOption(this)">
-                        <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400 shrink-0"></i>
-                        <span>Pagado / Cancelado</span>
-                    </div>
-                </div>
-                <input type="hidden" id="paymentStatus" value="pending" onchange="updatePaymentStatusBadge(this.value)">
+
+                <!-- Botón Cargar Factura Previa / Historial -->
+                <button type="button" onclick="openLoadModal()"
+                    class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 hover:border-slate-600 text-xs font-semibold px-2.5 py-1.5 rounded-lg transition inline-flex items-center gap-1.5 whitespace-nowrap shadow-xs"
+                    title="Cargar factura previa desde historial o archivo PDF">
+                    <i data-lucide="folder-open" class="w-3.5 h-3.5 text-brand-orange shrink-0"></i>
+                    <span class="leading-none">Cargar / Historial</span>
+                    <span id="historyBadge"
+                        class="hidden ml-1 px-1.5 py-0.5 bg-brand-blue text-[10px] font-bold rounded-full text-white leading-none">0</span>
+                </button>
+
+                <!-- Guardar en Historial Manualmente -->
+                <button type="button" onclick="saveInvoiceToHistory(true)"
+                    class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 hover:border-slate-600 text-xs font-semibold px-2.5 py-1.5 rounded-lg transition inline-flex items-center gap-1.5 whitespace-nowrap shadow-xs"
+                    title="Guardar cambios actuales en el historial">
+                    <i data-lucide="bookmark" class="w-3.5 h-3.5 text-blue-400 shrink-0"></i>
+                    <span class="leading-none">Guardar</span>
+                </button>
             </div>
 
-            <!-- Controles Secundarios -->
-            <div class="flex items-center gap-2 shrink-0">
-                <!-- Enlace volver a Cotización -->
-                <a href="cotizacion.html" class="bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-xs font-semibold px-3 py-2 rounded-xl transition inline-flex items-center gap-1.5 whitespace-nowrap" title="Ir a la Cotización">
-                    <i data-lucide="arrow-left" class="w-3.5 h-3.5 shrink-0"></i>
-                    <span class="leading-none">Ir a Cotización</span>
-                </a>
+            <!-- Divisor Vertical Sutil entre Bloques -->
+            <div class="h-5 w-px bg-slate-700/80 mx-0.5 shrink-0"></div>
+
+            <!-- Bloque Derecho: Selector de Estado, ITBMS y Volver a Cotización -->
+            <div class="flex items-center gap-1.5 shrink-0 flex-nowrap">
+                <!-- Selector de Estado de Pago Personalizado -->
+                <div class="relative custom-dropdown min-w-[155px]" data-dropdown-id="paymentStatus">
+                    <button type="button" onclick="toggleDropdown(this)" class="w-full bg-slate-800 hover:bg-slate-750 border border-slate-700 text-slate-200 text-xs rounded-lg px-2.5 py-1.5 font-medium focus:ring-2 focus:ring-brand-blue focus:outline-none cursor-pointer flex items-center justify-between gap-1.5 shadow-xs transition">
+                        <span class="dropdown-selected truncate text-left">Pendiente de Pago</span>
+                        <i data-lucide="chevron-down" class="dropdown-chevron w-3.5 h-3.5 shrink-0 text-slate-400 transition-transform duration-200"></i>
+                    </button>
+                    <div class="dropdown-menu hidden absolute left-0 right-0 top-full mt-2 z-50 bg-slate-900 border border-slate-700 rounded-xl shadow-2xl py-1 text-xs text-slate-200 overflow-hidden divide-y divide-slate-800">
+                        <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="pending" onclick="selectDropdownOption(this)">
+                            <i data-lucide="clock" class="w-3.5 h-3.5 text-amber-400 shrink-0"></i>
+                            <span>Pendiente de Pago</span>
+                        </div>
+                        <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="partial" onclick="selectDropdownOption(this)">
+                            <i data-lucide="pie-chart" class="w-3.5 h-3.5 text-blue-400 shrink-0"></i>
+                            <span>Anticipo 50% Recibido</span>
+                        </div>
+                        <div class="dropdown-option px-3 py-2 hover:bg-brand-blue hover:text-white cursor-pointer transition flex items-center gap-2" data-value="paid" onclick="selectDropdownOption(this)">
+                            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400 shrink-0"></i>
+                            <span>Pagado / Cancelado</span>
+                        </div>
+                    </div>
+                    <input type="hidden" id="paymentStatus" value="pending" onchange="updatePaymentStatusBadge(this.value)">
+                </div>
 
                 <!-- Toggle ITBMS -->
-                <button type="button" id="btnToggleITBMS" onclick="toggleITBMS()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-xs font-semibold px-3 py-2 rounded-xl transition inline-flex items-center gap-1.5 whitespace-nowrap">
+                <button type="button" id="btnToggleITBMS" onclick="toggleITBMS()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-xs font-semibold px-2.5 py-1.5 rounded-lg transition inline-flex items-center gap-1.5 whitespace-nowrap">
                     <i data-lucide="percent" class="w-3.5 h-3.5 text-brand-orange shrink-0"></i>
                     <span class="leading-none">ITBMS (7%): <strong id="itbmsStatusText" class="text-slate-400">NO</strong></span>
                 </button>
+
+                <!-- Enlace volver a Cotización -->
+                <a href="cotizacion.html" class="bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-xs font-semibold px-2.5 py-1.5 rounded-lg transition inline-flex items-center gap-1.5 whitespace-nowrap" title="Ir a la Cotización">
+                    <i data-lucide="arrow-left" class="w-3.5 h-3.5 shrink-0"></i>
+                    <span class="leading-none">Ir a Cotización</span>
+                </a>
             </div>
         </div>
     </header>
@@ -443,13 +483,19 @@
 
                     <!-- Anticipo y Saldo Dinámico -->
                     <div id="depositBalanceContainer" class="mt-3 pt-2.5 border-t border-slate-800 grid grid-cols-2 gap-2 text-center text-[10px]">
-                        <div class="bg-slate-800/80 p-1.5 rounded-lg border border-slate-700">
-                            <span class="text-slate-400 block font-semibold uppercase">50% Anticipo</span>
-                            <strong id="depositDisplay" class="text-white font-mono text-xs font-bold">$225.00</strong>
+                        <div class="bg-slate-800/80 p-1.5 rounded-lg border border-slate-700 flex flex-col justify-between">
+                            <div>
+                                <span class="text-slate-400 block font-semibold uppercase leading-tight">50% Anticipo</span>
+                                <span class="text-slate-400 block font-semibold uppercase leading-tight">(Reserva)</span>
+                            </div>
+                            <strong id="depositDisplay" class="text-white font-mono text-xs font-bold block mt-1">$225.00</strong>
                         </div>
-                        <div class="bg-slate-800/80 p-1.5 rounded-lg border border-slate-700">
-                            <span class="text-slate-400 block font-semibold uppercase">50% Saldo Restante</span>
-                            <strong id="balanceDisplay" class="text-white font-mono text-xs font-bold">$225.00</strong>
+                        <div class="bg-slate-800/80 p-1.5 rounded-lg border border-slate-700 flex flex-col justify-between">
+                            <div>
+                                <span class="text-slate-400 block font-semibold uppercase leading-tight">50% Saldo</span>
+                                <span class="text-slate-400 block font-semibold uppercase leading-tight">(Entrega)</span>
+                            </div>
+                            <strong id="balanceDisplay" class="text-white font-mono text-xs font-bold block mt-1">$225.00</strong>
                         </div>
                     </div>
                 </div>
@@ -488,29 +534,166 @@
                 Aizprua Soluciones Empresariales &bull; RUC 8-826-885 DV 14 &bull; Panamá, Panamá Oeste, La Chorrera &bull; aizprua.com
             </div>
         </div>
+
+        <!-- Capa de Datos Embebidos Invisibles en Impresión (Permite recuperar el 100% de los datos al subir el PDF) -->
+        <div id="aizpruaEmbeddedInvoiceDataPrint" class="hidden print:block" style="font-size: 1px; color: #FFFFFF; line-height: 0; max-height: 0; overflow: hidden; opacity: 0.01; user-select: none; pointer-events: none;"></div>
     </main>
+
+    <!-- MODAL DE CARGA Y CORRECCIÓN DE FACTURAS PROFORMA -->
+    <div id="loadModal"
+        class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/80 backdrop-blur-sm transition-opacity duration-200">
+        <div
+            class="bg-slate-900 border border-slate-700 rounded-2xl w-full max-w-2xl max-h-[90vh] flex flex-col shadow-2xl text-white overflow-hidden">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between p-4 border-b border-slate-800 bg-slate-900/90">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white shrink-0">
+                        <i data-lucide="folder-open" class="w-4 h-4 shrink-0"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold text-white tracking-tight flex items-center gap-2">
+                            Cargar o Corregir Factura Proforma
+                        </h3>
+                        <p class="text-[11px] text-slate-400">Abre un PDF previo o selecciona una factura del historial para editarla</p>
+                    </div>
+                </div>
+                <button type="button" onclick="closeLoadModal()"
+                    class="text-slate-400 hover:text-white transition p-1.5 rounded-lg hover:bg-slate-800"
+                    title="Cerrar ventana">
+                    <i data-lucide="x" class="w-5 h-5 shrink-0"></i>
+                </button>
+            </div>
+
+            <!-- Modal Tabs -->
+            <div class="flex border-b border-slate-800 bg-slate-900/50 text-xs px-4 pt-2 gap-2">
+                <button type="button" id="tabBtnUpload" onclick="switchLoadTab('upload')"
+                    class="px-4 py-2 font-bold border-b-2 border-brand-orange text-white flex items-center gap-1.5 transition">
+                    <i data-lucide="upload-cloud" class="w-3.5 h-3.5 text-brand-orange shrink-0"></i>
+                    <span>Subir Archivo (PDF / Respaldo)</span>
+                </button>
+                <button type="button" id="tabBtnHistory" onclick="switchLoadTab('history')"
+                    class="px-4 py-2 font-medium border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center gap-1.5 transition">
+                    <i data-lucide="clock" class="w-3.5 h-3.5 text-blue-400 shrink-0"></i>
+                    <span>Historial Guardado</span>
+                    <span id="tabHistoryCount"
+                        class="text-[10px] bg-slate-800 px-1.5 py-0.5 rounded-full text-slate-300">0</span>
+                </button>
+            </div>
+
+            <!-- Modal Content (Scrollable) -->
+            <div class="p-4 sm:p-5 overflow-y-auto flex-1 custom-scroll">
+                <!-- Panel 1: Subir Archivo (PDF o JSON) -->
+                <div id="panelUpload" class="space-y-4">
+                    <div id="modalDropzone" onclick="document.getElementById('fileUploadInput').click()"
+                        class="border-2 border-dashed border-slate-700 hover:border-brand-blue rounded-2xl p-6 sm:p-8 text-center cursor-pointer transition bg-slate-800/40 hover:bg-slate-800/70 group">
+                        <div
+                            class="w-12 h-12 rounded-2xl bg-indigo-600/20 text-indigo-300 mx-auto flex items-center justify-center mb-3 group-hover:scale-105 transition">
+                            <i data-lucide="upload-cloud" class="w-6 h-6 shrink-0"></i>
+                        </div>
+                        <h4 class="text-xs sm:text-sm font-bold text-white mb-1">Arrastra aquí tu Factura Proforma en PDF o haz clic para buscar</h4>
+                        <p class="text-[11px] text-slate-400 max-w-md mx-auto mb-3">Soporta archivos <strong>.PDF</strong> generados previamente o archivos de respaldo <strong>.fac / .json</strong>.</p>
+                        <span
+                            class="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-orange hover:text-brand-orange-light bg-brand-orange/10 border border-brand-orange/30 px-3 py-1.5 rounded-xl">
+                            <i data-lucide="file-up" class="w-3.5 h-3.5 shrink-0"></i>
+                            <span>Seleccionar Archivo del Dispositivo</span>
+                        </span>
+                    </div>
+
+                    <div
+                        class="bg-slate-800/60 border border-slate-700/60 rounded-xl p-3 text-[11px] text-slate-300 space-y-1.5">
+                        <div class="flex items-center gap-2 font-bold text-slate-200">
+                            <i data-lucide="info" class="w-3.5 h-3.5 text-brand-blue shrink-0"></i>
+                            <span>¿Cómo funciona la corrección automática?</span>
+                        </div>
+                        <p class="text-slate-400 pl-5 leading-relaxed">
+                            Al cargar el PDF de tu factura proforma anterior, el sistema extrae automáticamente el <strong>número de factura</strong>, <strong>datos del cliente</strong>, <strong>RUC</strong>, <strong>conceptos con sus descripciones</strong>, <strong>cantidades</strong>, <strong>precios</strong> y <strong>estado de pago</strong> para que edites solo lo que necesitas corregir.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Panel 2: Historial de Facturas -->
+                <div id="panelHistory" class="hidden space-y-3">
+                    <div id="historyListContainer" class="space-y-2">
+                        <!-- Generado dinámicamente con JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="p-3 border-t border-slate-800 bg-slate-900/90 flex justify-between items-center text-xs">
+                <span class="text-[11px] text-slate-400 flex items-center gap-1.5">
+                    <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400 shrink-0"></i>
+                    <span>Tus datos se procesan de forma privada y local</span>
+                </span>
+                <button type="button" onclick="closeLoadModal()"
+                    class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium transition">
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Input Oculto de Archivos -->
+    <input type="file" id="fileUploadInput" accept=".pdf,.json,.fac" onchange="handleFileSelected(this.files)"
+        class="hidden">
+
+    <!-- Overlay Global para Arrastrar y Soltar sobre la Ventana -->
+    <div id="globalDropOverlay"
+        class="hidden fixed inset-0 z-[60] bg-slate-950/85 backdrop-blur-md flex flex-col items-center justify-center p-6 border-4 border-dashed border-indigo-500 pointer-events-none transition duration-200">
+        <div class="w-16 h-16 rounded-3xl bg-indigo-600 text-white flex items-center justify-center mb-4 shadow-xl">
+            <i data-lucide="file-up" class="w-8 h-8 shrink-0"></i>
+        </div>
+        <h3 class="text-lg font-black text-white mb-1">Suelta tu Factura Proforma aquí</h3>
+        <p class="text-xs text-slate-300 text-center max-w-sm">Cargaremos inmediatamente los datos del PDF para que realices los cambios necesarios.</p>
+    </div>
+
+    <!-- Notificación Toast Ejecutiva -->
+    <div id="toastNotification"
+        class="hidden fixed bottom-6 right-6 z-50 bg-slate-900/95 border border-slate-700 text-white text-xs px-4 py-3 rounded-xl shadow-2xl flex items-center gap-2.5 transition duration-300">
+        <div class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+            <i data-lucide="check" class="w-3 h-3 shrink-0"></i>
+        </div>
+        <span id="toastMessage" class="font-medium text-slate-200">Acción completada</span>
+    </div>
 
     <!-- SCRIPT INTERACTIVO Y SINCRONIZACIÓN -->
     <script>
+        let hasITBMS = false;
+
         document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
             
             // Fechas
             const today = new Date();
             const todayStr = today.toISOString().split('T')[0];
-            document.getElementById('invoiceDate').value = todayStr;
+            const invoiceDateEl = document.getElementById('invoiceDate');
+            if (invoiceDateEl && !invoiceDateEl.value) invoiceDateEl.value = todayStr;
 
             // Fecha de vencimiento a 15 días por defecto
             const due = new Date();
             due.setDate(today.getDate() + 15);
-            document.getElementById('dueDate').value = due.toISOString().split('T')[0];
+            const dueDateEl = document.getElementById('dueDate');
+            if (dueDateEl && !dueDateEl.value) dueDateEl.value = due.toISOString().split('T')[0];
 
-            // Revisar si vienen datos transferidos desde cotizacion.html
-            loadTransferredData();
+            // 1. Revisar si vienen datos transferidos desde cotizacion.html
+            const transferred = loadTransferredData();
+
+            // 2. Si no hay transferencia activa, cargar el borrador de trabajo previo
+            if (!transferred) {
+                loadDraft();
+            }
+
             calculateTotals();
-        });
+            updateHistoryCountBadge();
 
-        let hasITBMS = false;
+            // Guardar borrador ante cualquier cambio en la hoja
+            const mainSheet = document.querySelector('main');
+            if (mainSheet) {
+                mainSheet.addEventListener('input', () => {
+                    saveDraft();
+                });
+            }
+        });
 
         function toggleITBMS() {
             hasITBMS = !hasITBMS;
@@ -527,6 +710,7 @@
                 itbmsRow.classList.add('hidden');
             }
             calculateTotals();
+            saveDraft();
         }
 
         // Control de Menús Desplegables Flotantes Personalizados (Separación mt-2 / 8px y bordes redondeados)
@@ -574,6 +758,7 @@
             }
 
             closeAllDropdowns();
+            saveDraft();
         }
 
         function setCustomDropdownValue(id, value, customText = null) {
@@ -617,6 +802,7 @@
                 badge.innerHTML = '<i data-lucide="clock" class="w-3 h-3 text-amber-700 shrink-0"></i><span class="leading-none">Pendiente de Pago</span>';
             }
             lucide.createIcons();
+            saveDraft();
         }
 
         // Control dinámico de las cajas de anticipo según la condición de pago
@@ -628,6 +814,7 @@
             } else {
                 container.classList.add('hidden');
             }
+            saveDraft();
         }
 
         function calculateTotals() {
@@ -675,10 +862,10 @@
                     <textarea rows="2" class="item-subdesc w-full text-[11px] text-slate-500 editable-field px-1 py-0.5 rounded resize-none mt-0.5">${subdesc || 'Detalle del servicio o entregable.'}</textarea>
                 </td>
                 <td class="py-2.5 px-3 text-center align-top">
-                    <input type="number" min="1" step="1" value="${qty}" onchange="calculateTotals()" class="item-qty w-12 text-center font-bold text-slate-800 editable-field px-1 py-0.5 rounded border border-slate-200">
+                    <input type="number" min="1" step="1" value="${qty}" onchange="calculateTotals(); saveDraft();" class="item-qty w-12 text-center font-bold text-slate-800 editable-field px-1 py-0.5 rounded border border-slate-200">
                 </td>
                 <td class="py-2.5 px-3 text-right align-top">
-                    <input type="number" min="0" step="0.01" value="${price.toFixed(2)}" onchange="calculateTotals()" class="item-price w-20 text-right font-bold text-slate-800 editable-field px-1 py-0.5 rounded border border-slate-200">
+                    <input type="number" min="0" step="0.01" value="${price.toFixed(2)}" onchange="calculateTotals(); saveDraft();" class="item-price w-20 text-right font-bold text-slate-800 editable-field px-1 py-0.5 rounded border border-slate-200">
                 </td>
                 <td class="py-2.5 px-3 text-right font-bold text-slate-900 align-top item-total">
                     $0.00
@@ -702,12 +889,554 @@
             }
             btn.closest('tr').remove();
             calculateTotals();
+            saveDraft();
+        }
+
+        // Recolección y Carga de Datos Estructurados
+        function collectInvoiceData() {
+            const rows = [];
+            document.querySelectorAll('#itemsTableBody tr').forEach(tr => {
+                const descInput = tr.querySelector('.item-desc');
+                const subdescInput = tr.querySelector('.item-subdesc');
+                const qtyInput = tr.querySelector('.item-qty');
+                const priceInput = tr.querySelector('.item-price');
+                const totalCell = tr.querySelector('.item-total');
+
+                if (descInput) {
+                    rows.push({
+                        desc: descInput.value,
+                        subdesc: subdescInput ? subdescInput.value : '',
+                        qty: parseFloat(qtyInput ? qtyInput.value : 1) || 1,
+                        price: parseFloat(priceInput ? priceInput.value : 0) || 0,
+                        total: totalCell ? totalCell.textContent.trim() : '$0.00'
+                    });
+                }
+            });
+
+            return {
+                invoiceNumber: (document.getElementById('invoiceNumber').value || '').trim(),
+                invoiceDate: document.getElementById('invoiceDate').value,
+                dueDate: document.getElementById('dueDate').value,
+                paymentStatus: document.getElementById('paymentStatus').value,
+                clientCompany: (document.getElementById('clientCompany').value || '').trim(),
+                clientRuc: (document.getElementById('clientRuc').value || '').trim(),
+                clientContact: (document.getElementById('clientContact').value || '').trim(),
+                clientPhone: (document.getElementById('clientPhone').value || '').trim(),
+                clientEmail: (document.getElementById('clientEmail').value || '').trim(),
+                clientAddress: (document.getElementById('clientAddress') ? document.getElementById('clientAddress').value : '').trim(),
+                paymentMethod: document.getElementById('paymentMethod').value,
+                paymentTerms: document.getElementById('paymentTerms').value,
+                quoteRef: (document.getElementById('quoteRef').value || '').trim(),
+                invoiceSubject: (document.getElementById('invoiceSubject').value || '').trim(),
+                hasITBMS: hasITBMS,
+                subtotal: document.getElementById('subtotalDisplay').textContent,
+                itbms: document.getElementById('itbmsDisplay').textContent,
+                total: document.getElementById('totalDisplay').textContent,
+                deposit: document.getElementById('depositDisplay').textContent,
+                balance: document.getElementById('balanceDisplay').textContent,
+                rows: rows,
+                updatedAt: new Date().toISOString()
+            };
+        }
+
+        function loadInvoiceData(data) {
+            if (!data) return;
+
+            if (data.invoiceNumber) document.getElementById('invoiceNumber').value = data.invoiceNumber;
+            if (data.invoiceDate) document.getElementById('invoiceDate').value = data.invoiceDate;
+            if (data.dueDate) document.getElementById('dueDate').value = data.dueDate;
+
+            if (data.paymentStatus) {
+                setCustomDropdownValue('paymentStatus', data.paymentStatus);
+                updatePaymentStatusBadge(data.paymentStatus);
+            }
+
+            if (data.clientCompany) document.getElementById('clientCompany').value = data.clientCompany;
+            if (data.clientRuc) document.getElementById('clientRuc').value = data.clientRuc;
+            if (data.clientContact) document.getElementById('clientContact').value = data.clientContact;
+            if (data.clientPhone) document.getElementById('clientPhone').value = data.clientPhone;
+            if (data.clientEmail) document.getElementById('clientEmail').value = data.clientEmail;
+            if (data.clientAddress && document.getElementById('clientAddress')) {
+                document.getElementById('clientAddress').value = data.clientAddress;
+            }
+
+            if (data.paymentMethod) {
+                setCustomDropdownValue('paymentMethod', data.paymentMethod);
+            }
+
+            if (data.paymentTerms) {
+                setCustomDropdownValue('paymentTerms', data.paymentTerms);
+                updatePaymentTerms(data.paymentTerms);
+            }
+
+            if (data.quoteRef) document.getElementById('quoteRef').value = data.quoteRef;
+            if (data.invoiceSubject) document.getElementById('invoiceSubject').value = data.invoiceSubject;
+
+            if (typeof data.hasITBMS === 'boolean') {
+                if (data.hasITBMS !== hasITBMS) toggleITBMS();
+            }
+
+            if (data.rows && data.rows.length > 0) {
+                const tbody = document.getElementById('itemsTableBody');
+                tbody.innerHTML = '';
+                data.rows.forEach(r => {
+                    addRow(r.desc, r.subdesc, r.qty, r.price);
+                });
+            }
+
+            calculateTotals();
+            saveDraft();
+            showToast(`Factura ${data.invoiceNumber || ''} cargada correctamente`);
+        }
+
+        // Guardar y Cargar Borrador en LocalStorage
+        function saveDraft() {
+            try {
+                const data = collectInvoiceData();
+                localStorage.setItem('aizprua_invoice_draft', JSON.stringify(data));
+            } catch (e) {
+                console.warn('Error guardando borrador:', e);
+            }
+        }
+
+        function loadDraft() {
+            const raw = localStorage.getItem('aizprua_invoice_draft');
+            if (!raw) return;
+            try {
+                const data = JSON.parse(raw);
+                loadInvoiceData(data);
+            } catch (e) {
+                console.error('Error cargando borrador', e);
+            }
+        }
+
+        // Historial Local de Facturas Proforma
+        function getHistory() {
+            try {
+                return JSON.parse(localStorage.getItem('aizprua_invoice_history') || '[]');
+            } catch (e) {
+                return [];
+            }
+        }
+
+        function saveInvoiceToHistory(manual = false) {
+            const current = collectInvoiceData();
+            if (!current.invoiceNumber && !current.clientCompany) {
+                if (manual) showToast('Ingresa al menos el N° de Factura o Cliente');
+                return;
+            }
+
+            let history = getHistory();
+            const existingIndex = history.findIndex(h => h.invoiceNumber === current.invoiceNumber);
+            current.updatedAt = new Date().toISOString();
+
+            if (existingIndex >= 0) {
+                history[existingIndex] = current;
+            } else {
+                history.unshift(current);
+            }
+
+            if (history.length > 30) history = history.slice(0, 30);
+            localStorage.setItem('aizprua_invoice_history', JSON.stringify(history));
+            updateHistoryCountBadge();
+
+            if (manual) {
+                showToast(`Factura ${current.invoiceNumber} guardada en historial`);
+            }
+        }
+
+        function updateHistoryCountBadge() {
+            const history = getHistory();
+            const badge = document.getElementById('historyBadge');
+            const tabBadge = document.getElementById('tabHistoryCount');
+            if (badge) {
+                if (history.length > 0) {
+                    badge.textContent = history.length;
+                    badge.classList.remove('hidden');
+                } else {
+                    badge.classList.add('hidden');
+                }
+            }
+            if (tabBadge) {
+                tabBadge.textContent = history.length;
+            }
+        }
+
+        function renderHistoryList() {
+            const container = document.getElementById('historyListContainer');
+            if (!container) return;
+            const history = getHistory();
+
+            if (history.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-8 text-slate-500 border border-dashed border-slate-800 rounded-xl">
+                        <i data-lucide="archive" class="w-8 h-8 mx-auto mb-2 opacity-40"></i>
+                        <p class="text-xs font-semibold text-slate-400">No hay facturas proforma previas guardadas</p>
+                        <p class="text-[11px] text-slate-500 mt-1">Se guardarán automáticamente al descargar en PDF o presionar Guardar.</p>
+                    </div>
+                `;
+                lucide.createIcons();
+                return;
+            }
+
+            let html = '';
+            history.forEach(item => {
+                const client = item.clientCompany || item.clientContact || 'Cliente Sin Nombre';
+                const date = item.invoiceDate || 'Fecha no registrada';
+                const total = item.total || '$0.00';
+                const num = item.invoiceNumber || 'FAC-SIN-NUM';
+
+                let statusBadge = '<span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-amber-950/60 text-amber-300 border border-amber-800">Pendiente</span>';
+                if (item.paymentStatus === 'paid') {
+                    statusBadge = '<span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-emerald-950/60 text-emerald-300 border border-emerald-800">Pagado</span>';
+                } else if (item.paymentStatus === 'partial') {
+                    statusBadge = '<span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-blue-950/60 text-blue-300 border border-blue-800">Anticipo 50%</span>';
+                }
+
+                html += `
+                    <div class="bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 rounded-xl p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3 transition">
+                        <div class="min-w-0 flex-1">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="font-mono font-bold text-brand-orange text-xs">${num}</span>
+                                <span class="text-slate-500 text-[10px]">&bull;</span>
+                                <span class="text-slate-400 text-[11px]">${date}</span>
+                                <span class="ml-1">${statusBadge}</span>
+                            </div>
+                            <h5 class="text-xs font-bold text-white truncate">${client}</h5>
+                            <p class="text-[11px] text-slate-400 truncate">${item.invoiceSubject || item.quoteRef || 'Factura Proforma'}</p>
+                        </div>
+                        <div class="flex items-center gap-2 self-end sm:self-auto shrink-0">
+                            <span class="font-mono font-bold text-white text-xs mr-2">${total}</span>
+                            <button type="button" onclick="loadFromHistory('${num}')" class="bg-brand-blue hover:bg-brand-blue-dark text-white text-xs font-bold px-3 py-1.5 rounded-lg transition inline-flex items-center gap-1 shadow-xs">
+                                <i data-lucide="edit-3" class="w-3.5 h-3.5 shrink-0"></i>
+                                <span>Cargar y Editar</span>
+                            </button>
+                            <button type="button" onclick="exportInvoiceJson('${num}')" class="p-1.5 text-slate-400 hover:text-slate-200 hover:bg-slate-700 rounded-lg transition" title="Exportar archivo de respaldo">
+                                <i data-lucide="download" class="w-3.5 h-3.5 shrink-0"></i>
+                            </button>
+                            <button type="button" onclick="deleteHistoryItem('${num}')" class="p-1.5 text-slate-400 hover:text-rose-400 hover:bg-rose-950/40 rounded-lg transition" title="Eliminar del historial">
+                                <i data-lucide="trash-2" class="w-3.5 h-3.5 shrink-0"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+            lucide.createIcons();
+        }
+
+        function loadFromHistory(invoiceNumber) {
+            const history = getHistory();
+            const found = history.find(h => h.invoiceNumber === invoiceNumber);
+            if (found) {
+                loadInvoiceData(found);
+                closeLoadModal();
+            }
+        }
+
+        function deleteHistoryItem(invoiceNumber) {
+            if (!confirm(`¿Eliminar la factura ${invoiceNumber} del historial?`)) return;
+            let history = getHistory();
+            history = history.filter(h => h.invoiceNumber !== invoiceNumber);
+            localStorage.setItem('aizprua_invoice_history', JSON.stringify(history));
+            updateHistoryCountBadge();
+            renderHistoryList();
+            showToast('Factura eliminada del historial');
+        }
+
+        function exportInvoiceJson(invoiceNumber) {
+            let inv = null;
+            if (invoiceNumber) {
+                inv = getHistory().find(h => h.invoiceNumber === invoiceNumber);
+            } else {
+                inv = collectInvoiceData();
+            }
+            if (!inv) return;
+
+            const jsonStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(inv, null, 2));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", jsonStr);
+            downloadAnchor.setAttribute("download", `${inv.invoiceNumber || 'Factura'}_respaldo.fac`);
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+            showToast('Archivo de respaldo descargado');
+        }
+
+        function resetInvoiceForm() {
+            if (!confirm('¿Deseas iniciar una factura proforma nueva en blanco? Los cambios no guardados se reemplazarán.')) return;
+
+            const today = new Date();
+            const todayStr = today.toISOString().split('T')[0];
+            document.getElementById('invoiceDate').value = todayStr;
+
+            const due = new Date();
+            due.setDate(today.getDate() + 15);
+            document.getElementById('dueDate').value = due.toISOString().split('T')[0];
+
+            const history = getHistory();
+            let nextNum = 'FAC-2026-001';
+            if (history.length > 0) {
+                const lastNum = history[0].invoiceNumber;
+                const match = lastNum && lastNum.match(/FAC-2026-(\d+)/i);
+                if (match) {
+                    const nextVal = String(parseInt(match[1], 10) + 1).padStart(3, '0');
+                    nextNum = `FAC-2026-${nextVal}`;
+                }
+            }
+            document.getElementById('invoiceNumber').value = nextNum;
+            setCustomDropdownValue('paymentStatus', 'pending');
+            updatePaymentStatusBadge('pending');
+
+            document.getElementById('clientCompany').value = '';
+            document.getElementById('clientRuc').value = '';
+            document.getElementById('clientContact').value = '';
+            document.getElementById('clientPhone').value = '';
+            document.getElementById('clientEmail').value = '';
+            if (document.getElementById('clientAddress')) document.getElementById('clientAddress').value = '';
+            document.getElementById('quoteRef').value = '';
+            document.getElementById('invoiceSubject').value = '';
+
+            const tbody = document.getElementById('itemsTableBody');
+            tbody.innerHTML = '';
+            addRow('Concepto Facturado', 'Detalle del servicio o entregable.', 1, 0);
+
+            if (hasITBMS) toggleITBMS();
+            calculateTotals();
+            saveDraft();
+            showToast('Formulario listo para nueva factura proforma');
+        }
+
+        // Control del Modal
+        function openLoadModal() {
+            document.getElementById('loadModal').classList.remove('hidden');
+            renderHistoryList();
+            updateHistoryCountBadge();
+            lucide.createIcons();
+        }
+
+        function closeLoadModal() {
+            document.getElementById('loadModal').classList.add('hidden');
+        }
+
+        function switchLoadTab(tab) {
+            const btnUpload = document.getElementById('tabBtnUpload');
+            const btnHistory = document.getElementById('tabBtnHistory');
+            const panelUpload = document.getElementById('panelUpload');
+            const panelHistory = document.getElementById('panelHistory');
+
+            if (tab === 'upload') {
+                btnUpload.className = 'px-4 py-2 font-bold border-b-2 border-brand-orange text-white flex items-center gap-1.5 transition';
+                btnHistory.className = 'px-4 py-2 font-medium border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center gap-1.5 transition';
+                panelUpload.classList.remove('hidden');
+                panelHistory.classList.add('hidden');
+            } else {
+                btnHistory.className = 'px-4 py-2 font-bold border-b-2 border-brand-orange text-white flex items-center gap-1.5 transition';
+                btnUpload.className = 'px-4 py-2 font-medium border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center gap-1.5 transition';
+                panelHistory.classList.remove('hidden');
+                panelUpload.classList.add('hidden');
+                renderHistoryList();
+            }
+            lucide.createIcons();
+        }
+
+        // Procesamiento de Archivos (PDF, JSON, FAC, COTIZ)
+        async function handleFileSelected(files) {
+            if (!files || files.length === 0) return;
+            const file = files[0];
+            showToast('Leyendo archivo: ' + file.name + '...');
+
+            const ext = file.name.split('.').pop().toLowerCase();
+
+            if (ext === 'json' || ext === 'fac' || ext === 'cotiz') {
+                try {
+                    const text = await file.text();
+                    const data = JSON.parse(text);
+                    loadInvoiceData(data);
+                    closeLoadModal();
+                } catch (e) {
+                    alert('Error leyendo el archivo de respaldo: formato inválido.');
+                }
+            } else if (ext === 'pdf') {
+                try {
+                    const data = await parsePdfFile(file);
+                    if (data && (data.invoiceNumber || data.clientCompany || (data.rows && data.rows.length > 0))) {
+                        loadInvoiceData(data);
+                        closeLoadModal();
+                    } else {
+                        alert('No se pudieron extraer datos legibles de este PDF. Asegúrate de que sea una factura o cotización generada por el sistema.');
+                    }
+                } catch (err) {
+                    console.error('Error parseando PDF:', err);
+                    alert('Error al leer el archivo PDF: ' + (err.message || 'formato no soportado'));
+                }
+            } else {
+                alert('Formato no soportado. Por favor sube un archivo .pdf, .fac o .json');
+            }
+
+            document.getElementById('fileUploadInput').value = '';
+        }
+
+        async function parsePdfFile(file) {
+            if (!window.pdfjsLib) {
+                throw new Error('La librería PDF.js está cargando o no se encuentra disponible.');
+            }
+            const arrayBuffer = await file.arrayBuffer();
+            const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+            let fullText = '';
+
+            for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+                const page = await pdf.getPage(pageNum);
+                const textContent = await page.getTextContent();
+                const pageText = textContent.items.map(item => item.str).join(' ');
+                fullText += ' ' + pageText;
+            }
+
+            // 1. Revisar si contiene la capa de datos embebidos de factura
+            const matchEmbedded = fullText.match(/AIZPRUA_INVOICE_DATA_START(\{.*?\})AIZPRUA_INVOICE_DATA_END/);
+            if (matchEmbedded && matchEmbedded[1]) {
+                try {
+                    return JSON.parse(matchEmbedded[1]);
+                } catch (e) {
+                    console.warn('Fallo al parsear datos embebidos de factura, pasando a heurística', e);
+                }
+            }
+
+            // 2. Si es una cotización previa transferida en PDF
+            const matchQuoteEmbedded = fullText.match(/AIZPRUA_QUOTE_DATA_START(\{.*?\})AIZPRUA_QUOTE_DATA_END/);
+            if (matchQuoteEmbedded && matchQuoteEmbedded[1]) {
+                try {
+                    const qData = JSON.parse(matchQuoteEmbedded[1]);
+                    return {
+                        ...qData,
+                        quoteRef: qData.quoteNumber || '',
+                        invoiceSubject: qData.serviceType || 'Servicio Profesional'
+                    };
+                } catch (e) {
+                    console.warn(e);
+                }
+            }
+
+            // 3. Extracción heurística por expresiones regulares sobre el texto del PDF
+            return extractInvoiceFromText(fullText);
+        }
+
+        function extractInvoiceFromText(text) {
+            const extracted = {};
+
+            // N° Factura
+            const facMatch = text.match(/FAC-\d{4}-\d+/i);
+            if (facMatch) extracted.invoiceNumber = facMatch[0];
+
+            // Fecha
+            const dateMatch = text.match(/(\d{4}-\d{2}-\d{2})/);
+            if (dateMatch) extracted.invoiceDate = dateMatch[1];
+
+            // Empresa
+            const companyMatch = text.match(/(?:Empresa\s*\/\s*Razón:?|Empresa:?|Facturado a:?)\s*([^|•\n\r]+?)(?=(?:RUC|Atención|WhatsApp|Correo|Ubicación|$))/i);
+            if (companyMatch) extracted.clientCompany = companyMatch[1].trim();
+
+            // RUC
+            const rucMatch = text.match(/(?:RUC(?:\s*&\s*DV)?:?)\s*([^|•\n\r]+?)(?=(?:Atención|WhatsApp|Correo|Ubicación|$))/i);
+            if (rucMatch) extracted.clientRuc = rucMatch[1].trim();
+
+            // Contacto
+            const contactMatch = text.match(/(?:Atención\s*a:?|Contacto:?)\s*([^|•\n\r]+?)(?=(?:WhatsApp|Tel|Correo|Ubicación|$))/i);
+            if (contactMatch) extracted.clientContact = contactMatch[1].trim();
+
+            // Teléfono
+            const phoneMatch = text.match(/(?:WhatsApp\s*\/\s*Tel:?|Tel:?)\s*([^|•\n\r]+?)(?=(?:Correo|Email|Ubicación|$))/i);
+            if (phoneMatch) extracted.clientPhone = phoneMatch[1].trim();
+
+            // Correo
+            const emailMatch = text.match(/(?:Correo:?|Email:?)\s*([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/i);
+            if (emailMatch) extracted.clientEmail = emailMatch[1].trim();
+
+            // Ubicación
+            const addressMatch = text.match(/(?:Ubicación\s*\/\s*Dir:?|Dirección:?)\s*([^|•\n\r]+?)(?=(?:Condiciones|Forma|Ref|$))/i);
+            if (addressMatch) extracted.clientAddress = addressMatch[1].trim();
+
+            // Ref
+            const refMatch = text.match(/(?:Ref\.\s*\/\s*O\/C:?|COT-\d{4}-\d+|OC-\d+)\s*([^|•\n\r]+)/i);
+            if (refMatch) extracted.quoteRef = refMatch[0].trim();
+
+            // Asunto
+            const subjMatch = text.match(/(?:Asunto:?)\s*([^|•\n\r]+)/i);
+            if (subjMatch) extracted.invoiceSubject = subjMatch[1].trim();
+
+            // ITBMS
+            if (text.includes('ITBMS (7%): SÍ') || text.includes('ITBMS (7%) $')) extracted.hasITBMS = true;
+
+            return extracted;
+        }
+
+        // Arrastrar y Soltar Global
+        let dragCounter = 0;
+        window.addEventListener('dragenter', (e) => {
+            e.preventDefault();
+            dragCounter++;
+            const overlay = document.getElementById('globalDropOverlay');
+            if (overlay) overlay.classList.remove('hidden');
+        });
+
+        window.addEventListener('dragleave', (e) => {
+            e.preventDefault();
+            dragCounter--;
+            if (dragCounter <= 0) {
+                dragCounter = 0;
+                const overlay = document.getElementById('globalDropOverlay');
+                if (overlay) overlay.classList.add('hidden');
+            }
+        });
+
+        window.addEventListener('dragover', (e) => {
+            e.preventDefault();
+        });
+
+        window.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dragCounter = 0;
+            const overlay = document.getElementById('globalDropOverlay');
+            if (overlay) overlay.classList.add('hidden');
+            if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+                handleFileSelected(e.dataTransfer.files);
+            }
+        });
+
+        // Toast de Notificación
+        let toastTimeout = null;
+        function showToast(msg) {
+            const toast = document.getElementById('toastNotification');
+            const msgEl = document.getElementById('toastMessage');
+            if (!toast || !msgEl) return;
+            msgEl.textContent = msg;
+            toast.classList.remove('hidden');
+            if (toastTimeout) clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3500);
+        }
+
+        // Guardar y Preparar Descarga de PDF
+        function handlePrintAndSave() {
+            prepareEmbeddedInvoiceData();
+            saveInvoiceToHistory(false);
+            window.print();
+        }
+
+        function prepareEmbeddedInvoiceData() {
+            const data = collectInvoiceData();
+            const el = document.getElementById('aizpruaEmbeddedInvoiceDataPrint');
+            if (el) {
+                el.textContent = 'AIZPRUA_INVOICE_DATA_START' + JSON.stringify(data) + 'AIZPRUA_INVOICE_DATA_END';
+            }
         }
 
         // Carga de datos desde la cotización transferida
         function loadTransferredData() {
             const raw = localStorage.getItem('aizprua_transfer_data');
-            if (!raw) return;
+            if (!raw) return false;
 
             try {
                 const data = JSON.parse(raw);
@@ -740,8 +1469,11 @@
                 
                 // Limpiar transfer data temporal para no sobreescribir ediciones futuras accidentales
                 localStorage.removeItem('aizprua_transfer_data');
+                showToast('Datos transferidos exitosamente desde Cotización');
+                return true;
             } catch (e) {
                 console.error('Error leyendo transfer data', e);
+                return false;
             }
         }
 

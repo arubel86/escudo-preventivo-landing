@@ -1,30 +1,46 @@
-﻿User-agent: *
+User-agent: *
 Allow: /
 Allow: /guia-preventiva
 Allow: /privacidad
 Allow: /terminos
 Allow: /verificador
+Allow: /ruc
+Allow: /calculadora-precios
+Allow: /simulador-prestamos
+Allow: /blog
+Allow: /tienda
+Allow: /escuela
+
+# Bloqueo de herramientas operativas privadas y URLs transaccionales
+Disallow: /cotizacion
+Disallow: /cotizacion.html
+Disallow: /factura
+Disallow: /factura.html
+Disallow: /informe-diagnostico
+Disallow: /formulario-diagnostico
 Disallow: /escudo-preventivo
 Disallow: /gracias
-Disallow: /gracias-guia
+Disallow: /gracias-*
 Disallow: /api/
 
 Sitemap: https://aizprua.com/sitemap.xml
 Sitemap: https://escudo.aizprua.com/sitemap.xml
 
-# Archivo de contexto para Modelos de Lenguaje (LLMs)
-# https://llmstxt.org/
-# https://escudo.aizprua.com/llms.txt
-
-# Directivas para Agentes de Inteligencia Artificial
+# Directivas para Agentes de Inteligencia Artificial (LLMs)
 User-agent: GPTBot
-Allow: /verificador
 Allow: /
+Allow: /verificador
+Allow: /ruc
+Allow: /blog
 
 User-agent: ClaudeBot
-Allow: /verificador
 Allow: /
+Allow: /verificador
+Allow: /ruc
+Allow: /blog
 
 User-agent: PerplexityBot
-Allow: /verificador
 Allow: /
+Allow: /verificador
+Allow: /ruc
+Allow: /blog
