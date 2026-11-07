@@ -478,13 +478,16 @@ app.get('/', (req, res) => {
   }
 
   // Subdominio llave.aizprua.com: Servicio Llave en Mano
-  if (forwardedHost.startsWith('llave.') || reqHost.startsWith('llave.')) {
+  if (forwardedHost.startsWith('llave.') || reqHost.startsWith('llave.') ||
+      forwardedHost.startsWith('www.llave.') || reqHost.startsWith('www.llave.')) {
     return res.sendFile(path.join(__dirname, 'public', 'llave-en-mano.html'));
   }
 
   // Subdominio asesoria.aizprua.com / asesorias.aizprua.com: Asesorías y Conferencias
   if (forwardedHost.startsWith('asesoria.') || reqHost.startsWith('asesoria.') ||
-      forwardedHost.startsWith('asesorias.') || reqHost.startsWith('asesorias.')) {
+      forwardedHost.startsWith('asesorias.') || reqHost.startsWith('asesorias.') ||
+      forwardedHost.startsWith('www.asesoria.') || reqHost.startsWith('www.asesoria.') ||
+      forwardedHost.startsWith('www.asesorias.') || reqHost.startsWith('www.asesorias.')) {
     return res.sendFile(path.join(__dirname, 'public', 'asesorias.html'));
   }
 
@@ -936,24 +939,32 @@ app.get(['/gracias-factura.html', '/factura-pagada', '/pago-exitoso'], (req, res
   res.redirect(301, '/gracias-factura' + query);
 });
 
-// 10.13. Servicio Llave en Mano & Formalización Empresarial (Canónica: /llave-en-mano)
-app.get(['/llave-en-mano', '/paquetes', '/servicios'], (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'llave-en-mano.html'));
-});
-
-app.get(['/llave-en-mano.html', '/paquetes.html', '/servicios.html'], (req, res) => {
+// 10.13. Servicio Llave en Mano & Formalización Empresarial (Redirección a https://llave.aizprua.com)
+app.get(['/llave-en-mano', '/llave-en-mano.html', '/paquetes', '/servicios', '/paquetes.html', '/servicios.html'], (req, res) => {
+  const forwardedHost = (req.headers['x-forwarded-host'] || '').split(',')[0].trim().toLowerCase().replace(/:\d+$/, '');
+  const reqHost = (req.headers.host || req.hostname || '').toLowerCase().replace(/:\d+$/, '');
+  const isLlaveSub = forwardedHost.startsWith('llave.') || reqHost.startsWith('llave.') ||
+                     forwardedHost.startsWith('www.llave.') || reqHost.startsWith('www.llave.');
+  if (isLlaveSub) {
+    return res.sendFile(path.join(__dirname, 'public', 'llave-en-mano.html'));
+  }
   const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
-  res.redirect(301, '/llave-en-mano' + query);
+  res.redirect(301, 'https://llave.aizprua.com' + query);
 });
 
-// 10.14. Asesorías Estratégicas, Talleres & Conferencias (Canónica: /asesorias)
-app.get(['/asesorias', '/conferencias', '/talleres', '/capacitacion', '/capacitaciones'], (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'asesorias.html'));
-});
-
-app.get(['/asesorias.html', '/conferencias.html', '/talleres.html', '/capacitacion.html', '/capacitaciones.html'], (req, res) => {
+// 10.14. Asesorías Estratégicas, Talleres & Conferencias (Redirección a https://asesoria.aizprua.com)
+app.get(['/asesorias', '/asesorias.html', '/conferencias', '/talleres', '/capacitacion', '/capacitaciones', '/conferencias.html', '/talleres.html', '/capacitacion.html', '/capacitaciones.html'], (req, res) => {
+  const forwardedHost = (req.headers['x-forwarded-host'] || '').split(',')[0].trim().toLowerCase().replace(/:\d+$/, '');
+  const reqHost = (req.headers.host || req.hostname || '').toLowerCase().replace(/:\d+$/, '');
+  const isAsesoriaSub = forwardedHost.startsWith('asesoria.') || reqHost.startsWith('asesoria.') ||
+                        forwardedHost.startsWith('asesorias.') || reqHost.startsWith('asesorias.') ||
+                        forwardedHost.startsWith('www.asesoria.') || reqHost.startsWith('www.asesoria.') ||
+                        forwardedHost.startsWith('www.asesorias.') || reqHost.startsWith('www.asesorias.');
+  if (isAsesoriaSub) {
+    return res.sendFile(path.join(__dirname, 'public', 'asesorias.html'));
+  }
   const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
-  res.redirect(301, '/asesorias' + query);
+  res.redirect(301, 'https://asesoria.aizprua.com' + query);
 });
 
 // ARCHIVOS ESTÁTICOS (Masterclass, Embudo Escudo, Verificador & Landing Page)
