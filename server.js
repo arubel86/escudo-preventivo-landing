@@ -128,7 +128,7 @@ function formatHttpsOrigin(str) {
   return s.replace(/\/+$/, '');
 }
 
-const TARGET_ORIGINS = (process.env.TARGET_ORIGINS || 'https://escudo.aizprua.com,https://aizprua.com,https://www.aizprua.com,https://escudo.aizpruase.com,https://localhost:3000').split(',').map(s => s.trim());
+const TARGET_ORIGINS = (process.env.TARGET_ORIGINS || 'https://conferencias.aizprua.com,https://escudo.aizprua.com,https://llave.aizprua.com,https://aizprua.com,https://www.aizprua.com,https://escudo.aizpruase.com,https://localhost:3000').split(',').map(s => s.trim());
 const PORT = process.env.PORT || 3000;
 
 // ============================================================
@@ -483,12 +483,21 @@ app.get('/', (req, res) => {
     return res.sendFile(path.join(__dirname, 'public', 'llave-en-mano.html'));
   }
 
-  // Subdominio asesoria.aizprua.com / asesorias.aizprua.com: Asesorías y Conferencias
+  // Subdominio conferencias.aizprua.com / conferencia.aizprua.com: Conferencias y Talleres In-Company
+  if (forwardedHost.startsWith('conferencia.') || reqHost.startsWith('conferencia.') ||
+      forwardedHost.startsWith('conferencias.') || reqHost.startsWith('conferencias.') ||
+      forwardedHost.startsWith('www.conferencia.') || reqHost.startsWith('www.conferencia.') ||
+      forwardedHost.startsWith('www.conferencias.') || reqHost.startsWith('www.conferencias.')) {
+    return res.sendFile(path.join(__dirname, 'public', 'asesorias.html'));
+  }
+
+  // Redirección retrocompatible de asesoria. / asesorias. hacia conferencias.aizprua.com
   if (forwardedHost.startsWith('asesoria.') || reqHost.startsWith('asesoria.') ||
       forwardedHost.startsWith('asesorias.') || reqHost.startsWith('asesorias.') ||
       forwardedHost.startsWith('www.asesoria.') || reqHost.startsWith('www.asesoria.') ||
       forwardedHost.startsWith('www.asesorias.') || reqHost.startsWith('www.asesorias.')) {
-    return res.sendFile(path.join(__dirname, 'public', 'asesorias.html'));
+    const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+    return res.redirect(301, 'https://conferencias.aizprua.com' + query);
   }
 
     // Dominio principal (aizprua.com, www.aizprua.com, localhost): nuevo portal principal
@@ -952,19 +961,20 @@ app.get(['/llave-en-mano', '/llave-en-mano.html', '/paquetes', '/servicios', '/p
   res.redirect(301, 'https://llave.aizprua.com' + query);
 });
 
-// 10.14. Asesorías Estratégicas, Talleres & Conferencias (Redirección a https://asesoria.aizprua.com)
-app.get(['/asesorias', '/asesorias.html', '/conferencias', '/talleres', '/capacitacion', '/capacitaciones', '/conferencias.html', '/talleres.html', '/capacitacion.html', '/capacitaciones.html'], (req, res) => {
+// 10.14. Conferencias Magistrales & Formación In-Company (Redirección a https://conferencias.aizprua.com)
+app.get(['/conferencias', '/conferencia', '/conferencias.html', '/conferencia.html', '/asesorias', '/asesorias.html', '/talleres', '/capacitacion', '/capacitaciones', '/talleres.html', '/capacitacion.html', '/capacitaciones.html'], (req, res) => {
   const forwardedHost = (req.headers['x-forwarded-host'] || '').split(',')[0].trim().toLowerCase().replace(/:\d+$/, '');
   const reqHost = (req.headers.host || req.hostname || '').toLowerCase().replace(/:\d+$/, '');
-  const isAsesoriaSub = forwardedHost.startsWith('asesoria.') || reqHost.startsWith('asesoria.') ||
-                        forwardedHost.startsWith('asesorias.') || reqHost.startsWith('asesorias.') ||
-                        forwardedHost.startsWith('www.asesoria.') || reqHost.startsWith('www.asesoria.') ||
-                        forwardedHost.startsWith('www.asesorias.') || reqHost.startsWith('www.asesorias.');
-  if (isAsesoriaSub) {
+  const isConfSub = forwardedHost.startsWith('conferencia.') || reqHost.startsWith('conferencia.') ||
+                    forwardedHost.startsWith('conferencias.') || reqHost.startsWith('conferencias.') ||
+                    forwardedHost.startsWith('www.conferencia.') || reqHost.startsWith('www.conferencia.') ||
+                    forwardedHost.startsWith('www.conferencias.') || reqHost.startsWith('www.conferencias.') ||
+                    forwardedHost.startsWith('asesoria.') || reqHost.startsWith('asesoria.');
+  if (isConfSub) {
     return res.sendFile(path.join(__dirname, 'public', 'asesorias.html'));
   }
   const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
-  res.redirect(301, 'https://asesoria.aizprua.com' + query);
+  res.redirect(301, 'https://conferencias.aizprua.com' + query);
 });
 
 // ARCHIVOS ESTÁTICOS (Masterclass, Embudo Escudo, Verificador & Landing Page)
