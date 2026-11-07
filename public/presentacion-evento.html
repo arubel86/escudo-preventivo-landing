@@ -470,7 +470,7 @@
 
                     <!-- Pilar 2: Gestión Integral Llave en Mano -->
                     <div class="stagger-2 glass-card rounded-2xl p-5 border-l-4 border-l-brand-blue flex flex-col justify-between cursor-pointer transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-brand-blue/20 hover:border-brand-blue-light group"
-                        onclick="window.open('https://aizprua.com/', '_blank')" title="Conocer Soluciones Llave en Mano">
+                        onclick="window.open('/llave-en-mano', '_blank')" title="Conocer Soluciones Llave en Mano">
                         <div>
                             <div class="w-10 h-10 rounded-xl bg-brand-blue/20 border border-brand-blue/40 flex items-center justify-center text-brand-blue-light mb-3 shadow-sm group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
                                 <i data-lucide="key" class="w-5 h-5"></i>
@@ -772,6 +772,7 @@
         let slideTimer = null;
         let progressInterval = null;
         let progressStart = null;
+        let elapsedBeforePause = 0;
 
         const progressBar = document.getElementById('slideProgressBar');
         const slideIndicator = document.getElementById('slideIndicator');
@@ -835,11 +836,14 @@
             // Reiniciar iconos si hay nuevos elementos
             lucide.createIcons();
 
-            // Si se está reproduciendo, reiniciar temporizador y barra de progreso
+            // Reiniciar progreso fraccional del slide
+            elapsedBeforePause = 0;
+
+            // Si se está reproduciendo, reiniciar temporizador y barra de progreso global
             if (isPlaying) {
-                startSlideTimer();
+                startSlideTimer(false);
             } else {
-                resetProgressBar();
+                updatePausedProgressBar();
             }
         }
 
@@ -853,34 +857,77 @@
             showSlide(currentSlide - 1);
         }
 
-        // Iniciar temporizador de diapositiva y barra de progreso
-        function startSlideTimer() {
+        // Iniciar o reanudar temporizador y barra de progreso acumulativa global
+        function startSlideTimer(resume = false) {
             clearTimeout(slideTimer);
             clearInterval(progressInterval);
 
-            progressStart = Date.now();
-            if (progressBar) progressBar.style.width = '0%';
+            if (progressBar) {
+                progressBar.classList.remove('opacity-75', 'animate-pulse');
+                progressBar.style.transition = 'none';
+            }
 
-            // Actualizar barra de progreso con suavidad (cada 30ms)
+            const basePercent = ((currentSlide - 1) / TOTAL_SLIDES) * 100;
+            const segmentSpan = (1 / TOTAL_SLIDES) * 100;
+
+            if (resume && elapsedBeforePause > 0) {
+                progressStart = Date.now() - elapsedBeforePause;
+            } else {
+                elapsedBeforePause = 0;
+                progressStart = Date.now();
+                if (progressBar) {
+                    progressBar.style.width = `${basePercent}%`;
+                }
+            }
+
+            const remainingTime = Math.max(SLIDE_DURATION - elapsedBeforePause, 100);
+
+            // Actualizar barra de progreso con suavidad (cada 30ms) dentro de su segmento
             progressInterval = setInterval(() => {
                 const elapsed = Date.now() - progressStart;
-                const percent = Math.min((elapsed / SLIDE_DURATION) * 100, 100);
+                const fraction = Math.min(elapsed / SLIDE_DURATION, 1);
+                const currentPercent = basePercent + (fraction * segmentSpan);
                 if (progressBar) {
-                    progressBar.style.width = `${percent}%`;
+                    progressBar.style.width = `${currentPercent}%`;
                 }
             }, 30);
 
             // Programar cambio de lámina
             slideTimer = setTimeout(() => {
+                elapsedBeforePause = 0;
                 nextSlide();
-            }, SLIDE_DURATION);
+            }, remainingTime);
         }
 
-        // Resetear barra de progreso a cero
-        function resetProgressBar() {
+        // Pausar y congelar la barra de progreso en su posición acumulada actual
+        function pauseSlideTimer() {
             clearInterval(progressInterval);
             clearTimeout(slideTimer);
-            if (progressBar) progressBar.style.width = '0%';
+
+            if (progressStart) {
+                elapsedBeforePause = Date.now() - progressStart;
+                const basePercent = ((currentSlide - 1) / TOTAL_SLIDES) * 100;
+                const segmentSpan = (1 / TOTAL_SLIDES) * 100;
+                const fraction = Math.min(elapsedBeforePause / SLIDE_DURATION, 1);
+                const currentPercent = basePercent + (fraction * segmentSpan);
+                if (progressBar) {
+                    progressBar.style.width = `${currentPercent}%`;
+                    progressBar.classList.add('opacity-75', 'animate-pulse');
+                }
+            }
+        }
+
+        // Actualizar barra de progreso con animación suave al navegar manualmente en pausa
+        function updatePausedProgressBar() {
+            clearInterval(progressInterval);
+            clearTimeout(slideTimer);
+            elapsedBeforePause = 0;
+            if (progressBar) {
+                progressBar.classList.remove('opacity-75', 'animate-pulse');
+                progressBar.style.transition = 'width 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+                const slidePercent = (currentSlide / TOTAL_SLIDES) * 100;
+                progressBar.style.width = `${slidePercent}%`;
+            }
         }
 
         // Alternar Reproducción / Pausa
@@ -889,11 +936,11 @@
             if (isPlaying) {
                 textPlayPause.textContent = "Pausar";
                 iconPlayPause.setAttribute('data-lucide', 'pause');
-                startSlideTimer();
+                startSlideTimer(true);
             } else {
                 textPlayPause.textContent = "Reanudar";
                 iconPlayPause.setAttribute('data-lucide', 'play');
-                resetProgressBar();
+                pauseSlideTimer();
             }
             lucide.createIcons();
         }

@@ -477,7 +477,12 @@ app.get('/', (req, res) => {
     return res.sendFile(path.join(escudoPreventivoDir, 'index.html'));
   }
 
-  // Dominio principal (aizprua.com, www.aizprua.com, localhost): nuevo portal principal
+  // Subdominio llave.aizprua.com: Servicio Llave en Mano
+  if (forwardedHost.startsWith('llave.') || reqHost.startsWith('llave.')) {
+    return res.sendFile(path.join(__dirname, 'public', 'llave-en-mano.html'));
+  }
+
+    // Dominio principal (aizprua.com, www.aizprua.com, localhost): nuevo portal principal
   return res.sendFile(path.join(__dirname, 'public', 'principal.html'));
 });
 
@@ -923,6 +928,26 @@ app.get('/gracias-factura', (req, res) => {
 app.get(['/gracias-factura.html', '/factura-pagada', '/pago-exitoso'], (req, res) => {
   const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
   res.redirect(301, '/gracias-factura' + query);
+});
+
+// 10.13. Servicio Llave en Mano & Formalización Empresarial (Canónica: /llave-en-mano)
+app.get(['/llave-en-mano', '/paquetes', '/servicios'], (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'llave-en-mano.html'));
+});
+
+app.get(['/llave-en-mano.html', '/paquetes.html', '/servicios.html'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/llave-en-mano' + query);
+});
+
+// 10.14. Asesorías Estratégicas, Talleres & Conferencias (Canónica: /asesorias)
+app.get(['/asesorias', '/conferencias', '/talleres', '/capacitacion', '/capacitaciones'], (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'asesorias.html'));
+});
+
+app.get(['/asesorias.html', '/conferencias.html', '/talleres.html', '/capacitacion.html', '/capacitaciones.html'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/asesorias' + query);
 });
 
 // ARCHIVOS ESTÁTICOS (Masterclass, Embudo Escudo, Verificador & Landing Page)

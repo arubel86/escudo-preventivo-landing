@@ -19,7 +19,7 @@
         content="Protege tu empresa en Panamá. Detecta riesgos y multas en DGI, CSS y MITRADEL antes de una notificación. Agenda tu diagnóstico en 40 min aquí.">
     <!-- Canonical & Favicon -->
     <link rel="canonical" href="https://escudo.aizprua.com/">
-    <link rel="icon" type="image/svg+xml" href="../assets/LOGOS PARA DIGITAL INDIVIDUALES-13.svg">
+    <link rel="icon" type="image/svg+xml" href="/assets/LOGOS PARA DIGITAL INDIVIDUALES-13.svg">
 
     <!-- Open Graph / WhatsApp / Facebook -->
     <meta property="og:type" content="website">
@@ -104,14 +104,20 @@
 
         @keyframes pulse-ring {
             0% {
-                transform: scale(.8);
-                opacity: 1
+                transform: scale(0.96);
+                opacity: 0.7;
             }
-
+            60% {
+                opacity: 0.25;
+            }
             100% {
-                transform: scale(1.4);
-                opacity: 0
+                transform: scale(1.16);
+                opacity: 0;
             }
+        }
+
+        .whatsapp-btn {
+            position: relative;
         }
 
         .whatsapp-btn::before {
@@ -120,8 +126,9 @@
             inset: 0;
             border-radius: 9999px;
             background: #25D366;
-            animation: pulse-ring 1.5s infinite;
-            z-index: -1
+            animation: pulse-ring 2.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+            z-index: -1;
+            pointer-events: none;
         }
 
         .accordion-content {
@@ -186,6 +193,28 @@
         .section-reveal {
             animation: reveal-section .7s ease-out both
         }
+    
+        /* Marquee Infinito Institucional */
+        @keyframes marqueeScroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marqueeScroll 40s linear infinite;
+        }
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+        .marquee-mask {
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+        }
     </style>
 </head>
 
@@ -212,8 +241,9 @@
                 <!-- Logotipo Oficial Aizprua S.E. -->
                 <div class="flex items-center">
                     <a href="/" class="flex items-center flex-shrink-0" aria-label="Aizprua S.E.">
-                        <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg"
-                            alt="Logo Aizprua S.E. - Trámites Legales Panamá" class="h-28 w-auto object-contain" width="112"
+                        <img src="/assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg"
+                            onerror="this.onerror=null; this.src='../assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg';"
+                            alt="Logo Aizprua S.E. - Firma Legal y Empresarial en Panamá" class="h-28 w-auto object-contain" width="112"
                             height="112">
                     </a>
                 </div>
@@ -322,7 +352,7 @@
                     </div>
                     <div class="w-full h-2 bg-slate-200 rounded-full mb-8 overflow-hidden">
                         <div id="quiz-progress-fill"
-                            class="h-full bg-gradient-to-r from-brand-blue to-brand-orange rounded-full transition-all duration-500"
+                            class="h-full bg-gradient-to-r from-brand-orange to-brand-orange-dark rounded-full transition-all duration-500"
                             style="width: 33%"></div>
                     </div>
                     <h3 id="quiz-question" class="text-xl font-bold text-center mb-2"></h3>
@@ -380,7 +410,7 @@
                             
                             <!-- Contenedor unificado: Foto y Botón hacen Zoom JUNTOS al mismo tiempo -->
                             <div class="relative w-full flex flex-col items-center group cursor-pointer transform hover:scale-105 transition-transform duration-500">
-                                <img src="assets/Diseño sin título.png" alt="Arubel Aizprua - CEO & Director Fundador Aizprua S.E." class="w-auto h-[370px] sm:h-[410px] object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.5)] pb-2">
+                                <img src="/assets/Diseño sin título.png" onerror="this.onerror=null; this.src='../assets/Diseño sin título.png';" alt="Arubel Aizprua - CEO & Director Fundador Aizprua S.E." class="w-auto h-[370px] sm:h-[410px] object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.5)] pb-2">
                                 
                                 <!-- Placa de Identificación montada de forma armónica al pie de la camisa -->
                                 <div class="absolute bottom-3 inset-x-0 mx-auto bg-white/10 backdrop-blur-md px-5 py-2.5 rounded-2xl border border-white/20 text-center shadow-2xl w-full max-w-[250px] z-20 group-hover:border-brand-orange/50 transition-colors">
@@ -451,26 +481,70 @@
                 </div>
             </div>
 
-            <!-- Logos Institucionales -->
-            <div class="text-center fade-in">
-                <p class="text-xs text-slate-400 uppercase tracking-wider mb-4">Trabajamos ante las principales
-                    entidades de Panamá</p>
-                <div
-                    class="flex flex-wrap justify-center gap-6 sm:gap-8 lg:gap-12 opacity-70 grayscale transition hover:grayscale-0 hover:opacity-100 duration-300">
-                    <div class="flex items-center gap-2 text-slate-500 font-semibold select-none cursor-default">
-                        <i data-lucide="landmark" class="w-5 h-5"></i> DGI
-                    </div>
-                    <div class="flex items-center gap-2 text-slate-500 font-semibold select-none cursor-default">
-                        <i data-lucide="building-2" class="w-5 h-5"></i> Municipios
-                    </div>
-                    <div class="flex items-center gap-2 text-slate-500 font-semibold select-none cursor-default">
-                        <i data-lucide="file-check-2" class="w-5 h-5"></i> Registro Público
-                    </div>
-                    <div class="flex items-center gap-2 text-slate-500 font-semibold select-none cursor-default">
-                        <i data-lucide="briefcase" class="w-5 h-5"></i> MICI
-                    </div>
-                    <div class="flex items-center gap-2 text-slate-500 font-semibold select-none cursor-default">
-                        <i data-lucide="users" class="w-5 h-5"></i> CSS
+            <!-- Logos Institucionales en Movimiento Infinito (Marquee Ticker) -->
+            <div class="text-center pt-4">
+                <p class="text-xs text-slate-400 font-extrabold uppercase tracking-wider mb-5">
+                    Operaciones y trámites coordinados ante las instituciones de Panamá:
+                </p>
+
+                <!-- Contenedor Marquee Infinito con Desvanecimiento Lateral -->
+                <div class="relative w-full overflow-hidden marquee-mask">
+                    <div class="marquee-track flex items-center gap-6 py-1 select-none">
+                        <!-- Set 1 -->
+                        <div class="flex items-center gap-6 shrink-0">
+                            <div class="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:border-brand-blue/50 hover:shadow-sm transition shrink-0">
+                                <i data-lucide="landmark" class="w-4 h-4 text-brand-blue shrink-0"></i>
+                                <span class="text-xs sm:text-sm font-bold text-slate-700 whitespace-nowrap">DGI (Tributario &amp; Facturación)</span>
+                            </div>
+                            <div class="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:border-brand-orange/50 hover:shadow-sm transition shrink-0">
+                                <i data-lucide="users" class="w-4 h-4 text-brand-orange shrink-0"></i>
+                                <span class="text-xs sm:text-sm font-bold text-slate-700 whitespace-nowrap">CSS (Seguridad Social Patronal)</span>
+                            </div>
+                            <div class="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:border-brand-blue/50 hover:shadow-sm transition shrink-0">
+                                <i data-lucide="building-2" class="w-4 h-4 text-brand-blue shrink-0"></i>
+                                <span class="text-xs sm:text-sm font-bold text-slate-700 whitespace-nowrap">Municipios (Impuestos &amp; Rótulos)</span>
+                            </div>
+                            <div class="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:border-brand-orange/50 hover:shadow-sm transition shrink-0">
+                                <i data-lucide="briefcase" class="w-4 h-4 text-brand-orange shrink-0"></i>
+                                <span class="text-xs sm:text-sm font-bold text-slate-700 whitespace-nowrap">MICI (Avisos de Operación)</span>
+                            </div>
+                            <div class="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:border-brand-blue/50 hover:shadow-sm transition shrink-0">
+                                <i data-lucide="file-check-2" class="w-4 h-4 text-brand-blue shrink-0"></i>
+                                <span class="text-xs sm:text-sm font-bold text-slate-700 whitespace-nowrap">Registro Público (Sociedades S.E. &amp; S.A.)</span>
+                            </div>
+                            <div class="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:border-emerald-500/50 hover:shadow-sm transition shrink-0">
+                                <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                                <span class="text-xs sm:text-sm font-bold text-slate-700 whitespace-nowrap">Mitradel (Contratos Laborales)</span>
+                            </div>
+                        </div>
+
+                        <!-- Set 2 (Duplicado para loop continuo sin saltos) -->
+                        <div class="flex items-center gap-6 shrink-0" aria-hidden="true">
+                            <div class="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:border-brand-blue/50 hover:shadow-sm transition shrink-0">
+                                <i data-lucide="landmark" class="w-4 h-4 text-brand-blue shrink-0"></i>
+                                <span class="text-xs sm:text-sm font-bold text-slate-700 whitespace-nowrap">DGI (Tributario &amp; Facturación)</span>
+                            </div>
+                            <div class="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:border-brand-orange/50 hover:shadow-sm transition shrink-0">
+                                <i data-lucide="users" class="w-4 h-4 text-brand-orange shrink-0"></i>
+                                <span class="text-xs sm:text-sm font-bold text-slate-700 whitespace-nowrap">CSS (Seguridad Social Patronal)</span>
+                            </div>
+                            <div class="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:border-brand-blue/50 hover:shadow-sm transition shrink-0">
+                                <i data-lucide="building-2" class="w-4 h-4 text-brand-blue shrink-0"></i>
+                                <span class="text-xs sm:text-sm font-bold text-slate-700 whitespace-nowrap">Municipios (Impuestos &amp; Rótulos)</span>
+                            </div>
+                            <div class="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:border-brand-orange/50 hover:shadow-sm transition shrink-0">
+                                <i data-lucide="briefcase" class="w-4 h-4 text-brand-orange shrink-0"></i>
+                                <span class="text-xs sm:text-sm font-bold text-slate-700 whitespace-nowrap">MICI (Avisos de Operación)</span>
+                            </div>
+                            <div class="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:border-brand-blue/50 hover:shadow-sm transition shrink-0">
+                                <i data-lucide="file-check-2" class="w-4 h-4 text-brand-blue shrink-0"></i>
+                                <span class="text-xs sm:text-sm font-bold text-slate-700 whitespace-nowrap">Registro Público (Sociedades S.E. &amp; S.A.)</span>
+                            </div>
+                            <div class="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs hover:border-emerald-500/50 hover:shadow-sm transition shrink-0">
+                                <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                                <span class="text-xs sm:text-sm font-bold text-slate-700 whitespace-nowrap">Mitradel (Contratos Laborales)</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -487,7 +561,7 @@
                     <p class="text-sm text-slate-400 mb-3">Tu aliado legal en Panamá.</p>
                     <div class="flex gap-3">
                         <a target="_blank" rel="noopener" href="https://instagram.com/aizpruase"
-                            class="w-10 h-10 bg-slate-800 hover:bg-pink-600 rounded-full flex items-center justify-center text-white transition"
+                            class="w-10 h-10 bg-slate-800 hover:bg-brand-orange rounded-full flex items-center justify-center text-white transition"
                             aria-label="Instagram">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                 <path
@@ -581,14 +655,22 @@
         </div>
     </div>
 
-    <!-- WhatsApp Flotante Btn -->
-    <button id="whatsapp-toggle" aria-label="Abrir chat de WhatsApp"
-        class="whatsapp-btn fixed bottom-16 right-6 z-[90] bg-[#25D366] hover:bg-[#20bd5a] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300">
-        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-            <path
-                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-        </svg>
-    </button>
+    <!-- Contenedor Flotante Oficial (Volver Arriba + WhatsApp) -->
+    <div class="fixed bottom-6 right-6 z-[90] flex flex-col items-center gap-5 pointer-events-none">
+        <!-- Boton Flotante "Volver Arriba" (Scroll to Top) -->
+        <button id="scroll-top-btn" onclick="scrollToTop()" aria-label="Volver arriba"
+            class="w-11 h-11 bg-white/95 backdrop-blur border border-slate-300 hover:border-brand-blue text-slate-700 hover:text-brand-blue rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:-translate-y-1 flex items-center justify-center flex-shrink-0 cursor-pointer">
+            <i data-lucide="chevron-up" class="w-5 h-5"></i>
+        </button>
+
+        <!-- Boton Flotante de WhatsApp -->
+        <button id="whatsapp-toggle" aria-label="Abrir chat de WhatsApp"
+            class="whatsapp-btn pointer-events-auto relative w-14 h-14 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center">
+            <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
+        </button>
+    </div>
 
     <!-- Social Proof Toast -->
     <div id="social-proof-toast"

@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 pregunta: '¿Qué tipo de entidad o negocio manejas o vas a crear en Panamá?',
                 microcopy: '<svg class="w-3.5 h-3.5 inline-block -mt-0.5 mr-1.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Tus respuestas son confidenciales — solo toma 30 segundos.',
                 opciones: [
-                    { valor: 'sociedad', texto: 'Sociedad Jurídica (S.A., S.E.P., SRL, etc.)', icono: 'building-2' },
+                    { valor: 'sociedad', texto: 'Sociedad Jurídica (S.A., S.E., SRL, etc.)', icono: 'building-2' },
                     { valor: 'profesional', texto: 'Persona Natural / Profesional (contador, abogado, etc.)', icono: 'briefcase' },
                     { valor: 'emprendimiento', texto: 'Emprendimiento nuevo, aún sin operar', icono: 'rocket' },
                     { valor: 'idea', texto: 'Todavía es solo una idea', icono: 'lightbulb', descarte: 'solo-idea' }
@@ -224,11 +224,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const opcionesActivas = (step.opcionesPor && step.opcionesPor[quizAnswers.entidad]) || step.opciones;
 
             quizOptions.innerHTML = opcionesActivas.map((o, idx) => `
-                <button class="quiz-opt w-full py-4 px-5 bg-white border-2 border-slate-200 rounded-2xl text-left font-medium flex items-start gap-3.5 hover:border-brand-blue hover:bg-blue-50/60 shadow-sm transition-all transform hover:-translate-y-0.5 cursor-pointer animate-fadeIn" style="animation-delay: ${idx * 60}ms" data-valor="${o.valor}" data-descarte="${o.descarte || ''}">
-                    <div class="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center shrink-0 mt-0.5 text-brand-blue">
+                <button class="quiz-opt w-full py-3.5 sm:py-4 px-4 sm:px-5 bg-white border-2 border-slate-200 rounded-2xl text-left font-medium flex items-center gap-3.5 hover:border-brand-blue hover:bg-blue-50/60 shadow-xs hover:shadow-md transition-all transform hover:-translate-y-0.5 cursor-pointer animate-fadeIn" style="animation-delay: ${idx * 60}ms" data-valor="${o.valor}" data-descarte="${o.descarte || ''}">
+                    <div class="w-10 h-10 rounded-xl bg-blue-50/90 border border-blue-100 flex items-center justify-center shrink-0 text-brand-blue">
                         <i data-lucide="${o.icono}" class="w-5 h-5"></i>
                     </div>
-                    <span class="text-sm sm:text-base text-slate-800 font-semibold leading-snug">${o.texto}</span>
+                    <span class="text-sm sm:text-base text-slate-800 font-semibold leading-snug flex-1">${o.texto}</span>
                 </button>
             `).join('');
 
@@ -427,7 +427,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Si el video falla (caído, eliminado o embed restringido), no dejar al
     // visitante atrapado: desbloquear la oferta igualmente
     function onPlayerError(e) {
-        console.warn('⚠️ Error del reproductor de YouTube:', e?.data);
+        console.warn('[ALERTA]️ Error del reproductor de YouTube:', e?.data);
         unlockOffer();
     }
 
@@ -503,7 +503,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================================
     async function sendToWebhook(data) {
         if (!CONFIG.enlaces.webhook || CONFIG.enlaces.webhook.includes('PEGA_AQUI_TU_ID')) {
-            console.warn('⚠️ Webhook de Google Sheets no configurado aún en CONFIG.enlaces.webhook. Los datos se guardan solo localmente.');
+            console.warn('[ALERTA]️ Webhook de Google Sheets no configurado aún en CONFIG.enlaces.webhook. Los datos se guardan solo localmente.');
             return;
         }
         // Prevenir que Google Sheets interprete el '+' inicial como fórmula matemática (#ERROR!)
@@ -1080,7 +1080,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.warn('No se pudo extraer clientLibrary del JWT:', e);
         }
 
-        console.log('🔄 Cargando SDK de Flex Microform desde:', sdkUrl);
+        console.log('[SYNC] Cargando SDK de Flex Microform desde:', sdkUrl);
 
         return new Promise((resolve, reject) => {
             if (window.Flex || window.FLEX) return resolve(true);
@@ -1090,7 +1090,7 @@ document.addEventListener('DOMContentLoaded', () => {
             script.crossOrigin = 'anonymous';
             script.onload = () => {
                 if (window.Flex || window.FLEX) {
-                    console.log('✅ SDK de Flex Microform cargado con éxito');
+                    console.log('[OK] SDK de Flex Microform cargado con éxito');
                     resolve(true);
                 } else {
                     reject(new Error('El SDK de Flex se cargó pero window.Flex no está disponible.'));
@@ -1171,7 +1171,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     console.error('Error al montar campo de tarjeta:', err);
                     showCheckoutAlert(`Error en campo de tarjeta: ${err.message || err}`, 'error');
                 } else {
-                    console.log('✅ Campo de Número de Tarjeta listo');
+                    console.log('[OK] Campo de Número de Tarjeta listo');
                 }
             });
 
@@ -1180,12 +1180,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     console.error('Error al montar campo CVV:', err);
                     showCheckoutAlert(`Error en campo CVV: ${err.message || err}`, 'error');
                 } else {
-                    console.log('✅ Campo CVV listo');
+                    console.log('[OK] Campo CVV listo');
                 }
             });
 
             isFlexInitialized = true;
-            console.log('✅ Pasarela CyberSource Flex Microform montada e incrustada exitosamente');
+            console.log('[OK] Pasarela CyberSource Flex Microform montada e incrustada exitosamente');
         } catch (err) {
             console.error('Error inicializando pasarela CyberSource:', err);
             showCheckoutAlert(`Error de conexión: ${err.message || 'No se pudo conectar'}. Por favor, recarga la página.`, 'error');
@@ -1390,7 +1390,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     hideCheckoutAlert();
                     const paymentData = await paymentsClient.loadPaymentData(paymentDataRequest);
-                    console.log('✅ Datos de Google Pay recibidos:', paymentData);
+                    console.log('[OK] Datos de Google Pay recibidos:', paymentData);
                     const token = paymentData?.paymentMethodData?.tokenizationData?.token || JSON.stringify(paymentData);
                     await procesarCargoServidor(token);
                 } catch (err) {
@@ -1424,7 +1424,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const session = new window.ApplePaySession(3, request);
                     session.onpaymentauthorized = async (event) => {
                         session.completePayment(window.ApplePaySession.STATUS_SUCCESS);
-                        console.log('✅ Datos de Apple Pay recibidos:', event.payment);
+                        console.log('[OK] Datos de Apple Pay recibidos:', event.payment);
                         const token = JSON.stringify(event.payment.token);
                         await procesarCargoServidor(token);
                     };
@@ -1546,6 +1546,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    console.log('✅ Escudo Preventivo Embudo v3.0 + CyberSource Unified Checkout (Banco General) cargado');
+    console.log('[OK] Escudo Preventivo Embudo v3.0 + CyberSource Unified Checkout (Banco General) cargado');
 });
 
+
+// ============================================================
+// BOTON FLOTANTE "VOLVER ARRIBA" (SCROLL TO TOP)
+// ============================================================
+window.scrollToTop = function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
+window.addEventListener('scroll', () => {
+    const scrollTopBtn = document.getElementById('scroll-top-btn');
+    if (scrollTopBtn) {
+        if (window.scrollY > 300) {
+            scrollTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+            scrollTopBtn.classList.add('opacity-100', 'pointer-events-auto');
+        } else {
+            scrollTopBtn.classList.remove('opacity-100', 'pointer-events-auto');
+            scrollTopBtn.classList.add('opacity-0', 'pointer-events-none');
+        }
+    }
+});

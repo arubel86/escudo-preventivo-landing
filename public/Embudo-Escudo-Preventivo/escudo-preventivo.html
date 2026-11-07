@@ -18,7 +18,7 @@
     <meta name="theme-color" content="#3849C8">
     <meta name="description"
         content="Mira el análisis preliminar para tu negocio en Panamá y desbloquea tu Diagnóstico Escudo Preventivo de 40 minutos: revisión legal, detección de riesgos y hoja de ruta clara.">
-    <link rel="icon" type="image/svg+xml" href="../assets/LOGOS PARA DIGITAL INDIVIDUALES-13.svg">
+    <link rel="icon" type="image/svg+xml" href="/assets/LOGOS PARA DIGITAL INDIVIDUALES-13.svg">
 
     <!-- Open Graph / Redes Sociales -->
     <meta property="og:type" content="website">
@@ -70,14 +70,20 @@
 
         @keyframes pulse-ring {
             0% {
-                transform: scale(.8);
-                opacity: 1
+                transform: scale(0.96);
+                opacity: 0.7;
             }
-
+            60% {
+                opacity: 0.25;
+            }
             100% {
-                transform: scale(1.4);
-                opacity: 0
+                transform: scale(1.16);
+                opacity: 0;
             }
+        }
+
+        .whatsapp-btn {
+            position: relative;
         }
 
         .whatsapp-btn::before {
@@ -86,8 +92,9 @@
             inset: 0;
             border-radius: 9999px;
             background: #25D366;
-            animation: pulse-ring 1.5s infinite;
-            z-index: -1
+            animation: pulse-ring 2.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+            z-index: -1;
+            pointer-events: none;
         }
 
         .accordion-content {
@@ -156,7 +163,7 @@
                 <!-- Logotipo Oficial Aizprua S.E. -->
                 <div class="flex items-center">
                     <a href="/" class="flex items-center flex-shrink-0" aria-label="Aizprua S.E.">
-                        <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg"
+                        <img src="/assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg" onerror="this.onerror=null; this.src='../assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg';"
                             alt="Logo Aizprua S.E. - Trámites Legales Panamá" class="h-28 w-auto object-contain" width="112"
                             height="112">
                     </a>
@@ -239,19 +246,23 @@
                                     class="text-2xl text-slate-500 font-bold"> USD</span></p>
                             <p class="text-slate-500">Pago único · Sin letra pequeña</p>
                         </div>
-                        <ul class="space-y-3 mb-8 max-w-md mx-auto">
-                            <li class="flex items-start gap-3"><i data-lucide="check-circle"
-                                    class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"></i><span>Auditoría real de tu
-                                    caso, no una llamada de ventas</span></li>
-                            <li class="flex items-start gap-3"><i data-lucide="check-circle"
-                                    class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"></i><span>Hoja de ruta con el
-                                    costo exacto de regularizar</span></li>
-                            <li class="flex items-start gap-3"><i data-lucide="check-circle"
-                                    class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"></i><span>3 bonos de regalo (se
-                                    envían a tu correo después de la sesión)</span></li>
-                            <li class="flex items-start gap-3"><i data-lucide="check-circle"
-                                    class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"></i><span>Si contratas tu plan
-                                    de gestión, <strong>los $79 se acreditan como descuento</strong></span></li>
+                        <ul class="space-y-3 mb-8 max-w-md mx-auto text-slate-700 text-sm">
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-green-500 shrink-0 mt-0.5"></i>
+                                <span class="leading-snug">Auditoría real de tu caso, no una llamada de ventas</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-green-500 shrink-0 mt-0.5"></i>
+                                <span class="leading-snug">Hoja de ruta con el costo exacto de regularizar</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-green-500 shrink-0 mt-0.5"></i>
+                                <span class="leading-snug">3 bonos de regalo (se envían a tu correo después de la sesión)</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-green-500 shrink-0 mt-0.5"></i>
+                                <span class="leading-snug">Si contratas tu plan de gestión, <strong>los $79 se acreditan como descuento</strong></span>
+                            </li>
                         </ul>
 
                         <!-- Botón Directo al Pago de $79 USD -->
@@ -262,16 +273,15 @@
                                 <span class="text-[13px] sm:text-base md:text-lg whitespace-nowrap">Reservar mi Diagnóstico ($79 USD)</span>
                                 <i data-lucide="arrow-right" class="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 group-hover:translate-x-1 transition-transform"></i>
                             </button>
-                            <p class="text-xs text-slate-400 mt-3.5 flex items-center justify-center gap-1.5 leading-relaxed font-medium max-w-md mx-auto">
-                                <i data-lucide="shield-check" class="w-4 h-4 text-green-500 shrink-0"></i>
-                                <span>Pago 100% seguro por pasarela cifrada · Agendamiento inmediato</span>
+                            <p class="text-xs text-slate-400 mt-3.5 flex items-start justify-center gap-1.5 font-medium max-w-md mx-auto">
+                                <i data-lucide="shield-check" class="w-4 h-4 text-green-500 shrink-0 mt-0.5"></i>
+                                <span class="leading-snug text-left">Pago 100% seguro por pasarela cifrada · Agendamiento inmediato</span>
                             </p>
                         </div>
 
-                        <p class="text-center text-xs sm:text-sm text-slate-500 mt-6 leading-relaxed max-w-lg mx-auto">
-                            <i data-lucide="calendar-clock" class="w-4 h-4 text-brand-orange flex items-center justify-center gap-1.5 max-w-lg mx-auto">
-<i data-lucide="calendar-clock" class="w-4 h-4 text-brand-orange shrink-0"></i>
-                            <span>Sesiones disponibles solo martes y jueves · <span class="whitespace-nowrap">Quedan <strong class="spots-count font-bold text-brand-orange">4</strong> cupos esta semana</span></span>
+                        <p class="text-xs sm:text-sm text-slate-500 mt-6 max-w-lg mx-auto flex items-start justify-center gap-2">
+                            <i data-lucide="calendar-clock" class="w-4 h-4 text-brand-orange shrink-0 mt-0.5"></i>
+                            <span class="leading-snug text-left">Sesiones disponibles solo martes y jueves · <span class="whitespace-nowrap">Quedan <strong class="spots-count font-bold text-brand-orange">4</strong> cupos esta semana</span></span>
                         </p>
                     </div>
                 </div>
@@ -336,7 +346,7 @@
                         </div>
                         <div class="flex items-center gap-4 pt-4 border-t border-slate-100">
                             <div class="w-12 h-12 rounded-full border border-slate-200 overflow-hidden flex items-center justify-center bg-slate-50 flex-shrink-0 shadow-sm">
-                                <img src="assets/logo-orozco.png" alt="Logo Orozco U.C." class="w-full h-full object-contain p-1">
+                                <img src="/assets/logo-orozco.png" onerror="this.onerror=null; this.src='../assets/logo-orozco.png';" alt="Logo Orozco U.C." class="w-full h-full object-contain p-1">
                             </div>
                             <div>
                                 <h3 class="font-bold text-slate-900 leading-snug">Orozco U.C.</h3>
@@ -360,7 +370,7 @@
                         </div>
                         <div class="flex items-center gap-4 pt-4 border-t border-slate-100">
                             <div class="w-12 h-12 rounded-full border border-slate-200 overflow-hidden flex items-center justify-center bg-slate-50 flex-shrink-0 shadow-sm">
-                                <img src="assets/logo-adaias.jpg" alt="Logo Adaías Panamá" class="w-full h-full object-contain p-1">
+                                <img src="/assets/logo-adaias.jpg" onerror="this.onerror=null; this.src='../assets/logo-adaias.jpg';" alt="Logo Adaías Panamá" class="w-full h-full object-contain p-1">
                             </div>
                             <div>
                                 <h3 class="font-bold text-slate-900 leading-snug">Adaías Panamá</h3>
@@ -400,7 +410,7 @@
             <div class="max-w-5xl mx-auto px-4">
                 <h2 class="text-3xl font-bold text-center mb-4 fade-in">Bonos incluidos con tu diagnóstico</h2>
                 <p class="text-slate-600 text-center mb-3 fade-in">Todos gratis con tu sesión</p>
-                <p class="text-xs sm:text-sm text-brand-blue font-semibold text-center mb-10 md:mb-12 fade-in leading-relaxed max-w-md mx-auto">
+                <p class="flex items-center justify-center gap-2 text-xs sm:text-sm text-brand-blue font-semibold mb-10 md:mb-12 fade-in max-w-md mx-auto text-center">
                     <i data-lucide="mail" class="w-4 h-4 shrink-0"></i>
                     <span>Los recibes por correo electrónico después de tu sesión</span>
                 </p>
@@ -461,26 +471,26 @@
                 <div class="grid md:grid-cols-3 gap-6">
                     <div
                         class="bg-gradient-to-br from-brand-orange to-brand-orange-dark p-6 rounded-2xl shadow-lg text-white fade-in">
-                        <div class="flex items-center gap-2 mb-3">
-                            <i data-lucide="zap" class="w-6 h-6"></i>
-                            <h3 class="font-bold text-lg">Bono de acción rápida</h3>
+                        <div class="flex items-start gap-2.5 mb-3">
+                            <i data-lucide="zap" class="w-6 h-6 shrink-0 mt-0.5"></i>
+                            <h3 class="font-bold text-lg leading-snug">Bono de acción rápida</h3>
                         </div>
                         <p class="text-white/90 text-sm">Beneficio exclusivo al iniciar tu gestión en la llamada:
                             <strong>congelamiento de precio + arranque con el 50% de entrada</strong>. Pregunta por él
                             durante tu sesión.</p>
                     </div>
                     <div class="bg-white p-6 rounded-2xl border-2 border-brand-blue shadow-lg fade-in">
-                        <div class="flex items-center gap-2 mb-3 text-brand-blue">
-                            <i data-lucide="shield-check" class="w-6 h-6"></i>
-                            <h3 class="font-bold text-lg">Garantía de Gestión (60 días)</h3>
+                        <div class="flex items-start gap-2.5 mb-3 text-brand-blue">
+                            <i data-lucide="shield-check" class="w-6 h-6 shrink-0 mt-0.5"></i>
+                            <h3 class="font-bold text-lg leading-snug">Garantía de Gestión (60 días)</h3>
                         </div>
                         <p class="text-sm text-slate-600">Si algún trámite presentado por nuestra gestión resulta mal
                             presentado ante una entidad, <strong>lo corregimos sin costo</strong>.</p>
                     </div>
                     <div class="bg-white p-6 rounded-2xl border-2 border-brand-blue shadow-lg fade-in">
-                        <div class="flex items-center gap-2 mb-3 text-brand-blue">
-                            <i data-lucide="shield-check" class="w-6 h-6"></i>
-                            <h3 class="font-bold text-lg">Garantía de Ruta Clara</h3>
+                        <div class="flex items-start gap-2.5 mb-3 text-brand-blue">
+                            <i data-lucide="shield-check" class="w-6 h-6 shrink-0 mt-0.5"></i>
+                            <h3 class="font-bold text-lg leading-snug">Garantía de Ruta Clara</h3>
                         </div>
                         <p class="text-sm text-slate-600">Si los 40 minutos no bastan por la complejidad de tu caso,
                             <strong>extendemos la sesión en el acto sin costo adicional</strong>.</p>
@@ -494,9 +504,9 @@
                         <span class="text-[13px] sm:text-base md:text-lg whitespace-nowrap">Quiero mi Escudo Preventivo ($79 USD)</span>
                         <i data-lucide="arrow-right" class="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 group-hover:translate-x-1 transition-transform"></i>
                     </button>
-                    <p class="text-xs text-slate-500 mt-3 text-center leading-relaxed font-medium max-w-md mx-auto">
+                    <p class="text-xs text-slate-500 mt-3 flex items-center justify-center gap-1.5 font-medium max-w-md mx-auto text-center">
                         <i data-lucide="lock" class="w-3.5 h-3.5 text-brand-blue shrink-0"></i>
-                        <span>Los $79 se acreditan al 100% como descuento en tu plan de gestión posterior</span>
+                        <span>Los $79 se acreditan al 100% en tu plan de gestión</span>
                     </p>
                 </div>
             </div>
@@ -578,9 +588,9 @@
                         <span class="text-[13px] sm:text-base md:text-lg whitespace-nowrap">Reservar mi Diagnóstico ($79 USD)</span>
                         <i data-lucide="arrow-right" class="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 group-hover:translate-x-1 transition-transform"></i>
                     </button>
-                    <p class="text-xs text-slate-400 mt-3 font-medium text-center leading-relaxed max-w-md mx-auto">
-                        <svg class="w-3.5 h-3.5 text-amber-500 shrink-0 inline-block align-middle mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                        <span>Solo 4 cupos disponibles esta semana · Sesiones martes y jueves</span>
+                    <p class="text-xs text-slate-400 mt-3 font-medium flex items-start justify-center gap-1.5 max-w-md mx-auto">
+                        <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-500 shrink-0 mt-0.5"></i>
+                        <span class="leading-snug text-left">Solo 4 cupos disponibles esta semana · Sesiones martes y jueves</span>
                     </p>
                 </div>
             </div>
@@ -598,7 +608,7 @@
                     <p class="text-sm text-slate-400 mb-3">Tu aliado legal en Panamá.</p>
                     <div class="flex gap-3">
                         <a target="_blank" rel="noopener" href="https://instagram.com/aizpruase"
-                            class="w-10 h-10 bg-slate-800 hover:bg-pink-600 rounded-full flex items-center justify-center text-white transition"
+                            class="w-10 h-10 bg-slate-800 hover:bg-brand-orange rounded-full flex items-center justify-center text-white transition"
                             aria-label="Instagram">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                 <path
@@ -693,14 +703,22 @@
         </div>
     </div>
 
-    <!-- WhatsApp Flotante Btn (Posicionado encima de la barra móvil para evitar solapamientos) -->
-    <button id="whatsapp-toggle" aria-label="Abrir chat de WhatsApp"
-        class="whatsapp-btn fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-[90] bg-[#25D366] hover:bg-[#20bd5a] text-white p-3.5 sm:p-4 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300">
-        <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="currentColor" viewBox="0 0 24 24">
-            <path
-                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-        </svg>
-    </button>
+    <!-- Contenedor Flotante Oficial (Volver Arriba + WhatsApp) -->
+    <div class="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-[90] flex flex-col items-center gap-5 pointer-events-none">
+        <!-- Boton Flotante "Volver Arriba" (Scroll to Top) -->
+        <button id="scroll-top-btn" onclick="scrollToTop()" aria-label="Volver arriba"
+            class="w-11 h-11 bg-white/95 backdrop-blur border border-slate-300 hover:border-brand-blue text-slate-700 hover:text-brand-blue rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:-translate-y-1 flex items-center justify-center flex-shrink-0 cursor-pointer">
+            <i data-lucide="chevron-up" class="w-5 h-5"></i>
+        </button>
+
+        <!-- Boton Flotante de WhatsApp -->
+        <button id="whatsapp-toggle" aria-label="Abrir chat de WhatsApp"
+            class="whatsapp-btn pointer-events-auto relative w-14 h-14 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center">
+            <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
+        </button>
+    </div>
 
     <!-- Social Proof Toast (Posicionado de forma segura en móvil) -->
     <div id="social-proof-toast"

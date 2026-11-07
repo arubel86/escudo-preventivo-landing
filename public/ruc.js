@@ -284,7 +284,7 @@ function ejecutarBusquedaDesglosadaDgi() {
   if (ruc && !ruc.includes("Completa")) {
     ejecutarBusqueda(ruc);
   } else {
-    mostrarToast("⚠️ Por favor completa los campos del formulario DGI.");
+    mostrarToast("Por favor completa los campos del formulario DGI.");
   }
 }
 
@@ -301,7 +301,7 @@ async function ejecutarBusqueda(queryText) {
   const searchBtn = document.querySelector(".btn-search-dgi");
 
   if (!q || q.includes("Completa")) {
-    mostrarToast("⚠️ Por favor ingresa un RUC, Cédula o Nombre.");
+    mostrarToast("Por favor ingresa un RUC, Cédula o Nombre.");
     return;
   }
 
@@ -494,13 +494,13 @@ function mostrarErrorNoEncontrado(query, mensajeOriginal) {
 
   resultContainer.innerHTML = `
     <div style="background: #FFF5F5; border: 1.5px solid #FEB2B2; padding: 24px; border-radius: 16px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
-      <div style="width: 48px; height: 48px; background: #FED7D7; color: #C53030; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px auto; font-size: 24px; font-weight: bold;">✕</div>
+      <div style="width: 48px; height: 48px; background: #FED7D7; color: #C53030; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px auto; font-size: 24px; font-weight: bold;"><svg style="width:24px;height:24px;display:block;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></div>
       <h3 style="color: #9B2C2C; font-size: 1.2rem; margin-bottom: 8px; font-weight: 700;">Contribuyente no Encontrado en la DGI</h3>
       <p style="color: #742A2A; font-size: 0.95rem; max-width: 500px; margin: 0 auto 16px auto; line-height: 1.5;">
         ${safeMsg}
       </p>
       <div style="font-size: 0.85rem; color: #9B2C2C; background: #FFF; padding: 10px 16px; border-radius: 8px; display: inline-block; border: 1px solid #FEB2B2;">
-        💡 Verifica que el RUC o Cédula esté escrito correctamente (ej: 8-825-886 o 1556843-2-543210).
+        Verifica que el RUC o Cédula esté escrito correctamente (ej: 8-825-886 o 1556843-2-543210).
       </div>
     </div>
   `;
@@ -547,13 +547,13 @@ async function validarCertificadoPazYSalvo(event) {
   const btnSubmit = document.getElementById("btnSubmitCert");
 
   if (!ruc || !numDoc || !fechaValidez || !numControl) {
-    mostrarToast("⚠️ Por favor completa los 4 campos del certificado.");
+    mostrarToast("Por favor completa los 4 campos del certificado.");
     return;
   }
 
   const resVal = document.getElementById("pazYSalvoResult");
   if (resVal) {
-    resVal.innerHTML = `<div style="text-align:center; padding:15px; color:#3849C8;">⏳ Validando datos ante la DGI...</div>`;
+    resVal.innerHTML = `<div style="text-align:center; padding:15px; color:#3849C8;">Validando datos ante la DGI...</div>`;
     resVal.className = "cert-result-card";
     resVal.style.display = "block";
   }
@@ -575,7 +575,7 @@ async function validarCertificadoPazYSalvo(event) {
         resVal.className = "cert-result-card cert-valid";
         resVal.innerHTML = `
           <div style="display:flex; align-items:center; gap:8px; font-weight:bold; font-size:1rem; margin-bottom:6px;">
-            <span>✅</span> ${escapeHtml(data.message)}
+            <svg style="width:18px;height:18px;color:#16a34a;flex-shrink:0;display:inline-block;vertical-align:middle;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> ${escapeHtml(data.message)}
           </div>
           <div style="font-size:0.85rem;">
             Documento N°: <strong>${escapeHtml(data.numDoc)}</strong> | Control: <strong>${escapeHtml(data.numControl)}</strong><br>
@@ -586,7 +586,7 @@ async function validarCertificadoPazYSalvo(event) {
         resVal.className = "cert-result-card cert-invalid";
         resVal.innerHTML = `
           <div style="display:flex; align-items:center; gap:8px; font-weight:bold; font-size:1rem; margin-bottom:6px;">
-            <span>❌</span> ${escapeHtml(data.message)}
+            <svg style="width:18px;height:18px;color:#dc2626;flex-shrink:0;display:inline-block;vertical-align:middle;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> ${escapeHtml(data.message)}
           </div>
           <div style="font-size:0.85rem;">
             No se pudo confirmar la vigencia del certificado para el RUC ${escapeHtml(ruc)}.
@@ -603,7 +603,7 @@ async function validarCertificadoPazYSalvo(event) {
   if (resVal) {
     resVal.className = "cert-result-card cert-invalid";
     resVal.innerHTML = `
-      <div>❌ Error al comunicar con el servidor de validación. Por favor intenta nuevamente.</div>
+      <div>Error al comunicar con el servidor de validación. Por favor intenta nuevamente.</div>
     `;
   }
 }
@@ -614,9 +614,9 @@ function copiarRucCompleto() {
   const dv = currentResult.dv !== undefined ? currentResult.dv : "0";
   const texto = `${currentResult.ruc} DV ${dv}`;
   navigator.clipboard.writeText(texto).then(() => {
-    mostrarToast(`📋 Copiado al portapapeles: ${texto}`);
+    mostrarToast(`Copiado al portapapeles: ${texto}`);
   }).catch(() => {
-    mostrarToast(`📋 Copiado: ${texto}`);
+    mostrarToast(`Copiado: ${texto}`);
   });
 }
 
@@ -624,9 +624,9 @@ function copiarDv() {
   if (!currentResult) return;
   const dv = String(currentResult.dv !== undefined ? currentResult.dv : "0");
   navigator.clipboard.writeText(dv).then(() => {
-    mostrarToast(`📋 Dígito Verificador copiado: DV ${dv}`);
+    mostrarToast(`Dígito Verificador copiado: DV ${dv}`);
   }).catch(() => {
-    mostrarToast(`📋 Dígito Verificador: DV ${dv}`);
+    mostrarToast(`Dígito Verificador: DV ${dv}`);
   });
 }
 
@@ -678,13 +678,13 @@ function eliminarDelHistorial(rucTarget) {
   historial = historial.filter(h => h.ruc !== rucTarget);
   localStorage.setItem("aizprua_ruc_history", JSON.stringify(historial));
   cargashistorialReciente();
-  mostrarToast("🗑️ Consulta eliminada del historial.");
+  mostrarToast("Consulta eliminada del historial.");
 }
 
 function limpiarHistorialCompleto() {
   localStorage.removeItem("aizprua_ruc_history");
   cargashistorialReciente();
-  mostrarToast("🗑️ Historial de consultas borrado.");
+  mostrarToast("Historial de consultas borrado.");
 }
 
 function cargashistorialReciente() {

@@ -10,6 +10,7 @@ Allow: /simulador-prestamos
 Allow: /blog
 Allow: /tienda
 Allow: /escuela
+Allow: /llave-en-mano
 
 # Bloqueo de herramientas operativas privadas y URLs transaccionales
 Disallow: /cotizacion
