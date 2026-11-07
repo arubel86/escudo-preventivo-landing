@@ -482,6 +482,12 @@ app.get('/', (req, res) => {
     return res.sendFile(path.join(__dirname, 'public', 'llave-en-mano.html'));
   }
 
+  // Subdominio asesoria.aizprua.com / asesorias.aizprua.com: Asesorías y Conferencias
+  if (forwardedHost.startsWith('asesoria.') || reqHost.startsWith('asesoria.') ||
+      forwardedHost.startsWith('asesorias.') || reqHost.startsWith('asesorias.')) {
+    return res.sendFile(path.join(__dirname, 'public', 'asesorias.html'));
+  }
+
     // Dominio principal (aizprua.com, www.aizprua.com, localhost): nuevo portal principal
   return res.sendFile(path.join(__dirname, 'public', 'principal.html'));
 });
