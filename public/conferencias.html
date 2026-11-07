@@ -543,10 +543,10 @@
                                 <i data-lucide="briefcase" class="w-4 h-4 shrink-0 text-slate-950"></i>
                                 <span>Cotizar Taller In-Company</span>
                             </a>
-                            <button type="button" onclick="openProposalModal('Taller Grupal In-Company')"
-                                class="w-full py-2.5 px-4 bg-slate-50 hover:bg-slate-100 text-slate-700 rounded-xl font-bold text-xs transition border border-slate-200 flex items-center justify-center gap-1.5">
+                            <button type="button" onclick="openProposalModal('Taller Ejecutivo In-Company')"
+                                class="w-full py-2.5 px-4 bg-slate-50 hover:bg-slate-100 text-slate-700 rounded-xl font-bold text-xs transition border border-slate-200 flex items-center justify-center gap-1.5 cursor-pointer">
                                 <i data-lucide="file-text" class="w-3.5 h-3.5 text-brand-orange shrink-0"></i>
-                                <span>Solicitar Cotización de Conferencia</span>
+                                <span>Solicitar Propuesta Formal (PDF)</span>
                             </button>
                         </div>
                     </div>
@@ -1340,14 +1340,111 @@
         }
 
 // Gestión del Modal de Propuesta Institucional
+        function toggleDropdown(type) {
+            const serviceOptions = document.getElementById('prop-service-options');
+            const attendeesOptions = document.getElementById('prop-attendees-options');
+            const serviceArrow = document.getElementById('prop-service-arrow');
+            const attendeesArrow = document.getElementById('prop-attendees-arrow');
+
+            if (type === 'service') {
+                const isOpen = serviceOptions && !serviceOptions.classList.contains('pointer-events-none');
+                closeAllDropdowns();
+                if (!isOpen && serviceOptions) {
+                    serviceOptions.classList.remove('opacity-0', 'pointer-events-none', 'scale-95');
+                    serviceOptions.classList.add('opacity-100', 'scale-100');
+                    if (serviceArrow) serviceArrow.classList.add('rotate-180');
+                }
+            } else if (type === 'attendees') {
+                const isOpen = attendeesOptions && !attendeesOptions.classList.contains('pointer-events-none');
+                closeAllDropdowns();
+                if (!isOpen && attendeesOptions) {
+                    attendeesOptions.classList.remove('opacity-0', 'pointer-events-none', 'scale-95');
+                    attendeesOptions.classList.add('opacity-100', 'scale-100');
+                    if (attendeesArrow) attendeesArrow.classList.add('rotate-180');
+                }
+            }
+            if (window.lucide) window.lucide.createIcons();
+        }
+
+        function closeAllDropdowns() {
+            const serviceOptions = document.getElementById('prop-service-options');
+            const attendeesOptions = document.getElementById('prop-attendees-options');
+            const serviceArrow = document.getElementById('prop-service-arrow');
+            const attendeesArrow = document.getElementById('prop-attendees-arrow');
+
+            if (serviceOptions) {
+                serviceOptions.classList.add('opacity-0', 'pointer-events-none', 'scale-95');
+                serviceOptions.classList.remove('opacity-100', 'scale-100');
+            }
+            if (attendeesOptions) {
+                attendeesOptions.classList.add('opacity-0', 'pointer-events-none', 'scale-95');
+                attendeesOptions.classList.remove('opacity-100', 'scale-100');
+            }
+            if (serviceArrow) serviceArrow.classList.remove('rotate-180');
+            if (attendeesArrow) attendeesArrow.classList.remove('rotate-180');
+        }
+
+        function selectOption(type, value, iconName) {
+            if (type === 'service') {
+                const hiddenInput = document.getElementById('prop-service');
+                const label = document.getElementById('prop-service-label');
+                const icon = document.getElementById('prop-service-icon');
+                if (hiddenInput) hiddenInput.value = value;
+                if (label) label.textContent = value;
+                if (icon && iconName) icon.setAttribute('data-lucide', iconName);
+
+                const container = document.getElementById('prop-service-options');
+                if (container) {
+                    container.querySelectorAll('.dropdown-item').forEach(item => {
+                        const check = item.querySelector('.check-icon');
+                        if (item.getAttribute('data-value') === value) {
+                            if (check) check.classList.remove('hidden');
+                            item.classList.add('bg-slate-50');
+                        } else {
+                            if (check) check.classList.add('hidden');
+                            item.classList.remove('bg-slate-50');
+                        }
+                    });
+                }
+            } else if (type === 'attendees') {
+                const hiddenInput = document.getElementById('prop-attendees');
+                const label = document.getElementById('prop-attendees-label');
+                const icon = document.getElementById('prop-attendees-icon');
+                if (hiddenInput) hiddenInput.value = value;
+                if (label) label.textContent = value;
+                if (icon && iconName) icon.setAttribute('data-lucide', iconName);
+
+                const container = document.getElementById('prop-attendees-options');
+                if (container) {
+                    container.querySelectorAll('.dropdown-item').forEach(item => {
+                        const check = item.querySelector('.check-icon');
+                        if (item.getAttribute('data-value') === value) {
+                            if (check) check.classList.remove('hidden');
+                            item.classList.add('bg-slate-50');
+                        } else {
+                            if (check) check.classList.add('hidden');
+                            item.classList.remove('bg-slate-50');
+                        }
+                    });
+                }
+            }
+            closeAllDropdowns();
+            if (window.lucide) window.lucide.createIcons();
+        }
+
         function openProposalModal(defaultService) {
+            closeAllDropdowns();
             const modal = document.getElementById('proposal-modal');
             if (defaultService) {
-                const serviceSelect = document.getElementById('prop-service');
-                if (serviceSelect) {
-                    for (let i = 0; i < serviceSelect.options.length; i++) {
-                        if (serviceSelect.options[i].value.includes(defaultService) || defaultService.includes(serviceSelect.options[i].value)) {
-                            serviceSelect.selectedIndex = i;
+                const container = document.getElementById('prop-service-options');
+                if (container) {
+                    const items = container.querySelectorAll('.dropdown-item');
+                    for (let i = 0; i < items.length; i++) {
+                        const val = items[i].getAttribute('data-value');
+                        if (val && (val.toLowerCase().includes(defaultService.toLowerCase()) || defaultService.toLowerCase().includes(val.toLowerCase()))) {
+                            const iconEl = items[i].querySelector('[data-lucide]');
+                            const iconName = iconEl ? iconEl.getAttribute('data-lucide') : 'presentation';
+                            selectOption('service', val, iconName);
                             break;
                         }
                     }
@@ -1363,6 +1460,7 @@
         }
 
         function closeProposalModal() {
+            closeAllDropdowns();
             const modal = document.getElementById('proposal-modal');
             if (modal) {
                 modal.classList.add('opacity-0', 'pointer-events-none');
@@ -1402,7 +1500,16 @@
 
         // Cierre con Escape y Clic Fuera
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeProposalModal();
+            if (e.key === 'Escape') {
+                closeAllDropdowns();
+                closeProposalModal();
+            }
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.custom-dropdown')) {
+                closeAllDropdowns();
+            }
         });
 
         const proposalModalEl = document.getElementById('proposal-modal');
@@ -1486,25 +1593,164 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-1.5">Servicio de Interés</label>
-                        <select id="prop-service" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs text-slate-800 bg-white focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue">
-                            <option value="Conferencia Magistral (Keynote - 45 a 90 min)">Conferencia Magistral (Keynote - 45 a 90 min)</option>
-                            <option value="Taller Ejecutivo In-Company (Workshop - 4 horas)">Taller Ejecutivo In-Company (Workshop - 4 horas)</option>
-                            <option value="Programa Modular a Medida (Multisesión)">Programa Modular a Medida (Multisesión)</option>
-                            <option value="Charla de Cultura Preventiva y Cumplimiento">Charla de Cultura Preventiva y Cumplimiento</option>
-                        </select>
+                <!-- Selector Flotante: Servicio de Interés -->
+                <div class="relative custom-dropdown">
+                    <label class="block text-xs font-bold text-slate-700 mb-1.5">Servicio o Formato de Interés</label>
+                    <button type="button" id="prop-service-trigger" onclick="toggleDropdown('service')"
+                        class="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white text-xs text-slate-800 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue hover:border-slate-300 transition text-left cursor-pointer">
+                        <span class="flex items-center gap-2.5 min-w-0 pr-2">
+                            <i id="prop-service-icon" data-lucide="presentation" class="w-4 h-4 text-brand-blue shrink-0"></i>
+                            <span id="prop-service-label" class="font-medium text-slate-800 truncate">Conferencia Magistral (Keynote - 45 a 90 min)</span>
+                        </span>
+                        <i id="prop-service-arrow" data-lucide="chevron-down" class="w-4 h-4 text-slate-400 shrink-0 transition-transform duration-200"></i>
+                    </button>
+
+                    <!-- Menú Desplegable Flotante con 8px de separación -->
+                    <div id="prop-service-options"
+                        class="absolute left-0 right-0 top-[calc(100%+8px)] z-50 bg-white/95 backdrop-blur-md rounded-2xl border border-slate-200 shadow-2xl p-1.5 space-y-1 opacity-0 pointer-events-none scale-95 transition-all duration-200">
+                        
+                        <div class="dropdown-item flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-50 cursor-pointer transition bg-slate-50"
+                            data-value="Conferencia Magistral (Keynote - 45 a 90 min)"
+                            onclick="selectOption('service', 'Conferencia Magistral (Keynote - 45 a 90 min)', 'presentation')">
+                            <div class="flex items-center gap-3 min-w-0">
+                                <div class="w-8 h-8 rounded-lg bg-brand-blue/10 text-brand-blue flex items-center justify-center shrink-0">
+                                    <i data-lucide="presentation" class="w-4 h-4"></i>
+                                </div>
+                                <div class="min-w-0">
+                                    <div class="font-bold text-xs text-slate-900 leading-tight">Conferencia Magistral (Keynote)</div>
+                                    <div class="text-[11px] text-slate-500 leading-tight mt-0.5">45 a 90 min • Liderazgo, visión estratégica y prevención</div>
+                                </div>
+                            </div>
+                            <i data-lucide="check" class="check-icon w-4 h-4 text-brand-blue shrink-0 ml-2"></i>
+                        </div>
+
+                        <div class="dropdown-item flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-50 cursor-pointer transition"
+                            data-value="Taller Ejecutivo In-Company (Workshop - 4 horas)"
+                            onclick="selectOption('service', 'Taller Ejecutivo In-Company (Workshop - 4 horas)', 'users')">
+                            <div class="flex items-center gap-3 min-w-0">
+                                <div class="w-8 h-8 rounded-lg bg-brand-orange/10 text-brand-orange flex items-center justify-center shrink-0">
+                                    <i data-lucide="users" class="w-4 h-4"></i>
+                                </div>
+                                <div class="min-w-0">
+                                    <div class="font-bold text-xs text-slate-900 leading-tight">Taller Ejecutivo In-Company (Workshop)</div>
+                                    <div class="text-[11px] text-slate-500 leading-tight mt-0.5">Medio día (4 horas) • Formación práctica a tu equipo clave</div>
+                                </div>
+                            </div>
+                            <i data-lucide="check" class="check-icon w-4 h-4 text-brand-blue shrink-0 ml-2 hidden"></i>
+                        </div>
+
+                        <div class="dropdown-item flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-50 cursor-pointer transition"
+                            data-value="Programa Modular a Medida (Multisesión)"
+                            onclick="selectOption('service', 'Programa Modular a Medida (Multisesión)', 'layers')">
+                            <div class="flex items-center gap-3 min-w-0">
+                                <div class="w-8 h-8 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center shrink-0">
+                                    <i data-lucide="layers" class="w-4 h-4"></i>
+                                </div>
+                                <div class="min-w-0">
+                                    <div class="font-bold text-xs text-slate-900 leading-tight">Programa Modular a Medida</div>
+                                    <div class="text-[11px] text-slate-500 leading-tight mt-0.5">Multisesión • Para gremios, asociaciones y corporativos</div>
+                                </div>
+                            </div>
+                            <i data-lucide="check" class="check-icon w-4 h-4 text-brand-blue shrink-0 ml-2 hidden"></i>
+                        </div>
+
+                        <div class="dropdown-item flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-50 cursor-pointer transition"
+                            data-value="Charla de Cultura Preventiva y Cumplimiento"
+                            onclick="selectOption('service', 'Charla de Cultura Preventiva y Cumplimiento', 'shield-check')">
+                            <div class="flex items-center gap-3 min-w-0">
+                                <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                                    <i data-lucide="shield-check" class="w-4 h-4"></i>
+                                </div>
+                                <div class="min-w-0">
+                                    <div class="font-bold text-xs text-slate-900 leading-tight">Charla de Cultura Preventiva y Cumplimiento</div>
+                                    <div class="text-[11px] text-slate-500 leading-tight mt-0.5">60 minutos • Blindaje normativo ante DGI, CSS y Mitradel</div>
+                                </div>
+                            </div>
+                            <i data-lucide="check" class="check-icon w-4 h-4 text-brand-blue shrink-0 ml-2 hidden"></i>
+                        </div>
+
                     </div>
-                    <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-1.5">Audiencia Estimada</label>
-                        <select id="prop-attendees" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs text-slate-800 bg-white focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue">
-                            <option value="5 a 15 personas (Comité Directivo / Mandos Clave)">5 a 15 personas (Comité Directivo / Mandos Clave)</option>
-                            <option value="16 a 40 personas (Equipo o Departamento)">16 a 40 personas (Equipo o Departamento)</option>
-                            <option value="41 a 100 personas (Convención / Taller General)">41 a 100 personas (Convención / Taller General)</option>
-                            <option value="Más de 100 personas (Auditorio / Congreso)">Más de 100 personas (Auditorio / Congreso)</option>
-                        </select>
+                    <input type="hidden" id="prop-service" value="Conferencia Magistral (Keynote - 45 a 90 min)">
+                </div>
+
+                <!-- Selector Flotante: Audiencia Estimada -->
+                <div class="relative custom-dropdown">
+                    <label class="block text-xs font-bold text-slate-700 mb-1.5">Audiencia Estimada</label>
+                    <button type="button" id="prop-attendees-trigger" onclick="toggleDropdown('attendees')"
+                        class="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white text-xs text-slate-800 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue hover:border-slate-300 transition text-left cursor-pointer">
+                        <span class="flex items-center gap-2.5 min-w-0 pr-2">
+                            <i id="prop-attendees-icon" data-lucide="user-check" class="w-4 h-4 text-brand-orange shrink-0"></i>
+                            <span id="prop-attendees-label" class="font-medium text-slate-800 truncate">5 a 15 personas (Comité Directivo / Mandos Clave)</span>
+                        </span>
+                        <i id="prop-attendees-arrow" data-lucide="chevron-down" class="w-4 h-4 text-slate-400 shrink-0 transition-transform duration-200"></i>
+                    </button>
+
+                    <!-- Menú Desplegable Flotante con 8px de separación -->
+                    <div id="prop-attendees-options"
+                        class="absolute left-0 right-0 top-[calc(100%+8px)] z-50 bg-white/95 backdrop-blur-md rounded-2xl border border-slate-200 shadow-2xl p-1.5 space-y-1 opacity-0 pointer-events-none scale-95 transition-all duration-200">
+                        
+                        <div class="dropdown-item flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-50 cursor-pointer transition bg-slate-50"
+                            data-value="5 a 15 personas (Comité Directivo / Mandos Clave)"
+                            onclick="selectOption('attendees', '5 a 15 personas (Comité Directivo / Mandos Clave)', 'user-check')">
+                            <div class="flex items-center gap-3 min-w-0">
+                                <div class="w-8 h-8 rounded-lg bg-brand-orange/10 text-brand-orange flex items-center justify-center shrink-0">
+                                    <i data-lucide="user-check" class="w-4 h-4"></i>
+                                </div>
+                                <div class="min-w-0">
+                                    <div class="font-bold text-xs text-slate-900 leading-tight">5 a 15 personas</div>
+                                    <div class="text-[11px] text-slate-500 leading-tight mt-0.5">Comité Directivo, Socios y Mandos Clave</div>
+                                </div>
+                            </div>
+                            <i data-lucide="check" class="check-icon w-4 h-4 text-brand-blue shrink-0 ml-2"></i>
+                        </div>
+
+                        <div class="dropdown-item flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-50 cursor-pointer transition"
+                            data-value="16 a 40 personas (Equipo o Departamento)"
+                            onclick="selectOption('attendees', '16 a 40 personas (Equipo o Departamento)', 'users')">
+                            <div class="flex items-center gap-3 min-w-0">
+                                <div class="w-8 h-8 rounded-lg bg-brand-blue/10 text-brand-blue flex items-center justify-center shrink-0">
+                                    <i data-lucide="users" class="w-4 h-4"></i>
+                                </div>
+                                <div class="min-w-0">
+                                    <div class="font-bold text-xs text-slate-900 leading-tight">16 a 40 personas</div>
+                                    <div class="text-[11px] text-slate-500 leading-tight mt-0.5">Equipo de Trabajo o Departamento Completo</div>
+                                </div>
+                            </div>
+                            <i data-lucide="check" class="check-icon w-4 h-4 text-brand-blue shrink-0 ml-2 hidden"></i>
+                        </div>
+
+                        <div class="dropdown-item flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-50 cursor-pointer transition"
+                            data-value="41 a 100 personas (Convención / Taller General)"
+                            onclick="selectOption('attendees', '41 a 100 personas (Convención / Taller General)', 'building-2')">
+                            <div class="flex items-center gap-3 min-w-0">
+                                <div class="w-8 h-8 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center shrink-0">
+                                    <i data-lucide="building-2" class="w-4 h-4"></i>
+                                </div>
+                                <div class="min-w-0">
+                                    <div class="font-bold text-xs text-slate-900 leading-tight">41 a 100 personas</div>
+                                    <div class="text-[11px] text-slate-500 leading-tight mt-0.5">Convención Anual, Retiro o Taller General</div>
+                                </div>
+                            </div>
+                            <i data-lucide="check" class="check-icon w-4 h-4 text-brand-blue shrink-0 ml-2 hidden"></i>
+                        </div>
+
+                        <div class="dropdown-item flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-50 cursor-pointer transition"
+                            data-value="Más de 100 personas (Auditorio / Congreso)"
+                            onclick="selectOption('attendees', 'Más de 100 personas (Auditorio / Congreso)', 'award')">
+                            <div class="flex items-center gap-3 min-w-0">
+                                <div class="w-8 h-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
+                                    <i data-lucide="award" class="w-4 h-4"></i>
+                                </div>
+                                <div class="min-w-0">
+                                    <div class="font-bold text-xs text-slate-900 leading-tight">Más de 100 personas</div>
+                                    <div class="text-[11px] text-slate-500 leading-tight mt-0.5">Congreso, Gran Auditorio o Evento Masivo</div>
+                                </div>
+                            </div>
+                            <i data-lucide="check" class="check-icon w-4 h-4 text-brand-blue shrink-0 ml-2 hidden"></i>
+                        </div>
+
                     </div>
+                    <input type="hidden" id="prop-attendees" value="5 a 15 personas (Comité Directivo / Mandos Clave)">
                 </div>
 
                 <div>
