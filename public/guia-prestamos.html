@@ -136,25 +136,44 @@
             animation: float-badge 3s ease-in-out infinite;
         }
 
+        /* Ondas de WhatsApp Pulsantes (Confinadas sin tocar boton de subida) */
         @keyframes pulse-ring {
             0% {
-                transform: scale(.8);
-                opacity: 1;
+                transform: scale(0.96);
+                opacity: 0.7;
+            }
+            60% {
+                opacity: 0.25;
             }
             100% {
-                transform: scale(1.4);
+                transform: scale(1.16);
                 opacity: 0;
             }
         }
 
-        .whatsapp-btn::before {
+        .whatsapp-btn,
+        .whatsapp-pulse-btn {
+            position: relative;
+        }
+
+        .whatsapp-btn::before,
+        .whatsapp-pulse-btn::before {
             content: '';
             position: absolute;
             inset: 0;
             border-radius: 9999px;
             background: #25D366;
-            animation: pulse-ring 1.5s infinite;
+            animation: pulse-ring 2.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
             z-index: -1;
+            pointer-events: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .whatsapp-btn::before,
+            .whatsapp-pulse-btn::before {
+                animation: none !important;
+                display: none !important;
+            }
         }
 
         /* Ocultar barra de scroll manteniendo desplazamiento fluido */
@@ -254,7 +273,7 @@
                 <div class="hidden sm:flex items-center gap-3">
                     <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20le%C3%AD%20la%20Gu%C3%ADa%20de%20Pr%C3%A9stamos%20y%20quisiera%20asesor%C3%ADa"
                         target="_blank" rel="noopener noreferrer"
-                        class="flex items-center gap-2 bg-[#25D366] text-white px-5 py-2.5 rounded-full font-bold text-sm hover:bg-[#20bd5a] transition shadow-md hover:shadow-lg whitespace-nowrap transform hover:-translate-y-0.5">
+                        class="whatsapp-btn relative flex items-center gap-2 bg-[#25D366] text-white px-5 py-2.5 rounded-full font-bold text-sm hover:bg-[#20bd5a] transition shadow-md hover:shadow-lg whitespace-nowrap transform hover:-translate-y-0.5">
                         <i data-lucide="message-circle" class="w-4 h-4 flex-shrink-0"></i>
                         <span>WhatsApp Oficial</span>
                     </a>
@@ -1319,7 +1338,7 @@
                             </svg>
                         </a>
                         <a href="https://wa.me/50765461527" target="_blank"
-                            class="w-10 h-10 bg-slate-800 hover:bg-green-500 rounded-full flex items-center justify-center text-white transition"
+                            class="whatsapp-btn relative w-10 h-10 bg-slate-800 hover:bg-green-500 rounded-full flex items-center justify-center text-white transition"
                             aria-label="WhatsApp" rel="noopener noreferrer">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                 <path
@@ -1371,7 +1390,7 @@
     </footer>
 
     <!-- Contenedor Flotante de Acciones -->
-    <div class="fixed bottom-6 right-6 z-40 flex flex-col items-center gap-3 pointer-events-none">
+    <div class="fixed bottom-6 right-6 z-[90] flex flex-col items-center gap-5 pointer-events-none">
         <!-- Botón Flotante "Volver Arriba" (Scroll to Top) -->
         <button id="scroll-top-btn" onclick="scrollToTop()" aria-label="Volver arriba"
             class="w-11 h-11 bg-white/95 backdrop-blur border border-slate-300 hover:border-brand-blue text-slate-700 hover:text-brand-blue rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:-translate-y-1 flex items-center justify-center flex-shrink-0">
@@ -1381,7 +1400,7 @@
         <!-- Botón Flotante de WhatsApp Fijo -->
         <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20tengo%20una%20consulta%20empresarial"
             target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp"
-            class="pointer-events-auto w-14 h-14 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center group relative flex-shrink-0">
+            class="whatsapp-btn pointer-events-auto w-14 h-14 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center group relative flex-shrink-0">
             <i data-lucide="message-circle" class="w-7 h-7"></i>
             <span class="absolute right-full mr-3 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg">
                 ¿Dudas? Chatea con nosotros
