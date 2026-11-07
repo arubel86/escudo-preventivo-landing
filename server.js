@@ -472,14 +472,19 @@ app.get('/', (req, res) => {
   const forwardedHost = (req.headers['x-forwarded-host'] || '').split(',')[0].trim().toLowerCase().replace(/:\d+$/, '');
   const reqHost = (req.headers.host || req.hostname || '').toLowerCase().replace(/:\d+$/, '');
 
-  // Solo si es explícitamente el subdominio escudo.aizprua.com (evita coincidir con el nombre del contenedor escudo-preventivo)
-  if (forwardedHost.startsWith('escudo.') || reqHost.startsWith('escudo.')) {
+  // Solo si es explícitamente el subdominio escudo.aizprua.com / escudos.aizprua.com (evita coincidir con el nombre del contenedor escudo-preventivo)
+  if (forwardedHost.startsWith('escudo.') || reqHost.startsWith('escudo.') ||
+      forwardedHost.startsWith('escudos.') || reqHost.startsWith('escudos.') ||
+      forwardedHost.startsWith('www.escudo.') || reqHost.startsWith('www.escudo.') ||
+      forwardedHost.startsWith('www.escudos.') || reqHost.startsWith('www.escudos.')) {
     return res.sendFile(path.join(escudoPreventivoDir, 'index.html'));
   }
 
-  // Subdominio llave.aizprua.com: Servicio Llave en Mano
+  // Subdominio llave.aizprua.com / llaves.aizprua.com: Servicio Llave en Mano
   if (forwardedHost.startsWith('llave.') || reqHost.startsWith('llave.') ||
-      forwardedHost.startsWith('www.llave.') || reqHost.startsWith('www.llave.')) {
+      forwardedHost.startsWith('llaves.') || reqHost.startsWith('llaves.') ||
+      forwardedHost.startsWith('www.llave.') || reqHost.startsWith('www.llave.') ||
+      forwardedHost.startsWith('www.llaves.') || reqHost.startsWith('www.llaves.')) {
     return res.sendFile(path.join(__dirname, 'public', 'llave-en-mano.html'));
   }
 
@@ -948,12 +953,29 @@ app.get(['/gracias-factura.html', '/factura-pagada', '/pago-exitoso'], (req, res
   res.redirect(301, '/gracias-factura' + query);
 });
 
-// 10.13. Servicio Llave en Mano & Formalización Empresarial (Redirección a https://llave.aizprua.com)
-app.get(['/llave-en-mano', '/llave-en-mano.html', '/paquetes', '/servicios', '/paquetes.html', '/servicios.html'], (req, res) => {
+// 10.13. Escudo Preventivo (Rutas amigables en singular y plural con redirección a https://escudo.aizprua.com)
+app.get(['/escudo', '/escudos', '/escudo.html', '/escudos.html'], (req, res) => {
+  const forwardedHost = (req.headers['x-forwarded-host'] || '').split(',')[0].trim().toLowerCase().replace(/:\d+$/, '');
+  const reqHost = (req.headers.host || req.hostname || '').toLowerCase().replace(/:\d+$/, '');
+  const isEscudoSub = forwardedHost.startsWith('escudo.') || reqHost.startsWith('escudo.') ||
+                      forwardedHost.startsWith('escudos.') || reqHost.startsWith('escudos.') ||
+                      forwardedHost.startsWith('www.escudo.') || reqHost.startsWith('www.escudo.') ||
+                      forwardedHost.startsWith('www.escudos.') || reqHost.startsWith('www.escudos.');
+  if (isEscudoSub) {
+    return res.sendFile(path.join(escudoPreventivoDir, 'index.html'));
+  }
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, 'https://escudo.aizprua.com' + query);
+});
+
+// 10.14. Servicio Llave en Mano & Formalización Empresarial (Redirección a https://llave.aizprua.com)
+app.get(['/llave', '/llaves', '/llave.html', '/llaves.html', '/llave-en-mano', '/llave-en-mano.html', '/paquetes', '/servicios', '/paquetes.html', '/servicios.html'], (req, res) => {
   const forwardedHost = (req.headers['x-forwarded-host'] || '').split(',')[0].trim().toLowerCase().replace(/:\d+$/, '');
   const reqHost = (req.headers.host || req.hostname || '').toLowerCase().replace(/:\d+$/, '');
   const isLlaveSub = forwardedHost.startsWith('llave.') || reqHost.startsWith('llave.') ||
-                     forwardedHost.startsWith('www.llave.') || reqHost.startsWith('www.llave.');
+                     forwardedHost.startsWith('llaves.') || reqHost.startsWith('llaves.') ||
+                     forwardedHost.startsWith('www.llave.') || reqHost.startsWith('www.llave.') ||
+                     forwardedHost.startsWith('www.llaves.') || reqHost.startsWith('www.llaves.');
   if (isLlaveSub) {
     return res.sendFile(path.join(__dirname, 'public', 'llave-en-mano.html'));
   }
@@ -961,7 +983,7 @@ app.get(['/llave-en-mano', '/llave-en-mano.html', '/paquetes', '/servicios', '/p
   res.redirect(301, 'https://llave.aizprua.com' + query);
 });
 
-// 10.14. Conferencias Magistrales & Formación In-Company (Redirección a https://conferencias.aizprua.com)
+// 10.15. Conferencias Magistrales & Formación In-Company (Redirección a https://conferencias.aizprua.com)
 app.get(['/conferencias', '/conferencia', '/conferencias.html', '/conferencia.html', '/asesorias', '/asesorias.html', '/talleres', '/capacitacion', '/capacitaciones', '/talleres.html', '/capacitacion.html', '/capacitaciones.html'], (req, res) => {
   const forwardedHost = (req.headers['x-forwarded-host'] || '').split(',')[0].trim().toLowerCase().replace(/:\d+$/, '');
   const reqHost = (req.headers.host || req.hostname || '').toLowerCase().replace(/:\d+$/, '');
@@ -969,7 +991,10 @@ app.get(['/conferencias', '/conferencia', '/conferencias.html', '/conferencia.ht
                     forwardedHost.startsWith('conferencias.') || reqHost.startsWith('conferencias.') ||
                     forwardedHost.startsWith('www.conferencia.') || reqHost.startsWith('www.conferencia.') ||
                     forwardedHost.startsWith('www.conferencias.') || reqHost.startsWith('www.conferencias.') ||
-                    forwardedHost.startsWith('asesoria.') || reqHost.startsWith('asesoria.');
+                    forwardedHost.startsWith('asesoria.') || reqHost.startsWith('asesoria.') ||
+                    forwardedHost.startsWith('asesorias.') || reqHost.startsWith('asesorias.') ||
+                    forwardedHost.startsWith('www.asesoria.') || reqHost.startsWith('www.asesoria.') ||
+                    forwardedHost.startsWith('www.asesorias.') || reqHost.startsWith('www.asesorias.');
   if (isConfSub) {
     return res.sendFile(path.join(__dirname, 'public', 'conferencias.html'));
   }
