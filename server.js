@@ -488,7 +488,7 @@ app.get('/', (req, res) => {
       forwardedHost.startsWith('conferencias.') || reqHost.startsWith('conferencias.') ||
       forwardedHost.startsWith('www.conferencia.') || reqHost.startsWith('www.conferencia.') ||
       forwardedHost.startsWith('www.conferencias.') || reqHost.startsWith('www.conferencias.')) {
-    return res.sendFile(path.join(__dirname, 'public', 'asesorias.html'));
+    return res.sendFile(path.join(__dirname, 'public', 'conferencias.html'));
   }
 
   // Redirección retrocompatible de asesoria. / asesorias. hacia conferencias.aizprua.com
@@ -971,7 +971,7 @@ app.get(['/conferencias', '/conferencia', '/conferencias.html', '/conferencia.ht
                     forwardedHost.startsWith('www.conferencias.') || reqHost.startsWith('www.conferencias.') ||
                     forwardedHost.startsWith('asesoria.') || reqHost.startsWith('asesoria.');
   if (isConfSub) {
-    return res.sendFile(path.join(__dirname, 'public', 'asesorias.html'));
+    return res.sendFile(path.join(__dirname, 'public', 'conferencias.html'));
   }
   const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
   res.redirect(301, 'https://conferencias.aizprua.com' + query);
