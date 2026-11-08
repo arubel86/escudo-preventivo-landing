@@ -379,9 +379,12 @@
 
                 <!-- Columna Izquierda: Copy de Conversión -->
                 <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                    <div class="inline-flex items-center gap-2 px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-[10.5px] sm:text-xs md:text-sm font-extrabold uppercase tracking-wide text-left shadow-xs">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-[10px] sm:text-xs md:text-sm font-extrabold uppercase tracking-wider text-left shadow-xs whitespace-nowrap">
                         <i data-lucide="shield" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-orange shrink-0"></i>
-                        <span class="leading-normal">Firma Legal & Estructuración Empresarial en Panamá</span>
+                        <span class="leading-none">
+                            <span class="sm:hidden">Firma Legal & Estructuración</span>
+                            <span class="hidden sm:inline">Firma Legal & Estructuración Empresarial en Panamá</span>
+                        </span>
                     </div>
 
                     <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.15]">
@@ -624,7 +627,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
                 
                 <!-- PILAR 1: ASESORÍA EMPRESARIAL (ESCUDO PREVENTIVO) -->
-                <div class="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-xl flex flex-col justify-between hover:shadow-2xl transition duration-300 relative group overflow-hidden reveal-on-scroll stagger-1">
+                <div class="bg-white rounded-3xl p-6 sm:p-8 md:p-10 border border-slate-200 shadow-xl flex flex-col justify-between hover:shadow-2xl transition duration-300 relative group overflow-hidden reveal-on-scroll stagger-1">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-brand-blue/10 rounded-bl-full pointer-events-none transition group-hover:scale-110"></div>
                     
                     <div>
@@ -661,14 +664,14 @@
                     </div>
 
                     <a href="https://escudo.aizprua.com/"
-                        class="w-full inline-flex items-center justify-center gap-2 py-4 px-6 bg-brand-blue hover:bg-brand-blue-dark text-white rounded-2xl font-extrabold text-sm sm:text-base transition shadow-md">
-                        <span>Conoce el Escudo Preventivo</span>
-                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        class="w-full inline-flex items-center justify-center gap-2 py-3.5 sm:py-4 px-4 sm:px-6 bg-brand-blue hover:bg-brand-blue-dark text-white rounded-2xl font-extrabold text-xs min-[380px]:text-sm sm:text-base transition shadow-md">
+                        <span class="whitespace-nowrap">Conoce el Escudo Preventivo</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 shrink-0"></i>
                     </a>
                 </div>
 
                 <!-- PILAR 2: TRÁMITES EMPRESARIALES (LLAVE EN MANO) -->
-                <div class="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-xl flex flex-col justify-between hover:shadow-2xl transition duration-300 relative group overflow-hidden reveal-on-scroll stagger-2">
+                <div class="bg-white rounded-3xl p-6 sm:p-8 md:p-10 border border-slate-200 shadow-xl flex flex-col justify-between hover:shadow-2xl transition duration-300 relative group overflow-hidden reveal-on-scroll stagger-2">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-brand-orange/10 rounded-bl-full pointer-events-none transition group-hover:scale-110"></div>
                     
                     <div>
@@ -705,9 +708,9 @@
                     </div>
 
                     <a href="https://llave.aizprua.com/"
-                        class="w-full inline-flex items-center justify-center gap-2 py-4 px-6 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-2xl font-extrabold text-sm sm:text-base transition shadow-md">
-                        <span>Conoce el Servicio Llave en Mano</span>
-                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        class="w-full inline-flex items-center justify-center gap-2 py-3.5 sm:py-4 px-4 sm:px-6 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-2xl font-extrabold text-xs min-[380px]:text-sm sm:text-base transition shadow-md">
+                        <span class="whitespace-nowrap">Conoce el Servicio Llave en Mano</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 shrink-0"></i>
                     </a>
                 </div>
 
@@ -888,7 +891,7 @@
 
             <!-- Banner Sello Factura Electrónica DGI -->
             <div class="mt-10 p-4 rounded-2xl bg-slate-100 border border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 text-xs font-bold text-slate-600 text-left reveal-on-scroll">
-                <div class="flex items-center gap-3">
+                <div class="flex items-start sm:items-center gap-3">
                     <span class="w-8 h-8 rounded-full bg-brand-blue text-white flex items-center justify-center shrink-0">
                         <i data-lucide="receipt" class="w-4 h-4"></i>
                     </span>

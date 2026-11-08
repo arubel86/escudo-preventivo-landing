@@ -268,9 +268,12 @@
 
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                 <!-- Píldora de Categoría con Efecto Flotante -->
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-xs font-bold uppercase tracking-wider mb-6 animate-float-badge backdrop-blur-sm cursor-default">
+                <div class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-[10.5px] sm:text-xs font-bold uppercase tracking-wider mb-6 animate-float-badge backdrop-blur-sm cursor-default whitespace-nowrap shadow-xs">
                     <i data-lucide="shield-check" class="w-3.5 h-3.5 shrink-0 text-brand-blue"></i>
-                    <span>Solución de Apertura y Blindaje Legal · República de Panamá</span>
+                    <span class="leading-none">
+                        <span class="sm:hidden">Apertura y Blindaje Legal</span>
+                        <span class="hidden sm:inline">Solución de Apertura y Blindaje Legal · República de Panamá</span>
+                    </span>
                 </div>
 
                 <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-tight max-w-4xl mx-auto mb-6">
@@ -417,11 +420,11 @@
                     <!-- Tarjeta 1: Operar en Riesgo / Informal -->
                     <div class="bg-red-50/60 border border-red-200 rounded-3xl p-6 sm:p-8 flex flex-col justify-between reveal-on-scroll stagger-1">
                         <div>
-                            <div class="flex items-center gap-2 mb-4">
+                            <div class="flex items-center gap-2.5 mb-4">
                                 <span class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-red-600 shrink-0 font-bold text-xs">
                                     <i data-lucide="alert-triangle" class="w-4 h-4"></i>
                                 </span>
-                                <h3 class="font-bold text-red-900 text-lg">Negocio Informal en Riesgo</h3>
+                                <h3 class="font-bold text-red-900 text-base sm:text-lg">Negocio Informal en Riesgo</h3>
                             </div>
 
                             <ul class="space-y-3.5 text-xs sm:text-sm text-slate-700">
@@ -452,11 +455,14 @@
                     <!-- Tarjeta 2: Blindado con Aizprua S.E. -->
                     <div class="bg-brand-blue/5 border border-brand-blue/30 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-sm reveal-on-scroll stagger-2">
                         <div>
-                            <div class="flex items-center gap-2 mb-4">
+                            <div class="flex items-center gap-2.5 mb-4">
                                 <span class="w-8 h-8 rounded-full bg-brand-blue text-white flex items-center justify-center shrink-0 font-bold text-xs">
                                     <i data-lucide="check" class="w-4 h-4"></i>
                                 </span>
-                                <h3 class="font-bold text-brand-blue text-lg">Negocio Blindado con Aizprua S.E.</h3>
+                                <h3 class="font-bold text-brand-blue text-base sm:text-lg">
+                                    <span class="sm:hidden">Negocio Blindado con Aizprua</span>
+                                    <span class="hidden sm:inline">Negocio Blindado con Aizprua S.E.</span>
+                                </h3>
                             </div>
 
                             <ul class="space-y-3.5 text-xs sm:text-sm text-slate-700">
@@ -873,9 +879,10 @@
                             <a id="btn-calc-whatsapp"
                                 href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.%2C%20us%C3%A9%20la%20calculadora%20de%20riesgos%20y%20deseo%20regularizar%20mi%20empresa%20para%20evitar%20sanciones."
                                 target="_blank" rel="noopener noreferrer"
-                                class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-brand-orange hover:bg-brand-orange-dark text-slate-950 font-bold text-sm rounded-xl transition shadow-lg shadow-brand-orange/20 w-full sm:w-auto">
+                                class="inline-flex items-center justify-center gap-2 px-4 sm:px-8 py-3.5 bg-brand-orange hover:bg-brand-orange-dark text-slate-950 font-bold text-xs min-[360px]:text-sm rounded-xl transition shadow-lg shadow-brand-orange/20 w-full sm:w-auto whitespace-nowrap">
                                 <i data-lucide="shield-alert" class="w-4 h-4 shrink-0 text-slate-950"></i>
-                                <span>Evitar Multas y Regularizarme Hoy</span>
+                                <span class="hidden sm:inline">Evitar Multas y Regularizarme Hoy</span>
+                                <span class="sm:hidden">Evitar Multas y Regularizarme</span>
                             </a>
                         </div>
                     </div>
