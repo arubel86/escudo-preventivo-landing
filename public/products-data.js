@@ -12,833 +12,975 @@
 
 const AIZPRUA_PRODUCTS = [
     {
-        id: "plan-360-digital",
-        sku: "P360-DIG",
-        crmCategory: "Blindaje Legal",
-        cost: 0.00,
-        stock: 999,
-        title: "Plan 360 empresarial (edición digital)",
-        homeTitle: "Plan 360 empresarial (digital)",
-        category: "blindaje",
-        categoryLabel: "Estructuración Integral · Edición 2026",
-        delivery: "digital",
-        price: 24.99,
-        priceOld: "$39.99",
-        priceDisplay: "$24.99",
-        currency: "USD",
-        discountBadge: "OFERTA",
-        guarantee: "Garantía 7 días",
-        badgeLeft: { text: "100% Interactivo", homeText: "Edición digital global", class: "bg-brand-blue text-white" },
-        badgeRight: { text: "Descarga Inmediata", homeText: "Descarga inmediata", class: "bg-emerald-600 text-white" },
-        image: "assets/portada-plan-360-digital.jpg",
-        alt: "Plan 360 Empresarial Edición Digital Multi-Dispositivo",
-        fallbackTitle: "Plan 360 Digital",
-        fallbackIcon: "laptop",
-        fallbackBadge: "100% Interactivo",
-        description: "Cuaderno maestro en PDF interactivo rellenable de 35 páginas a color para tablet, iPad, laptop y PC. Domina las 6 áreas vitales de tu negocio con guardado ilimitado.",
-        bullets: [
+        "id": "plan-360-digital",
+        "sku": "P360-DIG",
+        "crmCategory": "Blindaje Legal",
+        "cost": 0,
+        "stock": 999,
+        "title": "Plan 360 empresarial (edición digital)",
+        "homeTitle": "Plan 360 empresarial (digital)",
+        "category": "blindaje",
+        "categoryLabel": "Estructuración Integral · Edición 2026",
+        "delivery": "digital",
+        "price": 24.99,
+        "priceOld": "$39.99",
+        "priceDisplay": "$24.99",
+        "currency": "USD",
+        "discountBadge": "OFERTA",
+        "guarantee": "Garantía 7 días",
+        "badgeLeft": {
+            "text": "100% Interactivo",
+            "homeText": "Edición digital global",
+            "class": "bg-brand-blue text-white"
+        },
+        "badgeRight": {
+            "text": "Descarga Inmediata",
+            "homeText": "Descarga inmediata",
+            "class": "bg-emerald-600 text-white"
+        },
+        "image": "assets/portada-plan-360-digital.jpg",
+        "alt": "Plan 360 Empresarial Edición Digital Multi-Dispositivo",
+        "fallbackTitle": "Plan 360 Digital",
+        "fallbackIcon": "laptop",
+        "fallbackBadge": "100% Interactivo",
+        "description": "Cuaderno maestro en PDF interactivo rellenable de 35 páginas a color para tablet, iPad, laptop y PC. Domina las 6 áreas vitales de tu negocio con guardado ilimitado.",
+        "bullets": [
             "<strong>PDF rellenable (35 págs.):</strong> Campos editables con guardado automático.",
             "<strong>Las 6 áreas clave:</strong> Legal, costos, marketing, finanzas, operaciones y blindaje.",
             "<strong>Acceso multiplataforma:</strong> Compatible con iPad, tablet, laptop y PC con guardado ilimitado."
         ],
-        buyButton: {
-            text: "Comprar ahora por $24.99 USD",
-            homeText: "Comprar ahora",
-            link: "https://pay.hotmart.com/V88356406E?checkoutMode=10&bid=1792888649272",
-            homeLink: "https://pay.hotmart.com/V88356406E?checkoutMode=10&bid=1792888649272",
-            icon: "shopping-bag",
-            class: "bg-brand-blue hover:bg-brand-blue-dark text-white",
-            isHotmart: false
+        "buyButton": {
+            "text": "Comprar ahora por $24.99 USD",
+            "homeText": "Comprar ahora",
+            "link": "https://pay.hotmart.com/V88356406E?checkoutMode=10&bid=1792888649272",
+            "homeLink": "https://pay.hotmart.com/V88356406E?checkoutMode=10&bid=1792888649272",
+            "icon": "shopping-bag",
+            "class": "bg-brand-blue hover:bg-brand-blue-dark text-white",
+            "isHotmart": false
         },
-        detailButton: {
-            text: "Ver temario completo y detalles",
-            link: "/plan-360-digital",
-            icon: "arrow-right",
-            class: "text-brand-blue hover:text-brand-blue-dark hover:underline"
+        "detailButton": {
+            "text": "Ver temario completo y detalles",
+            "link": "/plan-360-digital",
+            "icon": "arrow-right",
+            "class": "text-brand-blue hover:text-brand-blue-dark hover:underline"
         },
-        keywords: "plan 360 digital interactivo pdf rellenable ipad tablet pc contratos finanzas costos marketing bonos panama",
-        featuredInHome: true,
-        homeOrder: 1,
-        homeBorderHover: "hover:border-brand-blue",
-        homeStagger: "stagger-1"
+        "keywords": "plan 360 digital interactivo pdf rellenable ipad tablet pc contratos finanzas costos marketing bonos panama",
+        "featuredInHome": true,
+        "homeOrder": 1,
+        "homeBorderHover": "hover:border-brand-blue",
+        "homeStagger": "stagger-1"
     },
     {
-        id: "plan-360-fisico",
-        sku: "P360-FIS",
-        crmCategory: "Blindaje Legal",
-        cost: 12.00,
-        stock: 16,
-        title: "Plan 360 empresarial (kit físico)",
-        category: "blindaje",
-        categoryLabel: "Kit Corporativo Físico + Digital",
-        delivery: "physical",
-        price: 39.99,
-        priceOld: "$79.99",
-        priceDisplay: "$39.99",
-        currency: "USD",
-        discountBadge: "50% DCTO",
-        homeDiscountBadge: "Kit Oficial",
-        paymentNotice: "Yappy / Tarjeta",
-        homePaymentNotice: "Yappy / Efectivo",
-        badgeLeft: { text: "Kit Físico Oficial", homeText: "Kit físico oficial", class: "bg-brand-orange text-white" },
-        badgeRight: { text: "Envíos en Panamá", homeText: "Envíos en Panamá", class: "bg-slate-900 text-white" },
-        image: "assets/portada-plan-360-fisico.jpg",
-        alt: "Kit Plan 360 Físico + Digital",
-        fallbackTitle: "Plan 360 Kit Físico",
-        fallbackIcon: "package",
-        fallbackBadge: "Kit Físico Oficial",
-        description: "Libro físico a color (35 págs.) para planificar a mano, más kit ejecutivo oficial y acceso inmediato a la versión digital interactiva.",
-        bullets: [
+        "id": "plan-360-fisico",
+        "sku": "P360-FIS",
+        "crmCategory": "Blindaje Legal",
+        "cost": 12,
+        "stock": 16,
+        "title": "Plan 360 empresarial (kit físico)",
+        "category": "blindaje",
+        "categoryLabel": "Kit Corporativo Físico + Digital",
+        "delivery": "physical",
+        "price": 39.99,
+        "priceOld": "$79.99",
+        "priceDisplay": "$39.99",
+        "currency": "USD",
+        "discountBadge": "50% DCTO",
+        "homeDiscountBadge": "Kit Oficial",
+        "paymentNotice": "Yappy / Tarjeta",
+        "homePaymentNotice": "Yappy / Efectivo",
+        "badgeLeft": {
+            "text": "Kit Físico Oficial",
+            "homeText": "Kit físico oficial",
+            "class": "bg-brand-orange text-white"
+        },
+        "badgeRight": {
+            "text": "Envíos en Panamá",
+            "homeText": "Envíos en Panamá",
+            "class": "bg-slate-900 text-white"
+        },
+        "image": "assets/portada-plan-360-fisico.jpg",
+        "alt": "Kit Plan 360 Físico + Digital",
+        "fallbackTitle": "Plan 360 Kit Físico",
+        "fallbackIcon": "package",
+        "fallbackBadge": "Kit Físico Oficial",
+        "description": "Libro físico a color (35 págs.) para planificar a mano, más kit ejecutivo oficial y acceso inmediato a la versión digital interactiva.",
+        "bullets": [
             "<strong>Libro físico Plan 360:</strong> 35 páginas a color, anillado de alta durabilidad.",
             "<strong>Kit ejecutivo:</strong> Bolsa ecológica oficial (360) + lápiz + tarjeta.",
             "<strong>Suite digital incluida:</strong> PDF rellenable interactivo para iPad, tablet o PC."
         ],
-        buyButton: {
-            text: "Pedir Kit Físico por $39.99 USD",
-            homeText: "Pedir kit por WhatsApp",
-            link: "https://wa.me/50765461527?text=Hola%2C%20quiero%20ordenar%20el%20Plan%20360%20Empresarial%20Kit%20F%C3%ADsico%20(%2439.99%20USD)%20con%20env%C3%ADo%20en%20Panam%C3%A1.",
-            homeLink: "https://wa.me/50765461527?text=Hola%2C%20quiero%20ordenar%20el%20Plan%20360%20Empresarial%20Kit%20F%C3%ADsico%20(%2439.99%20USD)%20con%20env%C3%ADo%20en%20Panam%C3%A1.",
-            icon: "message-circle",
-            class: "bg-brand-orange hover:bg-brand-orange-dark text-white",
-            isHotmart: false
+        "buyButton": {
+            "text": "Pedir Kit Físico por $39.99 USD",
+            "homeText": "Pedir kit por WhatsApp",
+            "link": "https://wa.me/50765461527?text=Hola%2C%20quiero%20ordenar%20el%20Plan%20360%20Empresarial%20Kit%20F%C3%ADsico%20(%2439.99%20USD)%20con%20env%C3%ADo%20en%20Panam%C3%A1.",
+            "homeLink": "https://wa.me/50765461527?text=Hola%2C%20quiero%20ordenar%20el%20Plan%20360%20Empresarial%20Kit%20F%C3%ADsico%20(%2439.99%20USD)%20con%20env%C3%ADo%20en%20Panam%C3%A1.",
+            "icon": "message-circle",
+            "class": "bg-brand-orange hover:bg-brand-orange-dark text-white",
+            "isHotmart": false
         },
-        detailButton: {
-            text: "Ver landing page y fotos del kit",
-            link: "/plan-360",
-            icon: "arrow-right",
-            class: "text-brand-orange-dark hover:text-brand-orange hover:underline"
+        "detailButton": {
+            "text": "Ver landing page y fotos del kit",
+            "link": "/plan-360",
+            "icon": "arrow-right",
+            "class": "text-brand-orange-dark hover:text-brand-orange hover:underline"
         },
-        keywords: "plan 360 fisico kit libro anillado bolsa lapiz panama domicilio unoexpress servientrega pdf digital",
-        featuredInHome: true,
-        homeOrder: 2,
-        homeBorderHover: "hover:border-brand-orange",
-        homeStagger: "stagger-2"
+        "keywords": "plan 360 fisico kit libro anillado bolsa lapiz panama domicilio unoexpress servientrega pdf digital",
+        "featuredInHome": true,
+        "homeOrder": 2,
+        "homeBorderHover": "hover:border-brand-orange",
+        "homeStagger": "stagger-2"
     },
     {
-        id: "taza-plan-360",
-        sku: "TAZA-360",
-        crmCategory: "Merchandising",
-        cost: 4.50,
-        stock: 30,
-        title: "Taza corporativa Plan 360 empresarial",
-        category: "merch",
-        categoryLabel: "Identidad Emprendedora · Edición 2026",
-        delivery: "physical",
-        price: 12.99,
-        priceOld: "$18.00",
-        priceDisplay: "$12.99",
-        currency: "USD",
-        discountBadge: "OFERTA",
-        paymentNotice: "Yappy / Tarjeta",
-        badgeLeft: { text: "Merch Oficial", homeText: "Merch Oficial", class: "bg-brand-orange text-white" },
-        badgeRight: { text: "Envíos en Panamá", homeText: "Envíos en Panamá", class: "bg-slate-900/90 text-white" },
-        image: "assets/taza-plan-360.jpg",
-        alt: "Taza Corporativa Plan 360 Empresarial",
-        fallbackTitle: "Taza Plan 360",
-        fallbackIcon: "coffee",
-        fallbackBadge: "Merch Oficial",
-        description: "Taza de cerámica ejecutiva bicolor de 11 oz con interior y asa en naranja de marca y el lema oficial «Un plan para llegar más lejos». El complemento ideal para tus mañanas de enfoque.",
-        bullets: [
-            "<strong>Cerámica bicolor (11 oz):</strong> Exterior blanco brillante con interior y asa en naranja corporativo (#FF8A1E).",
-            "<strong>Estampado permanente:</strong> Logo oficial Plan 360 y frase motivacional en ambas caras de la taza.",
-            "<strong>Empaque protector seguro:</strong> Caja individual acondicionada para entrega en Ciudad de Panamá e interior."
-        ],
-        buyButton: {
-            text: "Pedir Taza por $12.99 USD",
-            link: "https://wa.me/50765461527?text=Hola,%20deseo%20pedir%20la%20Taza%20Corporativa%20del%20Plan%20360%20Empresarial%20($12.99%20USD)%20con%20env%C3%ADo%20en%20Panam%C3%A1",
-            icon: "coffee",
-            class: "bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white",
-            isHotmart: false
+        "id": "kit-resolucion-problemas",
+        "sku": "KIT-PROB",
+        "crmCategory": "Blindaje Legal",
+        "cost": 0,
+        "stock": 999,
+        "title": "Kit de resolución de problemas",
+        "category": "blindaje",
+        "categoryLabel": "Protocolos de Acción Rápida",
+        "delivery": "digital",
+        "price": 16.99,
+        "priceOld": "$47.00",
+        "priceDisplay": "$16.99",
+        "currency": "USD",
+        "discountBadge": "65% DCTO",
+        "guarantee": "Garantía 7 días",
+        "badgeLeft": {
+            "text": "Protocolos de Crisis",
+            "homeText": "Protocolos de crisis",
+            "class": "bg-amber-500 text-white"
         },
-        detailButton: {
-            text: "Consultar por WhatsApp",
-            link: "https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20la%20Taza%20del%20Plan%20360%20($12.99%20USD)",
-            icon: "message-circle",
-            iconClass: "text-emerald-500",
-            class: "text-slate-500 hover:text-brand-blue"
+        "badgeRight": {
+            "text": "Descarga Digital",
+            "homeText": "Descarga digital",
+            "class": "bg-slate-900 text-white"
         },
-        keywords: "taza mug cafe ceramica plan 360 empresarial un plan para llegar mas lejos merchandising oficial regalo ejecutivo panama",
-        featuredInHome: false
-    },
-    {
-        id: "sueter-metodo-4e",
-        sku: "HOOD-4E-AZ",
-        crmCategory: "Merchandising",
-        cost: 16.00,
-        stock: 50,
-        crmVariants: [
-            { sku: "HOOD-4E-AZ", name: "Hoodie oficial Método 4E (Azul Corporativo)", cost: 16.00, stock: 25 },
-            { sku: "HOOD-4E-NG", name: "Hoodie oficial Método 4E (Black Edition)", cost: 16.00, stock: 25 }
-        ],
-        title: "Hoodie oficial Método 4E (Azul / Black Edition)",
-        category: "merch",
-        categoryLabel: "Identidad Emprendedora · Edición 2026",
-        delivery: "physical",
-        price: 38.00,
-        priceOld: "$48.00",
-        priceDisplay: "$38.00",
-        currency: "USD",
-        discountBadge: "OFERTA",
-        paymentNotice: "Yappy / Tarjeta",
-        badgeLeft: { text: "Merch Oficial", homeText: "Merch Oficial", class: "bg-brand-orange text-white" },
-        badgeRight: { text: "Envíos en Panamá", homeText: "Envíos en Panamá", class: "bg-slate-900/90 text-white" },
-        image: "assets/sueter-metodo-4e-azul.jpg",
-        alt: "Hoodie Suéter Oficial Método 4E Aizprua Edición Azul y Negra",
-        colors: ["Azul Corporativo (Principal)", "Negro Carbón (Black Edition)"],
-        colorImages: {
-            azul: "assets/sueter-metodo-4e-azul.jpg",
-            negro: "assets/sueter-metodo-4e-negro.jpg"
-        },
-        fallbackTitle: "Hoodie Método 4E",
-        fallbackIcon: "shirt",
-        fallbackBadge: "Merch Oficial",
-        description: "Suéter con capucha (hoodie) premium en algodón perchado con bolsillo canguro y el logo oficial del Método 4E. Disponible en Azul Corporativo (principal) y Negro Carbón.",
-        bullets: [
-            "<strong>Algodón perchado premium:</strong> Tejido térmico transpirable y suave al tacto con bolsillo canguro y cordón reforzado.",
-            "<strong>2 colores exclusivos:</strong> Elige entre Azul Corporativo (principal) o Negro Carbón con emblema oficial de alta durabilidad.",
-            "<strong>Tallas S a XL con envío:</strong> Confección unisex con entregas seguras en Ciudad de Panamá e interior vía encomienda."
-        ],
-        buyButton: {
-            text: "Pedir Hoodie Azul por $38.00 USD",
-            link: "https://wa.me/50765461527?text=Hola,%20deseo%20pedir%20el%20Hoodie%20Oficial%20del%20M%C3%A9todo%204E%20en%20Color%20Azul%20($38.00%20USD)%20con%20env%C3%ADo%20en%20Panam%C3%A1",
-            icon: "shopping-bag",
-            class: "bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white",
-            isHotmart: false
-        },
-        detailButton: {
-            text: "Consultar tallas por WhatsApp",
-            link: "https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20las%20tallas%20del%20Hoodie%20M%C3%A9todo%204E%20($38.00%20USD)",
-            icon: "message-circle",
-            iconClass: "text-emerald-500",
-            class: "text-slate-500 hover:text-brand-blue"
-        },
-        keywords: "hoodie sueter sudadera metodo 4e curso arubel aizprua escuela ropa merchandising oficial algodon panama yappy",
-        featuredInHome: false
-    },
-    {
-        id: "taza-metodo-4e",
-        sku: "TAZA-4E-AZ",
-        crmCategory: "Merchandising",
-        cost: 4.50,
-        stock: 60,
-        crmVariants: [
-            { sku: "TAZA-4E-AZ", name: "Taza oficial Método 4E (Azul Corporativo)", cost: 4.50, stock: 30 },
-            { sku: "TAZA-4E-NG", name: "Taza oficial Método 4E (Black Edition)", cost: 4.50, stock: 30 }
-        ],
-        title: "Taza oficial Método 4E (Azul / Black Edition)",
-        category: "merch",
-        categoryLabel: "Identidad Emprendedora · Edición 2026",
-        delivery: "physical",
-        price: 14.00,
-        priceOld: "$18.00",
-        priceDisplay: "$14.00",
-        currency: "USD",
-        discountBadge: "OFERTA",
-        paymentNotice: "Yappy / Tarjeta",
-        badgeLeft: { text: "Merch Oficial", homeText: "Merch Oficial", class: "bg-brand-orange text-white" },
-        badgeRight: { text: "Envíos en Panamá", homeText: "Envíos en Panamá", class: "bg-slate-900/90 text-white" },
-        image: "assets/taza-metodo-4e-azul.jpg",
-        alt: "Taza Oficial Método 4E Aizprua Edición Azul y Negra",
-        colors: ["Azul Corporativo (Principal)", "Negro Carbón (Black Edition)"],
-        colorImages: {
-            azul: "assets/taza-metodo-4e-azul.jpg",
-            negro: "assets/taza-metodo-4e-negro.jpg"
-        },
-        fallbackTitle: "Taza Método 4E",
-        fallbackIcon: "coffee",
-        fallbackBadge: "Merch Oficial",
-        description: "Taza de cerámica premium de 11 oz con diseño oficial del Método 4E. Apta para microondas y lavavajillas. Disponible en Azul Corporativo y Negro Carbón.",
-        bullets: [
-            "<strong>Cerámica resistente 11 oz:</strong> Acabado brillante de alta durabilidad, apta para microondas y lavavajillas con agarre ergonómico.",
-            "<strong>2 colores de colección:</strong> Elige entre Azul Corporativo (principal) o Negro Carbón con escudo oficial 4E en relieve.",
-            "<strong>Empaque seguro para envíos:</strong> Caja protectora de impacto con entregas en Ciudad de Panamá e interior vía encomienda."
-        ],
-        buyButton: {
-            text: "Pedir Taza Azul por $14.00 USD",
-            link: "https://wa.me/50765461527?text=Hola,%20deseo%20pedir%20la%20Taza%20Oficial%20del%20M%C3%A9todo%204E%20en%20Color%20Azul%20($14.00%20USD)%20con%20env%C3%ADo%20en%20Panam%C3%A1",
-            icon: "shopping-bag",
-            class: "bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white",
-            isHotmart: false
-        },
-        detailButton: {
-            text: "Consultar envíos por WhatsApp",
-            link: "https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20la%20Taza%20M%C3%A9todo%204E%20($14.00%20USD)",
-            icon: "message-circle",
-            iconClass: "text-emerald-500",
-            class: "text-slate-500 hover:text-brand-blue"
-        },
-        keywords: "taza mug jarro cafe metodo 4e curso arubel aizprua escuela merchandising oficial ceramica panama yappy",
-        featuredInHome: false
-    },
-    {
-        id: "kit-resolucion-problemas",
-        sku: "KIT-PROB",
-        crmCategory: "Blindaje Legal",
-        cost: 0.00,
-        stock: 999,
-        title: "Kit de resolución de problemas",
-        category: "blindaje",
-        categoryLabel: "Protocolos de Acción Rápida",
-        delivery: "digital",
-        price: 16.99,
-        priceOld: "$47.00",
-        priceDisplay: "$16.99",
-        currency: "USD",
-        discountBadge: "65% DCTO",
-        guarantee: "Garantía 7 días",
-        badgeLeft: { text: "Protocolos de Crisis", homeText: "Protocolos de crisis", class: "bg-amber-500 text-white" },
-        badgeRight: { text: "Descarga Digital", homeText: "Descarga digital", class: "bg-slate-900 text-white" },
-        image: "assets/portada-kit-problemas-digital.jpg",
-        alt: "Kit de Resolución de Problemas Empresariales Multi-Dispositivo",
-        fallbackTitle: "Kit de Resolución",
-        fallbackIcon: "laptop",
-        fallbackBadge: "Multi-Dispositivo",
-        description: "Tu botiquín de primeros auxilios empresariales: más de 50 soluciones paso a paso ante contingencias de negocio + 1 plantilla rellenable para diagnosticar y solucionar problemas paso a paso.",
-        bullets: [
+        "image": "assets/portada-kit-problemas-digital.jpg",
+        "alt": "Kit de Resolución de Problemas Empresariales Multi-Dispositivo",
+        "fallbackTitle": "Kit de Resolución",
+        "fallbackIcon": "laptop",
+        "fallbackBadge": "Multi-Dispositivo",
+        "description": "Tu botiquín de primeros auxilios empresariales: más de 50 soluciones paso a paso ante contingencias de negocio + 1 plantilla rellenable para diagnosticar y solucionar problemas paso a paso.",
+        "bullets": [
             "<strong>+50 casos críticos:</strong> Finanzas, socios, ventas y gestión de personal.",
             "<strong>1 plantilla rellenable:</strong> Formato interactivo guiado para resolver problemas.",
             "<strong>Protocolos de acción:</strong> Respuestas inmediatas ante contingencias y cobros."
         ],
-        buyButton: {
-            text: "Comprar ahora por $16.99 USD",
-            homeText: "Comprar ahora",
-            link: "https://pay.hotmart.com/Q88322358Q?bid=1792888866211",
-            homeLink: "https://pay.hotmart.com/Q88322358Q?bid=1792888866211",
-            icon: "shopping-bag",
-            class: "bg-brand-blue hover:bg-brand-blue-dark text-white",
-            isHotmart: false
+        "buyButton": {
+            "text": "Comprar ahora por $16.99 USD",
+            "homeText": "Comprar ahora",
+            "link": "https://pay.hotmart.com/Q88322358Q?bid=1792888866211",
+            "homeLink": "https://pay.hotmart.com/Q88322358Q?bid=1792888866211",
+            "icon": "shopping-bag",
+            "class": "bg-brand-blue hover:bg-brand-blue-dark text-white",
+            "isHotmart": false
         },
-        detailButton: {
-            text: "Consultar por WhatsApp",
-            link: "https://wa.me/50765461527?text=Hola%2C%20tengo%20una%20consulta%20sobre%20el%20Kit%20de%20Resoluci%C3%B3n%20de%20Problemas%20(%2416.99%20USD)",
-            icon: "message-circle",
-            iconClass: "text-emerald-500",
-            class: "text-slate-500 hover:text-brand-blue"
+        "detailButton": {
+            "text": "Consultar por WhatsApp",
+            "link": "https://wa.me/50765461527?text=Hola%2C%20tengo%20una%20consulta%20sobre%20el%20Kit%20de%20Resoluci%C3%B3n%20de%20Problemas%20(%2416.99%20USD)",
+            "icon": "message-circle",
+            "iconClass": "text-emerald-500",
+            "class": "text-slate-500 hover:text-brand-blue"
         },
-        keywords: "kit resolucion problemas contingencia socios morosos multas inspecciones dgi 50 soluciones",
-        featuredInHome: true,
-        homeOrder: 3,
-        homeBorderHover: "hover:border-amber-500",
-        homeStagger: "stagger-3"
+        "keywords": "kit resolucion problemas contingencia socios morosos multas inspecciones dgi 50 soluciones",
+        "featuredInHome": true,
+        "homeOrder": 3,
+        "homeBorderHover": "hover:border-amber-500",
+        "homeStagger": "stagger-3"
     },
     {
-        id: "kit-blindaje-socios",
-        sku: "KIT-SOC",
-        crmCategory: "Blindaje Legal",
-        cost: 0.00,
-        stock: 999,
-        title: "Kit de blindaje entre socios y accionistas",
-        category: "blindaje",
-        categoryLabel: "Acuerdos Societarios & Pacto de Socios",
-        delivery: "digital",
-        price: 97.00,
-        priceOld: "$247.00",
-        priceDisplay: "$97.00",
-        currency: "USD",
-        discountBadge: "60% DCTO",
-        guarantee: "Garantía Aizprua",
-        badgeLeft: { text: "Kit 3 en 1", class: "bg-brand-blue text-white" },
-        badgeRight: { text: "Descarga Inmediata", class: "bg-emerald-600 text-white" },
-        image: null,
-        isCustomShowcase: true,
-        customIcon: "users-round",
-        customTitle: "Blindaje de Socios",
-        customSubtitle: "Pacto & Salida Accionistas",
-        alt: "Kit de Blindaje entre Socios y Accionistas",
-        description: "Suite societaria integral para blindar la relación entre socios: checklist de diagnóstico, pacto privado de accionistas y protocolo de salida con cesión de acciones.",
-        bullets: [
-            "<strong>Checklist de diagnóstico societario:</strong> Auditoría de alineación de expectativas, aportes y roles ($45 valor).",
-            "<strong>Pacto privado de socios (Word):</strong> Cláusulas antibloqueo, mayorías y protección de patrimonio ($125 valor).",
-            "<strong>Protocolo de salida y finiquito:</strong> Cesión de acciones blindada y retiro pacífico sin litigios ($125 valor)."
+        "id": "taza-plan-360",
+        "sku": "TAZA-360",
+        "crmCategory": "Merchandising",
+        "cost": 4.5,
+        "stock": 30,
+        "title": "Taza corporativa Plan 360 empresarial",
+        "category": "merch",
+        "categoryLabel": "Identidad Emprendedora · Edición 2026",
+        "delivery": "physical",
+        "price": 12.99,
+        "priceOld": "$18.00",
+        "priceDisplay": "$12.99",
+        "currency": "USD",
+        "discountBadge": "OFERTA",
+        "paymentNotice": "Yappy / Tarjeta",
+        "badgeLeft": {
+            "text": "Merch Oficial",
+            "homeText": "Merch Oficial",
+            "class": "bg-brand-orange text-white"
+        },
+        "badgeRight": {
+            "text": "Envíos en Panamá",
+            "homeText": "Envíos en Panamá",
+            "class": "bg-slate-900/90 text-white"
+        },
+        "image": "assets/taza-plan-360.jpg",
+        "alt": "Taza Corporativa Plan 360 Empresarial",
+        "fallbackTitle": "Taza Plan 360",
+        "fallbackIcon": "coffee",
+        "fallbackBadge": "Merch Oficial",
+        "description": "Taza de cerámica ejecutiva bicolor de 11 oz con interior y asa en naranja de marca y el lema oficial «Un plan para llegar más lejos». El complemento ideal para tus mañanas de enfoque.",
+        "bullets": [
+            "<strong>Cerámica bicolor (11 oz):</strong> Exterior blanco brillante con interior y asa en naranja corporativo (#FF8A1E).",
+            "<strong>Estampado permanente:</strong> Logo oficial Plan 360 y frase motivacional en ambas caras de la taza.",
+            "<strong>Empaque protector seguro:</strong> Caja individual acondicionada para entrega en Ciudad de Panamá e interior."
         ],
-        buyButton: {
-            text: "Comprar Kit por $97.00 USD",
-            link: "https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20el%20Kit%20de%20Blindaje%20entre%20Socios%20y%20Accionistas%20($97.00%20USD)%20en%20Aizprua%20S.E.",
-            icon: "shopping-bag",
-            class: "bg-brand-blue hover:bg-brand-blue-dark text-white",
-            isHotmart: false
+        "buyButton": {
+            "text": "Pedir Taza por $12.99 USD",
+            "link": "https://wa.me/50765461527?text=Hola,%20deseo%20pedir%20la%20Taza%20Corporativa%20del%20Plan%20360%20Empresarial%20($12.99%20USD)%20con%20env%C3%ADo%20en%20Panam%C3%A1",
+            "icon": "coffee",
+            "class": "bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white",
+            "isHotmart": false
         },
-        detailButton: {
-            text: "Consultar por WhatsApp",
-            link: "https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20el%20Kit%20de%20Blindaje%20entre%20Socios%20y%20Accionistas%20($97.00%20USD)",
-            icon: "message-circle",
-            iconClass: "text-emerald-500",
-            class: "text-slate-500 hover:text-brand-blue"
+        "detailButton": {
+            "text": "Consultar por WhatsApp",
+            "link": "https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20la%20Taza%20del%20Plan%20360%20($12.99%20USD)",
+            "icon": "message-circle",
+            "iconClass": "text-emerald-500",
+            "class": "text-slate-500 hover:text-brand-blue"
         },
-        keywords: "kit blindaje socios accionistas pacto privado de socios acuerdo accionistas checklist diagnostico societario cesion acciones salida finiquito panama word docx",
-        featuredInHome: false
+        "keywords": "taza mug cafe ceramica plan 360 empresarial un plan para llegar mas lejos merchandising oficial regalo ejecutivo panama",
+        "featuredInHome": false
     },
     {
-        id: "pack-servicios-profesionales",
-        sku: "PACK-SERV-PROF",
-        crmCategory: "Blindaje Legal",
-        cost: 0.00,
-        stock: 999,
-        title: "Pack contratación por servicios profesionales",
-        category: "blindaje",
-        categoryLabel: "Contratistas & Servicios Profesionales",
-        delivery: "digital",
-        price: 97.00,
-        priceOld: "$197.00",
-        priceDisplay: "$97.00",
-        currency: "USD",
-        discountBadge: "50% DCTO",
-        guarantee: "Garantía Aizprua",
-        badgeLeft: { text: "Pack 6 en 1", class: "bg-brand-blue text-white" },
-        badgeRight: { text: "Descarga Inmediata", class: "bg-emerald-600 text-white" },
-        image: null,
-        isCustomShowcase: true,
-        customIcon: "briefcase",
-        customTitle: "Servicios Profesionales",
-        customSubtitle: "Contratación & Salidas",
-        alt: "Pack Contratación por Servicios Profesionales",
-        description: "Suite jurídica en Word con contrato de servicios profesionales y las 5 cartas de gestión y desvinculación para blindar la relación con contratistas y colaboradores.",
-        bullets: [
-            "<strong>Contrato de servicios profesionales:</strong> Modelo blindado en Word (.docx) con cláusulas de autonomía e independencia.",
-            "<strong>Suite disciplinaria y de salida:</strong> Carta de despido justificado, amonestación disciplinaria y renuncia voluntaria.",
-            "<strong>Cierre sin pasivos:</strong> Acuerdo de mutuo acuerdo y finiquito laboral para máxima certeza legal."
+        "id": "taza-metodo-4e",
+        "sku": "TAZA-4E-AZ",
+        "crmCategory": "Merchandising",
+        "cost": 4.5,
+        "stock": 60,
+        "crmVariants": [
+            {
+                "sku": "TAZA-4E-AZ",
+                "name": "Taza oficial Método 4E (Azul Corporativo)",
+                "cost": 4.5,
+                "stock": 30
+            },
+            {
+                "sku": "TAZA-4E-NG",
+                "name": "Taza oficial Método 4E (Black Edition)",
+                "cost": 4.5,
+                "stock": 30
+            }
         ],
-        buyButton: {
-            text: "Comprar Pack por $97.00 USD",
-            link: "https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20el%20Pack%20de%20Servicios%20Profesionales%20($97.00%20USD)%20en%20Aizprua%20S.E.",
-            icon: "shopping-bag",
-            class: "bg-brand-blue hover:bg-brand-blue-dark text-white",
-            isHotmart: false
+        "title": "Taza oficial Método 4E (Azul / Black Edition)",
+        "category": "merch",
+        "categoryLabel": "Identidad Emprendedora · Edición 2026",
+        "delivery": "physical",
+        "price": 14,
+        "priceOld": "$18.00",
+        "priceDisplay": "$14.00",
+        "currency": "USD",
+        "discountBadge": "OFERTA",
+        "paymentNotice": "Yappy / Tarjeta",
+        "badgeLeft": {
+            "text": "Merch Oficial",
+            "homeText": "Merch Oficial",
+            "class": "bg-brand-orange text-white"
         },
-        detailButton: {
-            text: "Consultar por WhatsApp",
-            link: "https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20el%20Pack%20de%20Servicios%20Profesionales%20($97.00%20USD)",
-            icon: "message-circle",
-            iconClass: "text-emerald-500",
-            class: "text-slate-500 hover:text-brand-blue"
+        "badgeRight": {
+            "text": "Envíos en Panamá",
+            "homeText": "Envíos en Panamá",
+            "class": "bg-slate-900/90 text-white"
         },
-        keywords: "pack servicios profesionales contrato servicios profesionales honorarios carta despido justificado amonestacion disciplinaria renuncia voluntaria mutuo acuerdo finiquito laboral panama word docx",
-        featuredInHome: false
-    },
-    {
-        id: "pack-tiempo-indefinido",
-        sku: "PACK-LAB-INDEF",
-        crmCategory: "Blindaje Legal",
-        cost: 0.00,
-        stock: 999,
-        title: "Pack laboral de tiempo indefinido",
-        category: "blindaje",
-        categoryLabel: "Personal Fijo · Código de Trabajo",
-        delivery: "digital",
-        price: 97.00,
-        priceOld: "$197.00",
-        priceDisplay: "$97.00",
-        currency: "USD",
-        discountBadge: "50% DCTO",
-        guarantee: "Garantía Aizprua",
-        badgeLeft: { text: "Pack 6 en 1", class: "bg-brand-blue text-white" },
-        badgeRight: { text: "Descarga Inmediata", class: "bg-emerald-600 text-white" },
-        image: null,
-        isCustomShowcase: true,
-        customIcon: "users",
-        customTitle: "Tiempo Indefinido",
-        customSubtitle: "Personal Permanente",
-        alt: "Pack Laboral de Tiempo Indefinido",
-        description: "Contrato individual de trabajo por tiempo indefinido más la suite completa de amonestación, despido formal, renuncia, mutuo acuerdo y finiquito en Panamá.",
-        bullets: [
-            "<strong>Contrato tiempo indefinido (Word):</strong> Modelo oficial según Mitradel con período probatorio de 3 meses.",
-            "<strong>Control de faltas y avisos:</strong> Carta de amonestación disciplinaria y carta de despido formal bajo Art. 213.",
-            "<strong>Desvinculaciones pacíficas:</strong> Carta de renuncia voluntaria, acuerdo de mutuo acuerdo y finiquito laboral."
+        "image": "assets/taza-metodo-4e-azul.jpg",
+        "alt": "Taza Oficial Método 4E Aizprua Edición Azul y Negra",
+        "colors": [
+            "Azul Corporativo (Principal)",
+            "Negro Carbón (Black Edition)"
         ],
-        buyButton: {
-            text: "Comprar Pack por $97.00 USD",
-            link: "https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20el%20Pack%20Laboral%20de%20Tiempo%20Indefinido%20($97.00%20USD)%20en%20Aizprua%20S.E.",
-            icon: "shopping-bag",
-            class: "bg-brand-blue hover:bg-brand-blue-dark text-white",
-            isHotmart: false
+        "colorImages": {
+            "azul": "assets/taza-metodo-4e-azul.jpg",
+            "negro": "assets/taza-metodo-4e-negro.jpg"
         },
-        detailButton: {
-            text: "Consultar por WhatsApp",
-            link: "https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20el%20Pack%20de%20Tiempo%20Indefinido%20($97.00%20USD)",
-            icon: "message-circle",
-            iconClass: "text-emerald-500",
-            class: "text-slate-500 hover:text-brand-blue"
-        },
-        keywords: "pack laboral tiempo indefinido contrato trabajo permanente mitradel carta despido amonestacion renuncia mutuo acuerdo finiquito panama word docx",
-        featuredInHome: false
-    },
-    {
-        id: "pack-tiempo-definido",
-        sku: "PACK-LAB-DEF",
-        crmCategory: "Blindaje Legal",
-        cost: 0.00,
-        stock: 999,
-        title: "Pack laboral de tiempo definido (término fijo)",
-        category: "blindaje",
-        categoryLabel: "Personal Temporal · Término Fijo",
-        delivery: "digital",
-        price: 97.00,
-        priceOld: "$197.00",
-        priceDisplay: "$97.00",
-        currency: "USD",
-        discountBadge: "50% DCTO",
-        guarantee: "Garantía Aizprua",
-        badgeLeft: { text: "Pack 6 en 1", class: "bg-brand-blue text-white" },
-        badgeRight: { text: "Descarga Inmediata", class: "bg-emerald-600 text-white" },
-        image: null,
-        isCustomShowcase: true,
-        customIcon: "calendar-clock",
-        customTitle: "Tiempo Definido",
-        customSubtitle: "Contratos a Plazo Fijo",
-        alt: "Pack Laboral de Tiempo Definido",
-        description: "Contrato de trabajo por tiempo definido bajo el Art. 74 del Código de Trabajo con las 5 cartas indispensables de régimen disciplinario y salida laboral.",
-        bullets: [
-            "<strong>Contrato a término fijo (Word):</strong> Cláusulas justificativas válidas ante Mitradel para evitar conversión a indefinido.",
-            "<strong>Gestión y desvinculaciones:</strong> Amonestación disciplinaria, notificación de despido justificado y renuncia voluntaria.",
-            "<strong>Cierre de contrato blindado:</strong> Mutuo acuerdo y finiquito de liquidación para protección absoluta de la empresa."
+        "fallbackTitle": "Taza Método 4E",
+        "fallbackIcon": "coffee",
+        "fallbackBadge": "Merch Oficial",
+        "description": "Taza de cerámica premium de 11 oz con diseño oficial del Método 4E. Apta para microondas y lavavajillas. Disponible en Azul Corporativo y Negro Carbón.",
+        "bullets": [
+            "<strong>Cerámica resistente 11 oz:</strong> Acabado brillante de alta durabilidad, apta para microondas y lavavajillas con agarre ergonómico.",
+            "<strong>2 colores de colección:</strong> Elige entre Azul Corporativo (principal) o Negro Carbón con escudo oficial 4E en relieve.",
+            "<strong>Empaque seguro para envíos:</strong> Caja protectora de impacto con entregas en Ciudad de Panamá e interior vía encomienda."
         ],
-        buyButton: {
-            text: "Comprar Pack por $97.00 USD",
-            link: "https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20el%20Pack%20de%20Tiempo%20Definido%20($97.00%20USD)%20en%20Aizprua%20S.E.",
-            icon: "shopping-bag",
-            class: "bg-brand-blue hover:bg-brand-blue-dark text-white",
-            isHotmart: false
+        "buyButton": {
+            "text": "Pedir Taza Azul por $14.00 USD",
+            "link": "https://wa.me/50765461527?text=Hola,%20deseo%20pedir%20la%20Taza%20Oficial%20del%20M%C3%A9todo%204E%20en%20Color%20Azul%20($14.00%20USD)%20con%20env%C3%ADo%20en%20Panam%C3%A1",
+            "icon": "shopping-bag",
+            "class": "bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white",
+            "isHotmart": false
         },
-        detailButton: {
-            text: "Consultar por WhatsApp",
-            link: "https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20el%20Pack%20de%20Tiempo%20Definido%20($97.00%20USD)",
-            icon: "message-circle",
-            iconClass: "text-emerald-500",
-            class: "text-slate-500 hover:text-brand-blue"
+        "detailButton": {
+            "text": "Consultar envíos por WhatsApp",
+            "link": "https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20la%20Taza%20M%C3%A9todo%204E%20($14.00%20USD)",
+            "icon": "message-circle",
+            "iconClass": "text-emerald-500",
+            "class": "text-slate-500 hover:text-brand-blue"
         },
-        keywords: "pack tiempo definido contrato termino fijo plazo determinado temporal mitradel carta despido amonestacion renuncia mutuo acuerdo finiquito panama word docx",
-        featuredInHome: false
+        "keywords": "taza mug jarro cafe metodo 4e curso arubel aizprua escuela merchandising oficial ceramica panama yappy",
+        "featuredInHome": false
     },
     {
-        id: "pack-obra-determinada",
-        sku: "PACK-LAB-OBRA",
-        crmCategory: "Blindaje Legal",
-        cost: 0.00,
-        stock: 999,
-        title: "Pack laboral por obra determinada",
-        category: "blindaje",
-        categoryLabel: "Proyectos & Construcción",
-        delivery: "digital",
-        price: 97.00,
-        priceOld: "$197.00",
-        priceDisplay: "$97.00",
-        currency: "USD",
-        discountBadge: "50% DCTO",
-        guarantee: "Garantía Aizprua",
-        badgeLeft: { text: "Pack 6 en 1", class: "bg-brand-blue text-white" },
-        badgeRight: { text: "Descarga Inmediata", class: "bg-emerald-600 text-white" },
-        image: null,
-        isCustomShowcase: true,
-        customIcon: "hammer",
-        customTitle: "Obra Determinada",
-        customSubtitle: "Proyectos & Obras",
-        alt: "Pack Laboral por Obra Determinada",
-        description: "Contrato de trabajo por cierta obra conforme al Art. 75 del Código de Trabajo con las 5 cartas de régimen disciplinario y culminación de proyecto.",
-        bullets: [
-            "<strong>Contrato por cierta obra (Word):</strong> Estipulación precisa de la obra para evitar demandas por terminación anticipada.",
-            "<strong>Control de proyecto:</strong> Carta de amonestación disciplinaria, despido justificado y carta de renuncia voluntaria.",
-            "<strong>Finiquito de obra:</strong> Mutuo acuerdo y finiquito laboral con liquidación formal de derechos adquiridos."
+        "id": "sueter-metodo-4e",
+        "sku": "HOOD-4E-AZ",
+        "crmCategory": "Merchandising",
+        "cost": 16,
+        "stock": 50,
+        "crmVariants": [
+            {
+                "sku": "HOOD-4E-AZ",
+                "name": "Hoodie oficial Método 4E (Azul Corporativo)",
+                "cost": 16,
+                "stock": 25
+            },
+            {
+                "sku": "HOOD-4E-NG",
+                "name": "Hoodie oficial Método 4E (Black Edition)",
+                "cost": 16,
+                "stock": 25
+            }
         ],
-        buyButton: {
-            text: "Comprar Pack por $97.00 USD",
-            link: "https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20el%20Pack%20por%20Obra%20Determinada%20($97.00%20USD)%20en%20Aizprua%20S.E.",
-            icon: "shopping-bag",
-            class: "bg-brand-blue hover:bg-brand-blue-dark text-white",
-            isHotmart: false
+        "title": "Hoodie oficial Método 4E (Azul / Black Edition)",
+        "category": "merch",
+        "categoryLabel": "Identidad Emprendedora · Edición 2026",
+        "delivery": "physical",
+        "price": 38,
+        "priceOld": "$48.00",
+        "priceDisplay": "$38.00",
+        "currency": "USD",
+        "discountBadge": "OFERTA",
+        "paymentNotice": "Yappy / Tarjeta",
+        "badgeLeft": {
+            "text": "Merch Oficial",
+            "homeText": "Merch Oficial",
+            "class": "bg-brand-orange text-white"
         },
-        detailButton: {
-            text: "Consultar por WhatsApp",
-            link: "https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20el%20Pack%20por%20Obra%20Determinada%20($97.00%20USD)",
-            icon: "message-circle",
-            iconClass: "text-emerald-500",
-            class: "text-slate-500 hover:text-brand-blue"
+        "badgeRight": {
+            "text": "Envíos en Panamá",
+            "homeText": "Envíos en Panamá",
+            "class": "bg-slate-900/90 text-white"
         },
-        keywords: "pack obra determinada contrato cierta obra construccion tecnicos proyectos mitradel despido amonestacion renuncia mutuo acuerdo finiquito panama word docx",
-        featuredInHome: false
-    },
-    {
-        id: "super-pack-laboral",
-        sku: "SUPER-PACK-LAB",
-        crmCategory: "Blindaje Legal",
-        cost: 0.00,
-        stock: 999,
-        title: "Super pack laboral & contratación 360",
-        category: "blindaje",
-        categoryLabel: "Suite Integral · Ahorra $241 USD",
-        delivery: "digital",
-        price: 147.00,
-        priceOld: "$388.00",
-        priceDisplay: "$147.00",
-        currency: "USD",
-        discountBadge: "AHORRA $241",
-        guarantee: "Garantía Aizprua",
-        badgeLeft: { text: "Suite Maestra 9 en 1", class: "bg-gradient-to-r from-brand-orange to-brand-orange-dark text-white" },
-        badgeRight: { text: "Descarga Inmediata", class: "bg-emerald-600 text-white" },
-        image: null,
-        isCustomShowcase: true,
-        customIcon: "shield-check",
-        customTitle: "Super Pack Laboral 360",
-        customSubtitle: "Las 4 Modalidades + Suite de Salida",
-        alt: "Super Pack Laboral & Contratación 360",
-        description: "La suite definitiva con los 4 contratos oficiales de contratación en Panamá más las 5 cartas maestras disciplinarias y de salida para blindar toda tu empresa.",
-        bullets: [
-            "<strong>Los 4 contratos en Word:</strong> Servicios profesionales, tiempo indefinido, tiempo definido y obra determinada.",
-            "<strong>Régimen disciplinario y salidas:</strong> Carta de despido justificado (Art. 213), amonestación disciplinaria y renuncia voluntaria.",
-            "<strong>Resolución pacífica de conflictos:</strong> Mutuo acuerdo formal (Art. 210) y finiquito laboral con descargo de responsabilidades."
+        "image": "assets/sueter-metodo-4e-azul.jpg",
+        "alt": "Hoodie Suéter Oficial Método 4E Aizprua Edición Azul y Negra",
+        "colors": [
+            "Azul Corporativo (Principal)",
+            "Negro Carbón (Black Edition)"
         ],
-        buyButton: {
-            text: "Comprar Super Pack por $147.00 USD",
-            link: "https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20el%20SUPER%20PACK%20Laboral%20360%20($147.00%20USD)%20en%20Aizprua%20S.E.",
-            icon: "shopping-bag",
-            class: "bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white",
-            isHotmart: false
+        "colorImages": {
+            "azul": "assets/sueter-metodo-4e-azul.jpg",
+            "negro": "assets/sueter-metodo-4e-negro.jpg"
         },
-        detailButton: {
-            text: "Consultar por WhatsApp",
-            link: "https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20el%20SUPER%20PACK%20Laboral%20360%20($147.00%20USD)",
-            icon: "message-circle",
-            iconClass: "text-emerald-500",
-            class: "text-slate-500 hover:text-brand-blue"
+        "fallbackTitle": "Hoodie Método 4E",
+        "fallbackIcon": "shirt",
+        "fallbackBadge": "Merch Oficial",
+        "description": "Suéter con capucha (hoodie) premium en algodón perchado con bolsillo canguro y el logo oficial del Método 4E. Disponible en Azul Corporativo (principal) y Negro Carbón.",
+        "bullets": [
+            "<strong>Algodón perchado premium:</strong> Tejido térmico transpirable y suave al tacto con bolsillo canguro y cordón reforzado.",
+            "<strong>2 colores exclusivos:</strong> Elige entre Azul Corporativo (principal) o Negro Carbón con emblema oficial de alta durabilidad.",
+            "<strong>Tallas S a XL con envío:</strong> Confección unisex con entregas seguras en Ciudad de Panamá e interior vía encomienda."
+        ],
+        "buyButton": {
+            "text": "Pedir Hoodie Azul por $38.00 USD",
+            "link": "https://wa.me/50765461527?text=Hola,%20deseo%20pedir%20el%20Hoodie%20Oficial%20del%20M%C3%A9todo%204E%20en%20Color%20Azul%20($38.00%20USD)%20con%20env%C3%ADo%20en%20Panam%C3%A1",
+            "icon": "shopping-bag",
+            "class": "bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white",
+            "isHotmart": false
         },
-        keywords: "super pack laboral suite contratacion 360 contratos servicios profesionales indefinido definido obra determinada despido justificado amonestacion renuncia mutuo acuerdo finiquito mitradel panama word docx",
-        featuredInHome: false
+        "detailButton": {
+            "text": "Consultar tallas por WhatsApp",
+            "link": "https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20las%20tallas%20del%20Hoodie%20M%C3%A9todo%204E%20($38.00%20USD)",
+            "icon": "message-circle",
+            "iconClass": "text-emerald-500",
+            "class": "text-slate-500 hover:text-brand-blue"
+        },
+        "keywords": "hoodie sueter sudadera metodo 4e curso arubel aizprua escuela ropa merchandising oficial algodon panama yappy",
+        "featuredInHome": false
     },
     {
-        id: "pack-duo-finanzas",
-        sku: "DUO-FINANZAS",
-        crmCategory: "Finanzas",
-        cost: 0.00,
-        stock: 999,
-        title: "Pack dúo finanzas 360 (FinPulse + FinCore)",
-        category: "finanzas",
-        categoryLabel: "Finanzas & Flujo de Caja · Suite 360",
-        delivery: "digital",
-        price: 49.99,
-        priceOld: "$99.99",
-        priceDisplay: "$49.99",
-        currency: "USD",
-        discountBadge: "50% DCTO",
-        guarantee: "Ahorra $50 USD",
-        badgeLeft: { text: "Pack 2 en 1", class: "bg-brand-orange text-white" },
-        badgeRight: { text: "Mejor Valor", class: "bg-emerald-600 text-white" },
-        image: null,
-        isCustomShowcase: true,
-        customIcon: "layers",
-        customTitle: "Pack Dúo Finanzas 360",
-        customSubtitle: "FinPulse + FinCore Suite",
-        alt: "Pack Dúo Finanzas 360",
-        description: "La suite financiera definitiva para separar la plata personal de la del negocio, blindar tus flujos de caja y proyectar tu crecimiento con total claridad.",
-        bullets: [
+        "id": "pack-duo-finanzas",
+        "sku": "DUO-FINANZAS",
+        "crmCategory": "Finanzas",
+        "cost": 0,
+        "stock": 999,
+        "title": "Pack dúo finanzas 360 (FinPulse + FinCore)",
+        "category": "finanzas",
+        "categoryLabel": "Finanzas & Flujo de Caja · Suite 360",
+        "delivery": "digital",
+        "price": 49.99,
+        "priceOld": "$99.99",
+        "priceDisplay": "$49.99",
+        "currency": "USD",
+        "discountBadge": "50% DCTO",
+        "guarantee": "Ahorra $50 USD",
+        "badgeLeft": {
+            "text": "Pack 2 en 1",
+            "class": "bg-brand-orange text-white"
+        },
+        "badgeRight": {
+            "text": "Mejor Valor",
+            "class": "bg-emerald-600 text-white"
+        },
+        "image": null,
+        "isCustomShowcase": true,
+        "customIcon": "layers",
+        "customTitle": "Pack Dúo Finanzas 360",
+        "customSubtitle": "FinPulse + FinCore Suite",
+        "alt": "Pack Dúo Finanzas 360",
+        "description": "La suite financiera definitiva para separar la plata personal de la del negocio, blindar tus flujos de caja y proyectar tu crecimiento con total claridad.",
+        "bullets": [
             "<strong>FinPulse + FinCore (.xlsx):</strong> Ambas herramientas completas con fórmulas avanzadas y listas para usar.",
             "<strong>Doble dashboard de proyecciones:</strong> Visualización ejecutiva de tus finanzas personales y empresariales en tiempo real.",
             "<strong>Tutoriales en video incluidos:</strong> Guías prácticas paso a paso para dominar ambas plataformas sin rodeos."
         ],
-        buyButton: {
-            text: "Comprar Pack Dúo por $49.99 USD",
-            link: "https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20el%20Pack%20D%C3%BAo%20Finanzas%20360%20(FinPulse%20+%20FinCore)%20por%20$49.99%20USD",
-            icon: "shopping-bag",
-            class: "bg-brand-blue hover:bg-brand-blue-dark text-white",
-            isHotmart: false
+        "buyButton": {
+            "text": "Comprar Pack Dúo por $49.99 USD",
+            "link": "https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20el%20Pack%20D%C3%BAo%20Finanzas%20360%20(FinPulse%20+%20FinCore)%20por%20$49.99%20USD",
+            "icon": "shopping-bag",
+            "class": "bg-brand-blue hover:bg-brand-blue-dark text-white",
+            "isHotmart": false
         },
-        detailButton: {
-            text: "Consultar por WhatsApp",
-            link: "https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20el%20Pack%20D%C3%BAo%20Finanzas%20360%20($49.99%20USD)",
-            icon: "message-circle",
-            iconClass: "text-emerald-500",
-            class: "text-slate-500 hover:text-brand-blue"
+        "detailButton": {
+            "text": "Consultar por WhatsApp",
+            "link": "https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20el%20Pack%20D%C3%BAo%20Finanzas%20360%20($49.99%20USD)",
+            "icon": "message-circle",
+            "iconClass": "text-emerald-500",
+            "class": "text-slate-500 hover:text-brand-blue"
         },
-        keywords: "pack duo finanzas 360 finpulse fincore plantilla excel finanzas personales finanzas del negocio flujo de caja proyeccion dashboard panama",
-        featuredInHome: false
+        "keywords": "pack duo finanzas 360 finpulse fincore plantilla excel finanzas personales finanzas del negocio flujo de caja proyeccion dashboard panama",
+        "featuredInHome": false
     },
     {
-        id: "fincore",
-        sku: "FINCORE",
-        crmCategory: "Finanzas",
-        cost: 0.00,
-        stock: 999,
-        title: "FinCore · Sistema de finanzas del negocio",
-        category: "finanzas",
-        categoryLabel: "Finanzas Empresariales · Flujo de Caja",
-        delivery: "digital",
-        price: 34.99,
-        priceOld: "$69.99",
-        priceDisplay: "$34.99",
-        currency: "USD",
-        discountBadge: "50% DCTO",
-        guarantee: "Garantía Aizprua",
-        badgeLeft: { text: "Herramienta Pro", class: "bg-brand-blue text-white" },
-        badgeRight: { text: "Descarga Inmediata", class: "bg-emerald-600 text-white" },
-        image: null,
-        isCustomShowcase: true,
-        customIcon: "bar-chart-3",
-        customTitle: "FinCore Business",
-        customSubtitle: "Control Financiero Empresarial",
-        alt: "FinCore Sistema de Finanzas Empresariales",
-        description: "Control financiero empresarial completo: flujo de caja proyectado, cuentas por cobrar/pagar, punto de equilibrio y cálculo de margen de ganancia real.",
-        bullets: [
+        "id": "fincore",
+        "sku": "FINCORE",
+        "crmCategory": "Finanzas",
+        "cost": 0,
+        "stock": 999,
+        "title": "FinCore · Sistema de finanzas del negocio",
+        "category": "finanzas",
+        "categoryLabel": "Finanzas Empresariales · Flujo de Caja",
+        "delivery": "digital",
+        "price": 34.99,
+        "priceOld": "$69.99",
+        "priceDisplay": "$34.99",
+        "currency": "USD",
+        "discountBadge": "50% DCTO",
+        "guarantee": "Garantía Aizprua",
+        "badgeLeft": {
+            "text": "Herramienta Pro",
+            "class": "bg-brand-blue text-white"
+        },
+        "badgeRight": {
+            "text": "Descarga Inmediata",
+            "class": "bg-emerald-600 text-white"
+        },
+        "image": null,
+        "isCustomShowcase": true,
+        "customIcon": "bar-chart-3",
+        "customTitle": "FinCore Business",
+        "customSubtitle": "Control Financiero Empresarial",
+        "alt": "FinCore Sistema de Finanzas Empresariales",
+        "description": "Control financiero empresarial completo: flujo de caja proyectado, cuentas por cobrar/pagar, punto de equilibrio y cálculo de margen de ganancia real.",
+        "bullets": [
             "<strong>Plantilla financiera empresarial (.xlsx):</strong> Flujo de caja diario, semanal y mensual con control de ingresos y egresos.",
             "<strong>Dashboard ejecutivo de proyección:</strong> Métricas de rentabilidad, alertas de liquidez y punto de equilibrio en tiempo real.",
             "<strong>Video tutorial de implementación:</strong> Guía práctica para proyectar tus números y tomar decisiones certeras."
         ],
-        buyButton: {
-            text: "Comprar FinCore por $34.99 USD",
-            link: "https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20FinCore%20(Finanzas%20del%20Negocio)%20por%20$34.99%20USD",
-            icon: "shopping-bag",
-            class: "bg-brand-blue hover:bg-brand-blue-dark text-white",
-            isHotmart: false
+        "buyButton": {
+            "text": "Comprar FinCore por $34.99 USD",
+            "link": "https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20FinCore%20(Finanzas%20del%20Negocio)%20por%20$34.99%20USD",
+            "icon": "shopping-bag",
+            "class": "bg-brand-blue hover:bg-brand-blue-dark text-white",
+            "isHotmart": false
         },
-        detailButton: {
-            text: "Consultar por WhatsApp",
-            link: "https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20FinCore%20($34.99%20USD)",
-            icon: "message-circle",
-            iconClass: "text-emerald-500",
-            class: "text-slate-500 hover:text-brand-blue"
+        "detailButton": {
+            "text": "Consultar por WhatsApp",
+            "link": "https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20FinCore%20($34.99%20USD)",
+            "icon": "message-circle",
+            "iconClass": "text-emerald-500",
+            "class": "text-slate-500 hover:text-brand-blue"
         },
-        keywords: "fincore finanzas del negocio flujo de caja punto de equilibrio margen ganancia rentabilidad plantilla excel dashboard empresarial panama",
-        featuredInHome: false
+        "keywords": "fincore finanzas del negocio flujo de caja punto de equilibrio margen ganancia rentabilidad plantilla excel dashboard empresarial panama",
+        "featuredInHome": false
     },
     {
-        id: "finpulse",
-        sku: "FINPULSE",
-        crmCategory: "Finanzas",
-        cost: 0.00,
-        stock: 999,
-        title: "FinPulse · Sistema de finanzas personales",
-        category: "finanzas",
-        categoryLabel: "Finanzas Personales & Patrimonio",
-        delivery: "digital",
-        price: 24.99,
-        priceOld: "$49.99",
-        priceDisplay: "$24.99",
-        currency: "USD",
-        discountBadge: "50% DCTO",
-        guarantee: "Garantía Aizprua",
-        badgeLeft: { text: "Dashboard Visual", class: "bg-brand-orange text-white" },
-        badgeRight: { text: "Descarga Inmediata", class: "bg-emerald-600 text-white" },
-        image: null,
-        isCustomShowcase: true,
-        customIcon: "wallet",
-        customTitle: "FinPulse Personal",
-        customSubtitle: "Control Financiero Individual",
-        alt: "FinPulse Sistema de Finanzas Personales",
-        description: "Mucho más que un Excel: una herramienta integral para controlar tus ingresos, categorizar gastos, planificar metas de ahorro y monitorear tu patrimonio personal.",
-        bullets: [
+        "id": "finpulse",
+        "sku": "FINPULSE",
+        "crmCategory": "Finanzas",
+        "cost": 0,
+        "stock": 999,
+        "title": "FinPulse · Sistema de finanzas personales",
+        "category": "finanzas",
+        "categoryLabel": "Finanzas Personales & Patrimonio",
+        "delivery": "digital",
+        "price": 24.99,
+        "priceOld": "$49.99",
+        "priceDisplay": "$24.99",
+        "currency": "USD",
+        "discountBadge": "50% DCTO",
+        "guarantee": "Garantía Aizprua",
+        "badgeLeft": {
+            "text": "Dashboard Visual",
+            "class": "bg-brand-orange text-white"
+        },
+        "badgeRight": {
+            "text": "Descarga Inmediata",
+            "class": "bg-emerald-600 text-white"
+        },
+        "image": null,
+        "isCustomShowcase": true,
+        "customIcon": "wallet",
+        "customTitle": "FinPulse Personal",
+        "customSubtitle": "Control Financiero Individual",
+        "alt": "FinPulse Sistema de Finanzas Personales",
+        "description": "Mucho más que un Excel: una herramienta integral para controlar tus ingresos, categorizar gastos, planificar metas de ahorro y monitorear tu patrimonio personal.",
+        "bullets": [
             "<strong>Plantilla inteligente automatizada (.xlsx):</strong> Registro de ingresos, gastos fijos y variables con cálculo automático.",
             "<strong>Dashboard interactivo de proyección:</strong> Gráficos visuales en tiempo real de liquidez, nivel de deuda y ahorro.",
             "<strong>Video tutorial paso a paso:</strong> Guía de uso para dominar la herramienta sin saber de contabilidad avanzada."
         ],
-        buyButton: {
-            text: "Comprar FinPulse por $24.99 USD",
-            link: "https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20FinPulse%20(Finanzas%20Personales)%20por%20$24.99%20USD",
-            icon: "shopping-bag",
-            class: "bg-brand-blue hover:bg-brand-blue-dark text-white",
-            isHotmart: false
+        "buyButton": {
+            "text": "Comprar FinPulse por $24.99 USD",
+            "link": "https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20FinPulse%20(Finanzas%20Personales)%20por%20$24.99%20USD",
+            "icon": "shopping-bag",
+            "class": "bg-brand-blue hover:bg-brand-blue-dark text-white",
+            "isHotmart": false
         },
-        detailButton: {
-            text: "Consultar por WhatsApp",
-            link: "https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20FinPulse%20($24.99%20USD)",
-            icon: "message-circle",
-            iconClass: "text-emerald-500",
-            class: "text-slate-500 hover:text-brand-blue"
+        "detailButton": {
+            "text": "Consultar por WhatsApp",
+            "link": "https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20FinPulse%20($24.99%20USD)",
+            "icon": "message-circle",
+            "iconClass": "text-emerald-500",
+            "class": "text-slate-500 hover:text-brand-blue"
         },
-        keywords: "finpulse finanzas personales ingresos gastos presupuesto ahorro patrimonio personal plantilla excel dashboard panama",
-        featuredInHome: false
+        "keywords": "finpulse finanzas personales ingresos gastos presupuesto ahorro patrimonio personal plantilla excel dashboard panama",
+        "featuredInHome": false
     },
     {
-        id: "test-auditoria",
-        sku: "TEST-AUDIT",
-        crmCategory: "Diagnóstico Gratis",
-        cost: 0.00,
-        stock: 999,
-        title: "Test de auditoría empresarial (PDF)",
-        category: "auditoria",
-        categoryLabel: "Diagnóstico express",
-        delivery: "free",
-        price: 0.00,
-        priceOld: null,
-        priceDisplay: "GRATIS",
-        currency: "USD",
-        discountBadge: null,
-        paymentNotice: "Acceso inmediato",
-        homePaymentNotice: "Descarga directa",
-        badgeLeft: { text: "Gratis ($0)", homeText: "Recurso gratuito", class: "bg-emerald-600 text-white" },
-        badgeRight: { text: "En Línea", homeText: "En línea", class: "bg-slate-900 text-white" },
-        image: null,
-        isCustomShowcase: true,
-        customIcon: "clipboard-check",
-        customTitle: "Autodiagnóstico 15 puntos",
-        customSubtitle: "100% Gratuito",
-        customContainerClass: "bg-gradient-to-br from-emerald-50 via-slate-50 to-teal-50/70 border border-slate-200/80",
-        customIconBgClass: "bg-emerald-100 text-emerald-700",
-        alt: "Test de Auditoría Empresarial",
-        description: "Semáforo de riesgo para evaluar tus áreas contable, legal y operativa en 3 minutos. Obtén tu diagnóstico y recomendaciones inmediatas.",
-        bullets: [
+        "id": "kit-blindaje-socios",
+        "sku": "KIT-SOC",
+        "crmCategory": "Blindaje Legal",
+        "cost": 0,
+        "stock": 999,
+        "title": "Kit de blindaje entre socios y accionistas",
+        "category": "blindaje",
+        "categoryLabel": "Acuerdos Societarios & Pacto de Socios",
+        "delivery": "digital",
+        "price": 97,
+        "priceOld": "$247.00",
+        "priceDisplay": "$97.00",
+        "currency": "USD",
+        "discountBadge": "60% DCTO",
+        "guarantee": "Garantía Aizprua",
+        "badgeLeft": {
+            "text": "Kit 3 en 1",
+            "class": "bg-brand-blue text-white"
+        },
+        "badgeRight": {
+            "text": "Descarga Inmediata",
+            "class": "bg-emerald-600 text-white"
+        },
+        "image": null,
+        "isCustomShowcase": true,
+        "customIcon": "users-round",
+        "customTitle": "Blindaje de Socios",
+        "customSubtitle": "Pacto & Salida Accionistas",
+        "alt": "Kit de Blindaje entre Socios y Accionistas",
+        "description": "Suite societaria integral para blindar la relación entre socios: checklist de diagnóstico, pacto privado de accionistas y protocolo de salida con cesión de acciones.",
+        "bullets": [
+            "<strong>Checklist de diagnóstico societario:</strong> Auditoría de alineación de expectativas, aportes y roles ($45 valor).",
+            "<strong>Pacto privado de socios (Word):</strong> Cláusulas antibloqueo, mayorías y protección de patrimonio ($125 valor).",
+            "<strong>Protocolo de salida y finiquito:</strong> Cesión de acciones blindada y retiro pacífico sin litigios ($125 valor)."
+        ],
+        "buyButton": {
+            "text": "Comprar Kit por $97.00 USD",
+            "link": "https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20el%20Kit%20de%20Blindaje%20entre%20Socios%20y%20Accionistas%20($97.00%20USD)%20en%20Aizprua%20S.E.",
+            "icon": "shopping-bag",
+            "class": "bg-brand-blue hover:bg-brand-blue-dark text-white",
+            "isHotmart": false
+        },
+        "detailButton": {
+            "text": "Consultar por WhatsApp",
+            "link": "https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20el%20Kit%20de%20Blindaje%20entre%20Socios%20y%20Accionistas%20($97.00%20USD)",
+            "icon": "message-circle",
+            "iconClass": "text-emerald-500",
+            "class": "text-slate-500 hover:text-brand-blue"
+        },
+        "keywords": "kit blindaje socios accionistas pacto privado de socios acuerdo accionistas checklist diagnostico societario cesion acciones salida finiquito panama word docx",
+        "featuredInHome": false
+    },
+    {
+        "id": "pack-servicios-profesionales",
+        "sku": "PACK-SERV-PROF",
+        "crmCategory": "Blindaje Legal",
+        "cost": 0,
+        "stock": 999,
+        "title": "Pack contratación por servicios profesionales",
+        "category": "blindaje",
+        "categoryLabel": "Contratistas & Servicios Profesionales",
+        "delivery": "digital",
+        "price": 97,
+        "priceOld": "$197.00",
+        "priceDisplay": "$97.00",
+        "currency": "USD",
+        "discountBadge": "50% DCTO",
+        "guarantee": "Garantía Aizprua",
+        "badgeLeft": {
+            "text": "Pack 6 en 1",
+            "class": "bg-brand-blue text-white"
+        },
+        "badgeRight": {
+            "text": "Descarga Inmediata",
+            "class": "bg-emerald-600 text-white"
+        },
+        "image": null,
+        "isCustomShowcase": true,
+        "customIcon": "briefcase",
+        "customTitle": "Servicios Profesionales",
+        "customSubtitle": "Contratación & Salidas",
+        "alt": "Pack Contratación por Servicios Profesionales",
+        "description": "Suite jurídica en Word con contrato de servicios profesionales y las 5 cartas de gestión y desvinculación para blindar la relación con contratistas y colaboradores.",
+        "bullets": [
+            "<strong>Contrato de servicios profesionales:</strong> Modelo blindado en Word (.docx) con cláusulas de autonomía e independencia.",
+            "<strong>Suite disciplinaria y de salida:</strong> Carta de despido justificado, amonestación disciplinaria y renuncia voluntaria.",
+            "<strong>Cierre sin pasivos:</strong> Acuerdo de mutuo acuerdo y finiquito laboral para máxima certeza legal."
+        ],
+        "buyButton": {
+            "text": "Comprar Pack por $97.00 USD",
+            "link": "https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20el%20Pack%20de%20Servicios%20Profesionales%20($97.00%20USD)%20en%20Aizprua%20S.E.",
+            "icon": "shopping-bag",
+            "class": "bg-brand-blue hover:bg-brand-blue-dark text-white",
+            "isHotmart": false
+        },
+        "detailButton": {
+            "text": "Consultar por WhatsApp",
+            "link": "https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20el%20Pack%20de%20Servicios%20Profesionales%20($97.00%20USD)",
+            "icon": "message-circle",
+            "iconClass": "text-emerald-500",
+            "class": "text-slate-500 hover:text-brand-blue"
+        },
+        "keywords": "pack servicios profesionales contrato servicios profesionales honorarios carta despido justificado amonestacion disciplinaria renuncia voluntaria mutuo acuerdo finiquito laboral panama word docx",
+        "featuredInHome": false
+    },
+    {
+        "id": "pack-tiempo-indefinido",
+        "sku": "PACK-LAB-INDEF",
+        "crmCategory": "Blindaje Legal",
+        "cost": 0,
+        "stock": 999,
+        "title": "Pack laboral de tiempo indefinido",
+        "category": "blindaje",
+        "categoryLabel": "Personal Fijo · Código de Trabajo",
+        "delivery": "digital",
+        "price": 97,
+        "priceOld": "$197.00",
+        "priceDisplay": "$97.00",
+        "currency": "USD",
+        "discountBadge": "50% DCTO",
+        "guarantee": "Garantía Aizprua",
+        "badgeLeft": {
+            "text": "Pack 6 en 1",
+            "class": "bg-brand-blue text-white"
+        },
+        "badgeRight": {
+            "text": "Descarga Inmediata",
+            "class": "bg-emerald-600 text-white"
+        },
+        "image": null,
+        "isCustomShowcase": true,
+        "customIcon": "users",
+        "customTitle": "Tiempo Indefinido",
+        "customSubtitle": "Personal Permanente",
+        "alt": "Pack Laboral de Tiempo Indefinido",
+        "description": "Contrato individual de trabajo por tiempo indefinido más la suite completa de amonestación, despido formal, renuncia, mutuo acuerdo y finiquito en Panamá.",
+        "bullets": [
+            "<strong>Contrato tiempo indefinido (Word):</strong> Modelo oficial según Mitradel con período probatorio de 3 meses.",
+            "<strong>Control de faltas y avisos:</strong> Carta de amonestación disciplinaria y carta de despido formal bajo Art. 213.",
+            "<strong>Desvinculaciones pacíficas:</strong> Carta de renuncia voluntaria, acuerdo de mutuo acuerdo y finiquito laboral."
+        ],
+        "buyButton": {
+            "text": "Comprar Pack por $97.00 USD",
+            "link": "https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20el%20Pack%20Laboral%20de%20Tiempo%20Indefinido%20($97.00%20USD)%20en%20Aizprua%20S.E.",
+            "icon": "shopping-bag",
+            "class": "bg-brand-blue hover:bg-brand-blue-dark text-white",
+            "isHotmart": false
+        },
+        "detailButton": {
+            "text": "Consultar por WhatsApp",
+            "link": "https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20el%20Pack%20de%20Tiempo%20Indefinido%20($97.00%20USD)",
+            "icon": "message-circle",
+            "iconClass": "text-emerald-500",
+            "class": "text-slate-500 hover:text-brand-blue"
+        },
+        "keywords": "pack laboral tiempo indefinido contrato trabajo permanente mitradel carta despido amonestacion renuncia mutuo acuerdo finiquito panama word docx",
+        "featuredInHome": false
+    },
+    {
+        "id": "pack-tiempo-definido",
+        "sku": "PACK-LAB-DEF",
+        "crmCategory": "Blindaje Legal",
+        "cost": 0,
+        "stock": 999,
+        "title": "Pack laboral de tiempo definido (término fijo)",
+        "category": "blindaje",
+        "categoryLabel": "Personal Temporal · Término Fijo",
+        "delivery": "digital",
+        "price": 97,
+        "priceOld": "$197.00",
+        "priceDisplay": "$97.00",
+        "currency": "USD",
+        "discountBadge": "50% DCTO",
+        "guarantee": "Garantía Aizprua",
+        "badgeLeft": {
+            "text": "Pack 6 en 1",
+            "class": "bg-brand-blue text-white"
+        },
+        "badgeRight": {
+            "text": "Descarga Inmediata",
+            "class": "bg-emerald-600 text-white"
+        },
+        "image": null,
+        "isCustomShowcase": true,
+        "customIcon": "calendar-clock",
+        "customTitle": "Tiempo Definido",
+        "customSubtitle": "Contratos a Plazo Fijo",
+        "alt": "Pack Laboral de Tiempo Definido",
+        "description": "Contrato de trabajo por tiempo definido bajo el Art. 74 del Código de Trabajo con las 5 cartas indispensables de régimen disciplinario y salida laboral.",
+        "bullets": [
+            "<strong>Contrato a término fijo (Word):</strong> Cláusulas justificativas válidas ante Mitradel para evitar conversión a indefinido.",
+            "<strong>Gestión y desvinculaciones:</strong> Amonestación disciplinaria, notificación de despido justificado y renuncia voluntaria.",
+            "<strong>Cierre de contrato blindado:</strong> Mutuo acuerdo y finiquito de liquidación para protección absoluta de la empresa."
+        ],
+        "buyButton": {
+            "text": "Comprar Pack por $97.00 USD",
+            "link": "https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20el%20Pack%20de%20Tiempo%20Definido%20($97.00%20USD)%20en%20Aizprua%20S.E.",
+            "icon": "shopping-bag",
+            "class": "bg-brand-blue hover:bg-brand-blue-dark text-white",
+            "isHotmart": false
+        },
+        "detailButton": {
+            "text": "Consultar por WhatsApp",
+            "link": "https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20el%20Pack%20de%20Tiempo%20Definido%20($97.00%20USD)",
+            "icon": "message-circle",
+            "iconClass": "text-emerald-500",
+            "class": "text-slate-500 hover:text-brand-blue"
+        },
+        "keywords": "pack tiempo definido contrato termino fijo plazo determinado temporal mitradel carta despido amonestacion renuncia mutuo acuerdo finiquito panama word docx",
+        "featuredInHome": false
+    },
+    {
+        "id": "pack-obra-determinada",
+        "sku": "PACK-LAB-OBRA",
+        "crmCategory": "Blindaje Legal",
+        "cost": 0,
+        "stock": 999,
+        "title": "Pack laboral por obra determinada",
+        "category": "blindaje",
+        "categoryLabel": "Proyectos & Construcción",
+        "delivery": "digital",
+        "price": 97,
+        "priceOld": "$197.00",
+        "priceDisplay": "$97.00",
+        "currency": "USD",
+        "discountBadge": "50% DCTO",
+        "guarantee": "Garantía Aizprua",
+        "badgeLeft": {
+            "text": "Pack 6 en 1",
+            "class": "bg-brand-blue text-white"
+        },
+        "badgeRight": {
+            "text": "Descarga Inmediata",
+            "class": "bg-emerald-600 text-white"
+        },
+        "image": null,
+        "isCustomShowcase": true,
+        "customIcon": "hammer",
+        "customTitle": "Obra Determinada",
+        "customSubtitle": "Proyectos & Obras",
+        "alt": "Pack Laboral por Obra Determinada",
+        "description": "Contrato de trabajo por cierta obra conforme al Art. 75 del Código de Trabajo con las 5 cartas de régimen disciplinario y culminación de proyecto.",
+        "bullets": [
+            "<strong>Contrato por cierta obra (Word):</strong> Estipulación precisa de la obra para evitar demandas por terminación anticipada.",
+            "<strong>Control de proyecto:</strong> Carta de amonestación disciplinaria, despido justificado y carta de renuncia voluntaria.",
+            "<strong>Finiquito de obra:</strong> Mutuo acuerdo y finiquito laboral con liquidación formal de derechos adquiridos."
+        ],
+        "buyButton": {
+            "text": "Comprar Pack por $97.00 USD",
+            "link": "https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20el%20Pack%20por%20Obra%20Determinada%20($97.00%20USD)%20en%20Aizprua%20S.E.",
+            "icon": "shopping-bag",
+            "class": "bg-brand-blue hover:bg-brand-blue-dark text-white",
+            "isHotmart": false
+        },
+        "detailButton": {
+            "text": "Consultar por WhatsApp",
+            "link": "https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20el%20Pack%20por%20Obra%20Determinada%20($97.00%20USD)",
+            "icon": "message-circle",
+            "iconClass": "text-emerald-500",
+            "class": "text-slate-500 hover:text-brand-blue"
+        },
+        "keywords": "pack obra determinada contrato cierta obra construccion tecnicos proyectos mitradel despido amonestacion renuncia mutuo acuerdo finiquito panama word docx",
+        "featuredInHome": false
+    },
+    {
+        "id": "super-pack-laboral",
+        "sku": "SUPER-PACK-LAB",
+        "crmCategory": "Blindaje Legal",
+        "cost": 0,
+        "stock": 999,
+        "title": "Super pack laboral & contratación 360",
+        "category": "blindaje",
+        "categoryLabel": "Suite Integral · Ahorra $241 USD",
+        "delivery": "digital",
+        "price": 147,
+        "priceOld": "$388.00",
+        "priceDisplay": "$147.00",
+        "currency": "USD",
+        "discountBadge": "AHORRA $241",
+        "guarantee": "Garantía Aizprua",
+        "badgeLeft": {
+            "text": "Suite Maestra 9 en 1",
+            "class": "bg-gradient-to-r from-brand-orange to-brand-orange-dark text-white"
+        },
+        "badgeRight": {
+            "text": "Descarga Inmediata",
+            "class": "bg-emerald-600 text-white"
+        },
+        "image": null,
+        "isCustomShowcase": true,
+        "customIcon": "shield-check",
+        "customTitle": "Super Pack Laboral 360",
+        "customSubtitle": "Las 4 Modalidades + Suite de Salida",
+        "alt": "Super Pack Laboral & Contratación 360",
+        "description": "La suite definitiva con los 4 contratos oficiales de contratación en Panamá más las 5 cartas maestras disciplinarias y de salida para blindar toda tu empresa.",
+        "bullets": [
+            "<strong>Los 4 contratos en Word:</strong> Servicios profesionales, tiempo indefinido, tiempo definido y obra determinada.",
+            "<strong>Régimen disciplinario y salidas:</strong> Carta de despido justificado (Art. 213), amonestación disciplinaria y renuncia voluntaria.",
+            "<strong>Resolución pacífica de conflictos:</strong> Mutuo acuerdo formal (Art. 210) y finiquito laboral con descargo de responsabilidades."
+        ],
+        "buyButton": {
+            "text": "Comprar Super Pack por $147.00 USD",
+            "link": "https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20el%20SUPER%20PACK%20Laboral%20360%20($147.00%20USD)%20en%20Aizprua%20S.E.",
+            "icon": "shopping-bag",
+            "class": "bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white",
+            "isHotmart": false
+        },
+        "detailButton": {
+            "text": "Consultar por WhatsApp",
+            "link": "https://wa.me/50765461527?text=Hola,%20tengo%20una%20consulta%20sobre%20el%20SUPER%20PACK%20Laboral%20360%20($147.00%20USD)",
+            "icon": "message-circle",
+            "iconClass": "text-emerald-500",
+            "class": "text-slate-500 hover:text-brand-blue"
+        },
+        "keywords": "super pack laboral suite contratacion 360 contratos servicios profesionales indefinido definido obra determinada despido justificado amonestacion renuncia mutuo acuerdo finiquito mitradel panama word docx",
+        "featuredInHome": false
+    },
+    {
+        "id": "test-auditoria",
+        "sku": "TEST-AUDIT",
+        "crmCategory": "Diagnóstico Gratis",
+        "cost": 0,
+        "stock": 999,
+        "title": "Test de auditoría empresarial (PDF)",
+        "category": "auditoria",
+        "categoryLabel": "Diagnóstico express",
+        "delivery": "free",
+        "price": 0,
+        "priceOld": null,
+        "priceDisplay": "GRATIS",
+        "currency": "USD",
+        "discountBadge": null,
+        "paymentNotice": "Acceso inmediato",
+        "homePaymentNotice": "Descarga directa",
+        "badgeLeft": {
+            "text": "Gratis ($0)",
+            "homeText": "Recurso gratuito",
+            "class": "bg-emerald-600 text-white"
+        },
+        "badgeRight": {
+            "text": "En Línea",
+            "homeText": "En línea",
+            "class": "bg-slate-900 text-white"
+        },
+        "image": null,
+        "isCustomShowcase": true,
+        "customIcon": "clipboard-check",
+        "customTitle": "Autodiagnóstico 15 puntos",
+        "customSubtitle": "100% Gratuito",
+        "customContainerClass": "bg-gradient-to-br from-emerald-50 via-slate-50 to-teal-50/70 border border-slate-200/80",
+        "customIconBgClass": "bg-emerald-100 text-emerald-700",
+        "alt": "Test de Auditoría Empresarial",
+        "description": "Semáforo de riesgo para evaluar tus áreas contable, legal y operativa en 3 minutos. Obtén tu diagnóstico y recomendaciones inmediatas.",
+        "bullets": [
             "<strong>Matriz semáforo:</strong> Evaluación en 15 puntos (Legal, Finanzas y Operaciones).",
             "<strong>Resultado inmediato:</strong> Conoce tu nivel de vulnerabilidad en 3 minutos.",
             "<strong>100% gratuito:</strong> Autoevaluación interactiva sin costo ni registro de tarjeta."
         ],
-        buyButton: {
-            text: "Hacer test en línea",
-            homeText: "Hacer test en línea",
-            link: "/test-interactivo",
-            homeLink: "/test-interactivo",
-            icon: "play",
-            class: "bg-emerald-600 hover:bg-emerald-700 text-white",
-            isHotmart: false
+        "buyButton": {
+            "text": "Hacer test en línea",
+            "homeText": "Hacer test en línea",
+            "link": "/test-interactivo",
+            "homeLink": "/test-interactivo",
+            "icon": "play",
+            "class": "bg-emerald-600 hover:bg-emerald-700 text-white",
+            "isHotmart": false
         },
-        detailButton: {
-            text: "Herramienta gratuita oficial Aizprua",
-            icon: "zap",
-            iconClass: "text-amber-500",
-            isStaticBadge: true
+        "detailButton": {
+            "text": "Herramienta gratuita oficial Aizprua",
+            "icon": "zap",
+            "iconClass": "text-amber-500",
+            "isStaticBadge": true
         },
-        keywords: "test auditoria express 15 puntos semaforo autodiagnostico gratis pdf",
-        featuredInHome: false
+        "keywords": "test auditoria express 15 puntos semaforo autodiagnostico gratis pdf",
+        "featuredInHome": false
     },
     {
-        id: "guia-anti-multas",
-        sku: "GUIA-MULTAS",
-        crmCategory: "Recursos Gratis",
-        cost: 0.00,
-        stock: 999,
-        title: "Las 7 multas ocultas en Panamá",
-        category: "blindaje",
-        categoryLabel: "Guía Anti-Sanciones",
-        delivery: "free",
-        price: 0.00,
-        priceOld: null,
-        priceDisplay: "GRATIS",
-        currency: "USD",
-        discountBadge: null,
-        paymentNotice: "PDF Descargable",
-        badgeLeft: { text: "Gratis ($0)", class: "bg-brand-orange text-white" },
-        badgeRight: { text: "PDF 2026", class: "bg-slate-900 text-white" },
-        image: "assets/portada-guia-preventiva-2.png",
-        alt: "Las 7 Multas Ocultas en Panamá",
-        fallbackTitle: "Guía Anti-Multas",
-        fallbackIcon: "shield-alert",
-        fallbackBadge: "Guía Gratuita ($0)",
-        description: "Documento con las 7 sanciones más frecuentes que la DGI, CSS y MITRADEL aplican a las empresas y cómo blindar tus operaciones a tiempo.",
-        bullets: [
+        "id": "guia-anti-multas",
+        "sku": "GUIA-MULTAS",
+        "crmCategory": "Recursos Gratis",
+        "cost": 0,
+        "stock": 999,
+        "title": "Las 7 multas ocultas en Panamá",
+        "category": "blindaje",
+        "categoryLabel": "Guía Anti-Sanciones",
+        "delivery": "free",
+        "price": 0,
+        "priceOld": null,
+        "priceDisplay": "GRATIS",
+        "currency": "USD",
+        "discountBadge": null,
+        "paymentNotice": "PDF Descargable",
+        "badgeLeft": {
+            "text": "Gratis ($0)",
+            "class": "bg-brand-orange text-white"
+        },
+        "badgeRight": {
+            "text": "PDF 2026",
+            "class": "bg-slate-900 text-white"
+        },
+        "image": "assets/portada-guia-preventiva-2.png",
+        "alt": "Las 7 Multas Ocultas en Panamá",
+        "fallbackTitle": "Guía Anti-Multas",
+        "fallbackIcon": "shield-alert",
+        "fallbackBadge": "Guía Gratuita ($0)",
+        "description": "Documento con las 7 sanciones más frecuentes que la DGI, CSS y MITRADEL aplican a las empresas y cómo blindar tus operaciones a tiempo.",
+        "bullets": [
             "<strong>Sanciones críticas:</strong> Las multas más costosas de DGI, CSS y Mitradel.",
             "<strong>Casos reales:</strong> Cómo evitar citaciones, embargos y multas de cierre.",
             "<strong>Guía descargable:</strong> Formato PDF listo para lectura inmediata en móvil o PC."
         ],
-        buyButton: {
-            text: "Descargar Guía en PDF",
-            link: "/guia-preventiva",
-            icon: "download",
-            class: "bg-slate-900 hover:bg-brand-blue text-white",
-            isHotmart: false
+        "buyButton": {
+            "text": "Descargar Guía en PDF",
+            "link": "/guia-preventiva",
+            "icon": "download",
+            "class": "bg-slate-900 hover:bg-brand-blue text-white",
+            "isHotmart": false
         },
-        detailButton: {
-            text: "Sin costo · Descarga directa en 1 clic",
-            icon: "shield",
-            iconClass: "text-brand-orange",
-            isStaticBadge: true
+        "detailButton": {
+            "text": "Sin costo · Descarga directa en 1 clic",
+            "icon": "shield",
+            "iconClass": "text-brand-orange",
+            "isStaticBadge": true
         },
-        keywords: "guia anti multas 2026 dgi css mitradel sanciones panama pdf gratis",
-        featuredInHome: false
+        "keywords": "guia anti multas 2026 dgi css mitradel sanciones panama pdf gratis",
+        "featuredInHome": false
     }
 ];
 

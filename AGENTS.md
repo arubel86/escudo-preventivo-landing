@@ -352,6 +352,16 @@
   2. **Prohibición Estricta de Fuga de Datos:** Queda **terminantemente prohibido** registrar números de cédula, RUCs reales de clientes, contraseñas, correos privados o balances contables en repositorios de Git públicos, archivos de ejemplo (`.example`) o en salidas de depuración `console.log` en código de producción.
   3. **Derechos ARCO y Supresión de Datos Locales:** En aplicaciones con memoria en navegador (`cotizacion.html`, `factura.html`), se debe proveer un mecanismo claro (botón «Nuevo / Limpiar») para que el usuario pueda vaciar su información almacenada en `localStorage` cuando lo desee.
 
+## 🗺️ Regla Estricta de Sincronización del Catálogo Maestro & Enlaces (`panel.html` & `MAPA_PAGINAS.md`)
+* **MANDATO OBLIGATORIO:** Ante cualquier creación, renombre, cambio de URL o eliminación de una página HTML en `public/`:
+  1. **Actualización Inmediata y Simultánea:**
+     - **En el Centro de Mando Visual:** Agregar, modificar o remover inmediatamente el objeto de la página en `PAGES_DB` dentro de `public/panel.html`, manteniendo el conteo de páginas actualizado.
+     - **En la Ficha Maestra:** Agregar, modificar o remover la fila correspondiente en la tabla de `MAPA_PAGINAS.md`.
+  2. **Auditoría Anti-Enlaces Rotos:** Al eliminar o renombrar un archivo, se debe verificar y actualizar todo enlace interno en menús de navegación (`<header>`, `<footer>`), tarjetas de blog y botones de llamado a la acción para prevenir errores 404 a los visitantes.
+  3. **Ruta Limpia Canónica Oficial:** Registrar siempre la URL limpia canónica sin extensión `.html` para producción (`https://aizprua.com/[ruta]`).
+  4. **Protección de Privacidad:** Toda página administrativa, interna, panel o entorno de prueba debe incorporar obligatoriamente la etiqueta `<meta name="robots" content="noindex, nofollow">` para evitar su indexación en motores de búsqueda.
+
+
 
 
 

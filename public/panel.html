@@ -1,0 +1,2065 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Centro de Mando Digital | Directorio Maestro de Páginas — Aizprua S.E.</title>
+
+  <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800;900&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              blue: '#3849C8',
+              'blue-dark': '#2D3A9F',
+              'blue-light': '#4F5ED4',
+              orange: '#FF8A1E',
+              'orange-dark': '#E67A15',
+              'orange-light': '#FFA04A'
+            }
+          },
+          fontFamily: {
+            sans: ['"Inter"', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F8FAFC;
+      color: #1E293B;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Resplandores Atmosféricos Canónicos de Aizprua S.E. */
+    .hero-glow-blue {
+      position: fixed;
+      top: -120px;
+      right: -80px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(56, 73, 200, 0.09) 0%, rgba(56, 73, 200, 0) 70%);
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-glow-orange {
+      position: fixed;
+      bottom: -100px;
+      left: -80px;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(255, 138, 30, 0.08) 0%, rgba(255, 138, 30, 0) 70%);
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Toast Notification */
+    #toast {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F1F5F9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94A3B8;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex flex-col justify-between selection:bg-brand-orange selection:text-white relative bg-slate-50 text-slate-800">
+  <div class="hero-glow-blue"></div>
+  <div class="hero-glow-orange"></div>
+
+  <!-- Header Superior Corporativo -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-col md:flex-row md:items-center justify-between gap-3">
+      
+      <!-- Identidad y Título -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-2xl bg-brand-blue/10 border border-brand-blue/20 text-brand-blue flex items-center justify-center shrink-0 shadow-xs">
+          <i data-lucide="layout-grid" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-base sm:text-lg font-bold text-slate-900 font-display tracking-tight">Centro de Mando Digital</h1>
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-50 text-amber-700 border border-amber-200">
+              <i data-lucide="lock" class="w-3 h-3 shrink-0"></i>
+              <span>Uso Interno</span>
+            </span>
+          </div>
+          <p class="text-xs text-slate-500">Directorio Maestro de Páginas &amp; Accesos Rápidos — Aizprua S.E.</p>
+        </div>
+      </div>
+
+      <!-- Buscador y Contador Rápido -->
+      <div class="flex items-center gap-3 w-full md:w-auto">
+        <div class="relative flex-1 md:w-80">
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+          <input 
+            type="text" 
+            id="search-input" 
+            placeholder="Buscar página, archivo o tema... (Presiona /)" 
+            autocomplete="off"
+            class="w-full pl-9 pr-16 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-900 placeholder-slate-400 focus:bg-white focus:outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 shadow-xs transition"
+          >
+          <kbd class="hidden sm:inline-flex items-center justify-center absolute right-2.5 top-1/2 -translate-y-1/2 text-[10px] font-mono bg-white text-slate-500 px-1.5 py-0.5 rounded border border-slate-200 pointer-events-none shadow-xs">
+            /
+          </kbd>
+        </div>
+
+        <!-- Contador Total -->
+        <div class="hidden sm:flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-700 shrink-0 shadow-xs">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span id="page-count-badge" class="font-bold text-slate-900">73</span>
+          <span class="text-slate-500">páginas</span>
+        </div>
+
+        <!-- Botones de Reordenar Tarjetas -->
+        <div class="flex items-center gap-1.5 shrink-0">
+          <button 
+            id="btn-reorder-toggle"
+            onclick="toggleReorderMode()" 
+            type="button"
+            class="px-3 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-xs border bg-slate-50 text-slate-700 hover:text-brand-blue hover:bg-slate-100 border-slate-200"
+            title="Activar modo para mover o arrastrar tarjetas"
+          >
+            <i data-lucide="arrow-up-down" class="w-3.5 h-3.5 shrink-0 text-slate-500" id="reorder-icon"></i>
+            <span id="reorder-text">Reordenar</span>
+          </button>
+
+          <button 
+            id="btn-reorder-reset"
+            onclick="resetCustomOrder()" 
+            type="button"
+            class="hidden px-2.5 py-2 rounded-xl text-xs font-semibold text-slate-500 hover:text-red-600 hover:bg-red-50 border border-slate-200 transition items-center gap-1"
+            title="Restablecer al orden predeterminado"
+          >
+            <i data-lucide="rotate-ccw" class="w-3.5 h-3.5 shrink-0"></i>
+            <span class="hidden xl:inline">Restablecer</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Barra de Filtros de Categorías -->
+    <div class="bg-white/60 border-t border-slate-200/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 overflow-x-auto no-scrollbar flex items-center gap-2">
+        <button onclick="filterCategory('all')" data-cat="all" class="cat-pill active px-3 py-1.5 rounded-xl text-xs font-bold bg-brand-blue text-white transition flex items-center gap-1.5 shrink-0 shadow-sm shadow-brand-blue/20">
+          <i data-lucide="layers" class="w-3.5 h-3.5 shrink-0"></i>
+          <span>Todas (70)</span>
+        </button>
+        <button onclick="filterCategory('servicios')" data-cat="servicios" class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-600 hover:text-brand-blue hover:bg-slate-100 transition flex items-center gap-1.5 shrink-0 border border-transparent">
+          <i data-lucide="briefcase" class="w-3.5 h-3.5 shrink-0"></i>
+          <span>Servicios (6)</span>
+        </button>
+        <button onclick="filterCategory('embudos')" data-cat="embudos" class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-600 hover:text-brand-blue hover:bg-slate-100 transition flex items-center gap-1.5 shrink-0 border border-transparent">
+          <i data-lucide="target" class="w-3.5 h-3.5 shrink-0"></i>
+          <span>Diagnósticos &amp; Citas (5)</span>
+        </button>
+        <button onclick="filterCategory('recursos')" data-cat="recursos" class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-600 hover:text-brand-blue hover:bg-slate-100 transition flex items-center gap-1.5 shrink-0 border border-transparent">
+          <i data-lucide="book-open" class="w-3.5 h-3.5 shrink-0"></i>
+          <span>Recursos &amp; Guías (8)</span>
+        </button>
+        <button onclick="filterCategory('blog')" data-cat="blog" class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-600 hover:text-brand-blue hover:bg-slate-100 transition flex items-center gap-1.5 shrink-0 border border-transparent">
+          <i data-lucide="newspaper" class="w-3.5 h-3.5 shrink-0"></i>
+          <span>Blog &amp; Artículos (7)</span>
+        </button>
+        <button onclick="filterCategory('tienda-productos')" data-cat="tienda-productos" class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-600 hover:text-brand-blue hover:bg-slate-100 transition flex items-center gap-1.5 shrink-0 border border-transparent">
+          <i data-lucide="shopping-bag" class="w-3.5 h-3.5 shrink-0"></i>
+          <span>Productos Tienda (17)</span>
+        </button>
+        <button onclick="filterCategory('embudo-escudo')" data-cat="embudo-escudo" class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-600 hover:text-brand-blue hover:bg-slate-100 transition flex items-center gap-1.5 shrink-0 border border-transparent">
+          <i data-lucide="filter" class="w-3.5 h-3.5 shrink-0"></i>
+          <span>Embudo Escudo (4)</span>
+        </button>
+        <button onclick="filterCategory('masterclass')" data-cat="masterclass" class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-600 hover:text-brand-blue hover:bg-slate-100 transition flex items-center gap-1.5 shrink-0 border border-transparent">
+          <i data-lucide="video" class="w-3.5 h-3.5 shrink-0"></i>
+          <span>Masterclasses &amp; Webinars (5)</span>
+        </button>
+        <button onclick="filterCategory('herramientas')" data-cat="herramientas" class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-600 hover:text-brand-blue hover:bg-slate-100 transition flex items-center gap-1.5 shrink-0 border border-transparent">
+          <i data-lucide="wrench" class="w-3.5 h-3.5 shrink-0"></i>
+          <span>Herramientas &amp; Proformas (10)</span>
+        </button>
+        <button onclick="filterCategory('legal')" data-cat="legal" class="cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-600 hover:text-brand-blue hover:bg-slate-100 transition flex items-center gap-1.5 shrink-0 border border-transparent">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5 shrink-0"></i>
+          <span>Legal &amp; Sistema (8)</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenido Principal -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full relative z-10">
+
+    <!-- Banner de Modo Reordenar (Oculto por defecto) -->
+    <div id="reorder-banner" class="hidden bg-gradient-to-r from-orange-50 via-white to-blue-50 border-2 border-brand-orange/40 rounded-2xl p-4 mb-6 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-xl bg-brand-orange text-white flex items-center justify-center shrink-0 shadow-md shadow-brand-orange/30">
+          <i data-lucide="grip-vertical" class="w-4 h-4"></i>
+        </div>
+        <div>
+          <h4 class="text-xs font-bold text-slate-900 font-display">Modo Reordenar Activo</h4>
+          <p class="text-[11px] text-slate-600">Arrastra las tarjetas o usa las flechas arriba/abajo (↑ / ↓) para organizarlas a tu gusto. Todo se guarda automáticamente en tu navegador.</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 shrink-0">
+        <button type="button" onclick="resetCustomOrder()" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold text-slate-600 hover:text-red-600 hover:bg-red-50 transition border border-slate-200">
+          Restablecer
+        </button>
+        <button type="button" onclick="toggleReorderMode()" class="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-brand-orange text-white hover:bg-brand-orange-dark transition shadow-sm shadow-brand-orange/20">
+          Listo (Guardar)
+        </button>
+      </div>
+    </div>
+
+    <!-- Banner Informativo Corporativo -->
+    <div class="bg-gradient-to-r from-blue-50/90 via-white to-orange-50/70 border border-slate-200/90 rounded-3xl p-5 sm:p-6 mb-8 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-start gap-3.5">
+        <div class="w-10 h-10 rounded-2xl bg-brand-blue text-white flex items-center justify-center shrink-0 mt-0.5 shadow-md shadow-brand-blue/30">
+          <i data-lucide="compass" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h2 class="text-sm sm:text-base font-bold text-slate-900 font-display">Navegación &amp; Enlaces Directos</h2>
+          <p class="text-xs text-slate-600 leading-relaxed mt-0.5">
+            Haz clic en <strong class="text-slate-900">«Abrir»</strong> para probar la página en local o usa <strong class="text-slate-900">«Copiar URL»</strong> para obtener el enlace oficial de producción (<code class="text-brand-blue font-mono font-bold text-[11px] bg-white px-2 py-0.5 rounded-md border border-brand-blue/20 shadow-2xs">https://aizprua.com/...</code>) listo para compartir por WhatsApp o correo.
+          </p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 text-xs text-slate-500 self-start sm:self-auto shrink-0">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white text-slate-700 font-mono text-xs border border-slate-200 font-bold shadow-xs">
+          <i data-lucide="globe" class="w-3.5 h-3.5 text-brand-blue shrink-0"></i>
+          <span>aizprua.com</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- Contenedor de Cuadrícula de Páginas -->
+    <div id="pages-container" class="space-y-10">
+      <!-- Se llena dinámicamente mediante JavaScript -->
+    </div>
+
+    <!-- Estado Vacío cuando la búsqueda no da resultados -->
+    <div id="no-results" class="hidden text-center py-16 bg-white border border-slate-200 rounded-3xl p-8 max-w-lg mx-auto shadow-sm">
+      <div class="w-16 h-16 rounded-2xl bg-slate-100 text-slate-400 mx-auto flex items-center justify-center mb-4">
+        <i data-lucide="search-x" class="w-8 h-8"></i>
+      </div>
+      <h3 class="text-base font-bold text-slate-900 mb-1">No se encontraron páginas</h3>
+      <p class="text-xs text-slate-500 max-w-sm mx-auto">
+        No hay ninguna página que coincida con el término ingresado. Intenta con otra palabra clave o limpia la búsqueda.
+      </p>
+      <button onclick="clearSearch()" class="mt-4 px-4 py-2 bg-brand-blue hover:bg-brand-blue-dark text-white rounded-xl text-xs font-semibold transition inline-flex items-center gap-1.5 shadow-md shadow-brand-blue/20">
+        <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+        <span>Restablecer búsqueda</span>
+      </button>
+    </div>
+
+  </main>
+
+  <!-- Footer Corporativo -->
+  <footer class="border-t border-slate-200 bg-white py-5 text-center text-xs text-slate-500 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="font-bold text-slate-800">Aizprua S.E.</span>
+        <span>•</span>
+        <span>Tablero de Control Interno</span>
+      </div>
+      <div class="text-[11px] text-slate-500">
+        Uso reservado para administración. No indexado en motores de búsqueda.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Flotante de Notificación -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 pointer-events-none bg-slate-900 border border-slate-700 text-white px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-3 text-xs">
+    <div class="w-6 h-6 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+      <i data-lucide="check" class="w-4 h-4"></i>
+    </div>
+    <div>
+      <div class="font-bold text-white" id="toast-title">¡Enlace Copiado!</div>
+      <div class="text-[11px] text-slate-400 font-mono" id="toast-url">https://aizprua.com/...</div>
+    </div>
+  </div>
+
+  <!-- Catálogo de Páginas y Script de Interactividad -->
+  <script>
+    const PAGES_DB = [
+  {
+    "id": "serv-principal",
+    "file": "principal.html",
+    "urlPath": "",
+    "title": "Página de Inicio (Home)",
+    "category": "servicios",
+    "categoryLabel": "Servicios",
+    "badge": "Core / Venta",
+    "desc": "Landing page principal del Escudo Preventivo. Blindaje legal, propuesta de valor, video, testimonios y servicios.",
+    "tags": [
+      "inicio",
+      "home",
+      "escudo",
+      "preventivo",
+      "abogado",
+      "panama"
+    ]
+  },
+  {
+    "id": "serv-embudo-vsl",
+    "file": "Embudo-Escudo-Preventivo/index.html",
+    "urlPath": "Embudo-Escudo-Preventivo/",
+    "title": "Embudo VSL Escudo Preventivo",
+    "category": "servicios",
+    "categoryLabel": "Servicios",
+    "badge": "VSL / Funnel",
+    "desc": "Video Carta de Ventas y registro automatizado del Escudo Preventivo.",
+    "tags": [
+      "vsl",
+      "embudo",
+      "escudo",
+      "video",
+      "registro",
+      "captura"
+    ]
+  },
+  {
+    "id": "serv-llave-en-mano",
+    "file": "llave-en-mano.html",
+    "urlPath": "llave-en-mano",
+    "title": "Servicio Llave en Mano",
+    "category": "servicios",
+    "categoryLabel": "Servicios",
+    "badge": "Servicio B2B",
+    "desc": "Delegación integral de trámites legales, registros y adecuaciones corporativas sin filas ni pérdida de tiempo.",
+    "tags": [
+      "llave en mano",
+      "tramites",
+      "gestion",
+      "empresas"
+    ]
+  },
+  {
+    "id": "serv-conferencias",
+    "file": "conferencias.html",
+    "urlPath": "conferencias",
+    "title": "Conferencias & Talleres In-Company",
+    "category": "servicios",
+    "categoryLabel": "Servicios",
+    "badge": "Corporativo",
+    "desc": "Keynotes magistrales y talleres de capacitación para empresas, gremios, exposiciones y directivas.",
+    "tags": [
+      "conferencias",
+      "talleres",
+      "capacitacion",
+      "empresas"
+    ]
+  },
+  {
+    "id": "serv-tienda",
+    "file": "tienda.html",
+    "urlPath": "tienda",
+    "title": "Tienda & Catálogo de Soluciones",
+    "category": "servicios",
+    "categoryLabel": "Servicios",
+    "badge": "Catálogo Oficial",
+    "desc": "Catálogo de soluciones digitales, plantillas empaquetadas para inmuebles y servicios de contratación directa.",
+    "tags": [
+      "tienda",
+      "catalogo",
+      "productos",
+      "contratos",
+      "kits",
+      "comprar"
+    ]
+  },
+  {
+    "id": "serv-escuela",
+    "file": "escuela.html",
+    "urlPath": "escuela",
+    "title": "Escuela de Negocios Aizprua",
+    "category": "servicios",
+    "categoryLabel": "Servicios",
+    "badge": "Formación",
+    "desc": "Programas formativos prácticos sobre finanzas sanas, tributación estratégica y cumplimiento societario.",
+    "tags": [
+      "escuela",
+      "cursos",
+      "formacion",
+      "negocios",
+      "tributario"
+    ]
+  },
+  {
+    "id": "prod-plan-360-digital",
+    "file": "plan-360-digital.html",
+    "urlPath": "plan-360-digital",
+    "price": "$24.99 USD",
+    "buyLink": "https://pay.hotmart.com/V88356406E?checkoutMode=10&bid=1792888649272",
+    "title": "Plan 360 empresarial (edición digital)",
+    "category": "tienda-productos",
+    "categoryLabel": "Productos de la Tienda",
+    "badge": "Landing Propia",
+    "desc": "Cuaderno maestro en PDF interactivo rellenable de 35 páginas a color para tablet, iPad y PC. Domina las 6 áreas vitales del negocio.",
+    "tags": [
+      "tienda",
+      "producto",
+      "plan 360 digital",
+      "hotmart",
+      "interactivo",
+      "pdf",
+      "24.99"
+    ]
+  },
+  {
+    "id": "prod-plan-360-fisico",
+    "file": "plan-360.html",
+    "urlPath": "plan-360",
+    "price": "$39.99 USD",
+    "buyLink": "https://wa.me/50765461527?text=Hola%2C%20quiero%20ordenar%20el%20Plan%20360%20Empresarial%20Kit%20F%C3%ADsico%20(%2439.99%20USD)%20con%20env%C3%ADo%20en%20Panam%C3%A1.",
+    "title": "Plan 360 empresarial (kit físico)",
+    "category": "tienda-productos",
+    "categoryLabel": "Productos de la Tienda",
+    "badge": "Landing Propia",
+    "desc": "Libro físico a color (35 págs.) para planificar a mano, más kit ejecutivo oficial y acceso a la versión digital interactiva.",
+    "tags": [
+      "tienda",
+      "producto",
+      "plan 360 fisico",
+      "libro",
+      "kit",
+      "envios",
+      "39.99"
+    ]
+  },
+  {
+    "id": "prod-kit-resolucion-problemas",
+    "file": "tienda.html",
+    "urlPath": "tienda",
+    "price": "$16.99 USD",
+    "buyLink": "https://pay.hotmart.com/Q88322358Q?bid=1792888866211",
+    "title": "Kit de resolución de problemas",
+    "category": "tienda-productos",
+    "categoryLabel": "Productos de la Tienda",
+    "badge": "En Tienda",
+    "desc": "Matriz práctica de toma de decisiones estratégicas ante conflictos de clientes, cobros y proveedores.",
+    "tags": [
+      "tienda",
+      "producto",
+      "resolucion problemas",
+      "hotmart",
+      "conflictos",
+      "decisiones",
+      "16.99"
+    ]
+  },
+  {
+    "id": "prod-taza-plan-360",
+    "file": "tienda.html",
+    "urlPath": "tienda",
+    "price": "$12.99 USD",
+    "buyLink": "https://wa.me/50765461527?text=Hola,%20deseo%20pedir%20la%20Taza%20Corporativa%20del%20Plan%20360%20Empresarial%20($12.99%20USD)%20con%20env%C3%ADo%20en%20Panam%C3%A1",
+    "title": "Taza corporativa Plan 360 empresarial",
+    "category": "tienda-productos",
+    "categoryLabel": "Productos de la Tienda",
+    "badge": "Merch Oficial",
+    "desc": "Taza de cerámica esmaltada de alta calidad con la identidad oficial del Plan 360 Empresarial.",
+    "tags": [
+      "tienda",
+      "producto",
+      "taza",
+      "plan 360",
+      "merch",
+      "ceramica",
+      "12.99"
+    ]
+  },
+  {
+    "id": "prod-taza-metodo-4e",
+    "file": "tienda.html",
+    "urlPath": "tienda",
+    "price": "$14.00 USD",
+    "buyLink": "https://wa.me/50765461527?text=Hola,%20deseo%20pedir%20la%20Taza%20Oficial%20del%20M%C3%A9todo%204E%20en%20Color%20Azul%20($14.00%20USD)%20con%20env%C3%ADo%20en%20Panam%C3%A1",
+    "title": "Taza oficial Método 4E (Azul / Black Edition)",
+    "category": "tienda-productos",
+    "categoryLabel": "Productos de la Tienda",
+    "badge": "Merch Oficial",
+    "desc": "Taza premium conmemorativa del Método 4E para fundadores y dueños de negocio.",
+    "tags": [
+      "tienda",
+      "producto",
+      "taza",
+      "metodo 4e",
+      "merch",
+      "14"
+    ]
+  },
+  {
+    "id": "prod-sueter-metodo-4e",
+    "file": "tienda.html",
+    "urlPath": "tienda",
+    "price": "$38.00 USD",
+    "buyLink": "https://wa.me/50765461527?text=Hola,%20deseo%20pedir%20el%20Hoodie%20Oficial%20del%20M%C3%A9todo%204E%20en%20Color%20Azul%20($38.00%20USD)%20con%20env%C3%ADo%20en%20Panam%C3%A1",
+    "title": "Hoodie oficial Método 4E (Azul / Black Edition)",
+    "category": "tienda-productos",
+    "categoryLabel": "Productos de la Tienda",
+    "badge": "Merch Oficial",
+    "desc": "Sudadera corporativa de algodón premium con el emblema oficial del Método 4E de Blindaje Empresarial.",
+    "tags": [
+      "tienda",
+      "producto",
+      "hoodie",
+      "sueter",
+      "metodo 4e",
+      "merch",
+      "ropa",
+      "38"
+    ]
+  },
+  {
+    "id": "prod-pack-duo-finanzas",
+    "file": "tienda.html",
+    "urlPath": "tienda",
+    "price": "$49.99 USD",
+    "buyLink": "https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20el%20Pack%20D%C3%BAo%20Finanzas%20360%20(FinPulse%20+%20FinCore)%20por%20$49.99%20USD",
+    "title": "Pack dúo finanzas 360 (FinPulse + FinCore)",
+    "category": "tienda-productos",
+    "categoryLabel": "Productos de la Tienda",
+    "badge": "En Tienda",
+    "desc": "Sistema integrado en Excel/Sheets para separar las finanzas personales de las del negocio sin confusiones.",
+    "tags": [
+      "tienda",
+      "producto",
+      "finanzas 360",
+      "duo",
+      "fincore",
+      "finpulse",
+      "excel",
+      "49.99"
+    ]
+  },
+  {
+    "id": "prod-fincore",
+    "file": "tienda.html",
+    "urlPath": "tienda",
+    "price": "$34.99 USD",
+    "buyLink": "https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20FinCore%20(Finanzas%20del%20Negocio)%20por%20$34.99%20USD",
+    "title": "FinCore · Sistema de finanzas del negocio",
+    "category": "tienda-productos",
+    "categoryLabel": "Productos de la Tienda",
+    "badge": "En Tienda",
+    "desc": "Control de flujo de caja, margen por producto, punto de equilibrio y presupuesto operativo empresarial.",
+    "tags": [
+      "tienda",
+      "producto",
+      "fincore",
+      "flujo de caja",
+      "finanzas negocio",
+      "rentabilidad",
+      "34.99"
+    ]
+  },
+  {
+    "id": "prod-finpulse",
+    "file": "tienda.html",
+    "urlPath": "tienda",
+    "price": "$24.99 USD",
+    "buyLink": "https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20FinPulse%20(Finanzas%20Personales)%20por%20$24.99%20USD",
+    "title": "FinPulse · Sistema de finanzas personales",
+    "category": "tienda-productos",
+    "categoryLabel": "Productos de la Tienda",
+    "badge": "En Tienda",
+    "desc": "Gestor de patrimonio personal, control de gastos, ahorro programado y fondo de emergencia para fundadores.",
+    "tags": [
+      "tienda",
+      "producto",
+      "finpulse",
+      "finanzas personales",
+      "presupuesto personal",
+      "24.99"
+    ]
+  },
+  {
+    "id": "prod-kit-blindaje-socios",
+    "file": "tienda.html",
+    "urlPath": "tienda",
+    "price": "$97.00 USD",
+    "buyLink": "https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20el%20Kit%20de%20Blindaje%20entre%20Socios%20y%20Accionistas%20($97.00%20USD)%20en%20Aizprua%20S.E.",
+    "title": "Kit de blindaje entre socios y accionistas",
+    "category": "tienda-productos",
+    "categoryLabel": "Productos de la Tienda",
+    "badge": "En Tienda",
+    "desc": "Acuerdos de socios, cláusulas de salida, resolución de conflictos y actas societarias para blindar relaciones mercantiles.",
+    "tags": [
+      "tienda",
+      "producto",
+      "kit socios",
+      "accionistas",
+      "contratos",
+      "societario",
+      "97"
+    ]
+  },
+  {
+    "id": "prod-pack-servicios-profesionales",
+    "file": "tienda.html",
+    "urlPath": "tienda",
+    "price": "$97.00 USD",
+    "buyLink": "https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20el%20Pack%20de%20Servicios%20Profesionales%20($97.00%20USD)%20en%20Aizprua%20S.E.",
+    "title": "Pack contratación por servicios profesionales",
+    "category": "tienda-productos",
+    "categoryLabel": "Productos de la Tienda",
+    "badge": "En Tienda",
+    "desc": "Contrato de prestación de servicios profesionales, anexo de confidencialidad y cláusulas anti-subordinación laboral.",
+    "tags": [
+      "tienda",
+      "producto",
+      "servicios profesionales",
+      "freelance",
+      "contrato",
+      "honorarios",
+      "97"
+    ]
+  },
+  {
+    "id": "prod-pack-tiempo-indefinido",
+    "file": "tienda.html",
+    "urlPath": "tienda",
+    "price": "$97.00 USD",
+    "buyLink": "https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20el%20Pack%20Laboral%20de%20Tiempo%20Indefinido%20($97.00%20USD)%20en%20Aizprua%20S.E.",
+    "title": "Pack laboral de tiempo indefinido",
+    "category": "tienda-productos",
+    "categoryLabel": "Productos de la Tienda",
+    "badge": "En Tienda",
+    "desc": "Contrato de trabajo permanente conforme al Código de Trabajo de Panamá, periodo probatorio y registro en Mitradel.",
+    "tags": [
+      "tienda",
+      "producto",
+      "tiempo indefinido",
+      "laboral",
+      "empleados",
+      "contrato",
+      "97"
+    ]
+  },
+  {
+    "id": "prod-pack-tiempo-definido",
+    "file": "tienda.html",
+    "urlPath": "tienda",
+    "price": "$97.00 USD",
+    "buyLink": "https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20el%20Pack%20de%20Tiempo%20Definido%20($97.00%20USD)%20en%20Aizprua%20S.E.",
+    "title": "Pack laboral de tiempo definido (término fijo)",
+    "category": "tienda-productos",
+    "categoryLabel": "Productos de la Tienda",
+    "badge": "En Tienda",
+    "desc": "Contrato temporal por fecha fija justificada con causas válidas de terminación sin contingencias laborales.",
+    "tags": [
+      "tienda",
+      "producto",
+      "tiempo definido",
+      "termino fijo",
+      "contrato temporal",
+      "97"
+    ]
+  },
+  {
+    "id": "prod-pack-obra-determinada",
+    "file": "tienda.html",
+    "urlPath": "tienda",
+    "price": "$97.00 USD",
+    "buyLink": "https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20el%20Pack%20por%20Obra%20Determinada%20($97.00%20USD)%20en%20Aizprua%20S.E.",
+    "title": "Pack laboral por obra determinada",
+    "category": "tienda-productos",
+    "categoryLabel": "Productos de la Tienda",
+    "badge": "En Tienda",
+    "desc": "Contrato para proyectos específicos, construcción o fases delimitadas que concluyen al finalizar la labor.",
+    "tags": [
+      "tienda",
+      "producto",
+      "obra determinada",
+      "proyectos",
+      "construccion",
+      "97"
+    ]
+  },
+  {
+    "id": "prod-super-pack-laboral",
+    "file": "tienda.html",
+    "urlPath": "tienda",
+    "price": "$147.00 USD",
+    "buyLink": "https://wa.me/50765461527?text=Hola,%20deseo%20comprar%20el%20SUPER%20PACK%20Laboral%20360%20($147.00%20USD)%20en%20Aizprua%20S.E.",
+    "title": "Super pack laboral & contratación 360",
+    "category": "tienda-productos",
+    "categoryLabel": "Productos de la Tienda",
+    "badge": "En Tienda",
+    "desc": "Suite laboral completa: 3 contratos de trabajo (indefinido, definido, obra), reglamento interno, amonestaciones y finiquitos Mitradel.",
+    "tags": [
+      "tienda",
+      "producto",
+      "super pack laboral",
+      "mitradel",
+      "contratos trabajo",
+      "finiquito",
+      "147"
+    ]
+  },
+  {
+    "id": "prod-test-auditoria",
+    "file": "test-interactivo.html",
+    "urlPath": "test-interactivo",
+    "price": "Gratis ($0)",
+    "buyLink": "https://aizprua.com/test-interactivo",
+    "title": "Test de auditoría empresarial (Herramienta)",
+    "category": "tienda-productos",
+    "categoryLabel": "Productos de la Tienda",
+    "badge": "Landing Propia",
+    "desc": "Diagnóstico inicial de cumplimiento laboral, fiscal y bancario para evaluar el nivel de vulnerabilidad del negocio.",
+    "tags": [
+      "tienda",
+      "producto",
+      "test",
+      "auditoria",
+      "gratis",
+      "diagnostico"
+    ]
+  },
+  {
+    "id": "prod-guia-anti-multas",
+    "file": "guia-blindaje.html",
+    "urlPath": "guia-blindaje",
+    "price": "Gratis ($0)",
+    "buyLink": "https://aizprua.com/guia-blindaje",
+    "title": "Las 7 multas ocultas en Panamá (Guía)",
+    "category": "tienda-productos",
+    "categoryLabel": "Productos de la Tienda",
+    "badge": "Landing Propia",
+    "desc": "Manual práctico que desglosa las sanciones más costosas de la DGI, CSS y Mitradel y cómo blindarse.",
+    "tags": [
+      "tienda",
+      "producto",
+      "guia multas",
+      "7 multas",
+      "dgi",
+      "mitradel",
+      "gratis"
+    ]
+  },
+  {
+    "id": "embudo-escudo",
+    "file": "Embudo-Escudo-Preventivo/escudo-preventivo.html",
+    "urlPath": "Embudo-Escudo-Preventivo/escudo-preventivo",
+    "title": "Embudo: Presentación Escudo Preventivo",
+    "category": "embudo-escudo",
+    "categoryLabel": "Embudo Escudo Preventivo",
+    "badge": "Venta Directa",
+    "desc": "Página detallada con la oferta completa, entregables, testimonios y precios del Escudo Preventivo.",
+    "tags": [
+      "embudo",
+      "escudo preventivo",
+      "oferta",
+      "paquetes",
+      "precios",
+      "blindaje"
+    ]
+  },
+  {
+    "id": "embudo-guia",
+    "file": "Embudo-Escudo-Preventivo/guia-preventiva.html",
+    "urlPath": "Embudo-Escudo-Preventivo/guia-preventiva",
+    "title": "Embudo: Captura de Guía Preventiva",
+    "category": "embudo-escudo",
+    "categoryLabel": "Embudo Escudo Preventivo",
+    "badge": "Lead Magnet",
+    "desc": "Página de aterrizaje optimizada para captar prospectos mediante la descarga de la Guía Preventiva.",
+    "tags": [
+      "embudo",
+      "guia preventiva",
+      "lead magnet",
+      "descarga",
+      "captura",
+      "prospectos"
+    ]
+  },
+  {
+    "id": "embudo-gracias",
+    "file": "Embudo-Escudo-Preventivo/gracias.html",
+    "urlPath": "Embudo-Escudo-Preventivo/gracias",
+    "title": "Embudo: Gracias por Registrarte",
+    "category": "embudo-escudo",
+    "categoryLabel": "Embudo Escudo Preventivo",
+    "badge": "Agradecimiento",
+    "desc": "Página de confirmación y bienvenida tras registrarse en el embudo con llamada a WhatsApp.",
+    "tags": [
+      "embudo",
+      "gracias",
+      "confirmacion",
+      "whatsapp",
+      "post-registro"
+    ]
+  },
+  {
+    "id": "embudo-gracias-guia",
+    "file": "Embudo-Escudo-Preventivo/gracias-guia.html",
+    "urlPath": "Embudo-Escudo-Preventivo/gracias-guia",
+    "title": "Embudo: Entrega de Guía Preventiva",
+    "category": "embudo-escudo",
+    "categoryLabel": "Embudo Escudo Preventivo",
+    "badge": "Entrega",
+    "desc": "Página de confirmación y acceso inmediato a la descarga de la Guía Preventiva.",
+    "tags": [
+      "embudo",
+      "gracias guia",
+      "entrega",
+      "descarga",
+      "pdf"
+    ]
+  },
+  {
+    "id": "webinar-index",
+    "file": "Masterclass-Webinar/index.html",
+    "urlPath": "Masterclass-Webinar/",
+    "title": "Portal de Acceso: Masterclasses & Webinars",
+    "category": "masterclass",
+    "categoryLabel": "Masterclasses & Webinars",
+    "badge": "Portal",
+    "desc": "Página de bienvenida y selección de perfil para acceder a los entrenamientos en línea.",
+    "tags": [
+      "masterclass",
+      "webinar",
+      "entrenamiento",
+      "online",
+      "portal",
+      "acceso"
+    ]
+  },
+  {
+    "id": "webinar-empresa",
+    "file": "Masterclass-Webinar/empresa.html",
+    "urlPath": "Masterclass-Webinar/empresa",
+    "title": "Masterclass para Empresas & Directivos",
+    "category": "masterclass",
+    "categoryLabel": "Masterclasses & Webinars",
+    "badge": "Empresarial",
+    "desc": "Sesión estratégica enfocada en blindaje corporativo, prevención tributaria y reducción de pasivos laborales.",
+    "tags": [
+      "masterclass empresa",
+      "directivos",
+      "gerentes",
+      "corporativo",
+      "blindaje",
+      "empresas"
+    ]
+  },
+  {
+    "id": "webinar-profesional",
+    "file": "Masterclass-Webinar/profesional.html",
+    "urlPath": "Masterclass-Webinar/profesional",
+    "title": "Masterclass para Profesionales Independientes",
+    "category": "masterclass",
+    "categoryLabel": "Masterclasses & Webinars",
+    "badge": "Profesionales",
+    "desc": "Entrenamiento para freelancers, consultores y prestadores de servicios sobre formalización y cobro seguro.",
+    "tags": [
+      "masterclass profesional",
+      "freelancers",
+      "independientes",
+      "consultores",
+      "honorarios"
+    ]
+  },
+  {
+    "id": "webinar-gracias-empresa",
+    "file": "Masterclass-Webinar/gracias-empresa.html",
+    "urlPath": "Masterclass-Webinar/gracias-empresa",
+    "title": "Confirmación Masterclass: Empresas",
+    "category": "masterclass",
+    "categoryLabel": "Masterclasses & Webinars",
+    "badge": "Agradecimiento",
+    "desc": "Instrucciones de conexión por Zoom y recordatorio para empresas inscritas en la masterclass.",
+    "tags": [
+      "gracias empresa",
+      "zoom",
+      "recordatorio",
+      "webinar",
+      "confirmacion"
+    ]
+  },
+  {
+    "id": "webinar-gracias-profesional",
+    "file": "Masterclass-Webinar/gracias-profesional.html",
+    "urlPath": "Masterclass-Webinar/gracias-profesional",
+    "title": "Confirmación Masterclass: Profesionales",
+    "category": "masterclass",
+    "categoryLabel": "Masterclasses & Webinars",
+    "badge": "Agradecimiento",
+    "desc": "Instrucciones de conexión por Zoom y material preparatorio para profesionales independientes.",
+    "tags": [
+      "gracias profesional",
+      "zoom",
+      "recordatorio",
+      "webinar",
+      "confirmacion"
+    ]
+  },
+  {
+    "id": "agendar",
+    "file": "agendar.html",
+    "urlPath": "agendar",
+    "title": "Agendar Cita de Asesoría",
+    "category": "embudos",
+    "categoryLabel": "Diagnósticos & Citas",
+    "badge": "Conversión",
+    "desc": "Sistema de reserva de citas integrado con Google Calendar y Google Sheets para atención virtual.",
+    "tags": [
+      "agendar",
+      "cita",
+      "calendario",
+      "reunion",
+      "asesoria",
+      "zoom",
+      "google calendar"
+    ]
+  },
+  {
+    "id": "test-interactivo",
+    "file": "test-interactivo.html",
+    "urlPath": "test-interactivo",
+    "title": "Test de Auditoría Legal Rápida",
+    "category": "embudos",
+    "categoryLabel": "Diagnósticos & Citas",
+    "badge": "Lead Magnet",
+    "desc": "Cuestionario interactivo de 5 preguntas que evalúa el nivel de vulnerabilidad y riesgo del negocio.",
+    "tags": [
+      "test",
+      "auditoria",
+      "diagnostico",
+      "quiz",
+      "riesgo",
+      "gratis",
+      "interactivo"
+    ]
+  },
+  {
+    "id": "test-empresarial",
+    "file": "test-empresarial.html",
+    "urlPath": "test-empresarial",
+    "title": "Diagnóstico Empresarial Avanzado",
+    "category": "embudos",
+    "categoryLabel": "Diagnósticos & Citas",
+    "badge": "Evaluación",
+    "desc": "Evaluación detallada de aspectos laborales, fiscales y societarios con cálculo de riesgo comercial.",
+    "tags": [
+      "test empresarial",
+      "evaluacion",
+      "laboral",
+      "fiscal",
+      "societario",
+      "diagnostico"
+    ]
+  },
+  {
+    "id": "formulario-diagnostico",
+    "file": "formulario-diagnostico.html",
+    "urlPath": "formulario-diagnostico",
+    "title": "Formulario de Diagnóstico Inicial",
+    "category": "embudos",
+    "categoryLabel": "Diagnósticos & Citas",
+    "badge": "Intake",
+    "desc": "Recopilación previa de datos de la empresa para personalizar la auditoría y propuesta legal.",
+    "tags": [
+      "formulario",
+      "datos",
+      "empresa",
+      "intake",
+      "diagnostico",
+      "preguntas"
+    ]
+  },
+  {
+    "id": "informe-diagnostico",
+    "file": "informe-diagnostico.html",
+    "urlPath": "informe-diagnostico",
+    "title": "Entrega de Informe de Diagnóstico",
+    "category": "embudos",
+    "categoryLabel": "Diagnósticos & Citas",
+    "badge": "Resultados",
+    "desc": "Pantalla de presentación de resultados, nivel de exposición y hoja de ruta legal recomendada.",
+    "tags": [
+      "informe",
+      "resultados",
+      "dictamen",
+      "exposicion",
+      "recomendaciones"
+    ]
+  },
+  {
+    "id": "biblioteca",
+    "file": "biblioteca.html",
+    "urlPath": "biblioteca",
+    "title": "Biblioteca de Recursos Descargables",
+    "category": "recursos",
+    "categoryLabel": "Recursos & Guías",
+    "badge": "Descargas",
+    "desc": "Centro de materiales gratuitos: contratos modelo, listas de verificación y guías normativas.",
+    "tags": [
+      "biblioteca",
+      "descargas",
+      "recursos",
+      "plantillas",
+      "contratos",
+      "materiales"
+    ]
+  },
+  {
+    "id": "recursos",
+    "file": "recursos.html",
+    "urlPath": "recursos",
+    "title": "Portal de Recursos Gratuitos",
+    "category": "recursos",
+    "categoryLabel": "Recursos & Guías",
+    "badge": "Hub",
+    "desc": "Acceso estructurado a herramientas de blindaje, calculadoras y documentación descargable.",
+    "tags": [
+      "recursos",
+      "portal",
+      "descargables",
+      "herramientas",
+      "cumplimiento"
+    ]
+  },
+  {
+    "id": "guia-blindaje",
+    "file": "guia-blindaje.html",
+    "urlPath": "guia-blindaje",
+    "title": "Guía de Blindaje Empresarial (PDF)",
+    "category": "recursos",
+    "categoryLabel": "Recursos & Guías",
+    "badge": "Guía PDF",
+    "desc": "Landing para la descarga de la guía maestra sobre protección de activos y prevención de multas.",
+    "tags": [
+      "guia blindaje",
+      "pdf",
+      "libro",
+      "manual",
+      "activos",
+      "multas"
+    ]
+  },
+  {
+    "id": "guia-prestamos",
+    "file": "guia-prestamos.html",
+    "urlPath": "guia-prestamos",
+    "title": "Guía de Acceso a Préstamos Bancarios",
+    "category": "recursos",
+    "categoryLabel": "Recursos & Guías",
+    "badge": "Financiamiento",
+    "desc": "Metodología para ordenar la contabilidad y requisitos legales para calificar ante bancos en Panamá.",
+    "tags": [
+      "guia prestamos",
+      "bancos",
+      "credito",
+      "financiamiento",
+      "prestamos"
+    ]
+  },
+  {
+    "id": "simulador-prestamos",
+    "file": "simulador-prestamos.html",
+    "urlPath": "simulador-prestamos",
+    "title": "Simulador Interactivo de Préstamos",
+    "category": "recursos",
+    "categoryLabel": "Recursos & Guías",
+    "badge": "Herramienta",
+    "desc": "Calculadora de amortización, cuotas mensuales y requisitos mínimos de calificación crediticia.",
+    "tags": [
+      "simulador prestamos",
+      "cuotas",
+      "calculadora",
+      "bancos",
+      "credito"
+    ]
+  },
+  {
+    "id": "calculadora-precios",
+    "file": "calculadora-precios.html",
+    "urlPath": "calculadora-precios",
+    "title": "Calculadora de Tarifas & Trámites",
+    "category": "recursos",
+    "categoryLabel": "Recursos & Guías",
+    "badge": "Estimador",
+    "desc": "Estimador en línea del costo aproximado de constitución de sociedad, aviso de operaciones y trámites.",
+    "tags": [
+      "calculadora precios",
+      "tarifas",
+      "honorarios",
+      "costos",
+      "presupuesto"
+    ]
+  },
+  {
+    "id": "checklist-comercial",
+    "file": "checklist-comercial.html",
+    "urlPath": "checklist-comercial",
+    "title": "Checklist Comercial Preventivo",
+    "category": "recursos",
+    "categoryLabel": "Recursos & Guías",
+    "badge": "Verificación",
+    "desc": "Lista interactiva para comprobar puntos ciegos antes de firmar contratos comerciales o alianzas.",
+    "tags": [
+      "checklist comercial",
+      "contratos",
+      "validacion",
+      "puntos ciegos",
+      "revision"
+    ]
+  },
+  {
+    "id": "hoja-de-ruta",
+    "file": "hoja-de-ruta.html",
+    "urlPath": "hoja-de-ruta",
+    "title": "Hoja de Ruta de Legalización",
+    "category": "recursos",
+    "categoryLabel": "Recursos & Guías",
+    "badge": "Paso a Paso",
+    "desc": "Guía cronológica con los pasos exactos para formalizar un negocio en Panamá desde cero.",
+    "tags": [
+      "hoja de ruta",
+      "pasos",
+      "formalizacion",
+      "crear empresa",
+      "ruta legal"
+    ]
+  },
+  {
+    "id": "blog",
+    "file": "blog.html",
+    "urlPath": "blog",
+    "title": "Directorio Principal del Blog",
+    "category": "blog",
+    "categoryLabel": "Blog & Artículos",
+    "badge": "Hub Editorial",
+    "desc": "Directorio editorial con buscador, filtros y listado de todos los artículos y análisis jurídicos.",
+    "tags": [
+      "blog",
+      "articulos",
+      "noticias",
+      "editorial",
+      "consejos",
+      "panama"
+    ]
+  },
+  {
+    "id": "articulo-emprender",
+    "file": "articulo-emprender.html",
+    "urlPath": "articulo-emprender",
+    "title": "5 Consejos Legales para Emprender",
+    "category": "blog",
+    "categoryLabel": "Blog & Artículos",
+    "badge": "Artículo",
+    "desc": "Errores comunes de principiantes al iniciar negocio en Panamá y cómo constituir de forma segura.",
+    "tags": [
+      "articulo emprender",
+      "5 consejos",
+      "emprendimiento",
+      "iniciar",
+      "sociedad"
+    ]
+  },
+  {
+    "id": "articulo-multas-panama",
+    "file": "articulo-multas-panama.html",
+    "urlPath": "articulo-multas-panama",
+    "title": "Multas Ocultas de la DGI y Mitradel",
+    "category": "blog",
+    "categoryLabel": "Blog & Artículos",
+    "badge": "Artículo",
+    "desc": "Guía sobre las sanciones más severas en materia tributaria y laboral panameña y cómo evitarlas.",
+    "tags": [
+      "multas panama",
+      "dgi",
+      "mitradel",
+      "sanciones",
+      "evitar multas",
+      "css"
+    ]
+  },
+  {
+    "id": "articulo-contratos-comerciales",
+    "file": "articulo-contratos-comerciales.html",
+    "urlPath": "articulo-contratos-comerciales",
+    "title": "Contratos Comerciales Blindados",
+    "category": "blog",
+    "categoryLabel": "Blog & Artículos",
+    "badge": "Artículo",
+    "desc": "Cláusulas indispensables para proteger cobros, evitar incumplimientos y garantizar entregables.",
+    "tags": [
+      "contratos comerciales",
+      "clausulas",
+      "cobranza",
+      "acuerdos",
+      "clientes"
+    ]
+  },
+  {
+    "id": "articulo-credito-bancario",
+    "file": "articulo-credito-bancario.html",
+    "urlPath": "articulo-credito-bancario",
+    "title": "Cómo Calificar para Crédito Bancario",
+    "category": "blog",
+    "categoryLabel": "Blog & Artículos",
+    "badge": "Artículo",
+    "desc": "Estrategias contables y legales para ser aprobado en préstamos comerciales y líneas de crédito.",
+    "tags": [
+      "credito bancario",
+      "bancos",
+      "prestamos comerciales",
+      "estados financieros"
+    ]
+  },
+  {
+    "id": "articulo-mentalidad",
+    "file": "articulo-mentalidad.html",
+    "urlPath": "articulo-mentalidad",
+    "title": "Mentalidad Empresarial & Formalización",
+    "category": "blog",
+    "categoryLabel": "Blog & Artículos",
+    "badge": "Artículo",
+    "desc": "El cambio de paradigma de comerciante informal a empresario con estructura sólida y escalable.",
+    "tags": [
+      "mentalidad",
+      "empresario",
+      "crecimiento",
+      "formalizacion",
+      "vision"
+    ]
+  },
+  {
+    "id": "cotizacion",
+    "file": "cotizacion.html",
+    "urlPath": "cotizacion",
+    "title": "Generador de Cotización Comercial",
+    "category": "herramientas",
+    "categoryLabel": "Herramientas & Proformas",
+    "badge": "Ventas",
+    "desc": "Plantilla de cotización formal corporativa con desglose de servicios, honorarios y condiciones.",
+    "tags": [
+      "cotizacion",
+      "propuesta",
+      "presupuesto",
+      "precios",
+      "cliente"
+    ]
+  },
+  {
+    "id": "factura",
+    "file": "factura.html",
+    "urlPath": "factura",
+    "title": "Factura Proforma Institucional",
+    "category": "herramientas",
+    "categoryLabel": "Herramientas & Proformas",
+    "badge": "Cobranza",
+    "desc": "Modelo de factura proforma para clientes con cuentas bancarias locales y método de pago.",
+    "tags": [
+      "factura",
+      "proforma",
+      "cobro",
+      "pago",
+      "banco general"
+    ]
+  },
+  {
+    "id": "firmas-email",
+    "file": "firmas-email.html",
+    "urlPath": "firmas-email",
+    "title": "Generador de Firmas de Correo",
+    "category": "herramientas",
+    "categoryLabel": "Herramientas & Proformas",
+    "badge": "Branding",
+    "desc": "Diseñador de firmas HTML corporativas con logotipo y enlaces a redes para el equipo.",
+    "tags": [
+      "firmas",
+      "email",
+      "correo",
+      "branding",
+      "outlook",
+      "gmail"
+    ]
+  },
+  {
+    "id": "links",
+    "file": "links.html",
+    "urlPath": "links",
+    "title": "Bio Links Oficial (Redes Sociales)",
+    "category": "herramientas",
+    "categoryLabel": "Herramientas & Proformas",
+    "badge": "Marketing",
+    "desc": "Página de enlace único para biografías de Instagram y TikTok con botones a WhatsApp y recursos.",
+    "tags": [
+      "links",
+      "bio",
+      "linktree",
+      "instagram",
+      "tiktok",
+      "redes"
+    ]
+  },
+  {
+    "id": "presentacion-evento",
+    "file": "presentacion-evento.html",
+    "urlPath": "presentacion-evento",
+    "title": "Presentación para Conferencias",
+    "category": "herramientas",
+    "categoryLabel": "Herramientas & Proformas",
+    "badge": "Keynote",
+    "desc": "Diapositivas interactivas en código web listas para proyectar en eventos, congresos o talleres.",
+    "tags": [
+      "presentacion",
+      "slides",
+      "diapositivas",
+      "evento",
+      "conferencia"
+    ]
+  },
+  {
+    "id": "visor",
+    "file": "visor.html",
+    "urlPath": "visor",
+    "title": "Simulador de Dispositivos (Mockups)",
+    "category": "herramientas",
+    "categoryLabel": "Herramientas & Proformas",
+    "badge": "Utilidad",
+    "desc": "Visualizador de páginas dentro de marcos interactivos de iPhone 16, Galaxy S24, iPad y MacBook.",
+    "tags": [
+      "visor",
+      "simulador",
+      "mockup",
+      "movil",
+      "dispositivos",
+      "responsive"
+    ]
+  },
+  {
+    "id": "ruc",
+    "file": "ruc.html",
+    "urlPath": "ruc",
+    "title": "Verificador / Guía de RUC y DV",
+    "category": "herramientas",
+    "categoryLabel": "Herramientas & Proformas",
+    "badge": "DGI",
+    "desc": "Información y herramientas sobre consulta del Registro Único de Contribuyente y Dígito Verificador.",
+    "tags": [
+      "ruc",
+      "dv",
+      "dgi",
+      "tributario",
+      "identificacion"
+    ]
+  },
+  {
+    "id": "verificador",
+    "file": "verificador.html",
+    "urlPath": "verificador",
+    "title": "Auditor & Verificador Legal Web (Ley 81)",
+    "category": "herramientas",
+    "categoryLabel": "Herramientas & Proformas",
+    "badge": "Auditoría Web",
+    "desc": "Escáner en línea para auditar sitios web: cumplimiento de Ley 81 de Protección de Datos, SEO, metaetiquetas y compatibilidad con agentes de IA.",
+    "tags": [
+      "verificador",
+      "auditoria web",
+      "ley 81",
+      "seo",
+      "datos personales",
+      "sitio web",
+      "ia"
+    ]
+  },
+  {
+    "id": "plantilla-articulo",
+    "file": "plantilla-articulo.html",
+    "urlPath": "plantilla-articulo",
+    "title": "Plantilla Maestra de Artículos",
+    "category": "blog",
+    "categoryLabel": "Blog & Artículos",
+    "badge": "Template",
+    "desc": "Molde oficial con estructura SEO de 15 componentes para redactar nuevos artículos del blog.",
+    "tags": [
+      "plantilla articulo",
+      "template",
+      "blog",
+      "maqueta",
+      "nuevo articulo"
+    ]
+  },
+  {
+    "id": "plantilla-100",
+    "file": "plantilla-100.html",
+    "urlPath": "plantilla-100",
+    "title": "Plantilla Base 100% Corporativa",
+    "category": "herramientas",
+    "categoryLabel": "Herramientas & Proformas",
+    "badge": "Template",
+    "desc": "Estructura base con Navbar oficial, Footer canónico, Lucide y configuración de Tailwind lista.",
+    "tags": [
+      "plantilla 100",
+      "base",
+      "template",
+      "design system",
+      "boilerplate"
+    ]
+  },
+  {
+    "id": "test-logo-escuela",
+    "file": "test-logo-escuela.html",
+    "urlPath": "test-logo-escuela",
+    "title": "Banco de Pruebas de Logotipos",
+    "category": "herramientas",
+    "categoryLabel": "Herramientas & Proformas",
+    "badge": "Diseño",
+    "desc": "Entorno de prueba para validar legibilidad, tamaño y contraste de logotipos de la Escuela de Negocios.",
+    "tags": [
+      "logo",
+      "escuela",
+      "diseño",
+      "branding",
+      "pruebas"
+    ]
+  },
+  {
+    "id": "construccion",
+    "file": "construccion.html",
+    "urlPath": "construccion",
+    "title": "Página Próximo Lanzamiento 2026",
+    "category": "legal",
+    "categoryLabel": "Legal & Sistema",
+    "badge": "Coming Soon",
+    "desc": "Página temporal con cuenta regresiva, captura de leads prioritarios y barra de novedades 2026.",
+    "tags": [
+      "construccion",
+      "proximo lanzamiento",
+      "coming soon",
+      "cuenta regresiva"
+    ]
+  },
+  {
+    "id": "404",
+    "file": "404.html",
+    "urlPath": "404",
+    "title": "Página de Error 404 Canónica",
+    "category": "legal",
+    "categoryLabel": "Legal & Sistema",
+    "badge": "Sistema",
+    "desc": "Página de error amigable que guía al visitante hacia las rutas principales en caso de enlaces rotos.",
+    "tags": [
+      "404",
+      "error",
+      "no encontrado",
+      "pagina no existe",
+      "sistema"
+    ]
+  },
+  {
+    "id": "gracias-test",
+    "file": "gracias-test.html",
+    "urlPath": "gracias-test",
+    "title": "Confirmación: Test Completado",
+    "category": "legal",
+    "categoryLabel": "Legal & Sistema",
+    "badge": "Agradecimiento",
+    "desc": "Página de confirmación y llamado a la acción luego de responder el test interactivo de auditoría.",
+    "tags": [
+      "gracias test",
+      "confirmacion",
+      "agradecimiento",
+      "post test"
+    ]
+  },
+  {
+    "id": "gracias-factura",
+    "file": "gracias-factura.html",
+    "urlPath": "gracias-factura",
+    "title": "Confirmación: Orden / Factura",
+    "category": "legal",
+    "categoryLabel": "Legal & Sistema",
+    "badge": "Agradecimiento",
+    "desc": "Pantalla de confirmación de registro de pago o solicitud de factura comercial proforma.",
+    "tags": [
+      "gracias factura",
+      "pago recibido",
+      "confirmacion",
+      "orden"
+    ]
+  },
+  {
+    "id": "gracias-plan-360-digital",
+    "file": "gracias-plan-360-digital.html",
+    "urlPath": "gracias-plan-360-digital",
+    "title": "Bienvenida: Plan 360 Digital",
+    "category": "legal",
+    "categoryLabel": "Legal & Sistema",
+    "badge": "Onboarding",
+    "desc": "Página de bienvenida con los pasos inmediatos tras contratar la membresía del Plan 360 Digital.",
+    "tags": [
+      "gracias plan digital",
+      "bienvenida",
+      "onboarding",
+      "suscripcion"
+    ]
+  },
+  {
+    "id": "terminos",
+    "file": "terminos.html",
+    "urlPath": "terminos",
+    "title": "Términos & Condiciones de Uso",
+    "category": "legal",
+    "categoryLabel": "Legal & Sistema",
+    "badge": "Legal",
+    "desc": "Marco legal, alcances del servicio de asesoría y condiciones de contratación del sitio web.",
+    "tags": [
+      "terminos",
+      "condiciones",
+      "legal",
+      "contrato",
+      "uso"
+    ]
+  },
+  {
+    "id": "privacidad",
+    "file": "privacidad.html",
+    "urlPath": "privacidad",
+    "title": "Política de Privacidad (Ley 81)",
+    "category": "legal",
+    "categoryLabel": "Legal & Sistema",
+    "badge": "Legal",
+    "desc": "Declaración de tratamiento de datos personales conforme a la Ley 81 de Protección de Datos de Panamá.",
+    "tags": [
+      "privacidad",
+      "ley 81",
+      "datos personales",
+      "seguridad",
+      "legal"
+    ]
+  },
+  {
+    "id": "reembolsos",
+    "file": "reembolsos.html",
+    "urlPath": "reembolsos",
+    "title": "Política de Reembolsos & Garantía",
+    "category": "legal",
+    "categoryLabel": "Legal & Sistema",
+    "badge": "Legal",
+    "desc": "Políticas de garantía, desistimiento y términos de devolución en los servicios comercializados.",
+    "tags": [
+      "reembolsos",
+      "garantia",
+      "devoluciones",
+      "cancelacion",
+      "legal"
+    ]
+  }
+];
+
+    // CATEGORÍAS DISPONIBLES
+    const CATEGORIES = [
+      { id: 'servicios', name: 'Servicios', icon: 'briefcase', color: 'text-brand-blue' },
+      { id: 'embudos', name: 'Diagnósticos & Citas', icon: 'target', color: 'text-brand-orange' },
+      { id: 'tienda-productos', name: 'Productos & Kits de la Tienda', icon: 'shopping-bag', color: 'text-brand-blue' },
+      { id: 'embudo-escudo', name: 'Embudo Escudo Preventivo', icon: 'filter', color: 'text-brand-orange' },
+      { id: 'masterclass', name: 'Masterclasses & Webinars', icon: 'video', color: 'text-brand-blue' },
+      { id: 'recursos', name: 'Recursos & Guías', icon: 'book-open', color: 'text-brand-blue' },
+      { id: 'blog', name: 'Blog & Artículos', icon: 'newspaper', color: 'text-brand-blue' },
+      { id: 'herramientas', name: 'Herramientas & Proformas', icon: 'wrench', color: 'text-brand-orange' },
+      { id: 'legal', name: 'Legal & Sistema', icon: 'shield-check', color: 'text-slate-600' }
+    ];
+
+    let currentFilter = 'all';
+    let searchQuery = '';
+    let isReorderMode = false;
+    let draggedCardId = null;
+    let draggedCategory = null;
+
+    // ALMACENAMIENTO DE ORDEN PERSONALIZADO EN LOCALSTORAGE
+    function getCustomOrderMap() {
+      try {
+        return JSON.parse(localStorage.getItem('aizprua_panel_custom_order')) || {};
+      } catch (e) {
+        return {};
+      }
+    }
+
+    function saveCustomOrderMap(orderMap) {
+      try {
+        localStorage.setItem('aizprua_panel_custom_order', JSON.stringify(orderMap));
+      } catch (e) {
+        console.error('Error saving order:', e);
+      }
+    }
+
+    function getCategoryOrderedIds(category) {
+      const catPages = PAGES_DB.filter(p => p.category === category);
+      const orderMap = getCustomOrderMap();
+      const savedOrder = orderMap[category] || [];
+      if (savedOrder.length === 0) {
+        return catPages.map(p => p.id);
+      }
+      const sorted = [...catPages].sort((a, b) => {
+        const idxA = savedOrder.indexOf(a.id);
+        const idxB = savedOrder.indexOf(b.id);
+        const posA = idxA === -1 ? 9999 : idxA;
+        const posB = idxB === -1 ? 9999 : idxB;
+        return posA - posB;
+      });
+      return sorted.map(p => p.id);
+    }
+
+    // MOVER TARJETA ARRIBA O ABAJO CON BOTÓN
+    function moveCard(pageId, category, delta) {
+      const ids = getCategoryOrderedIds(category);
+      const currentIndex = ids.indexOf(pageId);
+      if (currentIndex === -1) return;
+      const targetIndex = currentIndex + delta;
+      if (targetIndex < 0 || targetIndex >= ids.length) return;
+
+      const item = ids.splice(currentIndex, 1)[0];
+      ids.splice(targetIndex, 0, item);
+
+      const orderMap = getCustomOrderMap();
+      orderMap[category] = ids;
+      saveCustomOrderMap(orderMap);
+
+      renderPages();
+      showToast('¡Posición Actualizada!', 'Se cambió el orden de las tarjetas.');
+    }
+
+    // DRAG AND DROP NATIVO
+    function handleDragStart(e, pageId, category) {
+      draggedCardId = pageId;
+      draggedCategory = category;
+      e.dataTransfer.effectAllowed = 'move';
+      e.dataTransfer.setData('text/plain', pageId);
+      const card = e.currentTarget;
+      setTimeout(() => {
+        card.classList.add('opacity-40', 'scale-[0.98]');
+      }, 0);
+    }
+
+    function handleDragOver(e) {
+      if (e.preventDefault) {
+        e.preventDefault();
+      }
+      e.dataTransfer.dropEffect = 'move';
+      return false;
+    }
+
+    function handleDragEnter(e) {
+      const card = e.currentTarget;
+      card.classList.add('ring-2', 'ring-brand-blue', 'bg-blue-50/40');
+    }
+
+    function handleDragLeave(e) {
+      const card = e.currentTarget;
+      card.classList.remove('ring-2', 'ring-brand-blue', 'bg-blue-50/40');
+    }
+
+    function handleDrop(e, targetPageId, targetCategory) {
+      if (e.stopPropagation) {
+        e.stopPropagation();
+      }
+      const card = e.currentTarget;
+      card.classList.remove('ring-2', 'ring-brand-blue', 'bg-blue-50/40');
+
+      if (!draggedCardId || draggedCategory !== targetCategory || draggedCardId === targetPageId) {
+        return false;
+      }
+
+      const ids = getCategoryOrderedIds(targetCategory);
+      const fromIndex = ids.indexOf(draggedCardId);
+      const toIndex = ids.indexOf(targetPageId);
+
+      if (fromIndex !== -1 && toIndex !== -1) {
+        const item = ids.splice(fromIndex, 1)[0];
+        ids.splice(toIndex, 0, item);
+
+        const orderMap = getCustomOrderMap();
+        orderMap[targetCategory] = ids;
+        saveCustomOrderMap(orderMap);
+
+        renderPages();
+        showToast('¡Nuevo Orden Guardado!', 'La tarjeta fue reubicada con éxito.');
+      }
+
+      return false;
+    }
+
+    function handleDragEnd(e) {
+      const card = e.currentTarget;
+      card.classList.remove('opacity-40', 'scale-[0.98]', 'ring-2', 'ring-brand-blue', 'bg-blue-50/40');
+      draggedCardId = null;
+      draggedCategory = null;
+    }
+
+    // ALTERNAR MODO REORDENAR
+    function toggleReorderMode() {
+      isReorderMode = !isReorderMode;
+      const btn = document.getElementById('btn-reorder-toggle');
+      const btnReset = document.getElementById('btn-reorder-reset');
+      const banner = document.getElementById('reorder-banner');
+
+      if (isReorderMode) {
+        btn.className = 'px-3 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-sm shadow-brand-orange/30 bg-brand-orange text-white hover:bg-brand-orange-dark border border-brand-orange-dark';
+        btn.innerHTML = `
+          <i data-lucide="check" class="w-3.5 h-3.5 shrink-0"></i>
+          <span>Listo (Guardar)</span>
+        `;
+        if (btnReset) {
+          btnReset.classList.remove('hidden');
+          btnReset.classList.add('inline-flex');
+        }
+        if (banner) banner.classList.remove('hidden');
+        showToast('Modo Reordenar Activo', 'Arrastra las tarjetas o usa las flechas (↑ / ↓) para organizarlas.');
+      } else {
+        btn.className = 'px-3 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-xs border bg-slate-50 text-slate-700 hover:text-brand-blue hover:bg-slate-100 border-slate-200';
+        btn.innerHTML = `
+          <i data-lucide="arrow-up-down" class="w-3.5 h-3.5 shrink-0 text-slate-500"></i>
+          <span>Reordenar</span>
+        `;
+        const map = getCustomOrderMap();
+        const hasCustom = Object.keys(map).some(k => map[k] && map[k].length > 0);
+        if (btnReset && !hasCustom) {
+          btnReset.classList.add('hidden');
+          btnReset.classList.remove('inline-flex');
+        }
+        if (banner) banner.classList.add('hidden');
+        showToast('Modo Reordenar Guardado', 'Tus preferencias de ordenamiento están activas.');
+      }
+
+      renderPages();
+    }
+
+    // RESTABLECER AL ORDEN ORIGINAL
+    function resetCustomOrder() {
+      if (confirm('¿Deseas restaurar todas las tarjetas al orden original predeterminado?')) {
+        localStorage.removeItem('aizprua_panel_custom_order');
+        const btnReset = document.getElementById('btn-reorder-reset');
+        if (btnReset && !isReorderMode) {
+          btnReset.classList.add('hidden');
+          btnReset.classList.remove('inline-flex');
+        }
+        renderPages();
+        showToast('Orden Restablecido', 'Se restauró el orden oficial predeterminado.');
+      }
+    }
+
+    // RENDERIZADOR DE PÁGINAS
+    function renderPages() {
+      const container = document.getElementById('pages-container');
+      const noResults = document.getElementById('no-results');
+      const pageCountBadge = document.getElementById('page-count-badge');
+      const btnReset = document.getElementById('btn-reorder-reset');
+      container.innerHTML = '';
+
+      // Mostrar botón restablecer si ya hay orden personalizado guardado
+      const map = getCustomOrderMap();
+      const hasCustom = Object.keys(map).some(k => map[k] && map[k].length > 0);
+      if (btnReset) {
+        if (hasCustom || isReorderMode) {
+          btnReset.classList.remove('hidden');
+          btnReset.classList.add('inline-flex');
+        } else {
+          btnReset.classList.add('hidden');
+          btnReset.classList.remove('inline-flex');
+        }
+      }
+
+      const query = searchQuery.trim().toLowerCase();
+
+      // Filtrar páginas
+      const filteredPages = PAGES_DB.filter(page => {
+        const matchesCategory = (currentFilter === 'all') || (page.category === currentFilter);
+        const matchesSearch = !query || 
+          page.title.toLowerCase().includes(query) ||
+          page.file.toLowerCase().includes(query) ||
+          page.desc.toLowerCase().includes(query) ||
+          page.badge.toLowerCase().includes(query) ||
+          page.tags.some(t => t.toLowerCase().includes(query));
+
+        return matchesCategory && matchesSearch;
+      });
+
+      pageCountBadge.textContent = filteredPages.length;
+
+      if (filteredPages.length === 0) {
+        noResults.classList.remove('hidden');
+        return;
+      }
+      noResults.classList.add('hidden');
+
+      // Agrupar por categoría
+      CATEGORIES.forEach(cat => {
+        let pagesInCat = filteredPages.filter(p => p.category === cat.id);
+        if (pagesInCat.length === 0) return;
+
+        // Aplicar orden personalizado si existe para esta categoría
+        const savedOrder = map[cat.id] || [];
+        if (savedOrder.length > 0) {
+          pagesInCat = [...pagesInCat].sort((a, b) => {
+            const idxA = savedOrder.indexOf(a.id);
+            const idxB = savedOrder.indexOf(b.id);
+            const posA = idxA === -1 ? 9999 : idxA;
+            const posB = idxB === -1 ? 9999 : idxB;
+            return posA - posB;
+          });
+        }
+
+        // Sección de Categoría
+        const section = document.createElement('section');
+        section.className = 'space-y-4';
+
+        section.innerHTML = `
+          <div class="flex items-center justify-between pb-2 border-b border-slate-200">
+            <div class="flex items-center gap-2.5">
+              <div class="w-7 h-7 rounded-lg bg-white border border-slate-200 ${cat.color} flex items-center justify-center shrink-0 shadow-xs">
+                <i data-lucide="${cat.icon}" class="w-4 h-4"></i>
+              </div>
+              <h3 class="text-sm font-bold text-slate-900 tracking-tight font-display">${cat.name}</h3>
+              <span class="text-[11px] font-bold text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded-full border border-slate-200">
+                ${pagesInCat.length}
+              </span>
+            </div>
+            ${isReorderMode ? `
+              <span class="text-[11px] font-bold text-brand-orange bg-brand-orange/10 px-2.5 py-0.5 rounded-full border border-brand-orange/20 flex items-center gap-1">
+                <i data-lucide="grip-vertical" class="w-3 h-3"></i>
+                Reordenando categoría
+              </span>
+            ` : ''}
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            ${pagesInCat.map((page, idx) => createCardHTML(page, idx, pagesInCat.length)).join('')}
+          </div>
+        `;
+
+        container.appendChild(section);
+      });
+
+      // Refrescar iconos Lucide
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    }
+
+    // GENERADOR DE TARJETA HTML 
+    function createCardHTML(page, index, totalInCat) {
+      const prodUrl = page.urlPath ? `https://aizprua.com/${page.urlPath}` : 'https://aizprua.com/';
+      const copyTarget = page.buyLink || prodUrl;
+      const isProduct = !!page.price;
+      const openLabel = isProduct && page.badge === 'Landing Propia' ? 'Abrir Landing' : (isProduct ? 'Ver en Tienda' : 'Abrir');
+      const copyLabel = isProduct && page.buyLink && page.buyLink.includes('hotmart') ? 'Checkout Hotmart' : (isProduct && page.buyLink && page.buyLink.includes('wa.me') ? 'WhatsApp Compra' : 'Copiar URL');
+
+      const priceBadge = isProduct ? `
+        <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-black bg-brand-orange/15 text-brand-orange-dark border border-brand-orange/30">
+          ${page.price}
+        </span>
+      ` : '';
+
+      const dragAttrs = isReorderMode ? `
+        draggable="true" 
+        ondragstart="handleDragStart(event, '${page.id}', '${page.category}')"
+        ondragover="handleDragOver(event)"
+        ondragenter="handleDragEnter(event)"
+        ondragleave="handleDragLeave(event)"
+        ondrop="handleDrop(event, '${page.id}', '${page.category}')"
+        ondragend="handleDragEnd(event)"
+      ` : '';
+
+      const cardBorderClass = isReorderMode ? 'border-2 border-brand-blue/40 shadow-md bg-white cursor-grab active:cursor-grabbing hover:border-brand-blue' : 'border border-slate-200 hover:border-brand-blue/60 shadow-xs hover:shadow-xl hover:-translate-y-1 bg-white';
+
+      const reorderHeaderControls = isReorderMode ? `
+        <div class="flex items-center justify-between w-full pb-2 mb-2 border-b border-slate-100">
+          <div class="flex items-center gap-1.5 text-brand-blue font-bold text-xs" title="Arrastra desde aquí">
+            <div class="p-1 rounded-md bg-brand-blue/10 text-brand-blue flex items-center justify-center">
+              <i data-lucide="grip-vertical" class="w-3.5 h-3.5"></i>
+            </div>
+            <span class="text-[11px] font-mono text-slate-600 font-bold">Posición #${index + 1}</span>
+          </div>
+
+          <div class="flex items-center gap-1 bg-slate-100 p-0.5 rounded-lg border border-slate-200">
+            <button 
+              type="button" 
+              onclick="moveCard('${page.id}', '${page.category}', -1)" 
+              class="w-6 h-6 flex items-center justify-center rounded-md hover:bg-brand-blue hover:text-white text-slate-600 transition disabled:opacity-30 disabled:pointer-events-none" 
+              title="Subir posición"
+              ${index === 0 ? 'disabled' : ''}
+            >
+              <i data-lucide="chevron-up" class="w-3.5 h-3.5"></i>
+            </button>
+            <button 
+              type="button" 
+              onclick="moveCard('${page.id}', '${page.category}', 1)" 
+              class="w-6 h-6 flex items-center justify-center rounded-md hover:bg-brand-blue hover:text-white text-slate-600 transition disabled:opacity-30 disabled:pointer-events-none" 
+              title="Bajar posición"
+              ${index === totalInCat - 1 ? 'disabled' : ''}
+            >
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+      ` : '';
+
+      return `
+        <div ${dragAttrs} class="h-full rounded-2xl p-5 ${cardBorderClass} transition-all duration-200 flex flex-col justify-between group select-none">
+          <div>
+            ${reorderHeaderControls}
+
+            <!-- Header de Tarjeta -->
+            <div class="flex items-start justify-between gap-2 mb-3 flex-wrap">
+              <div class="flex items-center gap-1.5">
+                <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-brand-blue/10 text-brand-blue border border-brand-blue/20">
+                  ${page.badge}
+                </span>
+                ${priceBadge}
+              </div>
+              <span class="text-[11px] font-mono text-slate-500 font-medium truncate bg-slate-50 px-2 py-0.5 rounded-md border border-slate-200 max-w-[150px]">
+                ${page.file}
+              </span>
+            </div>
+
+            <!-- Título & Descripción -->
+            <h4 class="text-sm font-bold text-slate-900 group-hover:text-brand-blue transition mb-1 leading-snug">
+              ${page.title}
+            </h4>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4 line-clamp-2">
+              ${page.desc}
+            </p>
+          </div>
+
+          <!-- Botones de Acción -->
+          <div class="pt-3.5 border-t border-slate-100 flex items-center gap-2 mt-auto">
+            <!-- Botón Abrir / Landing -->
+            <a 
+              href="${page.file}" 
+              target="_blank" 
+              class="flex-1 py-2 px-3 bg-brand-blue hover:bg-brand-blue-dark text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 shadow-sm shadow-brand-blue/20 hover:shadow-md whitespace-nowrap"
+              title="${openLabel}"
+            >
+              <i data-lucide="${page.badge === 'Landing Propia' ? 'globe' : (isProduct ? 'shopping-bag' : 'external-link')}" class="w-3.5 h-3.5 shrink-0"></i>
+              <span>${openLabel}</span>
+            </a>
+
+            <!-- Botón Copiar URL / Compra -->
+            <button 
+              type="button" 
+              onclick="copyUrl('${copyTarget}')" 
+              class="py-2 px-3 bg-brand-orange/10 hover:bg-brand-orange/20 text-brand-orange-dark hover:text-brand-orange font-bold rounded-xl text-xs transition flex items-center justify-center gap-1.5 border border-brand-orange/20 whitespace-nowrap"
+              title="Copiar: ${copyTarget}"
+            >
+              <i data-lucide="${isProduct && page.buyLink && page.buyLink.includes('wa.me') ? 'message-circle' : 'copy'}" class="w-3.5 h-3.5 shrink-0 text-brand-orange"></i>
+              <span class="hidden sm:inline">${copyLabel}</span>
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    // FILTRO DE CATEGORÍAS
+    function filterCategory(cat) {
+      currentFilter = cat;
+      document.querySelectorAll('.cat-pill').forEach(btn => {
+        if (btn.getAttribute('data-cat') === cat) {
+          btn.className = 'cat-pill active px-3 py-1.5 rounded-xl text-xs font-bold bg-brand-blue text-white transition flex items-center gap-1.5 shrink-0 shadow-sm shadow-brand-blue/20';
+        } else {
+          btn.className = 'cat-pill px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-600 hover:text-brand-blue hover:bg-slate-100 transition flex items-center gap-1.5 shrink-0 border border-transparent';
+        }
+      });
+      renderPages();
+    }
+
+    // COPIAR ENLACE AL PORTAPAPELES
+    function copyUrl(url) {
+      navigator.clipboard.writeText(url).then(() => {
+        showToast('¡Enlace Copiado!', url);
+      }).catch(err => {
+        console.error('Error al copiar:', err);
+      });
+    }
+
+    // MOSTRAR TOAST NOTIFICACIÓN
+    let toastTimeout;
+    function showToast(title, url) {
+      const toast = document.getElementById('toast');
+      const toastTitle = document.getElementById('toast-title');
+      const toastUrl = document.getElementById('toast-url');
+
+      toastTitle.textContent = title;
+      toastUrl.textContent = url;
+
+      toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+      }, 2500);
+    }
+
+    // LIMPIAR BÚSQUEDA
+    function clearSearch() {
+      const input = document.getElementById('search-input');
+      input.value = '';
+      searchQuery = '';
+      currentFilter = 'all';
+      filterCategory('all');
+      input.focus();
+    }
+
+    // EVENT LISTENERS
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('search-input');
+
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value;
+        renderPages();
+      });
+
+      // Atajo de Teclado "/" o "Ctrl + K"
+      document.addEventListener('keydown', (e) => {
+        if ((e.key === '/' || (e.ctrlKey && e.key === 'k')) && document.activeElement !== searchInput) {
+          e.preventDefault();
+          searchInput.focus();
+        } else if (e.key === 'Escape' && document.activeElement === searchInput) {
+          searchInput.blur();
+        }
+      });
+
+      renderPages();
+    });
+  </script>
+</body>
+</html>
