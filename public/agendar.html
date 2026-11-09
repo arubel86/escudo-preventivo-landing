@@ -192,7 +192,7 @@
                     </p>
                     <textarea id="business-description" rows="4"
                         placeholder="Ej: Tengo una empresa de distribución de alimentos con 4 colaboradores. Nos preocupa estar al día con la DGI y formalizar los contratos laborales con MITRADEL..."
-                        class="w-full p-4 bg-slate-50 border border-slate-300 rounded-2xl text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue focus:bg-white transition mb-6"></textarea>
+                        class="w-full p-4 bg-slate-50 border border-slate-300 rounded-2xl text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue focus:bg-white transition mb-6 resize-none"></textarea>
                     
                     <div class="flex items-center justify-between gap-3">
                         <button type="button" onclick="goToStep(1)"
@@ -350,9 +350,9 @@
 
                         <!-- Tarjeta Amarilla de Advertencia Obligatoria -->
                         <div class="bg-amber-50/80 border border-amber-200/80 rounded-2xl p-4 text-xs text-amber-900 space-y-2 shadow-xs">
-                            <div class="flex items-center gap-1.5 font-bold uppercase tracking-wide text-amber-800">
+                            <div class="flex items-center gap-2 font-bold text-xs sm:text-sm text-amber-900">
                                 <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-600 shrink-0"></i>
-                                <span>Lee esto antes de agendar</span>
+                                <span class="whitespace-nowrap">Lee esto antes de agendar</span>
                             </div>
                             <p class="leading-relaxed">
                                 <strong>1. Confirma tu asistencia por WhatsApp</strong> luego de agendar (obligatorio para confirmar cupo).
@@ -891,6 +891,25 @@
                     fecha_agendada: selectedDay + ' a las ' + selectedTime,
                     origen: 'landing_escudo_preventivo_agendar'
                 };
+
+                // Enviar silenciosamente al Webhook de Google Sheets (Pestaña: Citas Agendadas)
+                fetch('https://script.google.com/macros/s/AKfycbwWvEs1skfTZZoqFdVZQgALnLqJrI-gW5C56FFKXvjLPfLwJoHo9UsbJtxsrf1iwF50Cw/exec', {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        tipo: 'cita_agendada',
+                        nombre: name,
+                        telefono: formattedPhone,
+                        email: email,
+                        empresa: company,
+                        tipo_negocio: quizAnswers.step1 || 'No especificado',
+                        facturacion: quizAnswers.step3 || 'No especificado',
+                        cita: selectedDay + ' a las ' + selectedTime,
+                        fecha_iso: selectedIsoDate,
+                        hora: selectedTime
+                    })
+                }).catch(function() {});
 
                 fetch('https://deskcomm.aizprua.com/api/v1/webhooks/in/aizprua-landing-citas-2026', {
                     method: 'POST',

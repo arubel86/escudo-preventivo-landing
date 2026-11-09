@@ -105,7 +105,6 @@
                 opacity: 0;
             }
         }
-        }
 
         .whatsapp-btn,
         .whatsapp-pulse-btn {
@@ -886,6 +885,26 @@
             localStorage.setItem('aizprua_lead_name', name);
             localStorage.setItem('aizprua_lead_email', email);
             localStorage.setItem('aizprua_lead_whatsapp', whatsapp);
+
+            // Envío silencioso al Webhook de Prospectos Gratuitos (Pestaña: Biblioteca Recursos)
+            try {
+                const recursoTitulo = (typeof RESOURCES !== 'undefined' && typeof currentIndex !== 'undefined' && RESOURCES[currentIndex]) 
+                    ? RESOURCES[currentIndex].title 
+                    : 'Acceso Completo a Biblioteca';
+
+                fetch('https://script.google.com/macros/s/AKfycbwWvEs1skfTZZoqFdVZQgALnLqJrI-gW5C56FFKXvjLPfLwJoHo9UsbJtxsrf1iwF50Cw/exec', {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        tipo: 'biblioteca_recursos',
+                        nombre: name,
+                        email: email,
+                        whatsapp: whatsapp,
+                        recurso: recursoTitulo
+                    })
+                }).catch(function() {});
+            } catch (err) {}
 
             isUnlocked = true;
 

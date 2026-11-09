@@ -139,14 +139,11 @@
                 opacity: 0;
             }
         }
-        }
 
-        .whatsapp-btn,
         .whatsapp-pulse-btn {
             position: relative;
         }
 
-        .whatsapp-btn::before,
         .whatsapp-pulse-btn::before {
             content: '';
             position: absolute;
@@ -159,7 +156,6 @@
         }
 
         @media (prefers-reduced-motion: reduce) {
-            .whatsapp-btn::before,
             .whatsapp-pulse-btn::before {
                 animation: none !important;
                 display: none !important;
@@ -171,24 +167,29 @@
 <body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between">
 
   <!-- Top Progress Bar (Idéntico a index.html) -->
-  <div class="fixed top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-blue to-brand-orange z-[60]"></div>
+  <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-brand-orange z-[60] transition-all duration-75" style="width:0%"></div>
 
   <!-- Announcement Bar Canónica -->
-  <div id="announcement-bar" class="relative bg-brand-blue text-white py-2 px-4 text-center text-sm font-medium z-50">
-    <span>
-      <i data-lucide="shield-alert" class="w-4 h-4 text-brand-orange-light shrink-0"></i>
-      Próximo Lanzamiento Oficial en <strong class="text-brand-orange-light">aizprua.com</strong> — Blindaje Legal 2026
-    </span>
-    <a href="#notificar" class="ml-2 underline font-bold hover:text-brand-orange-light transition-colors">Anotarme</a>
-    <button id="close-announcement" aria-label="Cerrar anuncio" class="absolute right-4 top-1/2 -translate-y-1/2 hover:text-brand-orange-light transition-colors">
+  <aside id="announcement-bar" class="relative bg-brand-blue text-white py-2.5 px-4 text-center text-xs sm:text-sm font-semibold z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 flex-wrap">
+      <span class="inline-flex items-center gap-1.5">
+        <i data-lucide="shield-alert" class="w-4 h-4 text-brand-orange-light shrink-0"></i>
+        <span>Lanzamiento Oficial en <strong class="text-brand-orange-light">aizprua.com</strong> — Blindaje Legal 2026</span>
+      </span>
+      <a href="#notificar" class="inline-flex items-center gap-1 text-white underline font-bold hover:text-brand-orange-light transition">
+        <span>Anotarme</span>
+        <i data-lucide="arrow-right" class="w-3.5 h-3.5 shrink-0"></i>
+      </a>
+    </div>
+    <button onclick="document.getElementById('announcement-bar').style.display='none'" aria-label="Cerrar anuncio" class="absolute right-3 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition p-1">
       <i data-lucide="x" class="w-4 h-4"></i>
     </button>
-  </div>
+  </aside>
 
   <!-- Navbar Canónica -->
   <nav id="navbar" class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200 transition-shadow">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between h-16 items-center">
+      <div class="flex justify-between h-20 items-center">
         <!-- Logo Oficial Canónico -->
         <a href="/" class="flex items-center" title="Aizprua S.E. - Inicio">
           <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg" alt="Logo Aizprua S.E. - Trámites Legales Panamá" class="h-28 w-auto object-contain" width="112" height="112"/>
@@ -210,7 +211,7 @@
         </button>
 
         <!-- Botón WhatsApp Directo Canónico -->
-        <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.%2C%20quisiera%20consultar%20sobre%20el%20pr%C3%B3ximo%20lanzamiento%20y%20el%20Escudo%20Preventivo." target="_blank" rel="noopener noreferrer" class="whatsapp-btn relative hidden md:flex items-center gap-2 bg-[#25D366] text-white px-5 py-2 rounded-full font-semibold hover:bg-[#20bd5a] transition shadow-lg text-sm">
+        <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.%2C%20quisiera%20consultar%20sobre%20el%20pr%C3%B3ximo%20lanzamiento%20y%20el%20Escudo%20Preventivo." target="_blank" rel="noopener noreferrer" class="hidden md:flex items-center gap-2 bg-[#25D366] text-white px-5 py-2.5 rounded-full font-bold text-sm hover:bg-[#20bd5a] transition shadow-md hover:shadow-lg whitespace-nowrap transform hover:-translate-y-0.5">
           <i data-lucide="message-circle" class="w-4 h-4"></i>
           <span>WhatsApp</span>
         </a>
@@ -503,9 +504,25 @@
   </footer>
 
   <!-- Botón Flotante de WhatsApp para Móvil -->
-  <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.%2C%20quisiera%20consultar%20sobre%20el%20pr%C3%B3ximo%20lanzamiento%20y%20el%20Escudo%20Preventivo." target="_blank" rel="noopener noreferrer" aria-label="Chat WhatsApp Aizprua S.E." class="whatsapp-btn fixed bottom-5 right-5 z-[90] bg-[#25D366] hover:bg-[#20bd5a] text-white p-3.5 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all flex items-center justify-center">
-    <i data-lucide="message-circle" class="w-6 h-6"></i>
-  </a>
+  <div class="fixed bottom-6 right-6 z-[90] flex flex-col items-center gap-5 pointer-events-none">
+    <!-- Botón Flotante "Volver Arriba" (Scroll to Top) -->
+    <button id="scroll-top-btn" onclick="scrollToTop()" aria-label="Volver arriba"
+      class="w-11 h-11 bg-white/95 backdrop-blur border border-slate-300 hover:border-brand-blue text-slate-700 hover:text-brand-blue rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:-translate-y-1 flex items-center justify-center flex-shrink-0">
+      <i data-lucide="chevron-up" class="w-5 h-5"></i>
+    </button>
+
+    <!-- Botón Flotante de WhatsApp Fijo con Onda Pulsante -->
+    <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.%2C%20quisiera%20consultar%20sobre%20el%20pr%C3%B3ximo%20lanzamiento%20y%20el%20Escudo%20Preventivo."
+      target="_blank" rel="noopener noreferrer" aria-label="Abrir WhatsApp"
+      class="whatsapp-pulse-btn pointer-events-auto relative w-14 h-14 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center group flex-shrink-0">
+      <i data-lucide="message-circle" class="w-7 h-7 relative z-10"></i>
+      <span class="absolute right-full mr-3 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg z-20">
+        ¿Dudas? Chatea con nosotros
+      </span>
+    </a>
+  </div>
+
+
 
   <!-- Script para Lucide, Cuenta Regresiva y Webhook -->
   <script>
@@ -635,7 +652,33 @@
           mobileMenu.classList.toggle('hidden');
         });
       }
+      // 5. Barra de lectura interactiva y botón Volver Arriba
+      const scrollTopBtn = document.getElementById('scroll-top-btn');
+      const progressBar = document.getElementById('progress-bar');
+
+      window.addEventListener('scroll', () => {
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+        if (progressBar) {
+          progressBar.style.width = `${progress}%`;
+        }
+
+        if (scrollTopBtn) {
+          if (window.scrollY > 400) {
+            scrollTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+            scrollTopBtn.classList.add('opacity-100', 'pointer-events-auto');
+          } else {
+            scrollTopBtn.classList.add('opacity-0', 'pointer-events-none');
+            scrollTopBtn.classList.remove('opacity-100', 'pointer-events-auto');
+          }
+        }
+      }, { passive: true });
     });
+
+    // Función Scroll to Top Oficial
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   </script>
 </body>
 </html>

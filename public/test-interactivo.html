@@ -1162,6 +1162,26 @@
             clientEmail = (emailInput && emailInput.value) ? emailInput.value.trim() : '';
             clientPhone = (phoneInput && phoneInput.value) ? phoneInput.value.trim() : '';
 
+            // Envío silencioso al Webhook de Prospectos Gratuitos (Pestaña: Auditoría Interactiva)
+            try {
+                const redCount = (typeof answers !== 'undefined' && Array.isArray(answers)) ? answers.filter(a => a === 'R').length : 0;
+                const calculatedRisk = redCount > 5 ? 'Crítico' : (redCount > 2 ? 'Vulnerable' : 'Bajo');
+
+                fetch('https://script.google.com/macros/s/AKfycbwWvEs1skfTZZoqFdVZQgALnLqJrI-gW5C56FFKXvjLPfLwJoHo9UsbJtxsrf1iwF50Cw/exec', {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        tipo: 'auditoria_interactiva',
+                        nombre: clientName,
+                        email: clientEmail,
+                        telefono: clientPhone,
+                        perfil: (typeof selectedProfile !== 'undefined') ? selectedProfile : 'General',
+                        riesgo: calculatedRisk
+                    })
+                }).catch(function() {});
+            } catch (err) {}
+
             try {
                 localStorage.setItem('aizprua_audit_lead', JSON.stringify({
                     name: clientName,
