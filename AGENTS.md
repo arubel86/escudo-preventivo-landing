@@ -255,6 +255,105 @@
      El botón desencadenante debe renderizarse como texto limpio continuo sin apariencia de botón ni flechas.
 * **PROHIBICIÓN ESTRICTA:** Queda terminantemente prohibido utilizar elementos nativos `<select>` sin estilar en interfaces comerciales ejecutivas donde la lista emergente nativa aparezca adherida o pegada al botón sin separación vertical, o donde la flecha nativa del sistema operativo quede aprisionada contra el texto.
 
+## 🔤 Regla Anti-Palabras Huérfanas en Titulares de Sección para Escritorio (Desktop Continuous Heading)
+* **MANDATO OBLIGATORIO:** En todo titular principal de sección (`<h2>` o encabezados de alto impacto) en páginas de aterrizaje, páginas institucionales o catálogos del ecosistema **Aizprua S.E.** (`principal.html`, `llave-en-mano.html`, `conferencias.html`, `tienda.html`, `escuela.html`, etc.):
+  1. **Cero Palabras Huérfanas en Escritorio:** En pantallas de escritorio (`lg:` ≥ 1024px), queda **estrictamente prohibido** permitir que un titular se quiebre dejando una única palabra o sigla solitaria descolgada en la segunda línea (ej. *«¿Qué Arriesgas Operando sin Estructura»* / *«Legal?»*, *«Empresarios que hoy operan con»* / *«tranquilidad»*, *«Tres Modalidades Diseñadas para Generar»* / *«Resultados»*, o *«Aizprua»* / *«S.E.»*).
+  2. **Amplitud Responsiva del Contenedor:** Los contenedores de cabecera de sección centrada deben configurarse obligatoriamente con amplitud proporcional en escritorio utilizando `max-w-3xl lg:max-w-4xl` o `max-w-3xl lg:max-w-5xl` (nunca restringidos a un `max-w-2xl` rígido en desktop si el titular supera los 35 caracteres).
+  3. **Despliegue Continuo de Impacto (`lg:whitespace-nowrap`):** En titulares de hasta 60 caracteres que conformen una sola idea ejecutiva contundente, debe aplicarse estrictamente la clase `lg:whitespace-nowrap` en el elemento `<h2>` para asegurar una sola línea horizontal continua, fluida y de máxima autoridad visual.
+  4. **Preservación Responsiva en Móvil y Tablet:** En dispositivos móviles y tablets (< 1024px), el titular debe mantener su flujo natural multilínea flexible (sin `whitespace-nowrap`), permitiendo que el texto quiebre equilibradamente en dos renglones sin desbordar la pantalla ni generar scroll horizontal.
+* **PROHIBICIÓN ESTRICTA:** Queda terminantemente prohibido encerrar titulares en contenedores angostos artificiales (`max-w-2xl` o `max-w-xl` fijos) en escritorio que desfiguren el ritmo tipográfico y provoquen palabras viudas/huérfanas al final del renglón.
+
+## 🧮 Regla Canónica de Cálculos Fiscales, Moneda y Retenciones de Panamá (DGI & Facturación)
+* **MANDATO OBLIGATORIO:** En todo documento financiero, cotización comercial, factura proforma, simulador de crédito o pasarela de cobro del ecosistema **Aizprua S.E.** (`cotizacion.html`, `factura.html`, `calculadora-precios.html`, `tienda.html`, etc.):
+  1. **Moneda Oficial & Formato:** Todo valor monetario debe expresarse en Dólares de los Estados Unidos (USD / moneda de curso legal en Panamá) formateado obligatoriamente con separador de miles y exactamente 2 decimales: `$X,XXX.XX USD`.
+  2. **Cálculo Matemático Oficial del ITBMS (7%):** El Impuesto de Transferencia de Bienes Muebles y Servicios (ITBMS) se calcula estrictamente como el 7% sobre el subtotal imponible, utilizando redondeo bancario de precisión para prevenir discrepancias de centavos:
+     ```javascript
+     const itbms = Math.round((subtotal * 0.07 + Number.EPSILON) * 100) / 100;
+     ```
+  3. **Mecanismo de Retención Fiscal del ITBMS (50% DGI):** Si el cliente es un Agente de Retención certificado ante la Dirección General de Ingresos (DGI) o una entidad estatal, la retención aplicable es **estrictamente el 50% sobre el monto del ITBMS generado**, y se resta del total a pagar:
+     ```javascript
+     const retencionITBMS = aplicaRetencion ? Math.round((itbms * 0.50 + Number.EPSILON) * 100) / 100 : 0;
+     const totalPagar = subtotal + itbms - retencionITBMS;
+     ```
+     **PROHIBICIÓN ESTRICTA:** Queda terminantemente prohibido calcular la retención fiscal sobre el subtotal o sobre el total con impuesto incluido; en Panamá la retención legal de honorarios profesionales de intermediación es del 50% del ITBMS.
+  4. **Formato Institucional de RUC y DV:** En todo comprobante fiscal o ficha de cliente, el Registro Único de Contribuyente (RUC) debe documentarse con sus guiones oficiales correspondientes y su Dígito Verificador (DV) obligatorio (ej. *155718245-2-2023 DV 45* o *8-765-1234 DV 12*).
+
+## 🖨️ Regla de Impresión y Exportación a PDF para Documentos Ejecutivos
+* **MANDATO OBLIGATORIO:** En todo documento formal imprimible o exportable a PDF (`cotizacion.html`, `factura.html`, `informe-diagnostico.html`, `hoja-de-ruta.html`):
+  1. **Limpieza Absoluta en `@media print`:** La hoja impresa debe lucir como un documento corporativo de firma legal de alta fidelidad, ocultando sin excepción:
+     ```css
+     @media print {
+         #announcement-bar, header, nav, #whatsapp-float, .btn-action, .no-print,
+         .dropdown-chevron, .dropdown-menu, #mobile-menu, button:not(.printable) {
+             display: none !important;
+         }
+     }
+     ```
+  2. **Protección Anti-Quiebre de Tablas (`break-inside: avoid`):** Toda tabla de partidas, resumen de impuestos, cuadro de firmas y cuentas bancarias debe incorporar obligatoriamente `page-break-inside: avoid; break-inside: avoid;` para prevenir que una tabla o el bloque de totales quede partido por la mitad entre dos páginas.
+  3. **Fidelidad Cromática y Fondos Corporativos:** Mantener activos los contrastes suaves de tabla mediante:
+     ```css
+     -webkit-print-color-adjust: exact;
+     print-color-adjust: exact;
+     ```
+  4. **Paginación Oficial:** Formato estándar tamaño Carta (Letter / 8.5" x 11") con márgenes de seguridad de 12 mm a 15 mm en los cuatro costados.
+
+## 📲 Regla de Enlaces y Protocolo de Conversión a WhatsApp Oficial
+* **MANDATO OBLIGATORIO:** En todo botón de llamado a la acción (CTA), enlace de contacto o atención al cliente que dirija a WhatsApp dentro de cualquier página o plantilla:
+  1. **Número Oficial Único Canónico:** Utilizar estrictamente el enlace oficial internacional con código de país 507:
+     `https://wa.me/50765461527`
+     **PROHIBICIÓN:** Prohibido usar prefijos con signos más (`+507`), espacios, guiones o enlaces api (`api.whatsapp.com`) que puedan fallar en aplicaciones nativas de iOS o Android.
+  2. **Atributos de Apertura Segura:** Todo enlace externo a WhatsApp debe incorporar obligatoriamente:
+     `target="_blank" rel="noopener noreferrer"`
+  3. **Codificación Paramétrica Obligatoria (`encodeURIComponent`):** Todo mensaje predeterminado (`?text=...`) debe redactarse en español formal, contextualizado al servicio de la página (ej. cotizaciones, conferencias, trámites) y codificado con `encodeURIComponent` si se inyecta por JavaScript, previniendo caracteres corruptos o saltos de línea inválidos en navegadores móviles.
+  4. **Estándar Visual Vectorial:** Utilizar siempre el icono oficial de Lucide `<i data-lucide="message-circle"></i>` con color corporativo `#25D366` o blanco puro sobre fondo verde WhatsApp.
+
+## 🛒 Regla de Resiliencia y Persistencia del Carrito de Compras (Local Storage)
+* **MANDATO OBLIGATORIO:** En la tienda online (`tienda.html`), catálogo interactivo y carrito lateral (*Cart Drawer*):
+  1. **Encapsulamiento Seguro de `localStorage`:** Toda lectura, escritura o eliminación en almacenamiento local debe estar obligatoriamente protegida dentro de bloques `try...catch`:
+     ```javascript
+     function getCartItems() {
+         try {
+             return JSON.parse(localStorage.getItem('aizprua_cart') || '[]');
+         } catch (e) {
+             console.warn('Almacenamiento local bloqueado o no disponible:', e);
+             return [];
+         }
+     }
+     ```
+     Esto previene bloqueos catastróficos de JavaScript en navegadores con navegación privada estricta (ej. Safari iOS Private Browsing).
+  2. **Sincronización Reactiva del Contador (`#cart-count-badge`):** Cualquier adición, cambio de unidades o eliminación de un producto debe despachar inmediatamente la actualización visual del badge numérico en el botón del carrito:
+     ```javascript
+     if (badge) {
+         badge.textContent = totalQty;
+         badge.classList.toggle('hidden', totalQty === 0);
+     }
+     ```
+  3. **Sanitización de Datos y Cero Precios Fantasma:** Antes de abrir la pasarela de pago o transferir el pedido a WhatsApp, el carrito debe verificar que los IDs y precios de los productos coincidan con el catálogo vigente, evitando compras con precios desactualizados en caché.
+
+## 🌐 Regla de Rutas Canónicas Limpias y SEO Multiplataforma (Clean URLs)
+* **MANDATO OBLIGATORIO:** En todo el árbol de navegación del sitio web servido por Express (`server.js`):
+  1. **Cero Extensiones `.html` en Enlaces Internos:** Toda referencia en menús de navegación, botones de llamado a la acción, migas de pan (breadcrumbs) y enlaces del pie de página debe utilizar **rutas limpias canónicas** sin la terminación `.html`:
+     - Correcto: `href="/tienda"`, `href="/escuela"`, `href="/blog"`, `href="/conferencias"`, `href="/test-interactivo"`
+     - Prohibido: `href="/tienda.html"`, `href="/escuela.html"`, `href="blog.html"`
+  2. **Etiqueta Canónica Obligatoria:** Toda página debe incluir en su `<head>` la URL canónica absoluta con protocolo seguro HTTPS:
+     `<link rel="canonical" href="https://aizprua.com/[ruta-limpia]">`
+  3. **Metatags Open Graph & Twitter Cards Completos:** Cada página debe contar con su bloque SEO social completo: `og:title`, `og:description`, `og:image` (imagen válida existente en `/assets/`), `og:url`, `og:site_name="Aizprua S.E."` y `og:locale="es_PA"`.
+
+## 🔒 Regla de Privacidad y Cumplimiento de la Ley 81 de Protección de Datos (Panamá)
+* **MANDATO OBLIGATORIO:** En cumplimiento de la **Ley 81 de 2019 de Protección de Datos Personales** de la República de Panamá y su Decreto Ejecutivo 285 de 2021:
+  1. **Consentimiento Informado en Formularios:** En toda interfaz web que capture datos personales o comerciales de clientes (nombre, correo electrónico, teléfono, número de RUC, detalles contables o respuestas del test interactivo):
+     - Debe incluirse una leyenda clara de privacidad con enlace directo a [`/privacidad`](/privacidad):
+       ```html
+       <p class="text-[11px] text-slate-500 mt-2">
+           Tus datos están protegidos bajo la Ley 81 de 2019. Consulta nuestra 
+           <a href="/privacidad" class="underline hover:text-brand-blue">Política de Privacidad</a>.
+       </p>
+       ```
+  2. **Prohibición Estricta de Fuga de Datos:** Queda **terminantemente prohibido** registrar números de cédula, RUCs reales de clientes, contraseñas, correos privados o balances contables en repositorios de Git públicos, archivos de ejemplo (`.example`) o en salidas de depuración `console.log` en código de producción.
+  3. **Derechos ARCO y Supresión de Datos Locales:** En aplicaciones con memoria en navegador (`cotizacion.html`, `factura.html`), se debe proveer un mecanismo claro (botón «Nuevo / Limpiar») para que el usuario pueda vaciar su información almacenada en `localStorage` cuando lo desee.
+
+
+
 
 
 

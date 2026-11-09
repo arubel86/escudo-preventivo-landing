@@ -680,5 +680,29 @@ En pantallas móviles (`< 640px`), colocar precio tachado, precio grande, badge 
 </div>
 ```
 
+---
+
+## 🔤 4.9. Componente Canónico: Titulares de Sección Continuos en Escritorio (Anti-Palabras Huérfanas)
+
+### Mandato Obligatorio para Todo Encabezado Central (`<h2>`):
+1. **Cero Palabras Huérfanas en Desktop (`lg:` ≥ 1024px):** Queda prohibido que un titular de sección quiebre dejando una única palabra o sigla en la segunda línea.
+2. **Contenedor Amplio en Escritorio:** El contenedor de cabecera debe usar `max-w-3xl lg:max-w-4xl` o `max-w-3xl lg:max-w-5xl` (nunca restringido a `max-w-2xl` en escritorio si el titular supera los 35 caracteres).
+3. **Despliegue Continuo:** Aplicar `lg:whitespace-nowrap` en el `<h2>` para asegurar un titular en una sola línea horizontal continua en desktop.
+4. **Preservación Móvil:** En dispositivos móviles y tablets (< 1024px), mantener el salto natural multilínea flexible (sin `whitespace-nowrap`).
+
+### Snippet Canónico de Encabezado de Sección:
+```html
+<div class="text-center max-w-3xl lg:max-w-5xl mx-auto mb-16 reveal-on-scroll">
+    <span class="text-xs font-bold text-brand-blue uppercase tracking-wider">Categoría Institucional</span>
+    <h2 class="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight mt-2 mb-4 lg:whitespace-nowrap">
+        Titular Ejecutivo de Sección Completo en una Sola Línea
+    </h2>
+    <p class="text-sm sm:text-base text-slate-600">
+        Texto explicativo o subtítulo de apoyo con balance visual óptimo.
+    </p>
+</div>
+```
+
+
 
 
