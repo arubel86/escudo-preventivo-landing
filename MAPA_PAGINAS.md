@@ -120,6 +120,7 @@
 | **Verificador / Guía de RUC** | [`ruc.html`](public/ruc.html) | `https://aizprua.com/ruc` | Consulta y validación de Registro Único de Contribuyente y DV. |
 | **Auditor & Verificador Legal Web (Ley 81)** | [`verificador.html`](public/verificador.html) | `https://aizprua.com/verificador` | Escáner en línea para auditar sitios web: cumplimiento de Ley 81, SEO y metaetiquetas. |
 | **Banco de Pruebas de Logos** | [`test-logo-escuela.html`](public/test-logo-escuela.html) | `https://aizprua.com/test-logo-escuela` | Validación de contraste y resolución de marcas del grupo. |
+| **Banco de Pop-ups de Conversión** | [`banco-popups.html`](public/banco-popups.html) | `https://aizprua.com/banco-popups` | Librería interactiva de modales: eventos, guías PDF, quiz y exit-intent. |
 
 ---
 

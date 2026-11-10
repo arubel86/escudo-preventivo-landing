@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Banco de Pop-ups &amp; Modales de Conversión | Aizprua S.E.</title>
+
+    <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#3849C8',
+                            'blue-dark': '#2D3A9F',
+                            'blue-light': '#4F5ED4',
+                            orange: '#FF8A1E',
+                            'orange-dark': '#E67A15',
+                            'orange-light': '#FFA04A'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                        display: ['"Plus Jakarta Sans"', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+            color: #1E293B;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Resplandores atmosféricos corporativos */
+        .hero-glow-blue {
+            position: fixed;
+            top: -120px;
+            right: -80px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(56, 73, 200, 0.08) 0%, rgba(56, 73, 200, 0) 70%);
+            filter: blur(80px);
+            pointer-events-none;
+            z-index: 0;
+        }
+
+        .hero-glow-orange {
+            position: fixed;
+            bottom: -100px;
+            left: -80px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 138, 30, 0.07) 0%, rgba(255, 138, 30, 0) 70%);
+            filter: blur(80px);
+            pointer-events-none;
+            z-index: 0;
+        }
+
+        /* Animación suave para modales */
+        .modal-backdrop {
+            transition: opacity 0.25s ease-out;
+        }
+
+        .modal-content {
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease-out;
+        }
+
+        .modal-hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .modal-hidden .modal-content {
+            transform: scale(0.95) translateY(10px);
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col relative overflow-x-hidden">
+
+    <!-- Luces Ambientales de Fondo -->
+    <div class="hero-glow-blue"></div>
+    <div class="hero-glow-orange"></div>
+
+    <!-- Barra de Lectura Interactiva (Regla Canónica Naranja) -->
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-brand-orange z-[60] transition-all duration-75" style="width:0%"></div>
+
+    <!-- Barra de Anuncios Superior -->
+    <div id="announcement-bar" class="relative z-50 bg-slate-900 text-white py-2 px-4 text-xs font-semibold text-center border-b border-slate-800">
+        <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 flex-wrap">
+            <span class="inline-flex items-center gap-1.5 bg-brand-orange/20 text-brand-orange-light px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider border border-brand-orange/30">
+                <span class="w-2 h-2 rounded-full bg-brand-orange animate-pulse"></span>
+                Herramienta Interna
+            </span>
+            <span class="text-slate-200">Banco Oficial de Pop-ups de Alta Conversión · Aizprua S.E.</span>
+        </div>
+    </div>
+
+    <!-- Navbar Principal (Canónica h-20) -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logotipo Institucional -->
+            <div class="flex items-center gap-3">
+                <a href="panel.html" class="flex items-center flex-shrink-0 group" aria-label="Aizprua S.E. Panel">
+                    <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg" 
+                         onerror="this.onerror=null; this.src='assets/logo-aizprua-navbar.svg';" 
+                         alt="Logo Aizprua S.E." 
+                         class="h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+                </a>
+                <div class="hidden sm:block border-l border-slate-200 pl-3">
+                    <span class="text-xs font-bold text-slate-800 tracking-tight block">Banco de Pop-ups</span>
+                    <span class="text-[10px] text-slate-500 font-medium block">UI Kit de Conversión</span>
+                </div>
+            </div>
+
+            <!-- Acciones Rápidas -->
+            <div class="flex items-center gap-3">
+                <a href="panel.html" class="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-bold text-xs transition border border-slate-200">
+                    <i data-lucide="layout-grid" class="w-3.5 h-3.5 text-slate-600"></i>
+                    <span>Volver al Panel</span>
+                </a>
+                <a href="https://wa.me/50765461527" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center gap-2 px-4 py-2 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl font-bold text-xs transition shadow-sm">
+                    <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                    <span>Soporte Técnico</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 w-full relative z-10">
+
+        <!-- Encabezado de la Herramienta -->
+        <div class="text-center max-w-3xl mx-auto mb-12 reveal-on-scroll">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-[11px] font-bold uppercase tracking-wider mb-4">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-brand-blue"></i>
+                <span>Catálogo de Modales &amp; Lightboxes</span>
+            </div>
+            <h1 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight mb-4">
+                Banco de Pop-ups de Alta Conversión
+            </h1>
+            <p class="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+                Librería interactiva de ventanas emergentes diseñadas bajo los estándares de Aizprua S.E. Pruébalas en tiempo real, verifica su comportamiento en móvil y PC, y utilízalas en cualquier página del ecosistema.
+            </p>
+        </div>
+
+        <!-- Filtros Rápidos de Categoría -->
+        <div class="flex flex-wrap items-center justify-center gap-2 mb-10">
+            <button onclick="filterCards('all')" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition bg-brand-blue text-white shadow-sm" data-category="all">
+                Todos (5)
+            </button>
+            <button onclick="filterCards('eventos')" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200" data-category="eventos">
+                Eventos &amp; Conferencias
+            </button>
+            <button onclick="filterCards('leads')" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200" data-category="leads">
+                Descarga de Guías (PDF)
+            </button>
+            <button onclick="filterCards('quiz')" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200" data-category="quiz">
+                Test Diagnóstico (Quiz)
+            </button>
+            <button onclick="filterCards('retencion')" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200" data-category="retencion">
+                Retención (Exit-Intent)
+            </button>
+            <button onclick="filterCards('discreto')" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200" data-category="discreto">
+                Slide-in Discreto
+            </button>
+        </div>
+
+        <!-- Cuadrícula de Modelos de Pop-up -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+
+            <!-- ======================================================== -->
+            <!-- MODELO 1: FLYER DE CONFERENCIA / TALLER (AIZPRUA S.E.)   -->
+            <!-- ======================================================== -->
+            <div class="popup-card bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group" data-category="eventos">
+                <div class="p-6">
+                    <!-- Showcase Visual Superior -->
+                    <div class="relative aspect-[16/10] bg-black rounded-2xl overflow-hidden mb-5 border border-slate-800 flex items-center justify-center group-hover:scale-[1.02] transition-transform duration-300">
+                        <img src="assets/arubel-speaker-conferencista.jpg" alt="Preview Taller Aizprua S.E." class="w-full h-full object-cover object-top opacity-65">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent"></div>
+                        <div class="absolute top-2 left-2">
+                            <span class="text-[10px] font-black uppercase px-2.5 py-1 rounded-full bg-brand-orange text-slate-950 shadow-md">
+                                Flyer VIP
+                            </span>
+                        </div>
+                        <div class="absolute bottom-2 left-2 right-2">
+                            <div class="w-full py-1.5 bg-[#FFBA08] text-slate-950 rounded-lg text-center font-black text-[10px] shadow-sm">
+                                ELEGIR MI OPCIÓN →
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Datos Técnicos -->
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-[11px] font-extrabold px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange-dark border border-brand-orange/20">
+                            Conferencias &amp; Eventos
+                        </span>
+                        <span class="text-xs font-semibold text-slate-600 flex items-center gap-1">
+                            <i data-lucide="clock" class="w-3.5 h-3.5"></i> Timer 8s
+                        </span>
+                    </div>
+
+                    <h3 class="text-lg font-bold text-slate-900 mb-2 leading-snug">
+                        Modelo 01: Flyer de Taller o Conferencia Presencial
+                    </h3>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                        Diseño VIP de alta gama. Poster visual oscuro con orador y temática, avatar circular flotante con borde cian y tarjeta inferior blanca con botón dorado de conversión inmediata.
+                    </p>
+
+                    <!-- Casos de uso recomendados -->
+                    <div class="space-y-1.5 text-xs text-slate-700 bg-slate-50 p-3 rounded-xl border border-slate-100 mb-4">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-3.5 h-3.5 text-brand-orange shrink-0"></i>
+                            <span>Lanzamiento de talleres presenciales e in-company</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-3.5 h-3.5 text-brand-orange shrink-0"></i>
+                            <span>Eventos de alta conversión con reserva directa</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6 pt-0 mt-auto">
+                    <button onclick="openModal('popup-conferencia')" class="w-full py-3 px-4 bg-slate-900 hover:bg-slate-800 text-white rounded-xl font-bold text-xs transition flex items-center justify-center gap-2 shadow-md">
+                        <i data-lucide="eye" class="w-4 h-4 text-brand-orange"></i>
+                        <span>Probar en Vivo</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ======================================================== -->
+            <!-- MODELO 2: DESCARGA DE GUÍA PDF (LEAD MAGNET)             -->
+            <!-- ======================================================== -->
+            <div class="popup-card bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group" data-category="leads">
+                <div class="p-6">
+                    <!-- Showcase Visual Superior -->
+                    <div class="relative aspect-[16/10] bg-gradient-to-br from-slate-900 to-brand-blue-dark rounded-2xl overflow-hidden mb-5 border border-slate-800 flex items-center justify-center p-3 group-hover:scale-[1.02] transition-transform duration-300">
+                        <img src="assets/portada-guia-preventiva-2.png" alt="Preview Guía PDF" class="h-28 w-auto object-contain drop-shadow-2xl" onerror="this.onerror=null; this.src='assets/Mockup 1.png'">
+                        <div class="absolute top-2 left-2 bg-emerald-500 text-white text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full shadow-xs">
+                            Descarga Gratuita
+                        </div>
+                    </div>
+
+                    <!-- Datos Técnicos -->
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-[11px] font-extrabold px-3 py-1 rounded-full bg-brand-blue/10 text-brand-blue border border-brand-blue/20">
+                            Captación de Leads
+                        </span>
+                        <span class="text-xs font-semibold text-slate-600 flex items-center gap-1">
+                            <i data-lucide="mouse-pointer-click" class="w-3.5 h-3.5"></i> Scroll 50%
+                        </span>
+                    </div>
+
+                    <h3 class="text-lg font-bold text-slate-900 mb-2 leading-snug">
+                        Modelo 02: Descarga Inmediata de Guía Legal (PDF)
+                    </h3>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                        Modal horizontal de dos columnas con mockup 3D del libro/guía, 3 puntos clave de aprendizaje y botón para solicitar el documento directamente por WhatsApp.
+                    </p>
+
+                    <!-- Casos de uso recomendados -->
+                    <div class="space-y-1.5 text-xs text-slate-700 bg-slate-50 p-3 rounded-xl border border-slate-100 mb-4">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-3.5 h-3.5 text-brand-blue shrink-0"></i>
+                            <span>Captación en artículos de blog y guías</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-3.5 h-3.5 text-brand-blue shrink-0"></i>
+                            <span>Crecimiento de lista de clientes potenciales</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6 pt-0 mt-auto">
+                    <button onclick="openModal('popup-leadmagnet')" class="w-full py-3 px-4 bg-brand-blue hover:bg-brand-blue-dark text-white rounded-xl font-bold text-xs transition flex items-center justify-center gap-2 shadow-md">
+                        <i data-lucide="eye" class="w-4 h-4"></i>
+                        <span>Probar en Vivo</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ======================================================== -->
+            <!-- MODELO 3: TEST DIAGNÓSTICO (QUIZ INTERACTIVO 3 MIN)      -->
+            <!-- ======================================================== -->
+            <div class="popup-card bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group" data-category="quiz">
+                <div class="p-6">
+                    <!-- Showcase Visual Superior -->
+                    <div class="relative aspect-[16/10] bg-slate-100 rounded-2xl overflow-hidden mb-5 border border-slate-200 flex flex-col items-center justify-center p-4 group-hover:scale-[1.02] transition-transform duration-300">
+                        <div class="w-12 h-12 rounded-2xl bg-brand-blue text-white flex items-center justify-center mb-2 shadow-md">
+                            <i data-lucide="shield-alert" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs font-black text-slate-800">¿Tu empresa tiene riesgos ocultos?</span>
+                        <div class="w-36 h-2 bg-slate-200 rounded-full mt-2 overflow-hidden">
+                            <div class="w-2/3 h-full bg-brand-blue rounded-full"></div>
+                        </div>
+                    </div>
+
+                    <!-- Datos Técnicos -->
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-[11px] font-extrabold px-3 py-1 rounded-full bg-blue-100 text-brand-blue border border-brand-blue/20">
+                            Calificación &amp; Quiz
+                        </span>
+                        <span class="text-xs font-semibold text-slate-600 flex items-center gap-1">
+                            <i data-lucide="clock" class="w-3.5 h-3.5"></i> Timer 12s
+                        </span>
+                    </div>
+
+                    <h3 class="text-lg font-bold text-slate-900 mb-2 leading-snug">
+                        Modelo 03: Invitación al Test Diagnóstico Flash
+                    </h3>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                        Desafía al empresario a verificar su cumplimiento en 5 preguntas rápidas. Ideal para filtrar clientes y canalizarlos al test interactivo o calculadora de riesgo.
+                    </p>
+
+                    <!-- Casos de uso recomendados -->
+                    <div class="space-y-1.5 text-xs text-slate-700 bg-slate-50 p-3 rounded-xl border border-slate-100 mb-4">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-3.5 h-3.5 text-brand-blue shrink-0"></i>
+                            <span>Activación en la página principal y blog</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-3.5 h-3.5 text-brand-blue shrink-0"></i>
+                            <span>Filtro de prospectos calificados</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6 pt-0 mt-auto">
+                    <button onclick="openModal('popup-quiz')" class="w-full py-3 px-4 bg-brand-blue hover:bg-brand-blue-dark text-white rounded-xl font-bold text-xs transition flex items-center justify-center gap-2 shadow-md">
+                        <i data-lucide="eye" class="w-4 h-4"></i>
+                        <span>Probar en Vivo</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ======================================================== -->
+            <!-- MODELO 4: RESCATE DE SALIDA (EXIT-INTENT)                 -->
+            <!-- ======================================================== -->
+            <div class="popup-card bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group" data-category="retencion">
+                <div class="p-6">
+                    <!-- Showcase Visual Superior -->
+                    <div class="relative aspect-[16/10] bg-amber-50 rounded-2xl overflow-hidden mb-5 border border-amber-200 flex flex-col items-center justify-center p-4 group-hover:scale-[1.02] transition-transform duration-300">
+                        <div class="w-12 h-12 rounded-2xl bg-amber-500 text-white flex items-center justify-center mb-2 shadow-md">
+                            <i data-lucide="help-circle" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs font-black text-amber-900">¡Espera un momento antes de salir!</span>
+                        <span class="text-[10px] text-amber-700 font-medium">Diagnóstico de 15 min sin costo</span>
+                    </div>
+
+                    <!-- Datos Técnicos -->
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-[11px] font-extrabold px-3 py-1 rounded-full bg-amber-100 text-amber-800 border border-amber-200">
+                            Retención / Salida
+                        </span>
+                        <span class="text-xs font-semibold text-slate-600 flex items-center gap-1">
+                            <i data-lucide="log-out" class="w-3.5 h-3.5"></i> Exit-Intent
+                        </span>
+                    </div>
+
+                    <h3 class="text-lg font-bold text-slate-900 mb-2 leading-snug">
+                        Modelo 04: Ventana de Rescate de Salida (Exit-Intent)
+                    </h3>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                        Detecta cuando el usuario mueve su cursor hacia la barra del navegador para cerrar la pestaña y le presenta una oferta irrefutable de asesoría preliminar.
+                    </p>
+
+                    <!-- Casos de uso recomendados -->
+                    <div class="space-y-1.5 text-xs text-slate-700 bg-slate-50 p-3 rounded-xl border border-slate-100 mb-4">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-3.5 h-3.5 text-amber-600 shrink-0"></i>
+                            <span>Páginas de venta (Llave en Mano, Escudo)</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-3.5 h-3.5 text-amber-600 shrink-0"></i>
+                            <span>Recuperación de visitantes que no compraron</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6 pt-0 mt-auto">
+                    <button onclick="openModal('popup-exit')" class="w-full py-3 px-4 bg-slate-900 hover:bg-slate-800 text-white rounded-xl font-bold text-xs transition flex items-center justify-center gap-2 shadow-md">
+                        <i data-lucide="eye" class="w-4 h-4 text-amber-400"></i>
+                        <span>Probar en Vivo</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ======================================================== -->
+            <!-- MODELO 5: SLIDE-IN DISCRETO DE ESQUINA                   -->
+            <!-- ======================================================== -->
+            <div class="popup-card bg-white rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group" data-category="discreto">
+                <div class="p-6">
+                    <!-- Showcase Visual Superior -->
+                    <div class="relative aspect-[16/10] bg-slate-100 rounded-2xl overflow-hidden mb-5 border border-slate-200 flex items-end justify-end p-3 group-hover:scale-[1.02] transition-transform duration-300">
+                        <div class="w-44 bg-white p-2.5 rounded-xl border border-slate-200 shadow-lg text-[9px] text-slate-700">
+                            <div class="flex items-center gap-1.5 mb-1">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                                <span class="font-bold text-slate-900">Arubel en línea</span>
+                            </div>
+                            <span class="text-slate-500 block leading-tight">¿Tienes dudas sobre multas DGI?</span>
+                        </div>
+                    </div>
+
+                    <!-- Datos Técnicos -->
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-[11px] font-extrabold px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200">
+                            No Invasivo
+                        </span>
+                        <span class="text-xs font-semibold text-slate-600 flex items-center gap-1">
+                            <i data-lucide="arrow-down-right" class="w-3.5 h-3.5"></i> Esquina Inferior
+                        </span>
+                    </div>
+
+                    <h3 class="text-lg font-bold text-slate-900 mb-2 leading-snug">
+                        Modelo 05: Notificación Flotante Discreta (Slide-in)
+                    </h3>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                        Aparece suavemente en la esquina inferior derecha sin bloquear la lectura ni tapar el contenido. Ideal para páginas editoriales o lectura de artículos largos.
+                    </p>
+
+                    <!-- Casos de uso recomendados -->
+                    <div class="space-y-1.5 text-xs text-slate-700 bg-slate-50 p-3 rounded-xl border border-slate-100 mb-4">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
+                            <span>Artículos de blog y guías de lectura</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
+                            <span>Prueba social y chat directo de WhatsApp</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6 pt-0 mt-auto">
+                    <button onclick="toggleSlideIn()" class="w-full py-3 px-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold text-xs transition flex items-center justify-center gap-2 shadow-md">
+                        <i data-lucide="eye" class="w-4 h-4"></i>
+                        <span>Probar en Vivo</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- ============================================================ -->
+    <!-- MODAL 1: FLYER DE CONFERENCIA / TALLER (AIZPRUA S.E.)         -->
+    <!-- ============================================================ -->
+    <div id="popup-conferencia" class="modal-backdrop fixed inset-0 z-[100] bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 modal-hidden" onclick="handleBackdropClick(event, 'popup-conferencia')">
+        <div class="modal-content relative w-full max-w-[340px] sm:max-w-[380px] bg-slate-950 rounded-[28px] overflow-visible shadow-2xl border border-slate-800" onclick="event.stopPropagation()">
+            
+            <!-- Botón Cerrar X Flotante en la Esquina Superior Derecha -->
+            <button onclick="closeModal('popup-conferencia')" class="absolute -top-3.5 -right-3.5 z-40 w-9 h-9 rounded-full bg-white hover:bg-slate-100 text-slate-900 flex items-center justify-center transition shadow-2xl cursor-pointer hover:scale-110" aria-label="Cerrar">
+                <i data-lucide="x" class="w-4 h-4 stroke-[2.5]"></i>
+            </button>
+
+            <!-- Contenedor con Esquinas Redondeadas -->
+            <div class="overflow-hidden rounded-[28px] bg-slate-950">
+                
+                <!-- Poster Superior (Fondo Negro con Arubel & Tipografía de Impacto) -->
+                <div class="relative bg-black pt-6 px-6 pb-6 flex flex-col justify-between overflow-hidden">
+                    
+                    <!-- Imagen de Fondo: Arubel y Auditorio con Fade Negro Gradual -->
+                    <div class="relative w-full h-52 sm:h-56 -mx-6 -mt-6 mb-2 overflow-hidden">
+                        <img src="assets/arubel-speaker-conferencista.jpg" alt="Conferencista Arubel Aizprua" class="w-full h-full object-cover object-top opacity-75">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                    </div>
+
+                    <!-- Textos del Poster Adaptados a Aizprua S.E. -->
+                    <div class="text-center relative z-10 -mt-8">
+                        <h2 class="text-2xl sm:text-[30px] font-black text-white tracking-tight uppercase leading-[1.05] m-0">
+                            TALLERES
+                        </h2>
+                        <h2 class="text-3xl sm:text-[36px] font-black text-white tracking-tight uppercase leading-[1.05] mb-1">
+                            PRESENCIALES
+                        </h2>
+                        <div class="text-2xl sm:text-[32px] font-black text-[#FF2A42] tracking-tight uppercase leading-[1.1] mb-3">
+                            PANAMÁ 2026
+                        </div>
+                        <p class="text-xs sm:text-[13px] font-bold text-white leading-snug mb-2 max-w-[290px] mx-auto">
+                            Una jornada que puede cambiar cómo proteges tu negocio.
+                        </p>
+                        <p class="text-[11px] text-slate-300 leading-relaxed max-w-[280px] mx-auto mb-5 font-normal">
+                            Aprende a fortalecer tu estructura empresarial y llevar tu cumplimiento legal y tributario a otro nivel con IA, de la mano de expertos.
+                        </p>
+
+                        <!-- Pie del Poster: Marca Institucional -->
+                        <div class="pt-3 border-t border-white/10 flex items-center justify-center gap-2">
+                            <span class="text-xs font-black tracking-wider text-white">AIZPRUA S.E.</span>
+                            <span class="text-[9px] uppercase tracking-widest text-slate-400">· INNOVACIÓN &amp; RESULTADOS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta Inferior de Conversión (Blanca con Botón Dorado/Amarillo) -->
+                <div class="p-5 sm:p-6 bg-white text-slate-900">
+                    <a href="https://wa.me/50765461527?text=Hola%20Arubel,%20deseo%20elegir%20mi%20opci%C3%B3n%20para%20los%20Talleres%20Presenciales%20Panam%C3%A1%202026." target="_blank" rel="noopener noreferrer" 
+                       class="w-full py-4 px-6 bg-[#FFBA08] hover:bg-[#FFA500] text-slate-950 font-black text-sm uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 transition shadow-md group">
+                        <span>ELEGIR MI OPCIÓN</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Avatar Flotante en la Esquina Inferior Izquierda con Borde Cian Vibrante -->
+            <div class="absolute -bottom-3.5 -left-3.5 z-40 w-16 h-16 sm:w-18 sm:h-18 rounded-full border-4 border-[#00E5FF] bg-slate-900 shadow-2xl overflow-hidden pointer-events-auto">
+                <img src="assets/avatar-arubel.jpg" alt="Arubel Aizprua" class="w-full h-full object-cover">
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- MODAL 2: LEAD MAGNET / DESCARGA DE GUÍA PDF                  -->
+    <!-- ============================================================ -->
+    <div id="popup-leadmagnet" class="modal-backdrop fixed inset-0 z-[100] bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 modal-hidden" onclick="handleBackdropClick(event, 'popup-leadmagnet')">
+        <div class="modal-content relative w-full max-w-xl bg-white rounded-3xl overflow-hidden shadow-2xl border border-slate-200" onclick="event.stopPropagation()">
+            
+            <button onclick="closeModal('popup-leadmagnet')" class="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition" aria-label="Cerrar">
+                <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+
+            <div class="p-6 sm:p-8 grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
+                <!-- Mockup 3D Izquierda -->
+                <div class="sm:col-span-5 flex justify-center">
+                    <div class="relative bg-gradient-to-br from-slate-900 to-brand-blue rounded-2xl p-4 shadow-xl border border-slate-800 text-center">
+                        <img src="assets/portada-guia-preventiva-2.png" alt="Guía Preventiva" class="h-44 sm:h-52 w-auto object-contain mx-auto drop-shadow-2xl" onerror="this.onerror=null; this.src='assets/Mockup 1.png'">
+                        <span class="inline-block mt-2 text-[9px] font-black uppercase text-brand-orange tracking-widest">
+                            Edición Panamá 2026
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Contenido y Formulario Derecha -->
+                <div class="sm:col-span-7">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold uppercase tracking-wider mb-2">
+                        <i data-lucide="download" class="w-3 h-3"></i>
+                        <span>Descarga Gratuita</span>
+                    </span>
+
+                    <h3 class="text-xl font-black text-slate-900 leading-snug mb-2">
+                        Las 7 Multas Ocultas que la DGI y Mitradel Cobran
+                    </h3>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                        Descubre los errores más costosos en contratos laborales, avisos de operación y facturación electrónica para blindar tu negocio.
+                    </p>
+
+                    <div class="space-y-1.5 mb-5 text-xs text-slate-700">
+                        <div class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5"></i>
+                            <span class="leading-snug">Checklist oficial de requisitos legales</span>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5"></i>
+                            <span class="leading-snug">Formato PDF listo para leer en tu celular</span>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.%2C%20deseo%20descargar%20la%20Gu%C3%ADa%20Preventiva%20en%20PDF." target="_blank" rel="noopener noreferrer" class="w-full py-3 px-4 bg-brand-blue hover:bg-brand-blue-dark text-white font-bold text-xs rounded-xl flex items-center justify-center gap-2 transition shadow-md">
+                        <i data-lucide="file-text" class="w-4 h-4"></i>
+                        <span>Recibir Guía por WhatsApp (Gratis)</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- MODAL 3: TEST DIAGNÓSTICO (QUIZ INTERACTIVO)                 -->
+    <!-- ============================================================ -->
+    <div id="popup-quiz" class="modal-backdrop fixed inset-0 z-[100] bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 modal-hidden" onclick="handleBackdropClick(event, 'popup-quiz')">
+        <div class="modal-content relative w-full max-w-md bg-white rounded-3xl overflow-hidden shadow-2xl border border-slate-200 text-center p-6 sm:p-8" onclick="event.stopPropagation()">
+            
+            <button onclick="closeModal('popup-quiz')" class="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition" aria-label="Cerrar">
+                <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+
+            <div class="w-16 h-16 rounded-2xl bg-brand-blue/10 text-brand-blue mx-auto flex items-center justify-center mb-4">
+                <i data-lucide="shield-alert" class="w-8 h-8"></i>
+            </div>
+
+            <span class="text-[10px] font-black uppercase tracking-wider text-brand-blue bg-brand-blue/10 px-3 py-1 rounded-full inline-block mb-3">
+                Evaluador de Cumplimiento
+            </span>
+
+            <h3 class="text-2xl font-black text-slate-900 leading-tight mb-2">
+                ¿Tu Empresa Está Expuesta a Sanciones?
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6 max-w-xs mx-auto">
+                Responde 5 preguntas clave en 3 minutos y conoce tu nivel de riesgo legal, laboral y tributario ante las autoridades de Panamá.
+            </p>
+
+            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 mb-6 text-left space-y-2 text-xs text-slate-700">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                    <span>Diagnóstico 100% gratuito y confidencial</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                    <span>Resultado inmediato en pantalla</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                    <span>Recomendaciones paso a paso de un abogado</span>
+                </div>
+            </div>
+
+            <a href="test-interactivo.html" class="w-full py-3.5 px-6 bg-brand-blue hover:bg-brand-blue-dark text-white font-bold text-sm rounded-xl flex items-center justify-center gap-2 transition shadow-md group">
+                <span>Comenzar Test Ahora (3 Min)</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- MODAL 4: RESCATE DE SALIDA (EXIT-INTENT)                     -->
+    <!-- ============================================================ -->
+    <div id="popup-exit" class="modal-backdrop fixed inset-0 z-[100] bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 modal-hidden" onclick="handleBackdropClick(event, 'popup-exit')">
+        <div class="modal-content relative w-full max-w-md bg-white rounded-3xl overflow-hidden shadow-2xl border-2 border-amber-400 text-center p-6 sm:p-8" onclick="event.stopPropagation()">
+            
+            <button onclick="closeModal('popup-exit')" class="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition" aria-label="Cerrar">
+                <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+
+            <div class="w-16 h-16 rounded-2xl bg-amber-100 text-amber-600 mx-auto flex items-center justify-center mb-4">
+                <i data-lucide="alert-triangle" class="w-8 h-8"></i>
+            </div>
+
+            <span class="text-[10px] font-black uppercase tracking-wider text-amber-800 bg-amber-100 px-3 py-1 rounded-full inline-block mb-3">
+                ¡Espera un momento antes de salir!
+            </span>
+
+            <h3 class="text-2xl font-black text-slate-900 leading-tight mb-2">
+                No Te Vayas Con Dudas Legales
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                Una mala decisión contractual o fiscal en Panamá puede costarte meses de trámites y miles de dólares. Te obsequiamos una sesión preliminar de orientación.
+            </p>
+
+            <a href="https://wa.me/50765461527?text=Hola%20Arubel,%20vi%20la%20oferta%20antes%20de%20salir%20y%20deseo%20una%20sesi%C3%B3n%20preliminar%20sin%20costo." target="_blank" rel="noopener noreferrer" class="w-full py-4 px-6 bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm rounded-xl flex items-center justify-center gap-2 transition shadow-lg mb-3">
+                <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
+                <span>Reclamar Orientación Preliminar (WhatsApp)</span>
+            </a>
+
+            <button onclick="closeModal('popup-exit')" class="text-xs text-slate-600 hover:text-slate-800 underline">
+                No gracias, prefiero resolver por mi cuenta
+            </button>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- MODAL 5: NOTIFICACIÓN FLOTANTE DISCRETA (SLIDE-IN CORNER)    -->
+    <!-- ============================================================ -->
+    <div id="popup-slidein" class="fixed bottom-6 right-6 z-[90] max-w-sm w-full bg-white rounded-3xl p-5 border border-slate-200 shadow-2xl transition-all duration-300 transform translate-y-32 opacity-0 pointer-events-none">
+        <button onclick="toggleSlideIn(false)" class="absolute top-3 right-3 text-slate-400 hover:text-slate-600" aria-label="Cerrar">
+            <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+        <div class="flex items-start gap-3">
+            <div class="relative shrink-0">
+                <div class="w-12 h-12 rounded-full border-2 border-brand-orange overflow-hidden bg-slate-900">
+                    <img src="assets/avatar-arubel.jpg" alt="Arubel Aizprua" class="w-full h-full object-cover">
+                </div>
+                <span class="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-white"></span>
+            </div>
+            <div class="flex-1 min-w-0 pr-4">
+                <div class="flex items-center gap-1.5 mb-0.5">
+                    <h4 class="font-bold text-slate-900 text-xs truncate">Arubel Aizprua</h4>
+                    <span class="text-[9px] bg-slate-100 text-slate-600 px-1.5 py-0.2 rounded font-bold">Fundador</span>
+                </div>
+                <p class="text-xs text-slate-600 leading-snug mb-3">
+                    ¿Dudas sobre cómo constituir tu empresa o evitar multas en Panamá? Te atiendo directamente.
+                </p>
+                <a href="https://wa.me/50765461527?text=Hola%20Arubel,%20estoy%20en%20el%20sitio%20web%20y%20tengo%20una%20consulta%20r%C3%A1pida." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-brand-orange hover:text-brand-orange-dark">
+                    <span>Escribir por WhatsApp</span>
+                    <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pie de Página Institucional -->
+    <footer class="bg-slate-900 text-white mt-auto border-t border-slate-800 py-8 px-4 text-center text-xs text-slate-400">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>Aizprua S.E. &copy; 2026 · Soluciones Empresariales y Legales en Panamá.</p>
+            <div class="flex items-center gap-4 text-xs font-semibold">
+                <a href="panel.html" class="hover:text-brand-orange transition">Panel General</a>
+                <a href="conferencias.html" class="hover:text-brand-orange transition">Conferencias</a>
+                <a href="llave-en-mano.html" class="hover:text-brand-orange transition">Llave en Mano</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts Oficiales de la Herramienta -->
+    <script>
+        // Inicializar Iconos Lucide
+        lucide.createIcons();
+
+        // Barra de Progreso de Lectura Canónica
+        window.addEventListener('scroll', () => {
+            const h = document.documentElement;
+            const st = h.scrollTop || document.body.scrollTop;
+            const sh = h.scrollHeight || document.body.scrollHeight;
+            const percent = (st / (sh - h.clientHeight)) * 100;
+            const progressBar = document.getElementById('progress-bar');
+            if (progressBar) progressBar.style.width = percent + '%';
+        });
+
+        // Control de Modales
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (!modal) return;
+            modal.classList.remove('modal-hidden');
+            document.body.classList.add('overflow-hidden');
+            lucide.createIcons();
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (!modal) return;
+            modal.classList.add('modal-hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        function handleBackdropClick(event, modalId) {
+            if (event.target.id === modalId) {
+                closeModal(modalId);
+            }
+        }
+
+        // Cerrar con tecla Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                ['popup-conferencia', 'popup-leadmagnet', 'popup-quiz', 'popup-exit'].forEach(id => closeModal(id));
+                toggleSlideIn(false);
+            }
+        });
+
+        // Control del Slide-in Flotante
+        let slideInVisible = false;
+        function toggleSlideIn(forceState) {
+            const slideIn = document.getElementById('popup-slidein');
+            if (!slideIn) return;
+            slideInVisible = typeof forceState === 'boolean' ? forceState : !slideInVisible;
+            if (slideInVisible) {
+                slideIn.classList.remove('translate-y-32', 'opacity-0', 'pointer-events-none');
+                slideIn.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+            } else {
+                slideIn.classList.add('translate-y-32', 'opacity-0', 'pointer-events-none');
+                slideIn.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+            }
+            lucide.createIcons();
+        }
+
+        // Filtro de Categorías
+        function filterCards(category) {
+            const cards = document.querySelectorAll('.popup-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-category') === category) {
+                    btn.classList.remove('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+                    btn.classList.add('bg-brand-blue', 'text-white', 'shadow-sm');
+                } else {
+                    btn.classList.remove('bg-brand-blue', 'text-white', 'shadow-sm');
+                    btn.classList.add('bg-white', 'text-slate-700', 'border', 'border-slate-200');
+                }
+            });
+
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
+
