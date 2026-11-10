@@ -196,7 +196,7 @@ tailwind.config = {
 ### 4.3. Barra Inferior de Copyright
 * Divisor: `border-t border-slate-800`
 * Padding superior: `pt-8` (`32px`).
-* Texto: `text-center text-sm text-slate-300` -> `&copy; 2026 Aizprua S.E. Todos los derechos reservados.`
+* Texto: `text-center text-xs text-slate-400` -> `&copy; 2026 Aizprua S.E. Todos los derechos reservados.`
 
 ### 4.4. Código HTML Canónico del Pie de Página
 ```html
@@ -247,7 +247,7 @@ tailwind.config = {
                 </ul>
             </div>
         </div>
-        <div class="border-t border-slate-800 pt-8 text-center text-sm text-slate-300">
+        <div class="border-t border-slate-800 pt-8 text-center text-xs text-slate-400">
             &copy; 2026 Aizprua S.E. Todos los derechos reservados.
         </div>
     </div>

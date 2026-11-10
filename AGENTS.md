@@ -361,6 +361,31 @@
   3. **Ruta Limpia Canónica Oficial:** Registrar siempre la URL limpia canónica sin extensión `.html` para producción (`https://aizprua.com/[ruta]`).
   4. **Protección de Privacidad:** Toda página administrativa, interna, panel o entorno de prueba debe incorporar obligatoriamente la etiqueta `<meta name="robots" content="noindex, nofollow">` para evitar su indexación en motores de búsqueda.
 
+## 🔻 Regla Canónica de Tipografía y Tamaños de Letra en Pie de Página (Footer)
+* **MANDATO OBLIGATORIO:** En todo pie de página (`<footer>`) de cualquier página del ecosistema de **Aizprua S.E.** (landing pages, blog, herramientas, embudos y páginas de gracias), la jerarquía de tamaños de letra debe seguir de forma estricta el estándar de [`public/principal.html`](/principal.html):
+  1. **Nombre de Marca / Logo Tipográfico (Columna 1):**
+     - Tamaño: `text-xl` (20px)
+     - Clases canónicas: `<a href="/" class="text-xl font-bold text-white tracking-tight mb-3 hover:text-brand-orange transition inline-block">Aizprua S.E.</a>`
+  2. **Párrafo Descriptivo / Eslogan de Marca (Columna 1):**
+     - Tamaño: `text-sm` (14px) con `text-slate-400`
+     - Clases canónicas: `<p class="text-sm text-slate-400 mb-3">...</p>`
+     - **PROHIBICIÓN ESTRICTA:** Queda prohibido usar `text-xs` en este párrafo institucional.
+  3. **Títulos de Columnas (`<h4>`):**
+     - Tamaño: Base estándar (`text-base` / 16px sin clase reductora)
+     - Clases canónicas: `<h4 class="font-bold text-white mb-4">...</h4>`
+     - **PROHIBICIÓN ESTRICTA:** Prohibido forzar `text-sm` o `text-xs` en los encabezados `<h4>` del footer.
+  4. **Listas y Enlaces de Navegación (`<ul>`):**
+     - Tamaño: `text-sm` (14px) con `text-slate-400`
+     - Clases canónicas: `<ul class="space-y-2 text-sm text-slate-400">`
+     - **PROHIBICIÓN ESTRICTA:** Prohibido usar `text-xs` en los listados de soluciones, contacto o legal.
+  5. **Barra / Párrafo Inferior de Copyright:**
+     - Tamaño: `text-xs` (12px) con `text-slate-400`
+     - Clases canónicas:
+       - En footer completo: `<div class="border-t border-slate-800 pt-8 text-center text-xs text-slate-400">&copy; [AÑO] Aizprua S.E. Firma Legal y Empresarial en Panamá. Todos los derechos reservados.</div>`
+       - En footers simplificados (páginas de gracias o descarga): `<footer class="bg-slate-900 text-slate-400 py-8 text-center text-xs border-t border-slate-800 mt-auto">...</footer>`
+     - **PROHIBICIÓN ESTRICTA:** Prohibido usar `text-sm` en la línea de copyright inferior.
+
+
 
 
 
