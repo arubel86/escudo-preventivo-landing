@@ -119,7 +119,6 @@
 | **Simulador de Dispositivos (Visor)** | [`visor.html`](public/visor.html) | `https://aizprua.com/visor` | Previsualizador responsive dentro de marcos de iPhone, Galaxy y Mac. |
 | **Verificador / Guía de RUC** | [`ruc.html`](public/ruc.html) | `https://aizprua.com/ruc` | Consulta y validación de Registro Único de Contribuyente y DV. |
 | **Auditor & Verificador Legal Web (Ley 81)** | [`verificador.html`](public/verificador.html) | `https://aizprua.com/verificador` | Escáner en línea para auditar sitios web: cumplimiento de Ley 81, SEO y metaetiquetas. |
-| **Plantilla Base Corporativa** | [`plantilla-100.html`](public/plantilla-100.html) | `https://aizprua.com/plantilla-100` | Boilerplate oficial con Navbar, Footer y componentes del Design System. |
 | **Banco de Pruebas de Logos** | [`test-logo-escuela.html`](public/test-logo-escuela.html) | `https://aizprua.com/test-logo-escuela` | Validación de contraste y resolución de marcas del grupo. |
 
 ---
