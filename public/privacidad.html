@@ -50,32 +50,33 @@
     </style>
 </head>
 
-<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen overflow-x-hidden">
     <!-- Barra de progreso de lectura canónica -->
     <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-brand-orange z-[60] transition-all duration-75" style="width:0%"></div>
 
     <!-- Navbar Simple -->
     <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <div class="flex items-center">
-                    <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg" alt="Logo Aizprua S.E."
-                        class="h-28 w-auto object-contain" width="112" height="112">
-                </div>
-                <a href="/" class="text-slate-600 hover:text-brand-blue font-medium transition">Volver al
-                    Inicio</a>
+            <div class="flex justify-between h-20 items-center">
+                <a href="/" class="flex items-center shrink-0" aria-label="Aizprua S.E. Inicio">
+                    <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg"
+                        onerror="this.onerror=null; this.src='assets/logo-aizprua-navbar.svg';"
+                        alt="Logo Aizprua S.E."
+                        class="h-24 sm:h-28 w-auto object-contain" width="112" height="112">
+                </a>
+                <a href="/" class="text-sm sm:text-base text-slate-600 hover:text-brand-blue font-medium transition whitespace-nowrap">Volver al Inicio</a>
             </div>
         </div>
     </nav>
 
     <!-- Main Content -->
-    <main class="flex-grow py-20 px-4">
+    <main class="flex-grow py-8 sm:py-20 px-4">
         <div class="max-w-3xl mx-auto">
-            <h1 class="text-4xl font-bold text-slate-900 mb-8 border-b pb-4">Política de Privacidad</h1>
-            <div class="prose prose-slate max-w-none">
-                <p class="text-slate-600 mb-6"><strong>Última actualización:</strong> Julio 2026</p>
+            <h1 class="text-2xl sm:text-4xl font-bold text-slate-900 mb-6 sm:mb-8 border-b pb-4 text-center sm:text-left leading-tight">Política de Privacidad</h1>
+            <div class="prose prose-slate max-w-none text-sm sm:text-base">
+                <p class="text-slate-600 mb-6 text-center sm:text-left"><strong>Última actualización:</strong> Julio 2026</p>
 
-                <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">1. Información recopilada</h2>
+                <h2 class="text-lg sm:text-2xl font-bold text-slate-900 mt-7 sm:mt-8 mb-3 sm:mb-4 leading-snug">1. Información recopilada</h2>
                 <p class="mb-4 text-slate-700 leading-relaxed">Recopilamos datos que usted proporciona voluntariamente a
                     través de nuestros formularios, el cuestionario de diagnóstico, correos electrónicos o comunicación
                     por WhatsApp. Esto puede incluir:</p>
@@ -86,7 +87,7 @@
                     <li>Detalles sobre su negocio que comparta durante la asesoría.</li>
                 </ul>
 
-                <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">2. Uso de datos</h2>
+                <h2 class="text-lg sm:text-2xl font-bold text-slate-900 mt-7 sm:mt-8 mb-3 sm:mb-4 leading-snug">2. Uso de datos</h2>
                 <p class="mb-4 text-slate-700 leading-relaxed">La información recopilada se utiliza exclusivamente para:
                 </p>
                 <ul class="list-disc pl-5 mb-4 text-slate-700 space-y-2">
@@ -98,7 +99,7 @@
                         momento).</li>
                 </ul>
 
-                <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">3. Terceros que procesan datos</h2>
+                <h2 class="text-lg sm:text-2xl font-bold text-slate-900 mt-7 sm:mt-8 mb-3 sm:mb-4 leading-snug">3. Terceros que procesan datos</h2>
                 <p class="mb-4 text-slate-700 leading-relaxed">Para operar este sitio utilizamos servicios de terceros
                     que procesan datos de forma limitada:</p>
                 <ul class="list-disc pl-5 mb-4 text-slate-700 space-y-2">
@@ -111,17 +112,17 @@
                         de su tarjeta.</li>
                 </ul>
 
-                <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">4. Protección y compartición</h2>
+                <h2 class="text-lg sm:text-2xl font-bold text-slate-900 mt-7 sm:mt-8 mb-3 sm:mb-4 leading-snug">4. Protección y compartición</h2>
                 <p class="mb-4 text-slate-700 leading-relaxed">Sus datos son tratados con estricta confidencialidad. No
                     vendemos ni alquilamos su información a terceros. Solo compartimos la información estrictamente
                     necesaria con entidades gubernamentales (como la DGI, Municipios, Registro Público) para la
                     ejecución de los trámites contratados.</p>
 
-                <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">5. Sus derechos</h2>
+                <h2 class="text-lg sm:text-2xl font-bold text-slate-900 mt-7 sm:mt-8 mb-3 sm:mb-4 leading-snug">5. Sus derechos</h2>
                 <p class="mb-4 text-slate-700 leading-relaxed">Puede solicitar en cualquier momento la corrección o
                     eliminación de sus datos personales escribiéndonos a nuestros canales de contacto.</p>
 
-                <h2 class="text-2xl font-bold text-slate-900 mt-8 mb-4">6. Contacto</h2>
+                <h2 class="text-lg sm:text-2xl font-bold text-slate-900 mt-7 sm:mt-8 mb-3 sm:mb-4 leading-snug">6. Contacto</h2>
                 <p class="text-slate-700">Si tiene dudas sobre nuestra política de privacidad, contáctenos:</p>
                 <p class="mt-2 text-slate-700">Email: <a href="mailto:info@aizprua.com"
                         class="text-brand-blue hover:underline">info@aizprua.com</a><br>
@@ -132,7 +133,7 @@
     </main>
 
     <!-- Footer Simple -->
-    <footer class="bg-slate-900 text-slate-400 py-8 text-center text-sm">
+    <footer class="bg-slate-900 text-slate-400 py-8 text-center text-xs border-t border-slate-800 mt-auto">
         &copy; 2026 Aizprua S.E. Todos los derechos reservados.
     </footer>
 

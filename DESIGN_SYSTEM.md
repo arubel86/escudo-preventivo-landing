@@ -703,6 +703,137 @@ En pantallas móviles (`< 640px`), colocar precio tachado, precio grande, badge 
 </div>
 ```
 
+---
+
+## 🪟 4.10. Componente Canónico: Modales y Lightboxes de Conversión
+
+### Especificaciones Técnicas y de Diseño:
+* **Fondo Backdrop:** `fixed inset-0 z-[100] bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 modal-hidden`
+* **Transición y Animación Fluida:**
+  * `.modal-backdrop`: `transition: opacity 0.25s ease-out;`
+  * `.modal-content`: `transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease-out;`
+  * `.modal-hidden .modal-content`: `transform: scale(0.95) translateY(10px); opacity: 0;`
+* **Botón Cerrar Flotante Exterior:** Círculo blanco sobresaliente en la esquina superior derecha:
+  `absolute -top-3.5 -right-3.5 z-40 w-9 h-9 rounded-full bg-white hover:bg-slate-100 text-slate-900 flex items-center justify-center transition shadow-2xl cursor-pointer hover:scale-110` con icono Lucide `x` (`stroke-[2.5]`).
+* **Avatar Circular Flotante Exterior (Modelo Flyer):** Ubicado en `-bottom-3.5 -left-3.5 z-40 w-16 h-16 sm:w-18 sm:h-18 rounded-full border-4 border-[#00E5FF] bg-slate-900 shadow-2xl overflow-hidden`.
+* **Botón de Conversión Dorado:** `w-full py-4 px-6 bg-[#FFBA08] hover:bg-[#FFA500] text-slate-950 font-black text-sm uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 shadow-md`.
+
+### Snippet Canónico de Modal de Conferencia / Evento:
+```html
+<div id="popup-conferencia" class="modal-backdrop fixed inset-0 z-[100] bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 modal-hidden" onclick="handleBackdropClick(event, 'popup-conferencia')">
+    <div class="modal-content relative w-full max-w-[340px] sm:max-w-[380px] bg-slate-950 rounded-[28px] overflow-visible shadow-2xl border border-slate-800" onclick="event.stopPropagation()">
+        
+        <!-- Botón Cerrar Flotante -->
+        <button onclick="closeModal('popup-conferencia')" class="absolute -top-3.5 -right-3.5 z-40 w-9 h-9 rounded-full bg-white hover:bg-slate-100 text-slate-900 flex items-center justify-center transition shadow-2xl cursor-pointer hover:scale-110" aria-label="Cerrar">
+            <i data-lucide="x" class="w-4 h-4 stroke-[2.5]"></i>
+        </button>
+
+        <!-- Tarjeta Principal Redondeada -->
+        <div class="overflow-hidden rounded-[28px] bg-slate-950">
+            <!-- Poster Superior -->
+            <div class="relative bg-black pt-6 px-6 pb-6 flex flex-col justify-between overflow-hidden">
+                <div class="relative w-full h-52 sm:h-56 -mx-6 -mt-6 mb-2 overflow-hidden">
+                    <img src="assets/arubel-speaker-conferencista.jpg" alt="Conferencista Arubel Aizprua" class="w-full h-full object-cover object-top opacity-75">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                </div>
+                <div class="text-center relative z-10 -mt-8">
+                    <h2 class="text-2xl sm:text-[30px] font-black text-white tracking-tight uppercase leading-[1.05] m-0">TALLERES</h2>
+                    <h2 class="text-3xl sm:text-[36px] font-black text-white tracking-tight uppercase leading-[1.05] mb-1">PRESENCIALES</h2>
+                    <div class="text-2xl sm:text-[32px] font-black text-[#FF2A42] tracking-tight uppercase leading-[1.1] mb-3">PANAMÁ 2026</div>
+                    <p class="text-xs sm:text-[13px] font-bold text-white leading-snug mb-2 max-w-[290px] mx-auto">Una jornada que puede cambiar cómo proteges tu negocio.</p>
+                </div>
+            </div>
+
+            <!-- Tarjeta Inferior de Conversión -->
+            <div class="p-5 sm:p-6 bg-white text-slate-900">
+                <a href="https://wa.me/50765461527" target="_blank" rel="noopener noreferrer" class="w-full py-4 px-6 bg-[#FFBA08] hover:bg-[#FFA500] text-slate-950 font-black text-sm uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 transition shadow-md group">
+                    <span>ELEGIR MI OPCIÓN</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Avatar Exterior Flotante -->
+        <div class="absolute -bottom-3.5 -left-3.5 z-40 w-16 h-16 sm:w-18 sm:h-18 rounded-full border-4 border-[#00E5FF] bg-slate-900 shadow-2xl overflow-hidden pointer-events-auto">
+            <img src="assets/avatar-arubel.jpg" alt="Arubel Aizprua" class="w-full h-full object-cover">
+        </div>
+    </div>
+</div>
+```
+
+---
+
+## 📐 4.11. Componente Canónico: Triadas de Coordinación, Blobs de Esquina y Marcas de Agua Editoriales
+
+### Mandato de Diseño para Procesos de 3 Pasos (`conferencias.html` y `llave-en-mano.html`):
+1. **Triada de Color Institucional:**
+   * Paso 1: Azul Corporativo (`bg-brand-blue/10`, badge `bg-brand-blue text-white`).
+   * Paso 2: Naranja Corporativo (`bg-brand-orange/10`, badge `bg-brand-orange text-white`).
+   * Paso 3: Negro Ejecutivo (`bg-slate-900/10`, badge `bg-slate-900 text-white`).
+2. **Blob Decorativo de Esquina:** Forma de cuarto de círculo en la esquina superior derecha con `absolute top-0 right-0 w-24 h-24 rounded-bl-full pointer-events-none`.
+3. **Badge Cuadrado de Número:** Ubicado en la esquina superior derecha del blob con `w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold shadow-xs`.
+4. **Marca de Agua Numérica Gigante:** En la esquina inferior derecha del contenido: `absolute -bottom-2 -right-1 text-7xl font-black text-slate-200/40 select-none pointer-events-none`.
+
+### Snippet Canónico de Tarjeta de Triada (Paso 1):
+```html
+<div class="relative bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between group">
+    <!-- Blob de Esquina y Badge -->
+    <div class="absolute top-0 right-0 w-24 h-24 bg-brand-blue/10 rounded-bl-full pointer-events-none transition-transform duration-300 group-hover:scale-110"></div>
+    <div class="absolute top-4 right-4 z-10 w-7 h-7 rounded-lg bg-brand-blue text-white flex items-center justify-center text-xs font-bold shadow-xs">
+        1
+    </div>
+
+    <!-- Contenido -->
+    <div class="relative z-10">
+        <span class="inline-block text-[11px] font-extrabold uppercase tracking-wider text-brand-blue mb-2">Fase Inicial</span>
+        <h3 class="text-xl font-bold text-slate-900 mb-3">Diagnóstico Legal & Societario</h3>
+        <p class="text-xs text-slate-600 leading-relaxed mb-4">
+            Auditoría exhaustiva para blindar tu operación antes del registro oficial.
+        </p>
+    </div>
+
+    <!-- Marca de Agua Numérica -->
+    <div class="absolute -bottom-2 -right-1 text-7xl font-black text-slate-200/40 select-none pointer-events-none">
+        01
+    </div>
+</div>
+```
+
+---
+
+## 🔘 4.12. Componente Canónico: Stack Flotante de Acciones Anti-Colisión (Volver Arriba + WhatsApp)
+
+### Especificaciones Técnicas:
+1. **Contenedor Vertical Unificado:** `fixed bottom-6 right-6 z-[90] flex flex-col items-center gap-5 pointer-events-none`
+2. **Botón Volver Arriba (`#scroll-top-btn`):**
+   * Dimensiones: `w-11 h-11 rounded-full`
+   * Clases: `bg-white/95 backdrop-blur border border-slate-300 hover:border-brand-blue text-slate-700 hover:text-brand-blue shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:-translate-y-1 flex items-center justify-center flex-shrink-0 cursor-pointer`
+   * Icono: `<i data-lucide="chevron-up" class="w-5 h-5"></i>`
+3. **Botón WhatsApp Flotante:**
+   * Dimensiones: `w-14 h-14 rounded-full`
+   * Clases: `pointer-events-auto relative bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center`
+   * Icono SVG: `w-6 h-6 sm:w-7 sm:h-7` con `fill="currentColor"`.
+
+### Snippet Canónico de Componentes Globales Flotantes:
+```html
+<div class="fixed bottom-6 right-6 z-[90] flex flex-col items-center gap-5 pointer-events-none">
+    <!-- Botón Volver Arriba -->
+    <button id="scroll-top-btn" onclick="scrollToTop()" aria-label="Volver arriba"
+        class="w-11 h-11 bg-white/95 backdrop-blur border border-slate-300 hover:border-brand-blue text-slate-700 hover:text-brand-blue rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:-translate-y-1 flex items-center justify-center flex-shrink-0 cursor-pointer">
+        <i data-lucide="chevron-up" class="w-5 h-5"></i>
+    </button>
+
+    <!-- Botón de WhatsApp Fijo -->
+    <a href="https://wa.me/50765461527" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp"
+        class="whatsapp-btn pointer-events-auto relative w-14 h-14 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center">
+        <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+</div>
+```
+
+
 
 
 

@@ -385,6 +385,50 @@
        - En footers simplificados (páginas de gracias o descarga): `<footer class="bg-slate-900 text-slate-400 py-8 text-center text-xs border-t border-slate-800 mt-auto">...</footer>`
      - **PROHIBICIÓN ESTRICTA:** Prohibido usar `text-sm` en la línea de copyright inferior.
 
+## 🪟 Regla Canónica de Pop-ups, Modales y Lightboxes de Conversión (`banco-popups.html`)
+* **MANDATO OBLIGATORIO:** Todo pop-up, modal o ventana emergente implementado en el ecosistema debe seguir estrictamente los 5 modelos de conversión y los estándares UX/UI catalogados en [`public/banco-popups.html`](/banco-popups):
+  1. **Los 5 Modelos Oficiales de Conversión:**
+     - **Modelo 01 (Flyer VIP de Taller / Evento):** Poster visual oscuro con conferencista Arubel Aizprua, tipografía impactante en blanco/rojo, avatar circular exterior con borde cian (`#00E5FF`) y tarjeta inferior blanca con botón dorado de conversión inmediata (`#FFBA08` `ELEGIR MI OPCIÓN →`).
+     - **Modelo 02 (Descarga de Guía PDF / Lead Magnet):** Contenedor blanco con showcase de mockup 3D en gradiente oscuro, formulario directo (input de correo) y botón naranja de descarga (`brand-orange`).
+     - **Modelo 03 (Test / Diagnóstico Express de 3 Minutos):** Tarjeta con barra de progreso, 3 opciones interactivas en tarjetas táctiles seleccionables y avance guiado.
+     - **Modelo 04 (Exit-Intent / Oferta de Retención):** Lightbox de última oportunidad con temporizador de cuenta regresiva (15:00 min) y descuento exclusivo antes de abandonar la pestaña.
+     - **Modelo 05 (Slide-in Toast Discreto):** Notificación flotante en esquina inferior derecha (`fixed bottom-6 right-6 z-[90]`) con micro-mockup y botón de acceso rápido sin interrumpir la lectura completa.
+  2. **Estándares Técnicos y Accesibilidad Obligatoria:**
+     - **Backdrop:** `fixed inset-0 z-[100] bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 modal-hidden` con clase `.modal-backdrop`.
+     - **Animación:** `.modal-content` con `transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease-out` que transiciona desde `scale(0.95) translateY(10px)` hasta su tamaño natural.
+     - **Botón Cerrar Flotante Exterior:** Ubicado obligatoriamente en `absolute -top-3.5 -right-3.5 z-40 w-9 h-9 rounded-full bg-white hover:bg-slate-100 text-slate-900 flex items-center justify-center transition shadow-2xl cursor-pointer hover:scale-110` con icono Lucide `<i data-lucide="x" class="w-4 h-4 stroke-[2.5]"></i>`.
+     - **Cierre Multifunción:** Obligatorio permitir cierre al hacer clic fuera del modal (`handleBackdropClick`), al pulsar la tecla `Escape` (`keydown`), y bloquear el scroll de fondo añadiendo `overflow-hidden` al `<body>`.
+
+## 📝 Regla de Usabilidad en Formularios y Textareas (`resize-y` Obligatorio)
+* **MANDATO OBLIGATORIO:** En todo formulario de agendamiento, diagnóstico empresarial, cotizador o solicitud de propuesta formal (`agendar.html`, `formulario-diagnostico.html`, `conferencias.html`, `informe-diagnostico.html`):
+  1. **Redimensionamiento Vertical Permitido:** Todo campo `<textarea>` debe incorporar obligatoriamente la clase `resize-y` junto con una altura mínima cómoda (`min-h-[100px]` o `min-h-[120px]`).
+  2. **PROHIBICIÓN ESTRICTA:** Queda **terminantemente prohibido usar `resize-none`** en áreas de texto donde el cliente deba exponer su situación jurídica, societaria o tributaria, ya que bloquea visualmente la redacción y deteriora severamente la experiencia de usuario.
+
+## 🔘 Regla Anti-Colisión de Botones Flotantes Globales (Stack Derecho: Volver Arriba + WhatsApp)
+* **MANDATO OBLIGATORIO:** En cualquier página del sitio web que incluya el botón de scroll hacia arriba y el botón flotante de WhatsApp:
+  1. **Contenedor Unificado en un Solo Eje:** Ambos elementos deben residir obligatoriamente dentro de un contenedor padre común:
+     ```html
+     <div class="fixed bottom-6 right-6 z-[90] flex flex-col items-center gap-5 pointer-events-none">
+         <!-- Botón Scroll to Top -->
+         <button id="scroll-top-btn" onclick="scrollToTop()" class="... pointer-events-auto ...">...</button>
+         <!-- Botón WhatsApp Flotante -->
+         <a href="..." class="whatsapp-btn ... pointer-events-auto ...">...</a>
+     </div>
+     ```
+  2. **Prevención de Colisión y Bloqueos de Clic:** El contenedor padre debe llevar `pointer-events-none` para no bloquear clics en el contenido subyacente de la página, y los botones internos deben llevar `pointer-events-auto`.
+  3. **PROHIBICIÓN ESTRICTA:** Queda terminantemente prohibido anclar el botón de "Volver Arriba" y el botón de WhatsApp con posiciones fijas independientes (ej. ambos con `fixed bottom-6 right-6`), lo que provoca que un botón quede montado encima del otro e inhabilite su uso.
+
+## 🛡️ Regla de Logotipo Institucional en Barra de Navegación (Prohibición de `logo.png`)
+* **MANDATO OBLIGATORIO:** En toda barra de navegación principal (`<header>`):
+  1. **Archivo Vectorial Canónico Oficial:** El logotipo debe referenciar exclusivamente el SVG vectorial:
+     `assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg`
+  2. **Fallback Obligatorio de Seguridad:** Debe incluir un manejador `onerror` apuntando al logo alternativo vectorial:
+     `onerror="this.onerror=null; this.src='assets/logo-aizprua-navbar.svg';"`
+  3. **Dimensiones Estandarizadas:**
+     - En barras de navegación institucionales de `h-20` (80px): Altura de logotipo de `h-16 w-auto object-contain` (o `h-28` centrado en landing pages canónicas).
+  4. **PROHIBICIÓN ESTRICTA:** Queda **terminantemente prohibido referenciar `assets/logo.png`**, ya que dicho archivo de mapa de bits no existe en el repositorio y genera errores de imagen rota.
+
+
 
 
 
