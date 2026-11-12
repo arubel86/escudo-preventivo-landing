@@ -7,7 +7,8 @@
     "start": "node server.js",
     "dev": "node server.js",
     "sync-catalog": "node scripts/sync-catalog.js",
-    "sync-blog": "node scripts/export-blog-to-markdown.js"
+    "sync-blog": "node scripts/export-blog-to-markdown.js",
+    "submit:bing": "node scripts/bing-submit.js"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.12",
