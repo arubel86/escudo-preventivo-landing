@@ -534,6 +534,12 @@ app.get('/guia-preventiva.html', (req, res) => {
   res.redirect(301, '/guia-preventiva' + query);
 });
 
+// Validación Bing Webmaster Tools
+app.get('/BingSiteAuth.xml', (req, res) => {
+  res.type('application/xml');
+  res.sendFile(path.join(__dirname, 'public', 'BingSiteAuth.xml'));
+});
+
 // 3. Página C: Recursos Gratuitos (Hub de Recursos)
 app.get(['/recursos', '/recursos.html'], (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'recursos.html'));
