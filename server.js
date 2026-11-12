@@ -654,6 +654,36 @@ app.get(['/test-interactivo.html', '/quiz', '/quiz.html', '/auditoria-interactiv
   res.redirect(301, '/test-interactivo' + query);
 });
 
+// 4.8.1. Test Interactivo de Estructura Legal en Panamá (Canónica: /test-estructura)
+app.get('/test-estructura', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'test-estructura.html'));
+});
+
+app.get(['/test-estructura.html', '/quiz-estructura', '/quiz-estructura.html'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/test-estructura' + query);
+});
+
+// 4.8.2. Quiz Funnel Ligero de Blindaje Empresarial (Canónica: /quiz-blindaje)
+app.get('/quiz-blindaje', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'quiz-blindaje.html'));
+});
+
+app.get('/quiz-blindaje.html', (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/quiz-blindaje' + query);
+});
+
+// 4.8.3. Calculadora de Libertad Financiera y Presupuesto (Canónica: /calculadora-libertad)
+app.get('/calculadora-libertad', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'calculadora-libertad.html'));
+});
+
+app.get(['/calculadora-libertad.html', '/libertad-financiera', '/calculadora-inversion'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/calculadora-libertad' + query);
+});
+
 // 4.9. Tienda Online de Kits y Soluciones (Canónica: /tienda)
 app.get('/tienda', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'tienda.html'));

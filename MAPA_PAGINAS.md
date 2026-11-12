@@ -23,6 +23,7 @@
 | :--- | :--- | :--- | :--- |
 | **Agendar Asesoría Virtual** | [`agendar.html`](public/agendar.html) | `https://aizprua.com/agendar` | Reserva de citas sincronizada con Google Calendar y Google Sheets. |
 | **Test de Auditoría Rápida** | [`test-interactivo.html`](public/test-interactivo.html) | `https://aizprua.com/test-interactivo` | Lead magnet interactivo de 5 preguntas que evalúa el nivel de riesgo. |
+| **Test de Estructura Legal** | [`test-estructura.html`](public/test-estructura.html) | `https://aizprua.com/test-estructura` | Quiz interactivo de 3 pasos para elegir entre Plan Profesional, Persona Natural, S.E. o S.A. |
 | **Diagnóstico Empresarial Avanzado** | [`test-empresarial.html`](public/test-empresarial.html) | `https://aizprua.com/test-empresarial` | Evaluación detallada de riesgos laborales, fiscales y societarios. |
 | **Formulario Diagnóstico Inicial** | [`formulario-diagnostico.html`](public/formulario-diagnostico.html) | `https://aizprua.com/formulario-diagnostico` | Recopilación de información clave del cliente antes de la consultoría. |
 | **Entrega de Informe Diagnóstico** | [`informe-diagnostico.html`](public/informe-diagnostico.html) | `https://aizprua.com/informe-diagnostico` | Presentación del dictamen de riesgo y hoja de ruta legal recomendada. |

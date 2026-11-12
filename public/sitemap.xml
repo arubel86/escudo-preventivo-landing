@@ -38,6 +38,12 @@
     <priority>0.90</priority>
   </url>
   <url>
+    <loc>https://aizprua.com/test-estructura</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
     <loc>https://aizprua.com/agendar</loc>
     <lastmod>2026-11-05</lastmod>
     <changefreq>weekly</changefreq>
@@ -50,16 +56,28 @@
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://aizprua.com/recursos-gratuitos</loc>
-    <lastmod>2026-11-05</lastmod>
+    <loc>https://aizprua.com/recursos</loc>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
   <!-- 2. Herramientas Interactivas y Diagnósticos (Alto Tráfico Panamá) -->
   <url>
+    <loc>https://aizprua.com/quiz-blindaje</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://aizprua.com/calculadora-libertad</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
     <loc>https://aizprua.com/ruc</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.90</priority>
   </url>

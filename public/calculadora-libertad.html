@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Libertad Financiera y Presupuesto | Aizprua S.E.</title>
+    <meta name="description"
+        content="Calcula tu número de libertad financiera, tu cuota mensual de inversión, tu fondo de emergencia y el presupuesto ideal según tu salario.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://aizprua.com/calculadora-libertad">
+
+    <!-- Datos Estructurados Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calculadora de Libertad Financiera y Presupuesto",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "url": "https://aizprua.com/calculadora-libertad",
+      "description": "Calcula tu meta de libertad financiera, cuota mensual de inversión, fondo de emergencia y presupuesto ideal 50/30/20.",
+      "provider": {
+        "@type": "LegalService",
+        "name": "Aizprua S.E. Firma Legal y Empresarial",
+        "url": "https://aizprua.com/"
+      }
+    }
+    </script>
+
+    <!-- Favicon & Iconos Oficiales Multiplataforma -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#3849C8">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Calculadora de Libertad Financiera y Presupuesto | Aizprua S.E.">
+    <meta property="og:description"
+        content="Descubre en segundos tus 5 números clave: meta de retiro temprano, aporte mensual, fondo de imprevistos y distribución 50/30/20.">
+    <meta property="og:url" content="https://aizprua.com/calculadora-libertad">
+    <meta property="og:image" content="https://aizprua.com/assets/aizprua-shield-og.jpg">
+
+    <!-- Microsoft Clarity Oficial -->
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "vrnwiwwg3k");
+    </script>
+
+    <!-- Tipografía Google Fonts Oficial -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#3849C8',
+                            'blue-dark': '#2D3A9F',
+                            'blue-light': '#4F5ED4',
+                            orange: '#FF8A1E',
+                            'orange-dark': '#E67A15',
+                            'orange-light': '#FFA04A'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', '"Inter"', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            background-color: #F8FAFC;
+            color: #0F172A;
+            font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .stat-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px -10px rgba(15, 23, 42, 0.08);
+        }
+
+        input[type=range] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 28px;
+            background: transparent;
+            outline: none;
+            cursor: pointer;
+            margin: 0;
+            padding: 0;
+            --slider-fill: linear-gradient(to right, #FF8A1E 0%, #FF8A1E 20%, #E2E8F0 20%, #E2E8F0 100%);
+        }
+
+        input[type=range]::-webkit-slider-runnable-track {
+            height: 8px;
+            border-radius: 9999px;
+            background: var(--slider-fill);
+            border: none;
+        }
+
+        input[type=range]::-moz-range-track {
+            height: 8px;
+            border-radius: 9999px;
+            background: var(--slider-fill);
+            border: none;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 24px;
+            width: 24px;
+            border-radius: 9999px;
+            background: #FF8A1E;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(255, 138, 30, 0.45);
+            border: 3px solid #FFFFFF;
+            margin-top: -8px;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.12);
+            box-shadow: 0 4px 12px rgba(255, 138, 30, 0.6);
+        }
+
+        input[type=range]::-moz-range-thumb {
+            height: 24px;
+            width: 24px;
+            border-radius: 9999px;
+            background: #FF8A1E;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(255, 138, 30, 0.45);
+            border: 3px solid #FFFFFF;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        input[type=range]::-moz-range-thumb:hover {
+            transform: scale(1.12);
+            box-shadow: 0 4px 12px rgba(255, 138, 30, 0.6);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col bg-slate-50 text-slate-900">
+
+    <!-- Header institucional canónico -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 h-20 flex items-center">
+        <div class="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+            <a href="/" class="inline-flex items-center focus:outline-none" aria-label="Aizprua S.E.">
+                <img src="/assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg"
+                    onerror="this.onerror=null; this.src='assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg';"
+                    alt="Aizprua S.E." class="h-20 sm:h-24 w-auto object-contain">
+            </a>
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-xs font-bold">
+                <i data-lucide="calculator" class="w-3.5 h-3.5 shrink-0"></i>
+                <span>Simulador Financiero 2026</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenedor Principal -->
+    <main class="flex-grow py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
+
+        <!-- Encabezado / Hero -->
+        <section class="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-orange/10 border border-brand-orange/25 text-brand-orange-dark text-xs font-bold uppercase tracking-wider mb-4">
+                <i data-lucide="trending-up" class="w-3.5 h-3.5 shrink-0"></i>
+                <span>Regla de Libertad Financiera y Presupuesto</span>
+            </div>
+
+            <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight mb-4">
+                Los 5 números exactos que debes calcular con tu salario
+            </h1>
+
+            <p class="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+                Ingresa tu ingreso mensual neto y descubre cuánto necesitas para retirarte, tu aporte mensual para invertir, tu fondo de emergencia y el balance de tus gastos.
+            </p>
+        </section>
+
+        <!-- Tarjeta de Control: Input de Salario -->
+        <section class="bg-white rounded-3xl border border-slate-200 shadow-xl shadow-slate-200/60 p-6 sm:p-8 mb-8">
+            <div class="max-w-2xl mx-auto">
+                <label for="salary-input" class="block text-center text-xs sm:text-sm font-bold text-slate-700 uppercase tracking-wider mb-2">
+                    Tu salario o ingreso neto mensual (USD)
+                </label>
+
+                <!-- Input numérico principal -->
+                <div class="relative max-w-md mx-auto mb-5">
+                    <span class="absolute left-4 top-1/2 -translate-y-1/2 text-2xl font-black text-slate-400 select-none">$</span>
+                    <input type="number" id="salary-input" min="100" max="100000" step="50" value="2000"
+                        class="w-full pl-10 pr-4 py-3.5 rounded-2xl border-2 border-slate-300 text-center text-2xl sm:text-3xl font-black text-slate-900 focus:outline-none focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/15 transition shadow-inner">
+                </div>
+
+                <!-- Slider interactivo -->
+                <div class="mb-5 px-2">
+                    <input type="range" id="salary-slider" min="500" max="10000" step="100" value="2000"
+                        class="w-full accent-brand-orange cursor-pointer">
+                    <div class="flex justify-between text-[11px] font-semibold text-slate-400 mt-1">
+                        <span>$500</span>
+                        <span>$2,500</span>
+                        <span>$5,000</span>
+                        <span>$7,500</span>
+                        <span>$10,000+</span>
+                    </div>
+                </div>
+
+                <!-- Botones de selección rápida -->
+                <div class="flex flex-wrap items-center justify-center gap-2">
+                    <span class="text-xs font-semibold text-slate-500 mr-1">Rápidos:</span>
+                    <button type="button" class="preset-btn px-3 py-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 hover:border-slate-300 text-xs font-bold text-slate-700 transition" data-value="1000">$1,000</button>
+                    <button type="button" class="preset-btn px-3 py-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 hover:border-slate-300 text-xs font-bold text-slate-700 transition" data-value="1500">$1,500</button>
+                    <button type="button" class="preset-btn px-3 py-1.5 rounded-xl border border-brand-blue/30 bg-brand-blue/10 text-brand-blue text-xs font-bold transition" data-value="2000">$2,000</button>
+                    <button type="button" class="preset-btn px-3 py-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 hover:border-slate-300 text-xs font-bold text-slate-700 transition" data-value="3000">$3,000</button>
+                    <button type="button" class="preset-btn px-3 py-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 hover:border-slate-300 text-xs font-bold text-slate-700 transition" data-value="5000">$5,000</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Barra Visual de Distribución Mensual (50% / 30% / 20%) -->
+        <section class="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 sm:p-7 mb-8">
+            <div class="flex items-center justify-between gap-2 mb-3">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="pie-chart" class="w-4 h-4 text-brand-blue shrink-0"></i>
+                    <h3 class="text-xs sm:text-sm font-bold text-slate-800 uppercase tracking-wider">
+                        Distribución mensual recomendada (50% / 30% / 20%)
+                    </h3>
+                </div>
+                <span id="monthly-total-label" class="text-xs font-extrabold text-slate-600 bg-slate-100 px-2.5 py-1 rounded-lg">
+                    $2,000 / mes
+                </span>
+            </div>
+
+            <!-- Barra gráfica -->
+            <div class="h-5 w-full rounded-full overflow-hidden flex bg-slate-100 shadow-inner mb-3">
+                <div id="bar-essential" class="bg-slate-700 transition-all duration-300 flex items-center justify-center text-[10px] font-black text-white" style="width: 50%" title="50% Gastos Esenciales">
+                    50%
+                </div>
+                <div id="bar-investment" class="bg-brand-orange transition-all duration-300 flex items-center justify-center text-[10px] font-black text-white" style="width: 30%" title="30% Inversión">
+                    30%
+                </div>
+                <div id="bar-lifestyle" class="bg-brand-blue transition-all duration-300 flex items-center justify-center text-[10px] font-black text-white" style="width: 20%" title="20% Estilo de Vida">
+                    20%
+                </div>
+            </div>
+
+            <!-- Leyenda de colores -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-slate-700 shrink-0"></span>
+                    <span class="text-slate-600">Gastos esenciales (50%): <strong id="legend-essential" class="text-slate-900">$1,000</strong></span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-brand-orange shrink-0"></span>
+                    <span class="text-slate-600">Inversión mensual (30%): <strong id="legend-investment" class="text-slate-900">$600</strong></span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-brand-blue shrink-0"></span>
+                    <span class="text-slate-600">Estilo de vida (20%): <strong id="legend-lifestyle" class="text-slate-900">$400</strong></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cuadrícula con las 5 Tarjetas Matemáticas Oficiales -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+
+            <!-- TARJETA 1: Meta de Libertad Financiera (Destacada en ancho completo o principal) -->
+            <div class="md:col-span-2 stat-card bg-gradient-to-br from-slate-900 via-slate-900 to-brand-blue-dark text-white rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-xl relative overflow-hidden">
+                <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div class="space-y-2 max-w-xl">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-brand-orange-light text-xs font-bold uppercase tracking-wider">
+                            <i data-lucide="crown" class="w-3.5 h-3.5 shrink-0"></i>
+                            <span>Regla 1 · Meta de Libertad Financiera</span>
+                        </div>
+                        <h2 class="text-xl sm:text-2xl font-black text-white leading-tight">
+                            Tu número para vivir de tus inversiones
+                        </h2>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                            Cálculo: <strong class="text-white">Salario anual × 25</strong> (Regla del 4%). Si tienes esta cifra invertida, puedes retirar el 4% anual de tus ganancias para cubrir tus gastos sin agotar el capital ni volver a depender de un empleo tradicional.
+                        </p>
+                    </div>
+
+                    <div class="text-left md:text-right bg-white/5 border border-white/10 rounded-2xl p-5 shrink-0 min-w-[240px]">
+                        <span class="text-[11px] font-bold text-slate-300 uppercase tracking-wider block mb-1">Total a acumular invertido</span>
+                        <span id="stat-fire" class="text-3xl sm:text-4xl font-black text-brand-orange-light tracking-tight block">
+                            $600,000
+                        </span>
+                        <span id="stat-fire-annual" class="text-xs text-slate-400 mt-1 block">
+                            Equivale a 25 años de ingresos ($24,000/año)
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TARJETA 2: Inversión Mensual Recurrente -->
+            <div class="stat-card bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between gap-2 mb-3">
+                        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-brand-orange/10 text-brand-orange-dark text-xs font-bold">
+                            <i data-lucide="target" class="w-3.5 h-3.5 shrink-0"></i>
+                            <span>Regla 2 · Construcción de Patrimonio</span>
+                        </span>
+                        <span class="text-xs font-black text-slate-400 uppercase">Salario × 0.3</span>
+                    </div>
+
+                    <h3 class="text-base sm:text-lg font-bold text-slate-900 leading-snug mb-2">
+                        Aporte mensual para invertir
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+                        La cantidad exacta que deberías separar cada mes para adquirir activos que generen rendimiento (índices, bienes raíces, fondos) y acelerar tu libertad.
+                    </p>
+                </div>
+
+                <div class="pt-4 border-t border-slate-100 flex items-baseline justify-between">
+                    <span class="text-xs font-bold text-slate-500">Monto cada mes:</span>
+                    <span id="stat-investment" class="text-2xl font-black text-brand-orange tracking-tight">
+                        $600
+                    </span>
+                </div>
+            </div>
+
+            <!-- TARJETA 3: Fondo de Emergencia Inmediato -->
+            <div class="stat-card bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between gap-2 mb-3">
+                        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-brand-blue/10 text-brand-blue text-xs font-bold">
+                            <i data-lucide="shield-alert" class="w-3.5 h-3.5 shrink-0"></i>
+                            <span>Regla 3 · Colchón de Resguardo</span>
+                        </span>
+                        <span class="text-xs font-black text-slate-400 uppercase">Salario × 3</span>
+                    </div>
+
+                    <h3 class="text-base sm:text-lg font-bold text-slate-900 leading-snug mb-2">
+                        Fondo de emergencia inicial
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+                        Tu primera meta obligatoria. Dinero en cuenta líquida e intocable para averías del carro, imprevistos médicos o pausas de facturación.
+                    </p>
+                </div>
+
+                <div class="pt-4 border-t border-slate-100 flex items-baseline justify-between">
+                    <span class="text-xs font-bold text-slate-500">Meta mínima (3 meses):</span>
+                    <span id="stat-emergency" class="text-2xl font-black text-brand-blue tracking-tight">
+                        $6,000
+                    </span>
+                </div>
+            </div>
+
+            <!-- TARJETA 4: Estilo de Vida y Ocio (con aviso de deudas) -->
+            <div class="stat-card bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between gap-2 mb-3">
+                        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold">
+                            <i data-lucide="sparkles" class="w-3.5 h-3.5 shrink-0"></i>
+                            <span>Regla 4 · Estilo de Vida</span>
+                        </span>
+                        <span class="text-xs font-black text-slate-400 uppercase">Salario × 0.2</span>
+                    </div>
+
+                    <h3 class="text-base sm:text-lg font-bold text-slate-900 leading-snug mb-2">
+                        Dinero para disfrutar
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
+                        Presupuesto mensual para salidas, hobbies y viajes que puedes gastar con total tranquilidad.
+                    </p>
+
+                    <!-- Callout canónico de deudas -->
+                    <div class="bg-amber-50 border border-amber-200/80 rounded-2xl p-3 mb-2">
+                        <div class="flex items-center gap-2 mb-1">
+                            <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-amber-700 shrink-0"></i>
+                            <h4 class="font-bold text-amber-900 text-xs">Advertencia de deudas:</h4>
+                        </div>
+                        <p class="text-[11px] text-amber-800 leading-relaxed pl-5">
+                            Si tienes deudas de consumo o tarjetas, este 20% va primero a pagar la deuda. Primero liquidas, después disfrutas.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="pt-3 border-t border-slate-100 flex items-baseline justify-between">
+                    <span class="text-xs font-bold text-slate-500">Monto disponible:</span>
+                    <span id="stat-lifestyle" class="text-2xl font-black text-slate-900 tracking-tight">
+                        $400
+                    </span>
+                </div>
+            </div>
+
+            <!-- TARJETA 5: Límite de Gastos Esenciales -->
+            <div class="stat-card bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between gap-2 mb-3">
+                        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold">
+                            <i data-lucide="home" class="w-3.5 h-3.5 shrink-0"></i>
+                            <span>Regla 5 · Gastos Esenciales</span>
+                        </span>
+                        <span class="text-xs font-black text-slate-400 uppercase">Salario × 0.5</span>
+                    </div>
+
+                    <h3 class="text-base sm:text-lg font-bold text-slate-900 leading-snug mb-2">
+                        Tope máximo de necesidades básicas
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+                        El techo que no deberías sobrepasar para vivienda (alquiler o hipoteca), comida, servicios públicos y transporte. Mantenerte dentro de este 50% es lo que permite que el plan funcione.
+                    </p>
+                </div>
+
+                <div class="pt-4 border-t border-slate-100 flex items-baseline justify-between">
+                    <span class="text-xs font-bold text-slate-500">Tope máximo sugerido:</span>
+                    <span id="stat-essential" class="text-2xl font-black text-slate-900 tracking-tight">
+                        $1,000
+                    </span>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ============================================================== -->
+        <!-- BLOQUE DE CONVERSIÓN: LEAD MAGNET ("COMENTA GUÍA Y TE LA ENVÍO")-->
+        <!-- ============================================================== -->
+        <section id="lead-magnet-section" class="bg-gradient-to-br from-slate-900 via-slate-900 to-brand-blue-dark text-white rounded-3xl border border-slate-800 shadow-2xl p-6 sm:p-10 mb-12">
+            <div class="max-w-3xl mx-auto">
+                <div class="text-center mb-8">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-brand-orange-light text-xs font-bold uppercase tracking-wider mb-3">
+                        <i data-lucide="book-open" class="w-3.5 h-3.5 shrink-0"></i>
+                        <span>Guía Práctica Gratuita</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-black text-white leading-tight mb-3">
+                        ¿Quieres saber exactamente dónde empezar a invertir tu dinero?
+                    </h2>
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl mx-auto">
+                        Te enviamos la <strong class="text-white">Guía de Inversión y Blindaje de Patrimonio</strong> con los instrumentos recomendados, cómo armar tu cuenta de inversión y los errores que debes evitar.
+                    </p>
+                </div>
+
+                <!-- Formulario de captura -->
+                <form id="guide-request-form" class="space-y-4 max-w-md mx-auto" novalidate>
+                    <div>
+                        <label for="guide-name" class="block text-xs font-bold text-slate-300 mb-1.5">Nombre completo</label>
+                        <div class="relative">
+                            <i data-lucide="user" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+                            <input type="text" id="guide-name" name="nombre" required autocomplete="name"
+                                placeholder="Tu nombre"
+                                class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-700 bg-slate-800/90 text-sm text-white placeholder:text-slate-400 focus:outline-none focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 transition">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="guide-email" class="block text-xs font-bold text-slate-300 mb-1.5">Correo electrónico</label>
+                        <div class="relative">
+                            <i data-lucide="mail" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+                            <input type="email" id="guide-email" name="email" required autocomplete="email"
+                                placeholder="tu@correo.com"
+                                class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-700 bg-slate-800/90 text-sm text-white placeholder:text-slate-400 focus:outline-none focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 transition">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="guide-whatsapp" class="block text-xs font-bold text-slate-300 mb-1.5">WhatsApp (para enviártela de inmediato)</label>
+                        <div class="relative">
+                            <i data-lucide="phone" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+                            <input type="tel" id="guide-whatsapp" name="whatsapp" required autocomplete="tel"
+                                placeholder="+507 6XXX-XXXX"
+                                class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-700 bg-slate-800/90 text-sm text-white placeholder:text-slate-400 focus:outline-none focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 transition">
+                        </div>
+                    </div>
+
+                    <div id="guide-error-box" class="hidden bg-red-900/40 border border-red-700/60 text-red-200 text-xs font-semibold rounded-xl p-3 flex items-start gap-2">
+                        <i data-lucide="alert-circle" class="w-4 h-4 shrink-0 mt-0.5"></i>
+                        <span id="guide-error-text">Por favor verifica los datos ingresados.</span>
+                    </div>
+
+                    <button type="submit" id="btn-submit-guide"
+                        class="w-full inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orange-dark text-white font-extrabold text-base py-3.5 px-6 rounded-xl shadow-lg shadow-brand-orange/30 transition cursor-pointer mt-2">
+                        <span>Enviarme la Guía Gratuita</span>
+                        <i data-lucide="send" class="w-4 h-4 shrink-0"></i>
+                    </button>
+
+                    <p class="text-[11px] text-center text-slate-400 pt-1">
+                        100% libre de spam. Tus datos están resguardados con total confidencialidad.
+                    </p>
+                </form>
+
+                <!-- Mensaje de éxito post-envío -->
+                <div id="guide-success-box" class="hidden text-center py-6 space-y-4">
+                    <div class="w-14 h-14 rounded-full bg-brand-orange/20 border border-brand-orange/40 text-brand-orange flex items-center justify-center mx-auto">
+                        <i data-lucide="check-circle" class="w-7 h-7 shrink-0"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">¡Listo! Te hemos enviado la guía</h3>
+                    <p class="text-xs sm:text-sm text-slate-300 max-w-sm mx-auto">
+                        Revisa tu correo y tu WhatsApp en los próximos minutos para descargar el PDF.
+                    </p>
+                    <div class="pt-2">
+                        <a href="/agendar" class="inline-flex items-center gap-2 text-xs font-bold text-brand-orange-light hover:underline">
+                            <span>¿Deseas una sesión personalizada de blindaje? Haz clic aquí</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 shrink-0"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer institucional -->
+    <footer class="py-8 px-4 text-center text-xs text-slate-400 border-t border-slate-200 bg-white">
+        <p>&copy; 2026 Aizprua S.E. · Consultoría Corporativa y Blindaje Patrimonial en Panamá</p>
+    </footer>
+
+    <!-- Lógica Interactiva Reactiva -->
+    <script>
+        (function () {
+            'use strict';
+
+            const salaryInput = document.getElementById('salary-input');
+            const salarySlider = document.getElementById('salary-slider');
+            const presetButtons = document.querySelectorAll('.preset-btn');
+
+            const statFire = document.getElementById('stat-fire');
+            const statFireAnnual = document.getElementById('stat-fire-annual');
+            const statInvestment = document.getElementById('stat-investment');
+            const statEmergency = document.getElementById('stat-emergency');
+            const statLifestyle = document.getElementById('stat-lifestyle');
+            const statEssential = document.getElementById('stat-essential');
+
+            const monthlyTotalLabel = document.getElementById('monthly-total-label');
+            const legendEssential = document.getElementById('legend-essential');
+            const legendInvestment = document.getElementById('legend-investment');
+            const legendLifestyle = document.getElementById('legend-lifestyle');
+
+            function formatCurrency(amount) {
+                return '$' + Math.round(amount).toLocaleString('en-US');
+            }
+
+            function updateCalculations(salary) {
+                const s = Math.max(0, Number(salary) || 0);
+
+                // 1. Meta de Libertad Financiera (Salario anual * 25)
+                const annualSalary = s * 12;
+                const fireNumber = annualSalary * 25;
+
+                // 2. Inversión mensual (30%)
+                const investmentMonthly = s * 0.30;
+
+                // 3. Fondo de emergencia (3 meses)
+                const emergencyFund = s * 3;
+
+                // 4. Estilo de vida (20%)
+                const lifestyle = s * 0.20;
+
+                // 5. Gastos esenciales (50%)
+                const essential = s * 0.50;
+
+                // Actualizar textos
+                statFire.textContent = formatCurrency(fireNumber);
+                statFireAnnual.textContent = 'Equivale a 25 años de ingresos (' + formatCurrency(annualSalary) + '/año)';
+                statInvestment.textContent = formatCurrency(investmentMonthly);
+                statEmergency.textContent = formatCurrency(emergencyFund);
+                statLifestyle.textContent = formatCurrency(lifestyle);
+                statEssential.textContent = formatCurrency(essential);
+
+                monthlyTotalLabel.textContent = formatCurrency(s) + ' / mes';
+                legendEssential.textContent = formatCurrency(essential);
+                legendInvestment.textContent = formatCurrency(investmentMonthly);
+                legendLifestyle.textContent = formatCurrency(lifestyle);
+            }
+
+            function updateSliderTrackFill(val) {
+                const min = Number(salarySlider.min) || 500;
+                const max = Number(salarySlider.max) || 10000;
+                const clamped = Math.max(min, Math.min(max, Number(val) || min));
+                const pct = ((clamped - min) / (max - min)) * 100;
+                const gradient = 'linear-gradient(to right, #FF8A1E 0%, #FF8A1E ' + pct + '%, #E2E8F0 ' + pct + '%, #E2E8F0 100%)';
+                salarySlider.style.setProperty('--slider-fill', gradient);
+            }
+
+            function syncSalary(newVal) {
+                const clean = Math.max(100, Math.min(100000, Number(newVal) || 0));
+                salaryInput.value = clean;
+                if (clean <= 10000) {
+                    salarySlider.value = clean;
+                }
+                updateSliderTrackFill(clean);
+                updateCalculations(clean);
+
+                presetButtons.forEach(function (btn) {
+                    if (Number(btn.getAttribute('data-value')) === clean) {
+                        btn.className = 'preset-btn px-3 py-1.5 rounded-xl border border-brand-blue/30 bg-brand-blue/10 text-brand-blue text-xs font-bold transition';
+                    } else {
+                        btn.className = 'preset-btn px-3 py-1.5 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 hover:border-slate-300 text-xs font-bold text-slate-700 transition';
+                    }
+                });
+            }
+
+            salaryInput.addEventListener('input', function () {
+                syncSalary(this.value);
+            });
+
+            salarySlider.addEventListener('input', function () {
+                syncSalary(this.value);
+            });
+
+            presetButtons.forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    const val = Number(this.getAttribute('data-value'));
+                    syncSalary(val);
+                });
+            });
+
+            // ==============================================================
+            // FORMULARIO DE CAPTURA DE LA GUÍA
+            // ==============================================================
+            const form = document.getElementById('guide-request-form');
+            const errorBox = document.getElementById('guide-error-box');
+            const errorText = document.getElementById('guide-error-text');
+            const successBox = document.getElementById('guide-success-box');
+            const submitBtn = document.getElementById('btn-submit-guide');
+
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+                errorBox.classList.add('hidden');
+
+                const name = document.getElementById('guide-name').value.trim();
+                const email = document.getElementById('guide-email').value.trim().toLowerCase();
+                const whatsapp = document.getElementById('guide-whatsapp').value.trim();
+
+                if (name.length < 2) {
+                    errorText.textContent = 'Por favor ingresa tu nombre.';
+                    errorBox.classList.remove('hidden');
+                    return;
+                }
+
+                const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,10}$/;
+                if (!emailRegex.test(email)) {
+                    errorText.textContent = 'Ingresa un correo electrónico válido.';
+                    errorBox.classList.remove('hidden');
+                    return;
+                }
+
+                if (whatsapp.replace(/\D/g, '').length < 7) {
+                    errorText.textContent = 'Por favor ingresa un número de WhatsApp válido.';
+                    errorBox.classList.remove('hidden');
+                    return;
+                }
+
+                submitBtn.disabled = true;
+                submitBtn.classList.add('opacity-75');
+
+                const currentSalary = Number(salaryInput.value) || 2000;
+                const payload = {
+                    tipo: 'solicitud_guia_inversion',
+                    origen: 'calculadora-libertad',
+                    nombre: name,
+                    email: email,
+                    telefono: whatsapp.startsWith('+') ? "'" + whatsapp : whatsapp,
+                    salario_ingresado: currentSalary,
+                    numero_libertad: currentSalary * 300,
+                    fecha_iso: new Date().toISOString()
+                };
+
+                // Persistencia local
+                try {
+                    localStorage.setItem('aizprua_guia_lead', JSON.stringify(payload));
+                } catch (err) {}
+
+                // Envío no bloqueante a Google Apps Script
+                try {
+                    fetch('https://script.google.com/macros/s/AKfycbymJiNqZ2uXepyPrr0S-Pn1NH_1f75VuCHA6bi5TYshWxDS7DQgat8Qv3TAx20_yPJ5/exec', {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                        body: JSON.stringify(payload)
+                    }).catch(function () {});
+                } catch (err) {}
+
+                form.classList.add('hidden');
+                successBox.classList.remove('hidden');
+                if (window.lucide) lucide.createIcons();
+            });
+
+            // Inicializar cálculos y relleno del slider con $2,000 por defecto
+            syncSalary(2000);
+            if (window.lucide) lucide.createIcons();
+        })();
+    </script>
+</body>
+
+</html>
+

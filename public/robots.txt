@@ -7,6 +7,11 @@ Allow: /verificador
 Allow: /ruc
 Allow: /calculadora-precios
 Allow: /simulador-prestamos
+Allow: /calculadora-libertad
+Allow: /quiz-blindaje
+Allow: /test-interactivo
+Allow: /test-estructura
+Allow: /recursos
 Allow: /blog
 Allow: /tienda
 Allow: /escuela
@@ -32,16 +37,28 @@ User-agent: GPTBot
 Allow: /
 Allow: /verificador
 Allow: /ruc
+Allow: /calculadora-libertad
+Allow: /quiz-blindaje
+Allow: /test-interactivo
+Allow: /recursos
 Allow: /blog
 
 User-agent: ClaudeBot
 Allow: /
 Allow: /verificador
 Allow: /ruc
+Allow: /calculadora-libertad
+Allow: /quiz-blindaje
+Allow: /test-interactivo
+Allow: /recursos
 Allow: /blog
 
 User-agent: PerplexityBot
 Allow: /
 Allow: /verificador
 Allow: /ruc
+Allow: /calculadora-libertad
+Allow: /quiz-blindaje
+Allow: /test-interactivo
+Allow: /recursos
 Allow: /blog
