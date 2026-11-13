@@ -16,6 +16,10 @@ Allow: /blog
 Allow: /tienda
 Allow: /escuela
 Allow: /llave-en-mano
+Allow: /conferencias
+Allow: /test-empresarial
+Allow: /recursos-gratuitos
+Allow: /construccion
 
 # Bloqueo de herramientas operativas privadas y URLs transaccionales
 Disallow: /cotizacion
@@ -31,6 +35,8 @@ Disallow: /api/
 
 Sitemap: https://aizprua.com/sitemap.xml
 Sitemap: https://escudo.aizprua.com/sitemap.xml
+Sitemap: https://llave.aizprua.com/sitemap.xml
+Sitemap: https://conferencias.aizprua.com/sitemap.xml
 
 # Directivas para Agentes de Inteligencia Artificial (LLMs)
 User-agent: GPTBot

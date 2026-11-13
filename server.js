@@ -1038,8 +1038,22 @@ app.get(['/conferencias', '/conferencia', '/conferencias.html', '/conferencia.ht
   res.redirect(301, 'https://conferencias.aizprua.com' + query);
 });
 
+// 10.16. Masterclass & Webinars de Blindaje
+app.get(['/masterclass/empresa', '/masterclass/empresa.html'], (req, res) => {
+  res.sendFile(path.join(masterclassDir, 'empresa.html'));
+});
+app.get(['/masterclass/profesional', '/masterclass/profesional.html'], (req, res) => {
+  res.sendFile(path.join(masterclassDir, 'profesional.html'));
+});
+app.get(['/masterclass/gracias-empresa', '/masterclass/gracias-empresa.html'], (req, res) => {
+  res.sendFile(path.join(masterclassDir, 'gracias-empresa.html'));
+});
+app.get(['/masterclass/gracias-profesional', '/masterclass/gracias-profesional.html'], (req, res) => {
+  res.sendFile(path.join(masterclassDir, 'gracias-profesional.html'));
+});
+
 // ARCHIVOS ESTÁTICOS (Masterclass, Embudo Escudo, Verificador & Landing Page)
-app.use('/masterclass', express.static(masterclassDir));
+app.use('/masterclass', express.static(masterclassDir, { extensions: ['html'] }));
 app.use('/Embudo-Escudo-Preventivo', express.static(escudoPreventivoDir, { index: false }));
 app.use(express.static(path.join(__dirname, 'public'), { index: false }));
 // Favicon universal fallback (Sincronizado con YouTube)
