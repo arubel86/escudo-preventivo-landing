@@ -182,12 +182,12 @@
             <span>¿Buscando capital comercial o línea de crédito bancaria para tu negocio?</span>
             <a href="#guia-bancaria" class="inline-flex items-center gap-1 text-white underline font-bold hover:text-brand-orange-light transition">
                 <span>Descargar Guía Bancaria</span>
-                <i data-lucide="arrow-down" class="w-3.5 h-3.5"></i>
+                <i data-lucide="arrow-down" class="w-3.5 h-3.5 shrink-0"></i>
             </a>
         </div>
         <button onclick="document.getElementById('announcement-bar').style.display='none'"
             aria-label="Cerrar aviso" class="absolute right-3 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition p-1">
-            <i data-lucide="x" class="w-4 h-4"></i>
+            <i data-lucide="x" class="w-4 h-4 shrink-0"></i>
         </button>
     </div>
 
@@ -209,7 +209,7 @@
                     <a href="/#servicios" class="hover:text-brand-blue transition">Servicios</a>
                     <a href="/tienda" class="hover:text-brand-blue transition">Tienda Online</a>
                     <a href="/escuela" class="hover:text-brand-blue transition flex items-center gap-1 text-slate-500">
-                        <i data-lucide="graduation-cap" class="w-4 h-4 text-brand-blue"></i>
+                        <i data-lucide="graduation-cap" class="w-4 h-4 text-brand-blue shrink-0"></i>
                         <span>Escuela</span>
                     </a>
                     <a href="/blog" class="text-brand-blue font-bold flex items-center gap-1.5">
@@ -217,7 +217,7 @@
                         <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span>
                     </a>
                     <a href="/test-interactivo" class="text-sm font-semibold text-brand-orange hover:text-brand-orange-dark transition flex items-center gap-1.5">
-                        <i data-lucide="shield-check" class="w-4 h-4"></i>
+                        <i data-lucide="shield-check" class="w-4 h-4 shrink-0"></i>
                         <span>Auditoría Gratis</span>
                     </a>
                 </nav>
@@ -236,7 +236,7 @@
                 <div class="lg:hidden flex items-center">
                     <button type="button" onclick="toggleMobileMenu()"
                         class="text-slate-700 hover:text-brand-blue p-2 rounded-lg" aria-label="Abrir menú">
-                        <i data-lucide="menu" class="w-6 h-6"></i>
+                        <i data-lucide="menu" class="w-6 h-6 shrink-0"></i>
                     </button>
                 </div>
             </div>
@@ -252,7 +252,7 @@
             <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.,%20deseo%20asesor%C3%ADa%20para%20un%20cr%C3%A9dito%20comercial"
                 target="_blank" rel="noopener noreferrer"
                 class="w-full mt-2 bg-brand-orange hover:bg-brand-orange-dark text-white font-bold py-3 rounded-xl text-center flex items-center justify-center gap-2 text-sm shadow-md">
-                <i data-lucide="shield-check" class="w-4 h-4"></i>
+                <i data-lucide="shield-check" class="w-4 h-4 shrink-0"></i>
                 <span>Asesoría Bancaria</span>
             </a>
         </div>
@@ -375,8 +375,8 @@
                             </a>
                             <!-- Copiar Enlace -->
                             <button type="button" onclick="copiarEnlace(this)" title="Copiar enlace"
-                                class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition border border-slate-200">
-                                <i data-lucide="link" class="w-3.5 h-3.5"></i>
+                                class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition border border-slate-200">
+                                <i data-lucide="link" class="w-3.5 h-3.5 shrink-0"></i>
                                 <span class="btn-copy-text">Copiar</span>
                             </button>
                         </div>
@@ -476,7 +476,7 @@
                     <!-- REQUISITO 1: ANTIGÜEDAD -->
                     <div id="requisito-1" class="doc-card scroll-mt-36 space-y-4 pt-4">
                         <div class="flex items-start gap-3">
-                            <div class="shrink-0 w-8 h-8 rounded-xl bg-brand-blue text-white flex items-center justify-center font-black text-sm">
+                            <div class="shrink-0 w-8 h-8 rounded-full bg-brand-blue text-white flex items-center justify-center font-bold text-sm">
                                 1
                             </div>
                             <h2 class="text-xl sm:text-2xl font-black text-slate-900 m-0 leading-8">
@@ -491,11 +491,14 @@
                             <p>
                                 El analista verificará que el <strong>Aviso de Operaciones expedido por PanamaEmprende</strong> tenga al menos 24 meses continuos sin suspensiones ni cancelaciones, y que la actividad económica coincida con los movimientos de la cuenta comercial.
                             </p>
-                            <div class="not-prose bg-slate-100 rounded-2xl p-4 border border-slate-200 text-xs sm:text-sm text-slate-700 flex items-start gap-2.5">
-                                <i data-lucide="lightbulb" class="w-4 h-4 text-brand-orange shrink-0"></i>
-                                <div>
-                                    <strong>Regla de Inicio:</strong> Si tu sociedad fue creada hace 5 años pero estuvo inactiva en el Registro Público sin facturar, el banco tomará como inicio de operaciones la primera declaración de renta presentada con ingresos comprobables.
+                            <div class="not-prose bg-slate-50 border border-slate-200 rounded-2xl p-4 text-xs sm:text-sm text-slate-700">
+                                <div class="flex items-center gap-2 mb-1.5">
+                                    <i data-lucide="lightbulb" class="w-4 h-4 text-brand-orange shrink-0"></i>
+                                    <h4 class="font-bold text-slate-900 text-xs sm:text-sm">Regla de Inicio: Antigüedad Real</h4>
                                 </div>
+                                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed pl-6">
+                                    Si tu sociedad fue creada hace 5 años pero estuvo inactiva en el Registro Público sin facturar, el banco tomará como inicio de operaciones la primera declaración de renta presentada con ingresos comprobables.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -503,7 +506,7 @@
                     <!-- REQUISITO 2: DGI Y ESTADOS FINANCIEROS -->
                     <div id="requisito-2" class="doc-card scroll-mt-36 space-y-4 pt-4">
                         <div class="flex items-start gap-3">
-                            <div class="shrink-0 w-8 h-8 rounded-xl bg-brand-blue text-white flex items-center justify-center font-black text-sm">
+                            <div class="shrink-0 w-8 h-8 rounded-full bg-brand-blue text-white flex items-center justify-center font-bold text-sm">
                                 2
                             </div>
                             <h2 class="text-xl sm:text-2xl font-black text-slate-900 m-0 leading-8">
@@ -519,19 +522,21 @@
                                 Al solicitar crédito comercial, el banco no revisa tus seguidores en redes; abre tus dos últimas <strong>Declaraciones Juradas de Rentas (Formulario F-20)</strong> recibidas por la DGI. Si la declaración reporta que no generas utilidades, el comité asume formalmente que no tienes capacidad para pagar la cuota.
                             </p>
                             <div class="not-prose grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                                <div class="bg-red-50 border border-red-200 rounded-2xl p-4 space-y-1">
-                                    <div class="text-xs font-bold uppercase tracking-wider text-red-700 flex items-center gap-1.5">
-                                        <i data-lucide="x-circle" class="w-4 h-4"></i> El Error Típico
+                                <div class="bg-red-50 border border-red-200 rounded-2xl p-4">
+                                    <div class="text-xs font-bold uppercase tracking-wider text-red-700 flex items-center gap-2 mb-1.5">
+                                        <i data-lucide="x-circle" class="w-4 h-4 shrink-0 text-red-600"></i>
+                                        <span>El Error Típico</span>
                                     </div>
-                                    <p class="text-xs text-red-800 leading-relaxed">
+                                    <p class="text-xs text-red-800 leading-relaxed pl-6">
                                         Declarar renta en cero o pérdidas para ahorrar $800 en impuestos, y luego solicitar un préstamo de $50,000 para capital de trabajo.
                                     </p>
                                 </div>
-                                <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 space-y-1">
-                                    <div class="text-xs font-bold uppercase tracking-wider text-emerald-700 flex items-center gap-1.5">
-                                        <i data-lucide="check-circle" class="w-4 h-4"></i> La Práctica Blindada
+                                <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-4">
+                                    <div class="text-xs font-bold uppercase tracking-wider text-emerald-700 flex items-center gap-2 mb-1.5">
+                                        <i data-lucide="check-circle" class="w-4 h-4 shrink-0 text-emerald-600"></i>
+                                        <span>La Práctica Blindada</span>
                                     </div>
-                                    <p class="text-xs text-emerald-800 leading-relaxed">
+                                    <p class="text-xs text-emerald-800 leading-relaxed pl-6">
                                         Planificar con 2 años de anticipación utilidades netas saludables y estados financieros certificados por un CPA idóneo.
                                     </p>
                                 </div>
@@ -542,7 +547,7 @@
                     <!-- REQUISITO 3: COBERTURA DSCR -->
                     <div id="requisito-3" class="doc-card scroll-mt-36 space-y-4 pt-4">
                         <div class="flex items-start gap-3">
-                            <div class="shrink-0 w-8 h-8 rounded-xl bg-brand-blue text-white flex items-center justify-center font-black text-sm">
+                            <div class="shrink-0 w-8 h-8 rounded-full bg-brand-blue text-white flex items-center justify-center font-bold text-sm">
                                 3
                             </div>
                             <h2 class="text-xl sm:text-2xl font-black text-slate-900 m-0 leading-8">
@@ -566,7 +571,7 @@
                     <!-- REQUISITO 4: APC CRUCE DUAL -->
                     <div id="requisito-4" class="doc-card scroll-mt-36 space-y-4 pt-4">
                         <div class="flex items-start gap-3">
-                            <div class="shrink-0 w-8 h-8 rounded-xl bg-brand-blue text-white flex items-center justify-center font-black text-sm">
+                            <div class="shrink-0 w-8 h-8 rounded-full bg-brand-blue text-white flex items-center justify-center font-bold text-sm">
                                 4
                             </div>
                             <h2 class="text-xl sm:text-2xl font-black text-slate-900 m-0 leading-8">
@@ -585,11 +590,14 @@
                                 <li>El RUC corporativo (referencias comerciales, proveedores, leasing).</li>
                                 <li>Las cédulas de los directores, dignatarios y accionistas con más del 10% de acciones.</li>
                             </ul>
-                            <div class="not-prose bg-brand-blue/5 border border-brand-blue/20 rounded-2xl p-4 text-xs sm:text-sm text-slate-800 flex items-center gap-2.5">
-                                <i data-lucide="alert-triangle" class="w-4 h-4 text-brand-orange shrink-0"></i>
-                                <div>
-                                    <strong>Regla Innegociable:</strong> Un atraso de más de 60 días en una tarjeta de crédito o préstamo de auto personal de un firmante detiene la aprobación comercial de toda la empresa.
+                            <div class="not-prose bg-brand-blue/5 border border-brand-blue/20 rounded-2xl p-4 text-xs sm:text-sm text-slate-800">
+                                <div class="flex items-center gap-2 mb-1.5">
+                                    <i data-lucide="alert-triangle" class="w-4 h-4 text-brand-orange shrink-0"></i>
+                                    <h4 class="font-bold text-slate-900 text-xs sm:text-sm">Regla Innegociable: Cruce APC Personal</h4>
                                 </div>
+                                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed pl-6">
+                                    Un atraso de más de 60 días en una tarjeta de crédito o préstamo de auto personal de un firmante detiene la aprobación comercial de toda la empresa.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -597,7 +605,7 @@
                     <!-- REQUISITO 5: DESTINO DE FONDOS -->
                     <div id="requisito-5" class="doc-card scroll-mt-36 space-y-4 pt-4">
                         <div class="flex items-start gap-3">
-                            <div class="shrink-0 w-8 h-8 rounded-xl bg-brand-blue text-white flex items-center justify-center font-black text-sm">
+                            <div class="shrink-0 w-8 h-8 rounded-full bg-brand-blue text-white flex items-center justify-center font-bold text-sm">
                                 5
                             </div>
                             <h2 class="text-xl sm:text-2xl font-black text-slate-900 m-0 leading-8">
@@ -611,16 +619,18 @@
                             </p>
                             <div class="not-prose grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div class="bg-white border border-slate-200 p-4 rounded-2xl shadow-xs">
-                                    <div class="font-bold text-brand-blue text-xs sm:text-sm mb-1 flex items-center gap-1.5">
-                                        <i data-lucide="refresh-cw" class="w-4 h-4"></i> Línea de Crédito Rotativa
+                                    <div class="font-bold text-brand-blue text-xs sm:text-sm mb-1.5 flex items-center gap-2">
+                                        <i data-lucide="refresh-cw" class="w-4 h-4 shrink-0"></i>
+                                        <span>Línea de Crédito Rotativa</span>
                                     </div>
-                                    <p class="text-xs text-slate-600 leading-relaxed">Para inventario y cuentas por cobrar de corto plazo. Se amortiza con la cobranza de facturas comerciales.</p>
+                                    <p class="text-xs text-slate-600 leading-relaxed pl-6">Para inventario y cuentas por cobrar de corto plazo. Se amortiza con la cobranza de facturas comerciales.</p>
                                 </div>
                                 <div class="bg-white border border-slate-200 p-4 rounded-2xl shadow-xs">
-                                    <div class="font-bold text-brand-orange text-xs sm:text-sm mb-1 flex items-center gap-1.5">
-                                        <i data-lucide="trending-up" class="w-4 h-4"></i> Préstamo a Término (CAPEX)
+                                    <div class="font-bold text-brand-orange text-xs sm:text-sm mb-1.5 flex items-center gap-2">
+                                        <i data-lucide="trending-up" class="w-4 h-4 shrink-0"></i>
+                                        <span>Préstamo a Término (CAPEX)</span>
                                     </div>
-                                    <p class="text-xs text-slate-600 leading-relaxed">Para compra de maquinaria, vehículos o remodelación de oficinas con plazos de amortización de 3 a 7 años.</p>
+                                    <p class="text-xs text-slate-600 leading-relaxed pl-6">Para compra de maquinaria, vehículos o remodelación de oficinas con plazos de amortización de 3 a 7 años.</p>
                                 </div>
                             </div>
                         </div>
@@ -628,9 +638,9 @@
 
                     <!-- 08. TABLA COMPARATIVA -->
                     <div id="tabla-comparativa" class="doc-card scroll-mt-36 space-y-4 pt-6">
-                        <div class="flex items-start gap-2.5">
-                            <i data-lucide="scale" class="w-5 h-5 text-brand-blue shrink-0"></i>
-                            <h2 class="text-xl sm:text-2xl font-black text-slate-900 m-0">
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="scale" class="w-6 h-6 text-brand-blue shrink-0 mt-0.5 sm:mt-1"></i>
+                            <h2 class="text-xl sm:text-2xl font-black text-slate-900 m-0 leading-tight">
                                 Tabla comparativa: pyme rechazada vs. pyme aprobada
                             </h2>
                         </div>
@@ -640,8 +650,18 @@
                                 <thead class="bg-slate-900 text-white font-bold uppercase tracking-wider text-[11px]">
                                     <tr>
                                         <th class="p-3.5 sm:p-4 border-b border-slate-800">Factor de Evaluación</th>
-                                        <th class="p-3.5 sm:p-4 bg-red-950/60 text-red-200 border-b border-slate-800">Pyme Rechazada</th>
-                                        <th class="p-3.5 sm:p-4 bg-emerald-950/60 text-emerald-200 border-b border-slate-800">Pyme Aprobada</th>
+                                        <th class="p-3.5 sm:p-4 bg-red-950/60 text-red-200 border-b border-slate-800">
+                                            <div class="inline-flex items-center gap-1.5">
+                                                <i data-lucide="alert-triangle" class="w-4 h-4 text-red-400 shrink-0"></i>
+                                                <span>Pyme Rechazada</span>
+                                            </div>
+                                        </th>
+                                        <th class="p-3.5 sm:p-4 bg-emerald-950/60 text-emerald-200 border-b border-slate-800">
+                                            <div class="inline-flex items-center gap-1.5">
+                                                <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                                                <span>Pyme Aprobada</span>
+                                            </div>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody class="divide-y divide-slate-200 bg-white text-slate-700">
@@ -675,7 +695,8 @@
                         <div class="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
                             <div class="md:col-span-7 space-y-4">
                                 <span class="inline-flex items-center gap-1.5 bg-brand-orange/20 text-brand-orange text-xs font-black px-3.5 py-1.5 rounded-full uppercase tracking-wider border border-brand-orange/30">
-                                    <i data-lucide="download" class="w-3.5 h-3.5"></i> Recurso Exclusivo Pymes
+                                    <i data-lucide="download" class="w-3.5 h-3.5 shrink-0"></i>
+                                    <span>Recurso Exclusivo Pymes</span>
                                 </span>
                                 <h3 class="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-tight">
                                     Guía práctica de bancarización y crédito comercial en Panamá
@@ -708,7 +729,7 @@
                                         target="_blank" rel="noopener noreferrer"
                                         class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl text-xs sm:text-sm transition border border-slate-700 whitespace-nowrap shrink-0">
                                         <i data-lucide="message-circle" class="w-4 h-4 shrink-0 text-[#25D366]"></i>
-                                        <span>Asesoría Bancaria</span>
+                                        <span>Hablar con un Asesor</span>
                                     </a>
                                 </div>
                             </div>
@@ -727,9 +748,9 @@
 
                     <!-- 10. PREGUNTAS FRECUENTES (FAQ) -->
                     <div id="preguntas-frecuentes" class="doc-card scroll-mt-36 space-y-4 pt-6">
-                        <div class="flex items-start gap-2.5 mb-2">
-                            <i data-lucide="help-circle" class="w-5 h-5 text-brand-blue shrink-0"></i>
-                            <h2 class="text-xl sm:text-2xl font-black text-slate-900 m-0">Preguntas frecuentes sobre crédito comercial</h2>
+                        <div class="flex items-start gap-3 mb-2">
+                            <i data-lucide="help-circle" class="w-6 h-6 text-brand-blue shrink-0 mt-0.5 sm:mt-1"></i>
+                            <h2 class="text-xl sm:text-2xl font-black text-slate-900 m-0 leading-tight">Preguntas frecuentes sobre crédito comercial</h2>
                         </div>
 
                         <div class="not-prose space-y-3">
@@ -785,7 +806,7 @@
                             </a>
                         </div>
                         <button type="button" onclick="copiarEnlace(this)" class="px-3 py-1.5 bg-white border border-slate-300 text-slate-700 rounded-lg text-xs font-bold hover:bg-slate-50 flex items-center gap-1.5 shadow-xs">
-                            <i data-lucide="link" class="w-3.5 h-3.5"></i>
+                            <i data-lucide="link" class="w-3.5 h-3.5 shrink-0"></i>
                             <span class="btn-copy-text">Copiar Enlace</span>
                         </button>
                     </div>
@@ -800,7 +821,7 @@
                                 Asesora a dueños de negocio en Panamá en la constitución de sociedades, blindaje de contratos y ordenamiento financiero para prevenir multas y contingencias legales.
                             </p>
                             <a href="https://wa.me/50765461527" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#25D366] hover:underline" rel="noopener noreferrer">
-                                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                <i data-lucide="message-circle" class="w-4 h-4 shrink-0"></i>
                                 <span>Contactar directamente por WhatsApp</span>
                             </a>
                         </div>
@@ -815,7 +836,7 @@
                             </div>
                             <a href="/blog" class="text-xs font-bold text-brand-blue hover:underline inline-flex items-center gap-1">
                                 <span>Ver todo el blog</span>
-                                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                                <i data-lucide="arrow-right" class="w-3.5 h-3.5 shrink-0"></i>
                             </a>
                         </div>
 
@@ -914,7 +935,7 @@
         <!-- Botón Scroll to Top -->
         <button id="scroll-top-btn" onclick="scrollToTop()" aria-label="Volver arriba"
             class="w-11 h-11 bg-white/95 backdrop-blur border border-slate-300 hover:border-brand-blue text-slate-700 hover:text-brand-blue rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:-translate-y-1 flex items-center justify-center flex-shrink-0">
-            <i data-lucide="chevron-up" class="w-5 h-5"></i>
+            <i data-lucide="chevron-up" class="w-5 h-5 shrink-0"></i>
         </button>
 
         <!-- Botón Flotante de WhatsApp -->
