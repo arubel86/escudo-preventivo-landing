@@ -1,6 +1,6 @@
 # 🗺️ Directorio Maestro de Páginas — Aizprua S.E.
 
-> **Acceso Rápido Visual:** Puedes abrir el [Centro de Mando Interactivo (`public/panel.html`)](file:///c:/Users/Arubel%20Aizprua/Downloads/Business/Aizprua%20S.E/Marketing/1.%20Landing%20Page/Landing%20Page%20(Escudo%20Preventivo)/public/panel.html) en tu navegador para buscar en vivo, abrir páginas y copiar enlaces en un solo clic.
+> **Acceso Rápido Visual:** Puedes abrir el Centro de Mando Interactivo en la web en [https://aizprua.com/panel](https://aizprua.com/panel) o localmente en el archivo [`public/panel.html`](public/panel.html).
 
 ---
 

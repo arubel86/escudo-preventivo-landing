@@ -1052,6 +1052,16 @@ app.get(['/masterclass/gracias-profesional', '/masterclass/gracias-profesional.h
   res.sendFile(path.join(masterclassDir, 'gracias-profesional.html'));
 });
 
+// 10.17. Centro de Mando Digital & Directorio Maestro (Canónica: /panel)
+app.get(['/panel', '/panel-control', '/centro-mando'], (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'panel.html'));
+});
+
+app.get(['/panel.html', '/panel-control.html', '/centro-mando.html'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/panel' + query);
+});
+
 // ARCHIVOS ESTÁTICOS (Masterclass, Embudo Escudo, Verificador & Landing Page)
 app.use('/masterclass', express.static(masterclassDir, { extensions: ['html'] }));
 app.use('/Embudo-Escudo-Preventivo', express.static(escudoPreventivoDir, { index: false }));
