@@ -25,6 +25,7 @@
 | **Test de Auditoría Rápida** | [`test-interactivo.html`](public/test-interactivo.html) | `https://aizprua.com/test-interactivo` | Lead magnet interactivo de 5 preguntas que evalúa el nivel de riesgo. |
 | **Test de Estructura Legal** | [`test-estructura.html`](public/test-estructura.html) | `https://aizprua.com/test-estructura` | Quiz interactivo de 3 pasos para elegir entre Plan Profesional, Persona Natural, S.E. o S.A. |
 | **Diagnóstico Empresarial Avanzado** | [`test-empresarial.html`](public/test-empresarial.html) | `https://aizprua.com/test-empresarial` | Evaluación detallada de riesgos laborales, fiscales y societarios. |
+| **Diagnóstico Express (60s)** | [`quiz-blindaje.html`](public/quiz-blindaje.html) | `https://aizprua.com/quiz-blindaje` | Autodiagnóstico express de 60 segundos para evaluar el nivel de protección legal, fiscal y operativa. |
 | **Formulario Diagnóstico Inicial** | [`formulario-diagnostico.html`](public/formulario-diagnostico.html) | `https://aizprua.com/formulario-diagnostico` | Recopilación de información clave del cliente antes de la consultoría. |
 | **Entrega de Informe Diagnóstico** | [`informe-diagnostico.html`](public/informe-diagnostico.html) | `https://aizprua.com/informe-diagnostico` | Presentación del dictamen de riesgo y hoja de ruta legal recomendada. |
 
@@ -65,6 +66,7 @@
 | **Guía para Préstamos Bancarios** | [`guia-prestamos.html`](public/guia-prestamos.html) | `https://aizprua.com/guia-prestamos` | Metodología paso a paso para hacer un negocio elegible ante bancos panameños. |
 | **Simulador de Préstamos** | [`simulador-prestamos.html`](public/simulador-prestamos.html) | `https://aizprua.com/simulador-prestamos` | Calculadora interactiva de cuotas mensuales y capacidad de endeudamiento. |
 | **Calculadora de Tarifas** | [`calculadora-precios.html`](public/calculadora-precios.html) | `https://aizprua.com/calculadora-precios` | Estimador en línea del costo aproximado según el tipo de trámite legal. |
+| **Calculadora de Libertad Financiera** | [`calculadora-libertad.html`](public/calculadora-libertad.html) | `https://aizprua.com/calculadora-libertad` | Calculadora interactiva de cuotas de inversión, fondo de emergencia y presupuesto 50/30/20. |
 | **Checklist Comercial** | [`checklist-comercial.html`](public/checklist-comercial.html) | `https://aizprua.com/checklist-comercial` | Lista de comprobación rápida para validar contratos antes de firmar. |
 | **Hoja de Ruta de Legalización** | [`hoja-de-ruta.html`](public/hoja-de-ruta.html) | `https://aizprua.com/hoja-de-ruta` | Pasos secuenciales para formalizar un negocio en Panamá desde cero. |
 
