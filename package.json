@@ -8,7 +8,9 @@
     "dev": "node server.js",
     "sync-catalog": "node scripts/sync-catalog.js",
     "sync-blog": "node scripts/export-blog-to-markdown.js",
-    "submit:bing": "node scripts/bing-submit.js"
+    "submit:bing": "node scripts/bing-submit.js",
+    "seo:gsc": "node scripts/gsc-client.js",
+    "submit:gsc": "node scripts/submit-gsc-sitemap.js"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.12",

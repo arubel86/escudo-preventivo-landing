@@ -1,7 +1,11 @@
-# Environment variables
+# Environment variables & service account keys
 .env
 .env.local
 .env.*.local
+*credentials*.json
+*.key.json
+.gsc-credentials.json
+gsc-credentials.json
 
 # Dependencies
 node_modules/
