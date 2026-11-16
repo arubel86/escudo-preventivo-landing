@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Buscador y Validador de RUC / DV en Panamá | Aizprua S.E.</title>
-  <meta name="description" content="Consulta y valida RUCs personales y jurídicos con cálculo oficial de Dígito Verificador (DV) en Panamá en tiempo real.">
+  <meta name="description" content="Consulta y valida gratis el RUC y Dígito Verificador (DV) oficial ante la DGI en Panamá. Validador en tiempo real para facturación electrónica y transferencias de Aizprua S.E.">
+  <meta name="msvalidate.01" content="B09CE9F8A7CD4A02CA944D9B84B13370">
   
   <!-- Canonical & Favicon -->
   <link rel="canonical" href="https://aizprua.com/ruc">
@@ -37,24 +38,60 @@
   <meta name="twitter:title" content="Buscador y Validador de RUC / DV en Panamá | Aizprua S.E.">
   <meta name="twitter:description" content="Consulta y valida RUCs personales y jurídicos con cálculo oficial de Dígito Verificador (DV) en Panamá en tiempo real.">
   <meta name="twitter:image" content="https://aizprua.com/assets/aizprua-shield-og.jpg">
-  <meta name="description" content="Consulta y valida gratis el RUC y Dígito Verificador (DV) de empresas y personas en Panamá ante la DGI. Servicio rápido de Aizprua S.E.">
+
   
   <!-- Preconnect & Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   
+  <!-- Schema.org WebApplication Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Buscador y Validador de RUC / DV en Panamá",
+    "url": "https://aizprua.com/ruc",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "description": "Herramienta online para consultar y validar RUCs personales, jurídicos y extranjeros NT con cálculo oficial de Dígito Verificador (DV) ante la DGI en Panamá.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Aizprua S.E.",
+      "url": "https://aizprua.com",
+      "logo": "https://aizprua.com/assets/LOGOS%20PARA%20DIGITAL%20INDIVIDUALES-07.svg"
+    }
+  }
+  </script>
+
   <!-- Lucide Icons & CSS -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
   <link rel="stylesheet" href="ruc.css?v=4.3">
-    <!-- Microsoft Clarity Oficial (Aizprua S.E.) -->
-    <script type="text/javascript">
-        (function (c, l, a, r, i, t, y) {
-            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
-            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-        })(window, document, "clarity", "script", "vrnwiwwg3k");
-    </script>
+
+  <!-- Microsoft Clarity Oficial (Aizprua S.E.) -->
+  <script type="text/javascript">
+      (function (c, l, a, r, i, t, y) {
+          c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+          t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+          y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "vrnwiwwg3k");
+  </script>
+
+  <!-- Google Analytics 4 (G-CXEYK5X3WB) & Google Tag Manager (GTM-KQJPPQXH) -->
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CXEYK5X3WB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CXEYK5X3WB');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-KQJPPQXH"></script>
 </head>
 <body>
   <!-- BARRA DE CARGA ESPECTRAL SUPERIOR -->
@@ -255,10 +292,16 @@
             ¿Sabías que la DGI aplica multas silenciosas por inconsistencias en reportes? En 40 minutos revisamos el estado fiscal y legal de tu empresa en Panamá.
           </p>
         </div>
-        <a href="https://escudo.aizprua.com" target="_blank" class="banner-btn" rel="noopener noreferrer">
-          <span>Solicitar Diagnóstico (40 min)</span>
-          <i data-lucide="arrow-right" style="width:18px; height:18px;"></i>
-        </a>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px;">
+          <a href="/escudo-preventivo" class="banner-btn">
+            <span>Diagnóstico Escudo Preventivo</span>
+            <i data-lucide="arrow-right" style="width:18px; height:18px;"></i>
+          </a>
+          <a href="/quiz-blindaje" class="banner-btn" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(4px);">
+            <i data-lucide="sparkles" style="width:16px; height:16px;"></i>
+            <span>Test Express (60 seg)</span>
+          </a>
+        </div>
       </div>
 
       <!-- Banner Conector Sage 50 -->
