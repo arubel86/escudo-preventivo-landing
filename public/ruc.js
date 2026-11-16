@@ -481,9 +481,9 @@ function mostrarResultado(data) {
             Tener el RUC y DV activo no garantiza estar exento de multas silenciosas por no declarar o inconsistencias contables. Conoce tu nivel de exposición fiscal.
           </p>
           <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 4px;">
-            <a href="/quiz-blindaje" style="display: inline-flex; align-items: center; gap: 6px; background: var(--brand-orange); color: #fff; font-weight: 700; font-size: 0.8rem; padding: 8px 16px; border-radius: 8px; text-decoration: none; transition: background 0.2s ease;">
+            <a href="/test-interactivo" style="display: inline-flex; align-items: center; gap: 6px; background: var(--brand-orange); color: #fff; font-weight: 700; font-size: 0.8rem; padding: 8px 16px; border-radius: 8px; text-decoration: none; transition: background 0.2s ease;">
               <i data-lucide="sparkles" style="width: 14px; height: 14px;"></i>
-              <span>Evaluar Riesgo en 60 Segundos</span>
+              <span>Evaluar Riesgo en el Test Interactivo</span>
             </a>
             <a href="/escudo-preventivo" style="display: inline-flex; align-items: center; gap: 6px; color: var(--brand-blue); font-weight: 600; font-size: 0.8rem; text-decoration: underline;">
               <span>Conocer Diagnóstico Escudo Preventivo</span>
