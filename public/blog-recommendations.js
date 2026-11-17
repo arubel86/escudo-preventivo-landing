@@ -18,6 +18,19 @@
     // REGISTRO CENTRAL MAESTRO DE ARTÍCULOS DEL BLOG
     const BLOG_POSTS = [
         {
+            id: 'articulo-dv-ruc-panama',
+            slug: 'articulo-dv-ruc-panama',
+            url: '/articulo-dv-ruc-panama',
+            title: 'Cómo saber y calcular el Dígito Verificador (DV) de tu RUC en Panamá',
+            category: 'Tributario & DGI Panamá',
+            categoryColor: 'text-brand-blue',
+            readTime: '6 min de lectura',
+            image: 'assets/portada-articulo-multas.png',
+            description: 'Guía oficial para consultar, verificar y calcular el Dígito Verificador ante la DGI para personas naturales, jurídicas y extranjeros NT.',
+            tags: ['tributario', 'dgi', 'ruc', 'dv', 'factura', 'ach'],
+            nextReads: ['articulo-multas-panama', 'articulo-emprender']
+        },
+        {
             id: 'articulo-emprender',
             slug: 'articulo-emprender',
             url: '/articulo-emprender',

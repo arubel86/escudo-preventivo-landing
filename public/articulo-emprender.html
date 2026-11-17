@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es" class="scroll-smooth overflow-x-hidden">
 
 <head>
@@ -205,12 +205,12 @@
             <span>¿Tu empresa tiene fugas de dinero o riesgos de multas sin darte cuenta?</span>
             <a href="/test-interactivo" class="inline-flex items-center gap-1 text-white underline font-bold hover:text-brand-orange-light transition">
                 <span>Hacer Test en 3 minutos</span>
-                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5 shrink-0"></i>
             </a>
         </div>
         <button onclick="document.getElementById('announcement-bar').style.display='none'"
             aria-label="Cerrar aviso" class="absolute right-3 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition p-1">
-            <i data-lucide="x" class="w-4 h-4"></i>
+            <i data-lucide="x" class="w-4 h-4 shrink-0"></i>
         </button>
     </div>
 
@@ -234,7 +234,7 @@
                     <a href="/#servicios" class="hover:text-brand-blue transition">Servicios</a>
                     <a href="/tienda" class="hover:text-brand-blue transition">Tienda Online</a>
                     <a href="/escuela" class="hover:text-brand-blue transition flex items-center gap-1 text-slate-500">
-                        <i data-lucide="graduation-cap" class="w-4 h-4 text-brand-blue"></i>
+                        <i data-lucide="graduation-cap" class="w-4 h-4 text-brand-blue shrink-0"></i>
                         <span>Escuela</span>
                     </a>
                     <a href="/blog" class="text-brand-blue font-bold flex items-center gap-1.5">
@@ -242,7 +242,7 @@
                         <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span>
                     </a>
                     <a href="/test-interactivo" class="text-sm font-semibold text-brand-orange hover:text-brand-orange-dark transition flex items-center gap-1.5">
-                        <i data-lucide="shield-check" class="w-4 h-4"></i>
+                        <i data-lucide="shield-check" class="w-4 h-4 shrink-0"></i>
                         <span>Auditoría Gratis</span>
                     </a>
                 </nav>
@@ -260,7 +260,7 @@
                 <!-- Botón Menú Móvil -->
                 <div class="flex items-center lg:hidden">
                     <button onclick="toggleMobileMenu()" aria-label="Abrir menú" class="text-slate-700 p-2">
-                        <i data-lucide="menu" class="w-6 h-6"></i>
+                        <i data-lucide="menu" class="w-6 h-6 shrink-0"></i>
                     </button>
                 </div>
             </div>
@@ -327,9 +327,9 @@
                                 <span class="dot-indicator w-2 h-2 rounded-full bg-slate-300 flex-shrink-0"></span>
                                 <span>09. Checklist de blindaje</span>
                             </a>
-                            <a href="#autodiagnostico" class="nav-doc-link flex items-center gap-2.5 px-3 py-1.5 rounded-xl text-xs text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+                            <a href="#plan-360" class="nav-doc-link flex items-center gap-2.5 px-3 py-1.5 rounded-xl text-xs text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
                                 <span class="dot-indicator w-2 h-2 rounded-full bg-slate-300 flex-shrink-0"></span>
-                                <span>10. Autodiagnóstico express</span>
+                                <span>10. Plan 360 Empresarial</span>
                             </a>
                             <a href="#habitos-fundador" class="nav-doc-link flex items-center gap-2.5 px-3 py-1.5 rounded-xl text-xs text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
                                 <span class="dot-indicator w-2 h-2 rounded-full bg-slate-300 flex-shrink-0"></span>
@@ -403,7 +403,7 @@
                             <!-- Copiar Enlace -->
                             <button type="button" onclick="copiarEnlace(this)" title="Copiar enlace"
                                 class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition border border-slate-200">
-                                <i data-lucide="link" class="w-3.5 h-3.5"></i>
+                                <i data-lucide="link" class="w-3.5 h-3.5 shrink-0"></i>
                                 <span class="btn-copy-text">Copiar</span>
                             </button>
                         </div>
@@ -537,7 +537,7 @@
                     <!-- Callout de Alerta Legal -->
                     <div class="p-5 sm:p-6 rounded-2xl bg-amber-50/80 border-l-4 border-amber-500 my-6 not-prose flex items-start gap-3.5">
                         <div class="p-2 rounded-xl bg-amber-100 text-amber-700 flex-shrink-0 mt-0.5">
-                            <i data-lucide="scale" class="w-5 h-5"></i>
+                            <i data-lucide="scale" class="w-5 h-5 shrink-0"></i>
                         </div>
                         <div class="space-y-1">
                             <h4 class="text-sm font-black text-slate-900 uppercase tracking-wide">
@@ -564,62 +564,44 @@
                         </div>
 
                         <div class="not-prose w-full max-w-full overflow-x-auto rounded-2xl border border-slate-200 shadow-sm min-w-0">
-                            <table class="w-full min-w-[540px] text-left text-xs sm:text-sm">
-                                <thead class="bg-slate-50 border-b border-slate-200 text-slate-800 font-black">
+                            <table class="w-full text-left text-xs sm:text-sm border-collapse">
+                                <thead class="bg-slate-50 border-b border-slate-200 text-slate-800 font-bold">
                                     <tr>
-                                        <th class="p-3.5 sm:p-4 text-slate-500 uppercase tracking-wider text-[11px]">Área Crítica</th>
-                                        <th class="p-3.5 sm:p-4 bg-red-50/60 text-red-700 border-l border-r border-red-100">
-                                            <div class="inline-flex items-start gap-1.5">
-                                                <i data-lucide="alert-triangle" class="w-4 h-4 text-red-500 shrink-0 mt-0.5"></i>
-                                                <span class="leading-snug">Emprendimiento Informal</span>
+                                        <th class="p-3.5 sm:p-4 text-slate-500 uppercase tracking-wider text-[11px]">Área Clave</th>
+                                        <th class="p-3.5 sm:p-4 bg-red-50/60 text-red-700 border-l border-r border-red-100 text-xs sm:text-sm">
+                                            <div class="inline-flex items-center gap-1.5">
+                                                <i data-lucide="alert-triangle" class="w-4 h-4 text-red-500 shrink-0"></i>
+                                                <span>Emprendimiento Informal</span>
                                             </div>
                                         </th>
-                                        <th class="p-3.5 sm:p-4 bg-emerald-50/60 text-emerald-800">
-                                            <div class="inline-flex items-start gap-1.5">
-                                                <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
-                                                <span class="leading-snug">Empresa Blindada (Aizprua S.E.)</span>
+                                        <th class="p-3.5 sm:p-4 bg-emerald-50/60 text-emerald-800 text-xs sm:text-sm">
+                                            <div class="inline-flex items-center gap-1.5">
+                                                <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                                                <span>Empresa Blindada (Aizprua S.E.)</span>
                                             </div>
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody class="divide-y divide-slate-100 bg-white">
+                                <tbody class="divide-y divide-slate-100 bg-white text-xs sm:text-sm text-slate-700">
                                     <tr class="hover:bg-slate-50/50 transition">
                                         <td class="p-3.5 sm:p-4 font-bold text-slate-900">Responsabilidad Legal</td>
-                                        <td class="p-3.5 sm:p-4 bg-red-50/20 text-slate-600 border-l border-r border-red-50">
-                                            <span class="font-semibold text-red-600 block mb-0.5">Ilimitada:</span>
-                                            Respondes con todo tu patrimonio personal (casa, auto, ahorros).
-                                        </td>
-                                        <td class="p-3.5 sm:p-4 bg-emerald-50/20 text-slate-700">
-                                            <span class="font-bold text-emerald-700 block mb-0.5">Limitada:</span>
-                                            Protección patrimonial mediante Sociedad Anónima o estructura jurídica.
-                                        </td>
+                                        <td class="p-3.5 sm:p-4 bg-red-50/20 text-slate-600 border-l border-r border-red-50">Ilimitada: respondes con tus bienes personales.</td>
+                                        <td class="p-3.5 sm:p-4 bg-emerald-50/20 text-slate-700 font-medium">Limitada: blindaje de patrimonio con Sociedad Anónima.</td>
                                     </tr>
                                     <tr class="hover:bg-slate-50/50 transition">
                                         <td class="p-3.5 sm:p-4 font-bold text-slate-900">Cobros y Finanzas</td>
-                                        <td class="p-3.5 sm:p-4 bg-red-50/20 text-slate-600 border-l border-r border-red-50">
-                                            Uso de cuentas personales; riesgo de bloqueo bancario y auditorías DGI.
-                                        </td>
-                                        <td class="p-3.5 sm:p-4 bg-emerald-50/20 text-slate-700">
-                                            Cuenta comercial corporativa, facturación electrónica y gastos deducibles.
-                                        </td>
+                                        <td class="p-3.5 sm:p-4 bg-red-50/20 text-slate-600 border-l border-r border-red-50">Cuentas personales: riesgo de bloqueo y multas de la DGI.</td>
+                                        <td class="p-3.5 sm:p-4 bg-emerald-50/20 text-slate-700 font-medium">Cuenta corporativa: trazabilidad y facturas deducibles.</td>
                                     </tr>
                                     <tr class="hover:bg-slate-50/50 transition">
                                         <td class="p-3.5 sm:p-4 font-bold text-slate-900">Acuerdos Comerciales</td>
-                                        <td class="p-3.5 sm:p-4 bg-red-50/20 text-slate-600 border-l border-r border-red-50">
-                                            Acuerdos verbales o chats de WhatsApp sin validez probatoria rápida.
-                                        </td>
-                                        <td class="p-3.5 sm:p-4 bg-emerald-50/20 text-slate-700">
-                                            Contratos de prestación con cláusulas de penalización y resolución de conflictos.
-                                        </td>
+                                        <td class="p-3.5 sm:p-4 bg-red-50/20 text-slate-600 border-l border-r border-red-50">Chats de WhatsApp sin validez probatoria formal.</td>
+                                        <td class="p-3.5 sm:p-4 bg-emerald-50/20 text-slate-700 font-medium">Contratos blindados con penalidades y garantías claras.</td>
                                     </tr>
                                     <tr class="hover:bg-slate-50/50 transition">
-                                        <td class="p-3.5 sm:p-4 font-bold text-slate-900">Acceso a Crédito y Capital</td>
-                                        <td class="p-3.5 sm:p-4 bg-red-50/20 text-slate-600 border-l border-r border-red-50">
-                                            Rechazo automático en bancos para créditos comerciales o licitaciones.
-                                        </td>
-                                        <td class="p-3.5 sm:p-4 bg-emerald-50/20 text-slate-700">
-                                            Historial corporativo sólido, elegible para créditos comerciales y socios.
-                                        </td>
+                                        <td class="p-3.5 sm:p-4 font-bold text-slate-900">Crédito y Bancos</td>
+                                        <td class="p-3.5 sm:p-4 bg-red-50/20 text-slate-600 border-l border-r border-red-50">Rechazo bancario automático por falta de historial.</td>
+                                        <td class="p-3.5 sm:p-4 bg-emerald-50/20 text-slate-700 font-medium">Historial elegible para crédito comercial y socios.</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -643,7 +625,7 @@
                         <div class="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
                             <div class="flex items-start gap-3">
                                 <span class="w-7 h-7 rounded-xl bg-red-100 text-red-600 flex items-center justify-center font-black text-xs shrink-0 select-none">
-                                    <i data-lucide="alert-circle" class="w-4 h-4"></i>
+                                    <i data-lucide="alert-circle" class="w-4 h-4 shrink-0"></i>
                                 </span>
                                 <h4 class="font-black text-slate-900 text-base leading-7 m-0">
                                     Error 1: Elegir actividades incompatibles en el Aviso de Operación
@@ -658,7 +640,7 @@
                         <div class="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
                             <div class="flex items-start gap-3">
                                 <span class="w-7 h-7 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-black text-xs shrink-0 select-none">
-                                    <i data-lucide="shield-alert" class="w-4 h-4"></i>
+                                    <i data-lucide="shield-alert" class="w-4 h-4 shrink-0"></i>
                                 </span>
                                 <h4 class="font-black text-slate-900 text-base leading-7 m-0">
                                     Error 2: Operar sin registrar la marca ante la DIGERPI
@@ -673,7 +655,7 @@
                         <div class="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
                             <div class="flex items-start gap-3">
                                 <span class="w-7 h-7 rounded-xl bg-blue-100 text-brand-blue shrink-0 flex items-center justify-center font-black text-xs select-none">
-                                    <i data-lucide="file-x" class="w-4 h-4"></i>
+                                    <i data-lucide="file-x" class="w-4 h-4 shrink-0"></i>
                                 </span>
                                 <h4 class="font-black text-slate-900 text-base leading-7 m-0">
                                     Error 3: Sociedades con estatutos genéricos sin acuerdos de salida
@@ -698,100 +680,27 @@
                             Para operar con tranquilidad y sin sorpresas de multas retrospectivas, todo negocio en Panamá debe estar alineado con cuatro instituciones clave. Saltarse cualquiera de estas entidades invalida la protección de tu estructura:
                         </p>
 
-                        <!-- Infografía Interactiva / Visual Roadmap Oficial (Paleta Aizprua S.E.) -->
-                        <div class="not-prose my-6 p-6 sm:p-8 rounded-3xl bg-slate-900 border border-slate-800 text-white shadow-2xl relative overflow-hidden">
-                            <!-- Decoración de fondo sobria corporativa -->
-                            <div class="absolute -right-16 -top-16 w-64 h-64 bg-brand-blue/15 rounded-full blur-3xl pointer-events-none"></div>
-                            <div class="absolute -left-16 -bottom-16 w-64 h-64 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none"></div>
-
-                            <div class="relative z-10 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
-                                <div class="flex items-start gap-3">
-                                    <div class="w-9 h-9 rounded-xl bg-brand-orange/15 border border-brand-orange/30 flex items-center justify-center text-brand-orange shrink-0 mt-0.5">
-                                        <i data-lucide="shield-check" class="w-5 h-5"></i>
+                        <!-- Infografía Oficial de la Ruta Secuencial (Diseño SVG Conector) -->
+                        <div class="not-prose my-8 p-4 sm:p-6 rounded-3xl bg-white border border-slate-200 shadow-sm overflow-hidden">
+                            <div class="mb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-3">
+                                <div class="flex items-center gap-2.5">
+                                    <div class="w-8 h-8 rounded-xl bg-brand-orange/10 border border-brand-orange/20 flex items-center justify-center text-brand-orange shrink-0">
+                                        <i data-lucide="shield-check" class="w-4 h-4 shrink-0"></i>
                                     </div>
                                     <div>
-                                        <h4 class="text-base font-black text-white m-0">Ruta Secuencial de Inscripción Oficial</h4>
-                                        <p class="text-[11px] text-slate-400 m-0">Cumplimiento en orden cronológico para evitar trabas burocráticas</p>
+                                        <h4 class="text-base font-black text-slate-900 m-0">Ruta Secuencial de Inscripción Oficial</h4>
+                                        <p class="text-xs text-slate-500 m-0">Cumplimiento en orden cronológico para evitar trabas burocráticas</p>
                                     </div>
                                 </div>
-                                <span class="self-start sm:self-center inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-brand-blue/20 text-brand-blue-light border border-brand-blue/40">
-                                    <i data-lucide="shield" class="w-3 h-3 text-brand-orange shrink-0"></i> <span>100% Blindaje Legal</span>
+                                <span class="self-start sm:self-center inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-brand-blue/10 text-brand-blue border border-brand-blue/20 shrink-0">
+                                    <i data-lucide="shield-check" class="w-3 h-3 text-brand-blue shrink-0"></i>
+                                    <span>100% Blindaje Legal</span>
                                 </span>
                             </div>
-
-                            <!-- 4 Pasos en Cadena con Flechas Conectoras y Alineación Infalible -->
-                            <div class="relative z-10 grid grid-cols-1 md:grid-cols-4 gap-4 items-stretch">
-                                <!-- Paso 1: DGI -->
-                                <div class="relative p-4 rounded-2xl bg-slate-800/80 border border-slate-700/80 hover:border-brand-blue transition group flex flex-col h-full">
-                                    <div class="flex-1 flex flex-col">
-                                        <div class="flex items-center justify-between mb-3">
-                                            <span class="w-7 h-7 rounded-lg bg-brand-blue text-white text-xs font-black flex items-center justify-center shadow-md">1</span>
-                                            <i data-lucide="landmark" class="w-4 h-4 text-brand-orange group-hover:scale-110 transition"></i>
-                                        </div>
-                                        <h5 class="text-xs font-black text-white mb-1.5 leading-snug">DGI (Tributario)</h5>
-                                        <p class="text-[11px] text-slate-300 leading-relaxed flex-1">
-                                            RUC y NIT en e-Tax 2.0. Activación obligatoria de Factura Electrónica (SFEP / PAC).
-                                        </p>
-                                    </div>
-                                    <div class="mt-3 pt-2.5 border-t border-slate-700 text-[10px] text-brand-orange-light font-semibold flex items-start gap-1.5 min-h-[38px]">
-                                        <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-brand-orange shrink-0 mt-0.5"></i>
-                                        <span class="leading-snug">Clave: Evita multas de $1,000+</span>
-                                    </div>
-                                </div>
-
-                                <!-- Paso 2: Municipio -->
-                                <div class="relative p-4 rounded-2xl bg-slate-800/80 border border-slate-700/80 hover:border-brand-blue transition group flex flex-col h-full">
-                                    <div class="flex-1 flex flex-col">
-                                        <div class="flex items-center justify-between mb-3">
-                                            <span class="w-7 h-7 rounded-lg bg-brand-blue text-white text-xs font-black flex items-center justify-center shadow-md">2</span>
-                                            <i data-lucide="building-2" class="w-4 h-4 text-brand-orange group-hover:scale-110 transition"></i>
-                                        </div>
-                                        <h5 class="text-xs font-black text-white mb-1.5 leading-snug">Municipio Distrital</h5>
-                                        <p class="text-[11px] text-slate-300 leading-relaxed flex-1">
-                                            Apertura de cuenta municipal. DJ anual antes del 31 de marzo para fijar tributo mensual.
-                                        </p>
-                                    </div>
-                                    <div class="mt-3 pt-2.5 border-t border-slate-700 text-[10px] text-slate-200 font-semibold flex items-start gap-1.5 min-h-[38px]">
-                                        <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-brand-blue-light shrink-0 mt-0.5"></i>
-                                        <span class="leading-snug">Paz y Salvo municipal</span>
-                                    </div>
-                                </div>
-
-                                <!-- Paso 3: CSS / MITRADEL -->
-                                <div class="relative p-4 rounded-2xl bg-slate-800/80 border border-slate-700/80 hover:border-brand-blue transition group flex flex-col h-full">
-                                    <div class="flex-1 flex flex-col">
-                                        <div class="flex items-center justify-between mb-3">
-                                            <span class="w-7 h-7 rounded-lg bg-brand-blue text-white text-xs font-black flex items-center justify-center shadow-md">3</span>
-                                            <i data-lucide="users" class="w-4 h-4 text-brand-orange group-hover:scale-110 transition"></i>
-                                        </div>
-                                        <h5 class="text-xs font-black text-white mb-1.5 leading-snug">CSS & MITRADEL</h5>
-                                        <p class="text-[11px] text-slate-300 leading-relaxed flex-1">
-                                            Número patronal dentro de 6 días hábiles. Registro obligatorio de contratos laborales.
-                                        </p>
-                                    </div>
-                                    <div class="mt-3 pt-2.5 border-t border-slate-700 text-[10px] text-brand-orange-light font-semibold flex items-start gap-1.5 min-h-[38px]">
-                                        <i data-lucide="shield-alert" class="w-3.5 h-3.5 text-brand-orange shrink-0 mt-0.5"></i>
-                                        <span class="leading-snug">Cero riesgo de demandas</span>
-                                    </div>
-                                </div>
-
-                                <!-- Paso 4: Banco -->
-                                <div class="relative p-4 rounded-2xl bg-slate-800/80 border border-slate-700/80 hover:border-brand-blue transition group flex flex-col h-full">
-                                    <div class="flex-1 flex flex-col">
-                                        <div class="flex items-center justify-between mb-3">
-                                            <span class="w-7 h-7 rounded-lg bg-brand-blue text-white text-xs font-black flex items-center justify-center shadow-md">4</span>
-                                            <i data-lucide="credit-card" class="w-4 h-4 text-brand-orange group-hover:scale-110 transition"></i>
-                                        </div>
-                                        <h5 class="text-xs font-black text-white mb-1.5 leading-snug">Banco Corporativo</h5>
-                                        <p class="text-[11px] text-slate-300 leading-relaxed flex-1">
-                                            Cuenta comercial a nombre de la sociedad. Separación total de patrimonio y flujo legal.
-                                        </p>
-                                    </div>
-                                    <div class="mt-3 pt-2.5 border-t border-slate-700 text-[10px] text-slate-200 font-semibold flex items-start gap-1.5 min-h-[38px]">
-                                        <i data-lucide="lock" class="w-3.5 h-3.5 text-brand-blue-light shrink-0 mt-0.5"></i>
-                                        <span class="leading-snug">Patrimonio 100% blindado</span>
-                                    </div>
-                                </div>
+                            <div class="w-full overflow-x-auto">
+                                <img src="assets/ruta-secuencial.svg?v=2" 
+                                     alt="Ruta Secuencial de Inscripción Oficial en Panamá - Aizprua S.E." 
+                                     class="w-full min-w-[620px] sm:min-w-0 h-auto mx-auto block rounded-xl" />
                             </div>
                         </div>
                     </div>
@@ -834,61 +743,229 @@
                         </div>
                     </div>
 
-                    <!-- Caja de Conversión al Test Interactivo con Mockup 3D Plan 360 -->
-                    <!-- Caja de Conversión al Test Interactivo con Mockup 3D Plan 360 (Colores Oficiales Aizprua S.E.) -->
-                    <div id="autodiagnostico" class="doc-card scroll-mt-36 my-10 p-6 sm:p-8 rounded-3xl bg-slate-900 border border-slate-800 text-white shadow-2xl relative overflow-hidden not-prose">
-                        <div class="absolute -right-20 -bottom-20 w-72 h-72 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none"></div>
-                        <div class="absolute -left-20 -top-20 w-72 h-72 bg-brand-blue/15 rounded-full blur-3xl pointer-events-none"></div>
+                    <!-- 10. LEAD MAGNET: PLAN 360 EMPRESARIAL (MODO CLARO EDITORIAL - FORMATO DUAL CARD) -->
+                    <div id="plan-360" class="doc-card scroll-mt-36 not-prose relative bg-white rounded-3xl p-6 sm:p-8 lg:p-9 shadow-xl border-2 border-slate-200/90 my-10 space-y-6">
+                        <!-- Header & Copywriting -->
+                        <div class="space-y-4 text-left">
+                            <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-wider bg-brand-orange/10 text-brand-orange border border-brand-orange/20 shadow-xs">
+                                <i data-lucide="sparkles" class="w-3.5 h-3.5 shrink-0"></i>
+                                <span>Metodología Maestra · Edición 2026</span>
+                            </span>
+                            
+                            <h3 class="text-2xl sm:text-3xl font-black text-slate-900 leading-tight tracking-tight">
+                                Plan 360 Empresarial: estructura y blinda tu negocio paso a paso
+                            </h3>
+                            
+                            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-2xl">
+                                35 páginas de aplicación práctica creadas por Aizprua S.E. para dominar las 6 áreas vitales de tu empresa: legal, tributaria, finanzas, procesos, marketing y ventas.
+                            </p>
+                        </div>
 
-                        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                            <!-- Columna Izquierda: Copy + CTAs -->
-                            <div class="lg:col-span-8 space-y-4 text-left">
-                                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-brand-orange text-white shadow-md">
-                                    <i data-lucide="zap" class="w-3.5 h-3.5 shrink-0"></i> <span>Autodiagnóstico Express</span>
-                                </span>
-                                <h3 class="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-tight">
-                                    ¿Ya tienes un negocio en marcha o estás por arrancar?
-                                </h3>
-                                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                                    Descubre en 3 minutos el semáforo de riesgo de tu proyecto en finanzas, blindaje legal y operaciones con nuestro test interactivo gratuito, o accede a las plantillas operativas listas para usar.
-                                </p>
-                                <div class="pt-2 flex flex-col sm:flex-row flex-wrap items-center gap-3">
-                                    <a href="/test-interactivo" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 bg-brand-orange hover:bg-brand-orange-dark text-white font-bold rounded-xl text-xs sm:text-sm transition shadow-lg whitespace-nowrap shrink-0">
-                                        <span>Hacer Test en Vivo Gratis</span>
-                                        <i data-lucide="arrow-right" class="w-4 h-4 shrink-0"></i>
-                                    </a>
-                                    <a href="/tienda" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl text-xs sm:text-sm transition border border-slate-700 whitespace-nowrap shrink-0">
-                                        <i data-lucide="shopping-bag" class="w-4 h-4 shrink-0 text-slate-300"></i>
-                                        <span>Ver Kit Plan 360 ($24.99)</span>
-                                    </a>
+                        <!-- Grid de 2 Cajas Gemelas Cuadradas (Digital y Físico) -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-1">
+                            <!-- Tarjeta 1: Edición Digital -->
+                            <div class="bg-slate-50/90 border border-slate-200/90 hover:border-brand-blue/50 rounded-2xl p-5 sm:p-6 flex flex-col justify-between transition group shadow-xs">
+                                <div class="space-y-3 mb-6">
+                                    <div class="flex items-center justify-between">
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-brand-blue/10 text-brand-blue border border-brand-blue/20">
+                                            <i data-lucide="tablet" class="w-3.5 h-3.5 shrink-0"></i>
+                                            <span>Digital</span>
+                                        </span>
+                                        <span class="text-xs text-slate-500 font-semibold">iPad / PC</span>
+                                    </div>
+                                    <div class="flex items-baseline gap-2 pt-1">
+                                        <span class="text-sm text-slate-400 line-through">$39.99</span>
+                                        <span class="text-3xl font-black text-slate-900 tracking-tight">$24.99</span>
+                                        <span class="text-xs font-bold text-slate-500 uppercase">USD</span>
+                                    </div>
+                                    <p class="text-xs text-slate-600 leading-relaxed">
+                                        PDF interactivo rellenable con descarga inmediata y acceso permanente.
+                                    </p>
                                 </div>
+                                <a href="/tienda" 
+                                   class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 bg-brand-blue hover:bg-brand-blue-dark text-white rounded-xl text-xs sm:text-sm font-bold transition shadow-xs hover:shadow whitespace-nowrap">
+                                    <i data-lucide="download" class="w-4 h-4 shrink-0"></i>
+                                    <span>Comprar Digital</span>
+                                </a>
                             </div>
 
-                            <!-- Columna Derecha: Mockup 3D Plan 360 con Glow Corporativo -->
-                            <div class="lg:col-span-4 flex justify-center items-center">
-                                <div class="relative group">
-                                    <div class="absolute -inset-2 bg-brand-blue/20 rounded-2xl blur-xl group-hover:bg-brand-blue/30 transition duration-500"></div>
-                                    <img src="assets/portada-plan-360.png" onerror="this.onerror=null; this.src='/assets/portada-plan-360.png';" 
-                                         alt="Kit Plan 360 para Emprendedores - Aizprua S.E." 
-                                         class="relative max-h-56 sm:max-h-64 w-auto object-contain rounded-xl shadow-2xl transform group-hover:scale-105 group-hover:-rotate-1 transition duration-500">
+                            <!-- Tarjeta 2: Kit Físico Premium -->
+                            <div class="bg-orange-50/40 border border-brand-orange/30 hover:border-brand-orange rounded-2xl p-5 sm:p-6 flex flex-col justify-between transition group shadow-xs relative">
+                                <div class="space-y-3 mb-6">
+                                    <div class="flex items-center justify-between">
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-brand-orange/15 text-brand-orange border border-brand-orange/30">
+                                            <i data-lucide="box" class="w-3.5 h-3.5 shrink-0"></i>
+                                            <span>Kit Físico</span>
+                                        </span>
+                                        <span class="text-xs text-emerald-600 font-bold flex items-center gap-1">
+                                            <i data-lucide="truck" class="w-3.5 h-3.5 shrink-0"></i>
+                                            <span>Envío Panamá</span>
+                                        </span>
+                                    </div>
+                                    <div class="flex items-baseline gap-2 pt-1">
+                                        <span class="text-sm text-slate-400 line-through">$79.99</span>
+                                        <span class="text-3xl font-black text-slate-900 tracking-tight">$39.99</span>
+                                        <span class="text-xs font-bold text-slate-500 uppercase">USD</span>
+                                    </div>
+                                    <p class="text-xs text-slate-600 leading-relaxed">
+                                        Libro anillado a color de 35 págs + kit ejecutivo + versión digital incluida.
+                                    </p>
                                 </div>
+                                <a href="https://wa.me/50765461527?text=Hola%2C%20quiero%20ordenar%20el%20Plan%20360%20Empresarial%20Kit%20F%C3%ADsico%20(%2439.99%20USD)%20con%20env%C3%ADo%20en%20Panam%C3%A1." 
+                                   target="_blank" rel="noopener noreferrer"
+                                   class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 bg-brand-orange hover:bg-brand-orange-dark text-white rounded-xl text-xs sm:text-sm font-bold transition shadow-xs hover:shadow whitespace-nowrap">
+                                    <i data-lucide="truck" class="w-4 h-4 shrink-0"></i>
+                                    <span>Pedir Kit Físico</span>
+                                </a>
                             </div>
+                        </div>
+
+                        <!-- Barra Inferior de Confianza y Tienda Completa -->
+                        <div class="pt-2 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500 border-t border-slate-100">
+                            <span class="inline-flex items-center gap-1.5">
+                                <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                                <span>Garantía oficial Aizprua S.E. · Pago con tarjeta o Yappy</span>
+                            </span>
+                            <a href="/tienda" class="font-bold text-brand-blue hover:text-brand-blue-dark hover:underline flex items-center gap-1 transition">
+                                <span>Ver catálogo de la Tienda</span>
+                                <i data-lucide="arrow-right" class="w-3.5 h-3.5 shrink-0"></i>
+                            </a>
                         </div>
                     </div>
 
-                    <div id="habitos-fundador" class="doc-card scroll-mt-36 space-y-4 pt-4">
-                        <h3 class="text-xl sm:text-2xl font-black text-slate-900">
-                            Consejos de hábitos para mantener el rumbo:
-                        </h3>
-                        <ul class="space-y-2 list-disc pl-5 text-sm">
-                            <li>Buscar un espacio diario tranquilo para reflexionar y planificar sin pantallas ni ruido.</li>
-                            <li>Leer libros y <a href="/articulo-mentalidad" class="text-brand-blue font-bold underline hover:text-brand-orange transition">reprogramar tu mentalidad y hábitos empresariales</a> para sostener el crecimiento.</li>
-                            <li>Capacitarte en las áreas que más debilidad te causan (ventas, finanzas o leyes).</li>
-                            <li>Rodearte de personas que tengan metas de crecimiento y mentalidad constructiva.</li>
-                        </ul>
+                    <!-- SECCIÓN: LOS 5 PILARES DE HÁBITOS DEL FUNDADOR -->
+                    <div id="habitos-fundador" class="doc-card scroll-mt-36 space-y-6 pt-4">
+                        <div class="border-b border-slate-200 pb-3">
+                            <span class="text-[11px] font-black uppercase tracking-wider text-brand-orange">Mentalidad & Hábitos</span>
+                            <h3 class="text-xl sm:text-2xl font-black text-slate-900">
+                                Los 5 pilares para mantener el rumbo y elevar tu estándar empresarial
+                            </h3>
+                        </div>
 
-                        <p class="pt-4">
-                            De nada vale tener una gran idea si no construyes las bases para sostenerla en el tiempo. Si estás listo para dar el salto formal en Panamá, en Aizprua S.E. estamos listos para acompañarte en cada paso.
+                        <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+                            De nada vale tener una gran idea si no construyes los hábitos y el criterio para sostenerla en el tiempo. Estos son los 5 pilares estratégicos que diferencian a un autoempleado reactivo de un fundador con visión de largo plazo:
+                        </p>
+
+                        <!-- Lista de 5 Tarjetas de Pilares Estratégicos -->
+                        <div class="not-prose space-y-3.5">
+                            <!-- Pilar 01 -->
+                            <div class="bg-white border border-slate-200 hover:border-brand-blue/50 rounded-2xl p-4 sm:p-5 shadow-xs hover:shadow-md transition flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                                <div class="space-y-1.5 flex-1 min-w-0">
+                                    <div class="flex items-center gap-2">
+                                            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-orange-50 text-brand-orange border border-brand-orange/20">
+                                                <i data-lucide="clock" class="w-3 h-3 shrink-0"></i>
+                                                <span>Pilar 01 · Enfoque</span>
+                                            </span>
+                                        </div>
+                                        <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug">
+                                            Encuentra un espacio y hora exclusiva para pensar
+                                        </h4>
+                                        <p class="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
+                                            Bloque sagrado diario sin pantallas para evaluar la rentabilidad de clientes y tomar decisiones estratégicas en calma.</p>
+                                </div>
+                                <div class="shrink-0 self-start sm:self-center">
+                                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-orange-50/80 text-brand-orange border border-brand-orange/30 whitespace-nowrap">
+                                        <i data-lucide="zap" class="w-3.5 h-3.5 shrink-0"></i>
+                                        <span>Foco Estratégico</span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Pilar 02 -->
+                            <div class="bg-white border border-slate-200 hover:border-brand-blue/50 rounded-2xl p-4 sm:p-5 shadow-xs hover:shadow-md transition flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                                <div class="space-y-1.5 flex-1 min-w-0">
+                                    <div class="flex items-center gap-2">
+                                            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-blue-50 text-brand-blue border border-brand-blue/20">
+                                                <i data-lucide="book-open" class="w-3 h-3 shrink-0"></i>
+                                                <span>Pilar 02 · Criterio</span>
+                                            </span>
+                                        </div>
+                                        <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug">
+                                            Consume material valioso que construya criterio empresarial
+                                        </h4>
+                                        <p class="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
+                                            Lectura constructiva de leyes comerciales, normativas de la DGI y finanzas prácticas para resolver con lógica en lugar de intuición.</p>
+                                </div>
+                                <div class="shrink-0 self-start sm:self-center">
+                                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-blue-50/80 text-brand-blue border border-brand-blue/30 whitespace-nowrap">
+                                        <i data-lucide="check-circle-2" class="w-3.5 h-3.5 shrink-0"></i>
+                                        <span>Conocimiento Real</span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Pilar 03 -->
+                            <div class="bg-white border border-slate-200 hover:border-brand-blue/50 rounded-2xl p-4 sm:p-5 shadow-xs hover:shadow-md transition flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                                <div class="space-y-1.5 flex-1 min-w-0">
+                                    <div class="flex items-center gap-2">
+                                            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-orange-50 text-brand-orange border border-brand-orange/20">
+                                                <i data-lucide="file-text" class="w-3 h-3 shrink-0"></i>
+                                                <span>Pilar 03 · Liderazgo</span>
+                                            </span>
+                                        </div>
+                                        <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug">
+                                            Capacítate en lo que más te cuesta delegar
+                                        </h4>
+                                        <p class="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
+                                            Domina los fundamentos de contratos laborales y flujo de caja para auditar con firmeza y autoridad a tu contador y equipo.</p>
+                                </div>
+                                <div class="shrink-0 self-start sm:self-center">
+                                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-300 whitespace-nowrap">
+                                        <i data-lucide="shield-check" class="w-3.5 h-3.5 shrink-0"></i>
+                                        <span>Supervisión Segura</span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Pilar 04 -->
+                            <div class="bg-white border border-slate-200 hover:border-brand-blue/50 rounded-2xl p-4 sm:p-5 shadow-xs hover:shadow-md transition flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                                <div class="space-y-1.5 flex-1 min-w-0">
+                                    <div class="flex items-center gap-2">
+                                            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-blue-50 text-brand-blue border border-brand-blue/20">
+                                                <i data-lucide="users" class="w-3 h-3 shrink-0"></i>
+                                                <span>Pilar 04 · Estándares</span>
+                                            </span>
+                                        </div>
+                                        <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug">
+                                            Rodéate de personas que eleven tu estándar de ejecución
+                                        </h4>
+                                        <p class="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
+                                            Audita tu entorno y conecta con empresarios formales que respetan contratos y juegan a largo plazo para normalizar la excelencia.</p>
+                                </div>
+                                <div class="shrink-0 self-start sm:self-center">
+                                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-blue-50/80 text-brand-blue border border-brand-blue/30 whitespace-nowrap">
+                                        <i data-lucide="check-circle-2" class="w-3.5 h-3.5 shrink-0"></i>
+                                        <span>Estándar Elevado</span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Pilar 05 -->
+                            <div class="bg-white border border-slate-200 hover:border-brand-blue/50 rounded-2xl p-4 sm:p-5 shadow-xs hover:shadow-md transition flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                                <div class="space-y-1.5 flex-1 min-w-0">
+                                    <div class="flex items-center gap-2">
+                                            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-50 text-emerald-700 border border-emerald-300">
+                                                <i data-lucide="compass" class="w-3 h-3 shrink-0"></i>
+                                                <span>Pilar 05 · Claridad</span>
+                                            </span>
+                                        </div>
+                                        <h4 class="font-bold text-slate-900 text-sm sm:text-base leading-snug">
+                                            Conoce nuevos lugares y despeja tu mente para resolver con calma
+                                        </h4>
+                                        <p class="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
+                                            Rompe patrones fuera de la oficina para obtener distancia psicológica y destrabar los desafíos más complejos de tu empresa.</p>
+                                </div>
+                                <div class="shrink-0 self-start sm:self-center">
+                                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-300 whitespace-nowrap">
+                                        <i data-lucide="lock" class="w-3.5 h-3.5 shrink-0"></i>
+                                        <span>Decisiones Claras</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="pt-2 text-sm sm:text-base text-slate-600 leading-relaxed">
+                            De nada vale tener una gran idea si no construyes las bases y los hábitos para sostenerla en el tiempo. Si estás listo para dar el salto formal y blindar tu negocio en Panamá, en Aizprua S.E. estamos listos para acompañarte en cada paso.
                         </p>
                     </div>
 
@@ -906,7 +983,7 @@
                             <details class="group bg-white rounded-2xl border border-slate-200 p-4 transition-all duration-200 open:shadow-md open:border-brand-blue">
                                 <summary class="flex items-start justify-between gap-3 font-bold text-slate-800 text-sm cursor-pointer list-none">
                                     <span>¿Es obligatorio crear una sociedad para empezar a vender?</span>
-                                    <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform"></i>
+                                    <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform shrink-0"></i>
                                 </summary>
                                 <p class="text-xs sm:text-sm text-slate-600 pt-3 leading-relaxed border-t border-slate-100 mt-3">
                                     No es obligatorio el primer día. Puedes arrancar como persona natural con un Aviso de Operación personal para validar la demanda. Sin embargo, tan pronto generes ingresos recurrentes, contrates personal o asumas riesgos de crédito, es indispensable constituir una sociedad para separar y blindar tu patrimonio personal.
@@ -917,7 +994,7 @@
                             <details class="group bg-white rounded-2xl border border-slate-200 p-4 transition-all duration-200 open:shadow-md open:border-brand-blue">
                                 <summary class="flex items-start justify-between gap-3 font-bold text-slate-800 text-sm cursor-pointer list-none">
                                     <span>¿Qué riesgos corro si vendo por redes sociales sin Aviso de Operación?</span>
-                                    <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform"></i>
+                                    <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform shrink-0"></i>
                                 </summary>
                                 <p class="text-xs sm:text-sm text-slate-600 pt-3 leading-relaxed border-t border-slate-100 mt-3">
                                     En Panamá, el Ministerio de Comercio e Industrias (MICI) y la Dirección General de Ingresos (DGI) multan las actividades comerciales no autorizadas con sanciones que van desde $500 hasta $10,000, además del cierre de la actividad y la imposibilidad de deducir gastos comerciales.
@@ -928,7 +1005,7 @@
                             <details class="group bg-white rounded-2xl border border-slate-200 p-4 transition-all duration-200 open:shadow-md open:border-brand-blue">
                                 <summary class="flex items-start justify-between gap-3 font-bold text-slate-800 text-sm cursor-pointer list-none">
                                     <span>¿Cómo separo el dinero del negocio si el banco me pide muchos requisitos?</span>
-                                    <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform"></i>
+                                    <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform shrink-0"></i>
                                 </summary>
                                 <p class="text-xs sm:text-sm text-slate-600 pt-3 leading-relaxed border-t border-slate-100 mt-3">
                                     Mientras tramitas la cuenta bancaria jurídica con el pacto social y el Aviso de Operación, puedes abrir una subcuenta de ahorros personal dedicada exclusivamente al negocio, sin mezclar ningún gasto del hogar o supermercado.
@@ -939,7 +1016,7 @@
                             <details class="group bg-white rounded-2xl border border-slate-200 p-4 transition-all duration-200 open:shadow-md open:border-brand-blue">
                                 <summary class="flex items-start justify-between gap-3 font-bold text-slate-800 text-sm cursor-pointer list-none">
                                     <span>¿Qué incluye el Escudo Preventivo de Aizprua S.E. para emprendedores?</span>
-                                    <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform"></i>
+                                    <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform shrink-0"></i>
                                 </summary>
                                 <p class="text-xs sm:text-sm text-slate-600 pt-3 leading-relaxed border-t border-slate-100 mt-3">
                                     Incluye el diagnóstico de riesgos patrimoniales, la constitución de sociedad o actualización de Aviso de Operación, la elaboración de contratos laborales y de servicios comerciales blindados, y asesoría fiscal preventiva para evitar multas de la DGI y la CSS.
@@ -958,11 +1035,11 @@
                     </span>
                     <div class="flex items-center gap-2">
                         <a href="https://api.whatsapp.com/send?text=C%C3%B3mo%20empezar%20a%20emprender%20en%20Panam%C3%A1%20https%3A%2F%2Faizprua.com%2Farticulo-emprender" target="_blank" class="px-3 py-1.5 bg-[#25D366] text-white rounded-lg text-xs font-bold hover:brightness-110 flex items-center gap-1.5 shadow-xs" rel="noopener noreferrer">
-                            <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                            <i data-lucide="message-circle" class="w-3.5 h-3.5 shrink-0"></i>
                             <span>WhatsApp</span>
                         </a>
                         <button type="button" onclick="copiarEnlace(this)" class="px-3 py-1.5 bg-white border border-slate-300 text-slate-700 rounded-lg text-xs font-bold hover:bg-slate-50 flex items-center gap-1.5 shadow-xs">
-                            <i data-lucide="link" class="w-3.5 h-3.5"></i>
+                            <i data-lucide="link" class="w-3.5 h-3.5 shrink-0"></i>
                             <span class="btn-copy-text">Copiar Enlace</span>
                         </button>
                     </div>
@@ -978,7 +1055,7 @@
                             Asesora a dueños de negocio en Panamá en la constitución de sociedades, blindaje de contratos y ordenamiento financiero para prevenir multas y contingencias legales.
                         </p>
                         <a href="https://wa.me/50765461527" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#25D366] hover:underline" rel="noopener noreferrer">
-                            <i data-lucide="message-circle" class="w-4 h-4"></i>
+                            <i data-lucide="message-circle" class="w-4 h-4 shrink-0"></i>
                             <span>Contactar directamente por WhatsApp</span>
                         </a>
                     </div>
@@ -993,7 +1070,7 @@
                         </div>
                         <a href="/blog" class="text-xs font-bold text-brand-blue hover:underline inline-flex items-center gap-1">
                             <span>Ver todo el blog</span>
-                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5 shrink-0"></i>
                         </a>
                     </div>
 
@@ -1092,7 +1169,7 @@
         <!-- Botón Flotante "Volver Arriba" (Scroll to Top) -->
         <button id="scroll-top-btn" onclick="scrollToTop()" aria-label="Volver arriba"
             class="w-11 h-11 bg-white/95 backdrop-blur border border-slate-300 hover:border-brand-blue text-slate-700 hover:text-brand-blue rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:-translate-y-1 flex items-center justify-center flex-shrink-0">
-            <i data-lucide="chevron-up" class="w-5 h-5"></i>
+            <i data-lucide="chevron-up" class="w-5 h-5 shrink-0"></i>
         </button>
 
         <!-- Botón Flotante de WhatsApp Fijo -->
