@@ -85,15 +85,15 @@ app.use((req, res, next) => {
   // 5. Restricción de Sensores y Hardware
   res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), payment=(self "https://*.cybersource.com")');
 
-  // 6. Content-Security-Policy (CSP Canónica OWASP compatible con CyberSource, CDNs, Clarity y Google Fonts)
+  // 6. Content-Security-Policy (CSP Canónica OWASP compatible con CyberSource, CDNs, Clarity, Google Analytics/GTM y Google Fonts)
   const cspDirectives = [
     "default-src 'self'",
-    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://unpkg.com https://cdn.jsdelivr.net https://*.cybersource.com https://*.cardinalcommerce.com https://challenges.cloudflare.com https://www.clarity.ms https://*.clarity.ms",
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://unpkg.com https://cdn.jsdelivr.net https://*.cybersource.com https://*.cardinalcommerce.com https://challenges.cloudflare.com https://www.clarity.ms https://*.clarity.ms https://www.googletagmanager.com",
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net",
     "font-src 'self' https://fonts.gstatic.com data:",
-    "img-src 'self' data: https: blob: https://*.clarity.ms https://c.bing.com",
+    "img-src 'self' data: https: blob: https://*.clarity.ms https://c.bing.com https://*.google-analytics.com https://*.googletagmanager.com",
     "media-src 'self' https: blob:",
-    "connect-src 'self' https: wss: https://*.clarity.ms https://c.bing.com",
+    "connect-src 'self' https: wss: https://*.clarity.ms https://c.bing.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com",
     "frame-src 'self' https://*.cybersource.com https://*.cardinalcommerce.com https://challenges.cloudflare.com",
     "frame-ancestors 'none'",
     "base-uri 'self'",
