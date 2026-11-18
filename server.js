@@ -766,6 +766,15 @@ app.get(['/articulo-multas-panama.html', '/multas-dgi-css', '/multas-dgi-panama'
   res.redirect(301, '/articulo-multas-panama' + query);
 });
 
+app.get('/articulo-dv-ruc-panama', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'articulo-dv-ruc-panama.html'));
+});
+
+app.get(['/articulo-dv-ruc-panama.html', '/calcular-dv-panama', '/digito-verificador-ruc', '/ruc-dv-panama'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/articulo-dv-ruc-panama' + query);
+});
+
 // 4.12. Checklist Maestro de Cumplimiento Comercial en Panamá (Canónica: /checklist-comercial)
 app.get('/checklist-comercial', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'checklist-comercial.html'));
