@@ -292,13 +292,13 @@
                         class="tab-filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 whitespace-nowrap bg-white text-slate-900 shadow-sm border border-slate-200/60"
                         data-filter="todos">
                         <span>Todos los recursos</span>
-                        <span class="ml-1.5 text-xs bg-brand-blue/10 text-brand-blue font-black px-2 py-0.5 rounded-lg" id="count-todos">8</span>
+                        <span class="ml-1.5 text-xs bg-brand-blue/10 text-brand-blue font-black px-2 py-0.5 rounded-lg" id="count-todos">9</span>
                     </button>
                     <button type="button" onclick="setResourceFilter('herramientas')"
                         class="tab-filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 whitespace-nowrap text-slate-600 hover:text-slate-900 hover:bg-white/60"
                         data-filter="herramientas">
                         <span>Herramientas web</span>
-                        <span class="ml-1.5 text-xs bg-slate-200/60 text-slate-600 font-bold px-2 py-0.5 rounded-lg" id="count-herramientas">5</span>
+                        <span class="ml-1.5 text-xs bg-slate-200/60 text-slate-600 font-bold px-2 py-0.5 rounded-lg" id="count-herramientas">6</span>
                     </button>
                     <button type="button" onclick="setResourceFilter('guias')"
                         class="tab-filter-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 whitespace-nowrap text-slate-600 hover:text-slate-900 hover:bg-white/60"
@@ -380,6 +380,68 @@
                 <div class="mt-auto pt-4 border-t border-slate-100 flex flex-col justify-end space-y-2 min-h-[4.5rem]">
                     <a href="/test-interactivo"
                         class="w-full py-3 px-4 rounded-xl font-bold text-xs sm:text-sm bg-brand-blue hover:bg-brand-blue-dark text-white flex items-center justify-center gap-2 transition duration-200 shadow-md">
+                        <span>Iniciar test gratuito</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 shrink-0"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- TARJETA: Test del Cuadrante (Autoempleado vs Dueño) -->
+            <div class="resource-card h-full flex flex-col justify-between bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 p-6 overflow-hidden group"
+                data-category="herramientas"
+                data-keywords="test autoempleado cuadrante kiyosaki libertad dueno sistema delegacion procesos empresa negocio gratis online">
+                
+                <div class="flex-1 flex flex-col">
+                    <!-- Showcase Visual Canónico / Fallback Relieve -->
+                    <div class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-brand-blue-dark rounded-2xl overflow-hidden mb-4 aspect-[4/3] flex items-center justify-center p-4 border border-slate-700/60 shadow-inner">
+                        <div class="text-center z-10">
+                            <div class="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-brand-orange mx-auto flex items-center justify-center mb-2 shadow-lg group-hover:scale-110 transition duration-300">
+                                <i data-lucide="compass" class="w-8 h-8 shrink-0"></i>
+                            </div>
+                            <span class="text-xs font-bold text-white block">Diagnóstico de Autoempleo</span>
+                            <span class="text-[10px] text-brand-orange-light font-bold block">Tiempo estimado: 2 minutos</span>
+                        </div>
+                        <span class="absolute top-3 right-3 text-[10px] font-black uppercase px-2.5 py-1 rounded-full bg-brand-orange/20 text-brand-orange-light border border-brand-orange/30">
+                            Interactivo
+                        </span>
+                    </div>
+
+                    <!-- Píldora de Categoría -->
+                    <div class="min-h-[1.25rem] mb-1">
+                        <span class="text-[10px] font-black uppercase tracking-wider text-brand-orange">Herramienta web / Diagnóstico</span>
+                    </div>
+
+                    <!-- Título en Sentence Case -->
+                    <h3 class="min-h-[3.25rem] flex items-center leading-snug font-bold text-slate-900 text-lg group-hover:text-brand-blue transition">
+                        Test del cuadrante: ¿tienes una empresa o un autoempleo?
+                    </h3>
+
+                    <!-- Párrafo Descriptivo -->
+                    <p class="min-h-[3.75rem] flex items-start text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+                        Descubre si construiste un sistema que genera ingresos sin ti o si compraste un empleo sin horario ni vacaciones.
+                    </p>
+
+                    <!-- Caja de Entregables (Exactamente 3 Bullets con items-start) -->
+                    <div class="space-y-2 mb-4 bg-slate-50 p-3.5 rounded-2xl border border-slate-100 min-h-[8.5rem] flex flex-col justify-center">
+                        <div class="flex items-start gap-2 text-xs font-medium text-slate-700">
+                            <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5"></i>
+                            <span class="leading-snug">Termómetro porcentual de dependencia operativa del dueño en vivo.</span>
+                        </div>
+                        <div class="flex items-start gap-2 text-xs font-medium text-slate-700">
+                            <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5"></i>
+                            <span class="leading-snug">Evaluación en 4 pilares: ventas, entrega, procesos y finanzas.</span>
+                        </div>
+                        <div class="flex items-start gap-2 text-xs font-medium text-slate-700">
+                            <i data-lucide="check" class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5"></i>
+                            <span class="leading-snug">Hoja de ruta personalizada para transicionar hacia el Plan 360.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bloque Inferior / CTA -->
+                <div class="mt-auto pt-4 border-t border-slate-100 flex flex-col justify-end space-y-2 min-h-[4.5rem]">
+                    <a href="/test-autoempleado"
+                        class="w-full py-3 px-4 rounded-xl font-bold text-xs sm:text-sm bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white flex items-center justify-center gap-2 transition duration-200 shadow-md">
                         <span>Iniciar test gratuito</span>
                         <i data-lucide="arrow-right" class="w-4 h-4 shrink-0"></i>
                     </a>

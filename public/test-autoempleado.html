@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+
+    <!-- SEO & Metatags -->
+    <title>Test del Cuadrante: ¿Tienes una Empresa o un Autoempleo? | Aizprua S.E.</title>
+    <meta name="description"
+        content="Evalúa en 2 minutos el nivel de dependencia de tu negocio respecto a tu presencia física. Descubre si eres dueño de un sistema o un autoempleado en riesgo.">
+    <link rel="canonical" href="https://aizprua.com/test-autoempleado">
+
+    <!-- Favicon & Iconos Oficiales Multiplataforma (iOS, Android, Web) -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#3849C8">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Test del Cuadrante: ¿Tienes una Empresa o un Autoempleo? | Aizprua S.E.">
+    <meta property="og:description" content="Evalúa tu negocio en 2 minutos y descubre si eres dueño de un sistema o un autoempleado atrapado en la operación.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aizprua.com/test-autoempleado">
+    <meta property="og:image" content="https://aizprua.com/assets/aizprua-shield-og.jpg">
+    <meta property="og:image:secure_url" content="https://aizprua.com/assets/aizprua-shield-og.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="1080">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Test del Cuadrante: ¿Tienes una Empresa o un Autoempleo? | Aizprua S.E.">
+    <meta name="twitter:description" content="Evalúa tu negocio en 2 minutos y descubre si eres dueño de un sistema o un autoempleado atrapado.">
+    <meta name="twitter:image" content="https://aizprua.com/assets/aizprua-shield-og.jpg">
+
+    <!-- Microsoft Clarity Oficial (Aizprua S.E.) -->
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "vrnwiwwg3k");
+    </script>
+
+    <!-- Google Fonts & Tailwind CSS CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#3849C8',
+                            'blue-dark': '#2D3A9F',
+                            'blue-light': '#4F5ED4',
+                            orange: '#FF8A1E',
+                            'orange-dark': '#E67A15',
+                            'orange-light': '#FFA04A',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        .custom-scroll::-webkit-scrollbar {
+            width: 5px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-brand-orange selection:text-white">
+
+    <!-- 1. Barra de Progreso Canónica (Naranja Oficial) -->
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-brand-orange z-[60] transition-all duration-75" style="width: 0%;"></div>
+
+    <!-- 2. Header Canónico Oficial Aizprua S.E. -->
+    <header class="w-full relative z-50">
+        <!-- Barra Superior de Anuncios (Relative, No Sticky) -->
+        <div id="announcement-bar" class="relative bg-slate-900 border-b border-slate-800 text-white text-[11px] sm:text-xs py-2 px-4">
+            <div class="max-w-7xl mx-auto flex items-center justify-center text-center gap-2 overflow-hidden">
+                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-brand-orange/20 text-brand-orange border border-brand-orange/30 shrink-0">
+                    DIAGNÓSTICO GRATUITO
+                </span>
+                <span class="truncate text-slate-300">
+                    ¿Tu negocio depende 100% de ti? Descubre tu nivel de autoempleo en 2 minutos.
+                </span>
+            </div>
+        </div>
+
+        <!-- Navbar Principal Sticky h-20 (80px) -->
+        <nav class="sticky top-0 bg-white/95 backdrop-blur-md border-b border-slate-200/80 transition-all duration-200 shadow-xs">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-20">
+                    <!-- Logotipo Centrado h-28 -->
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="/" class="flex items-center group py-2" aria-label="Ir al Inicio de Aizprua S.E.">
+                            <img src="assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg"
+                                onerror="this.onerror=null; this.src='/assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg';"
+                                alt="Logo Aizprua S.E. - Firma Legal y Empresarial en Panamá"
+                                class="h-28 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+                        </a>
+                    </div>
+
+                    <!-- Botón de Contacto WhatsApp Oficial (Distraction-Free Funnel) -->
+                    <div class="flex items-center gap-3">
+                        <a href="https://wa.me/50766324905?text=Hola%20Arubel%2C%20deseo%20consultar%20sobre%20el%20diagn%C3%B3stico%20de%20autoempleo%20de%20mi%20negocio."
+                            target="_blank" rel="noopener noreferrer"
+                            class="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1EBE5D] text-white px-4 py-2.5 rounded-xl font-bold text-xs tracking-wide shadow-xs hover:shadow-md transition duration-200 shrink-0">
+                            <i data-lucide="message-circle" class="w-4 h-4 shrink-0"></i>
+                            <span class="hidden sm:inline">WhatsApp Asesoría</span>
+                            <span class="sm:hidden">WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 3. Contenedor Principal Interactivo -->
+    <main class="flex-grow flex items-center justify-center py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
+
+        <!-- ==========================================
+             VISTA 1: BIENVENIDA / INTRODUCCIÓN
+             ========================================== -->
+        <div id="welcome-view" class="w-full bg-white rounded-3xl border border-slate-200/90 shadow-xl overflow-hidden p-6 sm:p-10 transition-all duration-300">
+            <div class="max-w-2xl mx-auto text-center">
+                
+                <!-- Badge de Categoría -->
+                <div class="inline-flex items-center gap-2 bg-brand-orange/10 text-brand-orange px-3.5 py-1.5 rounded-full border border-brand-orange/20 text-xs font-bold uppercase tracking-wider mb-5">
+                    <i data-lucide="compass" class="w-3.5 h-3.5 shrink-0"></i>
+                    <span>Diagnóstico de Libertad Empresarial</span>
+                </div>
+
+                <!-- Título Principal -->
+                <h1 class="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight mb-4">
+                    Test del Cuadrante: <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-blue-light">
+                        ¿Tienes una Empresa o un Autoempleo?
+                    </span>
+                </h1>
+
+                <!-- Subtítulo Explicativo -->
+                <p class="text-sm sm:text-base text-slate-600 leading-relaxed mb-8">
+                    Evalúa en 2 minutos el nivel de dependencia de tu negocio respecto a tu presencia física. Descubre si has construido un activo que genera ingresos o si compraste un empleo donde eres el jefe más exigido.
+                </p>
+
+                <!-- Cuadrícula de 3 Puntos Clave de Valor -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8 text-left">
+                    <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 shadow-2xs">
+                        <div class="flex items-center gap-2.5 mb-1.5">
+                            <div class="w-7 h-7 rounded-lg bg-brand-blue/10 text-brand-blue flex items-center justify-center shrink-0">
+                                <i data-lucide="help-circle" class="w-4 h-4 shrink-0"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-800 text-xs">7 Preguntas</h4>
+                        </div>
+                        <p class="text-[11px] text-slate-600 leading-relaxed pl-9">
+                            Métricas directas de ventas, delegación, procesos y finanzas.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 shadow-2xs">
+                        <div class="flex items-center gap-2.5 mb-1.5">
+                            <div class="w-7 h-7 rounded-lg bg-brand-orange/10 text-brand-orange flex items-center justify-center shrink-0">
+                                <i data-lucide="gauge" class="w-4 h-4 shrink-0"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-800 text-xs">Semáforo Real</h4>
+                        </div>
+                        <p class="text-[11px] text-slate-600 leading-relaxed pl-9">
+                            Porcentaje exacto de riesgo y dependencia de tu negocio.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 shadow-2xs">
+                        <div class="flex items-center gap-2.5 mb-1.5">
+                            <div class="w-7 h-7 rounded-lg bg-emerald-500/10 text-emerald-600 flex items-center justify-center shrink-0">
+                                <i data-lucide="route" class="w-4 h-4 shrink-0"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-800 text-xs">Hoja de Ruta</h4>
+                        </div>
+                        <p class="text-[11px] text-slate-600 leading-relaxed pl-9">
+                            Pasos claros para transicionar de operador a dueño de sistema.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Botón de Inicio del Test -->
+                <button onclick="startQuiz()"
+                    class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-2xl font-black text-sm tracking-wide shadow-lg hover:shadow-orange-500/25 transition duration-200 transform hover:-translate-y-0.5 cursor-pointer">
+                    <span>Iniciar Diagnóstico Gratuito (2 Minutos)</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 shrink-0"></i>
+                </button>
+
+                <p class="text-[11px] text-slate-400 mt-4 flex items-center justify-center gap-1.5">
+                    <i data-lucide="lock" class="w-3.5 h-3.5 text-slate-400 shrink-0"></i>
+                    <span>Tus respuestas son estrictamente confidenciales y de uso personal.</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             VISTA 2: CUESTIONARIO INTERACTIVO (PREGUNTAS)
+             ========================================== -->
+        <div id="quiz-view" class="w-full bg-white rounded-3xl border border-slate-200/90 shadow-xl overflow-hidden p-6 sm:p-8 transition-all duration-300 hidden">
+            
+            <!-- Barra Superior de Navegación del Test -->
+            <div class="flex items-center justify-between gap-4 pb-5 border-b border-slate-100 mb-6">
+                <!-- Botón Retroactivo (Regla Canónica) -->
+                <button id="prev-btn" onclick="goToPrevQuestion()"
+                    class="inline-flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-3.5 py-2 rounded-xl text-xs transition shrink-0 cursor-pointer">
+                    <i data-lucide="arrow-left" class="w-3.5 h-3.5 shrink-0"></i>
+                    <span id="prev-btn-text">Volver al Inicio</span>
+                </button>
+
+                <!-- Contador de Progreso -->
+                <div class="text-right">
+                    <span id="question-counter" class="text-xs font-black text-brand-blue uppercase tracking-wider block">
+                        Pregunta 1 de 7
+                    </span>
+                    <span id="progress-percent-label" class="text-[10px] text-slate-400 font-semibold block">
+                        14% completado
+                    </span>
+                </div>
+            </div>
+
+            <!-- Mini Barra de Progreso del Test -->
+            <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden mb-6">
+                <div id="quiz-progress-inner" class="h-full bg-brand-orange transition-all duration-300 rounded-full" style="width: 14%;"></div>
+            </div>
+
+            <!-- Encabezado de Pregunta -->
+            <div class="mb-6">
+                <span id="question-category" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-brand-blue/10 text-brand-blue border border-brand-blue/20 mb-3">
+                    ÁREA 1: LA PRUEBA DE LA AUSENCIA
+                </span>
+                <h2 id="question-title" class="text-lg sm:text-2xl font-black text-slate-900 tracking-tight leading-snug mb-2">
+                    ¿Qué ocurre con la facturación y las operaciones de tu negocio si te ausentas 30 días sin acceso a celular ni correo?
+                </h2>
+                <p id="question-desc" class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    Evalúa la continuidad operativa de la empresa en caso de vacaciones prolongadas, enfermedad o emergencia.
+                </p>
+            </div>
+
+            <!-- Contenedor de Opciones Dinámicas -->
+            <div id="options-container" class="space-y-3 mb-6">
+                <!-- Se llenan por JavaScript -->
+            </div>
+
+            <!-- Footer Informativo del Test -->
+            <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400">
+                <span class="flex items-center gap-1">
+                    <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-500 shrink-0"></i>
+                    <span>Puntuación ponderada oficial</span>
+                </span>
+                <span>Selecciona una opción para avanzar</span>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             VISTA 3: CAPTURA DE LEAD (PRE-RESULTADOS)
+             ========================================== -->
+        <div id="lead-view" class="w-full bg-white rounded-3xl border border-slate-200/90 shadow-xl overflow-hidden p-6 sm:p-10 transition-all duration-300 hidden">
+            <div class="max-w-md mx-auto">
+                <div class="text-center mb-6">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-orange/10 text-brand-orange flex items-center justify-center mx-auto mb-3">
+                        <i data-lucide="file-text" class="w-6 h-6 shrink-0"></i>
+                    </div>
+                    <span class="text-xs font-black uppercase tracking-wider text-brand-blue mb-1 block">Diagnóstico Finalizado</span>
+                    <h3 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-snug mb-2">
+                        Personaliza y Desbloquea tu Diagnóstico
+                    </h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Ingresa tus datos para emitir tu reporte de autoempleo personalizado con tu semáforo de riesgo y hoja de ruta.
+                    </p>
+                </div>
+
+                <form onsubmit="handleLeadSubmit(event)" class="space-y-4">
+                    <div>
+                        <label for="lead-name" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Tu Nombre Completo *</label>
+                        <input type="text" id="lead-name" required placeholder="Ej: Arubel Aizprua"
+                            class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 text-sm outline-none transition">
+                    </div>
+
+                    <div>
+                        <label for="lead-company" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Nombre o Rubro de tu Negocio *</label>
+                        <input type="text" id="lead-company" required placeholder="Ej: Consultora / Taller / Tienda Online"
+                            class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 text-sm outline-none transition">
+                    </div>
+
+                    <div>
+                        <label for="lead-email" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Correo Electrónico *</label>
+                        <input type="email" id="lead-email" required placeholder="tu@correo.com"
+                            class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 text-sm outline-none transition">
+                    </div>
+
+                    <div>
+                        <label for="lead-phone" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">WhatsApp de Contacto (Panamá / Internacional) *</label>
+                        <input type="tel" id="lead-phone" required placeholder="+507 6000-0000"
+                            class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 text-sm outline-none transition">
+                    </div>
+
+                    <button type="submit"
+                        class="w-full py-4 bg-gradient-to-r from-brand-orange to-brand-orange-dark hover:brightness-110 text-white rounded-xl font-black text-sm tracking-wide shadow-lg hover:shadow-orange-500/25 transition duration-200 transform hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer mt-2">
+                        <i data-lucide="check-circle" class="w-4 h-4 shrink-0"></i>
+                        <span>Ver Mi Diagnóstico y Hoja de Ruta</span>
+                    </button>
+
+                    <p class="text-[11px] text-slate-400 text-center flex items-center justify-center gap-1.5 pt-1">
+                        <i data-lucide="lock" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
+                        <span>Datos protegidos bajo la Ley 81 de Protección de Datos de Panamá.</span>
+                    </p>
+                </form>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             VISTA 4: PANTALLA DE RESULTADOS Y DIAGNÓSTICO
+             ========================================== -->
+        <div id="results-view" class="w-full bg-white rounded-3xl border border-slate-200/90 shadow-xl overflow-hidden p-6 sm:p-10 transition-all duration-300 hidden">
+            
+            <!-- Encabezado de Resultados -->
+            <div class="text-center pb-6 border-b border-slate-100 mb-8">
+                <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-blue/10 text-brand-blue border border-brand-blue/20 mb-3">
+                    <i data-lucide="pie-chart" class="w-3.5 h-3.5 shrink-0"></i>
+                    <span>Diagnóstico Oficial Emitido</span>
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight leading-tight mb-2">
+                    Resultados para <span id="res-lead-name" class="text-brand-blue">Tu Negocio</span>
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-600">
+                    Empresa / Proyecto: <span id="res-lead-company" class="font-bold text-slate-800">Mi Empresa</span>
+                </p>
+            </div>
+
+            <!-- Tarjeta Central del Semáforo y Termómetro -->
+            <div id="thermometer-card" class="rounded-3xl p-6 sm:p-8 border mb-8 transition-all">
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-6 mb-6">
+                    <div>
+                        <div class="flex items-center gap-2 mb-2">
+                            <span id="level-badge" class="px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider">
+                                NIVEL 1
+                            </span>
+                            <span id="risk-badge" class="px-3 py-1 rounded-full text-xs font-bold">
+                                Riesgo Crítico
+                            </span>
+                        </div>
+                        <h3 id="level-title" class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-snug">
+                            Autoempleado Operativo en Riesgo
+                        </h3>
+                    </div>
+
+                    <!-- Gran Cifra de Porcentaje de Dependencia -->
+                    <div class="text-center sm:text-right shrink-0">
+                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Nivel de Dependencia</span>
+                        <span id="dependence-percent" class="text-4xl sm:text-5xl font-black tracking-tight">
+                            85%
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Barra Termómetro Visual de Autoempleo -->
+                <div class="mb-3">
+                    <div class="flex justify-between text-[11px] font-bold text-slate-500 mb-1.5">
+                        <span>Dueño de Sistema (0%)</span>
+                        <span>En Transición (50%)</span>
+                        <span>Autoempleado Crítico (100%)</span>
+                    </div>
+                    <div class="w-full h-3.5 bg-slate-200/80 rounded-full overflow-hidden p-0.5">
+                        <div id="thermometer-bar" class="h-full rounded-full transition-all duration-700" style="width: 85%;"></div>
+                    </div>
+                </div>
+
+                <!-- Párrafo de Diagnóstico Psicológico y Operativo -->
+                <p id="level-description" class="text-xs sm:text-sm text-slate-700 leading-relaxed pt-3 border-t border-slate-200/60">
+                    Tu empresa depende casi en su totalidad de tu presencia física y tiempo diario. Si te enfermas, viajas o necesitas ausentarte, las ventas se congelan y las operaciones se desbordan. Compraste un empleo exigente en lugar de construir un activo que funcione sin ti.
+                </p>
+            </div>
+
+            <!-- Desglose por 4 Pilares Clave -->
+            <div class="mb-8">
+                <h4 class="text-xs font-black uppercase tracking-wider text-slate-400 mb-4">
+                    Desglose por Pilares de Funcionamiento
+                </h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    
+                    <!-- Pilar 1: Ausencia & Continuidad -->
+                    <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="calendar-off" class="w-4 h-4 text-brand-blue shrink-0"></i>
+                                <span class="font-bold text-xs text-slate-800">Ausencia & Continuidad</span>
+                            </div>
+                            <span id="pilar-1-badge" class="text-[10px] font-bold px-2 py-0.5 rounded-md">Crítico</span>
+                        </div>
+                        <p id="pilar-1-desc" class="text-xs text-slate-600 leading-relaxed">
+                            El negocio no sobrevive a una ausencia prolongada sin caídas severas de facturación.
+                        </p>
+                    </div>
+
+                    <!-- Pilar 2: Ventas & Clientes -->
+                    <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="trending-up" class="w-4 h-4 text-brand-blue shrink-0"></i>
+                                <span class="font-bold text-xs text-slate-800">Ventas & Captación</span>
+                            </div>
+                            <span id="pilar-2-badge" class="text-[10px] font-bold px-2 py-0.5 rounded-md">Vulnerable</span>
+                        </div>
+                        <p id="pilar-2-desc" class="text-xs text-slate-600 leading-relaxed">
+                            Los clientes compran por tu persona y no por un sistema institucional de la empresa.
+                        </p>
+                    </div>
+
+                    <!-- Pilar 3: Procesos & Delegación -->
+                    <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="workflow" class="w-4 h-4 text-brand-blue shrink-0"></i>
+                                <span class="font-bold text-xs text-slate-800">Procesos & Documentación</span>
+                            </div>
+                            <span id="pilar-3-badge" class="text-[10px] font-bold px-2 py-0.5 rounded-md">En Tu Cabeza</span>
+                        </div>
+                        <p id="pilar-3-desc" class="text-xs text-slate-600 leading-relaxed">
+                            Casi todo el know-how operativo depende de tu memoria o tutoría personal.
+                        </p>
+                    </div>
+
+                    <!-- Pilar 4: Finanzas & Contratos -->
+                    <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="scale" class="w-4 h-4 text-brand-blue shrink-0"></i>
+                                <span class="font-bold text-xs text-slate-800">Finanzas & Blindaje</span>
+                            </div>
+                            <span id="pilar-4-badge" class="text-[10px] font-bold px-2 py-0.5 rounded-md">Sin Estructura</span>
+                        </div>
+                        <p id="pilar-4-desc" class="text-xs text-slate-600 leading-relaxed">
+                            Retiros desordenados y falta de blindaje formal en los acuerdos de colaboradores.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Banner Oficial de Solución Focalizada: Plan 360 Empresarial -->
+            <div class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-brand-blue-dark text-white rounded-3xl p-6 sm:p-8 overflow-hidden shadow-2xl mb-8">
+                <!-- Luces de Fondo Corporativas -->
+                <div class="absolute -top-24 -right-24 w-64 h-64 bg-brand-orange/20 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-brand-blue/30 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="relative z-10 flex flex-col md:flex-row items-center gap-8">
+                    <!-- Mockup Aislado Oficial Plan 360 -->
+                    <div class="w-48 sm:w-56 shrink-0 flex justify-center">
+                        <img src="assets/plan360-preview/mockup-plan-360-sombra.png" alt="Plan 360 Empresarial - Aizprua S.E."
+                            class="w-full h-auto max-h-64 object-contain filter drop-shadow-2xl">
+                    </div>
+
+                    <!-- Contenido de Solución -->
+                    <div class="flex-1 text-center md:text-left">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-brand-orange/20 text-brand-orange border border-brand-orange/30 mb-2">
+                            <i data-lucide="check-check" class="w-3.5 h-3.5 shrink-0"></i>
+                            <span>Solución Recomendada para Tu Nivel</span>
+                        </span>
+                        <h3 class="text-xl sm:text-2xl font-black tracking-tight leading-snug mb-2">
+                            Plan 360 Empresarial: Transiciona de Autoempleado a Dueño de Negocio
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+                            La guía de ejecución paso a paso creada por Arubel Aizprua para estructurar tus procesos de delegación, manuales operativos, flujo de caja y contratos en Panamá. Deja de ser el bombero de tu propia empresa.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row items-center gap-3">
+                            <a href="/plan-360"
+                                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand-orange hover:bg-brand-orange-dark text-white rounded-xl font-bold text-xs tracking-wide shadow-md transition shrink-0 cursor-pointer">
+                                <span>Ver Contenido del Plan 360</span>
+                                <i data-lucide="arrow-right" class="w-3.5 h-3.5 shrink-0"></i>
+                            </a>
+                            <a href="/tienda"
+                                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 bg-white/10 hover:bg-white/20 text-white rounded-xl font-bold text-xs tracking-wide border border-white/20 transition shrink-0">
+                                <span>Explorar Otras Soluciones</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botones CTA de Acción Doble -->
+            <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="text-center sm:text-left">
+                    <h5 class="text-xs font-black text-slate-800 uppercase tracking-wider mb-0.5">¿Deseas analizar tu resultado en detalle?</h5>
+                    <p class="text-xs text-slate-600">Arubel Aizprua puede revisar tu caso personalmente vía WhatsApp.</p>
+                </div>
+                <div class="flex items-center gap-3 w-full sm:w-auto shrink-0">
+                    <a id="whatsapp-results-btn" href="https://wa.me/50766324905" target="_blank" rel="noopener noreferrer"
+                        class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#25D366] hover:bg-[#1EBE5D] text-white rounded-xl font-bold text-xs tracking-wide shadow-md transition shrink-0 cursor-pointer">
+                        <i data-lucide="message-circle" class="w-4 h-4 shrink-0"></i>
+                        <span>Consultar mi Diagnóstico por WhatsApp</span>
+                    </a>
+                    <button onclick="restartQuiz()"
+                        class="hidden sm:inline-flex items-center justify-center p-3.5 bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-xl font-bold text-xs transition shrink-0"
+                        title="Reiniciar Test">
+                        <i data-lucide="rotate-ccw" class="w-4 h-4 shrink-0"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="text-center pt-6">
+                <button onclick="restartQuiz()" class="text-xs text-slate-400 hover:text-brand-blue font-bold transition inline-flex items-center gap-1 sm:hidden">
+                    <i data-lucide="rotate-ccw" class="w-3.5 h-3.5 shrink-0"></i>
+                    <span>Volver a realizar el test</span>
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- 4. Footer Canónico Oficial Aizprua S.E. (4 Columnas) -->
+    <footer class="bg-slate-900 border-t border-slate-800 text-white pt-12 pb-8 px-4 sm:px-6 lg:px-8 mt-12">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-10 text-xs">
+            <!-- Columna 1: Marca & Redes Oficiales -->
+            <div class="space-y-4">
+                <a href="/" class="text-xl font-bold text-white tracking-tight hover:text-brand-orange transition inline-block">
+                    Aizprua S.E.
+                </a>
+                <p class="text-slate-400 leading-relaxed">
+                    Consultoría especializada en blindaje legal, cumplimiento fiscal DGI, gestión laboral Mitradel y estructuración empresarial en Panamá.
+                </p>
+                <div class="flex items-center gap-2.5 pt-2">
+                    <a target="_blank" rel="noopener noreferrer" href="https://instagram.com/aizpruase"
+                        class="w-9 h-9 bg-slate-800 hover:bg-pink-600 rounded-full flex items-center justify-center text-white transition duration-200"
+                        aria-label="Instagram">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                        </svg>
+                    </a>
+                    <a target="_blank" rel="noopener noreferrer" href="https://facebook.com/aizpruase"
+                        class="w-9 h-9 bg-slate-800 hover:bg-brand-blue rounded-full flex items-center justify-center text-white transition duration-200"
+                        aria-label="Facebook">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@AizpruaSE"
+                        class="w-9 h-9 bg-slate-800 hover:bg-red-600 rounded-full flex items-center justify-center text-white transition duration-200"
+                        aria-label="YouTube">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                    </a>
+                    <a target="_blank" rel="noopener noreferrer" href="https://wa.me/50765461527"
+                        class="w-9 h-9 bg-slate-800 hover:bg-[#25D366] rounded-full flex items-center justify-center text-white transition duration-200"
+                        aria-label="WhatsApp">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Columna 2: Soluciones Oficiales -->
+            <div>
+                <h4 class="font-bold text-white uppercase tracking-wider mb-3 text-xs">Soluciones</h4>
+                <ul class="space-y-2 text-slate-400">
+                    <li><a href="/plan-360" class="hover:text-brand-orange transition">Plan 360 Empresarial</a></li>
+                    <li><a href="/escudo-preventivo" class="hover:text-brand-orange transition">Escudo Preventivo</a></li>
+                    <li><a href="/tienda" class="hover:text-brand-orange transition">Catálogo de Soluciones</a></li>
+                    <li><a href="/test-interactivo" class="hover:text-brand-orange transition">Test de Auditoría Legal</a></li>
+                    <li><a href="/simulador-prestamos" class="hover:text-brand-orange transition">Simulador de Préstamos</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 3: Contacto & Asesoría -->
+            <div>
+                <h4 class="font-bold text-white uppercase tracking-wider mb-3 text-xs">Contacto Directo</h4>
+                <ul class="space-y-2 text-slate-400">
+                    <li class="flex items-center gap-2">
+                        <i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-orange shrink-0"></i>
+                        <span>Panamá Oeste, La Chorrera</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i data-lucide="phone" class="w-3.5 h-3.5 text-brand-orange shrink-0"></i>
+                        <a href="https://wa.me/50765461527" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">
+                            WhatsApp: +507 6546-1527
+                        </a>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i data-lucide="mail" class="w-3.5 h-3.5 text-brand-orange shrink-0"></i>
+                        <a href="mailto:info@aizprua.com" class="hover:text-white transition">
+                            info@aizprua.com
+                        </a>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i data-lucide="clock" class="w-3.5 h-3.5 text-brand-orange shrink-0"></i>
+                        <span>Lunes a Viernes: 8:00 AM - 5:00 PM</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Columna 4: Cumplimiento & Legal -->
+            <div>
+                <h4 class="font-bold text-white uppercase tracking-wider mb-3 text-xs">Cumplimiento Legal</h4>
+                <ul class="space-y-2 text-slate-400">
+                    <li><a href="/privacidad" class="hover:text-white transition">Política de Privacidad (Ley 81)</a></li>
+                    <li><a href="/terminos" class="hover:text-white transition">Términos y Condiciones</a></li>
+                    <li>
+                        <a href="https://whatsapp.com/channel/0029Va64qHbJJhzeH6DHa61a" target="_blank" rel="noopener noreferrer"
+                            class="text-emerald-400 hover:text-emerald-300 font-semibold transition inline-flex items-center gap-1.5">
+                            <i data-lucide="message-square" class="w-3.5 h-3.5 shrink-0"></i>
+                            <span>Comunidad Oficial WhatsApp</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="pt-3">
+                    <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-slate-800 text-[10px] text-slate-300 border border-slate-700">
+                        <i data-lucide="shield" class="w-3 h-3 text-emerald-400 shrink-0"></i>
+                        <span>Edición Oficial Panamá 2026</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright Canónico -->
+        <div class="max-w-7xl mx-auto pt-6 border-t border-slate-800 text-center sm:flex sm:justify-between sm:items-center text-slate-500 text-[11px]">
+            <p>© 2026 Aizprua S.E. Todos los derechos reservados.</p>
+            <p class="mt-2 sm:mt-0">Diseñado con los más altos estándares de gobernanza y protección empresarial.</p>
+        </div>
+    </footer>
+
+    <!-- 5. Botón Flotante Volver Arriba -->
+    <button id="scroll-top-btn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+        class="fixed bottom-6 right-6 w-11 h-11 bg-slate-900/90 hover:bg-brand-blue text-white rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 opacity-0 pointer-events-none z-40 border border-slate-700"
+        aria-label="Volver arriba">
+        <i data-lucide="arrow-up" class="w-5 h-5 shrink-0"></i>
+    </button>
+
+    <!-- ==========================================
+         LÓGICA JAVASCRIPT DEL TEST DE AUTOEMPLEO
+         ========================================== -->
+    <script>
+        // Preguntas Oficiales del Test
+        const QUESTIONS = [
+            {
+                area: "ÁREA 1: AUSENCIA & CONTINUIDAD",
+                title: "¿Qué ocurre con la facturación y operaciones de tu negocio si te ausentas 30 días sin acceso a celular ni correo?",
+                desc: "Evalúa qué tan dependiente es la supervivencia de la empresa respecto a tu atención física constante.",
+                options: [
+                    {
+                        text: "El negocio se paraliza por completo, los clientes reclaman y los ingresos caen a cero.",
+                        points: 3,
+                        type: "Autoempleado Crítico"
+                    },
+                    {
+                        text: "El equipo resuelve lo urgente, pero la captación de nuevos clientes y cobros clave se frenan.",
+                        points: 1,
+                        type: "Dependencia Parcial"
+                    },
+                    {
+                        text: "El negocio continúa operando, facturando y prestando el servicio normalmente mediante procesos.",
+                        points: 0,
+                        type: "Sistema Autónomo"
+                    }
+                ]
+            },
+            {
+                area: "ÁREA 2: VENTAS & CAPTACIÓN COMERCIAL",
+                title: "¿Quién es el responsable principal de atender a los prospectos, cotizar y cerrar contratos?",
+                desc: "Determina si el motor de ingresos está institucionalizado o si reposa exclusivamente en tu persona.",
+                options: [
+                    {
+                        text: "Yo personalmente; los clientes solo confían y compran si hablan y negocian directamente conmigo.",
+                        points: 3,
+                        type: "Autoempleado Crítico"
+                    },
+                    {
+                        text: "Cuento con apoyo para filtrar mensajes, pero la propuesta final y el cierre dependen de mí.",
+                        points: 1,
+                        type: "Dependencia Parcial"
+                    },
+                    {
+                        text: "Existe un guion comercial y personal asignado que cotiza y cierra ventas sin mi intervención.",
+                        points: 0,
+                        type: "Sistema Autónomo"
+                    }
+                ]
+            },
+            {
+                area: "ÁREA 3: ENTREGA DEL SERVICIO O PRODUCCIÓN",
+                title: "¿Quién realiza la ejecución técnica o la prestación del servicio que vendes?",
+                desc: "Mide si eres el artesano que fabrica o si tienes un equipo entrenado bajo estándares de calidad.",
+                options: [
+                    {
+                        text: "Yo ejecuto el servicio o fabrico el producto; nadie más domina los detalles con mi nivel de calidad.",
+                        points: 3,
+                        type: "Autoempleado Crítico"
+                    },
+                    {
+                        text: "Tengo colaboradores que ejecutan, pero debo revisar y corregir casi cada entregable antes de que salga.",
+                        points: 1,
+                        type: "Dependencia Parcial"
+                    },
+                    {
+                        text: "Mi equipo ejecuta y entrega siguiendo manuales de procedimiento y controles de calidad definidos.",
+                        points: 0,
+                        type: "Sistema Autónomo"
+                    }
+                ]
+            },
+            {
+                area: "ÁREA 4: MANUALES & DOCUMENTACIÓN DE PROCESOS",
+                title: "Si tu colaborador principal renuncia mañana, ¿qué tan fácil es entrenar a su reemplazo?",
+                desc: "Revela si el conocimiento de la empresa está documentado o si es un rehén en la cabeza de las personas.",
+                options: [
+                    {
+                        text: "Muy difícil o traumático; casi todo el conocimiento del negocio está en mi cabeza o en la suya.",
+                        points: 3,
+                        type: "Autoempleado Crítico"
+                    },
+                    {
+                        text: "Llevaría semanas de tutoría personalizada por mi parte porque no todo está por escrito.",
+                        points: 1,
+                        type: "Dependencia Parcial"
+                    },
+                    {
+                        text: "Rápido y fluido; contamos con manuales de funciones y procedimientos paso a paso documentados.",
+                        points: 0,
+                        type: "Sistema Autónomo"
+                    }
+                ]
+            },
+            {
+                area: "ÁREA 5: FINANZAS & RETIROS DEL DUEÑO",
+                title: "¿Cómo manejas tus ingresos y retiros de dinero de la cuenta del negocio?",
+                desc: "La separación entre la caja personal y la caja de la empresa es el pilar de un negocio formal.",
+                options: [
+                    {
+                        text: "Retiro dinero de la cuenta del negocio según van surgiendo mis gastos personales o familiares del mes.",
+                        points: 3,
+                        type: "Autoempleado Crítico"
+                    },
+                    {
+                        text: "Tengo un monto aproximado en mente, pero si el mes es bajo no cobro o saco extras si sobra.",
+                        points: 1,
+                        type: "Dependencia Parcial"
+                    },
+                    {
+                        text: "Tengo un salario fijo asignado con fecha exacta y los excedentes se gestionan como utilidades o reservas.",
+                        points: 0,
+                        type: "Sistema Autónomo"
+                    }
+                ]
+            },
+            {
+                area: "ÁREA 6: SOLUCIÓN DE PROBLEMAS COTIDIANOS",
+                title: "¿Con qué frecuencia te consultan para tomar decisiones operativas del día a día?",
+                desc: "Identifica si eres el cuello de botella decisional o si tu equipo cuenta con facultades delegadas.",
+                options: [
+                    {
+                        text: "Constantemente (múltiples veces al día); me llaman hasta para las decisiones más pequeñas.",
+                        points: 3,
+                        type: "Autoempleado Crítico"
+                    },
+                    {
+                        text: "Una o dos veces al día para resolver excepciones o dudas que se salen de la rutina.",
+                        points: 1,
+                        type: "Dependencia Parcial"
+                    },
+                    {
+                        text: "Rara vez; el equipo tiene autonomía y un protocolo claro de resolución según el presupuesto o manual.",
+                        points: 0,
+                        type: "Sistema Autónomo"
+                    }
+                ]
+            },
+            {
+                area: "ÁREA 7: BLINDAJE CONTRACTUAL DEL EQUIPO",
+                title: "¿Qué tipo de acuerdos o contratos respaldan a las personas que te apoyan en el negocio?",
+                desc: "Protección legal ante reclamos laborales en Mitradel, fuga de clientes o revelación de secretos comerciales.",
+                options: [
+                    {
+                        text: "Acuerdos verbales de confianza; no tenemos contratos formales firmados.",
+                        points: 3,
+                        type: "Autoempleado Crítico"
+                    },
+                    {
+                        text: "Algunos contratos básicos o recibos, pero sin cláusulas de confidencialidad o no competencia.",
+                        points: 1,
+                        type: "Dependencia Parcial"
+                    },
+                    {
+                        text: "Contratos formales estructurados, registrados ante Mitradel (si son planilla) o comerciales blindados.",
+                        points: 0,
+                        type: "Sistema Autónomo"
+                    }
+                ]
+            }
+        ];
+
+        // Estado del Test
+        let currentQuestion = 0;
+        let answers = new Array(QUESTIONS.length).fill(null);
+        let leadData = {
+            name: '',
+            company: '',
+            email: '',
+            phone: ''
+        };
+
+        // Iniciar Quiz
+        function startQuiz() {
+            document.getElementById('welcome-view').classList.add('hidden');
+            document.getElementById('quiz-view').classList.remove('hidden');
+            currentQuestion = 0;
+            renderQuestion();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Renderizar Pregunta Actual
+        function renderQuestion() {
+            const q = QUESTIONS[currentQuestion];
+            const total = QUESTIONS.length;
+            const progress = Math.round(((currentQuestion + 1) / total) * 100);
+
+            // Actualizar Textos
+            document.getElementById('question-counter').textContent = `Pregunta ${currentQuestion + 1} de ${total}`;
+            document.getElementById('progress-percent-label').textContent = `${progress}% completado`;
+            document.getElementById('quiz-progress-inner').style.width = `${progress}%`;
+            document.getElementById('progress-bar').style.width = `${progress}%`;
+
+            document.getElementById('question-category').textContent = q.area;
+            document.getElementById('question-title').textContent = q.title;
+            document.getElementById('question-desc').textContent = q.desc;
+
+            // Actualizar Botón Retroactivo
+            const prevBtnText = document.getElementById('prev-btn-text');
+            if (currentQuestion === 0) {
+                prevBtnText.textContent = "Volver al Inicio";
+            } else {
+                prevBtnText.textContent = "Pregunta Anterior";
+            }
+
+            // Renderizar Opciones con Memoria
+            const container = document.getElementById('options-container');
+            container.innerHTML = '';
+
+            const letters = ['A', 'B', 'C'];
+            q.options.forEach((opt, idx) => {
+                const isSelected = answers[currentQuestion] === idx;
+                const optBtn = document.createElement('button');
+                optBtn.type = "button";
+                optBtn.onclick = () => selectOption(idx);
+                optBtn.className = `w-full text-left p-4 sm:p-5 rounded-2xl border transition-all duration-200 flex items-start gap-3.5 cursor-pointer ${
+                    isSelected 
+                        ? 'border-brand-blue bg-brand-blue/5 shadow-md ring-2 ring-brand-blue/20' 
+                        : 'border-slate-200 hover:border-slate-300 hover:bg-slate-50/80 bg-white shadow-2xs'
+                }`;
+
+                optBtn.innerHTML = `
+                    <div class="w-8 h-8 rounded-xl font-black text-xs flex items-center justify-center shrink-0 transition-colors ${
+                        isSelected 
+                            ? 'bg-brand-blue text-white' 
+                            : 'bg-slate-100 text-slate-700'
+                    }">
+                        ${letters[idx]}
+                    </div>
+                    <div class="flex-1 min-w-0 pt-1">
+                        <p class="text-xs sm:text-sm font-semibold text-slate-800 leading-snug">
+                            ${opt.text}
+                        </p>
+                    </div>
+                    <div class="shrink-0 pt-1">
+                        <div class="w-5 h-5 rounded-full border flex items-center justify-center transition ${
+                            isSelected 
+                                ? 'border-brand-blue bg-brand-blue text-white' 
+                                : 'border-slate-300'
+                        }">
+                            ${isSelected ? '<i data-lucide="check" class="w-3.5 h-3.5 shrink-0"></i>' : ''}
+                        </div>
+                    </div>
+                `;
+                container.appendChild(optBtn);
+            });
+
+            lucide.createIcons();
+        }
+
+        // Seleccionar Opción
+        function selectOption(index) {
+            answers[currentQuestion] = index;
+            renderQuestion(); // Refresca para mostrar el resaltado
+
+            // Avanzar automáticamente con breve retardo
+            setTimeout(() => {
+                if (currentQuestion < QUESTIONS.length - 1) {
+                    currentQuestion++;
+                    renderQuestion();
+                    window.scrollTo({ top: 120, behavior: 'smooth' });
+                } else {
+                    showLeadView();
+                }
+            }, 250);
+        }
+
+        // Navegación Hacia Atrás
+        function goToPrevQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                renderQuestion();
+                window.scrollTo({ top: 120, behavior: 'smooth' });
+            } else {
+                // Volver a Pantalla de Bienvenida
+                document.getElementById('quiz-view').classList.add('hidden');
+                document.getElementById('welcome-view').classList.remove('hidden');
+                document.getElementById('progress-bar').style.width = '0%';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Mostrar Pantalla de Captura de Lead
+        function showLeadView() {
+            document.getElementById('quiz-view').classList.add('hidden');
+            document.getElementById('lead-view').classList.remove('hidden');
+            document.getElementById('progress-bar').style.width = '100%';
+            window.scrollTo({ top: 120, behavior: 'smooth' });
+            lucide.createIcons();
+        }
+
+        // Manejar Envío del Lead y Mostrar Resultados
+        function handleLeadSubmit(e) {
+            e.preventDefault();
+            leadData.name = document.getElementById('lead-name').value.trim();
+            leadData.company = document.getElementById('lead-company').value.trim();
+            leadData.email = document.getElementById('lead-email').value.trim();
+            leadData.phone = document.getElementById('lead-phone').value.trim();
+
+            calculateAndShowResults();
+        }
+
+        // Calcular Puntuación y Mostrar Vista de Resultados
+        function calculateAndShowResults() {
+            // Sumar puntos (cada opción A=3, B=1, C=0)
+            let totalPoints = 0;
+            const maxPoints = QUESTIONS.length * 3; // 21 puntos
+
+            answers.forEach((ansIdx, qIdx) => {
+                if (ansIdx !== null) {
+                    totalPoints += QUESTIONS[qIdx].options[ansIdx].points;
+                }
+            });
+
+            // Porcentaje de dependencia
+            const dependencePercent = Math.round((totalPoints / maxPoints) * 100);
+
+            // Determinar Nivel
+            let levelData = {};
+            if (totalPoints >= 15) {
+                // NIVEL 1: Autoempleado Crítico (80% - 100%)
+                levelData = {
+                    levelBadge: "NIVEL 1",
+                    levelBadgeClass: "bg-rose-100 text-rose-700 border border-rose-200",
+                    riskBadge: "Riesgo Crítico",
+                    riskBadgeClass: "bg-rose-600 text-white",
+                    title: "Autoempleado Operativo en Riesgo",
+                    titleColor: "text-rose-700",
+                    barColor: "bg-rose-600",
+                    cardClass: "bg-rose-50/60 border-rose-200 shadow-sm",
+                    description: "Tu negocio depende casi al 100% de tu presencia física, energía y tiempo diario. Si te enfermas, tomas vacaciones o tienes un imprevisto familiar, la facturación se detiene por completo y los clientes quedan desatendidos. Tienes un autoempleo de alta presión en lugar de una empresa escalable.",
+                    pilar1: { badge: "Crítico", desc: "La empresa se paraliza si te ausentas más de 15 días.", color: "bg-rose-100 text-rose-700" },
+                    pilar2: { badge: "Centralizado", desc: "Tú cierras y negocias casi el 100% de las ventas.", color: "bg-rose-100 text-rose-700" },
+                    pilar3: { badge: "En Tu Cabeza", desc: "No existen manuales de funciones ni procesos escritos.", color: "bg-rose-100 text-rose-700" },
+                    pilar4: { badge: "Vulnerable", desc: "Retiros desordenados y sin contratos de equipo blindados.", color: "bg-rose-100 text-rose-700" }
+                };
+            } else if (totalPoints >= 8) {
+                // NIVEL 2: Negocio en Transición (40% - 75%)
+                levelData = {
+                    levelBadge: "NIVEL 2",
+                    levelBadgeClass: "bg-amber-100 text-amber-800 border border-amber-200",
+                    riskBadge: "Riesgo Moderado",
+                    riskBadgeClass: "bg-amber-500 text-white",
+                    title: "Negocio en Transición (Cuello de Botella)",
+                    titleColor: "text-amber-800",
+                    barColor: "bg-amber-500",
+                    cardClass: "bg-amber-50/60 border-amber-200 shadow-sm",
+                    description: "Has logrado delegar algunas tareas y cuentas con colaboradores, pero sigues siendo el filtro obligatorio para aprobar decisiones, resolver dudas y cerrar negociaciones clave. El negocio tiene potencial, pero está topado porque tu tiempo es el límite físico del crecimiento.",
+                    pilar1: { badge: "Moderado", desc: "El negocio sobrevive a lo básico, pero el crecimiento se frena.", color: "bg-amber-100 text-amber-800" },
+                    pilar2: { badge: "Supervisado", desc: "Tienes apoyo comercial, pero el cierre final requiere tu firma.", color: "bg-amber-100 text-amber-800" },
+                    pilar3: { badge: "Incompleto", desc: "Procesos parciales que requieren continua tutoría tuya.", color: "bg-amber-100 text-amber-800" },
+                    pilar4: { badge: "Ajustable", desc: "Finanzas semi-separadas pero con vacíos en blindaje laboral.", color: "bg-amber-100 text-amber-800" }
+                };
+            } else {
+                // NIVEL 3: Dueño de Sistema (< 35%)
+                levelData = {
+                    levelBadge: "NIVEL 3",
+                    levelBadgeClass: "bg-emerald-100 text-emerald-800 border border-emerald-200",
+                    riskBadge: "Bajo Riesgo / Blindado",
+                    riskBadgeClass: "bg-emerald-600 text-white",
+                    title: "Empresario con Sistema Autónomo",
+                    titleColor: "text-emerald-800",
+                    barColor: "bg-emerald-500",
+                    cardClass: "bg-emerald-50/60 border-emerald-200 shadow-sm",
+                    description: "¡Felicidades! Operas como un verdadero dueño de empresa. Cuentas con procesos documentados, personal con facultades claras, blindaje contractual formal y finanzas estructuradas. Tu negocio es un activo productivo que genera valor sin depender de tu presencia diaria.",
+                    pilar1: { badge: "Autónomo", desc: "El negocio factura y atiende clientes con normalidad sin ti.", color: "bg-emerald-100 text-emerald-800" },
+                    pilar2: { badge: "Estructurado", desc: "Embudo comercial y personal asignado que opera solo.", color: "bg-emerald-100 text-emerald-800" },
+                    pilar3: { badge: "Documentado", desc: "Manuales paso a paso para entrenar a cualquier reemplazo.", color: "bg-emerald-100 text-emerald-800" },
+                    pilar4: { badge: "Blindado", desc: "Salario formal asignado y contratos registrados ante Mitradel.", color: "bg-emerald-100 text-emerald-800" }
+                };
+            }
+
+            // Aplicar Datos al DOM
+            document.getElementById('res-lead-name').textContent = leadData.name;
+            document.getElementById('res-lead-company').textContent = leadData.company;
+
+            document.getElementById('dependence-percent').textContent = `${dependencePercent}%`;
+            document.getElementById('dependence-percent').className = `text-4xl sm:text-5xl font-black tracking-tight ${levelData.titleColor}`;
+
+            const thermBar = document.getElementById('thermometer-bar');
+            thermBar.style.width = `${dependencePercent}%`;
+            thermBar.className = `h-full rounded-full transition-all duration-700 ${levelData.barColor}`;
+
+            const thermCard = document.getElementById('thermometer-card');
+            thermCard.className = `rounded-3xl p-6 sm:p-8 border mb-8 transition-all ${levelData.cardClass}`;
+
+            const lvlBadge = document.getElementById('level-badge');
+            lvlBadge.textContent = levelData.levelBadge;
+            lvlBadge.className = `px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider ${levelData.levelBadgeClass}`;
+
+            const rskBadge = document.getElementById('risk-badge');
+            rskBadge.textContent = levelData.riskBadge;
+            rskBadge.className = `px-3 py-1 rounded-full text-xs font-bold ${levelData.riskBadgeClass}`;
+
+            document.getElementById('level-title').textContent = levelData.title;
+            document.getElementById('level-title').className = `text-xl sm:text-2xl font-black tracking-tight leading-snug ${levelData.titleColor}`;
+            document.getElementById('level-description').textContent = levelData.description;
+
+            // Pilares
+            document.getElementById('pilar-1-badge').textContent = levelData.pilar1.badge;
+            document.getElementById('pilar-1-badge').className = `text-[10px] font-bold px-2 py-0.5 rounded-md ${levelData.pilar1.color}`;
+            document.getElementById('pilar-1-desc').textContent = levelData.pilar1.desc;
+
+            document.getElementById('pilar-2-badge').textContent = levelData.pilar2.badge;
+            document.getElementById('pilar-2-badge').className = `text-[10px] font-bold px-2 py-0.5 rounded-md ${levelData.pilar2.color}`;
+            document.getElementById('pilar-2-desc').textContent = levelData.pilar2.desc;
+
+            document.getElementById('pilar-3-badge').textContent = levelData.pilar3.badge;
+            document.getElementById('pilar-3-badge').className = `text-[10px] font-bold px-2 py-0.5 rounded-md ${levelData.pilar3.color}`;
+            document.getElementById('pilar-3-desc').textContent = levelData.pilar3.desc;
+
+            document.getElementById('pilar-4-badge').textContent = levelData.pilar4.badge;
+            document.getElementById('pilar-4-badge').className = `text-[10px] font-bold px-2 py-0.5 rounded-md ${levelData.pilar4.color}`;
+            document.getElementById('pilar-4-desc').textContent = levelData.pilar4.desc;
+
+            // Configurar Enlace WhatsApp Dinámico
+            const waMsg = encodeURIComponent(
+                `Hola Arubel, acabo de realizar el Test del Cuadrante en la web.
+
+` +
+                `*Nombre:* ${leadData.name}
+` +
+                `*Negocio:* ${leadData.company}
+` +
+                `*Nivel de Dependencia:* ${dependencePercent}% (${levelData.title})
+
+` +
+                `Deseo consultar cómo implementar el Plan 360 para estructurar y sistematizar mi operación.`
+            );
+            document.getElementById('whatsapp-results-btn').href = `https://wa.me/50766324905?text=${waMsg}`;
+
+            // Ocultar Lead View y Mostrar Results View
+            document.getElementById('lead-view').classList.add('hidden');
+            document.getElementById('results-view').classList.remove('hidden');
+            window.scrollTo({ top: 120, behavior: 'smooth' });
+            lucide.createIcons();
+        }
+
+        // Reiniciar Quiz
+        function restartQuiz() {
+            answers = new Array(QUESTIONS.length).fill(null);
+            currentQuestion = 0;
+            document.getElementById('results-view').classList.add('hidden');
+            document.getElementById('welcome-view').classList.remove('hidden');
+            document.getElementById('progress-bar').style.width = '0%';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Barra de Scroll Superior y Botón Volver Arriba
+        window.addEventListener('scroll', () => {
+            const btn = document.getElementById('scroll-top-btn');
+            if (window.scrollY > 400) {
+                btn.classList.remove('opacity-0', 'pointer-events-none');
+                btn.classList.add('opacity-100');
+            } else {
+                btn.classList.add('opacity-0', 'pointer-events-none');
+                btn.classList.remove('opacity-100');
+            }
+        });
+
+        // Inicializar Iconos
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+
+</html>

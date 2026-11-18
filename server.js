@@ -660,6 +660,16 @@ app.get(['/test-interactivo.html', '/quiz', '/quiz.html', '/auditoria-interactiv
   res.redirect(301, '/test-interactivo' + query);
 });
 
+// 4.8.0. Test del Cuadrante: Diagnóstico de Autoempleo (Canónica: /test-autoempleado)
+app.get('/test-autoempleado', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'test-autoempleado.html'));
+});
+
+app.get(['/test-autoempleado.html', '/autoempleado', '/autoempleo', '/test-cuadrante', '/cuadrante'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/test-autoempleado' + query);
+});
+
 // 4.8.1. Test Interactivo de Estructura Legal en Panamá (Canónica: /test-estructura)
 app.get('/test-estructura', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'test-estructura.html'));
