@@ -601,10 +601,11 @@
 
         <!-- 5. Mini Podcast / Cápsula Legal Widget -->
         <section aria-label="Cápsula de Audio Legal" class="rounded-2xl link-card p-4 border border-blue-200/80">
+            <audio id="podcast-audio" src="assets/audio/Por%20d%C3%B3nde%20empezar.mp3" preload="metadata"></audio>
             <div class="flex items-center gap-3 mb-3">
                 <div
                     class="relative w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 bg-blue-50 border border-blue-200 flex items-center justify-center shadow-sm">
-                    <i data-lucide="headphones" class="w-6 h-6 text-brand-blue"></i>
+                    <i data-lucide="headphones" class="w-6 h-6 text-brand-blue shrink-0"></i>
                 </div>
                 <div class="flex-1 min-w-0 text-left">
                     <div class="flex items-center gap-1.5 mb-0.5">
@@ -612,25 +613,24 @@
                         <span class="text-[10px] uppercase tracking-wider text-brand-orange-dark font-extrabold">Cápsula
                             Legal • Aizprua S.E.</span>
                     </div>
-                    <h3 class="text-xs sm:text-sm font-bold text-slate-900 truncate">¿Por qué un contrato de Google no
-                        te protege en Panamá?</h3>
+                    <h3 class="text-xs sm:text-sm font-bold text-slate-900 truncate">Por dónde empezar • Tu negocio en Panamá</h3>
                     <p class="text-[11px] text-slate-500">con Arubel Aizprua A.</p>
                 </div>
-                <button id="podcast-play-btn" aria-label="Reproducir cápsula"
-                    class="w-10 h-10 rounded-full bg-brand-blue hover:bg-brand-blue-dark text-white flex items-center justify-center hover:scale-105 active:scale-95 transition-all shadow-md shadow-brand-blue/20">
-                    <i data-lucide="play" id="player-icon" class="w-5 h-5 fill-current ml-0.5"></i>
+                <button id="podcast-play-btn" type="button" aria-label="Reproducir cápsula"
+                    class="w-10 h-10 rounded-full bg-brand-blue hover:bg-brand-blue-dark text-white flex items-center justify-center hover:scale-105 active:scale-95 transition-all shadow-md shadow-brand-blue/20 cursor-pointer shrink-0">
+                    <i data-lucide="play" id="player-icon" class="w-5 h-5 fill-current ml-0.5 shrink-0"></i>
                 </button>
             </div>
 
-            <!-- Player Progress Bar -->
-            <div class="w-full bg-slate-100 rounded-full h-1.5 overflow-hidden mb-1.5 border border-slate-200">
+            <!-- Player Progress Bar (Clickable / Scrubbable) -->
+            <div id="progress-container" class="w-full bg-slate-100 rounded-full h-2 overflow-hidden mb-1.5 border border-slate-200 cursor-pointer relative" title="Hacer clic para adelantar o retroceder">
                 <div id="podcast-progress-bar"
-                    class="bg-gradient-to-r from-brand-blue to-brand-orange h-full rounded-full transition-all duration-300"
-                    style="width: 25%;"></div>
+                    class="bg-gradient-to-r from-brand-blue to-brand-orange h-full rounded-full transition-all duration-100 pointer-events-none"
+                    style="width: 0%;"></div>
             </div>
             <div class="flex justify-between items-center text-[10px] text-slate-500 font-mono">
-                <span id="current-time">0:45</span>
-                <span>3:10</span>
+                <span id="current-time">0:00</span>
+                <span id="total-time">1:18</span>
             </div>
         </section>
 
@@ -834,40 +834,83 @@
             });
         }
 
-        // Mini Reproductor de Audio Simulado
+        // Reproductor de Audio Real HTML5
+        const podcastAudio = document.getElementById('podcast-audio');
         const podcastPlayBtn = document.getElementById('podcast-play-btn');
         const playerIcon = document.getElementById('player-icon');
         const progressBar = document.getElementById('podcast-progress-bar');
+        const progressContainer = document.getElementById('progress-container');
         const currentTimeLabel = document.getElementById('current-time');
-        let isPlaying = false;
-        let progressInterval = null;
-        let currentSeconds = 45;
+        const totalTimeLabel = document.getElementById('total-time');
 
-        if (podcastPlayBtn && playerIcon) {
-            podcastPlayBtn.addEventListener('click', () => {
-                isPlaying = !isPlaying;
-                if (isPlaying) {
-                    playerIcon.setAttribute('data-lucide', 'pause');
-                    lucide.createIcons();
-                    podcastPlayBtn.classList.add('bg-brand-orange');
-                    podcastPlayBtn.classList.remove('bg-brand-blue');
-                    progressInterval = setInterval(() => {
-                        currentSeconds += 1;
-                        if (currentSeconds > 190) { currentSeconds = 0; }
-                        const mins = Math.floor(currentSeconds / 60);
-                        const secs = String(currentSeconds % 60).padStart(2, '0');
-                        currentTimeLabel.textContent = `${mins}:${secs}`;
-                        const percentage = (currentSeconds / 190) * 100;
-                        progressBar.style.width = `${percentage}%`;
-                    }, 1000);
-                } else {
-                    playerIcon.setAttribute('data-lucide', 'play');
-                    lucide.createIcons();
-                    podcastPlayBtn.classList.remove('bg-brand-orange');
-                    podcastPlayBtn.classList.add('bg-brand-blue');
-                    clearInterval(progressInterval);
+        function formatAudioTime(seconds) {
+            const mins = Math.floor(seconds / 60) || 0;
+            const secs = Math.floor(seconds % 60) || 0;
+            return `${mins}:${String(secs).padStart(2, '0')}`;
+        }
+
+        if (podcastAudio && podcastPlayBtn && playerIcon) {
+            // Actualizar duración total al cargar metadatos
+            podcastAudio.addEventListener('loadedmetadata', () => {
+                if (totalTimeLabel && !isNaN(podcastAudio.duration)) {
+                    totalTimeLabel.textContent = formatAudioTime(podcastAudio.duration);
                 }
             });
+
+            // Toggle Play / Pause
+            podcastPlayBtn.addEventListener('click', () => {
+                if (podcastAudio.paused) {
+                    podcastAudio.play().then(() => {
+                        playerIcon.setAttribute('data-lucide', 'pause');
+                        playerIcon.classList.remove('ml-0.5');
+                        if (window.lucide) lucide.createIcons();
+                        podcastPlayBtn.classList.add('bg-brand-orange', 'hover:bg-brand-orange-dark');
+                        podcastPlayBtn.classList.remove('bg-brand-blue', 'hover:bg-brand-blue-dark');
+                    }).catch(err => {
+                        console.error('Error al reproducir audio:', err);
+                    });
+                } else {
+                    podcastAudio.pause();
+                    playerIcon.setAttribute('data-lucide', 'play');
+                    playerIcon.classList.add('ml-0.5');
+                    if (window.lucide) lucide.createIcons();
+                    podcastPlayBtn.classList.remove('bg-brand-orange', 'hover:bg-brand-orange-dark');
+                    podcastPlayBtn.classList.add('bg-brand-blue', 'hover:bg-brand-blue-dark');
+                }
+            });
+
+            // Actualizar tiempo y barra en tiempo real
+            podcastAudio.addEventListener('timeupdate', () => {
+                if (!isNaN(podcastAudio.duration) && podcastAudio.duration > 0) {
+                    const pct = (podcastAudio.currentTime / podcastAudio.duration) * 100;
+                    if (progressBar) progressBar.style.width = `${pct}%`;
+                    if (currentTimeLabel) currentTimeLabel.textContent = formatAudioTime(podcastAudio.currentTime);
+                }
+            });
+
+            // Al terminar el audio
+            podcastAudio.addEventListener('ended', () => {
+                playerIcon.setAttribute('data-lucide', 'play');
+                playerIcon.classList.add('ml-0.5');
+                if (window.lucide) lucide.createIcons();
+                podcastPlayBtn.classList.remove('bg-brand-orange', 'hover:bg-brand-orange-dark');
+                podcastPlayBtn.classList.add('bg-brand-blue', 'hover:bg-brand-blue-dark');
+                if (progressBar) progressBar.style.width = '0%';
+                if (currentTimeLabel) currentTimeLabel.textContent = '0:00';
+            });
+
+            // Adelantar / Retroceder al hacer clic en la barra
+            if (progressContainer) {
+                progressContainer.addEventListener('click', (e) => {
+                    const rect = progressContainer.getBoundingClientRect();
+                    const clickX = e.clientX - rect.left;
+                    const width = rect.width;
+                    if (width > 0 && !isNaN(podcastAudio.duration)) {
+                        const targetTime = (clickX / width) * podcastAudio.duration;
+                        podcastAudio.currentTime = Math.max(0, Math.min(targetTime, podcastAudio.duration));
+                    }
+                });
+            }
         }
 
         // Envío de Alertas / Newsletter
