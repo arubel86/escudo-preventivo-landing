@@ -968,6 +968,16 @@ app.get(['/simulador-prestamos.html', '/simulador-prestamo', '/simulador-prestam
   res.redirect(301, '/simulador-prestamos' + query);
 });
 
+// 10.8.1. Calculadora de Gastos de Cierre Inmobiliarios (Canónica: /calculadora-gastos-cierre)
+app.get('/calculadora-gastos-cierre', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'calculadora-gastos-cierre.html'));
+});
+
+app.get(['/calculadora-gastos-cierre.html', '/calculadora-cierre', '/calculadora-cierre.html', '/calculadora-inmobiliaria', '/calculadora-inmobiliaria.html', '/gastos-de-cierre', '/gastos-de-cierre.html'], (req, res) => {
+  const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
+  res.redirect(301, '/calculadora-gastos-cierre' + query);
+});
+
 // 10.9. Cotización Comercial Ejecutiva (Canónica: /cotizacion)
 app.get('/cotizacion', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'cotizacion.html'));
