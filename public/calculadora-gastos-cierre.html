@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>Calculadora de Gastos de Cierre en Panamá 2026 | Compradores y Vendedores | Aizprua S.E.</title>
+    <meta name="description"
+        content="Calcula en tiempo real los gastos de compra y venta de propiedades en Panamá. Para compradores: gastos de cierre, notaría y banco. Para vendedores: cálculo de 2% ITBI, 3% ganancia de capital y neto líquido a recibir.">
+    
+    <!-- URLs Canónicas -->
+    <link rel="canonical" href="https://aizprua.com/calculadora-gastos-cierre">
+    <link rel="alternate" href="https://aizprua.com/calculadora-gastos-cierre">
+
+    <!-- Open Graph (WhatsApp, Facebook, LinkedIn) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aizprua.com/calculadora-gastos-cierre">
+    <meta property="og:title" content="Calculadora de Gastos de Cierre en Panamá 2026 | Compradores y Vendedores | Aizprua S.E.">
+    <meta property="og:description"
+        content="Herramienta oficial para compradores y vendedores de bienes raíces en Panamá: calcula gastos de escrituración o tu dinero neto líquido a recibir tras impuestos.">
+    <meta property="og:image" content="https://aizprua.com/assets/aizprua-shield-og.jpg">
+    <meta property="og:image:secure_url" content="https://aizprua.com/assets/aizprua-shield-og.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="1080">
+    <meta property="og:locale" content="es_PA">
+    <meta property="og:site_name" content="Aizprua S.E.">
+
+    <!-- Twitter Cards Oficial -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Calculadora de Gastos de Cierre en Panamá 2026 | Aizprua S.E.">
+    <meta name="twitter:description" content="Calcula en tiempo real los gastos de compra y venta de propiedades en Panamá: notaría, impuestos DGI y banco.">
+    <meta name="twitter:image" content="https://aizprua.com/assets/aizprua-shield-og.jpg">
+
+    <!-- Schema.org Datos Estructurados Oficiales -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calculadora de Gastos de Cierre en Panamá (Compradores y Vendedores)",
+      "applicationCategory": "RealEstateApplication",
+      "operatingSystem": "All",
+      "url": "https://aizprua.com/calculadora-gastos-cierre",
+      "description": "Calculadora interactiva de gastos de cierre inmobiliarios para compradores (gastos hipotecarios y notariales) y vendedores (2% ITBI, 3% Ganancia de Capital y neto líquido) en Panamá.",
+      "provider": {
+        "@type": "LegalService",
+        "name": "Aizprua S.E.",
+        "url": "https://aizprua.com",
+        "telephone": "+50765461527",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "La Chorrera",
+          "addressRegion": "Panamá Oeste",
+          "addressCountry": "PA"
+        }
+      }
+    }
+    </script>
+
+    <!-- Tailwind CSS CDN Oficial -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-blue': '#3849C8',
+                        'brand-blue-dark': '#2D3A9F',
+                        'brand-blue-light': '#4F5ED4',
+                        'brand-orange': '#FF8A1E',
+                        'brand-orange-dark': '#E67A15',
+                        'brand-orange-light': '#FFA04A',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Tipografía Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Estilos Canónicos y Print Stylesheet -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+            color: #0F172A;
+        }
+
+        .custom-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: #F1F5F9;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 9999px;
+        }
+
+        input[type=range] {
+            accent-color: #3849C8;
+        }
+
+        @media print {
+            header, #announcement-bar, #progress-bar, footer, #cta-banner, #print-action-bar, #selector-perfil-maestro, .no-print {
+                display: none !important;
+            }
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            main {
+                max-width: 100% !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .print-card {
+                box-shadow: none !important;
+                border: 1px solid #E2E8F0 !important;
+                break-inside: avoid;
+            }
+        }
+        /* Espaciado generoso y elegante para opciones del menú desplegable */
+        #condicion-select {
+            line-height: 1.5;
+        }
+        #condicion-select option {
+            padding: 12px 16px !important;
+            font-size: 13px !important;
+            line-height: 1.8 !important;
+            background-color: #ffffff !important;
+            color: #1e293b !important;
+        }
+    </style>
+
+    <!-- Google Analytics 4 (G-CXEYK5X3WB) -->
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CXEYK5X3WB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-CXEYK5X3WB');
+    </script>
+</head>
+
+<body class="min-h-screen flex flex-col antialiased selection:bg-brand-blue selection:text-white">
+
+    <!-- Barra de Progreso Canónica en Naranja Corporativo -->
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-brand-orange z-[60] transition-all duration-75" style="width:0%"></div>
+
+    <!-- Barra Superior de Anuncios Canónica Oficial (relative) -->
+    <div id="announcement-bar" class="relative bg-slate-900 text-white text-xs py-2 px-4 z-50 border-b border-slate-800 text-center font-medium">
+        <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 flex-wrap">
+            <span class="inline-flex items-center gap-1.5 bg-brand-orange/20 text-brand-orange-light px-2.5 py-0.5 rounded-full text-[11px] font-black uppercase tracking-wider">
+                <i data-lucide="shield-check" class="w-3.5 h-3.5 shrink-0"></i>
+                Bienes Raíces Panamá 2026
+            </span>
+            <span>¿Comprando o vendiendo propiedad? Protege tu patrimonio con revisión legal de promesa y paz y salvos oficiales.</span>
+            <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.%2C%20deseo%20asesor%C3%ADa%20para%20la%20compraventa%20de%20un%20inmueble."
+                target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center gap-1 text-brand-orange hover:text-brand-orange-light font-bold underline ml-1 transition">
+                <span>Consultar por WhatsApp</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5 shrink-0"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Barra de Navegación Oficial Canónica (h-20 / Logo h-28) -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Botón Volver a Recursos -->
+            <a href="/recursos"
+                class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-700 hover:text-brand-blue bg-slate-100 hover:bg-slate-200/80 px-3.5 py-2 rounded-xl transition">
+                <i data-lucide="arrow-left" class="w-4 h-4 shrink-0"></i>
+                <span class="hidden sm:inline">Volver a</span> Recursos
+            </a>
+
+            <!-- Logotipo Canónico Institucional -->
+            <a href="/" class="flex items-center justify-center -my-4 group" aria-label="Aizprua S.E. Inicio">
+                <img src="/assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg"
+                    onerror="this.onerror=null; this.src='assets/LOGOS PARA DIGITAL INDIVIDUALES-07.svg';"
+                    alt="Logo Aizprua S.E. - Firma Legal y Empresarial en Panamá"
+                    class="h-28 w-auto object-contain transition duration-200 group-hover:scale-105"
+                    width="112" height="112">
+            </a>
+
+            <!-- Botón Asesoría WhatsApp (Solo icono en móvil, texto completo en desktop) -->
+            <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.%2C%20tengo%20consultas%20sobre%20los%20gastos%20de%20cierre%20de%20mi%20propiedad."
+                target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold p-2.5 sm:py-2.5 sm:px-4 rounded-xl shadow-sm hover:shadow transition whitespace-nowrap"
+                aria-label="Escribir a un Consultor por WhatsApp">
+                <i data-lucide="message-circle" class="w-5 h-5 sm:w-4 sm:h-4 shrink-0"></i>
+                <span class="hidden sm:inline text-xs sm:text-sm">Escribir a un Consultor</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Contenedor Principal -->
+    <main class="flex-grow py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full space-y-8">
+
+        <!-- Migas de Pan (Breadcrumbs) -->
+        <nav class="flex items-center gap-2 text-xs text-slate-500">
+            <a href="/" class="hover:text-brand-blue transition">Inicio</a>
+            <i data-lucide="chevron-right" class="w-3 h-3 text-slate-400 shrink-0"></i>
+            <a href="/recursos" class="hover:text-brand-blue transition">Recursos</a>
+            <i data-lucide="chevron-right" class="w-3 h-3 text-slate-400 shrink-0"></i>
+            <span class="text-slate-900 font-bold">Calculadora de Cierre Inmobiliario</span>
+        </nav>
+
+        <!-- Encabezado de Página -->
+        <div class="text-center max-w-3xl mx-auto space-y-3">
+            <div class="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-[11px] sm:text-xs font-bold uppercase tracking-wider whitespace-nowrap">
+                <i data-lucide="calculator" class="w-3.5 h-3.5 shrink-0 text-brand-blue"></i>
+                <span class="hidden sm:inline">Simulador Inmobiliario Integral · Panamá 2026</span>
+                <span class="sm:hidden">Simulador Inmobiliario · Panamá</span>
+            </div>
+            
+            <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                Calculadora de Gastos Inmobiliarios en Panamá
+            </h1>
+            
+            <p class="text-sm sm:text-base text-slate-600 leading-relaxed" id="subtitulo-herramienta">
+                Selecciona tu rol para estimar en tiempo real los costos notariales y bancarios si vas a <strong>comprar</strong>, o tus impuestos de DGI y dinero neto líquido si vas a <strong>vender</strong>.
+            </p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SELECTOR MAESTRO DE PERFIL: COMPRADOR VS. VENDEDOR           -->
+        <!-- ============================================================ -->
+        <div id="selector-perfil-maestro" class="max-w-xl mx-auto">
+            <div class="bg-white p-1.5 rounded-2xl border border-slate-200 shadow-sm grid grid-cols-2 gap-2">
+                <button type="button" id="tab-perfil-comprador" onclick="switchPerfil('comprador')"
+                    class="py-3 px-4 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all bg-brand-blue text-white shadow-md">
+                    <i data-lucide="key-round" class="w-4 h-4 shrink-0"></i>
+                    <span>Soy Comprador</span>
+                </button>
+                <button type="button" id="tab-perfil-vendedor" onclick="switchPerfil('vendedor')"
+                    class="py-3 px-4 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all bg-slate-50 text-slate-700 hover:bg-slate-100">
+                    <i data-lucide="badge-dollar-sign" class="w-4 h-4 shrink-0"></i>
+                    <span>Soy Vendedor</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- CUADRÍCULA PRINCIPAL (FORMULARIO + RESULTADOS)                -->
+        <!-- ============================================================ -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+            <!-- ======================================================== -->
+            <!-- COLUMNA IZQUIERDA: FORMULARIO INTERACTIVO (5 cols)       -->
+            <!-- ======================================================== -->
+            <div class="lg:col-span-5 bg-white rounded-3xl border border-slate-200 p-5 sm:p-7 shadow-sm space-y-6">
+                
+                <div class="flex items-center justify-between border-b border-slate-100 pb-4 gap-2">
+                    <div class="flex items-center gap-2.5 min-w-0">
+                        <div class="w-9 h-9 rounded-xl bg-brand-blue/10 text-brand-blue flex items-center justify-center shrink-0" id="icono-formulario-header">
+                            <i data-lucide="sliders" class="w-5 h-5 shrink-0"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <h2 class="text-base font-bold text-slate-900 leading-tight" id="titulo-formulario-header">Datos de la Compra</h2>
+                            <p class="text-[11px] sm:text-xs text-slate-500 leading-tight whitespace-nowrap truncate" id="desc-formulario-header">Parámetros de compraventa</p>
+                        </div>
+                    </div>
+                    <button type="button" onclick="resetForm()" class="text-xs text-slate-400 hover:text-brand-blue font-medium transition flex items-center gap-1 shrink-0 p-1.5 sm:px-2.5 sm:py-1 rounded-lg hover:bg-slate-100" title="Reiniciar formulario" aria-label="Reiniciar formulario">
+                        <i data-lucide="rotate-ccw" class="w-3.5 h-3.5 shrink-0"></i>
+                        <span class="hidden sm:inline">Reiniciar</span>
+                    </button>
+                </div>
+
+                <!-- 1. Precio de la Propiedad (Común para ambos) -->
+                <div class="space-y-2">
+                    <label for="precio-input" class="text-[11px] sm:text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-1.5 whitespace-nowrap">
+                        <i data-lucide="dollar-sign" class="w-3.5 h-3.5 text-brand-blue shrink-0"></i>
+                        <span id="label-precio-input">Precio de la propiedad (USD)</span>
+                    </label>
+                    <div class="relative rounded-2xl shadow-xs">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 font-bold text-base">
+                            $
+                        </div>
+                        <input type="text" id="precio-input" value="150,000"
+                            class="block w-full pl-8 pr-4 py-3.5 text-slate-900 font-black text-lg bg-slate-50 border border-slate-200 rounded-2xl focus:bg-white focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition outline-none"
+                            placeholder="150,000" oninput="handlePrecioInput(this)">
+                    </div>
+                    <!-- Chips de Precios Rápidos -->
+                    <div class="flex flex-wrap gap-1.5 pt-1">
+                        <button type="button" onclick="setPrecioRapido(80000)" class="px-2.5 py-1 text-[11px] font-bold rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 transition">$80k</button>
+                        <button type="button" onclick="setPrecioRapido(120000)" class="px-2.5 py-1 text-[11px] font-bold rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 transition">$120k</button>
+                        <button type="button" onclick="setPrecioRapido(150000)" class="px-2.5 py-1 text-[11px] font-bold rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 transition">$150k</button>
+                        <button type="button" onclick="setPrecioRapido(200000)" class="px-2.5 py-1 text-[11px] font-bold rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 transition">$200k</button>
+                        <button type="button" onclick="setPrecioRapido(300000)" class="px-2.5 py-1 text-[11px] font-bold rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 transition">$300k</button>
+                        <button type="button" onclick="setPrecioRapido(450000)" class="px-2.5 py-1 text-[11px] font-bold rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 transition">$450k</button>
+                    </div>
+                </div>
+
+                <!-- ==================================================== -->
+                <!-- CAMPOS EXCLUSIVOS DEL COMPRADOR                      -->
+                <!-- ==================================================== -->
+                <div id="seccion-campos-comprador" class="space-y-6">
+                    
+                    <!-- Tipo de Compra -->
+                    <div class="space-y-2">
+                        <label class="text-[11px] sm:text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-1.5 whitespace-nowrap">
+                            <i data-lucide="credit-card" class="w-3.5 h-3.5 text-brand-blue shrink-0"></i>
+                            <span>Tipo de compra</span>
+                        </label>
+                        <div class="grid grid-cols-2 gap-3">
+                            <label class="relative flex flex-col p-3.5 rounded-2xl border cursor-pointer transition select-none bg-brand-blue/5 border-brand-blue text-brand-blue" id="label-tipo-hipoteca">
+                                <input type="radio" name="tipoCompra" value="hipoteca" checked class="sr-only" onchange="handleTipoCompraChange('hipoteca')">
+                                <div class="flex items-center gap-2 font-bold text-xs sm:text-sm">
+                                    <i data-lucide="landmark" class="w-4 h-4 shrink-0"></i>
+                                    <span>Con Hipoteca</span>
+                                </div>
+                                <span class="text-[11px] text-slate-500 mt-1">Préstamo bancario</span>
+                            </label>
+
+                            <label class="relative flex flex-col p-3.5 rounded-2xl border cursor-pointer transition select-none bg-white border-slate-200 text-slate-700 hover:border-slate-300" id="label-tipo-contado">
+                                <input type="radio" name="tipoCompra" value="contado" class="sr-only" onchange="handleTipoCompraChange('contado')">
+                                <div class="flex items-center gap-2 font-bold text-xs sm:text-sm">
+                                    <i data-lucide="wallet" class="w-4 h-4 shrink-0"></i>
+                                    <span>Al Contado</span>
+                                </div>
+                                <span class="text-[11px] text-slate-500 mt-1">Fondos propios (100%)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Condición de la Propiedad -->
+                    <div class="space-y-2.5">
+                        <label for="condicion-select" class="text-[11px] sm:text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-1.5 whitespace-nowrap">
+                            <i data-lucide="home" class="w-3.5 h-3.5 text-brand-blue shrink-0"></i>
+                            <span>Condición del inmueble</span>
+                        </label>
+                        <div class="relative mt-1.5" id="dropdown-condicion-wrapper">
+                            <!-- Botón Trigger de Apertura -->
+                            <button type="button" id="condicion-trigger" onclick="toggleCondicionDropdown()"
+                                class="w-full py-3.5 px-4 text-left text-xs sm:text-sm font-semibold text-slate-800 bg-slate-50 hover:bg-white border border-slate-200 rounded-2xl focus:bg-white focus:ring-2 focus:ring-brand-blue focus:border-brand-blue transition outline-none flex items-center justify-between gap-3 shadow-xs cursor-pointer">
+                                <span id="condicion-selected-text" class="truncate font-bold">Vivienda Nueva (Interés Preferencial)</span>
+                                <i data-lucide="chevron-down" id="condicion-chevron" class="w-4 h-4 text-slate-500 transition-transform duration-200 shrink-0"></i>
+                            </button>
+                            
+                            <!-- Input Oculto para compatibilidad 100% con el motor de cálculo -->
+                            <input type="hidden" id="condicion-select" value="preferencial">
+
+                            <!-- Menú Desplegable Flotante Despegado (mt-2.5, esquinas rounded-2xl y sombra flotante) -->
+                            <div id="condicion-menu" class="hidden absolute left-0 right-0 top-full mt-2.5 bg-white border border-slate-200 rounded-2xl shadow-2xl z-40 p-2 space-y-1.5 transition-all">
+                                <button type="button" onclick="selectCondicion('preferencial', 'Vivienda Nueva (Interés Preferencial)')"
+                                    class="condicion-option w-full text-left p-3 rounded-xl text-xs sm:text-sm transition flex items-center justify-between bg-brand-blue/10 text-brand-blue font-bold">
+                                    <div>
+                                        <div class="font-bold text-slate-900">Vivienda Nueva (Interés Preferencial)</div>
+                                        <div class="text-[11px] text-slate-500 font-normal">Subsidio oficial de tasa de interés por Ley de Panamá</div>
+                                    </div>
+                                    <i data-lucide="check" class="w-4 h-4 text-brand-blue shrink-0"></i>
+                                </button>
+
+                                <button type="button" onclick="selectCondicion('nueva_regular', 'Propiedad Nueva / Terreno (Sin Subsidio)')"
+                                    class="condicion-option w-full text-left p-3 rounded-xl text-xs sm:text-sm transition flex items-center justify-between text-slate-700 hover:bg-slate-50">
+                                    <div>
+                                        <div class="font-bold text-slate-900">Propiedad Nueva / Terreno (Sin Subsidio)</div>
+                                        <div class="text-[11px] text-slate-500 font-normal">Lotes de terreno, locales comerciales o viviendas sin ley preferencial</div>
+                                    </div>
+                                    <i data-lucide="check" class="w-4 h-4 text-brand-blue shrink-0 hidden"></i>
+                                </button>
+
+                                <button type="button" onclick="selectCondicion('segunda', 'Propiedad Usada (De Segunda / Reventa)')"
+                                    class="condicion-option w-full text-left p-3 rounded-xl text-xs sm:text-sm transition flex items-center justify-between text-slate-700 hover:bg-slate-50">
+                                    <div>
+                                        <div class="font-bold text-slate-900">Propiedad Usada (De Segunda / Reventa)</div>
+                                        <div class="text-[11px] text-slate-500 font-normal">Inmuebles de segunda mano transferidos entre particulares</div>
+                                    </div>
+                                    <i data-lucide="check" class="w-4 h-4 text-brand-blue shrink-0 hidden"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <p class="text-[11px] text-slate-500 leading-relaxed pt-1" id="condicion-ayuda">
+                            Aplica descuento especial de aranceles de registro y exoneración de comisión bancaria según el tramo de interés preferencial.
+                        </p>
+                    </div>
+
+                    <!-- Abono Inicial (Slider) -->
+                    <div id="bloque-abono" class="space-y-3 transition-all">
+                        <div class="flex justify-between items-center">
+                            <label for="abono-slider" class="text-[11px] sm:text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-1.5 whitespace-nowrap">
+                                <i data-lucide="percent" class="w-3.5 h-3.5 text-brand-blue shrink-0"></i>
+                                <span>Abono inicial</span>
+                            </label>
+                            <div class="flex items-center gap-1 text-sm font-black text-brand-blue bg-brand-blue/10 px-2.5 py-0.5 rounded-lg">
+                                <span id="abono-porcentaje-label">10</span>%
+                                <span class="text-slate-400 font-normal text-xs">($<span id="abono-monto-label">15,000</span>)</span>
+                            </div>
+                        </div>
+                        <input type="range" id="abono-slider" min="0" max="80" step="1" value="10"
+                            class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer"
+                            oninput="handleAbonoSlider(this.value)">
+                        <div class="flex justify-between text-[10px] text-slate-400 font-bold px-1">
+                            <span>0%</span>
+                            <span>10% (Típico)</span>
+                            <span>20%</span>
+                            <span>50%</span>
+                            <span>80%</span>
+                        </div>
+                    </div>
+
+                    <!-- Switch Consultor Comprador -->
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex items-start justify-between gap-3">
+                        <div class="space-y-0.5 min-w-0">
+                            <label for="switch-abogado" class="text-xs font-bold text-slate-900 cursor-pointer flex items-center gap-1.5 whitespace-nowrap">
+                                <i data-lucide="scale" class="w-4 h-4 text-brand-orange shrink-0"></i>
+                                <span class="hidden sm:inline">¿Incluir consultor independiente?</span>
+                                <span class="sm:hidden">¿Consultor independiente?</span>
+                            </label>
+                            <p class="text-[11px] text-slate-500 leading-relaxed">
+                                Acompañamiento de un consultor para revisar promesa de compraventa, minutas y paz y salvos (1.5% o mín. $600).
+                            </p>
+                        </div>
+                        <label for="switch-abogado" class="relative inline-flex items-center cursor-pointer shrink-0 mt-0.5 select-none">
+                            <input type="checkbox" id="switch-abogado" checked class="sr-only peer" onchange="recalcular()">
+                            <div class="w-11 h-6 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-blue pointer-events-none"></div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- ==================================================== -->
+                <!-- CAMPOS EXCLUSIVOS DEL VENDEDOR                       -->
+                <!-- ==================================================== -->
+                <div id="seccion-campos-vendedor" class="space-y-6 hidden">
+                    
+                    <!-- Régimen del Inmueble (Casa / No PH vs Apartamento / PH) -->
+                    <div class="space-y-2">
+                        <label class="text-[11px] sm:text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-1.5 whitespace-nowrap">
+                            <i data-lucide="building-2" class="w-3.5 h-3.5 text-brand-orange shrink-0"></i>
+                            <span>Régimen del inmueble</span>
+                        </label>
+                        <div class="grid grid-cols-2 gap-2">
+                            <label for="tipo-inmueble-casa" id="label-inmueble-casa"
+                                class="relative flex items-center justify-center gap-1.5 sm:gap-2 p-2.5 sm:p-3 rounded-2xl border cursor-pointer transition select-none bg-white border-slate-200 text-slate-700 hover:border-slate-300">
+                                <input type="radio" name="tipoInmuebleVendedor" id="tipo-inmueble-casa" value="casa" class="sr-only" onchange="handleTipoInmuebleVendedor('casa')">
+                                <i data-lucide="home" class="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0"></i>
+                                <span class="text-[11px] sm:text-xs font-bold whitespace-nowrap">Casa / Terreno</span>
+                            </label>
+                            <label for="tipo-inmueble-ph" id="label-inmueble-ph"
+                                class="relative flex items-center justify-center gap-1.5 sm:gap-2 p-2.5 sm:p-3 rounded-2xl border cursor-pointer transition select-none bg-brand-orange/5 border-brand-orange text-brand-orange font-bold">
+                                <input type="radio" name="tipoInmuebleVendedor" id="tipo-inmueble-ph" value="ph" checked class="sr-only" onchange="handleTipoInmuebleVendedor('ph')">
+                                <i data-lucide="building" class="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0"></i>
+                                <span class="text-[11px] sm:text-xs font-bold whitespace-nowrap">Apartamento / PH</span>
+                            </label>
+                        </div>
+                        <p class="text-[11px] text-slate-500" id="inmueble-ayuda">
+                            Propiedades en PH requieren paz y salvo emitido por la administración de la torre o barriada.
+                        </p>
+                    </div>
+
+                    <!-- Hipoteca Pendiente por Cancelar -->
+                    <div class="space-y-2">
+                        <label for="hipoteca-vendedor-input" class="text-[11px] sm:text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-1.5 whitespace-nowrap">
+                            <i data-lucide="landmark" class="w-3.5 h-3.5 text-brand-orange shrink-0"></i>
+                            <span class="hidden sm:inline">Saldo de hipoteca a cancelar ($)</span>
+                            <span class="sm:hidden">Saldo de hipoteca ($)</span>
+                        </label>
+                        <div class="relative rounded-2xl shadow-xs">
+                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 font-bold text-base">
+                                $
+                            </div>
+                            <input type="text" id="hipoteca-vendedor-input" value="0"
+                                class="block w-full pl-8 pr-4 py-3.5 text-slate-900 font-black text-lg bg-slate-50 border border-slate-200 rounded-2xl focus:bg-white focus:ring-2 focus:ring-brand-orange focus:border-brand-orange transition outline-none"
+                                placeholder="0" oninput="handleHipotecaVendedorInput(this)">
+                        </div>
+                        <p class="text-[11px] text-slate-500">
+                            Coloca <strong>$0</strong> si tu propiedad ya está 100% paga y libre de gravamen hipotecario.
+                        </p>
+                    </div>
+
+                    <!-- Switch: Corredor de Bienes Raíces (5%) -->
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex items-start justify-between gap-3">
+                        <div class="space-y-0.5 min-w-0">
+                            <label for="switch-corredor" class="text-xs font-bold text-slate-900 cursor-pointer flex items-center gap-1.5 whitespace-nowrap">
+                                <i data-lucide="briefcase" class="w-4 h-4 text-brand-blue shrink-0"></i>
+                                <span class="hidden sm:inline">¿Venta con Corredor Inmobiliario?</span>
+                                <span class="sm:hidden">¿Venta con Corredor?</span>
+                            </label>
+                            <p class="text-[11px] text-slate-500 leading-relaxed">
+                                Comisión estándar en Panamá del <strong>5%</strong> sobre el precio de venta acordado.
+                            </p>
+                        </div>
+                        <label for="switch-corredor" class="relative inline-flex items-center cursor-pointer shrink-0 mt-0.5 select-none">
+                            <input type="checkbox" id="switch-corredor" checked class="sr-only peer" onchange="recalcular()">
+                            <div class="w-11 h-6 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-orange pointer-events-none"></div>
+                        </label>
+                    </div>
+
+                    <!-- Switch: Gestión de Paz y Salvos con Aizprua S.E. -->
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2.5">
+                        <div class="flex items-start justify-between gap-3">
+                            <div class="space-y-0.5 min-w-0">
+                                <label for="switch-paz-salvo-nosotros" class="text-xs font-bold text-slate-900 cursor-pointer flex items-center gap-1.5 whitespace-nowrap">
+                                    <i data-lucide="shield-check" class="w-4 h-4 text-brand-orange shrink-0"></i>
+                                    <span class="hidden sm:inline">¿Tramitar Paz y Salvos con Aizprua S.E.?</span>
+                                    <span class="sm:hidden">¿Paz y Salvos con Aizprua S.E.?</span>
+                                </label>
+                                <p class="text-[11px] text-slate-500 leading-relaxed" id="desc-switch-paz-salvo">
+                                    Gestión completa ante DGI, IDAAN y PH ($150.00). Cero filas ni demoras.
+                                </p>
+                            </div>
+                            <label for="switch-paz-salvo-nosotros" class="relative inline-flex items-center cursor-pointer shrink-0 mt-0.5 select-none">
+                                <input type="checkbox" id="switch-paz-salvo-nosotros" checked class="sr-only peer" onchange="recalcular()">
+                                <div class="w-11 h-6 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-orange pointer-events-none"></div>
+                            </label>
+                        </div>
+                        <div id="banner-paz-salvo-autogestion" class="hidden p-2.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-[11px] leading-relaxed">
+                            <span class="font-bold">Trámite por tu cuenta:</span> Solo pagarás las tasas oficiales de timbres fiscales (<span id="monto-paz-autogestion">$40.00</span>). Deberás solicitar y retirar personalmente cada certificado.
+                        </div>
+                    </div>
+
+                    <!-- Switch: Minuta de Compraventa con Consultor -->
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex items-start justify-between gap-3">
+                        <div class="space-y-0.5 min-w-0">
+                            <label for="switch-consultor-vendedor" class="text-xs font-bold text-slate-900 cursor-pointer flex items-center gap-1.5 whitespace-nowrap">
+                                <i data-lucide="file-check" class="w-4 h-4 text-brand-blue shrink-0"></i>
+                                <span class="hidden sm:inline">¿Minuta de compraventa con consultor?</span>
+                                <span class="sm:hidden">¿Minuta legal con consultor?</span>
+                            </label>
+                            <p class="text-[11px] text-slate-500 leading-relaxed">
+                                Redacción legal de la minuta de venta y coordinación con notaría (1% o mín. $500).
+                            </p>
+                        </div>
+                        <label for="switch-consultor-vendedor" class="relative inline-flex items-center cursor-pointer shrink-0 mt-0.5 select-none">
+                            <input type="checkbox" id="switch-consultor-vendedor" checked class="sr-only peer" onchange="recalcular()">
+                            <div class="w-11 h-6 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-blue pointer-events-none"></div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Botón de Recalcular -->
+                <div class="pt-2">
+                    <button type="button" onclick="recalcular()"
+                        class="w-full py-3.5 px-6 rounded-2xl bg-brand-blue hover:bg-brand-blue-dark text-white font-bold text-sm transition shadow-lg shadow-brand-blue/20 flex items-center justify-center gap-2"
+                        id="btn-recalcular-accion">
+                        <i data-lucide="refresh-cw" class="w-4 h-4 shrink-0"></i>
+                        <span>Actualizar Cálculos</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ======================================================== -->
+            <!-- COLUMNA DERECHA: RESULTADOS Y DESGLOSE (7 cols)          -->
+            <!-- ======================================================== -->
+            <div class="lg:col-span-7 space-y-6">
+
+                <!-- ==================================================== -->
+                <!-- RESULTADOS: MODO COMPRADOR                           -->
+                <!-- ==================================================== -->
+                <div id="vista-resultados-comprador" class="space-y-6">
+
+                    <!-- TARJETA HERO DE TOTALES (COMPRADOR) -->
+                    <div class="bg-gradient-to-br from-slate-900 via-slate-800 to-brand-blue-dark rounded-3xl p-6 sm:p-8 text-white shadow-xl relative overflow-hidden print-card">
+                        <div class="absolute -right-16 -top-16 w-56 h-56 bg-brand-orange/20 rounded-full blur-3xl pointer-events-none"></div>
+                        <div class="absolute -left-16 -bottom-16 w-56 h-56 bg-brand-blue/30 rounded-full blur-3xl pointer-events-none"></div>
+
+                        <div class="relative z-10 space-y-6">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-4">
+                                <div>
+                                    <span class="text-xs uppercase font-bold tracking-wider text-brand-orange-light block">
+                                        Resumen Oficial para Compradores
+                                    </span>
+                                    <h3 class="text-xl sm:text-2xl font-black tracking-tight text-white mt-0.5">
+                                        Presupuesto de Cierre Estimado
+                                    </h3>
+                                </div>
+                                <span class="self-start sm:self-center inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-white/10 text-white border border-white/20 whitespace-nowrap">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                    <span id="badge-tipo-resumen">Compra con Hipoteca</span>
+                                </span>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <!-- Total Gastos de Cierre -->
+                                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-white/15 space-y-1">
+                                    <span class="text-xs font-bold text-slate-300 block">Total Gastos de Cierre</span>
+                                    <div class="text-2xl sm:text-3xl font-black text-brand-orange-light tracking-tight" id="display-total-gastos">
+                                        $4,825.00
+                                    </div>
+                                    <p class="text-[11px] text-slate-300">
+                                        Representa el <strong class="text-white" id="display-porcentaje-gastos">3.22%</strong> del inmueble.
+                                    </p>
+                                </div>
+
+                                <!-- Efectivo Total Necesario -->
+                                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-white/15 space-y-1">
+                                    <span class="text-xs font-bold text-slate-300 block">Efectivo Total Necesario</span>
+                                    <div class="text-2xl sm:text-3xl font-black text-white tracking-tight" id="display-efectivo-necesario">
+                                        $19,825.00
+                                    </div>
+                                    <p class="text-[11px] text-slate-300">
+                                        Abono ($<span id="display-abono-monto-resumen">15,000</span>) + Gastos de cierre.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div id="fila-prestamo-info" class="flex items-center justify-between text-xs pt-3 border-t border-white/10 text-slate-300">
+                                <span class="flex items-center gap-1.5">
+                                    <i data-lucide="landmark" class="w-4 h-4 text-brand-blue-light shrink-0"></i>
+                                    <span>Monto a financiar con el banco:</span>
+                                </span>
+                                <span class="font-black text-white text-sm" id="display-monto-prestamo">$135,000.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DESGLOSE EN 2 TARJETAS (COMPRADOR) -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                        <!-- 1. Gastos Fijos y Legales -->
+                        <div class="bg-white rounded-3xl border border-slate-200 p-5 sm:p-6 shadow-sm space-y-4 print-card">
+                            <div class="flex items-center justify-between border-b border-slate-100 pb-3 gap-2">
+                                <div class="flex items-center gap-2 min-w-0">
+                                    <div class="w-8 h-8 rounded-xl bg-brand-blue/10 text-brand-blue flex items-center justify-center shrink-0">
+                                        <i data-lucide="scale" class="w-4 h-4 shrink-0"></i>
+                                    </div>
+                                    <h4 class="font-bold text-slate-900 text-sm whitespace-nowrap">1. Gastos Fijos y Legales</h4>
+                                </div>
+                                <span class="text-xs font-black text-brand-blue bg-brand-blue/10 px-2.5 py-0.5 rounded-lg shrink-0 whitespace-nowrap" id="display-subtotal-legales">
+                                    $2,625.00
+                                </span>
+                            </div>
+
+                            <div class="space-y-3 text-xs">
+                                <div class="flex justify-between items-start gap-2">
+                                    <div>
+                                        <div class="font-bold text-slate-800">Honorarios de Consultor (Comprador)</div>
+                                        <div class="text-[11px] text-slate-500">1.5% del valor (mínimo $600 referencial)</div>
+                                    </div>
+                                    <span class="font-black text-slate-900 shrink-0" id="item-honorarios-abogado">$2,250.00</span>
+                                </div>
+
+                                <div class="flex justify-between items-start gap-2 pt-2 border-t border-slate-100">
+                                    <div>
+                                        <div class="font-bold text-slate-800">Notaría y Registro Público</div>
+                                        <div class="text-[11px] text-slate-500" id="desc-notaria-registro">Derechos de calificación y timbres</div>
+                                    </div>
+                                    <span class="font-black text-slate-900 shrink-0" id="item-notaria-registro">$375.00</span>
+                                </div>
+
+                                <div class="flex justify-between items-start gap-2 pt-2 border-t border-slate-100">
+                                    <div>
+                                        <div class="font-bold text-slate-800">Paz y Salvos & Formularios</div>
+                                        <div class="text-[11px] text-slate-500">DGI, IDAAN, PH y gestión de firmas</div>
+                                    </div>
+                                    <span class="font-black text-emerald-600 shrink-0">Incluido</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2. Gastos del Banco -->
+                        <div class="bg-white rounded-3xl border border-slate-200 p-5 sm:p-6 shadow-sm space-y-4 print-card" id="tarjeta-gastos-banco">
+                            <div class="flex items-center justify-between border-b border-slate-100 pb-3 gap-2">
+                                <div class="flex items-center gap-2 min-w-0">
+                                    <div class="w-8 h-8 rounded-xl bg-brand-orange/10 text-brand-orange flex items-center justify-center shrink-0">
+                                        <i data-lucide="landmark" class="w-4 h-4 shrink-0"></i>
+                                    </div>
+                                    <h4 class="font-bold text-slate-900 text-sm whitespace-nowrap">2. Gastos del Banco</h4>
+                                </div>
+                                <span class="text-xs font-black text-brand-orange bg-brand-orange/10 px-2.5 py-0.5 rounded-lg shrink-0 whitespace-nowrap" id="display-subtotal-bancarios">
+                                    $2,200.00
+                                </span>
+                            </div>
+
+                            <div class="space-y-3 text-xs" id="items-banco-lista">
+                                <div class="flex justify-between items-start gap-2">
+                                    <div>
+                                        <div class="font-bold text-slate-800">Comisión de Cierre / Apertura</div>
+                                        <div class="text-[11px] text-slate-500" id="desc-comision-banco">1.25% promedio del préstamo</div>
+                                    </div>
+                                    <span class="font-black text-slate-900 shrink-0" id="item-comision-cierre">$0.00</span>
+                                </div>
+
+                                <div class="flex justify-between items-start gap-2 pt-2 border-t border-slate-100">
+                                    <div>
+                                        <div class="font-bold text-slate-800">Avalúo Inmobiliario Oficial</div>
+                                        <div class="text-[11px] text-slate-500">Perito tasador avalado por banco</div>
+                                    </div>
+                                    <span class="font-black text-slate-900 shrink-0" id="item-avaluo">$450.00</span>
+                                </div>
+
+                                <div class="flex justify-between items-start gap-2 pt-2 border-t border-slate-100">
+                                    <div>
+                                        <div class="font-bold text-slate-800">Gastos Legales del Banco</div>
+                                        <div class="text-[11px] text-slate-500">Inscripción del gravamen hipotecario</div>
+                                    </div>
+                                    <span class="font-black text-slate-900 shrink-0" id="item-tramites-hipoteca">$1,500.00</span>
+                                </div>
+
+                                <div class="flex justify-between items-start gap-2 pt-2 border-t border-slate-100">
+                                    <div>
+                                        <div class="font-bold text-slate-800">Adelanto de Pólizas de Seguro</div>
+                                        <div class="text-[11px] text-slate-500">Prima inicial de vida e incendio</div>
+                                    </div>
+                                    <span class="font-black text-slate-900 shrink-0" id="item-seguros">$250.00</span>
+                                </div>
+                            </div>
+
+                            <div id="mensaje-contado-exonerado" class="hidden p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs">
+                                <div class="flex items-center gap-2 font-bold mb-1">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                                    <span>$0 en Gastos Bancarios</span>
+                                </div>
+                                <p class="text-[11px] text-emerald-700 leading-relaxed">
+                                    Al comprar al contado no requieres avalúo bancario ni pagas comisiones de apertura ni gravámenes hipotecarios.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nota Aclaratoria: Impuestos del Vendedor -->
+                    <div class="p-5 rounded-3xl bg-slate-100/90 border border-slate-200 text-slate-700 space-y-3">
+                        <div class="flex items-center gap-2">
+                            <div class="w-7 h-7 rounded-lg bg-slate-200 text-slate-700 flex items-center justify-center shrink-0">
+                                <i data-lucide="info" class="w-4 h-4 shrink-0"></i>
+                            </div>
+                            <h4 class="font-bold text-xs sm:text-sm text-slate-900">
+                                Impuestos que corresponden por Ley al VENDEDOR (No los pagas tú)
+                            </h4>
+                        </div>
+
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            En Panamá, la ley fiscal establece que los tributos sobre la venta del bien inmueble son responsabilidad exclusiva del <strong>vendedor o promotor</strong>:
+                        </p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                            <div class="bg-white p-3 rounded-xl border border-slate-200/80">
+                                <span class="text-[11px] font-bold text-slate-500 block">2% ITBI (Transferencia de Bienes Inmuebles)</span>
+                                <span class="text-sm font-black text-slate-900" id="display-itbi-vendedor">$3,000.00</span>
+                                <span class="text-[10px] text-slate-400 block mt-0.5">Pagado por el vendedor ante la DGI</span>
+                            </div>
+                            <div class="bg-white p-3 rounded-xl border border-slate-200/80">
+                                <span class="text-[11px] font-bold text-slate-500 block">3% Adelanto de Ganancia de Capital</span>
+                                <span class="text-sm font-black text-slate-900" id="display-ganancia-vendedor">$4,500.00</span>
+                                <span class="text-[10px] text-slate-400 block mt-0.5">Retención fiscal del vendedor ante la DGI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================================================== -->
+                <!-- RESULTADOS: MODO VENDEDOR                            -->
+                <!-- ==================================================== -->
+                <div id="vista-resultados-vendedor" class="space-y-6 hidden">
+
+                    <!-- TARJETA HERO DE TOTALES (VENDEDOR: NETO LÍQUIDO) -->
+                    <div class="bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-950 rounded-3xl p-6 sm:p-8 text-white shadow-xl relative overflow-hidden print-card">
+                        <div class="absolute -right-16 -top-16 w-56 h-56 bg-emerald-500/20 rounded-full blur-3xl pointer-events-none"></div>
+                        <div class="absolute -left-16 -bottom-16 w-56 h-56 bg-brand-blue/30 rounded-full blur-3xl pointer-events-none"></div>
+
+                        <div class="relative z-10 space-y-6">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-4">
+                                <div>
+                                    <span class="text-xs uppercase font-bold tracking-wider text-emerald-400 block">
+                                        Liquidación Financiera Oficial (Vendedor)
+                                    </span>
+                                    <h3 class="text-xl sm:text-2xl font-black tracking-tight text-white mt-0.5">
+                                        Dinero Neto Líquido Estimado a Recibir
+                                    </h3>
+                                </div>
+                                <span class="self-start sm:self-center inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 whitespace-nowrap">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                    <span>Venta de Propiedad</span>
+                                </span>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <!-- Dinero Neto a Recibir -->
+                                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-white/15 space-y-1">
+                                    <span class="text-xs font-bold text-slate-300 block">Monto Neto en tu Cuenta Bancaria</span>
+                                    <div class="text-2xl sm:text-3xl font-black text-emerald-300 tracking-tight" id="display-neto-vendedor">
+                                        $134,000.00
+                                    </div>
+                                    <p class="text-[11px] text-slate-300">
+                                        Dinero libre tras impuestos DGI y comisiones.
+                                    </p>
+                                </div>
+
+                                <!-- Total Deducciones e Impuestos -->
+                                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-white/15 space-y-1">
+                                    <span class="text-xs font-bold text-slate-300 block">Total Impuestos y Deducciones</span>
+                                    <div class="text-2xl sm:text-3xl font-black text-brand-orange-light tracking-tight" id="display-total-deducciones-vendedor">
+                                        $16,000.00
+                                    </div>
+                                    <p class="text-[11px] text-slate-300">
+                                        Representa el <strong class="text-white" id="display-porcentaje-vendedor">10.67%</strong> del precio de venta.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-wrap items-center justify-between text-xs pt-3 border-t border-white/10 text-slate-300 gap-2">
+                                <span class="flex items-center gap-1.5">
+                                    <i data-lucide="landmark" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                                    <span>Saldo de hipoteca a liquidar al banco:</span>
+                                </span>
+                                <span class="font-black text-white text-sm" id="display-saldo-hipoteca-cancelada">$0.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DESGLOSE EN 2 TARJETAS (VENDEDOR) -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                        <!-- 1. Impuestos Oficiales DGI (2% + 3%) -->
+                        <div class="bg-white rounded-3xl border border-slate-200 p-5 sm:p-6 shadow-sm space-y-4 print-card">
+                            <div class="flex items-center justify-between border-b border-slate-100 pb-3 gap-2">
+                                <div class="flex items-center gap-2 min-w-0">
+                                    <div class="w-8 h-8 rounded-xl bg-red-100 text-red-600 flex items-center justify-center shrink-0">
+                                        <i data-lucide="receipt" class="w-4 h-4 shrink-0"></i>
+                                    </div>
+                                    <h4 class="font-bold text-slate-900 text-sm whitespace-nowrap">1. Impuestos DGI</h4>
+                                </div>
+                                <span class="text-xs font-black text-red-600 bg-red-50 px-2.5 py-0.5 rounded-lg shrink-0 whitespace-nowrap" id="display-subtotal-impuestos-vendedor">
+                                    $7,500.00
+                                </span>
+                            </div>
+
+                            <div class="space-y-3 text-xs">
+                                <div class="flex justify-between items-start gap-2">
+                                    <div>
+                                        <div class="font-bold text-slate-800">2% ITBI (Transferencia de Inmuebles)</div>
+                                        <div class="text-[11px] text-slate-500">Calculado sobre el precio de venta</div>
+                                    </div>
+                                    <span class="font-black text-slate-900 shrink-0" id="item-vendedor-itbi">$3,000.00</span>
+                                </div>
+
+                                <div class="flex justify-between items-start gap-2 pt-2 border-t border-slate-100">
+                                    <div>
+                                        <div class="font-bold text-slate-800">3% Ganancia de Capital (Adelanto ISR)</div>
+                                        <div class="text-[11px] text-slate-500">Retención fiscal del Código Fiscal</div>
+                                    </div>
+                                    <span class="font-black text-slate-900 shrink-0" id="item-vendedor-ganancia">$4,500.00</span>
+                                </div>
+
+                                <div class="flex justify-between items-start gap-2 pt-2 border-t border-slate-100">
+                                    <div>
+                                        <div class="font-bold text-slate-800">Tasa Total Impositiva DGI</div>
+                                        <div class="text-[11px] text-slate-500">5% total retenido por el Estado</div>
+                                    </div>
+                                    <span class="font-black text-red-600 shrink-0">5.00%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2. Gastos de Venta y Trámites -->
+                        <div class="bg-white rounded-3xl border border-slate-200 p-5 sm:p-6 shadow-sm space-y-4 print-card">
+                            <div class="flex items-center justify-between border-b border-slate-100 pb-3 gap-2">
+                                <div class="flex items-center gap-2 min-w-0">
+                                    <div class="w-8 h-8 rounded-xl bg-brand-orange/10 text-brand-orange flex items-center justify-center shrink-0">
+                                        <i data-lucide="wallet" class="w-4 h-4 shrink-0"></i>
+                                    </div>
+                                    <h4 class="font-bold text-slate-900 text-sm whitespace-nowrap">2. Gastos de Venta</h4>
+                                </div>
+                                <span class="text-xs font-black text-brand-orange bg-brand-orange/10 px-2.5 py-0.5 rounded-lg shrink-0 whitespace-nowrap" id="display-subtotal-gastos-vendedor">
+                                    $8,500.00
+                                </span>
+                            </div>
+
+                            <div class="space-y-3 text-xs">
+                                <div class="flex justify-between items-start gap-2">
+                                    <div>
+                                        <div class="font-bold text-slate-800">Comisión Corredor de Bienes Raíces</div>
+                                        <div class="text-[11px] text-slate-500" id="desc-vendedor-corredor">5% sobre el precio de venta</div>
+                                    </div>
+                                    <span class="font-black text-slate-900 shrink-0" id="item-vendedor-corredor">$7,500.00</span>
+                                </div>
+
+                                <div class="flex justify-between items-start gap-2 pt-2 border-t border-slate-100">
+                                    <div>
+                                        <div class="font-bold text-slate-800">Cancelación de Hipoteca (Banco)</div>
+                                        <div class="text-[11px] text-slate-500" id="desc-cancelacion-hipoteca">Minuta de cancelación y Registro Público</div>
+                                    </div>
+                                    <span class="font-black text-slate-900 shrink-0" id="item-vendedor-cancelacion">$0.00</span>
+                                </div>
+
+                                <div class="flex justify-between items-start gap-2 pt-2 border-t border-slate-100">
+                                    <div>
+                                        <div class="font-bold text-slate-800" id="label-vendedor-paz">Paz y Salvos (Con Aizprua S.E.)</div>
+                                        <div class="text-[11px] text-slate-500" id="desc-vendedor-paz">Gestión integral oficial ante DGI, IDAAN y Administración de PH</div>
+                                    </div>
+                                    <span class="font-black text-slate-900 shrink-0" id="item-vendedor-paz">$150.00</span>
+                                </div>
+
+                                <div class="flex justify-between items-start gap-2 pt-2 border-t border-slate-100">
+                                    <div>
+                                        <div class="font-bold text-slate-800" id="label-vendedor-consultor">Honorarios Consultor (Venta)</div>
+                                        <div class="text-[11px] text-slate-500" id="desc-vendedor-consultor">Minuta de compraventa y firmas</div>
+                                    </div>
+                                    <span class="font-black text-slate-900 shrink-0" id="item-vendedor-consultor">$850.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nota Estratégica para el Vendedor (Devolución de 3% de Ganancia) -->
+                    <div class="p-5 rounded-3xl bg-emerald-50 border border-emerald-200 text-emerald-900 space-y-2">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="sparkles" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                            <h4 class="font-bold text-xs sm:text-sm">
+                                ¿Sabías que puedes reclamar devolución del 3% si tu ganancia fue menor?
+                            </h4>
+                        </div>
+                        <p class="text-xs text-emerald-800 leading-relaxed">
+                            En Panamá, la ley permite que si vendiste sin ganancia o si el 10% de tu utilidad real neta es inferior al 3% retenido, puedes presentar junto a un consultor la <strong>Declaración Definitiva de Ganancia de Capital</strong> ante la DGI para solicitar la devolución o crédito fiscal a tu favor.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ACCIONES RÁPIDAS: COPIAR RESUMEN, COMPARTIR Y CONTACTO -->
+                <div id="print-action-bar" class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-2">
+                    <div class="flex items-center justify-center sm:justify-start gap-2 flex-wrap w-full sm:w-auto">
+                        <button type="button" onclick="copiarResumen()" id="btn-copiar-resumen"
+                            class="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-white border border-slate-200 hover:border-brand-blue text-slate-700 hover:text-brand-blue text-xs font-bold transition shadow-xs">
+                            <i data-lucide="copy" class="w-4 h-4 shrink-0"></i>
+                            <span id="label-copiar-resumen">Copiar Resumen</span>
+                        </button>
+
+                        <button type="button" onclick="window.print()"
+                            class="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-white border border-slate-200 hover:border-slate-300 text-slate-700 text-xs font-bold transition shadow-xs">
+                            <i data-lucide="printer" class="w-4 h-4 shrink-0"></i>
+                            <span>Imprimir / PDF</span>
+                        </button>
+
+                        <button type="button" onclick="compartirConContraparte()" id="btn-contraparte"
+                            class="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-800 text-xs font-bold transition shadow-xs">
+                            <i data-lucide="send" class="w-4 h-4 shrink-0 text-brand-orange"></i>
+                            <span id="label-btn-contraparte">Consultar con el Vendedor</span>
+                        </button>
+                    </div>
+
+                    <a id="btn-whatsapp-resumen" href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.%2C%20deseo%20asesor%C3%ADa%20legal%20para%20la%20compraventa%20inmobiliaria."
+                        target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold transition shadow-sm whitespace-nowrap">
+                        <i data-lucide="message-circle" class="w-4 h-4 shrink-0"></i>
+                        <span id="label-btn-whatsapp">Escribir a un Consultor</span>
+                    </a>
+                </div>
+
+                <!-- AVISO LEGAL Y DESCARGO DE RESPONSABILIDAD -->
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-slate-500 text-[11px] leading-relaxed">
+                    <strong class="text-slate-700">Nota Legal y Arancelaria:</strong> Los cálculos arrojados por este simulador corresponden a tarifas arancelarias promedio del mercado inmobiliario panameño vigentes para el año 2026. Los costos finales de escrituración pueden presentar variaciones según la cantidad de hojas protocolizadas en la Notaría Pública, tasas específicas del Registro Público de Panamá, y las condiciones o promociones arancelarias pactadas con la entidad bancaria que financie la hipoteca.
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- BANNER DE CONVERSIÓN: BLINDAJE INMOBILIARIO                  -->
+        <!-- ============================================================ -->
+        <section id="cta-banner" class="rounded-3xl bg-slate-900 text-white p-6 sm:p-10 relative overflow-hidden shadow-2xl border border-slate-800">
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-brand-orange/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-brand-blue/30 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="relative z-10 max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="space-y-3 text-center md:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-orange/20 text-brand-orange text-xs font-black uppercase tracking-wider border border-brand-orange/30">
+                        <i data-lucide="shield-alert" class="w-3.5 h-3.5 shrink-0"></i>
+                        <span>Blindaje Inmobiliario Preventivo</span>
+                    </div>
+                    <h3 class="text-2xl sm:text-3xl font-black text-white tracking-tight" id="cta-banner-titulo">
+                        No firmes la promesa de compraventa sin respaldo legal
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl" id="cta-banner-desc">
+                        Ya sea que compres o vendas una propiedad en Panamá, un error en los plazos bancarios o la omisión de un paz y salvo genera retenciones de dinero y multas. En <strong>Aizprua S.E.</strong> redactamos y auditamos contratos de compraventa para proteger tu patrimonio.
+                    </p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row md:flex-col gap-3 w-full md:w-auto shrink-0">
+                    <a href="https://wa.me/50765461527?text=Hola%20Aizprua%20S.E.%2C%20deseo%20asesor%C3%ADa%20para%20la%20revisi%C3%B3n%20de%20mi%20contrato%20de%20compraventa."
+                        target="_blank" rel="noopener noreferrer"
+                        class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-brand-orange hover:bg-brand-orange-dark text-white font-bold text-sm transition shadow-lg shadow-brand-orange/25 text-center flex items-center justify-center gap-2 whitespace-nowrap">
+                        <i data-lucide="file-check" class="w-4 h-4 shrink-0"></i>
+                        <span>Consultar mi Caso Ahora</span>
+                    </a>
+                    <a href="/articulo-contratos-comerciales"
+                        class="w-full sm:w-auto px-6 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition border border-white/20 text-center flex items-center justify-center gap-2 whitespace-nowrap">
+                        <i data-lucide="book-open" class="w-4 h-4 shrink-0"></i>
+                        <span>Leer Guía de Contratos</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Canónico Oficial de Aizprua S.E. (4 Columnas) -->
+    <footer class="bg-slate-900 text-slate-400 text-xs py-12 border-t border-slate-800 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- Columna 1: Identidad Corporativa -->
+                <div class="space-y-3">
+                    <a href="/" class="text-xl font-bold text-white tracking-tight hover:text-brand-orange transition inline-block">
+                        Aizprua S.E.
+                    </a>
+                    <p class="leading-relaxed">
+                        Firma legal y consultora corporativa en Panamá. Blindaje patrimonial, formalización de empresas y asesoría inmobiliaria de alta precisión.
+                    </p>
+                    <div class="pt-2 text-[11px] text-slate-500">
+                        RUC: 155708873-2-2022 DV 61<br>
+                        República de Panamá
+                    </div>
+                </div>
+
+                <!-- Columna 2: Soluciones -->
+                <div class="space-y-2">
+                    <h5 class="text-white font-bold uppercase text-[11px] tracking-wider mb-3">Soluciones</h5>
+                    <ul class="space-y-1.5">
+                        <li><a href="https://llave.aizprua.com/" class="hover:text-white transition">Servicio Llave en Mano</a></li>
+                        <li><a href="/plan-360" class="hover:text-white transition">Plan 360 Empresarial</a></li>
+                        <li><a href="/tienda" class="hover:text-white transition">Tienda de Contratos y Plantillas</a></li>
+                        <li><a href="/simulador-prestamos" class="hover:text-white transition">Simulador de Préstamos SBP</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Herramientas Gratuitas -->
+                <div class="space-y-2">
+                    <h5 class="text-white font-bold uppercase text-[11px] tracking-wider mb-3">Herramientas</h5>
+                    <ul class="space-y-1.5">
+                        <li><a href="/calculadora-gastos-cierre" class="text-brand-orange font-bold transition">Calculadora Inmobiliaria</a></li>
+                        <li><a href="/recursos" class="hover:text-white transition">Validador RUC &amp; DV</a></li>
+                        <li><a href="/test-interactivo" class="hover:text-white transition">Test Anti-Multas DGI</a></li>
+                        <li><a href="/blog" class="hover:text-white transition">Blog de Emprendimiento y Leyes</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Contacto y Legal -->
+                <div class="space-y-2">
+                    <h5 class="text-white font-bold uppercase text-[11px] tracking-wider mb-3">Contacto Directo</h5>
+                    <p class="leading-relaxed">
+                        Consultas ejecutivas vía WhatsApp corporativo o correo oficial.
+                    </p>
+                    <p class="font-bold text-white pt-1">
+                        +507 6546-1527<br>
+                        info@aizprua.com
+                    </p>
+                    <div class="pt-3 flex gap-3 text-[11px]">
+                        <a href="/privacidad" class="hover:text-white transition">Privacidad</a>
+                        <span>·</span>
+                        <a href="/terminos" class="hover:text-white transition">Términos</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 text-center text-slate-500 text-[11px]">
+                &copy; 2026 Aizprua S.E. Todos los derechos reservados. Edición República de Panamá.
+            </div>
+        </div>
+    </footer>
+
+    <!-- LÓGICA JAVASCRIPT DE CÁLCULO DUAL (COMPRADOR Y VENDEDOR) -->
+    <script>
+        let perfilActual = 'comprador';
+
+        // Menú Desplegable Flotante para Condición del Inmueble (Sin estar pegado)
+        function toggleCondicionDropdown() {
+            const menu = document.getElementById('condicion-menu');
+            const chevron = document.getElementById('condicion-chevron');
+            const isOpen = !menu.classList.contains('hidden');
+            if (isOpen) {
+                menu.classList.add('hidden');
+                if (chevron) chevron.classList.remove('rotate-180');
+            } else {
+                menu.classList.remove('hidden');
+                if (chevron) chevron.classList.add('rotate-180');
+            }
+        }
+
+        function selectCondicion(val, text) {
+            document.getElementById('condicion-select').value = val;
+            document.getElementById('condicion-selected-text').textContent = text;
+            
+            const menu = document.getElementById('condicion-menu');
+            const buttons = menu.querySelectorAll('.condicion-option');
+            buttons.forEach(btn => {
+                const check = btn.querySelector('[data-lucide="check"]');
+                const onclickAttr = btn.getAttribute('onclick') || '';
+                if (onclickAttr.includes(val)) {
+                    btn.className = "condicion-option w-full text-left p-3 rounded-xl text-xs sm:text-sm transition flex items-center justify-between bg-brand-blue/10 text-brand-blue font-bold";
+                    if (check) check.classList.remove('hidden');
+                } else {
+                    btn.className = "condicion-option w-full text-left p-3 rounded-xl text-xs sm:text-sm transition flex items-center justify-between text-slate-700 hover:bg-slate-50";
+                    if (check) check.classList.add('hidden');
+                }
+            });
+
+            menu.classList.add('hidden');
+            const chevron = document.getElementById('condicion-chevron');
+            if (chevron) chevron.classList.remove('rotate-180');
+            
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+            recalcular();
+        }
+
+        // Cerrar al hacer clic fuera del menú
+        document.addEventListener('click', (e) => {
+            const wrapper = document.getElementById('dropdown-condicion-wrapper');
+            if (wrapper && !wrapper.contains(e.target)) {
+                const menu = document.getElementById('condicion-menu');
+                const chevron = document.getElementById('condicion-chevron');
+                if (menu && !menu.classList.contains('hidden')) {
+                    menu.classList.add('hidden');
+                    if (chevron) chevron.classList.remove('rotate-180');
+                }
+            }
+        });
+        let tipoInmuebleVendedor = 'ph';
+
+        function handleTipoInmuebleVendedor(tipo) {
+            tipoInmuebleVendedor = tipo;
+            const labelCasa = document.getElementById('label-inmueble-casa');
+            const labelPH = document.getElementById('label-inmueble-ph');
+            const ayuda = document.getElementById('inmueble-ayuda');
+            const montoAutogestion = document.getElementById('monto-paz-autogestion');
+
+            if (tipo === 'casa') {
+                labelCasa.className = "relative flex items-center justify-center gap-1.5 sm:gap-2 p-2.5 sm:p-3 rounded-2xl border cursor-pointer transition select-none bg-brand-orange/5 border-brand-orange text-brand-orange font-bold";
+                labelPH.className = "relative flex items-center justify-center gap-1.5 sm:gap-2 p-2.5 sm:p-3 rounded-2xl border cursor-pointer transition select-none bg-white border-slate-200 text-slate-700 hover:border-slate-300";
+                ayuda.textContent = "Casa / Terreno: solo requiere timbres fiscales de DGI e IDAAN ($10.00 sin cuota de PH).";
+                if (montoAutogestion) montoAutogestion.textContent = "$10.00";
+            } else {
+                labelPH.className = "relative flex items-center justify-center gap-1.5 sm:gap-2 p-2.5 sm:p-3 rounded-2xl border cursor-pointer transition select-none bg-brand-orange/5 border-brand-orange text-brand-orange font-bold";
+                labelCasa.className = "relative flex items-center justify-center gap-1.5 sm:gap-2 p-2.5 sm:p-3 rounded-2xl border cursor-pointer transition select-none bg-white border-slate-200 text-slate-700 hover:border-slate-300";
+                ayuda.textContent = "Propiedad en PH: requiere timbres DGI/IDAAN más carta de administración de PH ($40.00).";
+                if (montoAutogestion) montoAutogestion.textContent = "$40.00";
+            }
+            recalcular();
+        }
+
+        function compartirConContraparte() {
+            const rawPrecio = document.getElementById('precio-input').value;
+            let msg = '';
+            if (perfilActual === 'comprador') {
+                const totalGastos = document.getElementById('display-total-gastos').textContent;
+                const efectivoTotal = document.getElementById('display-efectivo-necesario').textContent;
+                const abono = document.getElementById('abono-porcentaje-label').textContent;
+                msg = `Hola, revisé los números para la compra de la propiedad por $${rawPrecio} USD. Consideré un abono inicial del ${abono}% y estimo gastos de cierre por ${totalGastos} (efectivo total de ${efectivoTotal}). ¿Podemos coordinar para revisar el borrador de promesa de compraventa?`;
+            } else {
+                const neto = document.getElementById('display-neto-vendedor').textContent;
+                const deducciones = document.getElementById('display-total-deducciones-vendedor').textContent;
+                msg = `Hola, revisé los números para la venta de la propiedad por $${rawPrecio} USD. Con los impuestos DGI correspondientes (2% transferencia y 3% adelanto ganancia) y deducciones estimadas en ${deducciones}, el balance neto estimado queda en ${neto}. Quedo a tu disposición para avanzar con la minuta.`;
+            }
+            const url = `https://wa.me/?text=${encodeURIComponent(msg)}`;
+            window.open(url, '_blank');
+        }
+
+        // Inicializar Iconos Lucide
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+            recalcular();
+        });
+
+        // Barra de lectura scroll
+        window.addEventListener('scroll', () => {
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = (window.scrollY / (docHeight || 1)) * 100;
+            const pb = document.getElementById('progress-bar');
+            if (pb) pb.style.width = scrolled + '%';
+        });
+
+        // Formatos numéricos en dólares
+        function formatMoneyDecimals(amount) {
+            return '$' + Number(amount).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+
+        // Manejo de input con formato con comas
+        function handlePrecioInput(input) {
+            let val = input.value.replace(/[^0-9]/g, '');
+            if (!val) val = '0';
+            const num = parseInt(val, 10);
+            input.value = num.toLocaleString('en-US');
+            recalcular();
+        }
+
+        function handleHipotecaVendedorInput(input) {
+            let val = input.value.replace(/[^0-9]/g, '');
+            if (!val) val = '0';
+            const num = parseInt(val, 10);
+            input.value = num.toLocaleString('en-US');
+            recalcular();
+        }
+
+        function setPrecioRapido(valor) {
+            const input = document.getElementById('precio-input');
+            input.value = Number(valor).toLocaleString('en-US');
+            recalcular();
+        }
+
+        // Cambio de Perfil: Comprador vs. Vendedor
+        function switchPerfil(perfil) {
+            perfilActual = perfil;
+            const btnComprador = document.getElementById('tab-perfil-comprador');
+            const btnVendedor = document.getElementById('tab-perfil-vendedor');
+
+            const seccionCamposComprador = document.getElementById('seccion-campos-comprador');
+            const seccionCamposVendedor = document.getElementById('seccion-campos-vendedor');
+
+            const vistaResultadosComprador = document.getElementById('vista-resultados-comprador');
+            const vistaResultadosVendedor = document.getElementById('vista-resultados-vendedor');
+
+            const tituloForm = document.getElementById('titulo-formulario-header');
+            const descForm = document.getElementById('desc-formulario-header');
+            const labelPrecio = document.getElementById('label-precio-input');
+
+            if (perfil === 'comprador') {
+                btnComprador.className = "py-3 px-4 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all bg-brand-blue text-white shadow-md";
+                btnVendedor.className = "py-3 px-4 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all bg-slate-50 text-slate-700 hover:bg-slate-100";
+
+                seccionCamposComprador.classList.remove('hidden');
+                seccionCamposVendedor.classList.add('hidden');
+
+                vistaResultadosComprador.classList.remove('hidden');
+                vistaResultadosVendedor.classList.add('hidden');
+
+                tituloForm.textContent = "Datos de la Compra";
+                descForm.textContent = "Parámetros de compraventa";
+                labelPrecio.textContent = "Precio de la propiedad (USD)";
+                const labelContraparte = document.getElementById('label-btn-contraparte');
+                if (labelContraparte) labelContraparte.textContent = "Consultar con el Vendedor";
+            } else {
+                btnVendedor.className = "py-3 px-4 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all bg-brand-orange text-white shadow-md";
+                btnComprador.className = "py-3 px-4 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all bg-slate-50 text-slate-700 hover:bg-slate-100";
+
+                seccionCamposComprador.classList.add('hidden');
+                seccionCamposVendedor.classList.remove('hidden');
+
+                vistaResultadosComprador.classList.add('hidden');
+                vistaResultadosVendedor.classList.remove('hidden');
+
+                tituloForm.textContent = "Datos de la Venta";
+                descForm.textContent = "Impuestos DGI y deducciones";
+                labelPrecio.textContent = "Precio de venta acordado (USD)";
+                const labelContraparte = document.getElementById('label-btn-contraparte');
+                if (labelContraparte) labelContraparte.textContent = "Consultar con el Comprador";
+            }
+
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+            recalcular();
+        }
+
+        // Manejo de opción Hipoteca vs. Contado (Comprador)
+        function handleTipoCompraChange(tipo) {
+            const labelHipoteca = document.getElementById('label-tipo-hipoteca');
+            const labelContado = document.getElementById('label-tipo-contado');
+            const bloqueAbono = document.getElementById('bloque-abono');
+            const filaPrestamo = document.getElementById('fila-prestamo-info');
+            const badgeTipo = document.getElementById('badge-tipo-resumen');
+
+            if (tipo === 'hipoteca') {
+                labelHipoteca.className = "relative flex flex-col p-3.5 rounded-2xl border cursor-pointer transition select-none bg-brand-blue/5 border-brand-blue text-brand-blue";
+                labelContado.className = "relative flex flex-col p-3.5 rounded-2xl border cursor-pointer transition select-none bg-white border-slate-200 text-slate-700 hover:border-slate-300";
+                bloqueAbono.classList.remove('hidden');
+                filaPrestamo.classList.remove('hidden');
+                badgeTipo.textContent = "Compra con Hipoteca";
+            } else {
+                labelContado.className = "relative flex flex-col p-3.5 rounded-2xl border cursor-pointer transition select-none bg-brand-blue/5 border-brand-blue text-brand-blue";
+                labelHipoteca.className = "relative flex flex-col p-3.5 rounded-2xl border cursor-pointer transition select-none bg-white border-slate-200 text-slate-700 hover:border-slate-300";
+                bloqueAbono.classList.add('hidden');
+                filaPrestamo.classList.add('hidden');
+                badgeTipo.textContent = "Compra al Contado";
+            }
+            recalcular();
+        }
+
+        function handleAbonoSlider(val) {
+            document.getElementById('abono-porcentaje-label').textContent = val;
+            recalcular();
+        }
+
+        function resetForm() {
+            document.getElementById('precio-input').value = "150,000";
+            if (perfilActual === 'comprador') {
+                document.querySelector('input[name="tipoCompra"][value="hipoteca"]').checked = true;
+                selectCondicion('preferencial', 'Vivienda Nueva (Interés Preferencial)');
+                document.getElementById('abono-slider').value = 10;
+                document.getElementById('abono-porcentaje-label').textContent = "10";
+                document.getElementById('switch-abogado').checked = true;
+                handleTipoCompraChange('hipoteca');
+            } else {
+                document.getElementById('hipoteca-vendedor-input').value = "0";
+                document.getElementById('switch-corredor').checked = true;
+                document.getElementById('switch-paz-salvo-nosotros').checked = true;
+                document.getElementById('switch-consultor-vendedor').checked = true;
+                handleTipoInmuebleVendedor('ph');
+            }
+            recalcular();
+        }
+
+        // MOTOR DE CÁLCULO PRINCIPAL
+        function recalcular() {
+            const rawPrecio = document.getElementById('precio-input').value.replace(/[^0-9]/g, '');
+            const precio = parseInt(rawPrecio, 10) || 0;
+
+            if (perfilActual === 'comprador') {
+                recalcularComprador(precio);
+            } else {
+                recalcularVendedor(precio);
+            }
+        }
+
+        // 1. Lógica para el Comprador
+        function recalcularComprador(precio) {
+            const tipoCompra = document.querySelector('input[name="tipoCompra"]:checked').value;
+            const condicion = document.getElementById('condicion-select').value;
+            const abonoPorcentaje = (tipoCompra === 'hipoteca') ? (parseInt(document.getElementById('abono-slider').value, 10) || 0) : 100;
+            const incluirAbogado = document.getElementById('switch-abogado').checked;
+
+            const abonoMonto = (tipoCompra === 'hipoteca') ? (precio * (abonoPorcentaje / 100)) : precio;
+            const montoPrestamo = (tipoCompra === 'hipoteca') ? Math.max(0, precio - abonoMonto) : 0;
+
+            document.getElementById('abono-monto-label').textContent = Math.round(abonoMonto).toLocaleString('en-US');
+            document.getElementById('display-abono-monto-resumen').textContent = Math.round(abonoMonto).toLocaleString('en-US');
+            document.getElementById('display-monto-prestamo').textContent = formatMoneyDecimals(montoPrestamo);
+
+            // Honorarios Consultor: 1.5% o mín $600
+            const honorariosAbogado = incluirAbogado ? Math.max(600, precio * 0.015) : 0;
+
+            // Notaría y Registro
+            let notariaRegistroBase = Math.max(350, precio * 0.005);
+            let notariaRegistro = notariaRegistroBase;
+            const descNotariaElem = document.getElementById('desc-notaria-registro');
+
+            if (condicion === 'preferencial') {
+                notariaRegistro = notariaRegistroBase * 0.5;
+                descNotariaElem.textContent = "Aranceles con 50% de beneficio por Ley Preferencial";
+            } else if (condicion === 'segunda') {
+                descNotariaElem.textContent = "Escrituración y timbres de propiedad usada (reventa)";
+            } else {
+                descNotariaElem.textContent = "Derechos de calificación y timbres de primera venta";
+            }
+
+            const subtotalLegales = honorariosAbogado + notariaRegistro;
+
+            // Gastos Bancarios
+            let comisionCierre = 0;
+            let avaluo = 0;
+            let tramitesHipoteca = 0;
+            let segurosAdelanto = 0;
+
+            const itemsBancoLista = document.getElementById('items-banco-lista');
+            const mensajeContado = document.getElementById('mensaje-contado-exonerado');
+
+            if (tipoCompra === 'hipoteca') {
+                itemsBancoLista.classList.remove('hidden');
+                mensajeContado.classList.add('hidden');
+
+                if (condicion === 'preferencial') {
+                    comisionCierre = 0;
+                    document.getElementById('desc-comision-banco').textContent = "0% exonerado por tramo de Interés Preferencial";
+                } else {
+                    comisionCierre = montoPrestamo * 0.0125;
+                    document.getElementById('desc-comision-banco').textContent = "1.25% promedio del préstamo bancario";
+                }
+
+                if (precio <= 120000) {
+                    avaluo = 350;
+                } else if (precio <= 300000) {
+                    avaluo = 450;
+                } else {
+                    avaluo = 600;
+                }
+
+                tramitesHipoteca = Math.max(450, montoPrestamo * 0.008);
+                segurosAdelanto = 250;
+            } else {
+                itemsBancoLista.classList.add('hidden');
+                mensajeContado.classList.remove('hidden');
+            }
+
+            const subtotalBancarios = (tipoCompra === 'hipoteca') ? (comisionCierre + avaluo + tramitesHipoteca + segurosAdelanto) : 0;
+
+            const totalGastosCierre = subtotalLegales + subtotalBancarios;
+            const efectivoTotalNecesario = abonoMonto + totalGastosCierre;
+            const porcentajeGastos = precio > 0 ? ((totalGastosCierre / precio) * 100).toFixed(2) : "0.00";
+
+            document.getElementById('display-total-gastos').textContent = formatMoneyDecimals(totalGastosCierre);
+            document.getElementById('display-efectivo-necesario').textContent = formatMoneyDecimals(efectivoTotalNecesario);
+            document.getElementById('display-porcentaje-gastos').textContent = porcentajeGastos + '%';
+
+            document.getElementById('display-subtotal-legales').textContent = formatMoneyDecimals(subtotalLegales);
+            document.getElementById('item-honorarios-abogado').textContent = formatMoneyDecimals(honorariosAbogado);
+            document.getElementById('item-notaria-registro').textContent = formatMoneyDecimals(notariaRegistro);
+
+            document.getElementById('display-subtotal-bancarios').textContent = formatMoneyDecimals(subtotalBancarios);
+            document.getElementById('item-comision-cierre').textContent = formatMoneyDecimals(comisionCierre);
+            document.getElementById('item-avaluo').textContent = formatMoneyDecimals(avaluo);
+            document.getElementById('item-tramites-hipoteca').textContent = formatMoneyDecimals(tramitesHipoteca);
+            document.getElementById('item-seguros').textContent = formatMoneyDecimals(segurosAdelanto);
+
+            // Impuestos del Vendedor Informativos
+            document.getElementById('display-itbi-vendedor').textContent = formatMoneyDecimals(precio * 0.02);
+            document.getElementById('display-ganancia-vendedor').textContent = formatMoneyDecimals(precio * 0.03);
+
+            // WhatsApp Comprador
+            const msgWhatsapp = encodeURIComponent(`Hola Aizprua S.E., acabo de calcular los gastos de cierre para comprar una propiedad de $${precio.toLocaleString('en-US')} (${tipoCompra === 'hipoteca' ? 'Con Hipoteca' : 'Al Contado'}). Deseo asesoría legal para revisar mi promesa de compraventa.`);
+            document.getElementById('btn-whatsapp-resumen').href = `https://wa.me/50765461527?text=${msgWhatsapp}`;
+            document.getElementById('label-btn-whatsapp').textContent = "Escribir a un Consultor";
+        }
+
+        // 2. Lógica para el Vendedor (Neto Líquido)
+        function recalcularVendedor(precio) {
+            const rawHipoteca = document.getElementById('hipoteca-vendedor-input').value.replace(/[^0-9]/g, '');
+            const saldoHipoteca = parseInt(rawHipoteca, 10) || 0;
+            const tieneCorredor = document.getElementById('switch-corredor').checked;
+            const pazSalvoNosotros = document.getElementById('switch-paz-salvo-nosotros').checked;
+            const incluirConsultor = document.getElementById('switch-consultor-vendedor').checked;
+
+            // 1. Impuestos Oficiales DGI (2% y 3%)
+            const itbi2 = precio * 0.02;
+            const ganancia3 = precio * 0.03;
+            const subtotalImpuestos = itbi2 + ganancia3;
+
+            // 2. Gastos de Venta y Trámites
+            const comisionCorredor = tieneCorredor ? (precio * 0.05) : 0;
+            const gastosCancelacion = (saldoHipoteca > 0) ? 350 : 0;
+
+            // Cálculo dinámico de Paz y Salvos
+            let gastosPazYSalvo = 0;
+            const bannerAutogestion = document.getElementById('banner-paz-salvo-autogestion');
+            const descSwitchPaz = document.getElementById('desc-switch-paz-salvo');
+            const labelPaz = document.getElementById('label-vendedor-paz');
+            const descPaz = document.getElementById('desc-vendedor-paz');
+
+            if (pazSalvoNosotros) {
+                gastosPazYSalvo = 150;
+                if (bannerAutogestion) bannerAutogestion.classList.add('hidden');
+                if (descSwitchPaz) descSwitchPaz.textContent = "Gestión completa ante DGI, IDAAN y PH ($150.00). Cero filas ni demoras.";
+                if (labelPaz) labelPaz.textContent = "Paz y Salvos (Con Aizprua S.E.)";
+                if (descPaz) descPaz.textContent = "Gestión integral oficial ante DGI, IDAAN y Administración de PH";
+            } else {
+                if (bannerAutogestion) bannerAutogestion.classList.remove('hidden');
+                if (tipoInmuebleVendedor === 'casa') {
+                    gastosPazYSalvo = 10;
+                    if (descSwitchPaz) descSwitchPaz.textContent = "Autogestión Casa / Terreno: timbres fiscales DGI e IDAAN ($10.00).";
+                    if (labelPaz) labelPaz.textContent = "Paz y Salvos (Casa / Terreno)";
+                    if (descPaz) descPaz.textContent = "Timbres fiscales oficiales de DGI e IDAAN";
+                } else {
+                    gastosPazYSalvo = 40;
+                    if (descSwitchPaz) descSwitchPaz.textContent = "Autogestión PH: timbres DGI/IDAAN ($10) + carta PH ($30).";
+                    if (labelPaz) labelPaz.textContent = "Paz y Salvos (Autogestión PH)";
+                    if (descPaz) descPaz.textContent = "Timbres DGI/IDAAN ($10) + carta administración de PH ($30)";
+                }
+            }
+
+            const honorariosConsultor = incluirConsultor ? Math.max(500, precio * 0.01) : 0;
+            const descConsultor = document.getElementById('desc-vendedor-consultor');
+            if (descConsultor) {
+                descConsultor.textContent = incluirConsultor ? "Minuta de compraventa y firmas" : "Sin consultor ($0 por redacción propia)";
+            }
+
+            const subtotalGastos = comisionCorredor + gastosCancelacion + gastosPazYSalvo + honorariosConsultor;
+
+            // 3. Totales
+            const totalDeducciones = subtotalImpuestos + subtotalGastos;
+            const netoLiquido = Math.max(0, precio - saldoHipoteca - totalDeducciones);
+            const porcentajeDeducciones = precio > 0 ? ((totalDeducciones / precio) * 100).toFixed(2) : "0.00";
+
+            // Renderizar Resultados del Vendedor
+            document.getElementById('display-neto-vendedor').textContent = formatMoneyDecimals(netoLiquido);
+            document.getElementById('display-total-deducciones-vendedor').textContent = formatMoneyDecimals(totalDeducciones);
+            document.getElementById('display-porcentaje-vendedor').textContent = porcentajeDeducciones + '%';
+            document.getElementById('display-saldo-hipoteca-cancelada').textContent = formatMoneyDecimals(saldoHipoteca);
+
+            // Subtotal Impuestos DGI
+            document.getElementById('display-subtotal-impuestos-vendedor').textContent = formatMoneyDecimals(subtotalImpuestos);
+            document.getElementById('item-vendedor-itbi').textContent = formatMoneyDecimals(itbi2);
+            document.getElementById('item-vendedor-ganancia').textContent = formatMoneyDecimals(ganancia3);
+
+            // Subtotal Gastos de Venta
+            document.getElementById('display-subtotal-gastos-vendedor').textContent = formatMoneyDecimals(subtotalGastos);
+            document.getElementById('item-vendedor-corredor').textContent = formatMoneyDecimals(comisionCorredor);
+            document.getElementById('desc-vendedor-corredor').textContent = tieneCorredor ? "5% sobre el precio de venta" : "Sin comisión ($0 por venta directa)";
+            document.getElementById('item-vendedor-cancelacion').textContent = formatMoneyDecimals(gastosCancelacion);
+            document.getElementById('desc-cancelacion-hipoteca').textContent = (saldoHipoteca > 0) ? "Minuta bancaria y timbres en Registro Público" : "Propiedad libre de gravamen ($0)";
+            document.getElementById('item-vendedor-paz').textContent = formatMoneyDecimals(gastosPazYSalvo);
+            document.getElementById('item-vendedor-consultor').textContent = formatMoneyDecimals(honorariosConsultor);
+
+            // WhatsApp Vendedor
+            const msgWhatsapp = encodeURIComponent(`Hola Aizprua S.E., acabo de calcular la venta de mi propiedad de $${precio.toLocaleString('en-US')}. Mi dinero neto estimado es ${formatMoneyDecimals(netoLiquido)}. Deseo asesoría para la minuta de compraventa y los paz y salvos oficiales.`);
+            document.getElementById('btn-whatsapp-resumen').href = `https://wa.me/50765461527?text=${msgWhatsapp}`;
+            document.getElementById('label-btn-whatsapp').textContent = "Escribir a un Consultor";
+        }
+
+        // Copiar Resumen al Portapapeles (Dual)
+        function copiarResumen() {
+            const rawPrecio = document.getElementById('precio-input').value;
+            let texto = '';
+
+            if (perfilActual === 'comprador') {
+                const totalGastos = document.getElementById('display-total-gastos').textContent;
+                const efectivoTotal = document.getElementById('display-efectivo-necesario').textContent;
+                const porcentaje = document.getElementById('display-porcentaje-gastos').textContent;
+                const tipo = document.getElementById('badge-tipo-resumen').textContent;
+
+                texto = `*Resumen de Gastos de Cierre (Comprador) - Panamá (Aizprua S.E.)*
+• Precio de la propiedad: $${rawPrecio} USD
+• Modalidad: ${tipo}
+• Total Gastos de Cierre estimados: ${totalGastos} (${porcentaje} del valor)
+• Efectivo Total Requerido (Abono + Gastos): ${efectivoTotal}
+Calculado con la herramienta oficial de Aizprua S.E. (https://aizprua.com/calculadora-gastos-cierre)`;
+            } else {
+                const neto = document.getElementById('display-neto-vendedor').textContent;
+                const deducciones = document.getElementById('display-total-deducciones-vendedor').textContent;
+                const porcentaje = document.getElementById('display-porcentaje-vendedor').textContent;
+                const hipoteca = document.getElementById('display-saldo-hipoteca-cancelada').textContent;
+
+                texto = `*Resumen de Liquidación Inmobiliaria (Vendedor) - Panamá (Aizprua S.E.)*
+• Precio de venta acordado: $${rawPrecio} USD
+• Hipoteca cancelada al banco: ${hipoteca}
+• Total Impuestos DGI y Gastos de Venta: ${deducciones} (${porcentaje} del valor)
+• Dinero Neto Líquido a recibir en cuenta: ${neto}
+Calculado con la herramienta oficial de Aizprua S.E. (https://aizprua.com/calculadora-gastos-cierre)`;
+            }
+
+            navigator.clipboard.writeText(texto).then(() => {
+                const label = document.getElementById('label-copiar-resumen');
+                label.textContent = "¡Copiado!";
+                setTimeout(() => {
+                    label.textContent = "Copiar Resumen";
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
