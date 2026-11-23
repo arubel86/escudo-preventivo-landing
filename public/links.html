@@ -706,7 +706,7 @@
                     class="hover:text-brand-orange-dark transition-colors font-medium">WhatsApp</a>
             </nav>
             <p class="text-[11px] text-slate-400 mt-1">
-                © 2026 Aizprua S.E. Todos los derechos reservados.
+                &copy; 2026 Aizprua S.E. Todos los derechos reservados.
             </p>
         </div>
     </footer>
@@ -860,7 +860,6 @@
         // Reproductor de Audio Real HTML5
         const podcastAudio = document.getElementById('podcast-audio');
         const podcastPlayBtn = document.getElementById('podcast-play-btn');
-        const playerIcon = document.getElementById('player-icon');
         const progressBar = document.getElementById('podcast-progress-bar');
         const progressContainer = document.getElementById('progress-container');
         const currentTimeLabel = document.getElementById('current-time');
@@ -872,7 +871,24 @@
             return `${mins}:${String(secs).padStart(2, '0')}`;
         }
 
-        if (podcastAudio && podcastPlayBtn && playerIcon) {
+        if (podcastAudio && podcastPlayBtn) {
+            function updatePlayerUI(isPlaying) {
+                if (isPlaying) {
+                    podcastPlayBtn.innerHTML = '<i data-lucide="pause" class="w-5 h-5 fill-current shrink-0"></i>';
+                    podcastPlayBtn.classList.add('bg-brand-orange', 'hover:bg-brand-orange-dark');
+                    podcastPlayBtn.classList.remove('bg-brand-blue', 'hover:bg-brand-blue-dark');
+                    podcastPlayBtn.setAttribute('aria-label', 'Pausar cápsula');
+                } else {
+                    podcastPlayBtn.innerHTML = '<i data-lucide="play" class="w-5 h-5 fill-current ml-0.5 shrink-0"></i>';
+                    podcastPlayBtn.classList.remove('bg-brand-orange', 'hover:bg-brand-orange-dark');
+                    podcastPlayBtn.classList.add('bg-brand-blue', 'hover:bg-brand-blue-dark');
+                    podcastPlayBtn.setAttribute('aria-label', 'Reproducir cápsula');
+                }
+                if (window.lucide) {
+                    lucide.createIcons();
+                }
+            }
+
             // Actualizar duración total al cargar metadatos
             podcastAudio.addEventListener('loadedmetadata', () => {
                 if (totalTimeLabel && !isNaN(podcastAudio.duration)) {
@@ -880,26 +896,27 @@
                 }
             });
 
-            // Toggle Play / Pause
+            // Toggle Play / Pause al hacer clic en el botón
             podcastPlayBtn.addEventListener('click', () => {
                 if (podcastAudio.paused) {
                     podcastAudio.play().then(() => {
-                        playerIcon.setAttribute('data-lucide', 'pause');
-                        playerIcon.classList.remove('ml-0.5');
-                        if (window.lucide) lucide.createIcons();
-                        podcastPlayBtn.classList.add('bg-brand-orange', 'hover:bg-brand-orange-dark');
-                        podcastPlayBtn.classList.remove('bg-brand-blue', 'hover:bg-brand-blue-dark');
+                        updatePlayerUI(true);
                     }).catch(err => {
                         console.error('Error al reproducir audio:', err);
                     });
                 } else {
                     podcastAudio.pause();
-                    playerIcon.setAttribute('data-lucide', 'play');
-                    playerIcon.classList.add('ml-0.5');
-                    if (window.lucide) lucide.createIcons();
-                    podcastPlayBtn.classList.remove('bg-brand-orange', 'hover:bg-brand-orange-dark');
-                    podcastPlayBtn.classList.add('bg-brand-blue', 'hover:bg-brand-blue-dark');
+                    updatePlayerUI(false);
                 }
+            });
+
+            // Sincronizar estado si el audio se reproduce o pausa externamente
+            podcastAudio.addEventListener('play', () => {
+                updatePlayerUI(true);
+            });
+
+            podcastAudio.addEventListener('pause', () => {
+                updatePlayerUI(false);
             });
 
             // Actualizar tiempo y barra en tiempo real
@@ -911,13 +928,10 @@
                 }
             });
 
-            // Al terminar el audio
+            // Al terminar el audio: regresar inmediatamente al icono Play y resetear tiempo
             podcastAudio.addEventListener('ended', () => {
-                playerIcon.setAttribute('data-lucide', 'play');
-                playerIcon.classList.add('ml-0.5');
-                if (window.lucide) lucide.createIcons();
-                podcastPlayBtn.classList.remove('bg-brand-orange', 'hover:bg-brand-orange-dark');
-                podcastPlayBtn.classList.add('bg-brand-blue', 'hover:bg-brand-blue-dark');
+                podcastAudio.currentTime = 0;
+                updatePlayerUI(false);
                 if (progressBar) progressBar.style.width = '0%';
                 if (currentTimeLabel) currentTimeLabel.textContent = '0:00';
             });
