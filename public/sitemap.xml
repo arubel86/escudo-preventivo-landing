@@ -115,7 +115,7 @@
   <!-- 3. Artículos del Blog de Inteligencia y Blindaje Legal -->
   <url>
     <loc>https://aizprua.com/articulo-emprender</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -209,13 +209,13 @@
   </url>
   <url>
     <loc>https://aizprua.com/llave-en-mano</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://llave.aizprua.com/</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
